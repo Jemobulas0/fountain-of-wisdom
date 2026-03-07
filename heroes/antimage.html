@@ -630,37 +630,42 @@
   }
 
   .syn-col.allies h4 { color: var(--green); }
-  .syn-col.counters h4 { color: var(--red); }
-  .syn-col.countered h4 { color: var(--blue); }
+  .syn-col.counters h4 { color: var(--blue); }
+  .syn-col.countered h4 { color: var(--red); }
 
   .hero-thumbs {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    justify-content: center;
   }
 
   .hero-thumb {
-    width: 100%;
-    height: 28px;
-    background: linear-gradient(135deg, #1a2a3a, #0d1520);
-    border: 1px solid var(--border);
-    border-radius: 2px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 8px;
-    font-size: 11px;
-    color: var(--text-dim);
-    font-style: italic;
-    gap: 6px;
+    gap: 5px;
+    width: 90px;
   }
 
   .hero-thumb-icon {
-    width: 18px;
-    height: 18px;
-    background: var(--border);
-    border-radius: 2px;
+    width: 90px;
+    height: 50px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--border);
     flex-shrink: 0;
+  }
+
+  .hero-thumb-name {
+    font-size: 10px;
+    color: var(--text);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+    text-align: center;
+    line-height: 1.3;
   }
 
   .syn-note {
@@ -860,9 +865,9 @@
       <div class="pros-cons-col pros">
         <h4>Strengths</h4>
         <ul>
-          <li>Very mobile hero</li>
+          <li>Highly mobile</li>
+          <li>Can reflect spells</li>
           <li>Counters high mana pool heroes</li>
-          <li>Can reflect spells with Counterspell</li>
         </ul>
       </div>
       <div class="pros-cons-col cons">
@@ -909,27 +914,27 @@
     <div class="builds-grid">
       <div class="build-card">
         <h4>Skill Build 1 — Standard</h4>
-        <div class="facet-bar" style="background: linear-gradient(90deg, #6a3a8a 0%, #3a1a5a 40%, #1a0a2a 100%);">
+        <div class="facet-bar" style="background: linear-gradient(90deg, #2a7a6a 0%, #1a4a4a 40%, #0a1a1a 100%);">
           <div class="facet-icon-wrap">
-            <img src="https://liquipedia.net/commons/images/thumb/0/09/Dota2_Facet_Ricochet_icon_lightmode.png/21px-Dota2_Facet_Ricochet_icon_lightmode.png" alt="Magebane's Mirror">
+            <img src="../assets/facets/mana_thirst.png" alt="Mana Thirst">
           </div>
           <div class="facet-info">
             <span class="facet-label">Facet</span>
-            <span class="facet-name">Magebane's Mirror</span>
+            <span class="facet-name">Mana Thirst</span>
           </div>
         </div>
         <div class="build-body">
           <div class="build-spells">
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">8:00</span></div>
             </div>
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">16:00</span></div>
             </div>
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
             </div>
           </div>
@@ -942,32 +947,32 @@
     </linearGradient>
   </defs>
 
-  <!-- trunk — centered vertically -->
+  <!-- trunk -->
   <rect x="53.5" y="28" width="3" height="52" rx="1.5" fill="url(#trunk-g)"/>
 
-  <!-- LEVEL 25 — left chosen, right unchosen -->
+  <path d="M55,74 Q46,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,68 Q28,64 24,68 Q30,72 36,68" fill="#2a1a06"/>
+
+  <path d="M55,74 Q64,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,68 Q82,64 86,68 Q80,72 74,68" fill="#e8a030" filter="url(#tg)"/>
+
+  <path d="M55,60 Q46,56 36,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#2a1a06"/>
+
+  <path d="M55,60 Q64,56 74,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,54 Q82,50 86,54 Q80,58 74,54" fill="#e8a030" filter="url(#tg)"/>
+
+  <path d="M55,46 Q46,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,40 Q28,36 24,40 Q30,44 36,40" fill="#2a1a06"/>
+
+  <path d="M55,46 Q64,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
+
   <path d="M55,32 Q46,28 36,26" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
   <path d="M36,26 Q28,22 24,26 Q30,30 36,26" fill="#e8a030" filter="url(#tg)"/>
+
   <path d="M55,32 Q64,28 74,26" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M74,26 Q82,30 86,26 Q80,22 74,26" fill="#2a1a06"/>
-
-  <!-- LEVEL 20 — right chosen, left unchosen -->
-  <path d="M55,46 Q65,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,46 Q45,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M36,40 Q28,44 24,40 Q30,36 36,40" fill="#2a1a06"/>
-
-  <!-- LEVEL 15 — left chosen, right unchosen -->
-  <path d="M55,60 Q45,56 36,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,60 Q65,56 74,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M74,54 Q82,58 86,54 Q80,50 74,54" fill="#2a1a06"/>
-
-  <!-- LEVEL 10 — right chosen, left unchosen -->
-  <path d="M55,74 Q65,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M74,68 Q82,64 86,68 Q80,72 74,68" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,74 Q45,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M36,68 Q28,72 24,68 Q30,64 36,68" fill="#2a1a06"/>
+  <path d="M74,26 Q82,22 86,26 Q80,30 74,26" fill="#2a1a06"/>
 
 </svg></div>
         </div>
@@ -978,7 +983,7 @@
         <h4>Skill Build 2 — Aggressive</h4>
         <div class="facet-bar" style="background: linear-gradient(90deg, #2a7a6a 0%, #1a4a4a 40%, #0a1a1a 100%);">
           <div class="facet-icon-wrap">
-            <img src="https://liquipedia.net/commons/images/thumb/7/73/Dota2_Facet_Mana_icon_lightmode.png/21px-Dota2_Facet_Mana_icon_lightmode.png" alt="Mana Thirst">
+            <img src="../assets/facets/mana_thirst.png" alt="Mana Thirst">
           </div>
           <div class="facet-info">
             <span class="facet-label">Facet</span>
@@ -988,15 +993,15 @@
         <div class="build-body">
           <div class="build-spells">
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">8:00</span></div>
             </div>
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">16:00</span></div>
             </div>
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
               <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
             </div>
           </div>
@@ -1009,32 +1014,32 @@
     </linearGradient>
   </defs>
 
-  <!-- trunk — centered vertically -->
+  <!-- trunk -->
   <rect x="53.5" y="28" width="3" height="52" rx="1.5" fill="url(#trunk-g)"/>
 
-  <!-- LEVEL 25 — left chosen, right unchosen -->
-  <path d="M55,32 Q46,28 36,26" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M36,26 Q28,22 24,26 Q30,30 36,26" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,32 Q64,28 74,26" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M74,26 Q82,30 86,26 Q80,22 74,26" fill="#2a1a06"/>
+  <path d="M55,74 Q46,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,68 Q28,64 24,68 Q30,72 36,68" fill="#2a1a06"/>
 
-  <!-- LEVEL 20 — right chosen, left unchosen -->
-  <path d="M55,46 Q65,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,46 Q45,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M36,40 Q28,44 24,40 Q30,36 36,40" fill="#2a1a06"/>
-
-  <!-- LEVEL 15 — left chosen, right unchosen -->
-  <path d="M55,60 Q45,56 36,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
-  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,60 Q65,56 74,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M74,54 Q82,58 86,54 Q80,50 74,54" fill="#2a1a06"/>
-
-  <!-- LEVEL 10 — right chosen, left unchosen -->
-  <path d="M55,74 Q65,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M55,74 Q64,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
   <path d="M74,68 Q82,64 86,68 Q80,72 74,68" fill="#e8a030" filter="url(#tg)"/>
-  <path d="M55,74 Q45,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M36,68 Q28,72 24,68 Q30,64 36,68" fill="#2a1a06"/>
+
+  <path d="M55,60 Q46,56 36,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#2a1a06"/>
+
+  <path d="M55,60 Q64,56 74,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,54 Q82,50 86,54 Q80,58 74,54" fill="#e8a030" filter="url(#tg)"/>
+
+  <path d="M55,46 Q46,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,40 Q28,36 24,40 Q30,44 36,40" fill="#2a1a06"/>
+
+  <path d="M55,46 Q64,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
+
+  <path d="M55,32 Q46,28 36,26" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,26 Q28,22 24,26 Q30,30 36,26" fill="#2a1a06"/>
+
+  <path d="M55,32 Q64,28 74,26" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,26 Q82,22 86,26 Q80,30 74,26" fill="#e8a030" filter="url(#tg)"/>
 
 </svg></div>
         </div>
@@ -1135,9 +1140,12 @@
       <div class="syn-col allies">
         <h4>Allies</h4>
         <div class="hero-thumbs">
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Io</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Dazzle</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Warlock</div>
+<div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" alt="Treant" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Treant</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dazzle.png" alt="Dazzle" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Dazzle</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png" alt="Omni" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Omni</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chen.png" alt="Chen" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Chen</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png" alt="Ogre" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Ogre</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/zuus.png" alt="Zeus" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Zeus</div></div>
         </div>
         <div class="syn-note">AM works great with aura & buff supports who make him harder to kill in the laning stage.</div>
       </div>
@@ -1145,21 +1153,27 @@
       <div class="syn-col counters">
         <h4>Counters</h4>
         <div class="hero-thumbs">
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Invoker</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Medusa</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Keeper of the Light</div>
+<div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png" alt="Medusa" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Medusa</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Storm</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tinker.png" alt="Tinker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tinker</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png" alt="Pugna" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Pugna</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png" alt="Timbersaw" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Timbersaw</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tide" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tide</div></div>
         </div>
-        <div class="syn-note">High mana pool heroes are destroyed by Mana Void — they die instantly in late game fights.</div>
+        <div class="syn-note">Anti-Mage best counters heroes with mana pools in both extremes. Low max mana heroes immediately lose their ability to cast spells against him, while high max mana heroes become the perfect opportunity for Mana Void to turn into a nuclear bomb — especially in team fights.</div>
       </div>
 
       <div class="syn-col countered">
         <h4>Countered By</h4>
         <div class="hero-thumbs">
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Axe</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Bane</div>
-          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Nyx Assassin</div>
+<div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png" alt="Huskar" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Huskar</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png" alt="Axe" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Axe</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Legion</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/meepo.png" alt="Meepo" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Meepo</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" alt="Slardar" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slardar</div></div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" alt="Slark" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slark</div></div>
         </div>
-        <div class="syn-note">Stun-heavy or lockdown heroes stop his Blink and prevent him from escaping or engaging on his own terms.</div>
+        <div class="syn-note">Hard CC heroes who lock down Anti-Mage for long enough, so he can be focused down &amp; deleted. Both his survivability &amp; ability to engage heroes on his own terms disappear in such situations.</div>
       </div>
 
     </div>

@@ -33,7 +33,7 @@
   .page-header { padding: 100px 40px 48px; max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
   .page-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
   .page-title { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 600; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
-  .page-desc { font-size: 16px; color: var(--text-dim); font-style: italic; }
+  .page-desc { font-size: 16px; color: var(--text); font-style: italic; }
 
   .item-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; text-align: left; align-self: flex-end; padding-bottom: 4px; }
   .item-count span.item-count-wrap { color: var(--gold); font-size: 20px; font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
@@ -42,7 +42,7 @@
   .search-wrap { position: relative; max-width: 360px; }
   .search-wrap::before { content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 18px; pointer-events: none; }
   #search { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px 10px 40px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
-  #search::placeholder { color: var(--text-dim); font-style: italic; }
+  #search::placeholder { color: var(--text); font-style: italic; }
   #search:focus { border-color: var(--gold-dark); }
 
   .tabs-wrap { max-width: 1100px; margin: 24px auto 0; padding: 0 40px; }
@@ -85,71 +85,7 @@
   .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
   .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
-  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
-
-  /* ── RECENTLY ADDED ── */
-  .search-and-recent {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  .search-left { flex: 1; }
-  .recently-right {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 340px;
-    flex-shrink: 0;
-  }
-  .coverage-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 8px;
-    width: 100%;
-  }
-  .coverage-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
-    border-radius: 2px;
-    transition: width 0.6s ease;
-  }
-  .recently-label {
-    font-family: 'Cinzel', serif;
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text);
-    display: block;
-    margin-bottom: 5px;
-  }
-  .recent-entries {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-  .recent-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 4px 2px;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-    overflow: hidden;
-  }
-  .recent-entry:hover { border-color: var(--gold-dark); background: var(--bg-card2); }
-  .recent-entry img {
-    width: 100%;
-    aspect-ratio: 88 / 64;
-    object-fit: cover;
-    border-radius: 1px;
-    display: block;
-  }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
 </style>
 </head>
 <body>
@@ -176,17 +112,8 @@
 </div>
 
 <div class="search-bar">
-  <div class="search-and-recent">
-    <div class="search-left">
-      <div class="search-wrap">
-        <input type="text" id="search" placeholder="Search items..." oninput="handleSearch()">
-      </div>
-    </div>
-    <div class="recently-right">
-      <div class="coverage-bar"><div class="coverage-bar-fill" id="coverage-fill"></div></div>
-      <span class="recently-label">Recently added</span>
-      <div class="recent-entries" id="recent-entries"></div>
-    </div>
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search items..." oninput="handleSearch()">
   </div>
 </div>
 
@@ -246,31 +173,10 @@
 <script>
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
 
-const recentlyAddedItems = [];
-
-function renderItemCoverage() {
-  var covered = Object.values(shopData).flat().filter(function(i) { return i[4] === true; }).length;
-  document.getElementById('coverage-fill').style.width = (covered / 166 * 100) + '%';
-  var c = document.getElementById('recent-entries');
-  c.innerHTML = '';
-  recentlyAddedItems.slice(0, 4).forEach(function(item) {
-    var a = document.createElement('a');
-    a.href = item.href;
-    a.className = 'recent-entry';
-    var img = document.createElement('img');
-    img.src = getItemURL(item.key);
-    img.alt = item.name;
-    img.onerror = function() { this.style.display = 'none'; };
-    a.appendChild(img);
-    c.appendChild(a);
-  });
-}
-
-
 // Custom URLs for items not available on Valve's CDN
 const customURLs = {
-  'parasma': 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/devastator.png',
-  'khanda':  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/angels_demise.png',
+  'parasma': 'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/6e/Parasma_icon.png/revision/latest?cb=20231215082757',
+  'khanda':  'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/67/Khanda_icon.png/revision/latest?cb=20231215080815',
 };
 
 function getItemURL(key) {
@@ -553,7 +459,6 @@ function handleSearch() {
 }
 
 buildGrids();
-renderItemCoverage();
 </script>
 </body>
 </html>

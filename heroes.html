@@ -126,7 +126,6 @@
     white-space: nowrap;
     padding-bottom: 4px;
     text-align: left;
-    width: 340px;
   }
   .hero-count span#visible-count-wrap {
     color: var(--gold);
@@ -173,7 +172,7 @@
     outline: none;
     transition: border-color 0.2s;
   }
-  #search::placeholder { color: var(--text-dim); font-style: italic; }
+  #search::placeholder { color: var(--text); font-style: italic; }
   #search:focus { border-color: var(--gold-dark); }
 
   .filter-row {
@@ -382,78 +381,7 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--gold); }
-  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
-
-  /* ── RECENTLY ADDED ── */
-  .filters-left-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  .filters-left {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    flex: 1;
-  }
-  .filters-right {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-top: 2px;
-    width: 340px;
-    flex-shrink: 0;
-  }
-  .coverage-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 8px;
-    width: 100%;
-  }
-  .coverage-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
-    border-radius: 2px;
-    transition: width 0.6s ease;
-  }
-  .recently-label {
-    font-family: 'Cinzel', serif;
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text);
-    display: block;
-    margin-bottom: 5px;
-  }
-  .recent-entries {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-  }
-  .recent-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 4px 2px;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
-    overflow: hidden;
-  }
-  .recent-entry:hover { border-color: var(--gold-dark); background: var(--bg-card2); }
-  .recent-entry img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 1px;
-    display: block;
-  }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
 </style>
 </head>
 <body>
@@ -480,12 +408,10 @@
 </div>
 
 <div class="filters-bar">
-  <div class="filters-left-right">
-    <div class="filters-left">
-      <div class="search-wrap">
-        <input type="text" id="search" placeholder="Search heroes..." oninput="filterHeroes()">
-      </div>
-      <div class="filter-row">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search heroes..." oninput="filterHeroes()">
+  </div>
+  <div class="filter-row">
     <span class="filter-label">Attributes</span>
     <button class="filter-btn active" data-attr="all" onclick="setAttr('all', this)">All</button>
     <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)">Strength</button>
@@ -501,13 +427,6 @@
     <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
     <button class="filter-btn" data-role="midlane" onclick="setRole('midlane', this)">Midlane</button>
     <button class="filter-btn" data-role="jungler" onclick="setRole('jungler', this)">Jungler</button>
-      </div>
-    </div>
-    <div class="filters-right">
-      <div class="coverage-bar"><div class="coverage-bar-fill" id="coverage-fill"></div></div>
-      <span class="recently-label">Recently added</span>
-      <div class="recent-entries" id="recent-entries"></div>
-    </div>
   </div>
 </div>
 
@@ -529,29 +448,6 @@
 
 <script>
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
-
-const recentlyAddedHeroes = [
-  { name: 'Anti-Mage', key: 'antimage', href: 'heroes/antimage.html' },
-];
-
-function renderHeroCoverage() {
-  var covered = heroes.filter(function(h) { return h.covered; }).length;
-  document.getElementById('coverage-fill').style.width = (covered / 127 * 100) + '%';
-  var c = document.getElementById('recent-entries');
-  c.innerHTML = '';
-  recentlyAddedHeroes.slice(0, 4).forEach(function(h) {
-    var a = document.createElement('a');
-    a.href = h.href;
-    a.className = 'recent-entry';
-    var img = document.createElement('img');
-    img.src = CDN + h.key + '.png';
-    img.alt = h.name;
-    img.onerror = function() { this.style.display = 'none'; };
-    a.appendChild(img);
-    c.appendChild(a);
-  });
-}
-
 
 const heroes = [
   // STRENGTH (36)
@@ -762,11 +658,13 @@ function filterHeroes() {
       card.innerHTML = `
         <div class="hero-img-wrap">
           <img src="${CDN}${h.key}.png" alt="${h.name}" loading="lazy" onerror="this.style.opacity='0'">
+          <div class="hero-attr-badge ${h.attr}"><img src="${attrIcons[h.attr]}" alt="${h.attr}"></div>
         </div>
         <div class="hero-card-body">
           <div class="hero-card-name">${h.name}</div>
           <div class="hero-card-roles">${roleDisplay}</div>
         </div>
+        ${h.covered ? '<div class="hero-card-covered">◆</div>' : ''}
       `;
       section.appendChild(card);
     });
@@ -775,7 +673,6 @@ function filterHeroes() {
 }
 
 filterHeroes();
-renderHeroCoverage();
 </script>
 </body>
 </html>

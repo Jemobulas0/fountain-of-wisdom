@@ -392,23 +392,19 @@
   .spell-icon {
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, #1a2a3a, #0d1520);
     border: 1px solid var(--border);
     border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: var(--text-dim);
-    position: relative;
-    font-family: 'Cinzel', serif;
-    font-weight: 600;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .spell-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .spell-icon.ult {
-    border-color: var(--gold-dark);
-    background: linear-gradient(135deg, #2a1a0a, #1a0d05);
-  }
+  .spell-icon.ult { border-color: var(--gold-dark); }
 
   .timestamp-group {
     display: flex;
@@ -470,6 +466,13 @@
     margin-bottom: 10px;
   }
 
+  .item-phase {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  .item-phase:first-of-type {
+    border-bottom: 1px solid var(--border);
+  }
   .item-phase-label {
     font-family: 'Cinzel', serif;
     font-size: 9px;
@@ -484,14 +487,17 @@
     flex-wrap: wrap;
     gap: 5px;
     align-items: center;
+    margin-bottom: 5px;
   }
 
   .item-icon {
     width: 36px;
     height: 36px;
+    flex-shrink: 0;
     background: linear-gradient(135deg, #1a2a1a, #0d150d);
     border: 1px solid var(--border);
     border-radius: 3px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -684,17 +690,7 @@
     margin: 4px 0;
   }
 
-  .facet-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background: rgba(201,168,76,0.06);
-    border: 1px solid var(--gold-dark);
-    border-radius: 3px;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-  }
+
   .facet-left {
     display: flex;
     align-items: center;
@@ -720,9 +716,101 @@
     font-size: 10px;
     font-weight: 600;
     color: var(--text-bright);
-    letter-spacing: 1px;
     text-transform: uppercase;
   }
+
+  .facet-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+  .facet-icon-wrap {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: transparent;
+  }
+  .facet-icon-wrap img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+  .facet-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .facet-label {
+    font-family: 'Cinzel', serif;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+  }
+  .facet-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-bright);
+    text-transform: uppercase;
+  }
+  .facet-talent {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .talent-img {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2040, #0d1030);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+
+  .build-body {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .build-spells {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .build-tree {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 116px;
+  }
+
+  .item-note-inline {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+    margin: 6px 0 0;
+  }
+
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
 </style>
 </head>
 <body>
@@ -798,16 +886,16 @@
       </div>
       <div class="gameplan-phase">
         <h4>Mid Game</h4>
-        <p>Split push lanes while your team applies pressure. Force enemies to react to you.</p>
+        <p>Split-push lanes while your team applies pressure. Force the enemy to react to you.</p>
       </div>
       <div class="gameplan-phase">
         <h4>Late Game</h4>
-        <p>Pick off isolated heroes with Blink. Use Mana Void to punish high-mana enemies in teamfights.</p>
+        <p>Pick off isolated heroes with Blink. Use Mana Void to punish high-mana enemies in team fights.</p>
       </div>
     </div>
     <div class="extras-box">
       <h4>Extras</h4>
-      <p>Can solo Roshan and/or Tormentor once sufficiently farmed. Use this to gain Aegis advantage before pushing.</p>
+      <p>Can solo Roshan and/or Tormentor once sufficiently farmed. Use this to gain an Aegis advantage before pushing.</p>
     </div>
   </div>
 
@@ -819,101 +907,141 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Skilled player timing</span></div>
     </div>
     <div class="builds-grid">
-
       <div class="build-card">
         <h4>Skill Build 1 — Standard</h4>
-        <div class="facet-bar">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="facet-icon"></div>
-            <div>
-              <div class="facet-label">Facet</div>
-              <div class="facet-name">Spell Shield</div>
+        <div class="facet-bar" style="background: linear-gradient(90deg, #6a3a8a 0%, #3a1a5a 40%, #1a0a2a 100%);">
+          <div class="facet-icon-wrap">
+            <img src="https://liquipedia.net/commons/images/thumb/0/09/Dota2_Facet_Ricochet_icon_lightmode.png/21px-Dota2_Facet_Ricochet_icon_lightmode.png" alt="Magebane's Mirror">
+          </div>
+          <div class="facet-info">
+            <span class="facet-label">Facet</span>
+            <span class="facet-name">Magebane's Mirror</span>
+          </div>
+        </div>
+        <div class="build-body">
+          <div class="build-spells">
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">8:00</span></div>
+            </div>
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">16:00</span></div>
+            </div>
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-            <div class="facet-label">Talents</div>
-            <div class="talent-img"></div>
-          </div>
+          <div class="build-tree"><svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="tg"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="trunk-g" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8a5a18"/>
+      <stop offset="100%" stop-color="#e8a030"/>
+    </linearGradient>
+  </defs>
+
+  <!-- trunk — centered vertically -->
+  <rect x="53.5" y="28" width="3" height="52" rx="1.5" fill="url(#trunk-g)"/>
+
+  <!-- LEVEL 25 — left chosen, right unchosen -->
+  <path d="M55,32 Q46,28 36,26" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M36,26 Q28,22 24,26 Q30,30 36,26" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,32 Q64,28 74,26" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M74,26 Q82,30 86,26 Q80,22 74,26" fill="#2a1a06"/>
+
+  <!-- LEVEL 20 — right chosen, left unchosen -->
+  <path d="M55,46 Q65,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,46 Q45,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,40 Q28,44 24,40 Q30,36 36,40" fill="#2a1a06"/>
+
+  <!-- LEVEL 15 — left chosen, right unchosen -->
+  <path d="M55,60 Q45,56 36,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,60 Q65,56 74,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M74,54 Q82,58 86,54 Q80,50 74,54" fill="#2a1a06"/>
+
+  <!-- LEVEL 10 — right chosen, left unchosen -->
+  <path d="M55,74 Q65,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,68 Q82,64 86,68 Q80,72 74,68" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,74 Q45,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,68 Q28,72 24,68 Q30,64 36,68" fill="#2a1a06"/>
+
+</svg></div>
         </div>
-        <div class="spell-row">
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon ult">MV</div>
-          <div class="timestamp-group">
-            <span class="timestamp green">10:00</span>
-            <span class="timestamp yellow">8:00</span>
-          </div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">CS</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon">SP</div>
-          <div class="timestamp-group">
-            <span class="timestamp green">20:00</span>
-            <span class="timestamp yellow">16:00</span>
-          </div>
-          <div class="spell-icon ult">MV</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon ult">MV</div>
-        </div>
-        <div class="build-note">Use this build for a standard safe lane game where you expect to farm freely.</div>
+        <div class="build-note">Use this build for a standard safe-lane game where you expect to farm freely.</div>
       </div>
 
       <div class="build-card">
         <h4>Skill Build 2 — Aggressive</h4>
-        <div class="facet-bar">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="facet-icon"></div>
-            <div>
-              <div class="facet-label">Facet</div>
-              <div class="facet-name">Mana Thirst</div>
+        <div class="facet-bar" style="background: linear-gradient(90deg, #2a7a6a 0%, #1a4a4a 40%, #0a1a1a 100%);">
+          <div class="facet-icon-wrap">
+            <img src="https://liquipedia.net/commons/images/thumb/7/73/Dota2_Facet_Mana_icon_lightmode.png/21px-Dota2_Facet_Mana_icon_lightmode.png" alt="Mana Thirst">
+          </div>
+          <div class="facet-info">
+            <span class="facet-label">Facet</span>
+            <span class="facet-name">Mana Thirst</span>
+          </div>
+        </div>
+        <div class="build-body">
+          <div class="build-spells">
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">8:00</span></div>
+            </div>
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_blink.png" alt="antimage_blink"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">16:00</span></div>
+            </div>
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_spell_shield.png" alt="antimage_spell_shield"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_break.png" alt="antimage_mana_break"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/antimage_mana_void.png" alt="antimage_mana_void"></div>
+              <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
             </div>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
-            <div class="facet-label">Talents</div>
-            <div class="talent-img"></div>
-          </div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon ult">MV</div>
-          <div class="timestamp-group">
-            <span class="timestamp green">11:00</span>
-            <span class="timestamp yellow">9:00</span>
-          </div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">BL</div>
-        </div>
-        <div class="spell-row">
-          <div class="spell-icon">BL</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon">SP</div>
-          <div class="timestamp-group">
-            <span class="timestamp green">21:00</span>
-            <span class="timestamp yellow">17:00</span>
-          </div>
-          <div class="spell-icon ult">MV</div>
-          <div class="spell-icon">CS</div>
-          <div class="spell-icon">SP</div>
-          <div class="spell-icon ult">MV</div>
+          <div class="build-tree"><svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="tg"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="trunk-g" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8a5a18"/>
+      <stop offset="100%" stop-color="#e8a030"/>
+    </linearGradient>
+  </defs>
+
+  <!-- trunk — centered vertically -->
+  <rect x="53.5" y="28" width="3" height="52" rx="1.5" fill="url(#trunk-g)"/>
+
+  <!-- LEVEL 25 — left chosen, right unchosen -->
+  <path d="M55,32 Q46,28 36,26" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M36,26 Q28,22 24,26 Q30,30 36,26" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,32 Q64,28 74,26" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M74,26 Q82,30 86,26 Q80,22 74,26" fill="#2a1a06"/>
+
+  <!-- LEVEL 20 — right chosen, left unchosen -->
+  <path d="M55,46 Q65,42 74,40" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,40 Q82,36 86,40 Q80,44 74,40" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,46 Q45,42 36,40" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,40 Q28,44 24,40 Q30,36 36,40" fill="#2a1a06"/>
+
+  <!-- LEVEL 15 — left chosen, right unchosen -->
+  <path d="M55,60 Q45,56 36,54" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M36,54 Q28,50 24,54 Q30,58 36,54" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,60 Q65,56 74,54" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M74,54 Q82,58 86,54 Q80,50 74,54" fill="#2a1a06"/>
+
+  <!-- LEVEL 10 — right chosen, left unchosen -->
+  <path d="M55,74 Q65,70 74,68" stroke="#e8a030" stroke-width="1.5" fill="none" stroke-linecap="round" filter="url(#tg)"/>
+  <path d="M74,68 Q82,64 86,68 Q80,72 74,68" fill="#e8a030" filter="url(#tg)"/>
+  <path d="M55,74 Q45,70 36,68" stroke="#3a2a0a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M36,68 Q28,72 24,68 Q30,64 36,68" fill="#2a1a06"/>
+
+</svg></div>
         </div>
         <div class="build-note">Use this when you have an aggressive support and want to contest the lane early.</div>
       </div>
 
     </div>
-  </div>
 
   <!-- ITEM BUILDS -->
   <div class="section">
@@ -925,28 +1053,22 @@
     <div class="builds-grid">
 
       <div class="build-card">
-        <h4>Item Build 1 — Safe Farming</h4>
+        <h4>Item Build 1 — Standard</h4>
         <div class="item-phase">
           <div class="item-phase-label">Starting Items</div>
           <div class="item-row">
-            <div class="item-icon">Tango</div>
-            <div class="item-icon">Slippers</div>
-            <div class="item-icon">Slippers</div>
-            <div class="item-icon">Circlet</div>
+            <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png" alt="Quelling Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png" alt="Slippers" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>
           </div>
+          <div class="item-note-inline">Optimal stats.</div>
         </div>
         <div class="item-phase">
           <div class="item-phase-label">Core Build</div>
           <div class="item-row">
-            <div class="item-icon">Power Treads</div>
-            <div class="timestamp-group"><span class="timestamp green">12:00</span><span class="timestamp yellow">9:00</span></div>
-            <div class="item-icon">Battle Fury</div>
-            <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">17:00</span></div>
-            <div class="item-icon">Manta Style</div>
-            <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
+            <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png" alt="Battle Fury" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">16:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png" alt="Manta Style" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">30:00</span><span class="timestamp yellow">24:00</span></div>
+            </div><div class="item-row"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">38:00</span><span class="timestamp yellow">30:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">45:00</span><span class="timestamp yellow">36:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">52:00</span><span class="timestamp yellow">42:00</span></div>
           </div>
         </div>
-        <div class="build-note">Best when you have a safe lane and can farm freely without being threatened. Prioritize Battle Fury above all else.</div>
+        <div class="build-note">Initially, consider Battle Fury and Manta Style to be your core items. With experience, you can gradually start experimenting with the rest of the build to adjust it for each game.</div>
       </div>
 
       <div class="build-card">
@@ -954,24 +1076,18 @@
         <div class="item-phase">
           <div class="item-phase-label">Starting Items</div>
           <div class="item-row">
-            <div class="item-icon">Tango</div>
-            <div class="item-icon">Quelling Blade</div>
-            <div class="item-icon">Gauntlets</div>
-            <div class="item-icon">Circlet</div>
+            <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png" alt="Quelling Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png" alt="Magic Stick" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>
           </div>
+          <div class="item-note-inline">When facing ability spammers.</div>
         </div>
         <div class="item-phase">
           <div class="item-phase-label">Core Build</div>
           <div class="item-row">
-            <div class="item-icon">Power Treads</div>
-            <div class="timestamp-group"><span class="timestamp green">13:00</span><span class="timestamp yellow">10:00</span></div>
-            <div class="item-icon">BKB</div>
-            <div class="timestamp-group"><span class="timestamp green">24:00</span><span class="timestamp yellow">19:00</span></div>
-            <div class="item-icon">Abyssal Blade</div>
-            <div class="timestamp-group"><span class="timestamp green">35:00</span><span class="timestamp yellow">28:00</span></div>
+            <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png" alt="Battle Fury" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">17:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
+            </div><div class="item-row"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">40:00</span><span class="timestamp yellow">32:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">48:00</span><span class="timestamp yellow">38:00</span></div><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div><div class="timestamp-group"><span class="timestamp green">55:00</span><span class="timestamp yellow">44:00</span></div>
           </div>
         </div>
-        <div class="build-note">Use when facing heavy magic burst damage. BKB makes you near-unkillable in fights during its duration.</div>
+        <div class="build-note">Extreme survivability. This build is aimed as a learning experience. You will feel how steep it is to buy items with big, expensive components as early as your 2nd choice. On the other hand, you will experience a drastic difference in your survivability, since every angle is covered — magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With experience, you will eventually develop a feel for which items to incorporate into your standard builds and when.</div>
       </div>
 
     </div>
@@ -980,16 +1096,16 @@
     <div class="situational-items">
       <div class="situational-label">Situational Items</div>
       <div class="sit-item">
-        <div class="sit-item-icon">BKB</div>
-        <div class="sit-item-note">Buy as a 2nd item when facing a lot of nukers or stuns. Prioritize over damage if you keep dying.</div>
+        <div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/monkey_king_bar.png" alt="Monkey King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>
+        <div class="sit-item-note">Buy after Manta, or later, to counter a high-evasion hero.</div>
       </div>
       <div class="sit-item">
-        <div class="sit-item-icon">Manta Style</div>
-        <div class="sit-item-note">Buy instead of BKB when you only need to self-dispel one or two specific spells.</div>
+        <div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png" alt="Nullifier" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>
+        <div class="sit-item-note">Buy after Manta to counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc.</div>
       </div>
       <div class="sit-item">
-        <div class="sit-item-icon">Skull Basher</div>
-        <div class="sit-item-note">Buy when the enemy carry is out-farming you and you need a lockdown tool to secure kills.</div>
+        <div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>
+        <div class="sit-item-note">Buy as your 3rd item at the earliest, when facing hard CC spells that Counterspell cannot deal with.</div>
       </div>
     </div>
   </div>
@@ -1002,12 +1118,12 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>
     </div>
     <div class="tips-list">
-      <div class="tip basic">Blink on top of an enemy hero, use Manta to summon illusions, burn his mana and finish him off with Mana Void.</div>
-      <div class="tip basic">Always Blink away from a fight if you're about to die. You're useless dead but extremely powerful alive.</div>
+      <div class="tip basic">Blink on top of an enemy hero, use Manta to summon illusions, burn their mana, and finish them off with Mana Void.</div>
+      <div class="tip basic">Always Blink away from a fight if you are about to die. You are useless when dead, but extremely powerful when alive.</div>
       <div class="tip basic">Farm the jungle between waves to maximize your gold income. Never stand idle.</div>
-      <div class="tip advanced">Use Counterspell reactively to reflect single-target spells like Lion's Hex or Lina's Laguna Blade back at the caster.</div>
-      <div class="tip advanced">Blink through terrain to escape ganks — you can pass through cliffs and trees, not just between units.</div>
-      <div class="tip advanced">Split push two lanes simultaneously in late game to create an impossible dilemma for the enemy team: defend both or lose buildings.</div>
+      <div class="tip advanced">Use Counterspell reactively to reflect single-target spells — such as Lion's Hex or Lina's Laguna Blade — back at the caster.</div>
+      <div class="tip advanced">Blink through terrain to escape ganks. You can pass through cliffs and trees, not just between units.</div>
+      <div class="tip advanced">Split-push two lanes simultaneously in the late game to force the enemy team into a choice — defend both or abandon one.</div>
     </div>
   </div>
 
@@ -1051,9 +1167,17 @@
 
   <a href="../heroes.html" class="back-link-bottom">All Heroes</a>
 
-  <div class="footer">
-    The Fountain of Wisdom &nbsp;◆&nbsp; thefountainofwisdom.com &nbsp;◆&nbsp; Coaching by Jemo
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
   </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
 
 </div>
 </body>

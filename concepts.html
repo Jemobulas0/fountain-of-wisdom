@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concepts — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── PAGE HEADER ── */
+  .page-header { padding: 100px 40px 48px; max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+  .page-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  .page-title { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 600; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
+  .page-desc { font-size: 16px; color: var(--text-dim); font-style: italic; }
+  .concept-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; padding-bottom: 4px; text-align: left; }
+  .concept-count span { color: var(--gold); font-size: 20px; font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
+
+  /* ── SEARCH ── */
+  .search-bar { max-width: 1100px; margin: 0 auto; padding: 0 40px 40px; }
+  .search-wrap { position: relative; max-width: 360px; }
+  .search-wrap::before { content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 18px; pointer-events: none; }
+  #search { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px 10px 40px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
+  #search::placeholder { color: var(--text-dim); font-style: italic; }
+  #search:focus { border-color: var(--gold-dark); }
+
+  /* ── CONCEPTS GRID ── */
+  .concepts-section { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+  .concepts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+  /* ── CONCEPT CARD ── */
+  .concept-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 24px; text-decoration: none; transition: all 0.2s; display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden; }
+  .concept-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-dark), transparent); opacity: 0; transition: opacity 0.2s; }
+  .concept-card.covered:hover { border-color: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); background: var(--bg-card2); }
+  .concept-card.covered:hover::before { opacity: 1; }
+  .concept-card.covered { background: var(--bg-card); position: relative; overflow: hidden; }
+  .concept-card.hidden { display: none; }
+
+  .concept-number { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .concept-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; line-height: 1.3; }
+  .concept-desc { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.6; flex: 1; }
+
+  .concept-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); margin-top: auto; }
+  .concept-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
+  .concept-tag.fundamental { color: var(--green); border-color: rgba(76,175,125,0.3); background: rgba(76,175,125,0.12); }
+  .concept-tag.mindset { color: var(--yellow); border-color: rgba(232,184,75,0.3); background: rgba(232,184,75,0.12); }
+  .concept-tag.macro { color: #5b9bd5; border-color: rgba(91,155,213,0.3); background: rgba(91,155,213,0.12); }
+  .concept-tag.micro { color: #e05c4a; border-color: rgba(192,57,43,0.3); background: rgba(192,57,43,0.12); }
+  .concept-tag.economy { color: #c084e8; border-color: rgba(155,89,182,0.3); background: rgba(155,89,182,0.22); }
+
+  .concept-arrow { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 400; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; transition: color 0.2s; }
+  .concept-card.covered:hover .concept-arrow { color: var(--gold); }
+
+  .no-results { grid-column: 1 / -1; text-align: center; padding: 60px; font-style: italic; color: var(--text-dim); font-size: 16px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="items.html">Items</a></li>
+    <li><a href="concepts.html" class="active">Concepts</a></li>
+    <li><a href="guides.html">Guides</a></li>
+    <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div>
+    <div class="page-title">Concepts</div>
+    <div class="page-desc">The fundamentals most players never see — easy to digest.</div>
+  </div>
+  <div class="concept-count">
+    <span id="visible-count">1</span> Concepts covered — more added regularly
+  </div>
+</div>
+
+<div class="search-bar">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search concepts..." oninput="filterConcepts()">
+  </div>
+</div>
+
+<div class="concepts-section">
+  <div class="concepts-grid" id="concepts-grid"></div>
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+<script>
+const concepts = [
+  {
+    number: '01',
+    title: 'Wasting Time',
+    desc: 'The average player wastes 10-15 full minutes every game without realizing it. This single concept — once understood — will immediately change how you play.',
+    tag: 'fundamental',
+    tagLabel: 'Fundamental',
+    symbol: '⏳',
+    covered: true,
+    href: 'concept_01_wasting_time.html',
+  },
+  {
+    number: '02',
+    title: 'The Pre-Game Plan',
+    desc: 'Most players enter a match with zero plan. The best players have answered every major question before the loading screen ends.',
+    tag: 'macro',
+    tagLabel: 'Macro',
+    symbol: '⚔',
+    covered: false,
+  },
+  {
+    number: '03',
+    title: 'Why Am I Always Getting Bad Teammates?',
+    desc: "The most common complaint in DotA — and almost always a misdiagnosis. The answer will make you uncomfortable, and then make you better.",
+    tag: 'mindset',
+    tagLabel: 'Mindset',
+    symbol: '💀',
+    covered: false,
+  },
+  {
+    number: '04',
+    title: 'The Economy of Death',
+    desc: 'Every death costs you more than you think. Not just gold — time, momentum, map control. Understanding the true cost changes when and how you fight.',
+    tag: 'fundamental',
+    tagLabel: 'Fundamental',
+    covered: false,
+  },
+  {
+    number: '05',
+    title: 'Map Awareness vs. Map Reading',
+    desc: "Glancing at the minimap is awareness. Understanding what it's telling you is reading. Almost every player does the first. Almost none do the second.",
+    tag: 'macro',
+    tagLabel: 'Macro',
+    covered: false,
+  },
+  {
+    number: '06',
+    title: 'Proactive vs. Reactive Play',
+    desc: 'Most players spend the entire game reacting to what the enemy does. The players who climb consistently are the ones making the enemy react to them.',
+    tag: 'macro',
+    tagLabel: 'Macro',
+    covered: false,
+  },
+  {
+    number: '07',
+    title: 'How to Successfully Push High Ground',
+    desc: "High ground is one of the biggest momentum walls in the game. Most teams attempt it wrong. Here's how to do it right.",
+    tag: 'macro',
+    tagLabel: 'Macro',
+    covered: false,
+  },
+  {
+    number: '08',
+    title: 'The Mental Reset',
+    desc: 'A bad early game does not mean a lost game. But most players play like it does. Learning to mentally reset mid-match is one of the highest-value skills in DotA.',
+    tag: 'mindset',
+    tagLabel: 'Mindset',
+    covered: false,
+  },
+  {
+    number: '09',
+    title: 'Resource Prioritization',
+    desc: 'Gold and XP are finite. Every second you spend in one place is a second you are not somewhere else. Understanding this is the beginning of real macro play.',
+    tag: 'economy',
+    tagLabel: 'Economy',
+    covered: false,
+  },
+  {
+    number: '10',
+    title: 'Why Your Mechanics Are Not Your Problem',
+    desc: "Most players below Ancient believe mechanical skill is holding them back. It almost never is. Here's what actually is.",
+    tag: 'mindset',
+    tagLabel: 'Mindset',
+    covered: false,
+  },
+  {
+    number: '11',
+    title: 'Last Hitting — The Real Lesson',
+    desc: "Everyone knows last hitting matters. Almost nobody understands why it matters beyond 'more gold'. The real lesson goes much deeper.",
+    tag: 'micro',
+    tagLabel: 'Micro',
+    covered: false,
+  },
+  {
+    number: '12',
+    title: 'When to Fight, When to Farm',
+    desc: 'The question every player asks every game. The answer is never random — there is always a correct decision, and a framework to find it.',
+    tag: 'fundamental',
+    tagLabel: 'Fundamental',
+    covered: false,
+  },
+];
+
+function filterConcepts() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const grid = document.getElementById('concepts-grid');
+  grid.innerHTML = '';
+
+  const filtered = concepts.filter(c =>
+    c.title.toLowerCase().includes(query) ||
+    c.desc.toLowerCase().includes(query) ||
+    c.tagLabel.toLowerCase().includes(query)
+  );
+
+  document.getElementById('visible-count').textContent = filtered.filter(c => c.covered).length || filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="no-results">No concepts match your search.</div>';
+    return;
+  }
+
+  filtered.forEach(c => {
+    const card = document.createElement(c.covered ? 'a' : 'div');
+    if (c.covered) card.href = c.href;
+    card.className = 'concept-card' + (c.covered ? ' covered' : ' coming-soon');
+
+    card.innerHTML = `
+      <div class="concept-number">Concept #${c.number}</div>
+      <div class="concept-title">${c.title}</div>
+      <div class="concept-desc">${c.desc}</div>
+      <div class="concept-footer">
+        <span class="concept-tag ${c.tag}">${c.tagLabel}</span>
+        ${c.covered ? '<span class="concept-arrow">Read  ></span>' : '<span class="concept-arrow" style="color:var(--text-dim)">Coming soon</span>'}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+filterConcepts();
+</script>
+</body>
+</html>

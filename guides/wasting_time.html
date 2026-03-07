@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Wasting 10-15 Minutes Every Game — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── ARTICLE HEADER ── */
+  .article-header {
+    padding: 100px 40px 56px;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .article-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-top: 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+
+  .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid rgba(91,155,213,0.3); background: rgba(91,155,213,0.12); color: #5b9bd5; }
+  .article-date { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .article-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .meta-dot { color: var(--text-dim); }
+
+  .article-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .article-intro {
+    font-size: 19px;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.7;
+    border-left: 2px solid var(--gold-dark);
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .article-body p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .article-body p:last-child { margin-bottom: 0; }
+
+  /* Pull quote / highlight box */
+  .pull-quote {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 20px 24px;
+    margin: 36px 0;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text-bright);
+    line-height: 1.6;
+    position: relative;
+  }
+
+  /* Section break */
+  .section-break {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 36px;
+  }
+  .section-break-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .section-break-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  /* Stat callout */
+  .stat-callout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 36px 0;
+  }
+  .stat-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-box-number {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-box-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* Two solutions boxes */
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 36px 0;
+  }
+  .solution-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .solution-number {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold-dark);
+    line-height: 1;
+  }
+  .solution-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .solution-desc {
+    font-size: 14px;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── ARTICLE FOOTER ── */
+  .article-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .article-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 32px;
+  }
+
+  .author-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--gold-dark);
+    border-radius: 3px;
+    background: linear-gradient(135deg, #1a2a3a, #0d1520);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .author-info { display: flex; flex-direction: column; gap: 4px; }
+  .author-name { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; }
+  .author-bio { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.5; }
+
+  .next-read {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .next-read-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--text); text-transform: uppercase; margin-bottom: 8px; }
+  .next-read-link { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+  .next-read-link:hover { color: var(--gold-light); }
+  .back-to-guides { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .back-to-guides:hover { border-color: var(--gold-dark); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text-dim); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <li><a href="../concepts.html">Concepts</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <a href="../guides.html" class="back-link">All Guides</a>
+
+  <div class="article-meta">
+    <span class="article-tag">Strategy</span>
+    <span class="meta-dot">·</span>
+    <span class="article-date">March 2026</span>
+    <span class="meta-dot">·</span>
+    <span class="article-readtime">6 min read</span>
+  </div>
+
+  <h1 class="article-title">You're Wasting 10–15 Minutes Every Game Without Realizing It</h1>
+
+  <p class="article-intro">
+    Most players never put their finger on this one — so it feels inconsequential. But once you see it, you can't unsee it. And fixing it is one of the highest-value things you can do for your game.
+  </p>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+  <p>
+    We all love DotA for a multitude of reasons. Some find the thrill in the competitive nature of the game. Others love being the mastermind whose plan comes together. But one thing remains true — there are near-endless building blocks to this game. And most players only ever focus on a few, because identifying what areas you need to self-improve at, and how, is an entire skill of its own. So let me help you with that.
+  </p>
+
+  <div class="section-break">
+    <span class="section-break-title">The Problem</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    DotA is a game of near-infinite, constant decision-making. And 99% of players waste time while doing it. A few small examples. You just finished a big teamfight and you're thinking what to do next — keep pushing, go back to heal, go farm the jungle? Five seconds later you finally decide and proceed. Or you've just respawned. You look at the minimap, manually check a few areas to see what's going on, and ten seconds later you decide to TP somewhere based on the gathered info.
+  </p>
+
+  <p>
+    And then your forty-minute game ends. If you go back to your replay and focus on all the inefficiencies, you'll be shocked to realize that you've wasted probably around ten to fifteen full minutes doing completely nothing in-game.
+  </p>
+
+  <div class="pull-quote">
+    Imagine going back and playing the same game again — but the other nine players start at the ten-minute mark. Imagine how insane that sounds. Yet it's pretty close to reality.
+  </div>
+
+  <p>
+    Everyone is playing like this. And the difference between the best players in the world and the worst ones is simply the amount of time wasted. The best ones waste around one to two minutes in a normal game. The average player wastes around half their entire match.
+  </p>
+
+  <div class="stat-callout">
+    <div class="stat-box">
+      <div class="stat-box-number">1–2<span style="font-size:16px; color:var(--text-dim)"> min</span></div>
+      <div class="stat-box-label">Time wasted per game<br>— top players</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-box-number">10–15<span style="font-size:16px; color:var(--text-dim)"> min</span></div>
+      <div class="stat-box-label">Time wasted per game<br>— average player</div>
+    </div>
+  </div>
+
+  <div class="section-break">
+    <span class="section-break-title">The Fix</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    What would someone pointing out a problem be, without providing a solution? Nothing different than simple complaining. So let's fix it.
+  </p>
+
+  <p>
+    When you spend time thinking about your next actions — that's not wasted time. You're being mindful about your gameplay, and that's mandatory. The inefficiency is when you do it during a game while not actually doing anything at the same time. There are two main ways to fix this.
+  </p>
+
+  <div class="solutions-grid">
+    <div class="solution-box">
+      <div class="solution-number">01</div>
+      <div class="solution-title">Have a Pre-Game Plan</div>
+      <div class="solution-desc">Answer the big questions before you queue. What you're playing, where you're going, what you're building. Eliminate the thinking that doesn't need to happen in-game.</div>
+    </div>
+    <div class="solution-box">
+      <div class="solution-number">02</div>
+      <div class="solution-title">Plan Ahead</div>
+      <div class="solution-desc">Start thinking about your next action before your current one is finished. By the time the teamfight ends, you should already know where you're going next.</div>
+    </div>
+  </div>
+
+  <p>
+    A perfect player would waste zero seconds even in a three-hour match, if they do both of these things correctly.
+  </p>
+
+  <div class="section-break">
+    <span class="section-break-title">The Pre-Game Plan</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    By having a pre-game plan, you eliminate 90% of the things most players think about during a game. Which skill should I pick? What talent to choose? What items to buy? Where to go and when? Those questions — and many others — can be pre-answered before you even queue into a match. And almost nobody does this. Not because it's too hard, but because it takes extra effort and time outside the game.
+  </p>
+
+  <p>
+    But if you cover the macro questions beforehand, you now have all of that free time during the game to actually play it — focusing on the micro aspects that are otherwise buried under the macro ones. You can proactively make plays on the map instead of just reacting mindlessly to the enemy. You can focus on objectives more clearly. You execute mechanical things more proficiently — because you're not busy thinking about ten different things while trying to last hit a catapult under your own tower.
+  </p>
+
+  <div class="pull-quote">
+    This is just one of the numerous concepts that form our beloved game. Concepts that remain hidden to most, simply because nobody pointed them out to you directly. That's what I'm here for.
+  </div>
+
+</div>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-divider"></div>
+
+  <div class="author-block">
+    <div class="author-avatar">🎮</div>
+    <div class="author-info">
+      <div class="author-name">Jemo</div>
+      <div class="author-bio">21 years of DotA. Writing about the concepts most players never put their finger on — until now.</div>
+    </div>
+  </div>
+
+  <div class="next-read">
+    <div>
+      <div class="next-read-label">Next Guide</div>
+      <a href="#" class="next-read-link">How to Actually Use the Minimap →</a>
+    </div>
+    <a href="../guides.html" class="back-to-guides">← All Guides</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <a href="../concepts.html">Concepts</a>
+    <a href="../guides.html">Guides</a>
+    <a href="../coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+</body>
+</html>

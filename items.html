@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Items — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  .page-header { padding: 100px 40px 48px; max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+  .page-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  .page-title { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 600; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
+  .page-desc { font-size: 16px; color: var(--text-dim); font-style: italic; }
+
+  .item-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; text-align: left; align-self: flex-end; padding-bottom: 4px; }
+  .item-count span.item-count-wrap { color: var(--gold); font-size: 20px; font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
+
+  .search-bar { max-width: 1100px; margin: 0 auto; padding: 0 40px 32px; }
+  .search-wrap { position: relative; max-width: 360px; }
+  .search-wrap::before { content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 18px; pointer-events: none; }
+  #search { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px 10px 40px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
+  #search::placeholder { color: var(--text-dim); font-style: italic; }
+  #search:focus { border-color: var(--gold-dark); }
+
+  .tabs-wrap { max-width: 1100px; margin: 24px auto 0; padding: 0 40px; }
+  .tabs-bar { display: flex; gap: 4px; border-bottom: 1px solid var(--border); }
+  .tab-btn { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border: 1px solid var(--border); border-bottom: none; background: var(--bg); color: var(--text); cursor: pointer; border-radius: 3px 3px 0 0; transition: all 0.2s; position: relative; bottom: -1px; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--gold); border-color: var(--gold-dark); background: var(--bg-card); border-bottom: 1px solid var(--bg-card); }
+
+  .shop-content { max-width: 1100px; margin: 0 auto; padding: 32px 40px 80px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .sections-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 28px; align-items: start; }
+
+  .shop-section { }
+  .shop-section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--gold-dim); display: flex; align-items: center; gap: 8px; }
+  .shop-section-title::before { content: '◆'; font-size: 5px; color: var(--gold-dark); }
+
+  /* 4 columns — matches in-game shop layout */
+  .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+
+  .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
+  .item-card.covered { cursor: pointer; }
+  .item-card.covered:hover { border-color: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+  .item-card.coming-soon { opacity: 0.55; }
+  .item-card.hidden { display: none; }
+
+  .item-img-wrap { aspect-ratio: 88/64; overflow: hidden; background: #0d1520; flex-shrink: 0; }
+  .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
+  .item-card.covered:hover .item-img-wrap img { transform: scale(1.08); }
+
+  .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; height: 38px; flex-shrink: 0; }
+  .item-card-name { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; color: var(--text-bright); letter-spacing: 0.1px; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .item-card-cost { font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-light); margin-top: auto; }
+
+  .no-results { text-align: center; padding: 60px; font-style: italic; color: var(--text-dim); font-size: 16px; }
+
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
+
+  /* ── RECENTLY ADDED ── */
+  .search-and-recent {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .search-left { flex: 1; }
+  .recently-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 340px;
+    flex-shrink: 0;
+  }
+  .coverage-bar {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  .coverage-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+  .recently-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .recent-entries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+  .recent-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 4px 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    overflow: hidden;
+  }
+  .recent-entry:hover { border-color: var(--gold-dark); background: var(--bg-card2); }
+  .recent-entry img {
+    width: 100%;
+    aspect-ratio: 88 / 64;
+    object-fit: cover;
+    border-radius: 1px;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="items.html" class="active">Items</a></li>
+    <li><a href="concepts.html">Concepts</a></li>
+    <li><a href="guides.html">Guides</a></li>
+    <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div>
+    <div class="page-title">Items</div>
+    <div class="page-desc">What to buy, when to buy it — and why.</div>
+  </div>
+  <div class="item-count">
+    <span class="item-count-wrap"><span id="item-count-num">0</span><span style="color:var(--text-dim); font-weight:400"> / 166</span></span> Items covered — more added regularly
+  </div>
+</div>
+
+<div class="search-bar">
+  <div class="search-and-recent">
+    <div class="search-left">
+      <div class="search-wrap">
+        <input type="text" id="search" placeholder="Search items..." oninput="handleSearch()">
+      </div>
+    </div>
+    <div class="recently-right">
+      <div class="coverage-bar"><div class="coverage-bar-fill" id="coverage-fill"></div></div>
+      <span class="recently-label">Recently added</span>
+      <div class="recent-entries" id="recent-entries"></div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="switchTab('basics', this)">Basics</button>
+    <button class="tab-btn" onclick="switchTab('upgrades', this)">Upgrades</button>
+  </div>
+</div>
+
+<div class="shop-content">
+
+  <div class="tab-panel active" id="tab-basics">
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Consumables</div><div class="item-grid" id="grid-consumables"></div></div>
+      <div class="shop-section"><div class="shop-section-title">Attributes</div><div class="item-grid" id="grid-attributes"></div></div>
+    </div>
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Equipment</div><div class="item-grid" id="grid-equipment"></div></div>
+      <div class="shop-section"><div class="shop-section-title">Miscellaneous</div><div class="item-grid" id="grid-miscellaneous"></div></div>
+    </div>
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Secret Shop</div><div class="item-grid" id="grid-secretshop"></div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-upgrades">
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Accessories</div><div class="item-grid" id="grid-accessories"></div></div>
+      <div class="shop-section"><div class="shop-section-title">Support</div><div class="item-grid" id="grid-support"></div></div>
+    </div>
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Magical</div><div class="item-grid" id="grid-magical"></div></div>
+      <div class="shop-section"><div class="shop-section-title">Armor</div><div class="item-grid" id="grid-armor"></div></div>
+    </div>
+    <div class="sections-grid">
+      <div class="shop-section"><div class="shop-section-title">Weapons</div><div class="item-grid" id="grid-weapons"></div></div>
+      <div class="shop-section"><div class="shop-section-title">Armaments</div><div class="item-grid" id="grid-armaments"></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+<script>
+const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
+
+const recentlyAddedItems = [];
+
+function renderItemCoverage() {
+  var covered = Object.values(shopData).flat().filter(function(i) { return i[4] === true; }).length;
+  document.getElementById('coverage-fill').style.width = (covered / 166 * 100) + '%';
+  var c = document.getElementById('recent-entries');
+  c.innerHTML = '';
+  recentlyAddedItems.slice(0, 4).forEach(function(item) {
+    var a = document.createElement('a');
+    a.href = item.href;
+    a.className = 'recent-entry';
+    var img = document.createElement('img');
+    img.src = getItemURL(item.key);
+    img.alt = item.name;
+    img.onerror = function() { this.style.display = 'none'; };
+    a.appendChild(img);
+    c.appendChild(a);
+  });
+}
+
+
+// Custom URLs for items not available on Valve's CDN
+const customURLs = {
+  'parasma': 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/devastator.png',
+  'khanda':  'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/angels_demise.png',
+};
+
+function getItemURL(key) {
+  return customURLs[key] || CDN + key + '.png';
+}
+
+const shopData = {
+
+  consumables: [
+    ['Town Portal Scroll',    'tpscroll',           100,  'Teleport to building'],
+    ['Clarity',               'clarity',            50,   'Mana regeneration'],
+    ['Faerie Fire',           'faerie_fire',        75,   'Tiny HP burst'],
+    ['Smoke of Deceit',       'smoke_of_deceit',    50,   'Invisible on minimap'],
+    ['Observer Ward',         'ward_observer',      0,    'Map vision'],
+    ['Sentry Ward',           'ward_sentry',        50,   'True sight'],
+    ['Enchanted Mango',       'enchanted_mango',    65,   'Instant mana burst'],
+    ['Healing Salve',         'flask',              115,  'Quick HP restore'],
+    ['Tango',                 'tango',              90,   'Lane HP sustain'],
+    ['Blood Grenade',         'blood_grenade',      50,   'DoT + vision'],
+    ['Dust of Appearance',    'dust',               80,   'Reveals invisible'],
+    ['Bottle',                'bottle',             650,  'Store runes & regen'],
+    ["Aghanim's Shard",       'aghanims_shard',     1400, 'Upgrades ability'],
+  ],
+
+  attributes: [
+    ['Iron Branch',           'branches',           50,   '+1 All stats'],
+    ['Gauntlets of Strength', 'gauntlets',          140,  '+3 Strength'],
+    ['Slippers of Agility',   'slippers',           140,  '+3 Agility'],
+    ['Mantle of Intelligence','mantle',             140,  '+3 Intelligence'],
+    ['Circlet',               'circlet',            165,  '+2 All stats'],
+    ['Belt of Strength',      'belt_of_strength',   450,  '+6 Strength'],
+    ['Band of Elvenskin',     'band_of_elvenskin',  450,  '+6 Agility'],
+    ['Robe of the Magi',      'robe',               450,  '+6 Intelligence'],
+    ['Crown',                 'crown',              450,  '+4 All stats'],
+    ['Ogre Axe',              'ogre_axe',           1000, '+10 Strength'],
+    ['Blade of Alacrity',     'blade_of_alacrity',  1000, '+10 Agility'],
+    ['Staff of Wizardry',     'staff_of_wizardry',  1000, '+10 Intelligence'],
+    ['Diadem',                'diadem',             1100, '+8 All stats'],
+  ],
+
+  equipment: [
+    ['Quelling Blade',        'quelling_blade',     150,  'Last hit bonus'],
+    ['Ring of Protection',    'ring_of_protection', 175,  '+2 Armor'],
+    ['Infused Raindrop',      'infused_raindrop',   225,  'Block magic bursts'],
+    ['Orb of Venom',          'orb_of_venom',       275,  'Slow on attack'],
+    ['Orb of Blight',         'blight_stone',       300,  'Armor reduction'],
+    ['Orb of Frost',          'orb_of_frost',       175,  'Cold attack slow'],
+    ['Blades of Attack',      'blades_of_attack',   420,  '+9 Attack damage'],
+    ['Gloves of Haste',       'gloves',             500,  '+15 Attack speed'],
+    ['Chainmail',             'chainmail',          550,  '+5 Armor'],
+    ['Helm of Iron Will',     'helm_of_iron_will',  975,  'HP regen + armor'],
+    ['Broadsword',            'broadsword',         1000, '+18 Attack damage'],
+    ['Blitz Knuckles',        'blitz_knuckles',     1000, '+35 Attack speed'],
+    ['Javelin',               'javelin',            900,  'Pierce chance'],
+    ['Claymore',              'claymore',           1350, '+21 Attack damage'],
+    ['Mithril Hammer',        'mithril_hammer',     1600, '+24 Attack damage'],
+  ],
+
+  miscellaneous: [
+    ['Ring of Regen',         'ring_of_regen',      300,  'HP regeneration'],
+    ["Sage's Mask",           'sobi_mask',          175,  'Mana regeneration'],
+    ['Magic Stick',           'magic_stick',        200,  'Burst HP/mana charges'],
+    ['Fluffy Hat',            'fluffy_hat',         250,  '+125 HP'],
+    ['Wind Lace',             'wind_lace',          250,  '+20 Move speed'],
+    ['Cloak',                 'cloak',              550,  'Magic resistance'],
+    ['Boots of Speed',        'boots',              500,  '+45 Move speed'],
+    ['Gem of True Sight',     'gem',                900,  'Permanent true sight'],
+    ['Morbid Mask',           'lifesteal',          900,  'Lifesteal'],
+    ['Voodoo Mask',           'voodoo_mask',        900,  'Spell lifesteal'],
+    ['Shadow Amulet',         'shadow_amulet',      1000, 'Fade + attack speed'],
+    ['Ghost Scepter',         'ghost',              1500, 'Become ethereal'],
+    ['Blink Dagger',          'blink',              2250, 'Instant position blink'],
+    ['Ring of Health',        'ring_of_health',     850,  'HP regeneration'],
+    ['Void Stone',            'void_stone',         700,  'Mana regeneration'],
+  ],
+
+  secretshop: [
+    ['Ring of Tarrasque',     'ring_of_tarrasque',  700,  'HP regen component'],
+    ['Tiara of Selemene',     'tiara_of_selemene',  700,  'Mana regen component'],
+    ['Cornucopia',            'cornucopia',         700,  'HP + mana regen'],
+    ['Energy Booster',        'energy_booster',     900,  '+250 Mana'],
+    ['Vitality Booster',      'vitality_booster',   900,  '+250 HP'],
+    ['Point Booster',         'point_booster',      1200, '+175 HP & Mana'],
+    ['Talisman of Evasion',   'talisman_of_evasion',1400, '25% evasion'],
+    ['Platemail',             'platemail',          1400, '+10 Armor'],
+    ['Hyperstone',            'hyperstone',         2000, '+55 Attack speed'],
+    ['Ultimate Orb',          'ultimate_orb',       2150, '+10 All stats'],
+    ['Demon Edge',            'demon_edge',         2400, '+36 Attack damage'],
+    ['Mystic Staff',          'mystic_staff',       2700, '+25 Intelligence'],
+    ['Reaver',                'reaver',             3000, '+25 Strength'],
+    ['Eaglesong',             'eagle',              3000, '+25 Agility'],
+    ['Sacred Relic',          'relic',              3800, '+60 Attack damage'],
+  ],
+
+  accessories: [
+    ['Magic Wand',            'magic_wand',         450,  'Burst HP/mana'],
+    ['Null Talisman',         'null_talisman',      195,  'Int stats package'],
+    ['Wraith Band',           'wraith_band',        195,  'Agi stats package'],
+    ['Bracer',                'bracer',             195,  'Str stats package'],
+    ['Soul Ring',             'soul_ring',          800,  'Convert HP to mana'],
+    ['Orb of Corrosion',      'orb_of_corrosion',   875,  'Slow + armor shred'],
+    ['Falcon Blade',          'falcon_blade',       1075, 'Dmg + mana regen'],
+    ['Power Treads',          'power_treads',       1400, 'Switchable stat boots'],
+    ['Phase Boots',           'phase_boots',        1500, 'Phase + armor'],
+    ['Oblivion Staff',        'oblivion_staff',     1650, 'Int + atk spd + dmg'],
+    ['Perseverance',          'pers',               1650, 'HP + mana regen'],
+    ['Mask of Madness',       'mask_of_madness',    1775, 'Lifesteal + berserk'],
+    ['Hand of Midas',         'hand_of_midas',      2200, 'Gold & XP on use'],
+    ['Boots of Travel',       'travel_boots',       2500, 'Teleport anywhere'],
+    ['Moon Shard',            'moon_shard',         4000, 'Attack speed + vision'],
+    ['Soul Booster',          'soul_booster',       3000, '+425 HP & Mana'],
+  ],
+
+  support: [
+    ['Buckler',               'buckler',            800,  'Armor burst'],
+    ['Ring of Basilius',      'ring_of_basilius',   500,  'Armor + mana aura'],
+    ['Headdress',             'headdress',          450,  'HP regen aura'],
+    ['Holy Locket',           'holy_locket',        2150, 'Heal amp + charges'],
+    ['Urn of Shadows',        'urn_of_shadows',     875,  'Heal or damage charges'],
+    ['Pavise',                'pavise',             1525, 'Magic damage shield'],
+    ['Arcane Boots',          'arcane_boots',       1300, 'Mana restore aura'],
+    ['Tranquil Boots',        'tranquil_boots',     950,  'HP regen boots'],
+    ['Spirit Vessel',         'spirit_vessel',      2750, 'Heal reduction + dmg'],
+    ['Solar Crest',           'solar_crest',        2775, 'Armor + shine beam'],
+    ['Mekansm',               'mekansm',            1775, 'Team heal burst'],
+    ['Drum of Endurance',     'ancient_janggo',     1350, 'Charges + move speed'],
+    ["Vladimir's Offering",   'vladmir',            2175, 'Lifesteal + dmg aura'],
+    ['Pipe of Insight',       'pipe',               3475, 'Magic shield barrier'],
+    ['Guardian Greaves',      'guardian_greaves',   3700, 'Heal + restore aura'],
+    ['Boots of Bearing',      'boots_of_bearing',   3800, 'Haste charges aura'],
+  ],
+
+  magical: [
+    ['Glimmer Cape',          'glimmer_cape',       1950, 'Invis + magic resist'],
+    ['Force Staff',           'force_staff',        2200, 'Push self or ally'],
+    ['Dagon',                 'dagon',              2700, 'Burst nuke'],
+    ['Meteor Hammer',         'meteor_hammer',      2625, 'Channeled stun + burn'],
+    ['Rod of Atos',           'rod_of_atos',        2750, 'Root on use'],
+    ['Aether Lens',           'aether_lens',        2275, 'Increased cast range'],
+    ["Eul's Scepter",         'cyclone',            2750, 'Cyclone + setup'],
+    ['Orchid Malevolence',    'orchid',             3475, 'Silence + dmg amp'],
+    ['Gleipnir',              'gungir',             6150, 'Root + lightning'],
+    ['Ethereal Blade',        'ethereal_blade',     4700, 'Ethereal + nuke'],
+    ['Wind Waker',            'wind_waker',         6500, 'Cyclone allies'],
+    ['Refresher Orb',         'refresher',          5000, 'Reset all cooldowns'],
+    ['Octarine Core',         'octarine_core',      4700, 'Spell lifesteal + CDR'],
+    ['Scythe of Vyse',        'sheepstick',         5700, 'Hex enemy hero'],
+    ['Bloodstone',            'bloodstone',         4200, 'Mana + death charges'],
+    ["Aghanim's Scepter",     'ultimate_scepter',   4200, 'Upgrades ultimate'],
+  ],
+
+  armor: [
+    ['Vanguard',              'vanguard',           1825, 'Block + HP regen'],
+    ['Blade Mail',            'blade_mail',         2100, 'Return damage'],
+    ['Helm of the Dominator', 'helm_of_the_dominator',1650,'Dominate creep'],
+    ['Armlet of Mordiggian',  'armlet',             2500, 'Toggle HP for stats'],
+    ['Crimson Guard',         'crimson_guard',      3525, 'Block + armor aura'],
+    ['Aeon Disk',             'aeon_disk',          3000, 'Survival burst'],
+    ['Helm of the Overlord',  'helm_of_the_overlord',3875,'Upgrade dominated creep'],
+    ['Heart of Tarrasque',    'heart',              5000, 'Massive HP regen'],
+    ['Veil of Discord',       'veil_of_discord',    1525, 'Magic resist reduction'],
+    ['Eternal Shroud',        'eternal_shroud',     2850, 'Mana barrier + magic resist'],
+    ['Lotus Orb',             'lotus_orb',          3850, 'Reflect targeted spells'],
+    ['Black King Bar',        'black_king_bar',     4050, 'Spell immunity'],
+    ["Shiva's Guard",         'shivas_guard',       4750, 'Arctic blast + armor'],
+    ['Eye of Skadi',          'skadi',              5300, 'Orb slow + stats'],
+    ["Linken's Sphere",       'sphere',             4900, 'Block targeted spell'],
+    ['Assault Cuirass',       'assault',            5125, 'Atk speed + armor aura'],
+  ],
+
+  weapons: [
+    ['Mage Slayer',           'mage_slayer',        2400, 'Reduce spell damage'],
+    ['Desolator',             'desolator',          3500, 'Armor reduction'],
+    ['Battle Fury',           'bfury',              4100, 'Cleave + mana regen'],
+    ['Nullifier',             'nullifier',          4700, 'Dispel + silence'],
+    ['Crystalys',             'lesser_crit',        2000, 'Critical strike'],
+    ['Witch Blade',           'witch_blade',        2800, 'Poison attack + int'],
+    ['Skull Basher',          'basher',             2875, 'Bash on attack'],
+    ['Shadow Blade',          'invis_sword',        3000, 'Invis + bonus dmg'],
+    ["Revenant's Brooch",     'revenants_brooch',   5900, 'Spectral attacks'],
+    ['Parasma',               'parasma',            6400, 'Magic damage on attack'],
+    ['Abyssal Blade',         'abyssal_blade',      6250, 'Guaranteed bash'],
+    ['Silver Edge',           'silver_edge',        5550, 'Invis + break passive'],
+    ['Daedalus',              'greater_crit',       5150, 'Critical strike'],
+    ['Diffusal Blade',        'diffusal_blade',     2500, 'Mana burn + slow'],
+    ['Radiance',              'radiance',           5050, 'Burn aura + miss chance'],
+    ['Monkey King Bar',       'monkey_king_bar',    4975, 'True strike + mini-bash'],
+    ['Divine Rapier',         'rapier',             6200, 'Massive damage'],
+    ['Disperser',             'disperser',          5400, 'Purge + slow'],
+    ['Butterfly',             'butterfly',          5525, 'Evasion + agility'],
+    ['Bloodthorn',            'bloodthorn',         6800, 'Silence + crit'],
+  ],
+
+  armaments: [
+    ['Dragon Lance',          'dragon_lance',       1900, 'Str + agi + range'],
+    ['Echo Sabre',            'echo_sabre',         2500, 'Double attack proc'],
+    ['Maelstrom',             'maelstrom',          2700, 'Chain lightning'],
+    ['Phylactery',            'phylactery',         2300, 'Slow + bonus spell dmg'],
+    ['Hurricane Pike',        'hurricane_pike',     4200, 'Push + range attack'],
+    ['Harpoon',               'harpoon',            5000, 'Pull enemy close'],
+    ['Mjollnir',              'mjollnir',           5600, 'Chain lightning + shield'],
+    ['Khanda',                'khanda',             5800, 'Crit + pure dmg proc'],
+    ['Sange',                 'sange',              2050, 'Str + maim chance'],
+    ['Yasha',                 'yasha',              2050, 'Agi + movement speed'],
+    ['Kaya',                  'kaya',               1950, 'Mana + spell amp'],
+    ["Heaven's Halberd",      'heavens_halberd',    3500, 'Disarm + evasion'],
+    ['Kaya and Sange',        'kaya_and_sange',     4100, 'Str/Int + spell amp'],
+    ['Sange and Yasha',       'sange_and_yasha',    4100, 'Str/Agi + movement'],
+    ['Yasha and Kaya',        'yasha_and_kaya',     4100, 'Agi/Int + spell amp'],
+    ['Manta Style',           'manta',              4600, 'Illusions + dispel'],
+    ['Overwhelming Blink',    'overwhelming_blink', 6800, 'Blink + AoE stun'],
+    ['Swift Blink',           'swift_blink',        6800, 'Blink + agility burst'],
+    ['Arcane Blink',          'arcane_blink',       6800, 'Blink + mana reduce'],
+    ['Satanic',               'satanic',            5050, 'Lifesteal + unholy rage'],
+  ],
+
+};
+
+function buildGrids() {
+  let totalCovered = 0;
+  Object.entries(shopData).forEach(([section, items]) => {
+    const grid = document.getElementById('grid-' + section);
+    if (!grid) return;
+    items.forEach(([name, key, cost, desc]) => {
+      const covered = false; // flip to true when item has its own page
+      if (covered) totalCovered++;
+      const card = document.createElement(covered ? 'a' : 'div');
+      if (covered) card.href = `items/${key}.html`;
+      card.className = 'item-card' + (covered ? '' : ' coming-soon');
+      card.dataset.name = name.toLowerCase();
+      card.innerHTML = `
+        <div class="item-img-wrap">
+          <img src="${getItemURL(key)}" alt="${name}" loading="lazy" onerror="this.parentElement.style.opacity='0.2'">
+        </div>
+        <div class="item-card-body">
+          <div class="item-card-name">${name}</div>
+          <div class="item-card-cost">${cost > 0 ? cost + 'g' : 'Free'}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  });
+  const el = document.getElementById('item-count-num');
+  if (el) el.textContent = totalCovered;
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.item-card').forEach(c => c.classList.remove('hidden'));
+  document.querySelectorAll('.shop-section').forEach(s => s.style.display = '');
+}
+
+function handleSearch() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+
+  if (query === '') {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-basics').classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    document.querySelectorAll('.item-card').forEach(c => c.classList.remove('hidden'));
+    document.querySelectorAll('.shop-section').forEach(s => s.style.display = '');
+    return;
+  }
+
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+  document.querySelectorAll('.item-card').forEach(card => {
+    card.classList.toggle('hidden', !card.dataset.name.includes(query));
+  });
+
+  document.querySelectorAll('.shop-section').forEach(section => {
+    const hasVisible = section.querySelectorAll('.item-card:not(.hidden)').length > 0;
+    section.style.display = hasVisible ? '' : 'none';
+  });
+}
+
+buildGrids();
+renderItemCoverage();
+</script>
+</body>
+</html>

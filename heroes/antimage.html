@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti-Mage — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+    --am-teal: #1a4a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(26,74,74,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 76px 20px 20px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--gold-dark);
+    padding: 4px 10px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .header-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .header-link {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .header-link:hover { color: var(--gold); }
+  .header-link::before { content: '⟐ '; }
+
+  .hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-avatar {
+    width: 180px;
+    height: 100px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1a3a3a, #0d1a2a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(26,74,74,0.4), inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-name {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .hero-attr {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--green);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+  }
+
+  .attr-agi { font-size: 12px; color: var(--green); line-height: 1; }
+  .attr-icon {
+    width: 16px;
+    height: 16px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    align-self: flex-start;
+  }
+
+  .version-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    border: 1px solid var(--gold-dark);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 20px 24px;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+    margin-top: -1px;
+  }
+
+  .section:last-child {
+    border-radius: 0 0 4px 4px;
+    border-bottom: 2px solid var(--gold-dark);
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-gold);
+    position: relative;
+  }
+
+  .section-title::before,
+  .section-title::after {
+    content: '◆';
+    font-size: 7px;
+    color: var(--gold-dark);
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+
+  /* ── POSITIONS ── */
+  .positions-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .pos-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    background: var(--bg);
+    transition: all 0.2s;
+  }
+
+  .pos-circle.active {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    box-shadow: 0 0 12px rgba(201,168,76,0.2);
+  }
+
+  .roles-text {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 16px;
+  }
+
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .pros-cons-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .pros-cons-col.pros h4 { color: var(--green); }
+  .pros-cons-col.cons h4 { color: var(--red); }
+
+  .pros-cons-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .pros-cons-col ul li {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .pros-cons-col.pros ul li::before { content: none; }
+  .pros-cons-col.cons ul li::before { content: none; }
+
+  /* ── GAME PLAN ── */
+  .gameplan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .gameplan-phase {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 12px;
+  }
+
+  .gameplan-phase h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .gameplan-phase p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .extras-box {
+    background: rgba(201,168,76,0.04);
+    border: 1px solid var(--border-gold);
+    border-radius: 3px;
+    padding: 10px 14px;
+  }
+
+  .extras-box h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .extras-box p {
+    font-size: 13px;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  /* ── SKILL / ITEM BUILDS ── */
+  .builds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .build-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 14px;
+  }
+
+  .build-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .spell-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .spell-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #1a2a3a, #0d1520);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-dim);
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+
+  .spell-icon.ult {
+    border-color: var(--gold-dark);
+    background: linear-gradient(135deg, #2a1a0a, #1a0d05);
+  }
+
+  .timestamp-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 4px;
+  }
+
+  .timestamp {
+    font-size: 10px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+  }
+  .timestamp.green { color: var(--green); }
+  .timestamp.yellow { color: var(--yellow); }
+
+  .talents-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+
+  .talent-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .talent-img {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2040, #0d1030);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: var(--blue);
+  }
+
+  .build-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.4;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+
+  /* Item builds */
+  .item-phase {
+    margin-bottom: 10px;
+  }
+
+  .item-phase-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .item-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .item-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #1a2a1a, #0d150d);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: var(--green);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .situational-items {
+    margin-top: 12px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .situational-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .sit-item {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+
+  .sit-item-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1a2a1a, #0d150d);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: var(--green);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .sit-item-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.4;
+    padding-top: 4px;
+  }
+
+  /* ── TIPS ── */
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .tip {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .tip.basic {
+    color: var(--green);
+  }
+
+  .tip.advanced {
+    color: var(--yellow);
+  }
+
+  .tip::before {
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+    top: 3px;
+  }
+
+  .tip.basic::before { content: '▸'; color: var(--green); }
+  .tip.advanced::before { content: '▸▸'; color: var(--yellow); font-size: 8px; }
+
+  .tips-legend {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── SYNERGIES ── */
+  .syn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .syn-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .syn-col.allies h4 { color: var(--green); }
+  .syn-col.counters h4 { color: var(--red); }
+  .syn-col.countered h4 { color: var(--blue); }
+
+  .hero-thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  .hero-thumb {
+    width: 100%;
+    height: 28px;
+    background: linear-gradient(135deg, #1a2a3a, #0d1520);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+    gap: 6px;
+  }
+
+  .hero-thumb-icon {
+    width: 18px;
+    height: 18px;
+    background: var(--border);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .syn-note {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    margin: 4px 0;
+  }
+
+  .facet-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--gold-dark);
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+  .facet-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .facet-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--bg-card2);
+    border: 1px solid var(--gold-dark);
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .facet-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .facet-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html" class="active">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <li><a href="../concepts.html">Concepts</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <a href="../heroes.html" class="back-link">All Heroes</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left"></div>
+
+    <div class="hero-center">
+      <div class="hero-avatar"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage" onerror="this.parentElement.innerHTML='⚔'"></div>
+      <div class="hero-name">Anti-Mage</div>
+      <div class="hero-attr">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt="Agility" style="width:16px;height:16px;">
+        Agility
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="version-badge">v 7.40b</div>
+    </div>
+  </div>
+
+  <!-- POSITIONS & ROLES -->
+  <div class="section">
+    <div class="section-title">Roles & Overview</div>
+    <div class="positions-row">
+      <div class="pos-circle active">1</div>
+      <div class="pos-circle">2</div>
+      <div class="pos-circle">3</div>
+      <div class="pos-circle">4</div>
+      <div class="pos-circle">5</div>
+    </div>
+    <div class="roles-text">Carry · Mobile · Assassin · Split-pusher</div>
+    <div class="pros-cons">
+      <div class="pros-cons-col pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Very mobile hero</li>
+          <li>Counters high mana pool heroes</li>
+          <li>Can reflect spells with Counterspell</li>
+        </ul>
+      </div>
+      <div class="pros-cons-col cons">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>Weak laning stage</li>
+          <li>Low health & armor</li>
+          <li>Most late game carries outscale him</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME PLAN -->
+  <div class="section">
+    <div class="section-title">Game Plan</div>
+    <div class="gameplan-grid">
+      <div class="gameplan-phase">
+        <h4>Early Game</h4>
+        <p>Farm defensively & only join good fights with low to no risk of dying.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Mid Game</h4>
+        <p>Split push lanes while your team applies pressure. Force enemies to react to you.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Late Game</h4>
+        <p>Pick off isolated heroes with Blink. Use Mana Void to punish high-mana enemies in teamfights.</p>
+      </div>
+    </div>
+    <div class="extras-box">
+      <h4>Extras</h4>
+      <p>Can solo Roshan and/or Tormentor once sufficiently farmed. Use this to gain Aegis advantage before pushing.</p>
+    </div>
+  </div>
+
+  <!-- SKILL BUILDS -->
+  <div class="section">
+    <div class="section-title">Skill Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Average player timing</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Skilled player timing</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <div class="build-card">
+        <h4>Skill Build 1 — Standard</h4>
+        <div class="facet-bar">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="facet-icon"></div>
+            <div>
+              <div class="facet-label">Facet</div>
+              <div class="facet-name">Spell Shield</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+            <div class="facet-label">Talents</div>
+            <div class="talent-img"></div>
+          </div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon ult">MV</div>
+          <div class="timestamp-group">
+            <span class="timestamp green">10:00</span>
+            <span class="timestamp yellow">8:00</span>
+          </div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">CS</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon">SP</div>
+          <div class="timestamp-group">
+            <span class="timestamp green">20:00</span>
+            <span class="timestamp yellow">16:00</span>
+          </div>
+          <div class="spell-icon ult">MV</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon ult">MV</div>
+        </div>
+        <div class="build-note">Use this build for a standard safe lane game where you expect to farm freely.</div>
+      </div>
+
+      <div class="build-card">
+        <h4>Skill Build 2 — Aggressive</h4>
+        <div class="facet-bar">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="facet-icon"></div>
+            <div>
+              <div class="facet-label">Facet</div>
+              <div class="facet-name">Mana Thirst</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+            <div class="facet-label">Talents</div>
+            <div class="talent-img"></div>
+          </div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon ult">MV</div>
+          <div class="timestamp-group">
+            <span class="timestamp green">11:00</span>
+            <span class="timestamp yellow">9:00</span>
+          </div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">BL</div>
+        </div>
+        <div class="spell-row">
+          <div class="spell-icon">BL</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon">SP</div>
+          <div class="timestamp-group">
+            <span class="timestamp green">21:00</span>
+            <span class="timestamp yellow">17:00</span>
+          </div>
+          <div class="spell-icon ult">MV</div>
+          <div class="spell-icon">CS</div>
+          <div class="spell-icon">SP</div>
+          <div class="spell-icon ult">MV</div>
+        </div>
+        <div class="build-note">Use this when you have an aggressive support and want to contest the lane early.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ITEM BUILDS -->
+  <div class="section">
+    <div class="section-title">Item Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Average player timing</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Skilled player timing</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <div class="build-card">
+        <h4>Item Build 1 — Safe Farming</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <div class="item-icon">Tango</div>
+            <div class="item-icon">Slippers</div>
+            <div class="item-icon">Slippers</div>
+            <div class="item-icon">Circlet</div>
+          </div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <div class="item-icon">Power Treads</div>
+            <div class="timestamp-group"><span class="timestamp green">12:00</span><span class="timestamp yellow">9:00</span></div>
+            <div class="item-icon">Battle Fury</div>
+            <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">17:00</span></div>
+            <div class="item-icon">Manta Style</div>
+            <div class="timestamp-group"><span class="timestamp green">32:00</span><span class="timestamp yellow">26:00</span></div>
+          </div>
+        </div>
+        <div class="build-note">Best when you have a safe lane and can farm freely without being threatened. Prioritize Battle Fury above all else.</div>
+      </div>
+
+      <div class="build-card">
+        <h4>Item Build 2 — Survivability</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <div class="item-icon">Tango</div>
+            <div class="item-icon">Quelling Blade</div>
+            <div class="item-icon">Gauntlets</div>
+            <div class="item-icon">Circlet</div>
+          </div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <div class="item-icon">Power Treads</div>
+            <div class="timestamp-group"><span class="timestamp green">13:00</span><span class="timestamp yellow">10:00</span></div>
+            <div class="item-icon">BKB</div>
+            <div class="timestamp-group"><span class="timestamp green">24:00</span><span class="timestamp yellow">19:00</span></div>
+            <div class="item-icon">Abyssal Blade</div>
+            <div class="timestamp-group"><span class="timestamp green">35:00</span><span class="timestamp yellow">28:00</span></div>
+          </div>
+        </div>
+        <div class="build-note">Use when facing heavy magic burst damage. BKB makes you near-unkillable in fights during its duration.</div>
+      </div>
+
+    </div>
+
+    <!-- Situational Items -->
+    <div class="situational-items">
+      <div class="situational-label">Situational Items</div>
+      <div class="sit-item">
+        <div class="sit-item-icon">BKB</div>
+        <div class="sit-item-note">Buy as a 2nd item when facing a lot of nukers or stuns. Prioritize over damage if you keep dying.</div>
+      </div>
+      <div class="sit-item">
+        <div class="sit-item-icon">Manta Style</div>
+        <div class="sit-item-note">Buy instead of BKB when you only need to self-dispel one or two specific spells.</div>
+      </div>
+      <div class="sit-item">
+        <div class="sit-item-icon">Skull Basher</div>
+        <div class="sit-item-note">Buy when the enemy carry is out-farming you and you need a lockdown tool to secure kills.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS & TRICKS -->
+  <div class="section">
+    <div class="section-title">Tips & Tricks</div>
+    <div class="tips-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>
+    </div>
+    <div class="tips-list">
+      <div class="tip basic">Blink on top of an enemy hero, use Manta to summon illusions, burn his mana and finish him off with Mana Void.</div>
+      <div class="tip basic">Always Blink away from a fight if you're about to die. You're useless dead but extremely powerful alive.</div>
+      <div class="tip basic">Farm the jungle between waves to maximize your gold income. Never stand idle.</div>
+      <div class="tip advanced">Use Counterspell reactively to reflect single-target spells like Lion's Hex or Lina's Laguna Blade back at the caster.</div>
+      <div class="tip advanced">Blink through terrain to escape ganks — you can pass through cliffs and trees, not just between units.</div>
+      <div class="tip advanced">Split push two lanes simultaneously in late game to create an impossible dilemma for the enemy team: defend both or lose buildings.</div>
+    </div>
+  </div>
+
+  <!-- SYNERGIES & COUNTERS -->
+  <div class="section">
+    <div class="section-title">Notable Allies & Counters</div>
+    <div class="syn-grid">
+
+      <div class="syn-col allies">
+        <h4>Allies</h4>
+        <div class="hero-thumbs">
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Io</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Dazzle</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Warlock</div>
+        </div>
+        <div class="syn-note">AM works great with aura & buff supports who make him harder to kill in the laning stage.</div>
+      </div>
+
+      <div class="syn-col counters">
+        <h4>Counters</h4>
+        <div class="hero-thumbs">
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Invoker</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Medusa</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Keeper of the Light</div>
+        </div>
+        <div class="syn-note">High mana pool heroes are destroyed by Mana Void — they die instantly in late game fights.</div>
+      </div>
+
+      <div class="syn-col countered">
+        <h4>Countered By</h4>
+        <div class="hero-thumbs">
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Axe</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Bane</div>
+          <div class="hero-thumb"><div class="hero-thumb-icon"></div>Nyx Assassin</div>
+        </div>
+        <div class="syn-note">Stun-heavy or lockdown heroes stop his Blink and prevent him from escaping or engaging on his own terms.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="../heroes.html" class="back-link-bottom">All Heroes</a>
+
+  <div class="footer">
+    The Fountain of Wisdom &nbsp;◆&nbsp; thefountainofwisdom.com &nbsp;◆&nbsp; Coaching by Jemo
+  </div>
+
+</div>
+</body>
+</html>

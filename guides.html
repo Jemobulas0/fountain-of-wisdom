@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guides — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --blue: #5b9bd5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── PAGE HEADER ── */
+  .page-header { padding: 100px 40px 48px; max-width: 1100px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+  .page-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  .page-title { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 600; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
+  .page-desc { font-size: 16px; color: var(--text-dim); font-style: italic; }
+  .guide-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; padding-bottom: 4px; text-align: left; }
+  .guide-count span { color: var(--gold); font-size: 20px; font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
+
+  /* ── SEARCH ── */
+  .search-bar { max-width: 1100px; margin: 0 auto; padding: 0 40px 40px; }
+  .search-wrap { position: relative; max-width: 360px; }
+  .search-wrap::before { content: '⌕'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 18px; pointer-events: none; }
+  #search { width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 10px 14px 10px 40px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
+  #search::placeholder { color: var(--text-dim); font-style: italic; }
+  #search:focus { border-color: var(--gold-dark); }
+
+  /* ── GUIDES LIST ── */
+  .guides-section { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+  .guides-list { display: flex; flex-direction: column; gap: 12px; }
+
+  /* ── GUIDE CARD ── */
+  .guide-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 24px 28px; text-decoration: none; transition: all 0.2s; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; position: relative; overflow: hidden; }
+  .guide-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold-dark); opacity: 0; transition: opacity 0.2s; }
+  .guide-card.covered:hover { border-color: var(--gold-dark); transform: translateX(3px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); background: var(--bg-card2); }
+  .guide-card.covered:hover::before { opacity: 1; }
+  .guide-card.coming-soon { opacity: 0.45; cursor: default; }
+  .guide-card.hidden { display: none; }
+
+  .guide-left { display: flex; flex-direction: column; gap: 8px; }
+  .guide-meta { display: flex; align-items: center; gap: 12px; }
+  .guide-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
+  .guide-tag.strategy  { color: var(--blue);   border-color: rgba(91,155,213,0.3);  background: rgba(91,155,213,0.12); }
+  .guide-tag.mindset   { color: var(--yellow);  border-color: rgba(232,184,75,0.3);  background: rgba(232,184,75,0.12); }
+  .guide-tag.laning    { color: var(--green);   border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
+  .guide-tag.mechanics { color: #e05a3a;        border-color: rgba(224,90,58,0.3);   background: rgba(224,90,58,0.12); }
+  .guide-tag.economy   { color: #c084e8;        border-color: rgba(155,89,182,0.3);  background: rgba(155,89,182,0.22); }
+  .guide-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+
+  .guide-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; line-height: 1.3; }
+  .guide-desc { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.6; max-width: 700px; }
+
+  .guide-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  .guide-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; white-space: nowrap; }
+  .guide-arrow { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 400; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+  .guide-card.covered:hover .guide-arrow { color: var(--gold); }
+
+  .no-results { text-align: center; padding: 60px; font-style: italic; color: var(--text-dim); font-size: 16px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="items.html">Items</a></li>
+    <li><a href="concepts.html">Concepts</a></li>
+    <li><a href="guides.html" class="active">Guides</a></li>
+    <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div>
+    <div class="page-title">Guides</div>
+    <div class="page-desc">Long reads for players who want to go deeper.</div>
+  </div>
+  <div class="guide-count">
+    <span id="visible-count">1</span> Guides published — more added regularly
+  </div>
+</div>
+
+<div class="search-bar">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Search guides..." oninput="filterGuides()">
+  </div>
+</div>
+
+<div class="guides-section">
+  <div class="guides-list" id="guides-list"></div>
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+<script>
+const guides = [
+  {
+    title: 'You\'re Wasting 10-15 Minutes Every Game Without Realizing It',
+    desc: 'The average player bleeds time constantly — across the lane phase, the mid game, every single match. Here\'s where it goes, and how to stop it.',
+    tag: 'strategy',
+    tagLabel: 'Strategy',
+    date: 'March 2026',
+    readtime: '6 min read',
+    covered: true,
+    href: 'guides/wasting_time.html',
+  },
+  {
+    title: 'How to Actually Use the Minimap',
+    desc: 'Almost every player looks at the minimap. Almost none of them are reading it. There\'s a difference — and it\'s worth understanding.',
+    tag: 'strategy',
+    tagLabel: 'Strategy',
+    date: 'Coming soon',
+    readtime: '8 min read',
+    covered: false,
+  },
+  {
+    title: 'The Laning Phase Isn\'t About Kills',
+    desc: 'Kills in the lane phase feel good. They\'re also often a trap. What actually matters in the first 10 minutes — and how to measure whether you won your lane.',
+    tag: 'laning',
+    tagLabel: 'Laning',
+    date: 'Coming soon',
+    readtime: '10 min read',
+    covered: false,
+  },
+  {
+    title: 'Why Tilt Happens and What to Do About It',
+    desc: 'Tilt isn\'t a personality flaw or a mental weakness. It\'s a predictable pattern with a mechanical solution. Once you see it clearly, it loses its grip.',
+    tag: 'mindset',
+    tagLabel: 'Mindset',
+    date: 'Coming soon',
+    readtime: '7 min read',
+    covered: false,
+  },
+  {
+    title: 'Gold Efficiency — What It Actually Means',
+    desc: 'Every item in DotA has a gold efficiency value. Most players have never thought about it. Here\'s why it matters and how it should influence your item choices.',
+    tag: 'economy',
+    tagLabel: 'Economy',
+    date: 'Coming soon',
+    readtime: '9 min read',
+    covered: false,
+  },
+  {
+    title: 'How to Play From Behind',
+    desc: 'Losing your lane doesn\'t mean losing the game. But most players play like it does. A practical guide to dragging yourself back from a deficit.',
+    tag: 'strategy',
+    tagLabel: 'Strategy',
+    date: 'Coming soon',
+    readtime: '11 min read',
+    covered: false,
+  },
+  {
+    title: 'Last Hitting: The Real Lesson',
+    desc: 'Everyone knows last hitting matters. Almost nobody understands why it matters beyond "more gold." The real lesson is about something else entirely.',
+    tag: 'mechanics',
+    tagLabel: 'Mechanics',
+    date: 'Coming soon',
+    readtime: '6 min read',
+    covered: false,
+  },
+  {
+    title: 'Understanding the Comeback Mechanic',
+    desc: 'DotA\'s comeback mechanic is one of the most misunderstood systems in the game. Knowing how it works changes how you play both ahead and behind.',
+    tag: 'economy',
+    tagLabel: 'Economy',
+    date: 'Coming soon',
+    readtime: '8 min read',
+    covered: false,
+  },
+];
+
+function filterGuides() {
+  const query = document.getElementById('search').value.toLowerCase();
+  const list = document.getElementById('guides-list');
+  list.innerHTML = '';
+
+  const filtered = guides.filter(g =>
+    g.title.toLowerCase().includes(query) ||
+    g.desc.toLowerCase().includes(query) ||
+    g.tagLabel.toLowerCase().includes(query)
+  );
+
+  document.getElementById('visible-count').textContent = filtered.filter(g => g.covered).length || filtered.length;
+
+  if (filtered.length === 0) {
+    list.innerHTML = '<div class="no-results">No guides match your search.</div>';
+    return;
+  }
+
+  filtered.forEach(g => {
+    const card = document.createElement(g.covered ? 'a' : 'div');
+    if (g.covered) card.href = g.href;
+    card.className = 'guide-card' + (g.covered ? ' covered' : ' coming-soon');
+
+    card.innerHTML = `
+      <div class="guide-left">
+        <div class="guide-meta">
+          <span class="guide-tag ${g.tag}">${g.tagLabel}</span>
+          <span class="guide-date">${g.date}</span>
+        </div>
+        <div class="guide-title">${g.title}</div>
+        <div class="guide-desc">${g.desc}</div>
+      </div>
+      <div class="guide-right">
+        <span class="guide-readtime">${g.readtime}</span>
+        <span class="guide-arrow">${g.covered ? 'Read  >' : 'Coming soon'}</span>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+filterGuides();
+</script>
+</body>
+</html>

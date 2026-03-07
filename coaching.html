@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaching — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; border-color: var(--gold) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 100%, rgba(26,74,74,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(74,26,74,0.07) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 640px; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-light); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero-title { font-family: 'Cinzel', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px; }
+  .hero-title span { color: var(--gold); }
+  .hero-subtitle { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 28px; }
+  .hero-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 28px; }
+  .hero-desc { font-size: clamp(15px, 2vw, 18px); color: var(--text); line-height: 1.8; font-style: italic; }
+  .hero-desc strong { color: var(--text-bright); font-style: normal; }
+
+  /* ── MAIN CONTENT ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── PHILOSOPHY STRIP ── */
+  .philosophy {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 40px;
+    margin-bottom: 72px;
+  }
+  .philosophy-inner { max-width: 900px; margin: 0 auto; }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .phil-item { display: flex; flex-direction: column; gap: 10px; }
+  .phil-number { font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--gold-dark); line-height: 1; }
+  .phil-title { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .phil-desc { font-size: 15px; color: var(--text); font-style: italic; line-height: 1.6; }
+
+  /* ── SECTION LABEL ── */
+  .section-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
+  .section-title { font-family: 'Cinzel', serif; font-size: clamp(18px, 3vw, 26px); font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+
+  /* ── WHAT TO EXPECT ── */
+  .expect-section { margin-bottom: 72px; }
+  .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .expect-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s; }
+  .expect-item:hover { border-color: var(--gold-dim); }
+  .expect-icon { font-size: 18px; line-height: 1; margin-top: 2px; flex-shrink: 0; }
+  .expect-text {}
+  .expect-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+  .expect-desc { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.5; }
+
+  /* ── WHO THIS IS FOR ── */
+  .for-section { margin-bottom: 72px; }
+  .for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  .for-col { display: flex; flex-direction: column; gap: 12px; }
+  .for-col-title { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .for-col-title.yes { color: var(--green); border-color: rgba(76,175,125,0.2); }
+  .for-col-title.no { color: #c0392b; border-color: rgba(192,57,43,0.2); }
+  .for-item { font-size: 15px; color: var(--text-bright); line-height: 1.5; padding-left: 14px; position: relative; }
+  .for-item::before { position: absolute; left: 0; font-size: 10px; top: 4px; }
+  .for-col.yes .for-item::before { content: '✓'; color: var(--green); }
+  .for-col.no .for-item::before { content: '✗'; color: #c0392b; }
+
+  /* ── CTA SECTION ── */
+  .cta-section { text-align: center; }
+  .cta-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 56px 48px; position: relative; overflow: hidden; }
+  .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .cta-title { font-family: 'Cinzel', serif; font-size: clamp(18px, 3vw, 26px); font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+  .cta-desc { font-size: 17px; color: var(--text-dim); font-style: italic; line-height: 1.7; max-width: 500px; margin: 0 auto 36px; }
+  .cta-options { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--gold); border: none; padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; font-weight: 700; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,76,0.25); }
+  .btn-secondary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold-dark); padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+
+  .cta-note { font-size: 13px; color: var(--text-dim); font-style: italic; margin-top: 20px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="items.html">Items</a></li>
+    <li><a href="concepts.html">Concepts</a></li>
+    <li><a href="guides.html">Guides</a></li>
+    <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">One-on-One Coaching</div>
+    <h1 class="hero-title">Master the Game.<br><span>Don't Be a Meta Slave.</span></h1>
+    <div class="hero-subtitle">With Jemo · 21 Years of DotA</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Give a player a build, and he wins a game.<br>
+      Teach him to understand the game, and <strong>the patch will never matter again.</strong>
+    </p>
+  </div>
+</div>
+
+<!-- PHILOSOPHY STRIP -->
+<div class="philosophy">
+  <div class="philosophy-inner">
+    <div class="philosophy-grid">
+      <div class="phil-item">
+        <div class="phil-number">01</div>
+        <div class="phil-title">Skills That Compound</div>
+        <div class="phil-desc">You'll learn to read the game, not follow it. That's the only skill that matters.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-number">02</div>
+        <div class="phil-title">Honest Feedback</div>
+        <div class="phil-desc">I'll tell you what's actually holding you back — not what you want to hear. You'll appreciate it.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-number">03</div>
+        <div class="phil-title">Built Around You</div>
+        <div class="phil-desc">Every session is built around how you play, what you struggle with, and where you want to go.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+  <!-- WHAT TO EXPECT -->
+  <div class="expect-section">
+    <div class="section-label">The Session</div>
+    <div class="section-title">What to Expect</div>
+    <div class="expect-grid">
+      <div class="expect-item">
+        <div class="expect-icon">🎮</div>
+        <div class="expect-text">
+          <div class="expect-title">Replay Review</div>
+          <div class="expect-desc">We watch your recent games together. I point out the patterns you can't see yourself — the micro-decisions, the missed windows, the habits costing you games.</div>
+        </div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-icon">◈</div>
+        <div class="expect-text">
+          <div class="expect-title">Core Concepts</div>
+          <div class="expect-desc">Whatever fundamentals are holding you back most, we address them directly. Not generic advice — specific to your hero pool and playstyle.</div>
+        </div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-icon">⚔</div>
+        <div class="expect-text">
+          <div class="expect-title">Live Coaching</div>
+          <div class="expect-desc">Play a game while I watch and give real-time guidance. The fastest way to break habits is to catch them the moment they happen.</div>
+        </div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-icon">📖</div>
+        <div class="expect-text">
+          <div class="expect-title">A Clear Plan</div>
+          <div class="expect-desc">You leave every session knowing exactly what to focus on next. Not a vague "improve your macro" — specific, actionable, prioritized.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO THIS IS FOR -->
+  <div class="for-section">
+    <div class="section-title">Who Is This For</div>
+    <div class="for-grid">
+      <div class="for-col yes">
+        <div class="for-col-title yes">Good fit</div>
+        <div class="for-item">Players who want to genuinely understand DotA, not just climb</div>
+        <div class="for-item">People willing to hear honest feedback about their game</div>
+        <div class="for-item">Anyone stuck at the same rank for a long time</div>
+        <div class="for-item">Players who feel like they "should be higher" but can't figure out why</div>
+        <div class="for-item">Any skill level — fundamentals apply everywhere</div>
+      </div>
+      <div class="for-col no">
+        <div class="for-col-title no">Not a good fit</div>
+        <div class="for-item">Players looking for a quick patch-specific boost</div>
+        <div class="for-item">Anyone who wants to be told they're already playing well</div>
+        <div class="for-item">People not willing to change how they think about the game</div>
+        <div class="for-item">Players who believe their teammates are the problem</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-box">
+      <div class="cta-title">Ready to Start?</div>
+      <p class="cta-desc">
+        Come say hello on Discord first if you'd like to get a feel for things before committing. Or if you're ready — reach out directly to book a session.
+      </p>
+      <div class="cta-options">
+        <a href="#" class="btn-primary">Book a Session</a>
+        <a href="#" class="btn-secondary">Join the Discord</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+</body>
+</html>

@@ -540,7 +540,7 @@
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
 const recentlyAddedHeroes = [
-  { name: 'Lifestealer', key: 'life_stealer' },
+  { name: 'Lifestealer', key: 'life_stealer', page: 'lifestealer' },
   { name: 'Anti-Mage', key: 'antimage' },
 ];
 
@@ -562,7 +562,7 @@ const heroes = [
   { name: 'Kunkka',             key: 'kunkka',             attr: 'str', roles: ['midlane','offlane'],  covered: false },
   { name: 'Largo',              key: 'largo',              attr: 'str', roles: ['support'],            covered: false },
   { name: 'Legion Commander',   key: 'legion_commander',   attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry','offlane'],    covered: true  },
+  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry','offlane'],    covered: true,  page: 'lifestealer'  },
   { name: 'Lycan',              key: 'lycan',              attr: 'str', roles: ['carry','offlane'],    covered: false },
   { name: 'Mars',               key: 'mars',               attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Night Stalker',      key: 'night_stalker',      attr: 'str', roles: ['offlane'],            covered: false },
@@ -747,7 +747,7 @@ function filterHeroes() {
     section.className = 'heroes-grid-section';
     group.forEach(h => {
       const card = document.createElement(h.covered ? 'a' : 'div');
-      if (h.covered) card.href = `heroes/${h.key}.html`;
+      if (h.covered) card.href = `heroes/${h.page || h.key}.html`;
       card.className = 'hero-card' + (h.covered ? '' : ' coming-soon');
       const roleDisplay = h.roles.map(r => r.charAt(0).toUpperCase() + r.slice(1)).join(', ');
       card.innerHTML = `
@@ -775,7 +775,7 @@ const totalHeroes = heroes.length;
 const coveredCount = heroes.filter(h => h.covered).length;
 recentlyAddedHeroes.slice(0, 4).forEach(h => {
   const a = document.createElement('a');
-  a.href = `heroes/${h.key}.html`;
+  a.href = `heroes/${h.page || h.key}.html`;
   a.className = 'recently-card';
   a.innerHTML = `<img src="${CDN_H}${h.key}.png" alt="${h.name}">`;
   recentGrid.appendChild(a);

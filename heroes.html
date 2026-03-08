@@ -382,6 +382,85 @@
   }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+
+  .filters-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 16px;
+  }
+  .filters-left {
+    flex: 1;
+    min-width: 0;
+    margin-right: 40px;
+  }
+  .filters-right {
+    width: 340px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .recently-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    width: 340px;
+    margin-top: 6px;
+  }
+  .recently-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+  }
+  .recently-card img {
+    width: 78px;
+    height: 44px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    border: 1px solid var(--gold-dark);
+    display: block;
+  }
+
+  .progress-wrap {
+    width: 340px;
+    margin-bottom: 6px;
+  }
+  .recently-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 2px;
+  }
+  .progress-bar-bg {
+    width: 100%;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-align: right;
+  }
 </style>
 </head>
 <body>
@@ -407,26 +486,37 @@
   </div>
 </div>
 
-<div class="filters-bar">
-  <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search heroes..." oninput="filterHeroes()">
+<div class="filters-top-row">
+  <div class="filters-left">
+    <div class="filters-bar" style="padding:0; max-width:none; margin:0; width:100%;">
+      <div class="search-wrap">
+        <input type="text" id="search" placeholder="Search heroes..." oninput="filterHeroes()">
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Attributes</span>
+        <button class="filter-btn active" data-attr="all" onclick="setAttr('all', this)">All</button>
+        <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)">Strength</button>
+        <button class="filter-btn agi" data-attr="agi" onclick="setAttr('agi', this)">Agility</button>
+        <button class="filter-btn int" data-attr="int" onclick="setAttr('int', this)">Intelligence</button>
+        <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)">Universal</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Roles</span>
+        <button class="filter-btn active" data-role="all" onclick="setRole('all', this)">All</button>
+        <button class="filter-btn" data-role="carry" onclick="setRole('carry', this)">Carry</button>
+        <button class="filter-btn" data-role="support" onclick="setRole('support', this)">Support</button>
+        <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
+        <button class="filter-btn" data-role="midlane" onclick="setRole('midlane', this)">Midlane</button>
+        <button class="filter-btn" data-role="jungler" onclick="setRole('jungler', this)">Jungler</button>
+      </div>
+    </div>
   </div>
-  <div class="filter-row">
-    <span class="filter-label">Attributes</span>
-    <button class="filter-btn active" data-attr="all" onclick="setAttr('all', this)">All</button>
-    <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)">Strength</button>
-    <button class="filter-btn agi" data-attr="agi" onclick="setAttr('agi', this)">Agility</button>
-    <button class="filter-btn int" data-attr="int" onclick="setAttr('int', this)">Intelligence</button>
-    <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)">Universal</button>
-  </div>
-  <div class="filter-row">
-    <span class="filter-label">Roles</span>
-    <button class="filter-btn active" data-role="all" onclick="setRole('all', this)">All</button>
-    <button class="filter-btn" data-role="carry" onclick="setRole('carry', this)">Carry</button>
-    <button class="filter-btn" data-role="support" onclick="setRole('support', this)">Support</button>
-    <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
-    <button class="filter-btn" data-role="midlane" onclick="setRole('midlane', this)">Midlane</button>
-    <button class="filter-btn" data-role="jungler" onclick="setRole('jungler', this)">Jungler</button>
+  <div class="filters-right" id="recently-added-col">
+    <div class="progress-wrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="recently-label">Recently Added</div>
+    <div class="recently-grid" id="recently-grid"></div>
   </div>
 </div>
 
@@ -449,6 +539,11 @@
 <script>
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
+const recentlyAddedHeroes = [
+  { name: 'Lifestealer', key: 'life_stealer' },
+  { name: 'Anti-Mage', key: 'antimage' },
+];
+
 const heroes = [
   // STRENGTH (36)
   { name: 'Alchemist',          key: 'alchemist',          attr: 'str', roles: ['carry'],              covered: false },
@@ -467,7 +562,7 @@ const heroes = [
   { name: 'Kunkka',             key: 'kunkka',             attr: 'str', roles: ['midlane','offlane'],  covered: false },
   { name: 'Largo',              key: 'largo',              attr: 'str', roles: ['support'],            covered: false },
   { name: 'Legion Commander',   key: 'legion_commander',   attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry','offlane'],    covered: false },
+  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry','offlane'],    covered: true  },
   { name: 'Lycan',              key: 'lycan',              attr: 'str', roles: ['carry','offlane'],    covered: false },
   { name: 'Mars',               key: 'mars',               attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Night Stalker',      key: 'night_stalker',      attr: 'str', roles: ['offlane'],            covered: false },
@@ -664,7 +759,6 @@ function filterHeroes() {
           <div class="hero-card-name">${h.name}</div>
           <div class="hero-card-roles">${roleDisplay}</div>
         </div>
-        ${h.covered ? '<div class="hero-card-covered">◆</div>' : ''}
       `;
       section.appendChild(card);
     });
@@ -673,6 +767,21 @@ function filterHeroes() {
 }
 
 filterHeroes();
+
+// Recently Added
+const CDN_H = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
+const recentGrid = document.getElementById('recently-grid');
+const totalHeroes = heroes.length;
+const coveredCount = heroes.filter(h => h.covered).length;
+recentlyAddedHeroes.slice(0, 4).forEach(h => {
+  const a = document.createElement('a');
+  a.href = `heroes/${h.key}.html`;
+  a.className = 'recently-card';
+  a.innerHTML = `<img src="${CDN_H}${h.key}.png" alt="${h.name}">`;
+  recentGrid.appendChild(a);
+});
+const pct = Math.round((coveredCount / totalHeroes) * 100);
+document.getElementById('progress-fill').style.width = pct + '%';
 </script>
 </body>
 </html>

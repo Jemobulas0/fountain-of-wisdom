@@ -86,6 +86,17 @@
   .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+
+  .search-recently-row { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1100px; margin: 0 auto; padding: 0 40px 32px; gap: 40px; }
+  .search-recently-left { flex: 1; min-width: 0; }
+  .search-recently-right { width: 340px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; }
+  .recently-label-items { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+  .recently-grid-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 340px; margin-top: 6px; }
+  .recently-card-items { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+  .recently-card-items img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; border: 1px solid var(--gold-dark); display: block; }
+  .item-progress-wrap { width: 340px; margin-bottom: 6px; }
+  .item-progress-bar-bg { width: 100%; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .item-progress-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
 </style>
 </head>
 <body>
@@ -111,9 +122,18 @@
   </div>
 </div>
 
-<div class="search-bar">
-  <div class="search-wrap">
-    <input type="text" id="search" placeholder="Search items..." oninput="handleSearch()">
+<div class="search-recently-row">
+  <div class="search-recently-left">
+    <div class="search-wrap">
+      <input type="text" id="search" placeholder="Search items..." oninput="handleSearch()">
+    </div>
+  </div>
+  <div class="search-recently-right">
+    <div class="item-progress-wrap">
+      <div class="item-progress-bar-bg"><div class="item-progress-bar-fill" id="item-progress-fill"></div></div>
+    </div>
+    <div class="recently-label-items">Recently Added</div>
+    <div class="recently-grid-items" id="recently-grid-items"></div>
   </div>
 </div>
 
@@ -171,6 +191,10 @@
 </footer>
 
 <script>
+const recentlyAddedItems = [
+  { name: 'Branch', key: 'branches' },
+];
+
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
 
 // Custom URLs for items not available on Valve's CDN
@@ -420,7 +444,7 @@ function buildGrids() {
     });
   });
   const el = document.getElementById('item-count-num');
-  if (el) el.textContent = totalCovered;
+  if (el) el.textContent = recentlyAddedItems.length;
 }
 
 function switchTab(tab, btn) {
@@ -459,6 +483,20 @@ function handleSearch() {
 }
 
 buildGrids();
+
+// Recently Added Items
+const itemCDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
+const recentItemGrid = document.getElementById('recently-grid-items');
+recentlyAddedItems.slice(0, 4).forEach(item => {
+  const a = document.createElement('a');
+  a.href = `items/${item.key}.html`;
+  a.className = 'recently-card-items';
+  a.innerHTML = `<img src="${itemCDN}${item.key}.png" alt="${item.name}">`;
+  recentItemGrid.appendChild(a);
+});
+const totalItems = 166;
+const coveredItems = recentlyAddedItems.length;
+document.getElementById('item-progress-fill').style.width = Math.round((coveredItems / totalItems) * 100) + '%';
 </script>
 </body>
 </html>

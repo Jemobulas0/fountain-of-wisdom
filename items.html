@@ -74,7 +74,7 @@
   .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
   .item-card.covered:hover .item-img-wrap img { transform: scale(1.08); }
 
-  .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; min-height: 44px; flex-shrink: 0; }
+  .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; height: 44px; flex-shrink: 0; }
   .item-card-name { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; color: var(--text-bright); letter-spacing: 0.1px; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .item-card-cost { font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-light); margin-top: auto; }
 
@@ -202,6 +202,7 @@ const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react
 const customURLs = {
   'parasma': 'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/6e/Parasma_icon.png/revision/latest?cb=20231215082757',
   'khanda':  'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/67/Khanda_icon.png/revision/latest?cb=20231215080815',
+  'helm_of_the_overlord': 'https://liquipedia.net/commons/images/2/2e/Helm_of_the_Overlord_itemicon_dota2_gameasset.png',
 };
 
 function getItemURL(key) {
@@ -222,8 +223,8 @@ const shopData = {
     ['Tango',                 'tango',              90,   'Lane HP sustain'],
     ['Blood Grenade',         'blood_grenade',      50,   'DoT + vision'],
     ['Dust of Appearance',    'dust',               80,   'Reveals invisible'],
-    ['Infused Raindrop',      'infused_raindrop',   225,  'Block magic bursts'],
     ['Bottle',                'bottle',             675,  'Store runes & regen'],
+    ['Infused Raindrop',      'infused_raindrop',   225,  'Block magic bursts'],
     ["Aghanim's Shard",       'aghanims_shard',     1400, 'Upgrades ability'],
   ],
 

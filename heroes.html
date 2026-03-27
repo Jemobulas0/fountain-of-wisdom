@@ -425,6 +425,11 @@
     border-radius: 2px;
     border: 1px solid var(--gold-dark);
     display: block;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .recently-card:hover img {
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(201,168,76,0.3);
   }
 
   .progress-wrap {
@@ -507,7 +512,6 @@
         <button class="filter-btn" data-role="support" onclick="setRole('support', this)">Support</button>
         <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
         <button class="filter-btn" data-role="midlane" onclick="setRole('midlane', this)">Midlane</button>
-        <button class="filter-btn" data-role="jungler" onclick="setRole('jungler', this)">Jungler</button>
       </div>
     </div>
   </div>

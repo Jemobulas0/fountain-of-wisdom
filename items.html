@@ -35,7 +35,7 @@
   .page-title { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 600; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1; margin-bottom: 10px; }
   .page-desc { font-size: 16px; color: var(--text); font-style: italic; }
 
-  .item-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; text-align: left; align-self: flex-end; padding-bottom: 4px; }
+  .item-count { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; white-space: nowrap; text-align: left; align-self: flex-end; padding-bottom: 4px; width: 340px; }
   .item-count span.item-count-wrap { color: var(--gold); font-size: 20px; font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
 
   .search-bar { max-width: 1100px; margin: 0 auto; padding: 0 40px 32px; }
@@ -47,9 +47,9 @@
 
   .tabs-wrap { max-width: 1100px; margin: 24px auto 0; padding: 0 40px; }
   .tabs-bar { display: flex; gap: 4px; border-bottom: 1px solid var(--border); }
-  .tab-btn { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border: 1px solid var(--border); border-bottom: none; background: var(--bg); color: var(--text); cursor: pointer; border-radius: 3px 3px 0 0; transition: all 0.2s; position: relative; bottom: -1px; }
+  .tab-btn { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border: 1px solid var(--border); border-bottom: none; background: var(--bg-card); color: var(--text-dim); cursor: pointer; border-radius: 3px 3px 0 0; transition: all 0.2s; position: relative; bottom: -1px; }
   .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--gold); border-color: var(--gold-dark); background: var(--bg-card); border-bottom: 1px solid var(--bg-card); }
+  .tab-btn.active { color: var(--gold); border-color: var(--gold-dark); background: var(--bg); border-bottom: 1px solid var(--bg); }
 
   .shop-content { max-width: 1100px; margin: 0 auto; padding: 32px 40px 80px; }
   .tab-panel { display: none; }
@@ -74,7 +74,7 @@
   .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
   .item-card.covered:hover .item-img-wrap img { transform: scale(1.08); }
 
-  .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; height: 38px; flex-shrink: 0; }
+  .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; min-height: 44px; flex-shrink: 0; }
   .item-card-name { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; color: var(--text-bright); letter-spacing: 0.1px; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .item-card-cost { font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-light); margin-top: auto; }
 
@@ -93,7 +93,8 @@
   .recently-label-items { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
   .recently-grid-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 340px; margin-top: 6px; }
   .recently-card-items { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
-  .recently-card-items img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; border: 1px solid var(--gold-dark); display: block; }
+  .recently-card-items img { width: 78px; height: 56px; object-fit: cover; border-radius: 3px; border: 1px solid var(--gold-dark); display: block; transition: border-color 0.2s, box-shadow 0.2s; }
+  .recently-card-items:hover img { border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   .item-progress-wrap { width: 340px; margin-bottom: 6px; }
   .item-progress-bar-bg { width: 100%; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
   .item-progress-bar-fill { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.4s ease; }
@@ -118,7 +119,7 @@
     <div class="page-desc">What to buy, when to buy it — and why.</div>
   </div>
   <div class="item-count">
-    <span class="item-count-wrap"><span id="item-count-num">0</span><span style="color:var(--text-dim); font-weight:400"> / 166</span></span> Items covered — more added regularly
+    <span class="item-count-wrap"><span id="item-count-num">0</span><span style="color:var(--text-dim); font-weight:400"> / 170</span></span> Items covered — more added regularly
   </div>
 </div>
 
@@ -211,26 +212,27 @@ const shopData = {
 
   consumables: [
     ['Town Portal Scroll',    'tpscroll',           100,  'Teleport to building'],
-    ['Clarity',               'clarity',            50,   'Mana regeneration'],
+    ['Clarity',               'clarity',            60,   'Mana regeneration'],
     ['Faerie Fire',           'faerie_fire',        75,   'Tiny HP burst'],
     ['Smoke of Deceit',       'smoke_of_deceit',    50,   'Invisible on minimap'],
     ['Observer Ward',         'ward_observer',      0,    'Map vision'],
     ['Sentry Ward',           'ward_sentry',        50,   'True sight'],
     ['Enchanted Mango',       'enchanted_mango',    65,   'Instant mana burst'],
-    ['Healing Salve',         'flask',              115,  'Quick HP restore'],
+    ['Healing Salve',         'flask',              100,  'Quick HP restore'],
     ['Tango',                 'tango',              90,   'Lane HP sustain'],
     ['Blood Grenade',         'blood_grenade',      50,   'DoT + vision'],
     ['Dust of Appearance',    'dust',               80,   'Reveals invisible'],
-    ['Bottle',                'bottle',             650,  'Store runes & regen'],
+    ['Infused Raindrop',      'infused_raindrop',   225,  'Block magic bursts'],
+    ['Bottle',                'bottle',             675,  'Store runes & regen'],
     ["Aghanim's Shard",       'aghanims_shard',     1400, 'Upgrades ability'],
   ],
 
   attributes: [
-    ['Iron Branch',           'branches',           50,   '+1 All stats'],
+    ['Iron Branch',           'branches',           55,   '+1 All stats'],
     ['Gauntlets of Strength', 'gauntlets',          140,  '+3 Strength'],
     ['Slippers of Agility',   'slippers',           140,  '+3 Agility'],
     ['Mantle of Intelligence','mantle',             140,  '+3 Intelligence'],
-    ['Circlet',               'circlet',            165,  '+2 All stats'],
+    ['Circlet',               'circlet',            155,  '+2 All stats'],
     ['Belt of Strength',      'belt_of_strength',   450,  '+6 Strength'],
     ['Band of Elvenskin',     'band_of_elvenskin',  450,  '+6 Agility'],
     ['Robe of the Magi',      'robe',               450,  '+6 Intelligence'],
@@ -238,183 +240,189 @@ const shopData = {
     ['Ogre Axe',              'ogre_axe',           1000, '+10 Strength'],
     ['Blade of Alacrity',     'blade_of_alacrity',  1000, '+10 Agility'],
     ['Staff of Wizardry',     'staff_of_wizardry',  1000, '+10 Intelligence'],
-    ['Diadem',                'diadem',             1100, '+8 All stats'],
+    ['Diadem',                'diadem',             1000, '+8 All stats'],
+    ['Ghost Scepter',         'ghost',              1500, 'Become ethereal'],
   ],
 
   equipment: [
-    ['Quelling Blade',        'quelling_blade',     150,  'Last hit bonus'],
+    ['Quelling Blade',        'quelling_blade',     100,  'Last hit bonus'],
     ['Ring of Protection',    'ring_of_protection', 175,  '+2 Armor'],
-    ['Infused Raindrop',      'infused_raindrop',   225,  'Block magic bursts'],
-    ['Orb of Venom',          'orb_of_venom',       275,  'Slow on attack'],
-    ['Orb of Blight',         'blight_stone',       300,  'Armor reduction'],
-    ['Orb of Frost',          'orb_of_frost',       175,  'Cold attack slow'],
-    ['Blades of Attack',      'blades_of_attack',   420,  '+9 Attack damage'],
-    ['Gloves of Haste',       'gloves',             500,  '+15 Attack speed'],
-    ['Chainmail',             'chainmail',          550,  '+5 Armor'],
-    ['Helm of Iron Will',     'helm_of_iron_will',  975,  'HP regen + armor'],
+    ['Blades of Attack',      'blades_of_attack',   450,  '+9 Attack damage'],
+    ['Orb of Frost',          'orb_of_frost',       300,  'Cold attack slow'],
+    ['Gloves of Haste',       'gloves',             450,  '+15 Attack speed'],
+    ['Chainmail',             'chainmail',          500,  '+5 Armor'],
     ['Broadsword',            'broadsword',         1000, '+18 Attack damage'],
+    ['Orb of Blight',         'blight_stone',       300,  'Armor reduction'],
     ['Blitz Knuckles',        'blitz_knuckles',     1000, '+35 Attack speed'],
-    ['Javelin',               'javelin',            900,  'Pierce chance'],
+    ['Splintmail',            'splintmail',         950,  '+7 Armor'],
     ['Claymore',              'claymore',           1350, '+21 Attack damage'],
+    ['Orb of Venom',          'orb_of_venom',       275,  'Slow on attack'],
+    ['Javelin',               'javelin',            900,  'Pierce chance'],
+    ['Helm of Iron Will',     'helm_of_iron_will',  975,  'HP regen + armor'],
     ['Mithril Hammer',        'mithril_hammer',     1600, '+24 Attack damage'],
   ],
 
   miscellaneous: [
-    ['Ring of Regen',         'ring_of_regen',      300,  'HP regeneration'],
+    ['Ring of Regen',         'ring_of_regen',      175,  'HP regeneration'],
     ["Sage's Mask",           'sobi_mask',          175,  'Mana regeneration'],
+    ['Wind Lace',             'wind_lace',          225,  '+20 Move speed'],
     ['Magic Stick',           'magic_stick',        200,  'Burst HP/mana charges'],
     ['Fluffy Hat',            'fluffy_hat',         250,  '+125 HP'],
-    ['Wind Lace',             'wind_lace',          250,  '+20 Move speed'],
-    ['Cloak',                 'cloak',              550,  'Magic resistance'],
+    ['Wizard Hat',            'wizard_hat',         250,  '+125 Mana'],
     ['Boots of Speed',        'boots',              500,  '+45 Move speed'],
+    ['Voodoo Mask',           'voodoo_mask',        650,  'Spell lifesteal'],
+    ['Shawl',                 'shawl',              450,  '+10% Magic resistance'],
+    ['Shadow Amulet',         'shadow_amulet',      900,  'Fade + attack speed'],
     ['Gem of True Sight',     'gem',                900,  'Permanent true sight'],
     ['Morbid Mask',           'lifesteal',          900,  'Lifesteal'],
-    ['Voodoo Mask',           'voodoo_mask',        900,  'Spell lifesteal'],
-    ['Shadow Amulet',         'shadow_amulet',      1000, 'Fade + attack speed'],
-    ['Ghost Scepter',         'ghost',              1500, 'Become ethereal'],
+    ['Cloak',                 'cloak',              900,  'Magic resistance'],
+    ['Chasm Stone',           'chasm_stone',        800,  '+40 Area of Effect'],
     ['Blink Dagger',          'blink',              2250, 'Instant position blink'],
-    ['Ring of Health',        'ring_of_health',     850,  'HP regeneration'],
-    ['Void Stone',            'void_stone',         700,  'Mana regeneration'],
   ],
 
   secretshop: [
-    ['Ring of Tarrasque',     'ring_of_tarrasque',  700,  'HP regen component'],
-    ['Tiara of Selemene',     'tiara_of_selemene',  700,  'Mana regen component'],
-    ['Cornucopia',            'cornucopia',         700,  'HP + mana regen'],
-    ['Energy Booster',        'energy_booster',     900,  '+250 Mana'],
-    ['Vitality Booster',      'vitality_booster',   900,  '+250 HP'],
-    ['Point Booster',         'point_booster',      1200, '+175 HP & Mana'],
-    ['Talisman of Evasion',   'talisman_of_evasion',1400, '25% evasion'],
+    ['Ring of Health',        'ring_of_health',     700,  'HP regeneration'],
+    ['Void Stone',            'void_stone',         700,  'Mana regeneration'],
+    ['Talisman of Evasion',   'talisman_of_evasion',1300, '25% evasion'],
     ['Platemail',             'platemail',          1400, '+10 Armor'],
+    ['Ring of Tarrasque',     'ring_of_tarrasque',  1700, 'HP regen component'],
+    ['Tiara of Selemene',     'tiara_of_selemene',  1700, 'Mana regen component'],
     ['Hyperstone',            'hyperstone',         2000, '+55 Attack speed'],
-    ['Ultimate Orb',          'ultimate_orb',       2150, '+10 All stats'],
     ['Demon Edge',            'demon_edge',         2400, '+36 Attack damage'],
-    ['Mystic Staff',          'mystic_staff',       2700, '+25 Intelligence'],
-    ['Reaver',                'reaver',             3000, '+25 Strength'],
-    ['Eaglesong',             'eagle',              3000, '+25 Agility'],
-    ['Sacred Relic',          'relic',              3800, '+60 Attack damage'],
+    ['Vitality Booster',      'vitality_booster',   1000, '+250 HP'],
+    ['Energy Booster',        'energy_booster',     800,  '+250 Mana'],
+    ['Point Booster',         'point_booster',      1200, '+175 HP & Mana'],
+    ['Sacred Relic',          'relic',              3400, '+60 Attack damage'],
+    ['Reaver',                'reaver',             2800, '+25 Strength'],
+    ['Eaglesong',             'eagle',              2800, '+25 Agility'],
+    ['Mystic Staff',          'mystic_staff',       2800, '+25 Intelligence'],
+    ['Ultimate Orb',          'ultimate_orb',       2800, '+10 All stats'],
   ],
 
   accessories: [
-    ['Magic Wand',            'magic_wand',         450,  'Burst HP/mana'],
-    ['Null Talisman',         'null_talisman',      195,  'Int stats package'],
-    ['Wraith Band',           'wraith_band',        195,  'Agi stats package'],
-    ['Bracer',                'bracer',             195,  'Str stats package'],
-    ['Soul Ring',             'soul_ring',          800,  'Convert HP to mana'],
-    ['Orb of Corrosion',      'orb_of_corrosion',   875,  'Slow + armor shred'],
-    ['Falcon Blade',          'falcon_blade',       1075, 'Dmg + mana regen'],
+    ['Magic Wand',            'magic_wand',         460,  'Burst HP/mana'],
+    ['Bracer',                'bracer',             505,  'Str stats package'],
+    ['Wraith Band',           'wraith_band',        505,  'Agi stats package'],
+    ['Null Talisman',         'null_talisman',      505,  'Int stats package'],
     ['Power Treads',          'power_treads',       1400, 'Switchable stat boots'],
-    ['Phase Boots',           'phase_boots',        1500, 'Phase + armor'],
-    ['Oblivion Staff',        'oblivion_staff',     1650, 'Int + atk spd + dmg'],
-    ['Perseverance',          'pers',               1650, 'HP + mana regen'],
-    ['Mask of Madness',       'mask_of_madness',    1775, 'Lifesteal + berserk'],
-    ['Hand of Midas',         'hand_of_midas',      2200, 'Gold & XP on use'],
+    ['Soul Ring',             'soul_ring',          800,  'Convert HP to mana'],
+    ['Orb of Corrosion',      'orb_of_corrosion',   1050, 'Slow + armor shred'],
+    ['Falcon Blade',          'falcon_blade',       1125, 'Dmg + mana regen'],
+    ['Phase Boots',           'phase_boots',        1450, 'Phase + armor'],
+    ['Perseverance',          'pers',               1400, 'HP + mana regen'],
+    ['Mask of Madness',       'mask_of_madness',    1900, 'Lifesteal + berserk'],
+    ['Oblivion Staff',        'oblivion_staff',     1625, 'Int + atk spd + dmg'],
     ['Boots of Travel',       'travel_boots',       2500, 'Teleport anywhere'],
+    ['Hand of Midas',         'hand_of_midas',      2200, 'Gold & XP on use'],
     ['Moon Shard',            'moon_shard',         4000, 'Attack speed + vision'],
     ['Soul Booster',          'soul_booster',       3000, '+425 HP & Mana'],
   ],
 
   support: [
-    ['Buckler',               'buckler',            800,  'Armor burst'],
-    ['Ring of Basilius',      'ring_of_basilius',   500,  'Armor + mana aura'],
-    ['Headdress',             'headdress',          450,  'HP regen aura'],
-    ['Holy Locket',           'holy_locket',        2150, 'Heal amp + charges'],
-    ['Urn of Shadows',        'urn_of_shadows',     875,  'Heal or damage charges'],
-    ['Pavise',                'pavise',             1525, 'Magic damage shield'],
-    ['Arcane Boots',          'arcane_boots',       1300, 'Mana restore aura'],
-    ['Tranquil Boots',        'tranquil_boots',     950,  'HP regen boots'],
-    ['Spirit Vessel',         'spirit_vessel',      2750, 'Heal reduction + dmg'],
-    ['Solar Crest',           'solar_crest',        2775, 'Armor + shine beam'],
+    ['Ring of Basilius',      'ring_of_basilius',   425,  'Armor + mana aura'],
+    ['Headdress',             'headdress',          425,  'HP regen aura'],
+    ['Urn of Shadows',        'urn_of_shadows',     825,  'Heal or damage charges'],
+    ['Tranquil Boots',        'tranquil_boots',     900,  'HP regen boots'],
+    ['Arcane Boots',          'arcane_boots',       1500, 'Mana restore aura'],
     ['Mekansm',               'mekansm',            1775, 'Team heal burst'],
-    ['Drum of Endurance',     'ancient_janggo',     1350, 'Charges + move speed'],
-    ["Vladimir's Offering",   'vladmir',            2175, 'Lifesteal + dmg aura'],
-    ['Pipe of Insight',       'pipe',               3475, 'Magic shield barrier'],
-    ['Guardian Greaves',      'guardian_greaves',   3700, 'Heal + restore aura'],
-    ['Boots of Bearing',      'boots_of_bearing',   3800, 'Haste charges aura'],
+    ['Essence Distiller',     'essence_distiller',  1775, 'Heal/damage charges + armor'],
+    ['Drum of Endurance',     'ancient_janggo',     1625, 'Charges + move speed'],
+    ['Pavise',                'pavise',             1350, 'Magic damage shield'],
+    ['Guardian Greaves',      'guardian_greaves',   4450, 'Heal + restore aura'],
+    ['Spirit Vessel',         'spirit_vessel',      2725, 'Heal reduction + dmg'],
+    ['Boots of Bearing',      'boots_of_bearing',   4225, 'Haste charges aura'],
+    ['Solar Crest',           'solar_crest',        2575, 'Armor + shine beam'],
+    ['Glimmer Cape',          'glimmer_cape',       2150, 'Invis + magic resist'],
+    ['Holy Locket',           'holy_locket',        2250, 'Heal amp + charges'],
+    ['Pipe of Insight',       'pipe',               3725, 'Magic shield barrier'],
   ],
 
   magical: [
-    ['Glimmer Cape',          'glimmer_cape',       1950, 'Invis + magic resist'],
+    ['Veil of Discord',       'veil_of_discord',    1700, 'Spell weakness aura'],
+    ['Rod of Atos',           'rod_of_atos',        2250, 'Root on use'],
+    ["Eul's Scepter of Divinity",'cyclone',         2600, 'Cyclone + setup'],
+    ['Phylactery',            'phylactery',         2600, 'Slow + bonus spell dmg'],
+    ['Bloodstone',            'bloodstone',         4700, 'Spell lifesteal + spell amp'],
+    ['Gleipnir',              'gungir',             4650, 'Root + lightning'],
+    ['Wind Waker',            'wind_waker',         6800, 'Cyclone allies'],
+    ['Khanda',                'khanda',             5600, 'Crit + pure dmg proc'],
     ['Force Staff',           'force_staff',        2200, 'Push self or ally'],
-    ['Dagon',                 'dagon',              2700, 'Burst nuke'],
-    ['Meteor Hammer',         'meteor_hammer',      2625, 'Channeled stun + burn'],
-    ['Rod of Atos',           'rod_of_atos',        2750, 'Root on use'],
     ['Aether Lens',           'aether_lens',        2275, 'Increased cast range'],
-    ["Eul's Scepter",         'cyclone',            2750, 'Cyclone + setup'],
-    ['Orchid Malevolence',    'orchid',             3475, 'Silence + dmg amp'],
-    ['Gleipnir',              'gungir',             6150, 'Root + lightning'],
-    ['Ethereal Blade',        'ethereal_blade',     4700, 'Ethereal + nuke'],
-    ['Wind Waker',            'wind_waker',         6500, 'Cyclone allies'],
-    ['Refresher Orb',         'refresher',          5000, 'Reset all cooldowns'],
-    ['Octarine Core',         'octarine_core',      4700, 'Spell lifesteal + CDR'],
-    ['Scythe of Vyse',        'sheepstick',         5700, 'Hex enemy hero'],
-    ['Bloodstone',            'bloodstone',         4200, 'Mana + death charges'],
+    ['Meteor Hammer',         'meteor_hammer',      2850, 'Channeled stun + burn'],
+    ['Dagon',                 'dagon',              3050, 'Burst nuke'],
     ["Aghanim's Scepter",     'ultimate_scepter',   4200, 'Upgrades ultimate'],
+    ["Crella's Crozier",      'crellas_crozier',    4800, 'Ghost form + speed steal'],
+    ['Octarine Core',         'octarine_core',      4900, 'Spell lifesteal + CDR'],
+    ['Orchid Malevolence',    'orchid',             3475, 'Silence + dmg amp'],
+    ['Refresher Orb',         'refresher',          5000, 'Reset all cooldowns'],
+    ['Ethereal Blade',        'ethereal_blade',     5200, 'Ethereal + nuke'],
+    ['Scythe of Vyse',        'sheepstick',         5200, 'Hex enemy hero'],
+    ['Bloodthorn',            'bloodthorn',         6400, 'Silence + crit'],
   ],
 
   armor: [
-    ['Vanguard',              'vanguard',           1825, 'Block + HP regen'],
-    ['Blade Mail',            'blade_mail',         2100, 'Return damage'],
-    ['Helm of the Dominator', 'helm_of_the_dominator',1650,'Dominate creep'],
+    ['Buckler',               'buckler',            425,  'Armor burst'],
+    ['Vanguard',              'vanguard',           1700, 'Block + HP regen'],
+    ['Blade Mail',            'blade_mail',         2400, 'Return damage'],
+    ['Helm of the Dominator', 'helm_of_the_dominator',2550,'Dominate creep'],
+    ["Vladimir's Offering",   'vladmir',            2200, 'Lifesteal + dmg aura'],
+    ['Crimson Guard',         'crimson_guard',      3725, 'Block + armor aura'],
     ['Armlet of Mordiggian',  'armlet',             2500, 'Toggle HP for stats'],
-    ['Crimson Guard',         'crimson_guard',      3525, 'Block + armor aura'],
+    ['Helm of the Overlord',  'helm_of_the_overlord',5650,'Upgrade dominated creep'],
+    ['Consecrated Wraps',     'consecrated_wraps',  2600, 'Magic resist + barrier'],
     ['Aeon Disk',             'aeon_disk',          3000, 'Survival burst'],
-    ['Helm of the Overlord',  'helm_of_the_overlord',3875,'Upgrade dominated creep'],
-    ['Heart of Tarrasque',    'heart',              5000, 'Massive HP regen'],
-    ['Veil of Discord',       'veil_of_discord',    1525, 'Magic resist reduction'],
-    ['Eternal Shroud',        'eternal_shroud',     2850, 'Mana barrier + magic resist'],
     ['Lotus Orb',             'lotus_orb',          3850, 'Reflect targeted spells'],
     ['Black King Bar',        'black_king_bar',     4050, 'Spell immunity'],
-    ["Shiva's Guard",         'shivas_guard',       4750, 'Arctic blast + armor'],
-    ['Eye of Skadi',          'skadi',              5300, 'Orb slow + stats'],
-    ["Linken's Sphere",       'sphere',             4900, 'Block targeted spell'],
+    ["Shiva's Guard",         'shivas_guard',       4500, 'Arctic blast + armor'],
+    ["Linken's Sphere",       'sphere',             4800, 'Block targeted spell'],
     ['Assault Cuirass',       'assault',            5125, 'Atk speed + armor aura'],
+    ['Heart of Tarrasque',    'heart',              5100, 'Massive HP regen'],
   ],
 
   weapons: [
-    ['Mage Slayer',           'mage_slayer',        2400, 'Reduce spell damage'],
-    ['Desolator',             'desolator',          3500, 'Armor reduction'],
-    ['Battle Fury',           'bfury',              4100, 'Cleave + mana regen'],
-    ['Nullifier',             'nullifier',          4700, 'Dispel + silence'],
     ['Crystalys',             'lesser_crit',        2000, 'Critical strike'],
-    ['Witch Blade',           'witch_blade',        2800, 'Poison attack + int'],
+    ['Mage Slayer',           'mage_slayer',        3100, 'Reduce spell damage'],
+    ["Heaven's Halberd",      'heavens_halberd',    3400, 'Disarm + evasion'],
+    ['Desolator',             'desolator',          3500, 'Armor reduction'],
+    ["Revenant's Brooch",     'revenants_brooch',   3300, 'Spectral attacks'],
     ['Skull Basher',          'basher',             2875, 'Bash on attack'],
-    ['Shadow Blade',          'invis_sword',        3000, 'Invis + bonus dmg'],
-    ["Revenant's Brooch",     'revenants_brooch',   5900, 'Spectral attacks'],
-    ['Parasma',               'parasma',            6400, 'Magic damage on attack'],
+    ['Maelstrom',             'maelstrom',          2950, 'Chain lightning'],
+    ['Shadow Blade',          'invis_sword',        3250, 'Invis + bonus dmg'],
+    ['Daedalus',              'greater_crit',       5100, 'Critical strike'],
     ['Abyssal Blade',         'abyssal_blade',      6250, 'Guaranteed bash'],
-    ['Silver Edge',           'silver_edge',        5550, 'Invis + break passive'],
-    ['Daedalus',              'greater_crit',       5150, 'Critical strike'],
-    ['Diffusal Blade',        'diffusal_blade',     2500, 'Mana burn + slow'],
-    ['Radiance',              'radiance',           5050, 'Burn aura + miss chance'],
-    ['Monkey King Bar',       'monkey_king_bar',    4975, 'True strike + mini-bash'],
-    ['Divine Rapier',         'rapier',             6200, 'Massive damage'],
-    ['Disperser',             'disperser',          5400, 'Purge + slow'],
-    ['Butterfly',             'butterfly',          5525, 'Evasion + agility'],
-    ['Bloodthorn',            'bloodthorn',         6800, 'Silence + crit'],
+    ['Mjollnir',              'mjollnir',           5500, 'Chain lightning + shield'],
+    ['Silver Edge',           'silver_edge',        5700, 'Invis + break passive'],
+    ['Battle Fury',           'bfury',              3900, 'Cleave + regen'],
+    ['Nullifier',             'nullifier',          4350, 'Dispel + silence'],
+    ['Manta Style',           'manta',              4650, 'Illusions + dispel'],
+    ['Radiance',              'radiance',           4700, 'Burn aura + miss chance'],
+    ['Divine Rapier',         'rapier',             5600, 'Massive damage'],
+    ['Monkey King Bar',       'monkey_king_bar',    5000, 'True strike + mini-bash'],
+    ['Butterfly',             'butterfly',          5450, 'Evasion + agility'],
+    ['Satanic',               'satanic',            5050, 'Lifesteal + unholy rage'],
   ],
 
   armaments: [
+    ['Sange',                 'sange',              2100, 'Str + maim chance'],
+    ['Yasha',                 'yasha',              2100, 'Agi + movement speed'],
+    ['Kaya',                  'kaya',               2100, 'Mana + spell amp'],
     ['Dragon Lance',          'dragon_lance',       1900, 'Str + agi + range'],
-    ['Echo Sabre',            'echo_sabre',         2500, 'Double attack proc'],
-    ['Maelstrom',             'maelstrom',          2700, 'Chain lightning'],
-    ['Phylactery',            'phylactery',         2300, 'Slow + bonus spell dmg'],
-    ['Hurricane Pike',        'hurricane_pike',     4200, 'Push + range attack'],
-    ['Harpoon',               'harpoon',            5000, 'Pull enemy close'],
-    ['Mjollnir',              'mjollnir',           5600, 'Chain lightning + shield'],
-    ['Khanda',                'khanda',             5800, 'Crit + pure dmg proc'],
-    ['Sange',                 'sange',              2050, 'Str + maim chance'],
-    ['Yasha',                 'yasha',              2050, 'Agi + movement speed'],
-    ['Kaya',                  'kaya',               1950, 'Mana + spell amp'],
-    ["Heaven's Halberd",      'heavens_halberd',    3500, 'Disarm + evasion'],
-    ['Kaya and Sange',        'kaya_and_sange',     4100, 'Str/Int + spell amp'],
-    ['Sange and Yasha',       'sange_and_yasha',    4100, 'Str/Agi + movement'],
-    ['Yasha and Kaya',        'yasha_and_kaya',     4100, 'Agi/Int + spell amp'],
-    ['Manta Style',           'manta',              4600, 'Illusions + dispel'],
+    ['Kaya and Sange',        'kaya_and_sange',     4200, 'Str/Int + spell amp'],
+    ['Sange and Yasha',       'sange_and_yasha',    4200, 'Str/Agi + movement'],
+    ['Yasha and Kaya',        'yasha_and_kaya',     4200, 'Agi/Int + spell amp'],
+    ['Hurricane Pike',        'hurricane_pike',     4450, 'Push + range attack'],
+    ['Echo Sabre',            'echo_sabre',         2700, 'Double attack proc'],
+    ['Diffusal Blade',        'diffusal_blade',     2500, 'Mana burn + slow'],
+    ['Witch Blade',           'witch_blade',        2775, 'Poison attack + int'],
+    ["Specialist's Array",    'specialists_array',  2550, 'Splitshot chance'],
+    ['Harpoon',               'harpoon',            4700, 'Pull enemy close'],
+    ['Disperser',             'disperser',          6100, 'Purge + slow'],
+    ['Parasma',               'parasma',            5975, 'Magic damage on attack'],
+    ["Hydra's Breath",        'hydras_breath',      5900, 'Splitshot + poison'],
     ['Overwhelming Blink',    'overwhelming_blink', 6800, 'Blink + AoE stun'],
     ['Swift Blink',           'swift_blink',        6800, 'Blink + agility burst'],
     ['Arcane Blink',          'arcane_blink',       6800, 'Blink + mana reduce'],
-    ['Satanic',               'satanic',            5050, 'Lifesteal + unholy rage'],
+    ['Eye of Skadi',          'skadi',              5900, 'Orb slow + stats'],
   ],
 
 };
@@ -494,7 +502,7 @@ recentlyAddedItems.slice(0, 4).forEach(item => {
   a.innerHTML = `<img src="${itemCDN}${item.key}.png" alt="${item.name}">`;
   recentItemGrid.appendChild(a);
 });
-const totalItems = 166;
+const totalItems = 170;
 const coveredItems = recentlyAddedItems.length;
 document.getElementById('item-progress-fill').style.width = Math.round((coveredItems / totalItems) * 100) + '%';
 </script>

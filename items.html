@@ -198,15 +198,15 @@ const recentlyAddedItems = [
 
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
 
-// Custom URLs for items not available on Valve's CDN
-const customURLs = {
-  'parasma': 'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/6e/Parasma_icon.png/revision/latest?cb=20231215082757',
-  'khanda':  'https://static.wikia.nocookie.net/dota2_gamepedia/images/6/67/Khanda_icon.png/revision/latest?cb=20231215080815',
-  'helm_of_the_overlord': 'https://liquipedia.net/commons/images/2/2e/Helm_of_the_Overlord_itemicon_dota2_gameasset.png',
+// CDN key overrides for items whose internal names differ from display keys
+const cdnKeyOverrides = {
+  'parasma': 'devastator',
+  'khanda':  'angels_demise',
 };
 
 function getItemURL(key) {
-  return customURLs[key] || CDN + key + '.png';
+  const cdnKey = cdnKeyOverrides[key] || key;
+  return CDN + cdnKey + '.png';
 }
 
 const shopData = {

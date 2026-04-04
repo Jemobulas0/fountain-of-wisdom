@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lifestealer — The Fountain of Wisdom</title>
+<title>Juggernaut — The Fountain of Wisdom</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -22,7 +22,6 @@
     --yellow: #e8b84b;
     --red: #c0392b;
     --blue: #4a90d9;
-    --am-teal: #1a4a4a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,7 +33,7 @@
     font-size: 16px;
     min-height: 100vh;
     background-image: 
-      radial-gradient(ellipse at 20% 0%, rgba(26,74,74,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 0%, rgba(40,100,40,0.12) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
   }
 
@@ -118,14 +117,14 @@
     height: 100px;
     border: 2px solid var(--gold-dark);
     border-radius: 4px;
-    background: linear-gradient(135deg, #1a3a3a, #0d1a2a);
+    background: linear-gradient(135deg, #1a3a1a, #0d1a0d);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 40px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 30px rgba(26,74,74,0.4), inset 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 30px rgba(40,100,40,0.4), inset 0 0 20px rgba(0,0,0,0.5);
   }
 
   .hero-avatar img {
@@ -334,6 +333,10 @@
     color: var(--text);
     line-height: 1.5;
     font-style: italic;
+  }
+
+  .gameplan-phase p + p {
+    margin-top: 8px;
   }
 
   .extras-box {
@@ -698,7 +701,7 @@
     font-family: 'Cinzel', serif;
     font-size: 9px;
     letter-spacing: 2px;
-    color: var(--text-dim);
+    color: var(--text);
     text-transform: uppercase;
     border-top: 1px solid var(--border);
     margin-top: 0;
@@ -709,7 +712,6 @@
     background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
     margin: 4px 0;
   }
-
 
   .facet-left {
     display: flex;
@@ -914,11 +916,11 @@
     <div class="header-left"></div>
 
     <div class="hero-center">
-      <div class="hero-avatar"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png" alt="Lifestealer" onerror="this.parentElement.innerHTML='⚔'"></div>
-      <div class="hero-name">Lifestealer</div>
+      <div class="hero-avatar"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut" onerror="this.parentElement.innerHTML='⚔'"></div>
+      <div class="hero-name">Juggernaut</div>
       <div class="hero-attr">
-        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" alt="Strength" style="width:16px;height:16px;">
-        Strength
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt="Agility" style="width:16px;height:16px;">
+        Agility
       </div>
     </div>
 
@@ -937,23 +939,22 @@
       <div class="pos-circle">4</div>
       <div class="pos-circle">5</div>
     </div>
-    <div class="roles-text">Carry · Fighter · Durable</div>
+    <div class="roles-text">Carry · Fighter · Mobile</div>
     <div class="pros-cons">
       <div class="pros-cons-col pros">
         <h4>Strengths</h4>
         <ul>
-          <li>Self-sustain</li>
-          <li>Anti-Tank</li>
-          <li>Versatile Builds</li>
+          <li>Early/Mid Game Powerhouse</li>
+          <li>Highest Base BAT in the Game</li>
           <li>Built-in Debuff Immunity</li>
-          <li>Early Impact with Ancient Infest</li>
+          <li>Strong AoE Heal</li>
         </ul>
       </div>
       <div class="pros-cons-col cons">
         <h4>Weaknesses</h4>
         <ul>
-          <li>Silence</li>
-          <li>Health Restoration Reduction</li>
+          <li>Easily Kiteable</li>
+          <li>Outscaled by Late Game Carries</li>
         </ul>
       </div>
     </div>
@@ -965,21 +966,21 @@
     <div class="gameplan-grid">
       <div class="gameplan-phase">
         <h4>Early Game</h4>
-        <p>Dominate your lane &amp; hold it longer than most other carries.</p>
+        <p>You have one of the strongest normal spells in the entire game. Blade Fury does 400 AoE Damage on level 1. If you have a high kill threat support on your lane, you can immediately kill someone on lane before even a single creep has fallen. You're a lane dominator — so dominate!</p>
       </div>
       <div class="gameplan-phase">
         <h4>Mid Game</h4>
-        <p>Ideally you want to start farming the enemy Ancients when you get your first big item. Reason being that you can win most fights even 1v2 if you were doing well up to this point. And if they bring most of their team, you just run away &amp; create space on the map for yours. On the other hand if you aren't that strong, then you can rotate to your own Ancients &amp; farm them and your own offlane.</p>
+        <p>The moment you hit Battle Fury, you immediately switch to max farming mode in between your ultimates. But don't just mindlessly rush at enemy heroes when Omnislash is up. Farm well, play smart &amp; look for good opportunities to fight.</p>
+        <p>Healing Ward is an extremely powerful AoE healing ability. Don't go on for minutes without using it. First — it allows you to take Tormentor &amp; Roshan much quicker than most normal team drafts are able to. And second — even if you're simply jungling for a while &amp; you see a teammate being low on HP on his lane — just pop the spell &amp; send it to him. It lasts for 24 seconds. This is more than enough time to reach him &amp; heal him up, without you wasting any time to go there yourself.</p>
       </div>
       <div class="gameplan-phase">
         <h4>Late Game</h4>
-        <p>If there are no Debuff Immunity Piercing CCs, you can front line for your team. Otherwise identify the thing/s which can take you out before you have a chance to respond &amp; commit only after they've been used up.</p>
+        <p>You have two main ways of approaching the late game definitive team fights. You either clump into a death ball with your team or you wait on the side to either follow up on your initiator or counter-initiate theirs. This depends on the enemy team — if they want you grouped up together for a Shaker, Puck or Enigma ults for example, then you want to be on the side &amp; look for your opening to jump in. If you get caught in such spells, you'll just die for free. But if no such threat exists — just pop that Healing Ward, walk high ground with your team &amp; force the enemy team to fight you on your own terms, without you overextending yourself.</p>
       </div>
     </div>
     <div class="extras-box">
       <h4>Extras</h4>
-      <p>Hitting level 6 quickly &amp; using your first couple of Infests on certain Ancient Creeps in order to slam yourself at enemy heroes with 1-2 extra allies is an incredibly easy way to get early kills.</p>
-      <p>Infesting allied initiators allows you to have instant impact &amp; be brought directly in your enemies' face, which most other carries only dream of. (ex. Legion Commander, Tidehunter, Spirit Breaker, Storm Spirit)</p>
+      <p>Omnislash allows you to be one of the few heroes who can straight up kill a hero from full to zero. But it's also one of the easiest spells to counter with a large number of items &amp; spells or simply by walking next to a creep for you to bounce to it, and then the enemy hero walking away to safety. Glimmer Cape you can counter with cheap Dust. But things like Eul's will require more. So always try to predict in advance how things will go before Omnislashing.</p>
     </div>
   </div>
 
@@ -991,91 +992,101 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>
     </div>
     <div class="builds-grid">
+
+      <!-- SKILL BUILD 1 — Standard -->
       <div class="build-card">
-        <h4>Skill Build 1 — Lane Domination</h4>
+        <h4>Skill Build 1 — Standard</h4>
         <div class="build-body">
           <div class="build-spells">
+            <!-- Levels 1–6: F BD F HW F ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
               <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
             </div>
+            <!-- Levels 7–12: F BD BD BD HW ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
               <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
             </div>
+            <!-- Levels 13–18: HW HW stats stats stats ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
             </div>
           </div>
         </div>
         <div class="talent-tree">
             <div class="talent-row">
-              <div class="talent-box">+1s Rage Duration</div>
+              <div class="talent-box chosen">+40% Blade Dance Lifesteal</div>
               <div class="talent-lvl">25</div>
-              <div class="talent-box chosen">+1% Feast Heal and Damage</div>
+              <div class="talent-box">+1s Omnislash Duration</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box chosen">+25% Open Wounds Lifesteal</div>
+              <div class="talent-box">+100 Blade Fury DPS</div>
               <div class="talent-lvl">20</div>
-              <div class="talent-box">+12% Infest Target Movespeed/Health</div>
+              <div class="talent-box chosen">+15% Blade Dance Crit Damage</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box chosen">+50 Attack Speed on Open Wounds Target</div>
+              <div class="talent-box">45 Movement Speed During Blade Fury</div>
               <div class="talent-lvl">15</div>
-              <div class="talent-box">+175 Infest Damage</div>
+              <div class="talent-box chosen">-15s Omnislash Cooldown</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box">+20 Movement Speed</div>
+              <div class="talent-box chosen">-1s Bladeform Stack Gain Interval</div>
               <div class="talent-lvl">10</div>
-              <div class="talent-box chosen">+4 All Attributes</div>
+              <div class="talent-box">-12s Healing Ward Cooldown</div>
             </div>
         </div>
-        <div class="build-note">Standard max oppressive lane build.</div>
+        <div class="build-note">Standard build — Healing Ward early point at level 4 keeps you and your support in lane. Blade Dance maxed second for crit scaling.</div>
       </div>
 
+      <!-- SKILL BUILD 2 — Survivability -->
       <div class="build-card">
-        <h4>Skill Build 2 — Rage first, ask questions later.</h4>
+        <h4>Skill Build 2 — Survivability</h4>
         <div class="build-body">
           <div class="build-spells">
+            <!-- Levels 1–6: F HW F BD F ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
               <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
             </div>
+            <!-- Levels 7–12: F HW HW HW BD ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_feast.png" alt="life_stealer_feast"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_rage.png" alt="life_stealer_rage"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_fury.png" alt="juggernaut_blade_fury"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_healing_ward.png" alt="juggernaut_healing_ward"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
               <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
             </div>
+            <!-- Levels 13–18: BD BD stats stats stats ULT -->
             <div class="spell-row">
-              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_open_wounds.png" alt="life_stealer_open_wounds"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/life_stealer_infest.png" alt="life_stealer_infest"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="juggernaut_blade_dance"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="attribute_bonus"></div><div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_omni_slash.png" alt="juggernaut_omni_slash"></div>
             </div>
           </div>
         </div>
         <div class="talent-tree">
             <div class="talent-row">
-              <div class="talent-box">+1s Rage Duration</div>
+              <div class="talent-box chosen">+40% Blade Dance Lifesteal</div>
               <div class="talent-lvl">25</div>
-              <div class="talent-box chosen">+1% Feast Heal and Damage</div>
+              <div class="talent-box">+1s Omnislash Duration</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box chosen">+25% Open Wounds Lifesteal</div>
+              <div class="talent-box">+100 Blade Fury DPS</div>
               <div class="talent-lvl">20</div>
-              <div class="talent-box">+12% Infest Target Movespeed/Health</div>
+              <div class="talent-box chosen">+15% Blade Dance Crit Damage</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box chosen">+50 Attack Speed on Open Wounds Target</div>
+              <div class="talent-box">45 Movement Speed During Blade Fury</div>
               <div class="talent-lvl">15</div>
-              <div class="talent-box">+175 Infest Damage</div>
+              <div class="talent-box chosen">-15s Omnislash Cooldown</div>
             </div>
             <div class="talent-row">
-              <div class="talent-box">+20 Movement Speed</div>
+              <div class="talent-box chosen">-1s Bladeform Stack Gain Interval</div>
               <div class="talent-lvl">10</div>
-              <div class="talent-box chosen">+4 All Attributes</div>
+              <div class="talent-box">-12s Healing Ward Cooldown</div>
             </div>
         </div>
-        <div class="build-note">For when you need to self-dispel (ex. CM's Frostbite) or there are spells that you have time to react to (ex. Veng's Magic Missile).</div>
+        <div class="build-note">When you need maximum sustain. Healing Ward maxed early keeps both you and your support alive through hard lanes &amp; early objective fights.</div>
       </div>
 
     </div>
+  </div>
 
   <!-- ITEM BUILDS -->
   <div class="section">
@@ -1086,26 +1097,28 @@
     </div>
     <div class="builds-grid">
 
+      <!-- ITEM BUILD 1 — Standard -->
       <div class="build-card">
-        <h4>Item Build 1 — Anti-Physical</h4>
+        <h4>Item Build 1 — Standard</h4>
         <div class="item-phase">
           <div class="item-phase-label">Starting Items</div>
           <div class="item-row">
-            <a href="../items/tango.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/quelling_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png" alt="Quelling Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/gauntlets.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png" alt="Gauntlets of Strength" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/circlet.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/tango.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/quelling_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/quelling_blade.png" alt="Quelling Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/slippers.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png" alt="Slippers of Agility" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/circlet.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
           </div>
-          <div class="item-note-inline">Optimal stats.</div>
+          <div class="item-note-inline">Optimal stats. Circlet + Slippers build into Wraith Band.</div>
         </div>
         <div class="item-phase">
           <div class="item-phase-label">Core Build</div>
           <div class="item-row">
-            <a href="../items/phase_boots.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png" alt="Phase Boots" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/bracer.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bracer.png" alt="Bracer" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><div class="item-timed"><span class="timestamp green">15:00</span><a href="../items/armlet.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/armlet.png" alt="Armlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">13:00</span></div><div class="item-timed"><span class="timestamp green">27:00</span><a href="../items/radiance.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/radiance.png" alt="Radiance" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">24:00</span></div><a href="../items/basher.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Basher" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/assault.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png" alt="Assault Cuirass" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/abyssal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/swift_blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/power_treads.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><div class="item-timed"><span class="timestamp green">21:00</span><a href="../items/bfury.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png" alt="Battle Fury" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">18:00</span></div><div class="item-timed"><span class="timestamp green">31:00</span><a href="../items/manta.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png" alt="Manta Style" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">27:00</span></div><a href="../items/butterfly.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/ultimate_scepter.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/aghanims_blessing.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_blessing.png" alt="Aghanim's Blessing" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/abyssal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/swift_blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/skadi.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
           </div>
         </div>
-        <div class="build-note">When the main threat for you on the enemy team is physical auto attack damage, this build provides all the armor &amp; evasion that you will need.</div>
+        <div class="build-note">Standard item build with a number of power spikes for your hero.</div>
       </div>
 
+      <!-- ITEM BUILD 2 — Alternative -->
       <div class="build-card">
-        <h4>Item Build 2 — Anti-Armor/Summons</h4>
+        <h4>Item Build 2 — Alternative</h4>
         <div class="item-phase">
           <div class="item-phase-label">Starting Items</div>
           <div class="item-row">
@@ -1116,10 +1129,10 @@
         <div class="item-phase">
           <div class="item-phase-label">Core Build</div>
           <div class="item-row">
-            <a href="../items/phase_boots.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png" alt="Phase Boots" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/magic_wand.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><div class="item-timed"><span class="timestamp green">23:00</span><a href="../items/mjollnir.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">20:00</span></div><div class="item-timed"><span class="timestamp green">27:00</span><a href="../items/basher.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Basher" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">24:00</span></div><a href="../items/assault.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/assault.png" alt="Assault Cuirass" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/ultimate_scepter.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/abyssal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/swift_blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/phase_boots.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phase_boots.png" alt="Phase Boots" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/magic_wand.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><div class="item-timed"><span class="timestamp green">23:00</span><a href="../items/mjollnir.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">20:00</span></div><div class="item-timed"><span class="timestamp green">30:00</span><a href="../items/linken_sphere.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/linken_sphere.png" alt="Linken's Sphere" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">26:00</span></div><a href="../items/butterfly.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/ultimate_scepter.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/aghanims_blessing.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_blessing.png" alt="Aghanim's Blessing" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/abyssal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><a href="../items/swift_blink.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
           </div>
         </div>
-        <div class="build-note">When facing Illusions, Summons or high Armor &amp; especially low HP heroes — the Magic Dmg &amp; high Attack Speed from Mjollnir make things much easier.</div>
+        <div class="build-note">Trade-off with this build is around -30 DPS from Phase Boots, but higher mobility for when you need to stay on top of enemies with Blade Fury, chase people down with Omnislash &amp; travel between camps faster. On the downside, Mjollnir gives way higher DPS than Battle Fury at the cost of no Mana Regen. That's why we opt for Linken's as our second item — which both has a defensive element to it (like Manta does) and it also fixes our Mana issues. From then on things are pretty standard again.</div>
       </div>
 
     </div>
@@ -1128,32 +1141,20 @@
     <div class="situational-items">
       <div class="situational-label">Situational Items</div>
       <div class="sit-item">
-        <a href="../items/orb_of_frost.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orb_of_frost.png" alt="Orb of Frost" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <a href="../items/orb_of_corrosion.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orb_of_corrosion.png" alt="Orb of Corrosion" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <div class="sit-item-note">For when you &amp; your support have the damage, but lack the CC to deal it in lane.</div>
-      </div>
-      <div class="sit-item">
-        <a href="../items/satanic.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <a href="../items/disperser.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png" alt="Disperser" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <a href="../items/manta.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/manta.png" alt="Manta Style" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <a href="../items/black_king_bar.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <div class="sit-item-note">One of Lifestealer's weaknesses is to get silenced as he's running in or getting gone on, and unable to cast his Rage. These items both fit the hero well &amp; allow him to self-dispel. BKB is best when fights are prolonged and the CC never ends.</div>
-      </div>
-      <div class="sit-item">
         <a href="../items/nullifier.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png" alt="Nullifier" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
         <div class="sit-item-note">Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/silver_edge.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Breaks Passives.</div>
       </div>
       <div class="sit-item">
         <a href="../items/monkey_king_bar.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/monkey_king_bar.png" alt="Monkey King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
         <div class="sit-item-note">Counters Evasion.</div>
       </div>
       <div class="sit-item">
-        <a href="../items/skadi.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <div class="sit-item-note">Counters Health Restoration.</div>
-      </div>
-      <div class="sit-item">
-        <a href="../items/silver_edge.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-        <div class="sit-item-note">Breaks Passives.</div>
+        <a href="../items/black_king_bar.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">In most cases Manta will be enough to allow you to escape Silence or dodge a hard CC in order to cast your abilities in combat. But sometimes you need a BKB — for ex. against Night Stalker's Crippling Fear.</div>
       </div>
     </div>
   </div>
@@ -1166,12 +1167,14 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>
     </div>
     <div class="tips-list">
-      <div class="tip basic">You stack bonus max HP indefinitely — even when denying allied creeps &amp; heroes.</div>
-      <div class="tip basic">Feast allows you to melt high HP targets which makes bonuses to your Attack Speed all the better.</div>
-      <div class="tip basic">Rage is your own personal &amp; improved BKB with a Movement Speed boost.</div>
-      <div class="tip advanced">Aghanim's Scepter allows you to go in, get focused with certain big spells (ex. Troll Warlord's Battle Trance) &amp; Infest an enemy hero to both deal damage, heal back up, wait out for the danger to go away &amp; have your spells partially recharge.</div>
-      <div class="tip advanced">You can use Infest to greatly heal an ally hero for up to 1200 HP instantly in a fight and either pop-out instantly for AoE dmg &amp; keep fighting, or stay inside to give your ally bonus Movement Speed for you both to run away from danger.</div>
-      <div class="tip advanced">You have 3 main purposes for your Infest besides the early game Ancient creep kill potential: Go in with your Initiator, Heal an ally in fights or Infest an enemy hero with Aghanim's. Always have in mind in advance which would be your best options in fights.</div>
+      <div class="tip basic">Blade Fury is both your best offensive &amp; defensive ability for the early parts of the game. Be mindful how &amp; when you're using it.</div>
+      <div class="tip basic">Cast Healing Ward before going into a fight. Not when people are already low.</div>
+      <div class="tip basic">Omnislash's number of hits is based on your Attack Speed. Blade Dance &amp; all on-hit effects also work fully during your ultimate.</div>
+      <div class="tip basic">During Blade Fury you can still proc on-hit effects on units and also deal normal damage to non-units like buildings, wards &amp; Phoenix's Egg or KotL's Will-O-Wisp.</div>
+      <div class="tip advanced">In fights you can allow yourself to get hit by soft CCs (not silence or stun) and cast Omnislash right after — thus wasting the spells of your enemies.</div>
+      <div class="tip advanced">In the late game prioritize Blade Fury's defensive qualities. As early as your first big item, your auto attacks are already dealing higher DPS than the spell. But keep in mind that the spell is a double-edged blade. In a scenario where you're fighting an enemy hero and you can kill him, you might decide to spin &amp; die, because you've lost a lot of your DPS.</div>
+      <div class="tip advanced">Attempt to micro your Healing Ward — especially in the early parts of the game. The reason it provides amazing healing is that it's also quite easy to be taken out.</div>
+      <div class="tip advanced">Your level 25 talent allows you to basically heal to full every time you cast Swiftslash. Keep in mind that the ability also applies a Basic Dispel to yourself just like your ultimate does — even though it's not stated in the tooltip. So unless you need it in order to reach an enemy, save it for after a fight starts &amp; you've lost some health first.</div>
     </div>
   </div>
 
@@ -1183,40 +1186,40 @@
       <div class="syn-col allies">
         <h4>Allies</h4>
         <div class="hero-thumbs">
-<a href="../heroes/legion_commander.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Legion</div></div></a>
+          <a href="../heroes/legion_commander.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Legion</div></div></a>
           <a href="../heroes/tidehunter.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tidehunter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tidehunter</div></div></a>
-          <a href="../heroes/axe.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png" alt="Axe" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Axe</div></div></a>
-          <a href="../heroes/spirit_breaker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Spirit Breaker</div></div></a>
+          <a href="../heroes/beastmaster.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png" alt="Beastmaster" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Beastmaster</div></div></a>
+          <a href="../heroes/earthshaker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png" alt="Earthshaker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Earthshaker</div></div></a>
           <a href="../heroes/lich.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png" alt="Lich" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lich</div></div></a>
           <a href="../heroes/shadow_shaman.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png" alt="Shadow Shaman" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Shadow Shaman</div></div></a>
         </div>
-        <div class="syn-note">Initiators &amp; Aura carriers. Strong lane supports with high kill potential &amp; CC.</div>
+        <div class="syn-note">Initiators &amp; Aura carriers. Strong lane supports with high kill potential &amp; CC. Heroes that seek quick resolutions to big fights.</div>
       </div>
 
       <div class="syn-col counters">
         <h4>Counters</h4>
         <div class="hero-thumbs">
-<a href="../heroes/centaur.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png" alt="Centaur" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Centaur</div></div></a>
-          <a href="../heroes/tidehunter.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tidehunter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tidehunter</div></div></a>
-          <a href="../heroes/axe.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/axe.png" alt="Axe" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Axe</div></div></a>
-          <a href="../heroes/abyssal_underlord.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png" alt="Underlord" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Underlord</div></div></a>
+          <a href="../heroes/mars.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Mars</div></div></a>
           <a href="../heroes/phoenix.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png" alt="Phoenix" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Phoenix</div></div></a>
-          <a href="../heroes/spectre.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spectre.png" alt="Spectre" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Spectre</div></div></a>
+          <a href="../heroes/bloodseeker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bloodseeker.png" alt="Bloodseeker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Bloodseeker</div></div></a>
+          <a href="../heroes/life_stealer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png" alt="Lifestealer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lifestealer</div></div></a>
+          <a href="../heroes/silencer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png" alt="Silencer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Silencer</div></div></a>
+          <a href="../heroes/rubick.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/rubick.png" alt="Rubick" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Rubick</div></div></a>
         </div>
-        <div class="syn-note">Tanks &amp; non-mobile heroes who can't kite him.</div>
+        <div class="syn-note">Heroes that rely on soft CCs. Squishy enemies.</div>
       </div>
 
       <div class="syn-col countered">
         <h4>Countered By</h4>
         <div class="hero-thumbs">
-<a href="../heroes/doom_bringer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png" alt="Doom" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Doom</div></div></a>
-          <a href="../heroes/slardar.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" alt="Slardar" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slardar</div></div></a>
-          <a href="../heroes/pangolier.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" alt="Pangolier" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Pangolier</div></div></a>
+          <a href="../heroes/omniknight.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png" alt="Omniknight" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Omniknight</div></div></a>
+          <a href="../heroes/visage.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png" alt="Visage" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Visage</div></div></a>
           <a href="../heroes/spirit_breaker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Spirit Breaker</div></div></a>
-          <a href="../heroes/slark.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" alt="Slark" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slark</div></div></a>
-          <a href="../heroes/phantom_lancer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_lancer.png" alt="Phantom Lancer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Phantom Lancer</div></div></a>
+          <a href="../heroes/lone_druid.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png" alt="Lone Druid" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lone Druid</div></div></a>
+          <a href="../heroes/muerta.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png" alt="Muerta" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Muerta</div></div></a>
+          <a href="../heroes/night_stalker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/night_stalker.png" alt="Night Stalker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Night Stalker</div></div></a>
         </div>
-        <div class="syn-note">Debuff Immunity Piercing CCs. Elusive heroes.</div>
+        <div class="syn-note">Heroes who can avoid his burst. Enemies who can lock you down &amp; burst you.</div>
       </div>
 
     </div>

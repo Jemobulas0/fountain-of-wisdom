@@ -509,9 +509,9 @@
         <span class="filter-label">Roles</span>
         <button class="filter-btn active" data-role="all" onclick="setRole('all', this)">All</button>
         <button class="filter-btn" data-role="carry" onclick="setRole('carry', this)">Carry</button>
-        <button class="filter-btn" data-role="support" onclick="setRole('support', this)">Support</button>
-        <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
         <button class="filter-btn" data-role="midlane" onclick="setRole('midlane', this)">Midlane</button>
+        <button class="filter-btn" data-role="offlane" onclick="setRole('offlane', this)">Offlane</button>
+        <button class="filter-btn" data-role="support" onclick="setRole('support', this)">Support</button>
       </div>
     </div>
   </div>
@@ -544,10 +544,10 @@
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
 const recentlyAddedHeroes = [
+  { name: 'Omniknight', key: 'omniknight' },
   { name: 'Juggernaut',  key: 'juggernaut' },
   { name: 'Sven', key: 'sven' },
   { name: 'Lifestealer', key: 'life_stealer', page: 'lifestealer' },
-  { name: 'Anti-Mage', key: 'antimage' },
 ];
 
 const heroes = [
@@ -568,18 +568,18 @@ const heroes = [
   { name: 'Kunkka',             key: 'kunkka',             attr: 'str', roles: ['midlane','offlane'],  covered: false },
   { name: 'Largo',              key: 'largo',              attr: 'str', roles: ['support'],            covered: false },
   { name: 'Legion Commander',   key: 'legion_commander',   attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry','offlane'],    covered: true,  page: 'lifestealer'  },
+  { name: 'Lifestealer',        key: 'life_stealer',       attr: 'str', roles: ['carry'],              covered: true,  page: 'lifestealer'  },
   { name: 'Lycan',              key: 'lycan',              attr: 'str', roles: ['carry','offlane'],    covered: false },
   { name: 'Mars',               key: 'mars',               attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Night Stalker',      key: 'night_stalker',      attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Ogre Magi',          key: 'ogre_magi',          attr: 'str', roles: ['support'],            covered: false },
-  { name: 'Omniknight',         key: 'omniknight',         attr: 'str', roles: ['support'],            covered: false },
+  { name: 'Omniknight',         key: 'omniknight',         attr: 'str', roles: ['offlane'],            covered: true  },
   { name: 'Phoenix',            key: 'phoenix',            attr: 'str', roles: ['support','offlane'],  covered: false },
   { name: 'Primal Beast',       key: 'primal_beast',       attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Pudge',              key: 'pudge',              attr: 'str', roles: ['support','offlane'],  covered: false },
   { name: 'Slardar',            key: 'slardar',            attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Spirit Breaker',     key: 'spirit_breaker',     attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Sven',               key: 'sven',               attr: 'str', roles: ['carry','offlane'],    covered: true  },
+  { name: 'Sven',               key: 'sven',               attr: 'str', roles: ['carry'],              covered: true  },
   { name: 'Tidehunter',         key: 'tidehunter',         attr: 'str', roles: ['offlane','support'],  covered: false },
   { name: 'Timbersaw',          key: 'shredder',           attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Tiny',               key: 'tiny',               attr: 'str', roles: ['carry','offlane'],    covered: false },

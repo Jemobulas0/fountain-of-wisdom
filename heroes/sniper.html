@@ -138,8 +138,14 @@
   .spell-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .spell-icon.ult { border-color: var(--gold-dark); }
 
-  .timestamp-group { display: flex; flex-direction: column; gap: 2px; margin-left: 4px; }
+  .timestamp-group { display: flex; flex-direction: row; gap: 6px; margin-left: 4px; }
+  .timestamp-col { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 30px; text-align: center; }
+  .pos-circle-sm { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; color: var(--gold); background: rgba(201,168,76,0.1); padding-left: 1px; }
+  .timestamp-header { display: flex; justify-content: flex-end; margin-bottom: 4px; margin-left: 4px; }
+  .timestamp-header-inner { display: flex; gap: 6px; }
+  .timestamp-header-inner .th-col { min-width: 30px; display: flex; justify-content: center; }
   .timestamp { font-size: 10px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+  .timestamp-col .timestamp { display: block; }
   .timestamp.green { color: var(--green); }
   .timestamp.yellow { color: var(--yellow); }
 
@@ -321,6 +327,7 @@
         <h4>Skill Build 1 — All-In</h4>
         <div class="build-body">
           <div class="build-spells">
+            <div class="timestamp-header"><div class="timestamp-header-inner"><div class="th-col"><div class="pos-circle-sm">1</div></div><div class="th-col"><div class="pos-circle-sm">2</div></div></div></div>
             <!-- Row 1: 1,2,1,3,1,4 = S,H,S,TA,S,A -->
             <div class="spell-row">
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
@@ -329,7 +336,7 @@
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
               <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
-              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
+              <div class="timestamp-group"><div class="timestamp-col"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div><div class="timestamp-col"><span class="timestamp green">8:00</span><span class="timestamp yellow">7:00</span></div></div>
             </div>
             <!-- Row 2: 1,2,2,2,3,4 = S,H,H,H,TA,A -->
             <div class="spell-row">
@@ -339,7 +346,7 @@
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
               <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
-              <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
+              <div class="timestamp-group"><div class="timestamp-col"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div><div class="timestamp-col"><span class="timestamp green">20:00</span><span class="timestamp yellow">18:00</span></div></div>
             </div>
             <!-- Row 3: 3,3,+,+,+,4 = TA,TA,+,+,+,A -->
             <div class="spell-row">
@@ -382,6 +389,7 @@
         <h4>Skill Build 2 — Slow Domination</h4>
         <div class="build-body">
           <div class="build-spells">
+            <div class="timestamp-header"><div class="timestamp-header-inner"><div class="th-col"><div class="pos-circle-sm">1</div></div><div class="th-col"><div class="pos-circle-sm">2</div></div></div></div>
             <!-- Row 1: 2,3,1,1,1,4 = H,TA,S,S,S,A -->
             <div class="spell-row">
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
@@ -390,7 +398,7 @@
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
               <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
-              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
+              <div class="timestamp-group"><div class="timestamp-col"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div><div class="timestamp-col"><span class="timestamp green">8:00</span><span class="timestamp yellow">7:00</span></div></div>
             </div>
             <!-- Row 2: 1,2,2,2,3,4 = S,H,H,H,TA,A -->
             <div class="spell-row">
@@ -400,7 +408,7 @@
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
               <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
               <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
-              <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
+              <div class="timestamp-group"><div class="timestamp-col"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div><div class="timestamp-col"><span class="timestamp green">20:00</span><span class="timestamp yellow">18:00</span></div></div>
             </div>
             <!-- Row 3: levels 13-18: TA,TA,+,+,+,A -->
             <div class="spell-row">
@@ -470,8 +478,8 @@
             <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/power_treads.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-            <div class="item-timed"><span class="timestamp green">18:00</span><a href="../items/specialists_array.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/specialists_array.png" alt="Specialist's Array" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">15:00</span></div>
-            <div class="item-timed"><span class="timestamp green">30:00</span><a href="../items/hydras_breath.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hydras_breath.png" alt="Hydra's Breath" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">26:00</span></div>
+            <div class="item-timed"><span class="timestamp green">16:00</span><a href="../items/specialists_array.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/specialists_array.png" alt="Specialist's Array" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">14:00</span></div>
+            <div class="item-timed"><span class="timestamp green">24:00</span><a href="../items/hydras_breath.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hydras_breath.png" alt="Hydra's Breath" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">20:00</span></div>
             <a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/butterfly.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/black_king_bar.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
@@ -503,8 +511,8 @@
             <a href="../items/magic_wand.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/power_treads.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
-            <div class="item-timed"><span class="timestamp green">16:00</span><a href="../items/mask_of_madness.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png" alt="Mask of Madness" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">13:00</span></div>
-            <div class="item-timed"><span class="timestamp green">27:00</span><a href="../items/mjollnir.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">23:00</span></div>
+            <div class="item-timed"><span class="timestamp green">14:00</span><a href="../items/mask_of_madness.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png" alt="Mask of Madness" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">12:00</span></div>
+            <div class="item-timed"><span class="timestamp green">22:00</span><a href="../items/mjollnir.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">20:00</span></div>
             <a href="../items/diffusal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png" alt="Diffusal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
             <a href="../items/dragon_lance.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png" alt="Dragon Lance" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>

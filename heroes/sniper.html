@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sniper — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+    --sniper-blue: #1a2a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(26,42,74,0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-left { display: flex; flex-direction: column; gap: 8px; }
+
+  .hero-center { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+  .hero-avatar {
+    width: 180px;
+    height: 100px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1a2a4a, #0d1520);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(26,42,74,0.5), inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+  .hero-name { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; text-align: center; }
+
+  .hero-attr { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--green); letter-spacing: 1px; text-transform: uppercase; font-family: 'Cinzel', serif; }
+
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; align-self: flex-start; }
+
+  .version-badge { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold); letter-spacing: 1px; border: 1px solid var(--gold-dark); padding: 3px 8px; border-radius: 2px; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--bg-card); border: 1px solid var(--border); border-top: none; padding: 20px 24px; }
+  .section + .section { border-top: 1px solid var(--border); margin-top: -1px; }
+  .section:last-child { border-radius: 0 0 4px 4px; border-bottom: 2px solid var(--gold-dark); }
+
+  .section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-gold); position: relative; }
+  .section-title::before, .section-title::after { content: '◆'; font-size: 7px; color: var(--gold-dark); margin: 0 10px; vertical-align: middle; }
+
+  /* ── POSITIONS ── */
+  .positions-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .pos-circle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; color: var(--text-dim); background: var(--bg); }
+  .pos-circle.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); box-shadow: 0 0 12px rgba(201,168,76,0.2); }
+  .roles-text { text-align: center; font-size: 12px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; font-family: 'Cinzel', serif; margin-bottom: 16px; }
+
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pros-cons-col h4 { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; margin-bottom: 8px; text-transform: uppercase; text-align: center; }
+  .pros-cons-col.pros h4 { color: var(--green); }
+  .pros-cons-col.cons h4 { color: var(--red); }
+  .pros-cons-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .pros-cons-col ul li { font-size: 14px; color: var(--text); line-height: 1.4; text-align: center; }
+  .pros-cons-col.pros ul li::before { content: none; }
+  .pros-cons-col.cons ul li::before { content: none; }
+
+  /* ── GAME PLAN ── */
+  .gameplan-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .gameplan-phase { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px; }
+  .gameplan-phase h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .gameplan-phase p { font-size: 13px; color: var(--text); line-height: 1.5; font-style: italic; }
+  .extras-box { background: rgba(201,168,76,0.04); border: 1px solid var(--border-gold); border-radius: 3px; padding: 10px 14px; }
+  .extras-box h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 4px; }
+  .extras-box p { font-size: 13px; color: var(--text); font-style: italic; margin-bottom: 4px; }
+
+  /* ── SKILL / ITEM BUILDS ── */
+  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; }
+  .build-card h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+
+  .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
+  .spell-icon { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+  .spell-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .spell-icon.ult { border-color: var(--gold-dark); }
+
+  .timestamp-group { display: flex; flex-direction: column; gap: 2px; margin-left: 4px; }
+  .timestamp { font-size: 10px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+  .timestamp.green { color: var(--green); }
+  .timestamp.yellow { color: var(--yellow); }
+
+  .item-timed { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .item-timed .timestamp { font-size: 9px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; line-height: 1; }
+  .item-timed .timestamp.green { color: var(--green); }
+  .item-timed .timestamp.yellow { color: var(--yellow); }
+
+  .build-note { font-size: 12px; color: var(--text-dim); font-style: italic; line-height: 1.4; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
+
+  .build-body { display: flex; gap: 8px; align-items: flex-start; }
+  .build-spells { display: flex; flex-direction: column; gap: 0; flex-shrink: 0; }
+
+  .talent-tree { display: grid; grid-template-rows: repeat(4, 1fr); gap: 4px; margin-top: 8px; }
+  .talent-row { display: flex; align-items: stretch; gap: 4px; }
+  .talent-box { flex: 1 1 0; min-width: 0; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.3px; color: var(--text-dim); background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 3px 6px; line-height: 1.3; text-align: center; display: flex; align-items: center; justify-content: center; }
+  .talent-box.chosen { color: var(--gold); border-color: var(--gold-dark); background: rgba(201,168,76,0.08); box-shadow: 0 0 6px rgba(201,168,76,0.15); }
+  .talent-lvl { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
+
+  /* Item builds */
+  .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
+  .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
+  .item-phase-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
+  .item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--green); font-family: 'Cinzel', serif; font-weight: 600; text-align: center; line-height: 1.1; }
+  .item-note-inline { font-size: 11px; color: var(--text-dim); font-style: italic; margin: 6px 0 0; }
+
+  .situational-items { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .situational-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  .sit-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
+  .sit-item-icon { width: 30px; height: 30px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .sit-item-note { font-size: 12px; color: var(--text-dim); font-style: italic; line-height: 1.4; padding-top: 4px; }
+
+  /* ── TIPS ── */
+  .tips-list { display: flex; flex-direction: column; gap: 8px; }
+  .tip { font-size: 14px; line-height: 1.5; padding-left: 18px; position: relative; }
+  .tip.basic { color: var(--green); }
+  .tip.advanced { color: var(--yellow); }
+  .tip::before { position: absolute; left: 0; font-size: 10px; top: 3px; }
+  .tip.basic::before { content: '▸'; color: var(--green); }
+  .tip.advanced::before { content: '▸▸'; color: var(--yellow); font-size: 8px; }
+  .tips-legend { display: flex; gap: 16px; margin-bottom: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── SYNERGIES ── */
+  .syn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .syn-col h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; text-align: center; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .syn-col.allies h4 { color: var(--green); }
+  .syn-col.counters h4 { color: var(--blue); }
+  .syn-col.countered h4 { color: var(--red); }
+  .hero-thumbs { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; justify-content: center; }
+  .hero-thumb { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 90px; }
+  .hero-thumb-icon { width: 90px; height: 50px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; }
+  .hero-thumb-name { font-size: 10px; color: var(--text); font-family: 'Cinzel', serif; letter-spacing: 0.5px; text-align: center; line-height: 1.3; }
+  .syn-note { font-size: 11px; color: var(--text-dim); font-style: italic; text-align: center; line-height: 1.4; }
+
+  /* ── LINKS ── */
+  a.item-link, a.hero-link { text-decoration: none; color: inherit; }
+  a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
+  a.item-link { display: contents; }
+  a.item-link .item-icon, a.item-link .sit-item-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .item-icon, a.item-link:hover .sit-item-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link { display: inline-block; }
+  a.hero-link .hero-thumb-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .hero-thumb-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link:hover .hero-thumb-name { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html" class="active">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <li><a href="../concepts.html">Concepts</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <a href="../heroes.html" class="back-link">All Heroes</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left"></div>
+
+    <div class="hero-center">
+      <div class="hero-avatar">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sniper.png" alt="Sniper" onerror="this.parentElement.innerHTML='🎯'">
+      </div>
+      <div class="hero-name">Sniper</div>
+      <div class="hero-attr">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt="Agility" style="width:16px;height:16px;">
+        Agility
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="version-badge">v 7.41b</div>
+    </div>
+  </div>
+
+  <!-- POSITIONS & ROLES -->
+  <div class="section">
+    <div class="section-title">Roles &amp; Overview</div>
+    <div class="positions-row">
+      <div class="pos-circle active">1</div>
+      <div class="pos-circle active">2</div>
+      <div class="pos-circle">3</div>
+      <div class="pos-circle">4</div>
+      <div class="pos-circle">5</div>
+    </div>
+    <div class="roles-text">Carry · Mid · Nuker · Disabler</div>
+    <div class="pros-cons">
+      <div class="pros-cons-col pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Longest Range Carry</li>
+          <li>Deals both Physical &amp; Magical Damage</li>
+          <li>Forces the enemy team out of position</li>
+          <li>Often underestimated survivability tools</li>
+        </ul>
+      </div>
+      <div class="pros-cons-col cons">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>Dies easily if reached by enemy heroes</li>
+          <li>Good Positioning is Key</li>
+          <li>Mana Hungry</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME PLAN -->
+  <div class="section">
+    <div class="section-title">Game Plan</div>
+    <div class="gameplan-grid">
+      <div class="gameplan-phase">
+        <h4>Early Game</h4>
+        <p>You're a slow lane dominator. Regardless if you're carry or mid, your primary job is to either flat-out kill the enemy hero/es early on, or slowly but surely bully them out of lane.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Mid Game</h4>
+        <p>In this phase of the game the most comfortable thing for you is to farm efficiently &amp; show up to defend objectives. Regardless — your auto attacks are not the only thing with long range. Shrapnel &amp; Assassinate make you a constant threat at surprising distances — even when enemies don't expect you to be able to connect to fights in time.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Late Game</h4>
+        <p>When you're on the defense, you're one of the best base defenders in the game. When you're on the offense, you rely on your team to be your shield preventing enemy heroes from closing the distance and ruining your day. Something amazing that you bring to the table is the fact that you can easily siege high ground from very, very far away. This in turn absolutely forces the enemy team into abandoning their high ground advantage and funneling themselves into your formation, which creates a much bigger potential for error on their side.</p>
+      </div>
+    </div>
+    <div class="extras-box">
+      <h4>Extras</h4>
+      <p>Your Shrapnel &amp; Assassinate often times allow you to hugely contribute to fights that you can't even show up for on time. Keep in mind that as a core, snatching a kill with Assassinate is not only expected, but also mechanically beneficial because it will instantly refresh the spell, allowing you to recast it immediately if necessary. Just don't wait for someone to be at 1 HP — actually contribute to the fight. The spell has low cooldown &amp; manageable mana cost. So at any point in the game you can test out how much dmg you would deal to a creep &amp; then try to land it on heroes who have approximately the same amount themselves.</p>
+    </div>
+  </div>
+
+  <!-- SKILL BUILDS -->
+  <div class="section">
+    <div class="section-title">Skill Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <!-- SKILL BUILD 1 -->
+      <div class="build-card">
+        <h4>Skill Build 1 — All-In</h4>
+        <div class="build-body">
+          <div class="build-spells">
+            <!-- Row 1: 1,2,1,3,1,4 = S,H,S,TA,S,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
+            </div>
+            <!-- Row 2: 1,2,2,2,3,4 = S,H,H,H,TA,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+              <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
+            </div>
+            <!-- Row 3: 3,3,+,+,+,4 = TA,TA,+,+,+,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+            </div>
+          </div>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-row">
+            <div class="talent-box chosen">+50 Max Headshot Knockback Distance</div>
+            <div class="talent-lvl">25</div>
+            <div class="talent-box">-30s Shrapnel Charge Restore Time</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">+30% Shrapnel Damage</div>
+            <div class="talent-lvl">20</div>
+            <div class="talent-box chosen">+2s Take Aim Duration</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">+150 Assassinate Damage</div>
+            <div class="talent-lvl">15</div>
+            <div class="talent-box chosen">+45 Attack Speed During Take Aim</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+30 Headshot Damage</div>
+            <div class="talent-lvl">10</div>
+            <div class="talent-box">+50 Take Aim Passive Attack Range</div>
+          </div>
+        </div>
+        <div class="build-note">Maximum kill threat. Great vs midlaners who need to commit in close range in order to secure last hits, or offlaners when your support has high kill threat potential.</div>
+      </div>
+
+      <!-- SKILL BUILD 2 -->
+      <div class="build-card">
+        <h4>Skill Build 2 — Slow Domination</h4>
+        <div class="build-body">
+          <div class="build-spells">
+            <!-- Row 1: 2,3,1,1,1,4 = H,TA,S,S,S,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+              <div class="timestamp-group"><span class="timestamp green">10:00</span><span class="timestamp yellow">9:00</span></div>
+            </div>
+            <!-- Row 2: 1,2,2,2,3,4 = S,H,H,H,TA,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_shrapnel.png" alt="Shrapnel"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_headshot.png" alt="Headshot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+              <div class="timestamp-group"><span class="timestamp green">22:00</span><span class="timestamp yellow">20:00</span></div>
+            </div>
+            <!-- Row 3: levels 13-18: TA,TA,+,+,+,A -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_take_aim.png" alt="Take Aim"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png" alt="Assassinate"></div>
+            </div>
+          </div>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-row">
+            <div class="talent-box chosen">+50 Max Headshot Knockback Distance</div>
+            <div class="talent-lvl">25</div>
+            <div class="talent-box">-30s Shrapnel Charge Restore Time</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">+30% Shrapnel Damage</div>
+            <div class="talent-lvl">20</div>
+            <div class="talent-box chosen">+2s Take Aim Duration</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">+150 Assassinate Damage</div>
+            <div class="talent-lvl">15</div>
+            <div class="talent-box chosen">+45 Attack Speed During Take Aim</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+30 Headshot Damage</div>
+            <div class="talent-lvl">10</div>
+            <div class="talent-box">+50 Take Aim Passive Attack Range</div>
+          </div>
+        </div>
+        <div class="build-note">If spamming Shrapnel won't bring you the desired results and will instead just leave you at a weaker state once your mana is completely depleted — even with some extra consumables — then this build is an extremely low mana cost constant harassment, which will whittle down your opponents slowly but surely, until you're ready to go for the throat!</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ITEM BUILDS -->
+  <div class="section">
+    <div class="section-title">Item Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <!-- ITEM BUILD 1 -->
+      <div class="build-card">
+        <h4>Item Build 1 — Standard</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <a href="../items/tango.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/slippers.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png" alt="Slippers" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/slippers.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png" alt="Slippers" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/circlet.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+          <div class="item-note-inline">When you aim for 2x Wraith Bands.</div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/power_treads.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <div class="item-timed"><span class="timestamp green">18:00</span><a href="../items/specialists_array.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/specialists_array.png" alt="Specialist's Array" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">15:00</span></div>
+            <div class="item-timed"><span class="timestamp green">30:00</span><a href="../items/hydras_breath.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hydras_breath.png" alt="Hydra's Breath" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">26:00</span></div>
+            <a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/butterfly.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/butterfly.png" alt="Butterfly" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/black_king_bar.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/greater_crit.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/greater_crit.png" alt="Daedalus" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/satanic.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+        </div>
+        <div class="build-note">Incredible DPS, surprising survivability.</div>
+      </div>
+
+      <!-- ITEM BUILD 2 -->
+      <div class="build-card">
+        <h4>Item Build 2 — Niche</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <a href="../items/tango.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/faerie_fire.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png" alt="Faerie Fire" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/slippers.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/slippers.png" alt="Slippers" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/circlet.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+          <div class="item-note-inline">When facing ability spammers &amp; you want to switch one Wraith Band for a Magic Wand.</div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <a href="../items/magic_wand.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/wraith_band.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/wraith_band.png" alt="Wraith Band" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/power_treads.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <div class="item-timed"><span class="timestamp green">16:00</span><a href="../items/mask_of_madness.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png" alt="Mask of Madness" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">13:00</span></div>
+            <div class="item-timed"><span class="timestamp green">27:00</span><a href="../items/mjollnir.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a><span class="timestamp yellow">23:00</span></div>
+            <a href="../items/diffusal_blade.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png" alt="Diffusal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/aghanims_shard.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/dragon_lance.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png" alt="Dragon Lance" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/black_king_bar.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/hydras_breath.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hydras_breath.png" alt="Hydra's Breath" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/satanic.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/disperser.html" class="item-link"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png" alt="Disperser" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+        </div>
+        <div class="build-note">Sometimes you're facing extremely high armor heroes (ex. Terrorblade) against whom you prefer to inflict more magical damage. And even though this build offers less DPS on paper, it will prove stronger against such targets. Another great use is to counter heroes that don't do well against Mana Burn — this makes you one of the best counters to Medusa, since she is a menace in medium range, but in reality she can never reach you under normal circumstances. And you just melt her away.</div>
+      </div>
+
+    </div>
+
+    <!-- SITUATIONAL ITEMS -->
+    <div class="situational-items">
+      <div class="situational-label">Situational Items</div>
+      <div class="sit-item">
+        <a href="../items/hurricane_pike.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hurricane_pike.png" alt="Hurricane Pike" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Instead of Hydra's Breath — for when you need a constant answer to an all-in close range threat to your life.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/monkey_king_bar.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/monkey_king_bar.png" alt="Monkey King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Counters Evasion.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/skadi.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Counters Health Restoration.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/silver_edge.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Breaks Passives.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/swift_blink.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Better positioning &amp; mobility.</div>
+      </div>
+      <div class="sit-item">
+        <a href="../items/basher.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Basher" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <a href="../items/abyssal_blade.html" class="item-link"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/abyssal_blade.png" alt="Abyssal Blade" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Even though the item is less effective on ranged heroes, your extreme attack range &amp; high attack speed does allow you to be absurdly annoying. Especially good vs Debuff Immune enemies, who will still get constantly bashed while hoping that they'll have free reign over the battlefield.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS & TRICKS -->
+  <div class="section">
+    <div class="section-title">Tips &amp; Tricks</div>
+    <div class="tips-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>
+    </div>
+    <div class="tips-list">
+      <div class="tip basic">Your Innate Ability: Keen Scope increases your damage the further away you are from your targets. This means that it's optimal to attack from as far away as possible in most cases. But also be mindful of these two things — sometimes enemies run away quickly, thus being closer initially would allow you to dish out more damage. And sometimes being very far away from enemies also means that you're far away from allies who might be able to otherwise save you from gap closers.</div>
+      <div class="tip basic">Shrapnel slows &amp; reveals an area. It can be used in a variety of ways — from checking if enemies are in the fog of war, stealing neutral farm from an enemy while also damaging him, killing invisible heroes, to completely dismantling the enemy team's initiation by disabling enemy Blink Daggers from right before a fight from a long distance.</div>
+      <div class="tip basic">Assassinate not only refreshes instantly upon killing an enemy hero, but it also applies a single instance of your auto attack. This means that the spell effectively also deals more damage due to Keen Scope from longer distances. And you can also activate Take Aim while the projectile is mid-flight, in order to guarantee a Headshot proc upon landing. Naturally all of your on-hit items also have a chance to proc.</div>
+      <div class="tip advanced">An alternative initial item build with an incredibly high kill potential is to start with
+        <span style="display:inline-flex;align-items:center;gap:4px;vertical-align:middle;margin:0 2px;">
+          <a href="../items/power_treads.html" class="item-link"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          <span style="color:var(--text-dim);font-size:12px;">→</span>
+          <a href="../items/mask_of_madness.html" class="item-link"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mask_of_madness.png" alt="Mask of Madness" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          <span style="color:var(--text-dim);font-size:12px;">→</span>
+          <a href="../items/dragon_lance.html" class="item-link"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dragon_lance.png" alt="Dragon Lance" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        </span>
+        &amp; then disassemble the MoM in order to use the Broadsword for Specialist's Array &amp; the Morbid Mask will be used for Satanic later down the line. The trick comes from the fact that an active Take Aim not only gives you bonus Attack Range, but also 100% proc chance on Headshot for a short duration. Having Mask of Madness even for a few minutes means that you can pop Take Aim + MoM and just annihilate people in early fights. Just make sure to cast your Shrapnel/s in advance since MoM will Silence you.</div>
+      <div class="tip advanced">Sniper is one of the simplest heroes in DotA to execute mechanically, but this also makes him one where fine-tuning is incredibly important. You can approach your item builds with great versatility &amp; adaptability — and this means that you in a way have a knob that you can turn in order to choose a point between offense &amp; defense. You always want maximum possible offense without dying to completely avoidable causes which you could have addressed with items that are natural purchases for you. Your main options are Shard, BKB, Satanic (and sometimes Disperser). Shard provides repositioning (you can force yourself and/or enemy hero/es through cliffs, or even get them stuck in terrain) and AoE Disarm. BKB &amp; Satanic are self-explanatory. It is quite possible to make yourself nigh unkillable, but if this comes at the cost of doing no real damage, then it's not worth it.</div>
+      <div class="tip advanced">For the reasons listed above, Sniper is great when there's virtually no threat on the enemy team that could ever reach it. And if there is — you need a 2nd scaling carry-like hero on your team. Because if you invest into absolutely necessary defensive tools, your team will simply lack the overall damage to close the game properly.</div>
+    </div>
+  </div>
+
+  <!-- ALLIES & COUNTERS -->
+  <div class="section">
+    <div class="section-title">Allies &amp; Counters</div>
+    <div class="syn-grid">
+
+      <div class="syn-col allies">
+        <h4>Allies</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/tidehunter.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tidehunter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tidehunter</div></div></a>
+          <a href="../heroes/mars.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Mars</div></div></a>
+          <a href="../heroes/earthshaker.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earthshaker.png" alt="Earthshaker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Earthshaker</div></div></a>
+          <a href="../heroes/vengefulspirit.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/vengefulspirit.png" alt="Vengeful Spirit" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Vengeful Spirit</div></div></a>
+          <a href="../heroes/life_stealer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png" alt="Lifestealer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lifestealer</div></div></a>
+          <a href="../heroes/sven.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Sven</div></div></a>
+        </div>
+        <div class="syn-note">Hard CC &amp; saving heroes who keep enemies in place &amp; away from Sniper. Second scaling carry-like hero who fights in close range.</div>
+      </div>
+
+      <div class="syn-col counters">
+        <h4>Counters</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/medusa.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png" alt="Medusa" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Medusa</div></div></a>
+          <a href="../heroes/gyrocopter.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/gyrocopter.png" alt="Gyrocopter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Gyrocopter</div></div></a>
+          <a href="../heroes/puck.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/puck.png" alt="Puck" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Puck</div></div></a>
+          <a href="../heroes/nevermore.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png" alt="Shadow Fiend" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Shadow Fiend</div></div></a>
+          <a href="../heroes/witch_doctor.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png" alt="Witch Doctor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Witch Doctor</div></div></a>
+          <a href="../heroes/disruptor.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/disruptor.png" alt="Disruptor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Disruptor</div></div></a>
+        </div>
+        <div class="syn-note">Immobile heroes who can't reach him.</div>
+      </div>
+
+      <div class="syn-col countered">
+        <h4>Countered By</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/legion_commander.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion Commander" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Legion Commander</div></div></a>
+          <a href="../heroes/tidehunter.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tidehunter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tidehunter</div></div></a>
+          <a href="../heroes/slark.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" alt="Slark" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slark</div></div></a>
+          <a href="../heroes/life_stealer.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/life_stealer.png" alt="Lifestealer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lifestealer</div></div></a>
+          <a href="../heroes/storm_spirit.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm Spirit" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Storm Spirit</div></div></a>
+          <a href="../heroes/void_spirit.html" class="hero-link"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/void_spirit.png" alt="Void Spirit" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Void Spirit</div></div></a>
+        </div>
+        <div class="syn-note">Gap Closers.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="../heroes.html" class="back-link-bottom">All Heroes</a>
+
+  <div style="text-align:center; padding: 0 0 24px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); font-style: italic;">
+    Want help applying this to your games? <a href="../coaching.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark);">Book a session.</a>
+  </div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <a href="../concepts.html">Concepts</a>
+    <a href="../guides.html">Guides</a>
+    <a href="../coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+</div>
+</body>
+</html>

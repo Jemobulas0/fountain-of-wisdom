@@ -14,31 +14,43 @@
         "ability": "Storm Hammer",
         "ability_icon": "sven_storm_bolt",
         "tag": "upgrade",
-        "desc": "Sven travels with the Storm Hammer, becoming invulnerable during the dash. Applies a basic dispel on all enemies hit. Increases cast range. Alt-Cast deals additional 180 damage and increases projectile speed."
+        "desc": "Increases cast range and applies a basic dispel on the target. Affects invulnerable units. If alt-cast, it deals an additional 180 damage and Sven travels with the Storm Hammer."
       },
       "huskar": {
         "ability": "Life Break",
         "ability_icon": "huskar_life_break",
         "tag": "upgrade",
-        "desc": "Life Break now taunts the target upon cast, forcing them to attack Huskar. Increases cast range."
+        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTaunt Duration: 3\nCast Range Bonus: 250"
       },
       "juggernaut": {
         "ability": "Swiftslash",
         "ability_icon": "juggernaut_swift_slash",
         "tag": "new ability",
-        "desc": "Grants Juggernaut the Swiftslash ability \u2014 a quick 1-second Omnislash on a 20-second cooldown. Uses Omnislash's values. Juggernaut is invulnerable for the duration."
+        "desc": "Performs a short Omnislash for 1 seconds.\n\nDuration: 1"
       },
       "lifestealer": {
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Increases cast range and reduces cooldown. Infest may target enemy heroes for a short duration, disarming them and attacking them from the inside while increasing Lifestealer's regeneration rate."
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 5\nAttack Rate: 1"
       },
       "omniknight": {
         "ability": "Guardian Angel",
         "ability_icon": "omniknight_guardian_angel",
         "tag": "upgrade",
-        "desc": "Guardian Angel now affects buildings and has a global effect on all allied heroes."
+        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
+      },
+      "antimage": {
+        "ability": "Mana Break / Blink",
+        "ability_icon": "antimage_mana_break",
+        "tag": "upgrade",
+        "desc": "Increases Max Mana Burned per Hit.\nMax Mana Burned per Hit: 3.3%/4.2%/5.1%/6%\n\nAfter casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\nDebuff Duration: 6"
+      },
+      "sniper": {
+        "ability": "Assassinate",
+        "ability_icon": "sniper_assassinate",
+        "tag": "upgrade",
+        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nStun Duration: 0.8/1/1.2\nAim Duration: 0.5"
       }
     }
   },
@@ -57,31 +69,43 @@
         "ability": "Warcry",
         "ability_icon": "sven_warcry",
         "tag": "upgrade",
-        "desc": "Warcry becomes undispellable and passively grants armor and movement speed to all allies near Sven. Additionally grants a physical damage barrier to all affected allied heroes upon cast. Increases effect radius and bonus movement speed."
+        "desc": "Increases radius and bonus movement speed. Warcry is now undispellable and provides a 300 physical damage barrier.\n\nBonus Speed: 9%/12%/15%/18%\nRadius: 900\nPhysical Barrier Amount: 300"
       },
       "huskar": {
-        "ability": "Inner Fire",
-        "ability_icon": "huskar_inner_fire",
+        "ability": "Berserker's Blood",
+        "ability_icon": "huskar_berserkers_blood",
         "tag": "upgrade",
-        "desc": "Lowers Inner Fire cooldown and causes it to apply a movement speed slow and heal Huskar for a percentage of the damage dealt to enemies."
+        "desc": "Huskar can activate Berserker's Blood for a health cost to cauterize himself. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.\n\nCurrent HP Cost: 30%\nCooldown: 20\nCauterize Delay: 3\nMax HP Heal per Debuff: 3%"
       },
       "juggernaut": {
-        "ability": "Blade Fury",
-        "ability_icon": "juggernaut_blade_fury",
+        "ability": "Healing Ward",
+        "ability_icon": "juggernaut_healing_ward",
         "tag": "upgrade",
-        "desc": "Increases movement speed during Blade Fury and attacks random nearby enemy units with reduced damage."
+        "desc": "Increases ward healing and health.\n\nMax Health per Second: 3.5%/4.5%/5.5%/6.5%\nHits to Destroy: 2"
       },
       "omniknight": {
-        "ability": "Hammer of Purity",
-        "ability_icon": "omniknight_hammer_of_purity",
+        "ability": "Purification",
+        "ability_icon": "omniknight_purification",
         "tag": "upgrade",
-        "desc": "Omniknight is healed for 30% of the damage dealt by Hammer of Purity. Every 6 seconds, his next attack will fire a Hammer of Purity at the target."
+        "desc": "After a 3s delay, the target is Purified again with 65% effectiveness."
       },
       "sniper": {
         "ability": "Concussive Grenade",
         "ability_icon": "sniper_concussive_grenade",
         "tag": "new ability",
-        "desc": "Grants Sniper the Concussive Grenade ability. Launches a grenade at the target area, knocking enemies back 475 units, dealing 200 damage, slowing them by 50% and disarming them for 3s. Also knocks Sniper back from the target area."
+        "desc": "Launches a grenade at the target area, dealing damage to enemies and knocking them and Sniper back. Enemies affected are disarmed and have their movement slowed after the knockback.\n\nDamage: 200\nRadius: 375\nMove Slow: 50%\nSlow Duration: 3\nKnockback Distance: 475"
+      },
+      "antimage": {
+        "ability": "Counterspell",
+        "ability_icon": "antimage_counterspell",
+        "tag": "upgrade",
+        "desc": "Creates a blinked fragment of Anti-Mage next to the enemy caster upon reflecting their unit-targeted spell while active."
+      },
+      "lifestealer": {
+        "ability": "Infest",
+        "ability_icon": "life_stealer_infest",
+        "tag": "upgrade",
+        "desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health.\n\nRemaining Health as Total Damage: 30%\nDamage over Time Duration: 3"
       }
     }
   },
@@ -100,7 +124,7 @@
         "ability": "Swiftslash",
         "ability_icon": "juggernaut_swift_slash",
         "tag": "new ability",
-        "desc": "Grants Juggernaut the Swiftslash ability \u2014 a quick 1-second Omnislash on a 20-second cooldown. Uses Omnislash's values. Juggernaut is invulnerable for the duration."
+        "desc": "Performs a short Omnislash for 1 seconds.\n\nDuration: 1"
       }
     }
   }

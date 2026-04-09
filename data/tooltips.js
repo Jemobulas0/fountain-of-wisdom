@@ -55,6 +55,24 @@
     const item = ITEMS[itemKey];
     if (!item) return null;
 
+    // Aghs-only items: show ONLY the hero-specific upgrade
+    if (item.aghs_only) {
+      if (!item.aghs || !heroKey || !item.aghs[heroKey]) return null;
+      var aghs = item.aghs[heroKey];
+      var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
+      var html = '<div class="fow-tt-body">';
+      html += '<div class="fow-tt-aghs" style="margin-top:0;">';
+      html += '<div class="fow-tt-aghs-header">';
+      html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
+      html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
+      html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
+      html += '</div>';
+      html += '<div class="fow-tt-aghs-desc">' + aghs.desc.replace(/\n/g, '<br>') + '</div>';
+      html += '</div>';
+      html += '</div>';
+      return html;
+    }
+
     let html = '';
 
     // Header

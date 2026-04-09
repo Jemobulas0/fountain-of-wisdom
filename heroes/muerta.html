@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muerta — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+    --muerta-purple: #1e0e36;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(60,20,90,0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .header-left { display: flex; flex-direction: column; gap: 8px; }
+
+  .hero-center { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+  .hero-avatar {
+    width: 180px;
+    height: 100px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1e0e36, #0a0614);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(60,20,90,0.5), inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+  .hero-name { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; text-align: center; }
+
+  .hero-attr { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--blue); letter-spacing: 1px; text-transform: uppercase; font-family: 'Cinzel', serif; }
+
+  .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; align-self: flex-start; }
+
+  .version-badge { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold); letter-spacing: 1px; border: 1px solid var(--gold-dark); padding: 3px 8px; border-radius: 2px; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--bg-card); border: 1px solid var(--border); border-top: none; padding: 20px 24px; }
+  .section + .section { border-top: 1px solid var(--border); margin-top: -1px; }
+  .section:last-child { border-radius: 0 0 4px 4px; border-bottom: 2px solid var(--gold-dark); }
+
+  .section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-gold); position: relative; }
+  .section-title::before, .section-title::after { content: '◆'; font-size: 7px; color: var(--gold-dark); margin: 0 10px; vertical-align: middle; }
+
+  /* ── POSITIONS ── */
+  .positions-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; }
+  .pos-circle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 600; color: var(--text-dim); background: var(--bg); }
+  .pos-circle.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); box-shadow: 0 0 12px rgba(201,168,76,0.2); }
+  .roles-text { text-align: center; font-size: 12px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; font-family: 'Cinzel', serif; margin-bottom: 16px; }
+
+  .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pros-cons-col h4 { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; margin-bottom: 8px; text-transform: uppercase; text-align: center; }
+  .pros-cons-col.pros h4 { color: var(--green); }
+  .pros-cons-col.cons h4 { color: var(--red); }
+  .pros-cons-col ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .pros-cons-col ul li { font-size: 14px; color: var(--text); line-height: 1.4; text-align: center; }
+  .pros-cons-col.pros ul li::before { content: none; }
+  .pros-cons-col.cons ul li::before { content: none; }
+
+  /* ── GAME PLAN ── */
+  .gameplan-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .gameplan-phase { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px; }
+  .gameplan-phase h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .gameplan-phase p { font-size: 13px; color: var(--text); line-height: 1.5; font-style: italic; }
+  .extras-box { background: rgba(201,168,76,0.04); border: 1px solid var(--border-gold); border-radius: 3px; padding: 10px 14px; }
+  .extras-box h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 4px; }
+  .extras-box p { font-size: 13px; color: var(--text); font-style: italic; margin-bottom: 4px; }
+
+  /* ── SKILL / ITEM BUILDS ── */
+  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; }
+  .build-card h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+
+  .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
+  .spell-icon { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+  .spell-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .spell-icon.ult { border-color: var(--gold-dark); }
+
+  .timestamp-group { display: flex; flex-direction: column; gap: 2px; margin-left: 4px; }
+  .timestamp { font-size: 10px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+  .timestamp.green { color: var(--green); }
+  .timestamp.yellow { color: var(--yellow); }
+
+  .item-timed { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .item-timed .timestamp { font-size: 9px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; line-height: 1; }
+  .item-timed .timestamp.green { color: var(--green); }
+  .item-timed .timestamp.yellow { color: var(--yellow); }
+
+  .build-note { font-size: 12px; color: var(--text-dim); font-style: italic; line-height: 1.4; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
+
+  .build-body { display: flex; gap: 8px; align-items: flex-start; }
+  .build-spells { display: flex; flex-direction: column; gap: 0; flex-shrink: 0; }
+
+  .talent-tree { display: grid; grid-template-rows: repeat(4, 1fr); gap: 4px; margin-top: 8px; }
+  .talent-row { display: flex; align-items: stretch; gap: 4px; }
+  .talent-box { flex: 1 1 0; min-width: 0; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 0.3px; color: var(--text-dim); background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 3px 6px; line-height: 1.3; text-align: center; display: flex; align-items: center; justify-content: center; }
+  .talent-box.chosen { color: var(--gold); border-color: var(--gold-dark); background: rgba(201,168,76,0.08); box-shadow: 0 0 6px rgba(201,168,76,0.15); }
+  .talent-lvl { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
+
+  /* Item builds */
+  .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
+  .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
+  .item-phase-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
+  .item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--green); font-family: 'Cinzel', serif; font-weight: 600; text-align: center; line-height: 1.1; }
+  .item-note-inline { font-size: 11px; color: var(--text-dim); font-style: italic; margin: 6px 0 0; }
+
+  .situational-items { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .situational-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
+  .sit-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
+  .sit-item-icon { width: 30px; height: 30px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .sit-item-note { font-size: 12px; color: var(--text-dim); font-style: italic; line-height: 1.4; padding-top: 4px; }
+
+  /* ── TIPS ── */
+  .tips-list { display: flex; flex-direction: column; gap: 8px; }
+  .tip { font-size: 14px; line-height: 1.5; padding-left: 18px; position: relative; }
+  .tip.basic { color: var(--green); }
+  .tip.advanced { color: var(--yellow); }
+  .tip::before { position: absolute; left: 0; font-size: 10px; top: 3px; }
+  .tip.basic::before { content: '▸'; color: var(--green); }
+  .tip.advanced::before { content: '▸▸'; color: var(--yellow); font-size: 8px; }
+  .tips-legend { display: flex; gap: 16px; margin-bottom: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+
+  /* ── SYNERGIES ── */
+  .syn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .syn-col h4 { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; text-align: center; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .syn-col.allies h4 { color: var(--green); }
+  .syn-col.counters h4 { color: var(--blue); }
+  .syn-col.countered h4 { color: var(--red); }
+  .hero-thumbs { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; justify-content: center; }
+  .hero-thumb { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 90px; }
+  .hero-thumb-icon { width: 90px; height: 50px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; }
+  .hero-thumb-name { font-size: 10px; color: var(--text); font-family: 'Cinzel', serif; letter-spacing: 0.5px; text-align: center; line-height: 1.3; }
+  .syn-note { font-size: 11px; color: var(--text-dim); font-style: italic; text-align: center; line-height: 1.4; }
+
+  /* ── LINKS ── */
+  a.item-link, a.hero-link { text-decoration: none; color: inherit; }
+  a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
+  a.item-link { display: contents; }
+  a.item-link .item-icon, a.item-link .sit-item-icon, a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .item-icon, a.item-link:hover .sit-item-icon, a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link { display: inline-block; }
+  a.hero-link .hero-thumb-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .hero-thumb-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link:hover .hero-thumb-name { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+</style>
+  <link rel="stylesheet" href="../data/tooltips.css">
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html" class="active">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <li><a href="../concepts.html">Concepts</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <a href="../heroes.html" class="back-link">All Heroes</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left"></div>
+
+    <div class="hero-center">
+      <div class="hero-avatar">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png" alt="Muerta">
+      </div>
+      <div class="hero-name">Muerta</div>
+      <div class="hero-attr">
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" alt="Intelligence" style="width:16px;height:16px;">
+        Intelligence
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="version-badge">v 7.41b</div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-title">Overview</div>
+    <div class="positions-row">
+      <div class="pos-circle active">1</div>
+      <div class="pos-circle">2</div>
+      <div class="pos-circle">3</div>
+      <div class="pos-circle">4</div>
+      <div class="pos-circle">5</div>
+    </div>
+    <div class="roles-text">Carry · Fighter · Nuker</div>
+    <div class="pros-cons">
+      <div class="pros-cons-col pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Insane Damage Output</li>
+          <li>Provides a lot of CC for a carry</li>
+          <li>Can solo Roshan &amp; Tormentor</li>
+          <li>Unique Anti-Ethereal Counter</li>
+          <li>Physical Damage Immunity</li>
+        </ul>
+      </div>
+      <div class="pros-cons-col cons">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>Lack of Mobility</li>
+          <li>Magic Damage Burst</li>
+          <li>Debuff Immunity Piercing CC</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME PLAN -->
+  <div class="section">
+    <div class="section-title">Game Plan</div>
+    <div class="gameplan-grid">
+      <div class="gameplan-phase">
+        <h4>Early Game</h4>
+        <p>You have the ability to delete most offlaners as early as level 2, if your support has a high kill threat potential. Do not overextend though as you're extremely squishy early on. Focus on hitting your first farming item as soon as possible in order to not fall behind the enemy carry too much.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Mid Game</h4>
+        <p>Unlike some other heroes, you can't just chill in the jungle and hope for the best. You're decent at farming, but far from being the best. Utilize your extreme kill threat potential by farming &amp; playing around your team — especially when your ultimate is up. Look for opportunities to delete Roshan with Pierce the Veil &amp; the Tormentor with that + BKB.</p>
+      </div>
+      <div class="gameplan-phase">
+        <h4>Late Game</h4>
+        <p>If you succeed in spending even a couple of seconds of free-firing at the enemy team without being disrupted, you'll most likely win your teamfights. Your itemization is extremely important each game — as is your positioning &amp; timing in fights. Your sustain damage is nice, but what's truly important is to apply your huge burst at the right time &amp; on the right target.</p>
+      </div>
+    </div>
+    <div class="extras-box">
+      <h4>Extras</h4>
+      <p>Your Innate allows you to stack Spell Amplification to extreme numbers. And even though you have a limit, you lose half of your stacks rounded down (currently this is bugged and they're being sadly rounded up). So even though it's in your best interest to not die, do not fall into the psychological trap of playing too passively &amp; losing the game because of this. At the end of the day, your goal is the destruction of the enemy Throne — not to accumulate as many stacks as possible.</p>
+    </div>
+  </div>
+
+  <!-- SKILL BUILDS -->
+  <div class="section">
+    <div class="section-title">Skill Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <!-- SKILL BUILD 1 -->
+      <div class="build-card">
+        <h4>Skill Build 1 — Standard</h4>
+        <div class="build-body">
+          <div class="build-spells">
+            <!-- Levels 1–6: DS TC DS G DS PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+              <div class="timestamp-group"><span class="timestamp green">8:00</span><span class="timestamp yellow">7:00</span></div>
+            </div>
+            <!-- Levels 7–12: DS G G G TC PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+              <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">18:00</span></div>
+            </div>
+            <!-- Levels 13–18: TC TC + + + PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+            </div>
+          </div>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-row">
+            <div class="talent-box">2 Dead Shot Charges</div>
+            <div class="talent-lvl">25</div>
+            <div class="talent-box chosen">+20% Gunslinger Chance</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">The Calling Summons 2 Additional Revenants</div>
+            <div class="talent-lvl">20</div>
+            <div class="talent-box chosen">+2s Pierce the Veil Duration</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+15 Intelligence</div>
+            <div class="talent-lvl">15</div>
+            <div class="talent-box">+3% Max HP Regen Inside The Calling</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+20 Attack Speed</div>
+            <div class="talent-lvl">10</div>
+            <div class="talent-box">+300 Dead Shot Cast Range</div>
+          </div>
+        </div>
+        <div class="build-note">You're able to be aggressive on lane &amp; kill all who oppose you (and your support).</div>
+      </div>
+
+      <!-- SKILL BUILD 2 -->
+      <div class="build-card">
+        <h4>Skill Build 2 — Farming</h4>
+        <div class="build-body">
+          <div class="build-spells">
+            <!-- Levels 1–6: DS TC DS G G PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+              <div class="timestamp-group"><span class="timestamp green">8:00</span><span class="timestamp yellow">7:00</span></div>
+            </div>
+            <!-- Levels 7–12: G G DS DS TC PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+              <div class="timestamp-group"><span class="timestamp green">20:00</span><span class="timestamp yellow">18:00</span></div>
+            </div>
+            <!-- Levels 13–18: TC TC + + + PtV -->
+            <div class="spell-row">
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/attribute_bonus.png" alt="Stats"></div>
+              <div class="spell-icon ult"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil"></div>
+            </div>
+          </div>
+        </div>
+        <div class="talent-tree">
+          <div class="talent-row">
+            <div class="talent-box">2 Dead Shot Charges</div>
+            <div class="talent-lvl">25</div>
+            <div class="talent-box chosen">+20% Gunslinger Chance</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box">The Calling Summons 2 Additional Revenants</div>
+            <div class="talent-lvl">20</div>
+            <div class="talent-box chosen">+2s Pierce the Veil Duration</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+15 Intelligence</div>
+            <div class="talent-lvl">15</div>
+            <div class="talent-box">+3% Max HP Regen Inside The Calling</div>
+          </div>
+          <div class="talent-row">
+            <div class="talent-box chosen">+20 Attack Speed</div>
+            <div class="talent-lvl">10</div>
+            <div class="talent-box">+300 Dead Shot Cast Range</div>
+          </div>
+        </div>
+        <div class="build-note">In extremes where you completely annihilated the enemy offlaners from the first 3 levels, or you yourself got chased out of the lane, this build optimizes for maximum farming potential.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ITEM BUILDS -->
+  <div class="section">
+    <div class="section-title">Item Builds</div>
+    <div class="tips-legend" style="justify-content:center; margin-bottom:14px;">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>
+    </div>
+    <div class="builds-grid">
+
+      <!-- ITEM BUILD 1 -->
+      <div class="build-card">
+        <h4>Item Build 1 — Scaling</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <a href="../items/tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/faerie_fire.html" class="item-link" data-tooltip="item" data-item="faerie_fire"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/faerie_fire.png" alt="Faerie Fire" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/mantle.html" class="item-link" data-tooltip="item" data-item="mantle"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mantle.png" alt="Mantle of Intelligence" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/circlet.html" class="item-link" data-tooltip="item" data-item="circlet"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/circlet.png" alt="Circlet" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link" data-tooltip="item" data-item="branches"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link" data-tooltip="item" data-item="branches"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+          <div class="item-note-inline">Stats.</div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <a href="../items/null_talisman.html" class="item-link" data-tooltip="item" data-item="null_talisman"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/null_talisman.png" alt="Null Talisman" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/power_treads.html" class="item-link" data-tooltip="item" data-item="power_treads"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/mjollnir.html" class="item-link" data-tooltip="item" data-item="mjollnir"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/silver_edge.html" class="item-link" data-tooltip="item" data-item="silver_edge"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/black_king_bar.html" class="item-link" data-tooltip="item" data-item="black_king_bar"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/aghanims_shard.html" class="item-link" data-tooltip="item" data-item="aghanims_shard" data-hero="muerta"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/bloodthorn.html" class="item-link" data-tooltip="item" data-item="bloodthorn"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png" alt="Bloodthorn" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/parasma.html" class="item-link" data-tooltip="item" data-item="devastator"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/devastator.png" alt="Parasma" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/aghanims_blessing.html" class="item-link" data-tooltip="item" data-item="ultimate_scepter_2" data-hero="muerta"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter_2.png" alt="Aghanim's Blessing" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/swift_blink.html" class="item-link" data-tooltip="item" data-item="swift_blink"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/moon_shard.html" class="item-link" data-tooltip="item" data-item="moon_shard"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/moon_shard.png" alt="Moon Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/travel_boots_2.html" class="item-link" data-tooltip="item" data-item="travel_boots_2"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/travel_boots_2.png" alt="Boots of Travel 2" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+        </div>
+        <div class="build-note">Standard scaling build.</div>
+      </div>
+
+      <!-- ITEM BUILD 2 -->
+      <div class="build-card">
+        <h4>Item Build 2 — Assassin</h4>
+        <div class="item-phase">
+          <div class="item-phase-label">Starting Items</div>
+          <div class="item-row">
+            <a href="../items/tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/magic_stick.html" class="item-link" data-tooltip="item" data-item="magic_stick"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png" alt="Magic Stick" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/mantle.html" class="item-link" data-tooltip="item" data-item="mantle"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mantle.png" alt="Mantle of Intelligence" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link" data-tooltip="item" data-item="branches"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link" data-tooltip="item" data-item="branches"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/branches.html" class="item-link" data-tooltip="item" data-item="branches"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Branch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+          <div class="item-note-inline">Wand vs Ability Spammers.</div>
+        </div>
+        <div class="item-phase">
+          <div class="item-phase-label">Core Build</div>
+          <div class="item-row">
+            <a href="../items/power_treads.html" class="item-link" data-tooltip="item" data-item="power_treads"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/power_treads.png" alt="Power Treads" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/magic_wand.html" class="item-link" data-tooltip="item" data-item="magic_wand"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/mjollnir.html" class="item-link" data-tooltip="item" data-item="mjollnir"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/orchid_malevolence.html" class="item-link" data-tooltip="item" data-item="orchid"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orchid.png" alt="Orchid Malevolence" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/blink.html" class="item-link" data-tooltip="item" data-item="blink"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/black_king_bar.html" class="item-link" data-tooltip="item" data-item="black_king_bar"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/aghanims_shard.html" class="item-link" data-tooltip="item" data-item="aghanims_shard" data-hero="muerta"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/bloodthorn.html" class="item-link" data-tooltip="item" data-item="bloodthorn"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png" alt="Bloodthorn" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/parasma.html" class="item-link" data-tooltip="item" data-item="devastator"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/devastator.png" alt="Parasma" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/aghanims_blessing.html" class="item-link" data-tooltip="item" data-item="ultimate_scepter_2" data-hero="muerta"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter_2.png" alt="Aghanim's Blessing" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/swift_blink.html" class="item-link" data-tooltip="item" data-item="swift_blink"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/swift_blink.png" alt="Swift Blink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/moon_shard.html" class="item-link" data-tooltip="item" data-item="moon_shard"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/moon_shard.png" alt="Moon Shard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+            <a href="../items/travel_boots_2.html" class="item-link" data-tooltip="item" data-item="travel_boots_2"><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/travel_boots_2.png" alt="Boots of Travel 2" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          </div>
+        </div>
+        <div class="build-note">If you identify a key enemy hero who's getting out of hand, but also highly susceptible to being bursted down from a full combo from you, this is a great build to shut them down in their tracks, without sacrificing your farming potential in the process.</div>
+      </div>
+
+    </div>
+
+    <!-- SITUATIONAL ITEMS -->
+    <div class="situational-items">
+      <div class="situational-label">Situational Items</div>
+      <div class="sit-item-note" style="margin-bottom:8px;">Consider swapping Silver Edge or Orchid respectively with one of the following items, if it's going to be needed for the game.</div>
+
+      <div class="sit-item">
+        <a href="../items/monkey_king_bar.html" class="item-link" data-tooltip="item" data-item="monkey_king_bar"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/monkey_king_bar.png" alt="Monkey King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Counters Evasion.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/skadi.html" class="item-link" data-tooltip="item" data-item="skadi"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/skadi.png" alt="Eye of Skadi" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Counters Health Restoration.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/refresher.html" class="item-link" data-tooltip="item" data-item="refresher"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/refresher.png" alt="Refresher Orb" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">In prolonged fights where your ultimate is not enough to remove a Physical threat (
+          <a href="../heroes/skeleton_king.html" class="item-link" data-tooltip="hero" data-hero-key="skeleton_king"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png" alt="Wraith King" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>
+          <a href="../heroes/troll_warlord.html" class="item-link" data-tooltip="hero" data-hero-key="troll_warlord"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>
+          <a href="../heroes/ursa.html" class="item-link" data-tooltip="hero" data-hero-key="ursa"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ursa.png" alt="Ursa" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>
+          etc.), having a second ultimate can be all the difference in the world.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/satanic.html" class="item-link" data-tooltip="item" data-item="satanic"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">Since 7.41 Muerta can finally use Satanic for the first time ever. Regardless if you're dealing Physical or Magical Damage — the Lifesteal works fully. So whenever you need sustain — be it too much Magical Damage or Prolonged Fights — indulge in this new option for your hero.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/revenants_brooch.html" class="item-link" data-tooltip="item" data-item="revenants_brooch"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/revenants_brooch.png" alt="Revenant's Brooch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">If you're looking for a cheaper alternative to
+          <a href="../items/satanic.html" class="item-link" data-tooltip="item" data-item="satanic"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          which also boosts your damage on top of it, look no further. Keep in mind that this only provides Spell Lifesteal, so it won't affect your normal Physical attacks, but it will still work with Magical damage from items like
+          <a href="../items/mjollnir.html" class="item-link" data-tooltip="item" data-item="mjollnir"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          at all times.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/bloodstone.html" class="item-link" data-tooltip="item" data-item="bloodstone"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png" alt="Bloodstone" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">A slightly more expensive alternative to
+          <a href="../items/revenants_brooch.html" class="item-link" data-tooltip="item" data-item="revenants_brooch"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/revenants_brooch.png" alt="Revenant's Brooch" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>,
+          which trades the crit procs for higher survivability + Spell Weakness Aura which increases the damage from spells by all enemies around you by 12%. A preferred choice if your team deals a lot of overall magical damage &amp; nobody else has bought or plans to buy the item.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/sphere.html" class="item-link" data-tooltip="item" data-item="sphere"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png" alt="Linken's Sphere" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">In games where only a few but highly deadly spells are a threat to you (
+          <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/doom_bringer_doom.png" alt="Doom" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/beastmaster_primal_roar.png" alt="Primal Roar" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          etc.) &amp;
+          <a href="../items/black_king_bar.html" class="item-link" data-tooltip="item" data-item="black_king_bar"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          isn't a solution, this could be a lifesaver.</div>
+      </div>
+
+      <div class="sit-item">
+        <a href="../items/sheepstick.html" class="item-link" data-tooltip="item" data-item="sheepstick"><div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png" alt="Scythe of Vyse" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        <div class="sit-item-note">You sacrifice a great deal of DPS, but sometimes a
+          <a href="../items/blink.html" class="item-link" data-tooltip="item" data-item="blink"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          →
+          <a href="../items/sheepstick.html" class="item-link" data-tooltip="item" data-item="sheepstick"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png" alt="Scythe of Vyse" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+          is the only thing that works against that single out of control enemy hero.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIPS & TRICKS -->
+  <div class="section">
+    <div class="section-title">Tips &amp; Tricks</div>
+    <div class="tips-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>
+    </div>
+    <div class="tips-list">
+      <div class="tip basic">Your basic combo is to cast
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        (most reliably at a tree) behind your target &amp; aim the vector towards yourself while hitting him. And then follow it up immediately with
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        placed in a way where one of your revenants spawns exactly on top of him, applying instant silence &amp; damage. Bonus points if you do it in a way where due to terrain your victim must remain inside The Calling's area for extra slow &amp; potentially more revenant collisions.</div>
+      <div class="tip basic">Since the majority of your damage is Magical, it's unfortunate that due to items priority you're unable to buy any Kaya related items, but on the other hand allies that Amplify All Damage Received by enemies (Undying's
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/undying_flesh_golem.png" alt="Flesh Golem" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        or Bounty Hunter's
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/bounty_hunter_track.png" alt="Track" style="width:100%;height:100%;object-fit:cover;display:block;"></div>)
+        &amp; especially allies that either boost Spell Damage Taken (Hoodwink's
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/hoodwink_hunters_boomerang.png" alt="Hoodwink Boomerang" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        or Ancient Black Drake's Magic Amplification Aura)
+        or Spell Damage Dealt (Io's
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/wisp_overcharge.png" alt="Overcharge" style="width:100%;height:100%;object-fit:cover;display:block;"></div>)
+        immensely boost your overall damage numbers. This is more of a "good to know" type of info if you're playing solo, since you get what you get as teammates, but important to notice when you do actually get such heroes on your team, so you can make the best use out of them. And if you're playing with at least one friend — the synergies are amazing, especially the Io one.</div>
+      <div class="tip basic">Due to the nature of Multishot mechanics in this game, one would think that
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_gunslinger.png" alt="Gunslinger" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly — it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan
+        very early on with her
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        and also Tormentor with
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        +
+        <a href="../items/black_king_bar.html" class="item-link" data-tooltip="item" data-item="black_king_bar"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>.</div>
+      <div class="tip basic">
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_the_calling.png" alt="The Calling" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        is an amazing ability in teamfights. It does take getting a bit used to placing it though. You want to hit enemies with your revenants as much as possible, but you don't want them to be able to take a single step and walk outside of your spell either. Your best friend is either the terrain or other heroes' spells which create barriers &amp; walls. The simplest example is fighting on a Ramp — in such a case you can usually just place the border of your spell on the Ramp itself and you're good to go. Same goes for the Rosh pit and so on. Chokepoints are your friends. Sometimes though all that you need is the slow itself for fleeing or chasing enemies — then things are much simpler. Cover as much ground in their path as possible &amp; that's it.</div>
+      <div class="tip advanced">Your Shard's ability
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_spectral_slug.png" alt="Spectral Slug" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        is an amazing Anti-Physical Damage Heroes tool as it renders them unable to attack, which also boosts your overall damage by quite a lot. Its effect is naturally around twice as strong during
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_pierce_the_veil.png" alt="Pierce the Veil" style="width:100%;height:100%;object-fit:cover;display:block;"></div>.
+        Also just like you like others amplifying your Magical Damage, with this you do the same for your own teammates having the same needs as well.</div>
+      <div class="tip advanced">Being able to cast a
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        on one enemy hero and aim it at a second one is much harder than one might think, because you have to take into account projectile travel time + how the two heroes are moving in the meantime. This will take a bit of practice so don't be discouraged. Your
+        <a href="../items/ultimate_scepter.html" class="item-link" data-tooltip="item" data-item="ultimate_scepter" data-hero="muerta"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>
+        on the other hand increases your overall teamfight contribution by a ton. Your spell becomes a huge AoE fear ability which can completely disrupt the entire enemy lineup + it's super easy to use.</div>
+      <div class="tip advanced">
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/muerta_dead_shot.png" alt="Dead Shot" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        has a 1000 Cast Range, but in reality it can hit enemy units up to 2650 Range (3400 with her level 10 talent). Most enemy players are getting a false sense of security long before they leave your actual threat range. Use this to your advantage and snipe them down. It takes some practice, but it's much easier than landing
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/mirana_arrow.png" alt="Sacred Arrow" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        or
+        <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pudge_meat_hook.png" alt="Meat Hook" style="width:100%;height:100%;object-fit:cover;display:block;"></div>.
+        The practice will be well worth it.</div>
+      <div class="tip advanced">Similar to other heroes like
+        <a href="../heroes/sven.html" class="hero-link" data-tooltip="hero" data-hero-key="sven"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>
+        &amp;
+        <a href="../heroes/razor.html" class="hero-link" data-tooltip="hero" data-hero-key="razor"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png" alt="Razor" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>,
+        if you're not presented with an already convenient situation to fight with your ultimate whenever you first hit level 6, use it to accelerate your farming speed. It takes game sense &amp; practice to make the right call whether &amp; when to pop the ult, as you don't want a fight to break out just as it expired, nor do you want to kill a small camp with it and then waste half the ult walking up to another camp.</div>
+    </div>
+  </div>
+
+  <!-- ALLIES & COUNTERS -->
+  <div class="section">
+    <div class="section-title">Allies &amp; Counters</div>
+    <div class="syn-grid">
+
+      <div class="syn-col allies">
+        <h4>Allies</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/tidehunter.html" class="hero-link" data-tooltip="hero" data-hero-key="tidehunter"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tidehunter.png" alt="Tidehunter" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Tidehunter</div></div></a>
+          <a href="../heroes/mars.html" class="hero-link" data-tooltip="hero" data-hero-key="mars"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Mars</div></div></a>
+          <a href="../heroes/slardar.html" class="hero-link" data-tooltip="hero" data-hero-key="slardar"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" alt="Slardar" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slardar</div></div></a>
+          <a href="../heroes/ringmaster.html" class="hero-link" data-tooltip="hero" data-hero-key="ringmaster"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png" alt="Ringmaster" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Ringmaster</div></div></a>
+          <a href="../heroes/undying.html" class="hero-link" data-tooltip="hero" data-hero-key="undying"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png" alt="Undying" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Undying</div></div></a>
+          <a href="../heroes/wisp.html" class="hero-link" data-tooltip="hero" data-hero-key="wisp"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/wisp.png" alt="Io" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Io</div></div></a>
+        </div>
+        <div class="syn-note">Heroes that lock down the enemy team for you to fully utilize your burst window unobstructed. Damage Amp Buffers. Save heroes who can protect you from a burst during a Debuff Immunity Piercing CC.</div>
+      </div>
+
+      <div class="syn-col counters">
+        <h4>Counters</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/necrolyte.html" class="hero-link" data-tooltip="hero" data-hero-key="necrolyte"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" alt="Necrophos" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Necrophos</div></div></a>
+          <a href="../heroes/pugna.html" class="hero-link" data-tooltip="hero" data-hero-key="pugna"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png" alt="Pugna" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Pugna</div></div></a>
+          <a href="../heroes/terrorblade.html" class="hero-link" data-tooltip="hero" data-hero-key="terrorblade"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png" alt="Terrorblade" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Terrorblade</div></div></a>
+          <a href="../heroes/elder_titan.html" class="hero-link" data-tooltip="hero" data-hero-key="elder_titan"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/elder_titan.png" alt="Elder Titan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Elder Titan</div></div></a>
+          <a href="../heroes/slardar.html" class="hero-link" data-tooltip="hero" data-hero-key="slardar"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" alt="Slardar" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Slardar</div></div></a>
+          <a href="../heroes/troll_warlord.html" class="hero-link" data-tooltip="hero" data-hero-key="troll_warlord"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Troll Warlord</div></div></a>
+        </div>
+        <div class="syn-note">Enemies relying on Ethereal effects or high Armor to survive. All-in Physical Damage Dealers.</div>
+      </div>
+
+      <div class="syn-col countered">
+        <h4>Countered By</h4>
+        <div class="hero-thumbs">
+          <a href="../heroes/nyx_assassin.html" class="hero-link" data-tooltip="hero" data-hero-key="nyx_assassin"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png" alt="Nyx Assassin" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Nyx</div></div></a>
+          <a href="../heroes/skywrath_mage.html" class="hero-link" data-tooltip="hero" data-hero-key="skywrath_mage"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skywrath_mage.png" alt="Skywrath Mage" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Skywrath</div></div></a>
+          <a href="../heroes/lina.html" class="hero-link" data-tooltip="hero" data-hero-key="lina"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" alt="Lina" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lina</div></div></a>
+          <a href="../heroes/lion.html" class="hero-link" data-tooltip="hero" data-hero-key="lion"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lion.png" alt="Lion" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Lion</div></div></a>
+          <a href="../heroes/spirit_breaker.html" class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Spirit Breaker</div></div></a>
+          <a href="../heroes/legion_commander.html" class="hero-link" data-tooltip="hero" data-hero-key="legion_commander"><div class="hero-thumb"><div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion Commander" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div><div class="hero-thumb-name">Legion Cmdr</div></div></a>
+        </div>
+        <div class="syn-note">Hard lockdown &amp; Debuff Immunity Piercing CC. Absurd amounts of early/mid game burst Magic Damage.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="../heroes.html" class="back-link-bottom">All Heroes</a>
+
+  <div style="text-align:center; padding: 0 0 24px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); font-style: italic;">
+    Want help applying this to your games? <a href="../coaching.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark);">Book a session.</a>
+  </div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <a href="../concepts.html">Concepts</a>
+    <a href="../guides.html">Guides</a>
+    <a href="../coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+</div>
+  <script src="../data/tooltips.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+{
+  "tango": {
+    "name": "Tango",
+    "cost": 90,
+    "stats": "",
+    "desc": "Consumes a tree or ward to gradually restore health over 16 seconds. Consuming an Ironwood Tree doubles the heal amount.",
+    "icon": "tango"
+  },
+  "faerie_fire": {
+    "name": "Faerie Fire",
+    "cost": 70,
+    "stats": "+2 Damage",
+    "desc": "Use: Consume the Faerie Fire to instantly restore 85 Health.",
+    "icon": "faerie_fire"
+  },
+  "mantle": {
+    "name": "Mantle of Intelligence",
+    "cost": 140,
+    "stats": "+3 Intelligence",
+    "desc": "",
+    "icon": "mantle"
+  },
+  "circlet": {
+    "name": "Circlet",
+    "cost": 150,
+    "stats": "+2 All Attributes",
+    "desc": "",
+    "icon": "circlet"
+  },
+  "branches": {
+    "name": "Iron Branch",
+    "cost": 50,
+    "stats": "+1 All Attributes",
+    "desc": "Use: Plant Tree — Targets the ground to plant a happy little tree that lasts 20 seconds.",
+    "icon": "branches"
+  },
+  "null_talisman": {
+    "name": "Null Talisman",
+    "cost": 505,
+    "stats": "+5 Intelligence\n+2 Strength\n+2 Agility",
+    "desc": "After 25 minutes, Null Talisman gains +1.5 Mana Regeneration.",
+    "icon": "null_talisman"
+  },
+  "power_treads": {
+    "name": "Power Treads",
+    "cost": 1400,
+    "stats": "+50 Movement Speed\n+25 Attack Speed\n+7 Selected Attribute",
+    "desc": "Active: Switch Attribute — Toggles between Strength, Agility, and Intelligence.",
+    "icon": "power_treads"
+  },
+  "mjollnir": {
+    "name": "Mjollnir",
+    "cost": 5600,
+    "stats": "+70 Attack Speed\n+24 Damage",
+    "desc": "Passive: Chain Lightning — 30% chance on attack to release a bolt of lightning that bounces between 12 targets within 650 range, dealing 180 magical damage each.\n\nActive: Static Charge — Places a charged shield on a target ally for 15 seconds. When attacked, 20% chance to release a bolt of lightning at the attacker dealing 225 magical damage.",
+    "icon": "mjollnir"
+  },
+  "silver_edge": {
+    "name": "Silver Edge",
+    "cost": 5450,
+    "stats": "+60 Attack Speed\n+40 Damage",
+    "desc": "Active: Shadow Walk — Makes you invisible for 14 seconds. Attacking to break the invisibility deals 175 bonus physical damage and Breaks the target for 4 seconds, disabling their passive abilities. Cooldown: 20s.",
+    "icon": "silver_edge"
+  },
+  "black_king_bar": {
+    "name": "Black King Bar",
+    "cost": 4050,
+    "stats": "+24 Damage\n+200 Health",
+    "desc": "Active: Avatar — Grants Debuff Immunity and 100% Magic Damage Resistance. Duration: 9/8/7/6s. Cooldown: 65s.",
+    "icon": "black_king_bar"
+  },
+  "aghanims_shard": {
+    "name": "Aghanim's Shard",
+    "cost": 1400,
+    "stats": "",
+    "desc": "Upgrades an ability, or grants a new ability.",
+    "icon": "aghanims_shard",
+    "aghs": {
+      "muerta": {
+        "ability": "Spectral Slug",
+        "ability_icon": "muerta_spectral_slug",
+        "tag": "new ability",
+        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s — rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
+      }
+    }
+  },
+  "ultimate_scepter": {
+    "name": "Aghanim's Scepter",
+    "cost": 4200,
+    "stats": "+175 Health\n+175 Mana",
+    "desc": "Upgrades an ability, or grants a new ability.",
+    "icon": "ultimate_scepter",
+    "aghs": {
+      "muerta": {
+        "ability": "Dead Shot",
+        "ability_icon": "muerta_dead_shot",
+        "tag": "upgrade",
+        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+      }
+    }
+  },
+  "ultimate_scepter_2": {
+    "name": "Aghanim's Blessing",
+    "cost": 5800,
+    "stats": "",
+    "desc": "Permanently grants the Aghanim's Scepter upgrade to your hero. Does not grant stat bonuses. Does not use an item slot.",
+    "icon": "ultimate_scepter_2",
+    "aghs": {
+      "muerta": {
+        "ability": "Dead Shot",
+        "ability_icon": "muerta_dead_shot",
+        "tag": "upgrade",
+        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+      }
+    }
+  },
+  "bloodthorn": {
+    "name": "Bloodthorn",
+    "cost": 6625,
+    "stats": "+30 Intelligence\n+68 Attack Speed\n+24 Damage",
+    "desc": "Active: Soul Rend — Silences a target for 5 seconds. At the end of the silence, an additional 50% of all damage dealt during the silence is dealt to the target. All attacks on the silenced target have True Strike and 100% Critical Damage. Cooldown: 15s.",
+    "icon": "bloodthorn"
+  },
+  "devastator": {
+    "name": "Parasma",
+    "cost": 5250,
+    "stats": "+28 Intelligence\n+64 Attack Speed",
+    "desc": "Passive: Magical Corruption — Attacks reduce enemy Magic Resistance by 3% per hit. Stacks up to 7 times.\n\nActive: Crackle — Releases an energy bolt to the target that bounces between nearby enemies dealing magical damage based on stacks.",
+    "icon": "devastator"
+  },
+  "swift_blink": {
+    "name": "Swift Blink",
+    "cost": 6800,
+    "stats": "+25 Agility",
+    "desc": "Active: Blink — Teleport to a target point up to 1200 range away. After blinking, gain 40% movement speed and +40 Attack Speed for 6 seconds. Cooldown: 15s.",
+    "icon": "swift_blink"
+  },
+  "moon_shard": {
+    "name": "Moon Shard",
+    "cost": 4000,
+    "stats": "+140 Attack Speed\n+200 Night Vision",
+    "desc": "Can be consumed to permanently gain 60 Attack Speed. Does not stack.",
+    "icon": "moon_shard"
+  },
+  "travel_boots_2": {
+    "name": "Boots of Travel 2",
+    "cost": 4500,
+    "stats": "+110 Movement Speed",
+    "desc": "Active: Teleport — Teleport to an allied unit or hero. Cooldown: 40s.",
+    "icon": "travel_boots_2"
+  },
+  "magic_stick": {
+    "name": "Magic Stick",
+    "cost": 200,
+    "stats": "",
+    "desc": "Active: Energy Charge — Instantly restores 15 Health and Mana per charge stored. Max 10 charges. Gains a charge whenever a visible enemy hero within 1200 range uses an ability.",
+    "icon": "magic_stick"
+  },
+  "magic_wand": {
+    "name": "Magic Wand",
+    "cost": 450,
+    "stats": "+3 All Attributes",
+    "desc": "Active: Energy Charge — Instantly restores 15 Health and Mana per charge stored. Max 20 charges. Gains a charge whenever a visible enemy hero within 1200 range uses an ability.",
+    "icon": "magic_wand"
+  },
+  "orchid": {
+    "name": "Orchid Malevolence",
+    "cost": 3475,
+    "stats": "+20 Intelligence\n+40 Attack Speed\n+3 Mana Regen",
+    "desc": "Active: Soul Burn — Silences a target for 5 seconds. At the end of the silence, an additional 30% of all damage dealt during the silence is dealt to the target. Cooldown: 18s.",
+    "icon": "orchid"
+  },
+  "blink": {
+    "name": "Blink Dagger",
+    "cost": 2250,
+    "stats": "",
+    "desc": "Active: Blink — Teleport to a target point up to 1200 range away. Blink Dagger cannot be used for 3 seconds after taking damage from an enemy hero or Roshan. Cooldown: 15s.",
+    "icon": "blink"
+  },
+  "monkey_king_bar": {
+    "name": "Monkey King Bar",
+    "cost": 4975,
+    "stats": "+40 Damage\n+45 Attack Speed",
+    "desc": "Passive: Pierce — Grants 80% chance to pierce through evasion on attacks. Proc deals 70 bonus magical damage.",
+    "icon": "monkey_king_bar"
+  },
+  "skadi": {
+    "name": "Eye of Skadi",
+    "cost": 5300,
+    "stats": "+22 All Attributes\n+220 Health\n+220 Mana",
+    "desc": "Passive: Cold Attack — Attacks reduce enemy movement speed by 30% and attack speed by 45 for 3 seconds. Reduces health regen and lifesteal by 40%. Ranged: 20% slow, 35 attack speed slow.",
+    "icon": "skadi"
+  },
+  "refresher": {
+    "name": "Refresher Orb",
+    "cost": 5000,
+    "stats": "+12 Health Regen\n+12 Mana Regen",
+    "desc": "Active: Reset Cooldowns — Resets the cooldowns of all your abilities and items. Cooldown: 160s.",
+    "icon": "refresher"
+  },
+  "satanic": {
+    "name": "Satanic",
+    "cost": 5050,
+    "stats": "+45 Damage\n+25 Strength",
+    "desc": "Passive: Lifesteal — 30% Lifesteal.\n\nActive: Unholy Rage — Increases Lifesteal to 175% for 6 seconds. Cooldown: 30s.",
+    "icon": "satanic"
+  },
+  "revenants_brooch": {
+    "name": "Revenant's Brooch",
+    "cost": 5200,
+    "stats": "+50 Intelligence\n+10 Armor",
+    "desc": "Passive: Spell Lifesteal — 8% Spell Lifesteal.\n\nActive: Phantom Province — Your attacks deal magical damage and can hit ethereal units for 6 seconds. 50% chance for critical hit dealing 130% damage. Cooldown: 45s.",
+    "icon": "revenants_brooch"
+  },
+  "bloodstone": {
+    "name": "Bloodstone",
+    "cost": 4600,
+    "stats": "+450 Health\n+400 Mana\n+3.5 Mana Regen",
+    "desc": "Passive: Bloodpact — 8% Spell Lifesteal. Spell Weakness Aura — Enemies in 1200 range take 12% increased spell damage.\n\nActive: Bloodpact — Expend 40% of your current mana and recover that amount as health over 2 seconds. Cooldown: 85s.",
+    "icon": "bloodstone"
+  },
+  "sphere": {
+    "name": "Linken's Sphere",
+    "cost": 4600,
+    "stats": "+16 All Attributes\n+7 Health Regen\n+5 Mana Regen",
+    "desc": "Passive: Spellblock — Blocks most targeted spells once every 12 seconds.\n\nActive: Transfer Spellblock — Temporarily transfers Spellblock to an allied hero for 12 seconds.",
+    "icon": "sphere"
+  },
+  "sheepstick": {
+    "name": "Scythe of Vyse",
+    "cost": 5650,
+    "stats": "+35 Intelligence\n+10 Strength\n+10 Agility\n+9 Mana Regen",
+    "desc": "Active: Hex — Turns a target enemy into a harmless critter for 3.5 seconds. The target is silenced, muted, and slowed with a base movement speed of 140. Cooldown: 20s.",
+    "icon": "sheepstick"
+  }
+}

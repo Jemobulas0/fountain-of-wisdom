@@ -1,0 +1,23 @@
+{
+  "sven": { "name": "Sven", "icon": "sven" },
+  "razor": { "name": "Razor", "icon": "razor" },
+  "tidehunter": { "name": "Tidehunter", "icon": "tidehunter" },
+  "mars": { "name": "Mars", "icon": "mars" },
+  "slardar": { "name": "Slardar", "icon": "slardar" },
+  "ringmaster": { "name": "Ringmaster", "icon": "ringmaster" },
+  "undying": { "name": "Undying", "icon": "undying" },
+  "wisp": { "name": "Io", "icon": "wisp" },
+  "necrolyte": { "name": "Necrophos", "icon": "necrolyte" },
+  "pugna": { "name": "Pugna", "icon": "pugna" },
+  "terrorblade": { "name": "Terrorblade", "icon": "terrorblade" },
+  "elder_titan": { "name": "Elder Titan", "icon": "elder_titan" },
+  "troll_warlord": { "name": "Troll Warlord", "icon": "troll_warlord" },
+  "nyx_assassin": { "name": "Nyx Assassin", "icon": "nyx_assassin" },
+  "skywrath_mage": { "name": "Skywrath Mage", "icon": "skywrath_mage" },
+  "lina": { "name": "Lina", "icon": "lina" },
+  "lion": { "name": "Lion", "icon": "lion" },
+  "spirit_breaker": { "name": "Spirit Breaker", "icon": "spirit_breaker" },
+  "legion_commander": { "name": "Legion Commander", "icon": "legion_commander" },
+  "skeleton_king": { "name": "Wraith King", "icon": "skeleton_king" },
+  "ursa": { "name": "Ursa", "icon": "ursa" }
+}

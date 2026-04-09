@@ -134,7 +134,9 @@
 
   // ── Position tooltip ──
   function positionTooltip(target) {
-    var rect = target.getBoundingClientRect();
+    // Use the visible icon element inside the link, not the <a> itself
+    var posEl = target.querySelector('.item-icon, .inline-icon, .sit-item-icon, .hero-thumb-icon') || target;
+    var rect = posEl.getBoundingClientRect();
     var ttRect = tooltipEl.getBoundingClientRect();
     var pad = 8;
 

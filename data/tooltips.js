@@ -8,7 +8,9 @@
   'use strict';
 
   const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react';
-  const BASE = document.currentScript ? document.currentScript.src.replace(/[^/]*$/, '') : '../data/';
+  // Derive data folder path from this script's own src attribute
+  var scriptEl = document.currentScript;
+  var DATA_PATH = scriptEl ? scriptEl.src.replace(/[^/]*$/, '') : '../data/';
 
   let ITEMS = {};
   let HEROES = {};
@@ -31,10 +33,9 @@
   // ── Load JSON data ──
   async function loadData() {
     try {
-      const basePath = getBasePath();
       const [itemsResp, heroesResp] = await Promise.all([
-        fetch(basePath + 'data/items.json'),
-        fetch(basePath + 'data/heroes.json')
+        fetch(DATA_PATH + 'items.json'),
+        fetch(DATA_PATH + 'heroes.json')
       ]);
       ITEMS = await itemsResp.json();
       HEROES = await heroesResp.json();
@@ -47,21 +48,6 @@
     } catch (e) {
       console.warn('[FoW Tooltips] Could not load tooltip data:', e);
     }
-  }
-
-  // ── Figure out path to site root ──
-  // Looks at the page URL to determine how many ../  we need
-  function getBasePath() {
-    // If there's a <base> tag, use that
-    const base = document.querySelector('base[href]');
-    if (base) return base.href;
-
-    // Otherwise, figure out depth from URL path
-    // Pages are at /heroes/muerta.html, /items/bkb.html, etc.
-    // Data lives at /data/items.json
-    const path = window.location.pathname;
-    const depth = (path.match(/\//g) || []).length - 1;
-    return '../'.repeat(Math.max(depth, 0)) || './';
   }
 
   // ── Build item tooltip HTML ──

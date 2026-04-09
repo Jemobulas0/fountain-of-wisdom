@@ -73,7 +73,7 @@
       return html;
     }
 
-    let html = '';
+    var html = '';
 
     // Header
     html += '<div class="fow-tt-header">';

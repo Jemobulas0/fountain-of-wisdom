@@ -9,6 +9,36 @@
         "ability_icon": "muerta_dead_shot",
         "tag": "upgrade",
         "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+      },
+      "sven": {
+        "ability": "Storm Hammer",
+        "ability_icon": "sven_storm_bolt",
+        "tag": "upgrade",
+        "desc": "Sven travels with the Storm Hammer, becoming invulnerable during the dash. Applies a basic dispel on all enemies hit. Increases cast range. Alt-Cast deals additional 180 damage and increases projectile speed."
+      },
+      "huskar": {
+        "ability": "Life Break",
+        "ability_icon": "huskar_life_break",
+        "tag": "upgrade",
+        "desc": "Life Break now taunts the target upon cast, forcing them to attack Huskar. Increases cast range."
+      },
+      "juggernaut": {
+        "ability": "Swiftslash",
+        "ability_icon": "juggernaut_swift_slash",
+        "tag": "new ability",
+        "desc": "Grants Juggernaut the Swiftslash ability \u2014 a quick 1-second Omnislash on a 20-second cooldown. Uses Omnislash's values. Juggernaut is invulnerable for the duration."
+      },
+      "lifestealer": {
+        "ability": "Infest",
+        "ability_icon": "life_stealer_infest",
+        "tag": "upgrade",
+        "desc": "Increases cast range and reduces cooldown. Infest may target enemy heroes for a short duration, disarming them and attacking them from the inside while increasing Lifestealer's regeneration rate."
+      },
+      "omniknight": {
+        "ability": "Guardian Angel",
+        "ability_icon": "omniknight_guardian_angel",
+        "tag": "upgrade",
+        "desc": "Guardian Angel now affects buildings and has a global effect on all allied heroes."
       }
     }
   },
@@ -21,7 +51,37 @@
         "ability": "Spectral Slug",
         "ability_icon": "muerta_spectral_slug",
         "tag": "new ability",
-        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s — rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
+        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s \u2014 rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
+      },
+      "sven": {
+        "ability": "Warcry",
+        "ability_icon": "sven_warcry",
+        "tag": "upgrade",
+        "desc": "Warcry becomes undispellable and passively grants armor and movement speed to all allies near Sven. Additionally grants a physical damage barrier to all affected allied heroes upon cast. Increases effect radius and bonus movement speed."
+      },
+      "huskar": {
+        "ability": "Inner Fire",
+        "ability_icon": "huskar_inner_fire",
+        "tag": "upgrade",
+        "desc": "Lowers Inner Fire cooldown and causes it to apply a movement speed slow and heal Huskar for a percentage of the damage dealt to enemies."
+      },
+      "juggernaut": {
+        "ability": "Blade Fury",
+        "ability_icon": "juggernaut_blade_fury",
+        "tag": "upgrade",
+        "desc": "Increases movement speed during Blade Fury and attacks random nearby enemy units with reduced damage."
+      },
+      "omniknight": {
+        "ability": "Hammer of Purity",
+        "ability_icon": "omniknight_hammer_of_purity",
+        "tag": "upgrade",
+        "desc": "Omniknight is healed for 30% of the damage dealt by Hammer of Purity. Every 6 seconds, his next attack will fire a Hammer of Purity at the target."
+      },
+      "sniper": {
+        "ability": "Concussive Grenade",
+        "ability_icon": "sniper_concussive_grenade",
+        "tag": "new ability",
+        "desc": "Grants Sniper the Concussive Grenade ability. Launches a grenade at the target area, knocking enemies back 475 units, dealing 200 damage, slowing them by 50% and disarming them for 3s. Also knocks Sniper back from the target area."
       }
     }
   },
@@ -35,6 +95,12 @@
         "ability_icon": "muerta_dead_shot",
         "tag": "upgrade",
         "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+      },
+      "juggernaut": {
+        "ability": "Swiftslash",
+        "ability_icon": "juggernaut_swift_slash",
+        "tag": "new ability",
+        "desc": "Grants Juggernaut the Swiftslash ability \u2014 a quick 1-second Omnislash on a 20-second cooldown. Uses Omnislash's values. Juggernaut is invulnerable for the duration."
       }
     }
   }

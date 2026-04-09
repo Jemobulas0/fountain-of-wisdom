@@ -218,17 +218,19 @@
         found = key && HEROES[key];
       }
 
+      // Apply debug styles to the visible icon element, not the wrapper <a>
+      var visEl = el.querySelector('.item-icon, .inline-icon, .sit-item-icon, .hero-thumb-icon') || el;
+
       if (found) {
-        el.classList.add('fow-debug-ok');
+        visEl.classList.add('fow-debug-ok');
         ok++;
       } else {
-        el.classList.add('fow-debug-missing');
-        // Add "MISSING" label
-        el.style.position = el.style.position || 'relative';
+        visEl.classList.add('fow-debug-missing');
+        visEl.style.position = visEl.style.position || 'relative';
         var label = document.createElement('span');
         label.className = 'fow-debug-label';
         label.textContent = 'MISSING';
-        el.appendChild(label);
+        visEl.appendChild(label);
         missing++;
       }
     });

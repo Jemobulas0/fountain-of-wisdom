@@ -65,7 +65,7 @@
   .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 
   .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
-  .item-card.covered { cursor: pointer; }
+  .item-card.covered { cursor: pointer; text-decoration: none; color: inherit; }
   .item-card.covered:hover { border-color: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
   .item-card.coming-soon { opacity: 0.55; }
   .item-card.hidden { display: none; }
@@ -501,7 +501,7 @@ recentlyAddedItems.slice(0, 4).forEach(item => {
   const a = document.createElement('a');
   a.href = `items/${item.key}.html`;
   a.className = 'recently-card-items';
-  a.innerHTML = `<img src="${itemCDN}${item.key}.png" alt="${item.name}">`;
+  a.innerHTML = `<img src="${getItemURL(item.key)}" alt="${item.name}">`;
   recentItemGrid.appendChild(a);
 });
 const totalItems = 170;

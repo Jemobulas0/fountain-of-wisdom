@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Branch — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(30,60,20,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .item-avatar {
+    width: 88px;
+    height: 64px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1a2a1a, #0d150d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(30,60,20,0.4), inset 0 0 15px rgba(0,0,0,0.5);
+  }
+  .item-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .header-info { flex: 1; }
+  .item-name { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+  .item-meta { display: flex; align-items: center; gap: 16px; }
+  .item-cost { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; color: var(--gold); letter-spacing: 1px; }
+  .item-cost img { width: 16px; height: 16px; }
+  .item-category { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); }
+
+  .header-right { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; align-self: flex-start; }
+  .version-badge { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold); letter-spacing: 1px; border: 1px solid var(--gold-dark); padding: 3px 8px; border-radius: 2px; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--bg-card); border: 1px solid var(--border); border-top: none; padding: 20px 24px; }
+  .section + .section { border-top: 1px solid var(--border); margin-top: -1px; }
+  .section:last-child { border-radius: 0 0 4px 4px; border-bottom: 2px solid var(--gold-dark); }
+
+  .section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-gold); position: relative; }
+  .section-title::before, .section-title::after { content: '◆'; font-size: 7px; color: var(--gold-dark); margin: 0 10px; vertical-align: middle; }
+
+  /* ── ITEM TOOLTIP CARD (mimics in-game) ── */
+  .item-tooltip-card {
+    background: linear-gradient(180deg, #1a1e28 0%, #12161e 100%);
+    border: 1px solid #3a3f4d;
+    border-radius: 4px;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .itc-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px 10px; }
+  .itc-icon { width: 52px; height: 38px; border-radius: 3px; overflow: hidden; flex-shrink: 0; border: 1px solid #3a3f4d; }
+  .itc-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .itc-name { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; }
+  .itc-type { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--blue); text-transform: uppercase; padding: 8px 16px 8px; border-bottom: 1px solid #2a2f3d; }
+  .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; }
+  .itc-active { background: rgba(76,175,125,0.08); border-top: 2px solid var(--green); padding: 10px 16px 12px; }
+  .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .itc-active-label { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
+  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
+  .itc-active-range .range-icon { width: 12px; height: 12px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .itc-active-desc strong { color: var(--text-bright); }
+  .itc-lore { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; }
+
+  /* ── BUILDS INTO ── */
+  .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
+  .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
+  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .build-tree-icon { width: 48px; height: 36px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
+  .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .build-tree-name { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.5px; color: var(--text-dim); text-align: center; }
+  .build-tree-name.current { color: var(--gold); }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dark); margin-bottom: 6px; }
+  a.build-tree-link { text-decoration: none; color: inherit; }
+  a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.build-tree-link:hover .build-tree-name { color: var(--gold); }
+  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 14px; color: var(--text-dim); }
+
+  /* ── COACHING TEXT ── */
+  .coaching-text { font-size: 15px; line-height: 1.7; color: var(--text); font-style: italic; text-align: center; max-width: 700px; margin: 0 auto; }
+
+  /* ── USE CASES ── */
+  .use-cases { display: flex; flex-direction: column; gap: 12px; }
+  .use-case { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 16px; font-size: 14px; line-height: 1.6; color: var(--text); display: flex; gap: 12px; align-items: flex-start; }
+  .use-case-icons { display: flex; flex-direction: column; gap: 4px; align-items: center; flex-shrink: 0; padding-top: 2px; }
+  .use-case-body { flex: 1; }
+
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+  .inline-icon.hero-inline img { object-position: center top; }
+  .inline-icon.ability-inline { width: 24px; height: 24px; }
+
+  /* ── LINKS ── */
+  a.item-link, a.hero-link { text-decoration: none; color: inherit; }
+  a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
+  a.item-link { display: contents; }
+  a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link { display: inline-block; }
+  a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+</style>
+  <link rel="stylesheet" href="../data/tooltips.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html" class="active">Items</a></li>
+    <li><a href="../concepts.html">Concepts</a></li>
+    <li><a href="../guides.html">Guides</a></li>
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <a href="../items.html" class="back-link">All Items</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="item-avatar">
+      <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Iron Branch">
+    </div>
+    <div class="header-info">
+      <div class="item-name">Iron Branch</div>
+      <div class="item-meta">
+        <div class="item-cost">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/gold.png" alt="Gold">
+          55
+        </div>
+        <div class="item-category">Attributes</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="version-badge">7.41b</div>
+    </div>
+  </div>
+
+  <!-- STATS & ABILITIES -->
+  <div class="section">
+    <div class="section-title">Stats & Abilities</div>
+
+    <div class="item-tooltip-card">
+      <div class="itc-type">Ability: Point Target</div>
+      <div class="itc-passive">+ <strong>1</strong> All Attributes</div>
+      <div class="itc-active">
+        <div class="itc-active-header">
+          <div class="itc-active-label">Use: Plant Tree</div>
+          <div class="itc-active-range"><span class="range-icon"></span> 400</div>
+        </div>
+        <div class="itc-active-desc">Targets the ground to plant a happy little tree that lasts for <strong>20</strong> seconds.</div>
+      </div>
+      <div class="itc-lore">A seemingly ordinary branch, its ironlike qualities are bestowed upon the bearer.</div>
+    </div>
+  </div>
+
+  <!-- BUILDS INTO -->
+  <div class="section">
+    <div class="section-title">Builds Into</div>
+
+    <div class="build-tree">
+      <div class="build-tree-row">
+        <a href="magic_wand.html" class="build-tree-link" data-tooltip="item" data-item="magic_wand">
+          <div class="build-tree-item">
+            <div class="build-tree-icon">
+              <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand">
+            </div>
+            <div class="build-tree-name">Magic Wand</div>
+            <div class="build-tree-cost">450</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="build-tree-connector"></div>
+
+      <div class="build-tree-row">
+        <a href="magic_stick.html" class="build-tree-link" data-tooltip="item" data-item="magic_stick">
+          <div class="build-tree-item">
+            <div class="build-tree-icon">
+              <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png" alt="Magic Stick">
+            </div>
+            <div class="build-tree-name">Magic Stick</div>
+          </div>
+        </a>
+
+        <div class="build-tree-plus">+</div>
+
+        <div class="build-tree-item">
+          <div class="build-tree-icon current">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Iron Branch">
+          </div>
+          <div class="build-tree-name current">Branch ×2</div>
+        </div>
+
+        <div class="build-tree-plus">+</div>
+
+        <div class="build-tree-item">
+          <div class="build-tree-icon">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/recipe.png" alt="Recipe">
+          </div>
+          <div class="build-tree-name">Recipe</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-title">Overview</div>
+    <div class="coaching-text">
+      Branch provides the best stats-per-gold ratio in the game for early game trading. It's a great inventory filler for your starting items and it has a number of unique uses.
+    </div>
+  </div>
+
+  <!-- USE CASES -->
+  <div class="section">
+    <div class="section-title">Use Cases</div>
+
+    <div class="use-cases">
+
+      <!-- Tango interaction -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></a>
+        </div>
+        <div class="use-case-body">
+          You can consume the planted Tree with a <a href="tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></a> Tango in order to double the duration and thus the overall healing — from 112 to 224 HP.
+        </div>
+      </div>
+
+      <!-- Vision blocking -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Plant Tree"></div>
+        </div>
+        <div class="use-case-body">
+          You can use the planted Tree to block vision from the enemy — preventing Targeted Abilities from being cast on you and stopping auto attacks. A great trick in the early game if you're getting dove under your own tower, buying you a couple of seconds during which you might even turn the fight around and get the kill yourself.
+        </div>
+      </div>
+
+      <!-- Chokepoint blocking -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Plant Tree"></div>
+        </div>
+        <div class="use-case-body">
+          You can block narrow paths and chokepoints. Especially easy to pull off when running through tight forest paths.
+        </div>
+      </div>
+
+      <!-- Push/displacement -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/branches.png" alt="Plant Tree"></div>
+        </div>
+        <div class="use-case-body">
+          When the Tree spawns, it pushes units away from its center. This can be used to unstuck yourself from cliffs, or to push down an enemy hero hiding on them. But most notably — you can counter certain enemy spells this way. For example, you can push allies caught at the edge of <a href="../heroes/faceless_void.html" class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></div></a> Chronosphere and other similar spells outside of their range, freeing your ally. And you can also break the leash from <a href="../heroes/slark.html" class="hero-link" data-tooltip="hero" data-hero-key="slark"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slark.png" alt="Slark"></div></a> Slark's <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/slark_pounce.png" alt="Pounce"></div> Pounce.
+        </div>
+      </div>
+
+      <!-- Monkey King -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/monkey_king.html" class="hero-link" data-tooltip="hero" data-hero-key="monkey_king"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/monkey_king.png" alt="Monkey King"></div></a>
+        </div>
+        <div class="use-case-body">
+          can use the planted Tree with his <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/monkey_king_tree_dance.png" alt="Tree Dance"></div> Tree Dance ability.
+        </div>
+      </div>
+
+      <!-- Windranger -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/windrunner.html" class="hero-link" data-tooltip="hero" data-hero-key="windrunner"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png" alt="Windranger"></div></a>
+        </div>
+        <div class="use-case-body">
+          can <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/windrunner_shackleshot.png" alt="Shackleshot"></div> Shackle enemies to the Tree.
+        </div>
+      </div>
+
+      <!-- Hoodwink -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/hoodwink.html" class="hero-link" data-tooltip="hero" data-hero-key="hoodwink"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" alt="Hoodwink"></div></a>
+        </div>
+        <div class="use-case-body">
+          can use <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/hoodwink_bushwhack.png" alt="Bushwhack"></div> Bushwhack to stun enemies to the Tree. She can also redirect attacks to it.
+        </div>
+      </div>
+
+      <!-- Timbersaw -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/shredder.html" class="hero-link" data-tooltip="hero" data-hero-key="shredder"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png" alt="Timbersaw"></div></a>
+        </div>
+        <div class="use-case-body">
+          can increase the damage of his <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shredder_whirling_death.png" alt="Whirling Death"></div> Whirling Death or pull himself towards the Tree with <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shredder_timber_chain.png" alt="Timber Chain"></div> Timber Chain.
+        </div>
+      </div>
+
+      <!-- Mars -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/mars.html" class="hero-link" data-tooltip="hero" data-hero-key="mars"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars"></div></a>
+        </div>
+        <div class="use-case-body">
+          can stun enemy heroes with <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/mars_spear.png" alt="Spear of Mars"></div> Spear of Mars to the Tree.
+        </div>
+      </div>
+
+      <!-- Tiny -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/tiny.html" class="hero-link" data-tooltip="hero" data-hero-key="tiny"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png" alt="Tiny"></div></a>
+        </div>
+        <div class="use-case-body">
+          can <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/tiny_tree_grab.png" alt="Tree Grab"></div> Tree Grab the planted Tree.
+        </div>
+      </div>
+
+      <!-- Nature's Prophet -->
+      <div class="use-case">
+        <div class="use-case-icons">
+          <a href="../heroes/furion.html" class="hero-link" data-tooltip="hero" data-hero-key="furion"><div class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></div></a>
+        </div>
+        <div class="use-case-body">
+          can amplify the effect of <div class="inline-icon ability-inline"><img src="../assets/ability-icons/curse_of_the_oldgrowth.png" alt="Curse of the Oldgrowth"></div> Curse of the Oldgrowth and also gains bonus damage from his <div class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/furion_spirit_of_the_forest.png" alt="Spirit of the Forest"></div> Spirit of the Forest innate ability.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <a href="../items.html" class="back-link-bottom">All Items</a>
+
+  <div style="text-align:center; padding: 0 0 24px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); font-style: italic;">
+    Want help applying this to your games? <a href="../coaching.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark);">Book a session.</a>
+  </div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <a href="../concepts.html">Concepts</a>
+    <a href="../guides.html">Guides</a>
+    <a href="../coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+</div>
+  <script src="../data/tooltips.js"></script>
+</body>
+</html>

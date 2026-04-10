@@ -65,14 +65,14 @@
   .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 
   .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
-  .item-card.covered { cursor: pointer; text-decoration: none; color: inherit; }
-  .item-card.covered:hover { border-color: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+  a.item-card { cursor: pointer; text-decoration: none; color: inherit; }
+  a.item-card:hover { border-color: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
   .item-card.coming-soon { opacity: 0.55; }
   .item-card.hidden { display: none; }
 
   .item-img-wrap { aspect-ratio: 88/64; overflow: hidden; background: #0d1520; flex-shrink: 0; }
   .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
-  .item-card.covered:hover .item-img-wrap img { transform: scale(1.08); }
+  a.item-card:hover .item-img-wrap img { transform: scale(1.08); }
 
   .item-card-body { padding: 4px 5px 5px; display: flex; flex-direction: column; gap: 2px; height: 44px; flex-shrink: 0; }
   .item-card-name { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; color: var(--text-bright); letter-spacing: 0.1px; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }

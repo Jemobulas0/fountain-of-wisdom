@@ -193,13 +193,14 @@
 
 <script>
 const recentlyAddedItems = [
-  { name: 'Branch', key: 'branches' },
+  { name: 'Iron Branch', key: 'iron_branch' },
 ];
 
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/';
 
 // CDN key overrides for items whose internal names differ from display keys
 const cdnKeyOverrides = {
+  'iron_branch': 'branches',
   'parasma': 'devastator',
   'khanda':  'angels_demise',
 };
@@ -229,7 +230,7 @@ const shopData = {
   ],
 
   attributes: [
-    ['Iron Branch',           'branches',           55,   '+1 All stats'],
+    ['Iron Branch',           'iron_branch',        55,   '+1 All stats'],
     ['Gauntlets of Strength', 'gauntlets',          140,  '+3 Strength'],
     ['Slippers of Agility',   'slippers',           140,  '+3 Agility'],
     ['Mantle of Intelligence','mantle',             140,  '+3 Intelligence'],
@@ -434,7 +435,7 @@ function buildGrids() {
     const grid = document.getElementById('grid-' + section);
     if (!grid) return;
     items.forEach(([name, key, cost, desc]) => {
-      const covered = false; // flip to true when item has its own page
+      const covered = recentlyAddedItems.some(r => r.key === key);
       if (covered) totalCovered++;
       const card = document.createElement(covered ? 'a' : 'div');
       if (covered) card.href = `items/${key}.html`;

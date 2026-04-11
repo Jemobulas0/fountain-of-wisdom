@@ -1,4 +1,10 @@
-document.getElementById("name").textContent = data.name;
+const params = new URLSearchParams(window.location.search);
+const heroId = params.get("id");
+
+fetch(`data/${heroId}.json`)
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("name").textContent = data.name;
     document.getElementById("title").textContent = data.title;
     document.getElementById("description").textContent = data.description;
 
@@ -18,4 +24,7 @@ document.getElementById("name").textContent = data.name;
 
       contentDiv.appendChild(sectionEl);
     });
+  })
+  .catch(error => {
+    console.error("Error loading JSON:", error);
   });

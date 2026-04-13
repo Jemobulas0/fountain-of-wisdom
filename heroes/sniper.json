@@ -35,11 +35,11 @@
       "rows": [
         {
           "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_shrapnel", "sniper_take_aim", "sniper_shrapnel", "sniper_assassinate"],
-          "timestamps": ["10:00/9:00", "8:00/7:00"]
+          "timestamps": { "pos_1_3": "10:00/9:00", "pos_2": "8:00/7:00" }
         },
         {
           "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_headshot", "sniper_headshot", "sniper_take_aim", "sniper_assassinate"],
-          "timestamps": ["22:00/20:00", "20:00/18:00"]
+          "timestamps": { "pos_1_3": "22:00/20:00", "pos_2": "20:00/18:00" }
         },
         {
           "abilities": ["sniper_take_aim", "sniper_take_aim", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sniper_assassinate"]
@@ -59,11 +59,11 @@
       "rows": [
         {
           "abilities": ["sniper_headshot", "sniper_take_aim", "sniper_shrapnel", "sniper_shrapnel", "sniper_shrapnel", "sniper_assassinate"],
-          "timestamps": ["10:00/9:00", "8:00/7:00"]
+          "timestamps": { "pos_1_3": "10:00/9:00", "pos_2": "8:00/7:00" }
         },
         {
           "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_headshot", "sniper_headshot", "sniper_take_aim", "sniper_assassinate"],
-          "timestamps": ["22:00/20:00", "20:00/18:00"]
+          "timestamps": { "pos_1_3": "22:00/20:00", "pos_2": "20:00/18:00" }
         },
         {
           "abilities": ["sniper_take_aim", "sniper_take_aim", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sniper_assassinate"]

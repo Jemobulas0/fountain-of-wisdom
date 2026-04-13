@@ -71,6 +71,7 @@ const HERO_NAMES = {
   morphling: "Morphling",
   muerta: "Muerta",
   naga_siren: "Naga Siren",
+  furion: "Nature's Prophet",
   natures_prophet: "Nature's Prophet",
   necrolyte: "Necrophos",
   nevermore: "Shadow Fiend",
@@ -137,7 +138,28 @@ function getHeroName(id) {
 }
 
 
-// ── HELPERS ───────────────────────────────────────────────────────────────────
+// ── POSITION GROUPS ───────────────────────────────────────────────────────────
+// Defines the three timing groups. The loader uses this to build timestamp
+// header circles and columns based on which positions the hero actually plays.
+const POS_GROUPS = [
+  { key: 'pos_1_3', positions: [1, 3] },
+  { key: 'pos_2',   positions: [2] },
+  { key: 'pos_4_5', positions: [4, 5] }
+];
+
+// Returns the active groups for a hero, with the circle label for each
+function getActiveGroups(heroPositions) {
+  return POS_GROUPS
+    .map(function(group) {
+      const active = group.positions.filter(function(p) {
+        return heroPositions.indexOf(p) !== -1;
+      });
+      if (!active.length) return null;
+      return { key: group.key, label: active.join('/') };
+    })
+    .filter(Boolean);
+}
+
 
 // Renders a standard item icon with link and tooltip
 function itemIconHTML(id, size, heroShard) {
@@ -151,16 +173,17 @@ function buildItemHTML(item) {
   if (typeof item === 'string') {
     return itemIconHTML(item);
   }
-  const { id, green, yellow, hero_shard, also } = item;
+  const { id, green, yellow, hero_shard, hero, also } = item;
+  const heroContext = hero || hero_shard || null;
   let html = '';
   if (green || yellow) {
     html += `<div class="item-timed">`;
     if (green) html += `<span class="timestamp green">${green}</span>`;
-    html += itemIconHTML(id, '36px', hero_shard || null);
+    html += itemIconHTML(id, '36px', heroContext);
     if (yellow) html += `<span class="timestamp yellow">${yellow}</span>`;
     html += `</div>`;
   } else {
-    html += itemIconHTML(id, '36px', hero_shard || null);
+    html += itemIconHTML(id, '36px', heroContext);
   }
   if (also) html += itemIconHTML(also);
   return html;
@@ -270,7 +293,7 @@ function buildGamePlan(gp) {
 }
 
 
-function buildSkillBuilds(builds) {
+function buildSkillBuilds(builds, heroPositions) {
   const section = makeSection('Skill Builds');
 
   const legend =
@@ -279,12 +302,16 @@ function buildSkillBuilds(builds) {
       `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>` +
     `</div>`;
 
+  const activeGroups = getActiveGroups(heroPositions);
+
   const buildsHTML = builds.map(function(build) {
-    const tsHeader =
-      `<div class="timestamp-header"><div class="timestamp-header-inner">` +
-        `<div class="th-col"><div class="pos-circle-sm">1</div></div>` +
-        `<div class="th-col"><div class="pos-circle-sm">2</div></div>` +
-      `</div></div>`;
+    const tsHeader = activeGroups.length
+      ? `<div class="timestamp-header"><div class="timestamp-header-inner">` +
+          activeGroups.map(function(g) {
+            return `<div class="th-col"><div class="pos-circle-sm">${g.label}</div></div>`;
+          }).join('') +
+        `</div></div>`
+      : '';
 
     const rowsHTML = build.rows.map(function(row) {
       const icons = row.abilities.map(function(ab) {
@@ -293,9 +320,11 @@ function buildSkillBuilds(builds) {
       }).join('');
 
       let timestamps = '';
-      if (row.timestamps && row.timestamps.length) {
-        const cols = row.timestamps.map(function(ts) {
-          const parts = ts.split('/');
+      if (row.timestamps && activeGroups.length) {
+        const cols = activeGroups.map(function(g) {
+          const val = row.timestamps[g.key];
+          if (!val) return `<div class="timestamp-col"></div>`;
+          const parts = val.split('/');
           return `<div class="timestamp-col"><span class="timestamp green">${parts[0]}</span><span class="timestamp yellow">${parts[1]}</span></div>`;
         }).join('');
         timestamps = `<div class="timestamp-group">${cols}</div>`;
@@ -320,7 +349,8 @@ function buildSkillBuilds(builds) {
     `</div>`;
   }).join('');
 
-  section.innerHTML += legend + `<div class="builds-grid">${buildsHTML}</div>`;
+  const skillGridCols = Array(builds.length).fill('1fr').join(' ');
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${skillGridCols}">${buildsHTML}</div>`;
   return section;
 }
 
@@ -370,7 +400,8 @@ function buildItemBuilds(builds, situational) {
       `</div>`;
   }
 
-  section.innerHTML += legend + `<div class="builds-grid">${buildsHTML}</div>` + sitHTML;
+  const itemGridCols = Array(builds.length).fill('1fr').join(' ');
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols}">${buildsHTML}</div>` + sitHTML;
   return section;
 }
 
@@ -437,7 +468,7 @@ if (!heroId) {
       const container = document.getElementById('hero-sections');
       container.appendChild(buildOverview(data.overview));
       container.appendChild(buildGamePlan(data.game_plan));
-      container.appendChild(buildSkillBuilds(data.skill_builds));
+      container.appendChild(buildSkillBuilds(data.skill_builds, data.overview.positions));
       container.appendChild(buildItemBuilds(data.item_builds, data.situational_items));
       container.appendChild(buildTips(data.tips));
       container.appendChild(buildAlliesCounters(data.allies_and_counters));

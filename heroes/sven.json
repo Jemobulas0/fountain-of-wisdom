@@ -1,0 +1,183 @@
+{
+  "id": "sven",
+  "name": "Sven",
+  "attribute": "strength",
+  "version": "7.41b",
+  "hero_color": "#1a4a4a",
+
+  "overview": {
+    "positions": [1],
+    "roles": "Carry · Fighter · Durable",
+    "strengths": [
+      "Burst Damage",
+      "Team-wide Buff",
+      "Built-in Farming Tool"
+    ],
+    "weaknesses": [
+      "Terrible BAT",
+      "Easily Kiteable",
+      "Debuff Immunity Piercing CCs"
+    ]
+  },
+
+  "game_plan": {
+    "early": "Adjust to aggressive or defensive playstyle during the laning stage depending on your support. Unless presented with a convenient opportunity to kill a hero, use your first ultimates to accelerate your farming.",
+    "mid": "Focus on maximizing your farming & start keeping an eye out to grab some kills with your teammates when you have your ult up. Oftentimes after a quick kill around an objective, you'll be able to use the rest of your ult to take down a tower.",
+    "late": "You're now able to Blink in and insta-kill people. Unless there's absolutely no counter to you on the enemy team, wait for the fights to start & then go in as a follow up. Identify your primary target & delete him.",
+    "extras": "In team fights where enemies are grouped up, attempt to position yourself in a way that allows you to Cleave through as many of them as possible."
+  },
+
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "sven_gods_strength",
+      "rows": [
+        {
+          "abilities": ["sven_storm_bolt", "sven_great_cleave", "sven_great_cleave", "sven_warcry", "sven_great_cleave", "sven_gods_strength"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["sven_great_cleave", "sven_warcry", "sven_warcry", "sven_warcry", "sven_storm_bolt", "sven_gods_strength"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["sven_storm_bolt", "sven_storm_bolt", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sven_gods_strength"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+1s Storm Hammer Stun Duration", "right": "+50% God's Strength Damage", "chosen": "right" },
+        { "level": 20, "left": "+8 Warcry Armor", "right": "-25% Storm Hammer Cooldown and Mana Cost", "chosen": "left" },
+        { "level": 15, "left": "+25% Great Cleave Damage", "right": "-12s God's Strength Cooldown", "chosen": "left" },
+        { "level": 10, "left": "+20% God's Strength Slow Resistance", "right": "+5s Warcry Duration", "chosen": "right" }
+      ],
+      "note": "When facing standard melee offlaners, you can harass them while last hitting creeps."
+    },
+    {
+      "name": "Skill Build 2 — Survivability",
+      "ult": "sven_gods_strength",
+      "rows": [
+        {
+          "abilities": ["sven_storm_bolt", "sven_warcry", "sven_great_cleave", "sven_great_cleave", "sven_great_cleave", "sven_gods_strength"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["sven_great_cleave", "sven_warcry", "sven_warcry", "sven_warcry", "sven_storm_bolt", "sven_gods_strength"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["sven_storm_bolt", "sven_storm_bolt", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sven_gods_strength"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+1s Storm Hammer Stun Duration", "right": "+50% God's Strength Damage", "chosen": "right" },
+        { "level": 20, "left": "+8 Warcry Armor", "right": "-25% Storm Hammer Cooldown and Mana Cost", "chosen": "left" },
+        { "level": 15, "left": "+25% Great Cleave Damage", "right": "-12s God's Strength Cooldown", "chosen": "left" },
+        { "level": 10, "left": "+20% God's Strength Slow Resistance", "right": "+5s Warcry Duration", "chosen": "right" }
+      ],
+      "note": "Getting Warcry asap allows you to run down an enemy hero when you see an opportunity to go in for the kill. This happens most often when your support has a high kill potential and you two hit level 2 first."
+    }
+  ],
+
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Standard",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "gauntlets", "circlet", "branches", "branches"],
+          "note": "Optimal stats."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "bracer",
+            "power_treads",
+            { "id": "mask_of_madness", "green": "14:00", "yellow": "12:00" },
+            { "id": "echo_sabre", "green": "17:00", "yellow": "14:00" },
+            { "id": "blink", "green": "20:00", "yellow": "17:00" },
+            "lesser_crit",
+            "black_king_bar",
+            "greater_crit",
+            "harpoon",
+            "satanic",
+            "swift_blink"
+          ]
+        }
+      ],
+      "note": "Standard reliable build."
+    },
+    {
+      "name": "Item Build 2 — Assassin",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "magic_stick", "branches", "branches", "branches"],
+          "note": "When facing ability spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "magic_wand",
+            "power_treads",
+            { "id": "mask_of_madness", "green": "14:00", "yellow": "12:00" },
+            { "id": "invis_sword", "green": "18:00", "yellow": "15:00" },
+            { "id": "orchid", "green": "23:00", "yellow": "19:00" },
+            "silver_edge",
+            { "id": "ultimate_scepter", "hero": "sven" },
+            "black_king_bar",
+            "satanic"
+          ]
+        }
+      ],
+      "note": "A non-meta alternative to show you a different side of the hero as a learning experience. Your purpose with this build is to become an assassin & pick off people that are straying away from your team. And if you get them to a point where everyone's too scared to be by themselves, you automatically open the map for your team simply by keeping the enemies afraid. Silver Edge Breaks & slows down your target no matter how many speed buffs they have. Orchid makes sure that they won't just escape with mobility spells. And it will force supports to buy defensive items that will cost them way more time to farm up than the Orchid cost you. Meanwhile cores will be forced into the expensive options like a BKB. And the final nail in the coffin is your Scepter which turns you into Thor & makes your Storm Hammer dispel enemy heroes — Ghost Scepter is a frequent counter to Sven."
+    }
+  ],
+
+  "situational_items": [
+    { "id": "aghanims_shard", "hero": "sven", "note": "Improves your Warcry & makes it Undispellable." },
+    { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "silver_edge", "note": "Breaks Passives." }
+  ],
+
+  "tips": [
+    {
+      "level": "basic",
+      "text": "Great Cleave makes you one of the fastest farming heroes in the game. And God's Strength allows you to take on Ancients much earlier than most other carries."
+    },
+    {
+      "level": "basic",
+      "text": "Use Warcry when farming big stacks, when facing physical damage in fights and in general for movement speed in combat."
+    },
+    {
+      "level": "basic",
+      "text": "You hit slow but you hit hard. Pre-level 15 your Great Cleave cleaves for 90% of your damage. When farming neutrals, focus primarily the biggest creep in order to clear camps faster."
+    },
+    {
+      "level": "advanced",
+      "text": "Few heroes in the game have the capability to burst down enemy heroes from full to zero in an instant. Even fewer in the carry role. Do your best to make team fights start with one less enemy hero immediately."
+    },
+    {
+      "level": "advanced",
+      "text": "Your level 15 talent makes you deal +15% more damage to units around your actual target. When possible, attack adjacent targets to the one you're actually trying to burst down asap."
+    },
+    {
+      "level": "advanced",
+      "text": "Cleave damage can never miss. When facing an Evasion target, a nice trick is to attack an adjacent unit & thus completely ignore your enemy's evasion."
+    }
+  ],
+
+  "allies_and_counters": {
+    "allies": {
+      "heroes": ["legion_commander", "tidehunter", "puck", "storm_spirit", "lich", "shadow_shaman"],
+      "note": "Initiators that hold down the enemy, so Sven can do his job."
+    },
+    "counters": {
+      "heroes": ["chen", "furion", "rubick", "lina", "phantom_lancer", "naga_siren"],
+      "note": "Summoners, Squishy Heroes, Illusions."
+    },
+    "countered_by": {
+      "heroes": ["templar_assassin", "omniknight", "beastmaster", "spirit_breaker", "slark", "weaver"],
+      "note": "Heroes who can avoid his damage. Debuff Immunity Piercing CCs. Highly mobile heroes who can kite him."
+    }
+  }
+}

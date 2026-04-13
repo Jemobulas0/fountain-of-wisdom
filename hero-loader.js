@@ -441,14 +441,6 @@ if (!heroId) {
       container.appendChild(buildItemBuilds(data.item_builds, data.situational_items));
       container.appendChild(buildTips(data.tips));
       container.appendChild(buildAlliesCounters(data.allies_and_counters));
-
-      // Apply gold bottom border to the last section
-      const sections = container.querySelectorAll('.section');
-      if (sections.length) {
-        const last = sections[sections.length - 1];
-        last.style.borderRadius = '0 0 4px 4px';
-        last.style.borderBottom = '2px solid #8a6a1f';
-      }
     })
     .catch(function(err) {
       console.error('Failed to load hero:', err);

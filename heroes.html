@@ -753,7 +753,7 @@ function filterHeroes() {
     section.className = 'heroes-grid-section';
     group.forEach(h => {
       const card = document.createElement(h.covered ? 'a' : 'div');
-      if (h.covered) card.href = `heroes/${h.page || h.key}.html`;
+      if (h.covered) card.href = `hero_template.html?id=${h.page || h.key}`;
       card.className = 'hero-card' + (h.covered ? '' : ' coming-soon');
       const roleDisplay = h.roles.map(r => r.charAt(0).toUpperCase() + r.slice(1)).join(', ');
       card.innerHTML = `
@@ -781,7 +781,7 @@ const totalHeroes = heroes.length;
 const coveredCount = heroes.filter(h => h.covered).length;
 recentlyAddedHeroes.slice(0, 4).forEach(h => {
   const a = document.createElement('a');
-  a.href = `heroes/${h.page || h.key}.html`;
+  a.href = `hero_template.html?id=${h.page || h.key}`;
   a.className = 'recently-card';
   a.innerHTML = `<img src="${CDN_H}${h.key}.png" alt="${h.name}">`;
   recentGrid.appendChild(a);

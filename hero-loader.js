@@ -234,11 +234,6 @@ function makeSection(titleText) {
 function buildHeader(data) {
   document.title = `${data.name} — The Fountain of Wisdom`;
 
-  const rgb = hexToRgb(data.hero_color);
-  document.body.style.backgroundImage =
-    `radial-gradient(ellipse at 20% 0%, rgba(${rgb},0.18) 0%, transparent 50%),` +
-    `radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%)`;
-
   const attrColors = {
     agility: 'var(--green)',
     strength: 'var(--red)',

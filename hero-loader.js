@@ -447,7 +447,7 @@ if (!heroId) {
       if (sections.length) {
         const last = sections[sections.length - 1];
         last.style.borderRadius = '0 0 4px 4px';
-        last.style.borderBottom = '2px solid var(--gold-dark)';
+        last.style.borderBottom = '2px solid #8a6a1f';
       }
     })
     .catch(function(err) {

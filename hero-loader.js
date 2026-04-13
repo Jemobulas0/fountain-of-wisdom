@@ -244,7 +244,7 @@ function buildHeader(data) {
   const attrName = data.attribute.charAt(0).toUpperCase() + data.attribute.slice(1);
 
   document.getElementById('hero-center').innerHTML =
-    `<div class="hero-avatar" style="box-shadow:0 0 30px rgba(${rgb},0.5),inset 0 0 20px rgba(0,0,0,0.5);background:linear-gradient(135deg,${data.hero_color},#0d1520);">` +
+    `<div class="hero-avatar">` +
       `<img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${data.id}.png" alt="${data.name}" onerror="this.parentElement.innerHTML='⚔️'">` +
     `</div>` +
     `<div class="hero-name">${data.name}</div>` +

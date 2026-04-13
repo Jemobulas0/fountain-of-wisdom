@@ -305,7 +305,7 @@ function buildSkillBuilds(builds, heroPositions) {
   const activeGroups = getActiveGroups(heroPositions);
 
   const buildsHTML = builds.map(function(build) {
-    const tsHeader = activeGroups.length
+    const tsHeader = activeGroups.length >= 2
       ? `<div class="timestamp-header"><div class="timestamp-header-inner">` +
           activeGroups.map(function(g) {
             return `<div class="th-col"><div class="pos-circle-sm">${g.label}</div></div>`;

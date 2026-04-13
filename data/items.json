@@ -1,4 +1,17 @@
 {
+  "branches": {
+    "name": "Iron Branch",
+    "icon": "branches",
+    "cost": 55,
+    "type": "Ability: Point Target",
+    "stats": "+1 All Attributes",
+    "active": {
+      "label": "Use: Plant Tree",
+      "range": 400,
+      "desc": "Targets the ground to plant a happy little tree that lasts for 20 seconds."
+    }
+  },
+
   "ultimate_scepter": {
     "name": "Aghanim's Scepter",
     "icon": "ultimate_scepter",

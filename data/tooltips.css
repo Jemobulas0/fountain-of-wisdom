@@ -59,11 +59,66 @@
 /* ── Item tooltip body ── */
 .fow-tt-body { padding: 10px 12px; }
 
+.fow-tt-type {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #4a90d9;
+  margin-bottom: 8px;
+}
+
 .fow-tt-stats {
   font-size: 13px;
   color: #7aadff;
   line-height: 1.5;
   margin-bottom: 8px;
+}
+
+.fow-tt-active {
+  background: rgba(76,175,125,0.06);
+  border-top: 1px solid rgba(76,175,125,0.25);
+  margin: 8px -12px -10px;
+  padding: 8px 12px 10px;
+}
+
+.fow-tt-active-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.fow-tt-active-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #4caf7d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fow-tt-active-range {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.fow-tt-range-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf7d;
+  display: inline-block;
+}
+
+.fow-tt-active-desc {
+  font-size: 13px;
+  color: #c8cdd8;
+  line-height: 1.5;
 }
 
 .fow-tt-desc {

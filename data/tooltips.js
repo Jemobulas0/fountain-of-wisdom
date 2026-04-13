@@ -61,7 +61,7 @@
       var aghs = item.aghs[heroKey];
       var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
       var html = '<div class="fow-tt-body">';
-      html += '<div class="fow-tt-aghs" style="margin-top:0;">';
+      html += '<div class="fow-tt-aghs">';
       html += '<div class="fow-tt-aghs-header">';
       html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
       html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
@@ -75,7 +75,7 @@
 
     var html = '';
 
-    // Header
+    // Header: icon, name, cost top-right
     html += '<div class="fow-tt-header">';
     html += '<div class="fow-tt-icon"><img src="' + CDN + '/items/' + item.icon + '.png" alt="' + item.name + '"></div>';
     html += '<div class="fow-tt-name">' + item.name + '</div>';
@@ -85,15 +85,35 @@
     // Body
     html += '<div class="fow-tt-body">';
 
+    // Ability type (e.g. "Ability: Point Target")
+    if (item.type) {
+      html += '<div class="fow-tt-type">' + item.type + '</div>';
+    }
+
+    // Passive stats
     if (item.stats) {
       html += '<div class="fow-tt-stats">' + item.stats.replace(/\n/g, '<br>') + '</div>';
     }
 
-    if (item.desc) {
+    // Active ability
+    if (item.active) {
+      html += '<div class="fow-tt-active">';
+      html += '<div class="fow-tt-active-header">';
+      html += '<span class="fow-tt-active-label">' + item.active.label + '</span>';
+      if (item.active.range) {
+        html += '<span class="fow-tt-active-range"><span class="fow-tt-range-dot"></span>' + item.active.range + '</span>';
+      }
+      html += '</div>';
+      html += '<div class="fow-tt-active-desc">' + item.active.desc.replace(/\n/g, '<br>') + '</div>';
+      html += '</div>';
+    }
+
+    // Passive description (items with only a desc and no active)
+    if (item.desc && !item.active) {
       html += '<div class="fow-tt-desc">' + item.desc.replace(/\n/g, '<br>') + '</div>';
     }
 
-    // Aghs hero-specific upgrade
+    // Aghs hero-specific upgrade (on normal items like regular scepter)
     if (item.aghs && heroKey && item.aghs[heroKey]) {
       var aghs = item.aghs[heroKey];
       var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';

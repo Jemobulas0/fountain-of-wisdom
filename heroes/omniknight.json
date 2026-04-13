@@ -144,11 +144,11 @@
   "tips": [
     {
       "level": "basic",
-      "text": "Purification & Hammer of Purity deal Pure Damage. This is especially powerful against Low HP & High Armor/Magic Resistance enemies (ex. Terrorblade). Also Hammer of Purity costs no Mana. Spam it off cooldown in the lane for maximum harass."
+      "text": "[ability:omniknight_purification] Purification & [ability:omniknight_hammer_of_purity] Hammer of Purity deal Pure Damage. This is especially powerful against Low HP & High Armor/Magic Resistance enemies (ex. Terrorblade). Also [ability:omniknight_hammer_of_purity] Hammer of Purity costs no Mana. Spam it off cooldown in the lane for maximum harass."
     },
     {
       "level": "basic",
-      "text": "Repel provides primarily Magic Resistance & Debuff Immunity. This means that you have to approach different heroes differently. When running into stuns or silences, you have to cast it in advance. But when facing soft CCs like slows & roots, you can wait until you get hit by them & only then Repel yourself, as to not lose any of the spell's duration — or give an opportunity to your enemies to just wait it out & then CC you."
+      "text": "[ability:omniknight_repel] Repel provides primarily Magic Resistance & Debuff Immunity. This means that you have to approach different heroes differently. When running into stuns or silences, you have to cast it in advance. But when facing soft CCs like slows & roots, you can wait until you get hit by them & only then Repel yourself, as to not lose any of the spell's duration — or give an opportunity to your enemies to just wait it out & then CC you."
     },
     {
       "level": "basic",
@@ -156,15 +156,15 @@
     },
     {
       "level": "advanced",
-      "text": "Your Scepter turns Guardian Angel into a global spell, which affects buildings & doubles Health Restoration. This effectively gives your team an extra Glyph of Fortification. And it makes Omniknight a great synergy hero with other healers. And naturally — if you're about to ult with a Scepter, save your Purification for after using Guardian Angel."
+      "text": "Your [item:ultimate_scepter|omniknight] Scepter turns [ability:omniknight_guardian_angel] Guardian Angel into a global spell, which affects buildings & increases Health Restoration by an extra +50%. This effectively gives your team an extra Glyph of Fortification. And it makes Omniknight a great synergy hero with other healers. And naturally — if you're about to ult with a Scepter, save your [ability:omniknight_purification] Purification for after using Guardian Angel."
     },
     {
       "level": "advanced",
-      "text": "The later the game goes on, often times the more important it is to cast Repel on your carry or midlaner. Be mindful of who's the higher priority hero on your team to receive the spell. With that in mind, if you have an Enigma who wants to Blink in with Black Hole & has no BKB (or a similar support) — don't be shy from casting Repel on him as well."
+      "text": "The later the game goes on, often times the more important it is to cast [ability:omniknight_repel] Repel on your carry or midlaner. Be mindful of who's the higher priority hero on your team to receive the spell. With that in mind, if you have an Enigma who wants to [item:blink] Blink in with [ability:enigma_black_hole] Black Hole & has no [item:black_king_bar] BKB (or a similar support) — don't be shy from casting [ability:omniknight_repel] Repel on him as well."
     },
     {
       "level": "advanced",
-      "text": "Your Innate Ability is a short range brutal slow aura. It is extremely uncomfortable for enemy melee heroes to run around you in the battlefield without using items or spells just for that. So get in their faces & bring down the hammer!"
+      "text": "Your Innate Ability [ability:omniknight_degen_aura] is a short range brutal slow aura. It is extremely uncomfortable for enemy melee heroes to run around you in the battlefield without using items or spells just for that. So get in their faces & bring down the hammer!"
     }
   ],
 

@@ -384,8 +384,9 @@ function buildItemBuilds(builds, situational) {
   let sitHTML = '';
   if (situational && situational.length) {
     const sitItemsHTML = situational.map(function(item) {
+      const heroAttr = item.hero ? ` data-hero="${item.hero}"` : '';
       const mainIcon =
-        `<a href="items/${item.id}.html" class="item-link" data-tooltip="item" data-item="${item.id}">` +
+        `<a href="items/${item.id}.html" class="item-link" data-tooltip="item" data-item="${item.id}"${heroAttr}>` +
           `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
         `</a>`;
       const alsoIcon = item.also

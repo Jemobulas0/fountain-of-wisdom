@@ -196,22 +196,17 @@ function buildItemHTML(item) {
 function parseText(text) {
   text = text.replace(/→/g, '<span style="color:var(--text-dim);font-size:12px;">→</span>');
   text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
-    return `<div style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;width:28px;height:28px;flex-shrink:0;border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`;
-  });
-  text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
-    return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:28px;height:28px;display:inline-flex;flex-shrink:0;border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;"></div></span>`;
-  });
-  text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
     return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:28px;height:28px;display:inline-flex;flex-shrink:0;border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
   });
   text = text.replace(/\[item:([^\]]+)\]/g, function(_, id) {
     return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
   });
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
-    return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>`;
+    return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>`;
   });
   return text;
 }
+
 
 // Converts hex color to "r,g,b" string for use in rgba()
 function hexToRgb(hex) {
@@ -397,7 +392,7 @@ function buildItemBuilds(builds, situational) {
             `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.also}.png" alt="${item.also}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
           `</a>`
         : '';
-      return `<div class="sit-item">${mainIcon}${alsoIcon}<div class="sit-item-note">${item.note}</div></div>`;
+      return `<div class="sit-item">${mainIcon}${alsoIcon}<div class="sit-item-note">${parseText(item.note)}</div></div>`;
     }).join('');
 
     sitHTML =
@@ -437,7 +432,7 @@ function buildAlliesCounters(ac) {
   function colHTML(data, type) {
     const titles = { allies: 'Allies', counters: 'Counters', countered: 'Countered By' };
     const heroes = data.heroes.map(function(id) {
-      return `<a href="heroes/${id}.html" class="hero-link">` +
+      return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero-key="${id}">` +
         `<div class="hero-thumb">` +
           `<div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
           `<div class="hero-thumb-name">${getHeroName(id)}</div>` +

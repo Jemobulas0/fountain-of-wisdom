@@ -427,7 +427,7 @@ if (!heroId) {
   document.getElementById('hero-sections').innerHTML =
     '<div style="padding:40px;text-align:center;color:var(--text-dim);">No hero specified. Add ?id=hero-name to the URL.</div>';
 } else {
-  fetch('data/' + heroId + '.json')
+  fetch('heroes/' + heroId + '.json')
     .then(function(r) {
       if (!r.ok) throw new Error('Hero not found: ' + heroId);
       return r.json();

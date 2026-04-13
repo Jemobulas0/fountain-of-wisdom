@@ -52,6 +52,7 @@ const HERO_NAMES = {
   jakiro: "Jakiro",
   juggernaut: "Juggernaut",
   keeper_of_the_light: "Keeper of the Light",
+  kez: "Kez",
   kunkka: "Kunkka",
   legion_commander: "Legion Commander",
   leshrac: "Leshrac",

@@ -1,30 +1,449 @@
-const params = new URLSearchParams(window.location.search);
-const heroId = params.get("id");
+// ─────────────────────────────────────────────────────────────────────────────
+// hero-loader.js
+// Reads ?id=hero-id from the URL, fetches data/hero-id.json,
+// and populates the entire hero page.
+// ─────────────────────────────────────────────────────────────────────────────
 
-fetch(`data/${heroId}.json`)
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById("name").textContent = data.name;
-    document.getElementById("title").textContent = data.title;
-    document.getElementById("description").textContent = data.description;
+// ── HERO NAME LOOKUP ──────────────────────────────────────────────────────────
+// DotA hero IDs don't always match display names. Add heroes here as you build them.
+// Format: "hero_id": "Display Name"
+const HERO_NAMES = {
+  abaddon: "Abaddon",
+  alchemist: "Alchemist",
+  ancient_apparition: "Ancient Apparition",
+  antimage: "Anti-Mage",
+  arc_warden: "Arc Warden",
+  axe: "Axe",
+  bane: "Bane",
+  batrider: "Batrider",
+  beastmaster: "Beastmaster",
+  bloodseeker: "Bloodseeker",
+  bounty_hunter: "Bounty Hunter",
+  brewmaster: "Brewmaster",
+  bristleback: "Bristleback",
+  broodmother: "Broodmother",
+  centaur: "Centaur Warrunner",
+  chaos_knight: "Chaos Knight",
+  chen: "Chen",
+  clinkz: "Clinkz",
+  crystal_maiden: "Crystal Maiden",
+  dark_seer: "Dark Seer",
+  dark_willow: "Dark Willow",
+  dawnbreaker: "Dawnbreaker",
+  dazzle: "Dazzle",
+  death_prophet: "Death Prophet",
+  disruptor: "Disruptor",
+  doom_bringer: "Doom",
+  dragon_knight: "Dragon Knight",
+  drow_ranger: "Drow Ranger",
+  earth_spirit: "Earth Spirit",
+  earthshaker: "Earthshaker",
+  elder_titan: "Elder Titan",
+  ember_spirit: "Ember Spirit",
+  enchantress: "Enchantress",
+  enigma: "Enigma",
+  faceless_void: "Faceless Void",
+  grimstroke: "Grimstroke",
+  gyrocopter: "Gyrocopter",
+  hoodwink: "Hoodwink",
+  huskar: "Huskar",
+  invoker: "Invoker",
+  io: "Io",
+  jakiro: "Jakiro",
+  juggernaut: "Juggernaut",
+  keeper_of_the_light: "Keeper of the Light",
+  kunkka: "Kunkka",
+  legion_commander: "Legion Commander",
+  leshrac: "Leshrac",
+  lich: "Lich",
+  life_stealer: "Lifestealer",
+  lina: "Lina",
+  lion: "Lion",
+  lone_druid: "Lone Druid",
+  luna: "Luna",
+  lycan: "Lycan",
+  magnataur: "Magnus",
+  mars: "Mars",
+  medusa: "Medusa",
+  meepo: "Meepo",
+  mirana: "Mirana",
+  monkey_king: "Monkey King",
+  morphling: "Morphling",
+  muerta: "Muerta",
+  naga_siren: "Naga Siren",
+  natures_prophet: "Nature's Prophet",
+  necrolyte: "Necrophos",
+  nevermore: "Shadow Fiend",
+  night_stalker: "Night Stalker",
+  nyx_assassin: "Nyx Assassin",
+  obsidian_destroyer: "Outworld Destroyer",
+  ogre_magi: "Ogre Magi",
+  omniknight: "Omniknight",
+  oracle: "Oracle",
+  pangolier: "Pangolier",
+  phantom_assassin: "Phantom Assassin",
+  phantom_lancer: "Phantom Lancer",
+  phoenix: "Phoenix",
+  primal_beast: "Primal Beast",
+  puck: "Puck",
+  pudge: "Pudge",
+  pugna: "Pugna",
+  queenofpain: "Queen of Pain",
+  razor: "Razor",
+  riki: "Riki",
+  ringmaster: "Ringmaster",
+  rubick: "Rubick",
+  sand_king: "Sand King",
+  shadow_demon: "Shadow Demon",
+  shadow_shaman: "Shadow Shaman",
+  silencer: "Silencer",
+  skywrath_mage: "Skywrath Mage",
+  slardar: "Slardar",
+  slark: "Slark",
+  snapfire: "Snapfire",
+  sniper: "Sniper",
+  spectre: "Spectre",
+  spirit_breaker: "Spirit Breaker",
+  storm_spirit: "Storm Spirit",
+  sven: "Sven",
+  techies: "Techies",
+  templar_assassin: "Templar Assassin",
+  terrorblade: "Terrorblade",
+  tidehunter: "Tidehunter",
+  tinker: "Tinker",
+  tiny: "Tiny",
+  treant: "Treant Protector",
+  troll_warlord: "Troll Warlord",
+  tusk: "Tusk",
+  underlord: "Underlord",
+  undying: "Undying",
+  ursa: "Ursa",
+  vengefulspirit: "Vengeful Spirit",
+  venomancer: "Venomancer",
+  viper: "Viper",
+  visage: "Visage",
+  void_spirit: "Void Spirit",
+  warlock: "Warlock",
+  weaver: "Weaver",
+  windranger: "Windranger",
+  winter_wyvern: "Winter Wyvern",
+  witch_doctor: "Witch Doctor",
+  wraith_king: "Wraith King",
+  zeus: "Zeus"
+};
 
-    const contentDiv = document.getElementById("content");
+function getHeroName(id) {
+  return HERO_NAMES[id] || id.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
 
-    data.sections.forEach(section => {
-      const sectionEl = document.createElement("div");
 
-      const heading = document.createElement("h3");
-      heading.textContent = section.heading;
+// ── HELPERS ───────────────────────────────────────────────────────────────────
 
-      const text = document.createElement("p");
-      text.textContent = section.text;
+// Renders a standard item icon with link and tooltip
+function itemIconHTML(id, size, heroShard) {
+  size = size || '36px';
+  const shardAttr = heroShard ? ` data-hero="${heroShard}"` : '';
+  return `<a href="../items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${shardAttr}><div class="item-icon" style="width:${size};height:${size};"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
+}
 
-      sectionEl.appendChild(heading);
-      sectionEl.appendChild(text);
+// Renders an item from a build phase — handles strings, plain objects, and timed objects
+function buildItemHTML(item) {
+  if (typeof item === 'string') {
+    return itemIconHTML(item);
+  }
+  const { id, green, yellow, hero_shard, also } = item;
+  let html = '';
+  if (green || yellow) {
+    html += `<div class="item-timed">`;
+    if (green) html += `<span class="timestamp green">${green}</span>`;
+    html += itemIconHTML(id, '36px', hero_shard || null);
+    if (yellow) html += `<span class="timestamp yellow">${yellow}</span>`;
+    html += `</div>`;
+  } else {
+    html += itemIconHTML(id, '36px', hero_shard || null);
+  }
+  if (also) html += itemIconHTML(also);
+  return html;
+}
 
-      contentDiv.appendChild(sectionEl);
-    });
-  })
-  .catch(error => {
-    console.error("Error loading JSON:", error);
+// Parses [item:id] and [hero:id] tags inside tip text into inline icons
+function parseText(text) {
+  text = text.replace(/\[item:([^\]]+)\]/g, function(_, id) {
+    return `<a href="../items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
   });
+  text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
+    return `<a href="../heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>`;
+  });
+  return text;
+}
+
+// Converts hex color to "r,g,b" string for use in rgba()
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return r + ',' + g + ',' + b;
+}
+
+// Creates a section div with a title
+function makeSection(titleText) {
+  const div = document.createElement('div');
+  div.className = 'section';
+  div.innerHTML = `<div class="section-title">${titleText}</div>`;
+  return div;
+}
+
+
+// ── BUILDERS ──────────────────────────────────────────────────────────────────
+
+function buildHeader(data) {
+  document.title = `${data.name} — The Fountain of Wisdom`;
+
+  const rgb = hexToRgb(data.hero_color);
+  document.body.style.backgroundImage =
+    `radial-gradient(ellipse at 20% 0%, rgba(${rgb},0.18) 0%, transparent 50%),` +
+    `radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%)`;
+
+  const attrColors = {
+    agility: 'var(--green)',
+    strength: 'var(--red)',
+    intelligence: 'var(--blue)',
+    universal: '#b07aff'
+  };
+  const attrColor = attrColors[data.attribute] || 'var(--text)';
+  const attrName = data.attribute.charAt(0).toUpperCase() + data.attribute.slice(1);
+
+  document.getElementById('hero-center').innerHTML =
+    `<div class="hero-avatar" style="box-shadow:0 0 30px rgba(${rgb},0.5),inset 0 0 20px rgba(0,0,0,0.5);background:linear-gradient(135deg,${data.hero_color},#0d1520);">` +
+      `<img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${data.id}.png" alt="${data.name}" onerror="this.parentElement.innerHTML='⚔️'">` +
+    `</div>` +
+    `<div class="hero-name">${data.name}</div>` +
+    `<div class="hero-attr" style="color:${attrColor};">` +
+      `<img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_${data.attribute}.png" alt="${attrName}" style="width:16px;height:16px;">` +
+      attrName +
+    `</div>`;
+
+  document.getElementById('header-right').innerHTML =
+    `<div class="version-badge">v ${data.version}</div>`;
+}
+
+
+function buildOverview(ov) {
+  const section = makeSection('Roles &amp; Overview');
+
+  let circles = '';
+  for (let i = 1; i <= 5; i++) {
+    circles += `<div class="pos-circle${ov.positions.indexOf(i) !== -1 ? ' active' : ''}">${i}</div>`;
+  }
+
+  const pros = ov.strengths.map(function(s) { return `<li>${s}</li>`; }).join('');
+  const cons = ov.weaknesses.map(function(w) { return `<li>${w}</li>`; }).join('');
+
+  section.innerHTML +=
+    `<div class="positions-row">${circles}</div>` +
+    `<div class="roles-text">${ov.roles}</div>` +
+    `<div class="pros-cons">` +
+      `<div class="pros-cons-col pros"><h4>Strengths</h4><ul>${pros}</ul></div>` +
+      `<div class="pros-cons-col cons"><h4>Weaknesses</h4><ul>${cons}</ul></div>` +
+    `</div>`;
+  return section;
+}
+
+
+function buildGamePlan(gp) {
+  const section = makeSection('Game Plan');
+
+  const extras = gp.extras
+    ? `<div class="extras-box"><h4>Extras</h4><p>${gp.extras}</p></div>`
+    : '';
+
+  section.innerHTML +=
+    `<div class="gameplan-grid">` +
+      `<div class="gameplan-phase"><h4>Early Game</h4><p>${gp.early}</p></div>` +
+      `<div class="gameplan-phase"><h4>Mid Game</h4><p>${gp.mid}</p></div>` +
+      `<div class="gameplan-phase"><h4>Late Game</h4><p>${gp.late}</p></div>` +
+    `</div>` +
+    extras;
+  return section;
+}
+
+
+function buildSkillBuilds(builds) {
+  const section = makeSection('Skill Builds');
+
+  const legend =
+    `<div class="tips-legend" style="justify-content:center;margin-bottom:14px;">` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>` +
+    `</div>`;
+
+  const buildsHTML = builds.map(function(build) {
+    const tsHeader =
+      `<div class="timestamp-header"><div class="timestamp-header-inner">` +
+        `<div class="th-col"><div class="pos-circle-sm">1</div></div>` +
+        `<div class="th-col"><div class="pos-circle-sm">2</div></div>` +
+      `</div></div>`;
+
+    const rowsHTML = build.rows.map(function(row) {
+      const icons = row.abilities.map(function(ab) {
+        const isUlt = ab === build.ult;
+        return `<div class="spell-icon${isUlt ? ' ult' : ''}"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ab}.png" alt="${ab}"></div>`;
+      }).join('');
+
+      let timestamps = '';
+      if (row.timestamps && row.timestamps.length) {
+        const cols = row.timestamps.map(function(ts) {
+          const parts = ts.split('/');
+          return `<div class="timestamp-col"><span class="timestamp green">${parts[0]}</span><span class="timestamp yellow">${parts[1]}</span></div>`;
+        }).join('');
+        timestamps = `<div class="timestamp-group">${cols}</div>`;
+      }
+
+      return `<div class="spell-row">${icons}${timestamps}</div>`;
+    }).join('');
+
+    const talentsHTML = build.talents.map(function(t) {
+      return `<div class="talent-row">` +
+        `<div class="talent-box${t.chosen === 'left' ? ' chosen' : ''}">${t.left}</div>` +
+        `<div class="talent-lvl">${t.level}</div>` +
+        `<div class="talent-box${t.chosen === 'right' ? ' chosen' : ''}">${t.right}</div>` +
+      `</div>`;
+    }).join('');
+
+    return `<div class="build-card">` +
+      `<h4>${build.name}</h4>` +
+      `<div class="build-body"><div class="build-spells">${tsHeader}${rowsHTML}</div></div>` +
+      `<div class="talent-tree">${talentsHTML}</div>` +
+      `<div class="build-note">${build.note}</div>` +
+    `</div>`;
+  }).join('');
+
+  section.innerHTML += legend + `<div class="builds-grid">${buildsHTML}</div>`;
+  return section;
+}
+
+
+function buildItemBuilds(builds, situational) {
+  const section = makeSection('Item Builds');
+
+  const legend =
+    `<div class="tips-legend" style="justify-content:center;margin-bottom:14px;">` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">New player timings</span></div>` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>` +
+    `</div>`;
+
+  const buildsHTML = builds.map(function(build) {
+    const phasesHTML = build.phases.map(function(phase) {
+      const items = phase.items.map(buildItemHTML).join('');
+      const note = phase.note ? `<div class="item-note-inline">${phase.note}</div>` : '';
+      return `<div class="item-phase"><div class="item-phase-label">${phase.label}</div><div class="item-row">${items}</div>${note}</div>`;
+    }).join('');
+
+    return `<div class="build-card">` +
+      `<h4>${build.name}</h4>` +
+      phasesHTML +
+      `<div class="build-note">${build.note}</div>` +
+    `</div>`;
+  }).join('');
+
+  let sitHTML = '';
+  if (situational && situational.length) {
+    const sitItemsHTML = situational.map(function(item) {
+      const mainIcon =
+        `<a href="../items/${item.id}.html" class="item-link" data-tooltip="item" data-item="${item.id}">` +
+          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
+        `</a>`;
+      const alsoIcon = item.also
+        ? `<a href="../items/${item.also}.html" class="item-link" data-tooltip="item" data-item="${item.also}">` +
+            `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.also}.png" alt="${item.also}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
+          `</a>`
+        : '';
+      return `<div class="sit-item">${mainIcon}${alsoIcon}<div class="sit-item-note">${item.note}</div></div>`;
+    }).join('');
+
+    sitHTML =
+      `<div class="situational-items">` +
+        `<div class="situational-label">Situational Items</div>` +
+        sitItemsHTML +
+      `</div>`;
+  }
+
+  section.innerHTML += legend + `<div class="builds-grid">${buildsHTML}</div>` + sitHTML;
+  return section;
+}
+
+
+function buildTips(tips) {
+  const section = makeSection('Tips &amp; Tricks');
+
+  const legendHTML =
+    `<div class="tips-legend">` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>` +
+      `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>` +
+    `</div>`;
+
+  const tipsHTML = tips.map(function(tip) {
+    return `<div class="tip ${tip.level}">${parseText(tip.text)}</div>`;
+  }).join('');
+
+  section.innerHTML += legendHTML + `<div class="tips-list">${tipsHTML}</div>`;
+  return section;
+}
+
+
+function buildAlliesCounters(ac) {
+  const section = makeSection('Allies &amp; Counters');
+
+  function colHTML(data, type) {
+    const titles = { allies: 'Allies', counters: 'Counters', countered: 'Countered By' };
+    const heroes = data.heroes.map(function(id) {
+      return `<a href="../heroes/${id}.html" class="hero-link">` +
+        `<div class="hero-thumb">` +
+          `<div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
+          `<div class="hero-thumb-name">${getHeroName(id)}</div>` +
+        `</div>` +
+      `</a>`;
+    }).join('');
+    return `<div class="syn-col ${type}"><h4>${titles[type]}</h4><div class="hero-thumbs">${heroes}</div><div class="syn-note">${data.note}</div></div>`;
+  }
+
+  section.innerHTML +=
+    `<div class="syn-grid">` +
+      colHTML(ac.allies, 'allies') +
+      colHTML(ac.counters, 'counters') +
+      colHTML(ac.countered_by, 'countered') +
+    `</div>`;
+  return section;
+}
+
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+
+const heroId = new URLSearchParams(window.location.search).get('id');
+
+if (!heroId) {
+  document.getElementById('hero-sections').innerHTML =
+    '<div style="padding:40px;text-align:center;color:var(--text-dim);">No hero specified. Add ?id=hero-name to the URL.</div>';
+} else {
+  fetch('data/' + heroId + '.json')
+    .then(function(r) {
+      if (!r.ok) throw new Error('Hero not found: ' + heroId);
+      return r.json();
+    })
+    .then(function(data) {
+      buildHeader(data);
+      const container = document.getElementById('hero-sections');
+      container.appendChild(buildOverview(data.overview));
+      container.appendChild(buildGamePlan(data.game_plan));
+      container.appendChild(buildSkillBuilds(data.skill_builds));
+      container.appendChild(buildItemBuilds(data.item_builds, data.situational_items));
+      container.appendChild(buildTips(data.tips));
+      container.appendChild(buildAlliesCounters(data.allies_and_counters));
+    })
+    .catch(function(err) {
+      console.error('Failed to load hero:', err);
+      document.getElementById('hero-sections').innerHTML =
+        '<div style="padding:40px;text-align:center;color:var(--red);">Failed to load hero data.</div>';
+    });
+}

@@ -1,0 +1,189 @@
+{
+  "id": "sniper",
+  "name": "Sniper",
+  "attribute": "agility",
+  "version": "7.41b",
+  "hero_color": "#1a2a4a",
+
+  "overview": {
+    "positions": [1, 2],
+    "roles": "Carry · Mid · Nuker · Disabler",
+    "strengths": [
+      "Longest Range Carry",
+      "Deals both Physical & Magical Damage",
+      "Forces the enemy team out of position",
+      "Often underestimated survivability tools"
+    ],
+    "weaknesses": [
+      "Dies easily if reached by enemy heroes",
+      "Good Positioning is Key",
+      "Mana Hungry"
+    ]
+  },
+
+  "game_plan": {
+    "early": "You're a slow lane dominator. Regardless if you're carry or mid, your primary job is to either flat-out kill the enemy hero/es early on, or slowly but surely bully them out of lane.",
+    "mid": "In this phase of the game the most comfortable thing for you is to farm efficiently & show up to defend objectives. Regardless — your auto attacks are not the only thing with long range. Shrapnel & Assassinate make you a constant threat at surprising distances — even when enemies don't expect you to be able to connect to fights in time.",
+    "late": "When you're on the defense, you're one of the best base defenders in the game. When you're on the offense, you rely on your team to be your shield preventing enemy heroes from closing the distance and ruining your day. Something amazing that you bring to the table is the fact that you can easily siege high ground from very, very far away. This in turn absolutely forces the enemy team into abandoning their high ground advantage and funneling themselves into your formation, which creates a much bigger potential for error on their side.",
+    "extras": "Your Shrapnel & Assassinate often times allow you to hugely contribute to fights that you can't even show up for on time. Keep in mind that as a core, snatching a kill with Assassinate is not only expected, but also mechanically beneficial because it will instantly refresh the spell, allowing you to recast it immediately if necessary. Just don't wait for someone to be at 1 HP — actually contribute to the fight. The spell has low cooldown & manageable mana cost. So at any point in the game you can test out how much dmg you would deal to a creep & then try to land it on heroes who have approximately the same amount themselves."
+  },
+
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — All-In",
+      "ult": "sniper_assassinate",
+      "rows": [
+        {
+          "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_shrapnel", "sniper_take_aim", "sniper_shrapnel", "sniper_assassinate"],
+          "timestamps": ["10:00/9:00", "8:00/7:00"]
+        },
+        {
+          "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_headshot", "sniper_headshot", "sniper_take_aim", "sniper_assassinate"],
+          "timestamps": ["22:00/20:00", "20:00/18:00"]
+        },
+        {
+          "abilities": ["sniper_take_aim", "sniper_take_aim", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sniper_assassinate"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+50 Max Headshot Knockback Distance", "right": "-30s Shrapnel Charge Restore Time", "chosen": "left" },
+        { "level": 20, "left": "+30% Shrapnel Damage", "right": "+2s Take Aim Duration", "chosen": "right" },
+        { "level": 15, "left": "+150 Assassinate Damage", "right": "+45 Attack Speed During Take Aim", "chosen": "right" },
+        { "level": 10, "left": "+30 Headshot Damage", "right": "+50 Take Aim Passive Attack Range", "chosen": "left" }
+      ],
+      "note": "Maximum kill threat. Great vs midlaners who need to commit in close range in order to secure last hits, or offlaners when your support has high kill threat potential."
+    },
+    {
+      "name": "Skill Build 2 — Slow Domination",
+      "ult": "sniper_assassinate",
+      "rows": [
+        {
+          "abilities": ["sniper_headshot", "sniper_take_aim", "sniper_shrapnel", "sniper_shrapnel", "sniper_shrapnel", "sniper_assassinate"],
+          "timestamps": ["10:00/9:00", "8:00/7:00"]
+        },
+        {
+          "abilities": ["sniper_shrapnel", "sniper_headshot", "sniper_headshot", "sniper_headshot", "sniper_take_aim", "sniper_assassinate"],
+          "timestamps": ["22:00/20:00", "20:00/18:00"]
+        },
+        {
+          "abilities": ["sniper_take_aim", "sniper_take_aim", "attribute_bonus", "attribute_bonus", "attribute_bonus", "sniper_assassinate"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+50 Max Headshot Knockback Distance", "right": "-30s Shrapnel Charge Restore Time", "chosen": "left" },
+        { "level": 20, "left": "+30% Shrapnel Damage", "right": "+2s Take Aim Duration", "chosen": "right" },
+        { "level": 15, "left": "+150 Assassinate Damage", "right": "+45 Attack Speed During Take Aim", "chosen": "right" },
+        { "level": 10, "left": "+30 Headshot Damage", "right": "+50 Take Aim Passive Attack Range", "chosen": "left" }
+      ],
+      "note": "If spamming Shrapnel won't bring you the desired results and will instead just leave you at a weaker state once your mana is completely depleted — even with some extra consumables — then this build is an extremely low mana cost constant harassment, which will whittle down your opponents slowly but surely, until you're ready to go for the throat!"
+    }
+  ],
+
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Standard",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "slippers", "slippers", "circlet", "branches"],
+          "note": "When you aim for 2x Wraith Bands."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "wraith_band",
+            "wraith_band",
+            "power_treads",
+            { "id": "specialists_array", "green": "16:00", "yellow": "14:00" },
+            { "id": "hydras_breath", "green": "24:00", "yellow": "20:00" },
+            { "id": "aghanims_shard", "hero_shard": "sniper" },
+            "butterfly",
+            "black_king_bar",
+            "greater_crit",
+            "satanic"
+          ]
+        }
+      ],
+      "note": "Incredible DPS, surprising survivability."
+    },
+    {
+      "name": "Item Build 2 — Niche",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "faerie_fire", "slippers", "circlet", "branches", "branches"],
+          "note": "When facing ability spammers & you want to switch one Wraith Band for a Magic Wand."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "magic_wand",
+            "wraith_band",
+            "power_treads",
+            { "id": "mask_of_madness", "green": "14:00", "yellow": "12:00" },
+            { "id": "mjollnir", "green": "22:00", "yellow": "20:00" },
+            "diffusal_blade",
+            { "id": "aghanims_shard", "hero_shard": "sniper" },
+            "dragon_lance",
+            "black_king_bar",
+            "hydras_breath",
+            "satanic",
+            "disperser"
+          ]
+        }
+      ],
+      "note": "Sometimes you're facing extremely high armor heroes (ex. Terrorblade) against whom you prefer to inflict more magical damage. And even though this build offers less DPS on paper, it will prove stronger against such targets. Another great use is to counter heroes that don't do well against Mana Burn — this makes you one of the best counters to Medusa, since she is a menace in medium range, but in reality she can never reach you under normal circumstances. And you just melt her away."
+    }
+  ],
+
+  "situational_items": [
+    { "id": "hurricane_pike", "note": "Instead of Hydra's Breath — for when you need a constant answer to an all-in close range threat to your life." },
+    { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "skadi", "note": "Counters Health Restoration." },
+    { "id": "silver_edge", "note": "Breaks Passives." },
+    { "id": "swift_blink", "note": "Better positioning & mobility." },
+    { "id": "basher", "also": "abyssal_blade", "note": "Even though the item is less effective on ranged heroes, your extreme attack range & high attack speed does allow you to be absurdly annoying. Especially good vs Debuff Immune enemies, who will still get constantly bashed while hoping that they'll have free reign over the battlefield." }
+  ],
+
+  "tips": [
+    {
+      "level": "basic",
+      "text": "Your Innate Ability: Keen Scope increases your damage the further away you are from your targets. This means that it's optimal to attack from as far away as possible in most cases. But also be mindful of these two things — sometimes enemies run away quickly, thus being closer initially would allow you to dish out more damage. And sometimes being very far away from enemies also means that you're far away from allies who might be able to otherwise save you from gap closers."
+    },
+    {
+      "level": "basic",
+      "text": "Shrapnel slows & reveals an area. It can be used in a variety of ways — from checking if enemies are in the fog of war, stealing neutral farm from an enemy while also damaging him, killing invisible heroes, to completely dismantling the enemy team's initiation by disabling enemy Blink Daggers from right before a fight from a long distance."
+    },
+    {
+      "level": "basic",
+      "text": "Assassinate not only refreshes instantly upon killing an enemy hero, but it also applies a single instance of your auto attack. This means that the spell effectively also deals more damage due to Keen Scope from longer distances. And you can also activate Take Aim while the projectile is mid-flight, in order to guarantee a Headshot proc upon landing. Naturally all of your on-hit items also have a chance to proc."
+    },
+    {
+      "level": "advanced",
+      "text": "An alternative initial item build with an incredibly high kill potential is to start with [item:power_treads] → [item:mask_of_madness] → [item:dragon_lance] & then disassemble the MoM in order to use the Broadsword for Specialist's Array & the Morbid Mask will be used for Satanic later down the line. The trick comes from the fact that an active Take Aim not only gives you bonus Attack Range, but also 100% proc chance on Headshot for a short duration. Having Mask of Madness even for a few minutes means that you can pop Take Aim + MoM and just annihilate people in early fights. Just make sure to cast your Shrapnel/s in advance since MoM will Silence you."
+    },
+    {
+      "level": "advanced",
+      "text": "Sniper is one of the simplest heroes in DotA to execute mechanically, but this also makes him one where fine-tuning is incredibly important. You can approach your item builds with great versatility & adaptability — and this means that you in a way have a knob that you can turn in order to choose a point between offense & defense. You always want maximum possible offense without dying to completely avoidable causes which you could have addressed with items that are natural purchases for you. Your main options are Shard, BKB, Satanic (and sometimes Disperser). Shard provides repositioning (you can force yourself and/or enemy hero/es through cliffs, or even get them stuck in terrain) and AoE Disarm. BKB & Satanic are self-explanatory. It is quite possible to make yourself nigh unkillable, but if this comes at the cost of doing no real damage, then it's not worth it."
+    },
+    {
+      "level": "advanced",
+      "text": "For the reasons listed above, Sniper is great when there's virtually no threat on the enemy team that could ever reach it. And if there is — you need a 2nd scaling carry-like hero on your team. Because if you invest into absolutely necessary defensive tools, your team will simply lack the overall damage to close the game properly."
+    }
+  ],
+
+  "allies_and_counters": {
+    "allies": {
+      "heroes": ["tidehunter", "mars", "earthshaker", "vengefulspirit", "life_stealer", "sven"],
+      "note": "Hard CC & saving heroes who keep enemies in place & away from Sniper. Second scaling carry-like hero who fights in close range."
+    },
+    "counters": {
+      "heroes": ["medusa", "gyrocopter", "puck", "nevermore", "witch_doctor", "disruptor"],
+      "note": "Immobile heroes who can't reach him."
+    },
+    "countered_by": {
+      "heroes": ["legion_commander", "tidehunter", "slark", "life_stealer", "storm_spirit", "void_spirit"],
+      "note": "Gap Closers."
+    }
+  }
+}

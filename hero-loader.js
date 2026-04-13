@@ -49,6 +49,7 @@ const HERO_NAMES = {
   huskar: "Huskar",
   invoker: "Invoker",
   io: "Io",
+  wisp: "Io",
   jakiro: "Jakiro",
   juggernaut: "Juggernaut",
   keeper_of_the_light: "Keeper of the Light",
@@ -131,6 +132,7 @@ const HERO_NAMES = {
   winter_wyvern: "Winter Wyvern",
   witch_doctor: "Witch Doctor",
   wraith_king: "Wraith King",
+  skeleton_king: "Wraith King",
   zeus: "Zeus"
 };
 

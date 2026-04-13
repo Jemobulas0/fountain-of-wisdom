@@ -1,0 +1,203 @@
+{
+  "id": "muerta",
+  "name": "Muerta",
+  "attribute": "intelligence",
+  "version": "7.41b",
+  "hero_color": "#1e0e36",
+
+  "overview": {
+    "positions": [1],
+    "roles": "Carry · Fighter · Nuker",
+    "strengths": [
+      "Insane Damage Output",
+      "Provides a lot of CC for a carry",
+      "Can solo Roshan & Tormentor",
+      "Unique Anti-Ethereal Counter",
+      "Physical Damage Immunity"
+    ],
+    "weaknesses": [
+      "Lack of Mobility",
+      "Magic Damage Burst",
+      "Debuff Immunity Piercing CC"
+    ]
+  },
+
+  "game_plan": {
+    "early": "You have the ability to delete most offlaners as early as level 2, if your support has a high kill threat potential. Do not overextend though as you're extremely squishy early on. Focus on hitting your first farming item as soon as possible in order to not fall behind the enemy carry too much.",
+    "mid": "Unlike some other heroes, you can't just chill in the jungle and hope for the best. You're decent at farming, but far from being the best. Utilize your extreme kill threat potential by farming & playing around your team — especially when your ultimate is up. Look for opportunities to delete Roshan with Pierce the Veil & the Tormentor with that + BKB.",
+    "late": "If you succeed in spending even a couple of seconds of free-firing at the enemy team without being disrupted, you'll most likely win your teamfights. Your itemization is extremely important each game — as is your positioning & timing in fights. Your sustain damage is nice, but what's truly important is to apply your huge burst at the right time & on the right target.",
+    "extras": "Your Innate allows you to stack Spell Amplification to extreme numbers. And even though you have a limit, you lose half of your stacks rounded down (currently this is bugged and they're being sadly rounded up). So even though it's in your best interest to not die, do not fall into the psychological trap of playing too passively & losing the game because of this. At the end of the day, your goal is the destruction of the enemy Throne — not to accumulate as many stacks as possible."
+  },
+
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "muerta_pierce_the_veil",
+      "rows": [
+        {
+          "abilities": ["muerta_dead_shot", "muerta_the_calling", "muerta_dead_shot", "muerta_gunslinger", "muerta_dead_shot", "muerta_pierce_the_veil"],
+          "timestamps": { "pos_1_3": "8:00/7:00" }
+        },
+        {
+          "abilities": ["muerta_dead_shot", "muerta_gunslinger", "muerta_gunslinger", "muerta_gunslinger", "muerta_the_calling", "muerta_pierce_the_veil"],
+          "timestamps": { "pos_1_3": "20:00/18:00" }
+        },
+        {
+          "abilities": ["muerta_the_calling", "muerta_the_calling", "attribute_bonus", "attribute_bonus", "attribute_bonus", "muerta_pierce_the_veil"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "2 Dead Shot Charges", "right": "+20% Gunslinger Chance", "chosen": "right" },
+        { "level": 20, "left": "The Calling Summons 2 Additional Revenants", "right": "+2s Pierce the Veil Duration", "chosen": "right" },
+        { "level": 15, "left": "+15 Intelligence", "right": "+3% Max HP Regen Inside The Calling", "chosen": "left" },
+        { "level": 10, "left": "+20 Attack Speed", "right": "+300 Dead Shot Cast Range", "chosen": "left" }
+      ],
+      "note": "You're able to be aggressive on lane & kill all who oppose you (and your support)."
+    },
+    {
+      "name": "Skill Build 2 — Farming",
+      "ult": "muerta_pierce_the_veil",
+      "rows": [
+        {
+          "abilities": ["muerta_dead_shot", "muerta_the_calling", "muerta_dead_shot", "muerta_gunslinger", "muerta_gunslinger", "muerta_pierce_the_veil"],
+          "timestamps": { "pos_1_3": "8:00/7:00" }
+        },
+        {
+          "abilities": ["muerta_gunslinger", "muerta_gunslinger", "muerta_dead_shot", "muerta_dead_shot", "muerta_the_calling", "muerta_pierce_the_veil"],
+          "timestamps": { "pos_1_3": "20:00/18:00" }
+        },
+        {
+          "abilities": ["muerta_the_calling", "muerta_the_calling", "attribute_bonus", "attribute_bonus", "attribute_bonus", "muerta_pierce_the_veil"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "2 Dead Shot Charges", "right": "+20% Gunslinger Chance", "chosen": "right" },
+        { "level": 20, "left": "The Calling Summons 2 Additional Revenants", "right": "+2s Pierce the Veil Duration", "chosen": "right" },
+        { "level": 15, "left": "+15 Intelligence", "right": "+3% Max HP Regen Inside The Calling", "chosen": "left" },
+        { "level": 10, "left": "+20 Attack Speed", "right": "+300 Dead Shot Cast Range", "chosen": "left" }
+      ],
+      "note": "In extremes where you completely annihilated the enemy offlaners from the first 3 levels, or you yourself got chased out of the lane, this build optimizes for maximum farming potential."
+    }
+  ],
+
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Scaling",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "faerie_fire", "mantle", "circlet", "branches", "branches"],
+          "note": "Stats."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "null_talisman",
+            "power_treads",
+            "mjollnir",
+            "silver_edge",
+            "black_king_bar",
+            { "id": "aghanims_shard", "hero": "muerta" },
+            "bloodthorn",
+            "devastator",
+            { "id": "ultimate_scepter_2", "hero": "muerta" },
+            "swift_blink",
+            "moon_shard",
+            "travel_boots_2"
+          ]
+        }
+      ],
+      "note": "Standard scaling build."
+    },
+    {
+      "name": "Item Build 2 — Assassin",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "magic_stick", "mantle", "branches", "branches", "branches"],
+          "note": "Wand vs Ability Spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "power_treads",
+            "magic_wand",
+            "mjollnir",
+            "orchid",
+            "blink",
+            "black_king_bar",
+            { "id": "aghanims_shard", "hero": "muerta" },
+            "bloodthorn",
+            "devastator",
+            { "id": "ultimate_scepter_2", "hero": "muerta" },
+            "swift_blink",
+            "moon_shard",
+            "travel_boots_2"
+          ]
+        }
+      ],
+      "note": "If you identify a key enemy hero who's getting out of hand, but also highly susceptible to being bursted down from a full combo from you, this is a great build to shut them down in their tracks, without sacrificing your farming potential in the process."
+    }
+  ],
+
+  "situational_items": [
+    { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "skadi", "note": "Counters Health Restoration." },
+    { "id": "refresher", "note": "In prolonged fights where your ultimate is not enough to remove a Physical threat ([hero:skeleton_king] [hero:troll_warlord] [hero:ursa] etc.), having a second ultimate can be all the difference in the world." },
+    { "id": "satanic", "note": "Since 7.41 Muerta can finally use Satanic for the first time ever. Regardless if you're dealing Physical or Magical Damage — the Lifesteal works fully. So whenever you need sustain — be it too much Magical Damage or Prolonged Fights — indulge in this new option for your hero." },
+    { "id": "revenants_brooch", "note": "If you're looking for a cheaper alternative to [item:satanic] which also boosts your damage on top of it, look no further. Keep in mind that this only provides Spell Lifesteal, so it won't affect your normal Physical attacks, but it will still work with Magical damage from items like [item:mjollnir] at all times." },
+    { "id": "bloodstone", "note": "A slightly more expensive alternative to [item:revenants_brooch] which trades the crit procs for higher survivability + Spell Weakness Aura which increases the damage from spells by all enemies around you by 12%. A preferred choice if your team deals a lot of overall magical damage & nobody else has bought or plans to buy the item." },
+    { "id": "sphere", "note": "In games where only a few but highly deadly spells are a threat to you ([ability:doom_bringer_doom] [ability:beastmaster_primal_roar] etc.) & [item:black_king_bar] isn't a solution, this could be a lifesaver." },
+    { "id": "sheepstick", "note": "You sacrifice a great deal of DPS, but sometimes a [item:blink] → [item:sheepstick] is the only thing that works against that single out of control enemy hero." }
+  ],
+
+  "tips": [
+    {
+      "level": "basic",
+      "text": "Your basic combo is to cast [ability:muerta_dead_shot] (most reliably at a tree) behind your target & aim the vector towards yourself while hitting him. And then follow it up immediately with [ability:muerta_the_calling] placed in a way where one of your revenants spawns exactly on top of him, applying instant silence & damage. Bonus points if you do it in a way where due to terrain your victim must remain inside The Calling's area for extra slow & potentially more revenant collisions."
+    },
+    {
+      "level": "basic",
+      "text": "Since the majority of your damage is Magical, it's unfortunate that due to items priority you're unable to buy any Kaya related items, but on the other hand allies that Amplify All Damage Received by enemies (Undying's [ability:undying_flesh_golem] or Bounty Hunter's [ability:bounty_hunter_track]) & especially allies that either boost Spell Damage Taken (Hoodwink's [ability:hoodwink_hunters_boomerang] or Ancient Black Drake's Magic Amplification Aura) or Spell Damage Dealt (Io's [ability:wisp_overcharge]) immensely boost your overall damage numbers. This is more of a 'good to know' type of info if you're playing solo, since you get what you get as teammates, but important to notice when you do actually get such heroes on your team, so you can make the best use out of them. And if you're playing with at least one friend — the synergies are amazing, especially the Io one."
+    },
+    {
+      "level": "basic",
+      "text": "Due to the nature of Multishot mechanics in this game, one would think that [ability:muerta_gunslinger] is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly — it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan very early on with her [ability:muerta_pierce_the_veil] and also Tormentor with [ability:muerta_pierce_the_veil] + [item:black_king_bar]."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:muerta_the_calling] is an amazing ability in teamfights. It does take getting a bit used to placing it though. You want to hit enemies with your revenants as much as possible, but you don't want them to be able to take a single step and walk outside of your spell either. Your best friend is either the terrain or other heroes' spells which create barriers & walls. The simplest example is fighting on a Ramp — in such a case you can usually just place the border of your spell on the Ramp itself and you're good to go. Same goes for the Rosh pit and so on. Chokepoints are your friends. Sometimes though all that you need is the slow itself for fleeing or chasing enemies — then things are much simpler. Cover as much ground in their path as possible & that's it."
+    },
+    {
+      "level": "advanced",
+      "text": "Your Shard's ability [ability:muerta_spectral_slug] is an amazing Anti-Physical Damage Heroes tool as it renders them unable to attack, which also boosts your overall damage by quite a lot. Its effect is naturally around twice as strong during [ability:muerta_pierce_the_veil]. Also just like you like others amplifying your Magical Damage, with this you do the same for your own teammates having the same needs as well."
+    },
+    {
+      "level": "advanced",
+      "text": "Being able to cast a [ability:muerta_dead_shot] on one enemy hero and aim it at a second one is much harder than one might think, because you have to take into account projectile travel time + how the two heroes are moving in the meantime. This will take a bit of practice so don't be discouraged. Your [item:ultimate_scepter] on the other hand increases your overall teamfight contribution by a ton. Your spell becomes a huge AoE fear ability which can completely disrupt the entire enemy lineup + it's super easy to use."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:muerta_dead_shot] has a 1000 Cast Range, but in reality it can hit enemy units up to 2650 Range (3400 with her level 10 talent). Most enemy players are getting a false sense of security long before they leave your actual threat range. Use this to your advantage and snipe them down. It takes some practice, but it's much easier than landing [ability:mirana_arrow] or [ability:pudge_meat_hook]. The practice will be well worth it."
+    },
+    {
+      "level": "advanced",
+      "text": "Similar to other heroes like [hero:sven] & [hero:razor], if you're not presented with an already convenient situation to fight with your ultimate whenever you first hit level 6, use it to accelerate your farming speed. It takes game sense & practice to make the right call whether & when to pop the ult, as you don't want a fight to break out just as it expired, nor do you want to kill a small camp with it and then waste half the ult walking up to another camp."
+    }
+  ],
+
+  "allies_and_counters": {
+    "allies": {
+      "heroes": ["tidehunter", "mars", "slardar", "ringmaster", "undying", "wisp"],
+      "note": "Heroes that lock down the enemy team for you to fully utilize your burst window unobstructed. Damage Amp Buffers. Save heroes who can protect you from a burst during a Debuff Immunity Piercing CC."
+    },
+    "counters": {
+      "heroes": ["necrolyte", "pugna", "terrorblade", "elder_titan", "slardar", "troll_warlord"],
+      "note": "Enemies relying on Ethereal effects or high Armor to survive. All-in Physical Damage Dealers."
+    },
+    "countered_by": {
+      "heroes": ["nyx_assassin", "skywrath_mage", "lina", "lion", "spirit_breaker", "legion_commander"],
+      "note": "Hard lockdown & Debuff Immunity Piercing CC. Absurd amounts of early/mid game burst Magic Damage."
+    }
+  }
+}

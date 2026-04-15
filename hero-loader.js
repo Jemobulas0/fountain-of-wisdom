@@ -133,7 +133,8 @@ const HERO_NAMES = {
   witch_doctor: "Witch Doctor",
   wraith_king: "Wraith King",
   skeleton_king: "Wraith King",
-  zeus: "Zeus"
+  zeus: "Zeus",
+  zuus: "Zeus",
 };
 
 function getHeroName(id) {

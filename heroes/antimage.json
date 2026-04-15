@@ -1,0 +1,177 @@
+{
+  "id": "antimage",
+  "name": "Anti-Mage",
+  "attribute": "agility",
+  "version": "7.41b",
+  "hero_color": "#1a4a4a",
+
+  "overview": {
+    "positions": [1],
+    "roles": "Carry · Mobile · Assassin · Split-pusher",
+    "strengths": [
+      "Highly mobile",
+      "Can reflect spells",
+      "Highest base BAT in the game",
+      "Counters heroes with very high or very low mana pools"
+    ],
+    "weaknesses": [
+      "Countered by Debuff Immunity",
+      "Outscaled by late game carries"
+    ]
+  },
+
+  "game_plan": {
+    "early": "Farm defensively & only join good fights with low to no risk of dying.",
+    "mid": "Split-push lanes when your team is pushing the opposite side of the map. Or consider showing up for an important objective, but never go into the fight first.",
+    "late": "Pick off isolated heroes with Blink. Use Mana Void to punish high-mana enemies in team fights.",
+    "extras": "Manta, BKB and Counterspell will protect you against most of the spells in the game. But each game during the drafting stage make a conscious note of whether there are any spells on the enemy team that will ruin your day even after you have those items. If you identify such abilities — always stay on the fringes of team fights until you see them being used up and then go in."
+  },
+
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "antimage_mana_void",
+      "rows": [
+        {
+          "abilities": ["antimage_mana_break", "antimage_blink", "antimage_mana_break", "antimage_blink", "antimage_blink", "antimage_mana_void"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["antimage_blink", "antimage_mana_break", "antimage_mana_break", "antimage_spell_shield", "antimage_spell_shield", "antimage_mana_void"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["antimage_spell_shield", "antimage_spell_shield", "attribute_bonus", "attribute_bonus", "attribute_bonus", "antimage_mana_void"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "-50s Mana Void Cooldown", "right": "-1s Blink Cooldown", "chosen": "right" },
+        { "level": 20, "left": "+0.8 Mana Void Stun", "right": "+150 Blink Cast Range", "chosen": "right" },
+        { "level": 15, "left": "+0.2 Mana Void Damage Multiplier", "right": "+9%/18% Persecutor Min/Max Movement Slow", "chosen": "left" },
+        { "level": 10, "left": "+200 Mana Void Radius", "right": "+3 Health Regen", "chosen": "right" }
+      ],
+      "note": "Standard build for when you want to transition to farming asap and you don't need Counterspell to stay on lane."
+    },
+    {
+      "name": "Skill Build 2 — Aggressive",
+      "ult": "antimage_mana_void",
+      "rows": [
+        {
+          "abilities": ["antimage_mana_break", "antimage_blink", "antimage_spell_shield", "antimage_mana_break", "antimage_blink", "antimage_mana_void"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["antimage_blink", "antimage_blink", "antimage_mana_break", "antimage_mana_break", "antimage_spell_shield", "antimage_mana_void"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["antimage_spell_shield", "antimage_spell_shield", "attribute_bonus", "attribute_bonus", "attribute_bonus", "antimage_mana_void"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "-50s Mana Void Cooldown", "right": "-1s Blink Cooldown", "chosen": "right" },
+        { "level": 20, "left": "+0.8 Mana Void Stun", "right": "+150 Blink Cast Range", "chosen": "right" },
+        { "level": 15, "left": "+0.2 Mana Void Damage Multiplier", "right": "+9%/18% Persecutor Min/Max Movement Slow", "chosen": "left" },
+        { "level": 10, "left": "+200 Mana Void Radius", "right": "+3 Health Regen", "chosen": "right" }
+      ],
+      "note": "Often times by the time you hit level 3, you'll be able to make an educated guess on how the lane is going to proceed. In cases where you need a little extra umph and Counterspell can provide it in order to keep laning successfully, go with this build."
+    }
+  ],
+
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Standard",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "slippers", "circlet", "branches", "branches"],
+          "note": "Optimal stats."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "power_treads",
+            "wraith_band",
+            { "id": "bfury", "green": "20:00", "yellow": "17:00" },
+            { "id": "manta", "green": "27:00", "yellow": "23:00" },
+            "butterfly",
+            "abyssal_blade",
+            "skadi"
+          ]
+        }
+      ],
+      "note": "Initially, consider Battle Fury and Manta Style to be your core items. With experience, you can gradually start experimenting with the rest of the build to adjust it for each game."
+    },
+    {
+      "name": "Item Build 2 — Survivability",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "magic_stick", "branches", "branches", "branches"],
+          "note": "When facing ability spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "power_treads",
+            "magic_wand",
+            { "id": "bfury", "green": "20:00", "yellow": "17:00" },
+            { "id": "butterfly", "green": "28:00", "yellow": "24:00" },
+            "black_king_bar",
+            "abyssal_blade",
+            "satanic"
+          ]
+        }
+      ],
+      "note": "Extreme survivability. This build is aimed as a learning experience. You will feel how steep it is to buy items with big, expensive components as early as your 2nd choice. On the other hand, you will experience a drastic difference in your survivability, since every angle is covered — magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With experience, you will eventually develop a feel for which items to incorporate into your standard builds and when."
+    }
+  ],
+
+  "situational_items": [
+    { "id": "monkey_king_bar", "note": "Buy after Manta, or later, to counter a high-evasion hero." },
+    { "id": "nullifier", "note": "Buy after Manta to counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
+    { "id": "black_king_bar", "note": "Buy as your 3rd item at the earliest, when facing hard CC spells that Counterspell cannot deal with." }
+  ],
+
+  "tips": [
+    {
+      "level": "basic",
+      "text": "[ability:antimage_blink] Blink on top of an enemy hero, use Manta to summon illusions, burn their mana, and finish them off with [ability:antimage_mana_void] Mana Void."
+    },
+    {
+      "level": "basic",
+      "text": "Always [ability:antimage_blink] Blink away from a fight if you are about to die. You are useless when dead, but extremely powerful when alive."
+    },
+    {
+      "level": "basic",
+      "text": "Farm the jungle between waves to maximize your gold income. Never stand idle."
+    },
+    {
+      "level": "advanced",
+      "text": "Use [ability:antimage_spell_shield] Counterspell reactively to reflect single-target spells — such as Sven's [ability:sven_storm_bolt] or Vengeful Spirit's [ability:vengefulspirit_magic_missile] — back at the caster."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:antimage_blink] Blink through terrain to escape ganks. You can pass through cliffs and trees, not just between units."
+    },
+    {
+      "level": "advanced",
+      "text": "Anti-Mage has the fastest Base Attack Time in the game. This means that bonuses to Attack Speed & Agility are even more effective on him than on most other heroes. You can learn more about this in our Base Attack Time concept page."
+    }
+  ],
+
+  "allies_and_counters": {
+    "allies": {
+      "heroes": ["treant", "dazzle", "omniknight", "chen", "ogre_magi", "zuus"],
+      "note": "AM works great with aura and/or buff supports who boost his offensive and/or defensive capabilities."
+    },
+    "counters": {
+      "heroes": ["medusa", "storm_spirit", "tinker", "pugna", "shredder", "tidehunter"],
+      "note": "Anti-Mage best counters heroes with mana pools in both extremes. Low max mana heroes immediately lose their ability to cast spells against him, while high max mana heroes become the perfect opportunity for Mana Void to turn into a nuclear bomb — especially in team fights."
+    },
+    "countered_by": {
+      "heroes": ["huskar", "axe", "legion_commander", "meepo", "slardar", "slark"],
+      "note": "Hard CC heroes who lock down Anti-Mage for long enough, so he can be focused down & deleted. Both his survivability & ability to engage heroes on his own terms disappear in such situations."
+    }
+  }
+}

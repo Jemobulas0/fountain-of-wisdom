@@ -1,0 +1,195 @@
+{
+  "id": "juggernaut",
+  "name": "Juggernaut",
+  "attribute": "agility",
+  "version": "7.41b",
+  "hero_color": "#284828",
+
+  "overview": {
+    "positions": [1],
+    "roles": "Carry · Fighter · Mobile",
+    "strengths": [
+      "Early/Mid Game Powerhouse",
+      "Highest base BAT in the game",
+      "Built-in Debuff Immunity",
+      "Strong AoE Heal"
+    ],
+    "weaknesses": [
+      "Easily Kiteable",
+      "Outscaled by Late Game Carries"
+    ]
+  },
+
+  "game_plan": {
+    "early": "You have one of the strongest normal spells in the entire game. Blade Fury does 400 AoE Damage on level 1. If you have a high kill threat support on your lane, you can immediately kill someone on lane before even a single creep has fallen. You're a lane dominator — so dominate!",
+    "mid": "The moment you hit Battle Fury, you immediately switch to max farming mode in between your ultimates. But don't just mindlessly rush at enemy heroes when Omnislash is up. Farm well, play smart & look for good opportunities to fight.\n\nHealing Ward is an extremely powerful AoE healing ability. Don't go on for minutes without using it. First — it allows you to take Tormentor & Roshan much quicker than most normal team drafts are able to. And second — even if you're simply jungling for a while & you see a teammate being low on HP on his lane — just pop the spell & send it to him. It lasts for 24 seconds. This is more than enough time to reach him & heal him up, without you wasting any time to go there yourself.",
+    "late": "You have two main ways of approaching the late game definitive team fights. You either clump into a death ball with your team or you wait on the side to either follow up on your initiator or counter-initiate theirs. This depends on the enemy team — if they want you grouped up together for a Shaker, Puck or Enigma ults for example, then you want to be on the side & look for your opening to jump in. If you get caught in such spells, you'll just die for free. But if no such threat exists — just pop that Healing Ward, walk high ground with your team & force the enemy team to fight you on your own terms, without you overextending yourself.",
+    "extras": "Omnislash allows you to be one of the few heroes who can straight up kill a hero from full to zero. But it's also one of the easiest spells to counter with a large number of items & spells or simply by walking next to a creep for you to bounce to it, and then the enemy hero walking away to safety. Glimmer Cape you can counter with cheap Dust. But things like Eul's will require more. So always try to predict in advance how things will go before Omnislashing."
+  },
+
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "juggernaut_omni_slash",
+      "rows": [
+        {
+          "abilities": ["juggernaut_blade_fury", "juggernaut_blade_dance", "juggernaut_blade_fury", "juggernaut_healing_ward", "juggernaut_blade_fury", "juggernaut_omni_slash"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["juggernaut_blade_fury", "juggernaut_blade_dance", "juggernaut_blade_dance", "juggernaut_blade_dance", "juggernaut_healing_ward", "juggernaut_omni_slash"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["juggernaut_healing_ward", "juggernaut_healing_ward", "attribute_bonus", "attribute_bonus", "attribute_bonus", "juggernaut_omni_slash"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+40% Blade Dance Lifesteal", "right": "+1s Omnislash Duration", "chosen": "left" },
+        { "level": 20, "left": "+100 Blade Fury DPS", "right": "+15% Blade Dance Crit Damage", "chosen": "right" },
+        { "level": 15, "left": "45 Movement Speed During Blade Fury", "right": "-15s Omnislash Cooldown", "chosen": "right" },
+        { "level": 10, "left": "-1s Bladeform Stack Gain Interval", "right": "-12s Healing Ward Cooldown", "chosen": "left" }
+      ],
+      "note": "Standard build — Healing Ward early point at level 4 keeps you and your support in lane. Blade Dance maxed second for crit scaling."
+    },
+    {
+      "name": "Skill Build 2 — Survivability",
+      "ult": "juggernaut_omni_slash",
+      "rows": [
+        {
+          "abilities": ["juggernaut_blade_fury", "juggernaut_healing_ward", "juggernaut_blade_fury", "juggernaut_blade_dance", "juggernaut_blade_fury", "juggernaut_omni_slash"],
+          "timestamps": { "pos_1_3": "10:00/9:00" }
+        },
+        {
+          "abilities": ["juggernaut_blade_fury", "juggernaut_healing_ward", "juggernaut_healing_ward", "juggernaut_healing_ward", "juggernaut_blade_dance", "juggernaut_omni_slash"],
+          "timestamps": { "pos_1_3": "22:00/20:00" }
+        },
+        {
+          "abilities": ["juggernaut_blade_dance", "juggernaut_blade_dance", "attribute_bonus", "attribute_bonus", "attribute_bonus", "juggernaut_omni_slash"]
+        }
+      ],
+      "talents": [
+        { "level": 25, "left": "+40% Blade Dance Lifesteal", "right": "+1s Omnislash Duration", "chosen": "left" },
+        { "level": 20, "left": "+100 Blade Fury DPS", "right": "+15% Blade Dance Crit Damage", "chosen": "right" },
+        { "level": 15, "left": "45 Movement Speed During Blade Fury", "right": "-15s Omnislash Cooldown", "chosen": "right" },
+        { "level": 10, "left": "-1s Bladeform Stack Gain Interval", "right": "-12s Healing Ward Cooldown", "chosen": "left" }
+      ],
+      "note": "When you need maximum sustain. Healing Ward maxed early keeps both you and your support alive through hard lanes & early objective fights."
+    }
+  ],
+
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Standard",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "slippers", "circlet", "branches", "branches"],
+          "note": "Optimal stats. Circlet + Slippers build into Wraith Band."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "power_treads",
+            "wraith_band",
+            { "id": "bfury", "green": "20:00", "yellow": "17:00" },
+            { "id": "manta", "green": "28:00", "yellow": "24:00" },
+            "butterfly",
+            { "id": "ultimate_scepter", "hero": "juggernaut" },
+            "blink",
+            { "id": "aghanims_shard", "hero": "juggernaut" },
+            { "id": "ultimate_scepter_2", "hero": "juggernaut" },
+            "abyssal_blade",
+            "swift_blink",
+            "skadi"
+          ]
+        }
+      ],
+      "note": "Standard item build with a number of power spikes for your hero."
+    },
+    {
+      "name": "Item Build 2 — Alternative",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": ["tango", "quelling_blade", "magic_stick", "branches", "branches", "branches"],
+          "note": "When facing ability spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "phase_boots",
+            "magic_wand",
+            { "id": "mjollnir", "green": "21:00", "yellow": "18:00" },
+            { "id": "sphere", "green": "28:00", "yellow": "24:00" },
+            "butterfly",
+            { "id": "ultimate_scepter", "hero": "juggernaut" },
+            "blink",
+            { "id": "aghanims_shard", "hero": "juggernaut" },
+            { "id": "ultimate_scepter_2", "hero": "juggernaut" },
+            "abyssal_blade",
+            "swift_blink"
+          ]
+        }
+      ],
+      "note": "Trade-off with this build is around -30 DPS from Phase Boots, but higher mobility for when you need to stay on top of enemies with Blade Fury, chase people down with Omnislash & travel between camps faster. On the downside, Mjollnir gives way higher DPS than Battle Fury at the cost of no Mana Regen. That's why we opt for Linken's as our second item — which both has a defensive element to it (like Manta does) and it also fixes our Mana issues. From then on things are pretty standard again."
+    }
+  ],
+
+  "situational_items": [
+    { "id": "nullifier", "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
+    { "id": "silver_edge", "note": "Breaks Passives." },
+    { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "black_king_bar", "note": "In most cases Manta will be enough to allow you to escape Silence or dodge a hard CC in order to cast your abilities in combat. But sometimes you need a BKB — for ex. against Night Stalker's Crippling Fear." }
+  ],
+
+  "tips": [
+    {
+      "level": "basic",
+      "text": "[ability:juggernaut_blade_fury] Blade Fury is both your best offensive & defensive ability for the early parts of the game. Be mindful how & when you're using it."
+    },
+    {
+      "level": "basic",
+      "text": "Cast [ability:juggernaut_healing_ward] Healing Ward before going into a fight. Not when people are already low."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:juggernaut_omni_slash] Omnislash's number of hits is based on your Attack Speed. [ability:juggernaut_blade_dance] & all on-hit effects also work fully during your ultimate."
+    },
+    {
+      "level": "basic",
+      "text": "During [ability:juggernaut_blade_fury] Blade Fury you can still proc on-hit effects on units and also deal normal damage to non-units like buildings, wards & Phoenix's [ability:phoenix_supernova] or KotL's [ability:keeper_of_the_light_will_o_wisp]."
+    },
+    {
+      "level": "advanced",
+      "text": "In fights you can allow yourself to get hit by soft CCs (not silence or stun) and cast [ability:juggernaut_omni_slash] Omnislash right after — thus wasting the spells of your enemies."
+    },
+    {
+      "level": "advanced",
+      "text": "In the late game prioritize [ability:juggernaut_blade_fury] Blade Fury's defensive qualities. As early as your first big item, your auto attacks are already dealing higher DPS than the spell. But keep in mind that the spell is a double-edged blade. In a scenario where you're fighting an enemy hero and you can kill him, you might decide to spin & die, because you've lost a lot of your DPS."
+    },
+    {
+      "level": "advanced",
+      "text": "Attempt to micro your [ability:juggernaut_healing_ward] Healing Ward — especially in the early parts of the game. The reason it provides amazing healing is that it's also quite easy to be taken out."
+    },
+    {
+      "level": "advanced",
+      "text": "Your level 25 talent allows you to basically heal to full every time you cast [ability:juggernaut_swift_slash] Swiftslash. Keep in mind that the ability also applies a Basic Dispel to yourself just like your ultimate does — even though it's not stated in the tooltip. So unless you need it in order to reach an enemy, save it for after a fight starts & you've lost some health first."
+    }
+  ],
+
+  "allies_and_counters": {
+    "allies": {
+      "heroes": ["legion_commander", "tidehunter", "beastmaster", "earthshaker", "lich", "shadow_shaman"],
+      "note": "Initiators & Aura carriers. Strong lane supports with high kill potential & CC. Heroes that seek quick resolutions to big fights."
+    },
+    "counters": {
+      "heroes": ["mars", "phoenix", "bloodseeker", "life_stealer", "silencer", "rubick"],
+      "note": "Heroes that rely on soft CCs. Squishy enemies."
+    },
+    "countered_by": {
+      "heroes": ["omniknight", "visage", "spirit_breaker", "lone_druid", "muerta", "night_stalker"],
+      "note": "Heroes who can avoid his burst. Enemies who can lock you down & burst you."
+    }
+  }
+}

@@ -435,7 +435,7 @@ function buildAlliesCounters(ac) {
   function colHTML(data, type) {
     const titles = { allies: 'Allies', counters: 'Counters', countered: 'Countered By' };
     const heroes = data.heroes.map(function(id) {
-      return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero-key="${id}">` +
+      return `<a href="heroes/${id}.html" class="hero-link">` +
         `<div class="hero-thumb">` +
           `<div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
           `<div class="hero-thumb-name">${getHeroName(id)}</div>` +

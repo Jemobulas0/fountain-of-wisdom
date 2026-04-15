@@ -178,7 +178,7 @@
       "note": "Initiators & Aura carriers. Strong lane supports with high kill potential & CC."
     },
     "counters": {
-      "heroes": ["centaur", "tidehunter", "axe", "underlord", "phoenix", "spectre"],
+      "heroes": ["centaur", "tidehunter", "axe", "abyssal_underlord", "phoenix", "spectre"],
       "note": "Tanks & non-mobile heroes who can't kite him."
     },
     "countered_by": {

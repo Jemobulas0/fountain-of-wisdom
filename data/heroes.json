@@ -1,4 +1,5 @@
 {
+  "sniper": { "name": "Sniper", "icon": "sniper" },
   "sven": { "name": "Sven", "icon": "sven" },
   "razor": { "name": "Razor", "icon": "razor" },
   "tidehunter": { "name": "Tidehunter", "icon": "tidehunter" },

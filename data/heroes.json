@@ -1,24 +1,510 @@
 {
-  "sniper": { "name": "Sniper", "icon": "sniper" },
-  "sven": { "name": "Sven", "icon": "sven" },
-  "razor": { "name": "Razor", "icon": "razor" },
-  "tidehunter": { "name": "Tidehunter", "icon": "tidehunter" },
-  "mars": { "name": "Mars", "icon": "mars" },
-  "slardar": { "name": "Slardar", "icon": "slardar" },
-  "ringmaster": { "name": "Ringmaster", "icon": "ringmaster" },
-  "undying": { "name": "Undying", "icon": "undying" },
-  "wisp": { "name": "Io", "icon": "wisp" },
-  "necrolyte": { "name": "Necrophos", "icon": "necrolyte" },
-  "pugna": { "name": "Pugna", "icon": "pugna" },
-  "terrorblade": { "name": "Terrorblade", "icon": "terrorblade" },
-  "elder_titan": { "name": "Elder Titan", "icon": "elder_titan" },
-  "troll_warlord": { "name": "Troll Warlord", "icon": "troll_warlord" },
-  "nyx_assassin": { "name": "Nyx Assassin", "icon": "nyx_assassin" },
-  "skywrath_mage": { "name": "Skywrath Mage", "icon": "skywrath_mage" },
-  "lina": { "name": "Lina", "icon": "lina" },
-  "lion": { "name": "Lion", "icon": "lion" },
-  "spirit_breaker": { "name": "Spirit Breaker", "icon": "spirit_breaker" },
-  "legion_commander": { "name": "Legion Commander", "icon": "legion_commander" },
-  "skeleton_king": { "name": "Wraith King", "icon": "skeleton_king" },
-  "ursa": { "name": "Ursa", "icon": "ursa" }
+  "alchemist": {
+    "name": "Alchemist",
+    "icon": "alchemist"
+  },
+  "axe": {
+    "name": "Axe",
+    "icon": "axe"
+  },
+  "bristleback": {
+    "name": "Bristleback",
+    "icon": "bristleback"
+  },
+  "centaur": {
+    "name": "Centaur Warrunner",
+    "icon": "centaur"
+  },
+  "chaos_knight": {
+    "name": "Chaos Knight",
+    "icon": "chaos_knight"
+  },
+  "rattletrap": {
+    "name": "Clockwerk",
+    "icon": "rattletrap"
+  },
+  "dawnbreaker": {
+    "name": "Dawnbreaker",
+    "icon": "dawnbreaker"
+  },
+  "doom_bringer": {
+    "name": "Doom",
+    "icon": "doom_bringer"
+  },
+  "dragon_knight": {
+    "name": "Dragon Knight",
+    "icon": "dragon_knight"
+  },
+  "earth_spirit": {
+    "name": "Earth Spirit",
+    "icon": "earth_spirit"
+  },
+  "earthshaker": {
+    "name": "Earth Shaker",
+    "icon": "earthshaker"
+  },
+  "elder_titan": {
+    "name": "Elder Titan",
+    "icon": "elder_titan"
+  },
+  "huskar": {
+    "name": "Huskar",
+    "icon": "huskar"
+  },
+  "kunkka": {
+    "name": "Kunkka",
+    "icon": "kunkka"
+  },
+  "largo": {
+    "name": "Largo",
+    "icon": "largo"
+  },
+  "legion_commander": {
+    "name": "Legion Commander",
+    "icon": "legion_commander"
+  },
+  "life_stealer": {
+    "name": "Lifestealer",
+    "icon": "life_stealer"
+  },
+  "lycan": {
+    "name": "Lycan",
+    "icon": "lycan"
+  },
+  "mars": {
+    "name": "Mars",
+    "icon": "mars"
+  },
+  "night_stalker": {
+    "name": "Night Stalker",
+    "icon": "night_stalker"
+  },
+  "ogre_magi": {
+    "name": "Ogre Magi",
+    "icon": "ogre_magi"
+  },
+  "omniknight": {
+    "name": "Omniknight",
+    "icon": "omniknight"
+  },
+  "phoenix": {
+    "name": "Phoenix",
+    "icon": "phoenix"
+  },
+  "primal_beast": {
+    "name": "Primal Beast",
+    "icon": "primal_beast"
+  },
+  "pudge": {
+    "name": "Pudge",
+    "icon": "pudge"
+  },
+  "slardar": {
+    "name": "Slardar",
+    "icon": "slardar"
+  },
+  "spirit_breaker": {
+    "name": "Spirit Breaker",
+    "icon": "spirit_breaker"
+  },
+  "sven": {
+    "name": "Sven",
+    "icon": "sven"
+  },
+  "tidehunter": {
+    "name": "Tidehunter",
+    "icon": "tidehunter"
+  },
+  "shredder": {
+    "name": "Timbersaw",
+    "icon": "shredder"
+  },
+  "tiny": {
+    "name": "Tiny",
+    "icon": "tiny"
+  },
+  "treant": {
+    "name": "Treant Protector",
+    "icon": "treant"
+  },
+  "tusk": {
+    "name": "Tusk",
+    "icon": "tusk"
+  },
+  "abyssal_underlord": {
+    "name": "Underlord",
+    "icon": "abyssal_underlord"
+  },
+  "undying": {
+    "name": "Undying",
+    "icon": "undying"
+  },
+  "skeleton_king": {
+    "name": "Wraith King",
+    "icon": "skeleton_king"
+  },
+  "antimage": {
+    "name": "Anti-Mage",
+    "icon": "antimage"
+  },
+  "bloodseeker": {
+    "name": "Bloodseeker",
+    "icon": "bloodseeker"
+  },
+  "bounty_hunter": {
+    "name": "Bounty Hunter",
+    "icon": "bounty_hunter"
+  },
+  "broodmother": {
+    "name": "Broodmother",
+    "icon": "broodmother"
+  },
+  "clinkz": {
+    "name": "Clinkz",
+    "icon": "clinkz"
+  },
+  "drow_ranger": {
+    "name": "Drow Ranger",
+    "icon": "drow_ranger"
+  },
+  "ember_spirit": {
+    "name": "Ember Spirit",
+    "icon": "ember_spirit"
+  },
+  "faceless_void": {
+    "name": "Faceless Void",
+    "icon": "faceless_void"
+  },
+  "gyrocopter": {
+    "name": "Gyrocopter",
+    "icon": "gyrocopter"
+  },
+  "hoodwink": {
+    "name": "Hoodwink",
+    "icon": "hoodwink"
+  },
+  "juggernaut": {
+    "name": "Juggernaut",
+    "icon": "juggernaut"
+  },
+  "kez": {
+    "name": "Kez",
+    "icon": "kez"
+  },
+  "lone_druid": {
+    "name": "Lone Druid",
+    "icon": "lone_druid"
+  },
+  "luna": {
+    "name": "Luna",
+    "icon": "luna"
+  },
+  "medusa": {
+    "name": "Medusa",
+    "icon": "medusa"
+  },
+  "meepo": {
+    "name": "Meepo",
+    "icon": "meepo"
+  },
+  "mirana": {
+    "name": "Mirana",
+    "icon": "mirana"
+  },
+  "monkey_king": {
+    "name": "Monkey King",
+    "icon": "monkey_king"
+  },
+  "morphling": {
+    "name": "Morphling",
+    "icon": "morphling"
+  },
+  "naga_siren": {
+    "name": "Naga Siren",
+    "icon": "naga_siren"
+  },
+  "phantom_assassin": {
+    "name": "Phantom Assassin",
+    "icon": "phantom_assassin"
+  },
+  "phantom_lancer": {
+    "name": "Phantom Lancer",
+    "icon": "phantom_lancer"
+  },
+  "razor": {
+    "name": "Razor",
+    "icon": "razor"
+  },
+  "riki": {
+    "name": "Riki",
+    "icon": "riki"
+  },
+  "nevermore": {
+    "name": "Shadow Fiend",
+    "icon": "nevermore"
+  },
+  "slark": {
+    "name": "Slark",
+    "icon": "slark"
+  },
+  "sniper": {
+    "name": "Sniper",
+    "icon": "sniper"
+  },
+  "spectre": {
+    "name": "Spectre",
+    "icon": "spectre"
+  },
+  "templar_assassin": {
+    "name": "Templar Assassin",
+    "icon": "templar_assassin"
+  },
+  "terrorblade": {
+    "name": "Terrorblade",
+    "icon": "terrorblade"
+  },
+  "troll_warlord": {
+    "name": "Troll Warlord",
+    "icon": "troll_warlord"
+  },
+  "ursa": {
+    "name": "Ursa",
+    "icon": "ursa"
+  },
+  "vengefulspirit": {
+    "name": "Vengeful Spirit",
+    "icon": "vengefulspirit"
+  },
+  "viper": {
+    "name": "Viper",
+    "icon": "viper"
+  },
+  "weaver": {
+    "name": "Weaver",
+    "icon": "weaver"
+  },
+  "ancient_apparition": {
+    "name": "Ancient Apparition",
+    "icon": "ancient_apparition"
+  },
+  "chen": {
+    "name": "Chen",
+    "icon": "chen"
+  },
+  "crystal_maiden": {
+    "name": "Crystal Maiden",
+    "icon": "crystal_maiden"
+  },
+  "dark_seer": {
+    "name": "Dark Seer",
+    "icon": "dark_seer"
+  },
+  "dark_willow": {
+    "name": "Dark Willow",
+    "icon": "dark_willow"
+  },
+  "disruptor": {
+    "name": "Disruptor",
+    "icon": "disruptor"
+  },
+  "enchantress": {
+    "name": "Enchantress",
+    "icon": "enchantress"
+  },
+  "grimstroke": {
+    "name": "Grimstroke",
+    "icon": "grimstroke"
+  },
+  "invoker": {
+    "name": "Invoker",
+    "icon": "invoker"
+  },
+  "jakiro": {
+    "name": "Jakiro",
+    "icon": "jakiro"
+  },
+  "keeper_of_the_light": {
+    "name": "Keeper of the Light",
+    "icon": "keeper_of_the_light"
+  },
+  "leshrac": {
+    "name": "Leshrac",
+    "icon": "leshrac"
+  },
+  "lich": {
+    "name": "Lich",
+    "icon": "lich"
+  },
+  "lina": {
+    "name": "Lina",
+    "icon": "lina"
+  },
+  "lion": {
+    "name": "Lion",
+    "icon": "lion"
+  },
+  "muerta": {
+    "name": "Muerta",
+    "icon": "muerta"
+  },
+  "necrolyte": {
+    "name": "Necrophos",
+    "icon": "necrolyte"
+  },
+  "oracle": {
+    "name": "Oracle",
+    "icon": "oracle"
+  },
+  "obsidian_destroyer": {
+    "name": "Outworld Destroyer",
+    "icon": "obsidian_destroyer"
+  },
+  "puck": {
+    "name": "Puck",
+    "icon": "puck"
+  },
+  "pugna": {
+    "name": "Pugna",
+    "icon": "pugna"
+  },
+  "queenofpain": {
+    "name": "Queen of Pain",
+    "icon": "queenofpain"
+  },
+  "ringmaster": {
+    "name": "Ringmaster",
+    "icon": "ringmaster"
+  },
+  "rubick": {
+    "name": "Rubick",
+    "icon": "rubick"
+  },
+  "shadow_demon": {
+    "name": "Shadow Demon",
+    "icon": "shadow_demon"
+  },
+  "shadow_shaman": {
+    "name": "Shadow Shaman",
+    "icon": "shadow_shaman"
+  },
+  "silencer": {
+    "name": "Silencer",
+    "icon": "silencer"
+  },
+  "skywrath_mage": {
+    "name": "Skywrath Mage",
+    "icon": "skywrath_mage"
+  },
+  "storm_spirit": {
+    "name": "Storm Spirit",
+    "icon": "storm_spirit"
+  },
+  "tinker": {
+    "name": "Tinker",
+    "icon": "tinker"
+  },
+  "warlock": {
+    "name": "Warlock",
+    "icon": "warlock"
+  },
+  "winter_wyvern": {
+    "name": "Winter Wyvern",
+    "icon": "winter_wyvern"
+  },
+  "witch_doctor": {
+    "name": "Witch Doctor",
+    "icon": "witch_doctor"
+  },
+  "zuus": {
+    "name": "Zeus",
+    "icon": "zuus"
+  },
+  "abaddon": {
+    "name": "Abaddon",
+    "icon": "abaddon"
+  },
+  "arc_warden": {
+    "name": "Arc Warden",
+    "icon": "arc_warden"
+  },
+  "bane": {
+    "name": "Bane",
+    "icon": "bane"
+  },
+  "batrider": {
+    "name": "Batrider",
+    "icon": "batrider"
+  },
+  "beastmaster": {
+    "name": "Beastmaster",
+    "icon": "beastmaster"
+  },
+  "brewmaster": {
+    "name": "Brewmaster",
+    "icon": "brewmaster"
+  },
+  "dazzle": {
+    "name": "Dazzle",
+    "icon": "dazzle"
+  },
+  "death_prophet": {
+    "name": "Death Prophet",
+    "icon": "death_prophet"
+  },
+  "enigma": {
+    "name": "Enigma",
+    "icon": "enigma"
+  },
+  "wisp": {
+    "name": "Io",
+    "icon": "wisp"
+  },
+  "magnataur": {
+    "name": "Magnus",
+    "icon": "magnataur"
+  },
+  "marci": {
+    "name": "Marci",
+    "icon": "marci"
+  },
+  "furion": {
+    "name": "Nature's Prophet",
+    "icon": "furion"
+  },
+  "nyx_assassin": {
+    "name": "Nyx Assassin",
+    "icon": "nyx_assassin"
+  },
+  "pangolier": {
+    "name": "Pangolier",
+    "icon": "pangolier"
+  },
+  "sand_king": {
+    "name": "Sand King",
+    "icon": "sand_king"
+  },
+  "snapfire": {
+    "name": "Snapfire",
+    "icon": "snapfire"
+  },
+  "techies": {
+    "name": "Techies",
+    "icon": "techies"
+  },
+  "venomancer": {
+    "name": "Venomancer",
+    "icon": "venomancer"
+  },
+  "visage": {
+    "name": "Visage",
+    "icon": "visage"
+  },
+  "void_spirit": {
+    "name": "Void Spirit",
+    "icon": "void_spirit"
+  },
+  "windrunner": {
+    "name": "Windranger",
+    "icon": "windrunner"
+  }
 }

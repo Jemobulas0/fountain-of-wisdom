@@ -4,9 +4,10 @@
   "attribute": "strength",
   "version": "7.41b",
   "hero_color": "#1a4a4a",
-
   "overview": {
-    "positions": [1],
+    "positions": [
+      1
+    ],
     "roles": "Carry · Fighter · Durable",
     "strengths": [
       "Self-sustain",
@@ -20,36 +21,79 @@
       "Health Restoration Reduction"
     ]
   },
-
   "game_plan": {
     "early": "Dominate your lane & hold it longer than most other carries.",
     "mid": "Ideally you want to start farming the enemy Ancients when you get your first big item. Reason being that you can win most fights even 1v2 if you were doing well up to this point. And if they bring most of their team, you just run away & create space on the map for yours. On the other hand if you aren't that strong, then you can rotate to your own Ancients & farm them and your own offlane.",
     "late": "If there are no Debuff Immunity Piercing CCs, you can front line for your team. Otherwise identify the thing/s which can take you out before you have a chance to respond & commit only after they've been used up.",
     "extras": "Hitting level 6 quickly & using your first couple of Infests on certain Ancient Creeps in order to slam yourself at enemy heroes with 1-2 extra allies is an incredibly easy way to get early kills.\n\nInfesting allied initiators allows you to have instant impact & be brought directly in your enemies' face, which most other carries only dream of. (ex. Legion Commander, Tidehunter, Spirit Breaker, Storm Spirit)"
   },
-
   "skill_builds": [
     {
       "name": "Skill Build 1 — Lane Domination",
       "ult": "life_stealer_infest",
       "rows": [
         {
-          "abilities": ["life_stealer_feast", "life_stealer_open_wounds", "life_stealer_feast", "life_stealer_rage", "life_stealer_feast", "life_stealer_infest"],
-          "timestamps": { "pos_1_3": "10:00/9:00" }
+          "abilities": [
+            "life_stealer_feast",
+            "life_stealer_open_wounds",
+            "life_stealer_feast",
+            "life_stealer_rage",
+            "life_stealer_feast",
+            "life_stealer_infest"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/9:00"
+          }
         },
         {
-          "abilities": ["life_stealer_feast", "life_stealer_rage", "life_stealer_rage", "life_stealer_rage", "life_stealer_open_wounds", "life_stealer_infest"],
-          "timestamps": { "pos_1_3": "22:00/20:00" }
+          "abilities": [
+            "life_stealer_feast",
+            "life_stealer_rage",
+            "life_stealer_rage",
+            "life_stealer_rage",
+            "life_stealer_open_wounds",
+            "life_stealer_infest"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
         },
         {
-          "abilities": ["life_stealer_open_wounds", "life_stealer_open_wounds", "attribute_bonus", "attribute_bonus", "attribute_bonus", "life_stealer_infest"]
+          "abilities": [
+            "life_stealer_open_wounds",
+            "life_stealer_open_wounds",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "life_stealer_infest"
+          ]
         }
       ],
       "talents": [
-        { "level": 25, "left": "+1s Rage Duration", "right": "+1% Feast Heal and Damage", "chosen": "right" },
-        { "level": 20, "left": "+25% Open Wounds Lifesteal", "right": "+12% Infest Target Movespeed/Health", "chosen": "left" },
-        { "level": 15, "left": "+50 Attack Speed on Open Wounds Target", "right": "+175 Infest Damage", "chosen": "left" },
-        { "level": 10, "left": "+20 Movement Speed", "right": "+4 All Attributes", "chosen": "right" }
+        {
+          "level": 25,
+          "left": "+1s Rage Duration",
+          "right": "+1% Feast Heal and Damage",
+          "chosen": "right"
+        },
+        {
+          "level": 20,
+          "left": "+25% Open Wounds Lifesteal",
+          "right": "+12% Infest Target Movespeed/Health",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+50 Attack Speed on Open Wounds Target",
+          "right": "+175 Infest Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+20 Movement Speed",
+          "right": "+4 All Attributes",
+          "chosen": "right"
+        }
       ],
       "note": "Standard max oppressive lane build."
     },
@@ -58,34 +102,85 @@
       "ult": "life_stealer_infest",
       "rows": [
         {
-          "abilities": ["life_stealer_feast", "life_stealer_rage", "life_stealer_feast", "life_stealer_open_wounds", "life_stealer_feast", "life_stealer_infest"],
-          "timestamps": { "pos_1_3": "10:00/9:00" }
+          "abilities": [
+            "life_stealer_feast",
+            "life_stealer_rage",
+            "life_stealer_feast",
+            "life_stealer_open_wounds",
+            "life_stealer_feast",
+            "life_stealer_infest"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/9:00"
+          }
         },
         {
-          "abilities": ["life_stealer_feast", "life_stealer_rage", "life_stealer_rage", "life_stealer_rage", "life_stealer_open_wounds", "life_stealer_infest"],
-          "timestamps": { "pos_1_3": "22:00/20:00" }
+          "abilities": [
+            "life_stealer_feast",
+            "life_stealer_rage",
+            "life_stealer_rage",
+            "life_stealer_rage",
+            "life_stealer_open_wounds",
+            "life_stealer_infest"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
         },
         {
-          "abilities": ["life_stealer_open_wounds", "life_stealer_open_wounds", "attribute_bonus", "attribute_bonus", "attribute_bonus", "life_stealer_infest"]
+          "abilities": [
+            "life_stealer_open_wounds",
+            "life_stealer_open_wounds",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "life_stealer_infest"
+          ]
         }
       ],
       "talents": [
-        { "level": 25, "left": "+1s Rage Duration", "right": "+1% Feast Heal and Damage", "chosen": "right" },
-        { "level": 20, "left": "+25% Open Wounds Lifesteal", "right": "+12% Infest Target Movespeed/Health", "chosen": "left" },
-        { "level": 15, "left": "+50 Attack Speed on Open Wounds Target", "right": "+175 Infest Damage", "chosen": "left" },
-        { "level": 10, "left": "+20 Movement Speed", "right": "+4 All Attributes", "chosen": "right" }
+        {
+          "level": 25,
+          "left": "+1s Rage Duration",
+          "right": "+1% Feast Heal and Damage",
+          "chosen": "right"
+        },
+        {
+          "level": 20,
+          "left": "+25% Open Wounds Lifesteal",
+          "right": "+12% Infest Target Movespeed/Health",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+50 Attack Speed on Open Wounds Target",
+          "right": "+175 Infest Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+20 Movement Speed",
+          "right": "+4 All Attributes",
+          "chosen": "right"
+        }
       ],
       "note": "For when you need to self-dispel (ex. CM's Frostbite) or there are spells that you have time to react to (ex. Veng's Magic Missile)."
     }
   ],
-
   "item_builds": [
     {
       "name": "Item Build 1 — Anti-Physical",
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["tango", "quelling_blade", "gauntlets", "circlet", "branches", "branches"],
+          "items": [
+            "tango",
+            "quelling_blade",
+            "gauntlets",
+            "circlet",
+            "branches",
+            "branches"
+          ],
           "note": "Optimal stats."
         },
         {
@@ -93,8 +188,16 @@
           "items": [
             "phase_boots",
             "bracer",
-            { "id": "armlet", "green": "15:00", "yellow": "13:00" },
-            { "id": "radiance", "green": "27:00", "yellow": "24:00" },
+            {
+              "id": "armlet",
+              "green": "15:00",
+              "yellow": "13:00"
+            },
+            {
+              "id": "radiance",
+              "green": "27:00",
+              "yellow": "24:00"
+            },
             "basher",
             "assault",
             "blink",
@@ -110,7 +213,14 @@
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["tango", "quelling_blade", "magic_stick", "branches", "branches", "branches"],
+          "items": [
+            "tango",
+            "quelling_blade",
+            "magic_stick",
+            "branches",
+            "branches",
+            "branches"
+          ],
           "note": "When facing ability spammers."
         },
         {
@@ -118,11 +228,22 @@
           "items": [
             "phase_boots",
             "magic_wand",
-            { "id": "mjollnir", "green": "23:00", "yellow": "20:00" },
-            { "id": "basher", "green": "27:00", "yellow": "24:00" },
+            {
+              "id": "mjollnir",
+              "green": "23:00",
+              "yellow": "20:00"
+            },
+            {
+              "id": "basher",
+              "green": "27:00",
+              "yellow": "24:00"
+            },
             "assault",
             "blink",
-            { "id": "ultimate_scepter", "hero": "lifestealer" },
+            {
+              "id": "ultimate_scepter",
+              "hero": "lifestealer"
+            },
             "abyssal_blade",
             "swift_blink"
           ]
@@ -131,16 +252,36 @@
       "note": "When facing Illusions, Summons or high Armor & especially low HP heroes — the Magic Dmg & high Attack Speed from Mjollnir make things much easier."
     }
   ],
-
   "situational_items": [
-    { "id": "orb_of_frost", "also": "orb_of_corrosion", "note": "For when you & your support have the damage, but lack the CC to deal it in lane." },
-    { "id": "satanic", "also": "disperser", "note": "One of Lifestealer's weaknesses is to get silenced as he's running in or getting gone on, and unable to cast his [ability:life_stealer_rage] Rage. These items both fit the hero well & allow him to self-dispel. [item:black_king_bar] BKB is best when fights are prolonged and the CC never ends.", "also2": "manta", "also3": "black_king_bar" },
-    { "id": "nullifier", "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
-    { "id": "monkey_king_bar", "note": "Counters Evasion." },
-    { "id": "silver_edge", "note": "Breaks Passives." },
-    { "id": "skadi", "note": "Counters Health Restoration." },
+    {
+      "id": "orb_of_frost",
+      "also": "orb_of_corrosion",
+      "note": "For when you & your support have the damage, but lack the CC to deal it in lane."
+    },
+    {
+      "id": "satanic",
+      "also": "disperser",
+      "note": "One of Lifestealer's weaknesses is to get silenced as he's running in or getting gone on, and unable to cast his [ability:life_stealer_rage] Rage. These items both fit the hero well & allow him to self-dispel. [item:black_king_bar] BKB is best when fights are prolonged and the CC never ends.",
+      "also2": "manta",
+      "also3": "black_king_bar"
+    },
+    {
+      "id": "nullifier",
+      "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc."
+    },
+    {
+      "id": "monkey_king_bar",
+      "note": "Counters Evasion."
+    },
+    {
+      "id": "silver_edge",
+      "note": "Breaks Passives."
+    },
+    {
+      "id": "skadi",
+      "note": "Counters Health Restoration."
+    }
   ],
-
   "tips": [
     {
       "level": "basic",
@@ -171,18 +312,38 @@
       "text": "Once you have [item:ultimate_scepter|lifestealer] & [item:black_king_bar]: using [ability:life_stealer_rage] → [ability:life_stealer_infest] → [item:black_king_bar] actually gives you enough time of Debuff Immunity + Invulnerability for your Rage to fully recharge & use it a 2nd time without becoming susceptible to normal spells. And once the 2nd Rage expires, you only have 7 seconds until your second Infest is back up again."
     }
   ],
-
   "allies_and_counters": {
     "allies": {
-      "heroes": ["legion_commander", "tidehunter", "axe", "spirit_breaker", "lich", "shadow_shaman"],
+      "heroes": [
+        "legion_commander",
+        "tidehunter",
+        "axe",
+        "spirit_breaker",
+        "lich",
+        "shadow_shaman"
+      ],
       "note": "Initiators & Aura carriers. Strong lane supports with high kill potential & CC."
     },
     "counters": {
-      "heroes": ["centaur", "tidehunter", "axe", "abyssal_underlord", "phoenix", "spectre"],
+      "heroes": [
+        "centaur",
+        "tidehunter",
+        "axe",
+        "abyssal_underlord",
+        "phoenix",
+        "spectre"
+      ],
       "note": "Tanks & non-mobile heroes who can't kite him."
     },
     "countered_by": {
-      "heroes": ["doom_bringer", "slardar", "pangolier", "spirit_breaker", "slark", "phantom_lancer"],
+      "heroes": [
+        "doom_bringer",
+        "slardar",
+        "pangolier",
+        "spirit_breaker",
+        "slark",
+        "phantom_lancer"
+      ],
       "note": "Debuff Immunity Piercing CCs. Elusive heroes."
     }
   }

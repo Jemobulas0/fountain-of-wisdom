@@ -1,45 +1,46 @@
 {
-  "id": "",
-  "name": "",
-  "attribute": "",
+  "id": "slardar",
+  "name": "Slardar",
+  "attribute": "strength",
   "version": "7.41b",
   "hero_color": "",
 
   "overview": {
-    "positions": [],
-    "roles": "",
+    "positions": [3],
+    "roles": "Role 1 · Role 2 · Role 3",
     "strengths": [
-      "",
-      ""
+      "Bash",
+      "Armor Reduction",
+      "Relentless Pursuer"
     ],
     "weaknesses": [
-      "",
-      ""
+      "Item Dependent",
+      "No Farming Tool"
     ]
   },
 
   "game_plan": {
-    "early": "",
-    "mid": "",
-    "late": "",
-    "extras": ""
+    "early": "Against most melee carries you're going to have an easy time. Last hit creeps until your next hit is going to be a Bash & then move on to land 2-3 autos on the enemy carry.\nAlternatively vs oppressive ranged heroes that can kite you, focus on moving the creep equilibrium closer to your tower in order to create an opportunity for you & your support to run down your opponents without the protection of their tower.",
+    "mid": "Your preferred playstyle is an aggressive one. You lack farming tools but you're made to delete heroes. If you farm passively on your side of the map, you're in a losing scenario no matter how good your laning stage was. Your two winning moves are to either find good kill opportunities or to simply pressure the enemy side of the map & take away farm from the enemy team. It doesn't matter how much better they are than you at farming, if they don't have all their camps comfortably available to them.",
+    "late": "You're an initiating beast that can keep beefy targets perma-stunned & squishy ones outright deleted due to your absurd armor reduction. Enemies that rely on physical damage & CC can't touch you once you have your Scepter with a good timing. You should be more active than ever at this point in pursuing map objectives & key hero kills. In team fights you usually want to select the most dangerous hero on the enemy team & ruin his day, while also simultaneously CC as many other heroes around you as possible.",
+    "extras": "You're one of the best heroes to take down both Roshan & Tormentor with. You do it faster & requires less teammates than most other heroes in the game."
   },
 
   "skill_builds": [
     {
-      "name": "",
-      "ult": "",
+      "name": "Skill Build 1 — Standard",
+      "ult": "slardar_corrosive_haze",
       "rows": [
         {
-          "abilities": ["", "", "", "", "", ""],
-          "timestamps": ["00:00/00:00", "00:00/00:00"]
+          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_slithereen_crush", "slardar_corrosive_haze"],
+          "timestamps": { "pos_3": "11:00/10:00" }
         },
         {
-          "abilities": ["", "", "", "", "", ""],
-          "timestamps": ["00:00/00:00", "00:00/00:00"]
+          "abilities": ["slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_guardian_sprint", "slardar_guardian_sprint", "slardar_bash_of_the_deep", "slardar_corrosive_haze"],
+          "timestamps": { "pos_3": "23:00/22:00" }
         },
         {
-          "abilities": ["", "", "", "", "", ""]
+          "abilities": ["slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_corrosive_haze"]
         }
       ],
       "talents": [
@@ -48,22 +49,22 @@
         { "level": 15, "left": "", "right": "", "chosen": "left" },
         { "level": 10, "left": "", "right": "", "chosen": "left" }
       ],
-      "note": ""
+      "note": "Prioritizing Sprint as your second ability makes you way more active on the map & also harder to run away from."
     },
     {
-      "name": "",
-      "ult": "",
+      "name": "Skill Build 2 — Farm Fest / Burst",
+      "ult": "slardar_corrosive_haze",
       "rows": [
         {
-          "abilities": ["", "", "", "", "", ""],
-          "timestamps": ["00:00/00:00", "00:00/00:00"]
+          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_slithereen_crush", "slardar_corrosive_haze"],
+          "timestamps": { "pos_3": "11:00/10:00" }
         },
         {
-          "abilities": ["", "", "", "", "", ""],
-          "timestamps": ["00:00/00:00", "00:00/00:00"]
+          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "slardar_guardian_sprint", "slardar_corrosive_haze"],
+          "timestamps": { "pos_3": "23:00/22:00" }
         },
         {
-          "abilities": ["", "", "", "", "", ""]
+          "abilities": ["slardar_guardian_sprint", "slardar_guardian_sprint", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_corrosive_haze"]
         }
       ],
       "talents": [
@@ -72,71 +73,114 @@
         { "level": 15, "left": "", "right": "", "chosen": "left" },
         { "level": 10, "left": "", "right": "", "chosen": "left" }
       ],
-      "note": ""
+      "note": "In more passive games where neither team is really forcing anything & you can't really run in by yourself looking for kills, having points into Bash instead would accelerate your farming by a lot. An alternative reason for this build would be if you judge that once you get into fights, you need to absolutely kill somebody asap & you need every ounce of damage you can muster."
     }
   ],
 
   "item_builds": [
     {
-      "name": "",
+      "name": "Item Build 1 — Initiator",
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["", ""],
+          "items": ["power_treads", "soul_ring"],
           "note": ""
         },
         {
           "label": "Core Build",
-          "items": ["", ""]
+          "items": [
+            { "id": "blink", "green": "16:00", "yellow": "13:00" },
+            { "id": "aghanims_shard", "hero_shard": "slardar", "green": "18:00", "yellow": "15:00" },
+            "black_king_bar",
+            "ultimate_scepter",
+            "assault",
+            "nullifier",
+            "satanic",
+            "swift_blink"
+          ]
         }
       ],
-      "note": ""
+      "note": "Standard build that perfectly compliments Slardar's playstyle."
     },
     {
-      "name": "",
+      "name": "Item Build 2 — Scaling",
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["", ""],
+          "items": ["bracer", "power_treads"],
           "note": ""
         },
         {
           "label": "Core Build",
-          "items": ["", ""]
+          "items": [
+            { "id": "harpoon", "green": "22:00", "yellow": "19:00" },
+            { "id": "aghanims_shard", "hero_shard": "slardar", "green": "24:00", "yellow": "21:00" },
+            "ultimate_scepter",
+            "black_king_bar",
+            "assault",
+            "blink",
+            "satanic",
+            "swift_blink"
+          ]
         }
       ],
-      "note": ""
+      "note": "When you have another strong initiator on your team (ex. mid Puck) and you can allow yourself to be more scaling."
     }
   ],
 
   "situational_items": [
-    { "id": "", "note": "" },
-    { "id": "", "note": "" }
+    { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "silver_edge", "note": "Breaks Passives." },
+    { "id": "moon_shard", "note": "Your go-to way of keeping somebody permabashed. Best bought when you're never focused by the enemy team at the start of big team fights, so you can take a key target out of the game asap." }
   ],
 
   "tips": [
     {
       "level": "basic",
-      "text": ""
+      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_corrosive_haze] & only then it deals its now amplified damage."
+    },
+    {
+      "level": "basic",
+      "text": "You can reveal invisible units once you have your [item:aghanims_shard]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_corrosive_haze] in the process."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:slardar_guardian_sprint] grants you 100% Slow Resistance for 2.5s. This means that you have an answer to heroes like [hero:venomancer] with a million slows, but keep in mind that abilities that affect your maximum movement speed counter you hard like [hero:tidehunter]'s [ability:tidehunter_dead_in_the_water]."
+    },
+    {
+      "level": "basic",
+      "text": "If you're jungling and you can choose between jungle creeps & river creeps without any other factors into the equation - always go for the river creeps. Your Innate Ability: [ability:slardar_seaborn_sentinel] will have 100% uptime while being there, increasing both your farming speed & your survivability in the process."
+    },
+    {
+      "level": "basic",
+      "text": "Slardar is one of the few heroes where every next Talent that he gets is both a significant upgrade to his kit and also increasingly more impactful than the one before. This culminates with his [ability:slardar_corrosive_haze] being Undispellable, which ultimately makes his kit practically uncounterable. At this point in the game people have numerous sources of Debuff Immunity & Dispels. And now all of a sudden none of them work. Combined with [ability:slardar_bash_of_the_deep], you're an absolute menace."
+    },
+    {
+      "level": "basic",
+      "text": "Speaking of Trail - [ability:slardar_corrosive_haze] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your [ability:slardar_seaborn_sentinel] is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
     },
     {
       "level": "advanced",
-      "text": ""
+      "text": "Pre-[item:aghanims_shard] it's crucial to know when you can jump an enemy with [ability:slardar_corrosive_haze] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash_of_the_deep] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
+    },
+    {
+      "level": "advanced",
+      "text": "[item:ultimate_scepter] is Slardar's signature item. The 2 main things which people most often forget are the bonus Status Resistance & AoE + Duration to his Puddle & Trail. This item unlocks your ability to not only be an initiator, but also a standard frontliner for your team. Just go up to a tower, cast [ability:slardar_slithereen_crush] before anyone jumps you and now you're near-unkillable."
     }
   ],
 
   "allies_and_counters": {
     "allies": {
-      "heroes": ["", ""],
-      "note": ""
+      "heroes": ["alchemist", "pangolier", "nevermore", "sniper", "terrorblade", "phantom_assassin"],
+      "note": "Heroes who play around your Armor Reduction capabilities by either dealing high physical damage or applying even further reductions themselves."
     },
     "counters": {
-      "heroes": ["", ""],
-      "note": ""
+      "heroes": ["life_stealer", "alchemist", "tiny", "puck", "skywrath_mage", "io"],
+      "note": "Low armor heroes with no way of kiting."
     },
     "countered_by": {
-      "heroes": ["", ""],
-      "note": ""
+      "heroes": ["muerta", "medusa", "juggernaut", "terrorblade", "drow_ranger", "troll_warlord"],
+      "note": "Heroes with way too much armor or abilities that allow them to avoid physical damage & auto attacks."
     }
   }
 }

@@ -137,8 +137,8 @@
     { "id": "satanic", "also": "disperser", "note": "One of Lifestealer's weaknesses is to get silenced as he's running in or getting gone on, and unable to cast his [ability:life_stealer_rage] Rage. These items both fit the hero well & allow him to self-dispel. [item:black_king_bar] BKB is best when fights are prolonged and the CC never ends.", "also2": "manta", "also3": "black_king_bar" },
     { "id": "nullifier", "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
     { "id": "monkey_king_bar", "note": "Counters Evasion." },
+    { "id": "silver_edge", "note": "Breaks Passives." },
     { "id": "skadi", "note": "Counters Health Restoration." },
-    { "id": "silver_edge", "note": "Breaks Passives." }
   ],
 
   "tips": [

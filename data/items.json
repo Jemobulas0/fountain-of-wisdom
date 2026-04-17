@@ -16,6 +16,42 @@
     "icon": "ultimate_scepter",
     "aghs_only": true,
     "aghs": {
+      "alchemist": {
+        "ability": "Greevil's Greed",
+        "ability_icon": "alchemist_greevils_greed",
+        "tag": "upgrade",
+        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 6 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
+      },
+      "axe": {
+        "ability": "Counter Helix",
+        "ability_icon": "axe_counter_helix",
+        "tag": "upgrade",
+        "desc": "Counter Helix now applies a stacking debuff to enemies hit by it that causes them to deal less total attack damage to Axe. Counter Helix no longer has a cooldown and its counter advances when Axe attacks.\n\nDEBUFF DURATION: 6\nATTACK DAMAGE REDUCTION: 12%\nMAX STACKS: 5"
+      },
+      "bristleback": {
+        "ability": "Bristleback",
+        "ability_icon": "bristleback_bristleback",
+        "tag": "upgrade",
+        "desc": "Adds active ability to Bristleback. Bristleback rotates towards the targeted direction and, after 0.5s, forcefully ejects 5 sequential Quill Sprays in a tight conical pattern out of his back every 0.4s. Bristleback's facing is locked during this time, he is disarmed, and his speed is reduced by 40%."
+      },
+      "centaur_warrunner": {
+        "ability": "Work Horse",
+        "ability_icon": "centaur_work_horse",
+        "tag": "new ability",
+        "desc": "Centaur hitches a cart behind him. While active, Centaur gains the benefit of Stampede for the current level of Stampede, and can cast Hitch a Ride on a target ally.\n\nTOTAL DURATION: 6"
+      },
+      "chaos_knight": {
+        "ability": "Phantasm",
+        "ability_icon": "chaos_knight_phantasm",
+        "tag": "upgrade",
+        "desc": "Gains a passive component. When an illusion of Chaos Knight is created, there is a 50% chance to create an additional illusion under Chaos Knight's control. When Phantasm is activated, also creates an illusion of allied heroes globally."
+      },
+      "rattletrap": {
+        "ability": "Overclocking",
+        "ability_icon": "rattletrap_overclocking",
+        "tag": "new ability",
+        "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
+      },
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
@@ -76,6 +112,42 @@
     "icon": "aghanims_shard",
     "aghs_only": true,
     "aghs": {
+      "alchemist": {
+        "ability": "Berserk Potion",
+        "ability_icon": "alchemist_berserk_potion",
+        "tag": "new ability",
+        "desc": "Alchemist throws a potion at an ally, applying a basic dispel and giving them attack speed, movement speed and HP regen.\n\nDISPEL TYPE: Basic Dispel\nDURATION: 15\nATTACK SPEED: 50\nHP REGEN: 40\nMOVE SPEED: 30"
+      },
+      "axe": {
+        "ability": "Berserker's Call",
+        "ability_icon": "axe_berserkers_call",
+        "tag": "upgrade",
+        "desc": "Berserker's Call applies Battle Hunger to affected units.\n\nBATTLE HUNGER\nMultiple instances of Battle Hunger can stack on a single target."
+      },
+      "bristleback": {
+        "ability": "Hairball",
+        "ability_icon": "bristleback_hairball",
+        "tag": "new ability",
+        "desc": "Coughs a quill-packed hairball towards the target location. Erupts at the location, hitting enemies with Viscous Nasal Goo stacks and Quill Spray.\n\nRADIUS: 700\nQUILL STACKS: 1\nGOO STACKS: 2"
+      },
+      "centaur_warrunner": {
+        "ability": "Double Edge",
+        "ability_icon": "centaur_double_edge",
+        "tag": "upgrade",
+        "desc": "Causes Double Edge to slow enemy heroes and increase Centaur's strength per hero hit for a short time. Duration refreshes per stack, up to a max of 5 stacks.\n\nBONUS STRENGTH: 12%\nSTRENGTH DURATION: 15\nMOVEMENT SLOW: 25%\nSLOW DURATION: 2"
+      },
+      "chaos_knight": {
+        "ability": "Chaos Bolt",
+        "ability_icon": "chaos_knight_chaos_bolt",
+        "tag": "upgrade",
+        "desc": "Causes Chaos Bolt to create a Phantasm illusion to attack the target. This illusion deals 15% less damage.\n\nILLUSION DURATION: 6\nILLUSION DAMAGE REDUCTION: 15%"
+      },
+      "rattletrap": {
+        "ability": "Jetpack",
+        "ability_icon": "rattletrap_jetpack",
+        "tag": "new ability",
+        "desc": "Clockwerk activates a jetpack, gaining flying movement, flying vision, and bonus movement speed. Clockwerk has a severely-limited turn rate during this time and cannot attack. Jetpack can be toggled on and off for the duration of the buff.\n\nBONUS SPEED: 20%\nDURATION: 6"
+      },
       "muerta": {
         "ability": "Spectral Slug",
         "ability_icon": "muerta_spectral_slug",
@@ -137,6 +209,42 @@
     "icon": "ultimate_scepter_2",
     "aghs_only": true,
     "aghs": {
+      "alchemist": {
+        "ability": "Greevil's Greed",
+        "ability_icon": "alchemist_greevils_greed",
+        "tag": "upgrade",
+        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 6 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
+      },
+      "axe": {
+        "ability": "Counter Helix",
+        "ability_icon": "axe_counter_helix",
+        "tag": "upgrade",
+        "desc": "Counter Helix now applies a stacking debuff to enemies hit by it that causes them to deal less total attack damage to Axe. Counter Helix no longer has a cooldown and its counter advances when Axe attacks.\n\nDEBUFF DURATION: 6\nATTACK DAMAGE REDUCTION: 12%\nMAX STACKS: 5"
+      },
+      "bristleback": {
+        "ability": "Bristleback",
+        "ability_icon": "bristleback_bristleback",
+        "tag": "upgrade",
+        "desc": "Adds active ability to Bristleback. Bristleback rotates towards the targeted direction and, after 0.5s, forcefully ejects 5 sequential Quill Sprays in a tight conical pattern out of his back every 0.4s. Bristleback's facing is locked during this time, he is disarmed, and his speed is reduced by 40%."
+      },
+      "centaur_warrunner": {
+        "ability": "Work Horse",
+        "ability_icon": "centaur_work_horse",
+        "tag": "new ability",
+        "desc": "Centaur hitches a cart behind him. While active, Centaur gains the benefit of Stampede for the current level of Stampede, and can cast Hitch a Ride on a target ally.\n\nTOTAL DURATION: 6"
+      },
+      "chaos_knight": {
+        "ability": "Phantasm",
+        "ability_icon": "chaos_knight_phantasm",
+        "tag": "upgrade",
+        "desc": "Gains a passive component. When an illusion of Chaos Knight is created, there is a 50% chance to create an additional illusion under Chaos Knight's control. When Phantasm is activated, also creates an illusion of allied heroes globally."
+      },
+      "rattletrap": {
+        "ability": "Overclocking",
+        "ability_icon": "rattletrap_overclocking",
+        "tag": "new ability",
+        "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
+      },
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",

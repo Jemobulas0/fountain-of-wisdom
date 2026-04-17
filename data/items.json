@@ -51,6 +51,11 @@
         "ability_icon": "sniper_assassinate",
         "tag": "upgrade",
         "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nStun Duration: 0.8/1/1.2\nAim Duration: 0.5"
+      },
+      "slardar": {
+        "ability": "Seaborn Sentinel",
+        "tag": "upgrade",
+        "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
       }
     }
   },
@@ -106,6 +111,12 @@
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
         "desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health.\n\nRemaining Health as Total Damage: 30%\nDamage over Time Duration: 3"
+      },
+      "slardar": {
+        "ability": "Slithereen Crush",
+        "ability_icon": "slardar_slithereen_crush",
+        "tag": "upgrade",
+        "desc": "Slithereen Crush now applies Corrosive Haze for a short time to units affected.\n\nHAZE DURATION: 5"
       }
     }
   },

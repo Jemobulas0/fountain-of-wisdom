@@ -63,7 +63,7 @@
       var html = '<div class="fow-tt-body">';
       html += '<div class="fow-tt-aghs">';
       html += '<div class="fow-tt-aghs-header">';
-      html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
+      if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
       html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
       html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
       html += '</div>';
@@ -119,7 +119,7 @@
       var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
       html += '<div class="fow-tt-aghs">';
       html += '<div class="fow-tt-aghs-header">';
-      html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
+      if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
       html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
       html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
       html += '</div>';

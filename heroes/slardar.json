@@ -29,49 +29,49 @@
   "skill_builds": [
     {
       "name": "Skill Build 1 — Standard",
-      "ult": "slardar_corrosive_haze",
+      "ult": "slardar_amplify_damage",
       "rows": [
         {
-          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_slithereen_crush", "slardar_corrosive_haze"],
+          "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_slithereen_crush", "slardar_sprint", "slardar_slithereen_crush", "slardar_amplify_damage"],
           "timestamps": { "pos_3": "11:00/10:00" }
         },
         {
-          "abilities": ["slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_guardian_sprint", "slardar_guardian_sprint", "slardar_bash_of_the_deep", "slardar_corrosive_haze"],
+          "abilities": ["slardar_slithereen_crush", "slardar_sprint", "slardar_sprint", "slardar_sprint", "slardar_bash", "slardar_amplify_damage"],
           "timestamps": { "pos_3": "23:00/22:00" }
         },
         {
-          "abilities": ["slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_corrosive_haze"]
+          "abilities": ["slardar_bash", "slardar_bash", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_amplify_damage"]
         }
       ],
       "talents": [
-        { "level": 25, "left": "", "right": "", "chosen": "left" },
-        { "level": 20, "left": "", "right": "", "chosen": "left" },
-        { "level": 15, "left": "", "right": "", "chosen": "left" },
-        { "level": 10, "left": "", "right": "", "chosen": "left" }
+        { "level": 25, "left": "Corrosive Haze Undispellable", "right": "-3s Slithereen Crush Cooldown", "chosen": "left" },
+        { "level": 20, "left": "+16% Seaborn Sentinel Bonus Attack Damage", "right": "+125 Slithereen Crush Damage", "chosen": "left" },
+        { "level": 15, "left": "-3 Corrosive Haze Armor", "right": "+250 Health", "chosen": "left" },
+        { "level": 10, "left": "+30 Bash of the Deep Damage", "right": "+2s Guardian Sprint Duration", "chosen": "left" }
       ],
       "note": "Prioritizing Sprint as your second ability makes you way more active on the map & also harder to run away from."
     },
     {
       "name": "Skill Build 2 — Farm Fest / Burst",
-      "ult": "slardar_corrosive_haze",
+      "ult": "slardar_amplify_damage",
       "rows": [
         {
-          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_slithereen_crush", "slardar_guardian_sprint", "slardar_slithereen_crush", "slardar_corrosive_haze"],
+          "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_slithereen_crush", "slardar_sprint", "slardar_slithereen_crush", "slardar_amplify_damage"],
           "timestamps": { "pos_3": "11:00/10:00" }
         },
         {
-          "abilities": ["slardar_slithereen_crush", "slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "slardar_bash_of_the_deep", "slardar_guardian_sprint", "slardar_corrosive_haze"],
+          "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_bash", "slardar_bash", "slardar_sprint", "slardar_amplify_damage"],
           "timestamps": { "pos_3": "23:00/22:00" }
         },
         {
-          "abilities": ["slardar_guardian_sprint", "slardar_guardian_sprint", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_corrosive_haze"]
+          "abilities": ["slardar_sprint", "slardar_sprint", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_amplify_damage"]
         }
       ],
       "talents": [
-        { "level": 25, "left": "", "right": "", "chosen": "left" },
-        { "level": 20, "left": "", "right": "", "chosen": "left" },
-        { "level": 15, "left": "", "right": "", "chosen": "left" },
-        { "level": 10, "left": "", "right": "", "chosen": "left" }
+        { "level": 25, "left": "Corrosive Haze Undispellable", "right": "-3s Slithereen Crush Cooldown", "chosen": "left" },
+        { "level": 20, "left": "+16% Seaborn Sentinel Bonus Attack Damage", "right": "+125 Slithereen Crush Damage", "chosen": "left" },
+        { "level": 15, "left": "-3 Corrosive Haze Armor", "right": "+250 Health", "chosen": "left" },
+        { "level": 10, "left": "+30 Bash of the Deep Damage", "right": "+2s Guardian Sprint Duration", "chosen": "left" }
       ],
       "note": "In more passive games where neither team is really forcing anything & you can't really run in by yourself looking for kills, having points into Bash instead would accelerate your farming by a lot. An alternative reason for this build would be if you judge that once you get into fights, you need to absolutely kill somebody asap & you need every ounce of damage you can muster."
     }
@@ -83,12 +83,14 @@
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["power_treads", "soul_ring"],
+          "items": ["tango", "quelling_blade", "gauntlet", "gauntlet", "branches", "branches"],
           "note": ""
         },
         {
           "label": "Core Build",
           "items": [
+            "power_treads",
+            "soul_ring",
             { "id": "blink", "green": "16:00", "yellow": "13:00" },
             { "id": "aghanims_shard", "hero_shard": "slardar", "green": "18:00", "yellow": "15:00" },
             "black_king_bar",
@@ -107,12 +109,14 @@
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["bracer", "power_treads"],
+          "items": ["tango", "quelling_blade", "gauntlet", "circlet", "branches", "branches"],
           "note": ""
         },
         {
           "label": "Core Build",
           "items": [
+            "bracer",
+            "power_treads",
             { "id": "harpoon", "green": "22:00", "yellow": "19:00" },
             { "id": "aghanims_shard", "hero_shard": "slardar", "green": "24:00", "yellow": "21:00" },
             "ultimate_scepter",
@@ -137,15 +141,15 @@
   "tips": [
     {
       "level": "basic",
-      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_corrosive_haze] & only then it deals its now amplified damage."
+      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_amplify_damage] & only then it deals its now amplified damage."
     },
     {
       "level": "basic",
-      "text": "You can reveal invisible units once you have your [item:aghanims_shard]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_corrosive_haze] in the process."
+      "text": "You can reveal invisible units once you have your [item:aghanims_shard]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_amplify_damage] in the process."
     },
     {
       "level": "basic",
-      "text": "[ability:slardar_guardian_sprint] grants you 100% Slow Resistance for 2.5s. This means that you have an answer to heroes like [hero:venomancer] with a million slows, but keep in mind that abilities that affect your maximum movement speed counter you hard like [hero:tidehunter]'s [ability:tidehunter_dead_in_the_water]."
+      "text": "[ability:slardar_sprint] grants you 100% Slow Resistance for 2.5s. This means that you have an answer to heroes like [hero:venomancer] with a million slows, but keep in mind that abilities that affect your maximum movement speed counter you hard like [hero:tidehunter]'s [ability:tidehunter_dead_in_the_water]."
     },
     {
       "level": "basic",
@@ -153,15 +157,15 @@
     },
     {
       "level": "basic",
-      "text": "Slardar is one of the few heroes where every next Talent that he gets is both a significant upgrade to his kit and also increasingly more impactful than the one before. This culminates with his [ability:slardar_corrosive_haze] being Undispellable, which ultimately makes his kit practically uncounterable. At this point in the game people have numerous sources of Debuff Immunity & Dispels. And now all of a sudden none of them work. Combined with [ability:slardar_bash_of_the_deep], you're an absolute menace."
+      "text": "Slardar is one of the few heroes where every next Talent that he gets is both a significant upgrade to his kit and also increasingly more impactful than the one before. This culminates with his [ability:slardar_amplify_damage] being Undispellable, which ultimately makes his kit practically uncounterable. At this point in the game people have numerous sources of Debuff Immunity & Dispels. And now all of a sudden none of them work. Combined with [ability:slardar_bash], you're an absolute menace."
     },
     {
       "level": "basic",
-      "text": "Speaking of Trail - [ability:slardar_corrosive_haze] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your [ability:slardar_seaborn_sentinel] is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
+      "text": "Speaking of Trail - [ability:slardar_amplify_damage] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your [ability:slardar_seaborn_sentinel] is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
     },
     {
       "level": "advanced",
-      "text": "Pre-[item:aghanims_shard] it's crucial to know when you can jump an enemy with [ability:slardar_corrosive_haze] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash_of_the_deep] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
+      "text": "Pre-[item:aghanims_shard] it's crucial to know when you can jump an enemy with [ability:slardar_amplify_damage] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
     },
     {
       "level": "advanced",
@@ -175,7 +179,7 @@
       "note": "Heroes who play around your Armor Reduction capabilities by either dealing high physical damage or applying even further reductions themselves."
     },
     "counters": {
-      "heroes": ["life_stealer", "alchemist", "tiny", "puck", "skywrath_mage", "io"],
+      "heroes": ["life_stealer", "alchemist", "tiny", "puck", "skywrath_mage", "wisp"],
       "note": "Low armor heroes with no way of kiting."
     },
     "countered_by": {

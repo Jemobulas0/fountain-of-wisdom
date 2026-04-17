@@ -210,11 +210,13 @@
   // ── Event delegation ──
   function attachEvents() {
     document.addEventListener('mouseenter', function(e) {
+      if (!e.target || typeof e.target.closest !== 'function') return;
       var target = e.target.closest('[data-tooltip]');
       if (target) showTooltip(target);
     }, true);
 
     document.addEventListener('mouseleave', function(e) {
+      if (!e.target || typeof e.target.closest !== 'function') return;
       var target = e.target.closest('[data-tooltip]');
       if (target && target === activeTarget) hideTooltip();
     }, true);

@@ -33,11 +33,11 @@
       "rows": [
         {
           "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_slithereen_crush", "slardar_sprint", "slardar_slithereen_crush", "slardar_amplify_damage"],
-          "timestamps": { "pos_3": "11:00/10:00" }
+          "timestamps": { "pos_1_3": "11:00/10:00" }
         },
         {
           "abilities": ["slardar_slithereen_crush", "slardar_sprint", "slardar_sprint", "slardar_sprint", "slardar_bash", "slardar_amplify_damage"],
-          "timestamps": { "pos_3": "23:00/22:00" }
+          "timestamps": { "pos_1_3": "23:00/22:00" }
         },
         {
           "abilities": ["slardar_bash", "slardar_bash", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_amplify_damage"]
@@ -57,11 +57,11 @@
       "rows": [
         {
           "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_slithereen_crush", "slardar_sprint", "slardar_slithereen_crush", "slardar_amplify_damage"],
-          "timestamps": { "pos_3": "11:00/10:00" }
+          "timestamps": { "pos_1_3": "11:00/10:00" }
         },
         {
           "abilities": ["slardar_slithereen_crush", "slardar_bash", "slardar_bash", "slardar_bash", "slardar_sprint", "slardar_amplify_damage"],
-          "timestamps": { "pos_3": "23:00/22:00" }
+          "timestamps": { "pos_1_3": "23:00/22:00" }
         },
         {
           "abilities": ["slardar_sprint", "slardar_sprint", "attribute_bonus", "attribute_bonus", "attribute_bonus", "slardar_amplify_damage"]
@@ -83,7 +83,7 @@
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["tango", "quelling_blade", "gauntlet", "gauntlet", "branches", "branches"],
+          "items": ["tango", "quelling_blade", "gauntlets", "gauntlets", "branches", "branches"],
           "note": ""
         },
         {
@@ -94,7 +94,7 @@
             { "id": "blink", "green": "16:00", "yellow": "13:00" },
             { "id": "aghanims_shard", "hero_shard": "slardar", "green": "18:00", "yellow": "15:00" },
             "black_king_bar",
-            "ultimate_scepter",
+            { "id": "ultimate_scepter", "hero_shard": "slardar" },
             "assault",
             "nullifier",
             "satanic",
@@ -109,7 +109,7 @@
       "phases": [
         {
           "label": "Starting Items",
-          "items": ["tango", "quelling_blade", "gauntlet", "circlet", "branches", "branches"],
+          "items": ["tango", "quelling_blade", "gauntlets", "circlet", "branches", "branches"],
           "note": ""
         },
         {
@@ -119,7 +119,7 @@
             "power_treads",
             { "id": "harpoon", "green": "22:00", "yellow": "19:00" },
             { "id": "aghanims_shard", "hero_shard": "slardar", "green": "24:00", "yellow": "21:00" },
-            "ultimate_scepter",
+            { "id": "ultimate_scepter", "hero_shard": "slardar" },
             "black_king_bar",
             "assault",
             "blink",
@@ -141,11 +141,11 @@
   "tips": [
     {
       "level": "basic",
-      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_amplify_damage] & only then it deals its now amplified damage."
+      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard|slardar] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_amplify_damage] & only then it deals its now amplified damage."
     },
     {
       "level": "basic",
-      "text": "You can reveal invisible units once you have your [item:aghanims_shard]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_amplify_damage] in the process."
+      "text": "You can reveal invisible units once you have your [item:aghanims_shard|slardar]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_amplify_damage] in the process."
     },
     {
       "level": "basic",
@@ -153,7 +153,7 @@
     },
     {
       "level": "basic",
-      "text": "If you're jungling and you can choose between jungle creeps & river creeps without any other factors into the equation - always go for the river creeps. Your Innate Ability: [ability:slardar_seaborn_sentinel] will have 100% uptime while being there, increasing both your farming speed & your survivability in the process."
+      "text": "If you're jungling and you can choose between jungle creeps & river creeps without any other factors into the equation - always go for the river creeps. Your Innate Ability: Seaborn Sentinel will have 100% uptime while being there, increasing both your farming speed & your survivability in the process."
     },
     {
       "level": "basic",
@@ -161,15 +161,15 @@
     },
     {
       "level": "basic",
-      "text": "Speaking of Trail - [ability:slardar_amplify_damage] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your [ability:slardar_seaborn_sentinel] is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
+      "text": "Speaking of Trail - [ability:slardar_amplify_damage] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your Seaborn Sentinel is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
     },
     {
       "level": "advanced",
-      "text": "Pre-[item:aghanims_shard] it's crucial to know when you can jump an enemy with [ability:slardar_amplify_damage] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
+      "text": "Pre-[item:aghanims_shard|slardar] it's crucial to know when you can jump an enemy with [ability:slardar_amplify_damage] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard|slardar]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
     },
     {
       "level": "advanced",
-      "text": "[item:ultimate_scepter] is Slardar's signature item. The 2 main things which people most often forget are the bonus Status Resistance & AoE + Duration to his Puddle & Trail. This item unlocks your ability to not only be an initiator, but also a standard frontliner for your team. Just go up to a tower, cast [ability:slardar_slithereen_crush] before anyone jumps you and now you're near-unkillable."
+      "text": "[item:ultimate_scepter|slardar] is Slardar's signature item. The 2 main things which people most often forget are the bonus Status Resistance & AoE + Duration to his Puddle & Trail. This item unlocks your ability to not only be an initiator, but also a standard frontliner for your team. Just go up to a tower, cast [ability:slardar_slithereen_crush] before anyone jumps you and now you're near-unkillable."
     }
   ],
 

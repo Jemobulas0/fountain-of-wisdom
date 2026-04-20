@@ -186,7 +186,7 @@
             "phase_boots",
             "soul_ring",
             "magic_wand",
-            "morbid_mask",
+            "lifesteal",
             {
               "id": "blink",
               "green": "21:00",
@@ -232,7 +232,7 @@
             "phase_boots",
             "soul_ring",
             "magic_wand",
-            "morbid_mask",
+            "lifesteal",
             {
               "id": "blink",
               "green": "21:00",
@@ -250,7 +250,7 @@
             "pipe",
             "shivas_guard",
             "assault",
-            "aghanims_blessing"
+            {"id": "aghanims_blessing", "hero": "tidehunter"}
           ]
         }
       ],
@@ -267,7 +267,7 @@
       "note": "Your Armor & Mana are both low in general. If Echo Shell is going to be impactful in this game, this item is a solid purchase for your hero."
     },
     {
-      "id": "crella_crozier",
+      "id": "crellas_crozier",
       "note": "An amazing mid-late game purchase when you need Health Restoration Debuff, which also coincidentally fixes your mana issues - especially when you want to get [item:refresher] Refresher Orb right after."
     }
   ],

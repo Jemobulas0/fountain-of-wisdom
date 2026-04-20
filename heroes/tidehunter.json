@@ -274,15 +274,15 @@
   "tips": [
     {
       "level": "basic",
-      "text": "Your basic combo is to cast [ability:tidehunter_gush] Gush to apply Armor Reduction & follow it up with [ability:tidehunter_anchor_smash] Anchor Smash, which is a strong Physical Damage attack. To optimize your burst even further - hit with an auto attack & then immediately use [ability:tidehunter_anchor_smash] Anchor Smash to interrupt your attack animation. This is especially effective on a hero like yours who attacks very slowly in the early game."
+      "text": "Your basic combo is to cast [ability:tidehunter_gush] to apply Armor Reduction & follow it up with [ability:tidehunter_anchor_smash], which is a strong Physical Damage attack. To optimize your burst even further - hit with an auto attack & then immediately use [ability:tidehunter_anchor_smash] to interrupt your attack animation. This is especially effective on a hero like yours who attacks very slowly in the early game."
     },
     {
       "level": "basic",
-      "text": "[ability:tidehunter_kraken_shell] Kraken Shell active is a double edged blade. You might be tempted to always cast it in fights, but in reality it only protects you from auto attacks, while slowing you down significantly. If nobody is actively focusing you down with autos, do not waste."
+      "text": "[ability:tidehunter_kraken_shell]'s active is a double edged blade. You might be tempted to always cast it in fights, but in reality it only protects you from auto attacks, while slowing you down significantly. If nobody is actively focusing you down with autos, do not waste."
     },
     {
       "level": "basic",
-      "text": "Regardless of your build or even how well you're doing, [ability:tidehunter_anchor_smash] Anchor Smash remains an amazing ability throughout the entire game. Whenever there's an auto attacking hero actively participating from the enemy team, often times one of your high priorities is to make sure that you're in his face reapplying the 50% base damage reduction at all times."
+      "text": "Regardless of your build or even how well you're doing, [ability:tidehunter_anchor_smash] remains an amazing ability throughout the entire game. Whenever there's an auto attacking hero actively participating from the enemy team, often times one of your high priorities is to make sure that you're in his face reapplying the 50% base damage reduction at all times."
     },
     {
       "level": "advanced",
@@ -290,11 +290,11 @@
     },
     {
       "level": "advanced",
-      "text": "In a similar manner you can bait people to cast their [item:black_king_bar] BKB in later fights by beginning to cast [ability:tidehunter_ravage] Ravage, only to almost immediately interrupt your cast animation. But by this point they've already wasted their [item:black_king_bar] BKB."
+      "text": "In a similar manner you can bait people to cast their [item:black_king_bar] in later fights by beginning to cast [ability:tidehunter_ravage], only to almost immediately interrupt your cast animation. But by this point they've already wasted their [item:black_king_bar]."
     },
     {
       "level": "advanced",
-      "text": "Your ultimate is an amazing ability and even though it always does the same thing, it can be used in different ways. Sometimes you want to jump in for a 5-man [ability:tidehunter_ravage] Ravage & kill everyone. Other times you might still stun 5 people, but a more optimal plan of action would be to burst a key target and run away from the rest. Don't always overcommit until either they or you are dead."
+      "text": "Your ultimate is an amazing ability and even though it always does the same thing, it can be used in different ways. Sometimes you want to jump in for a 5-man [ability:tidehunter_ravage] & kill everybody. Other times you might still stun 5 people, but a more optimal plan of action would be to burst a key target and run away from the rest. Don't always overcommit until either they or you are dead."
     }
   ],
   "allies_and_counters": {

@@ -52,6 +52,54 @@
         "tag": "new ability",
         "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
       },
+      "dawnbreaker": {
+        "ability": "Break of Dawn / Solar Guardian",
+        "ability_icon": "dawnbreaker_break_of_dawn",
+        "tag": "upgrade",
+        "desc": "Break of Dawn provides healing amplification equal to the current damage increase.\n\nSolar Guardian's aura follows Dawnbreaker for 2s after landing."
+      },
+      "doom_bringer": {
+        "ability": "Doom",
+        "ability_icon": "doom_bringer_doom",
+        "tag": "upgrade",
+        "desc": "Doom applies Break to enemies. Allies in a 350 radius around the doomed target also suffer the effects of Doom. Allows Doom to be self-cast to affect enemies around himself with Doom."
+      },
+      "dragon_knight": {
+        "ability": "Elder Dragon Form",
+        "ability_icon": "dragon_knight_elder_dragon_form",
+        "tag": "upgrade",
+        "desc": "Increases the current level of Dragon Form by one. Adds a Level 4 Black Dragon that has free pathing, bonus magic resistance, and increased other bonuses."
+      },
+      "earth_spirit": {
+        "ability": "Enchant Remnant",
+        "ability_icon": "earth_spirit_enchant_remnant",
+        "tag": "new ability",
+        "desc": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After a short duration the remnant shatters, releasing the hero and damaging nearby enemies. Can be cast on Stone Remnants with a 5s cooldown. Has a larger cast range when cast on an ally hero.\n\nREMNANT DURATION: 2.4\nSHATTER DAMAGE: 450\nSHATTER RADIUS: 450\nCAST RANGE ON ALLIES: 500"
+      },
+      "earthshaker": {
+        "ability": "Enchant Totem",
+        "ability_icon": "earthshaker_enchant_totem",
+        "tag": "upgrade",
+        "desc": "Enchant Totem becomes a ground target ability, causing Earthshaker to jump in the air and land at the target spot, casting Enchant Totem there. Self-casting the ability will behave in the original form, without jumping. Grants Enchant Totem a cleaving attack.\n\nJUMP DISTANCE: 950\nCLEAVE DAMAGE: 40%\nCLEAVE DISTANCE: 650"
+      },
+      "elder_titan": {
+        "ability": "Astral Spirit",
+        "ability_icon": "elder_titan_astral_spirit",
+        "tag": "upgrade",
+        "desc": "Causes Elder Titan to become debuff immune and gain 50% magic resistance for 2 seconds per affected enemy hero when the spirit returns."
+      },
+      "kunkka": {
+        "ability": "Ghostship",
+        "ability_icon": "kunkka_ghostship",
+        "tag": "upgrade",
+        "desc": "Ghostship creates a fleet of 2 ships at the target point on a 2.5 second interval. Each ship now also fires 3 waves of cannonballs from the port and starboard side that deal 40% of Ghostship's damage as they pass through enemies."
+      },
+      "largo": {
+        "ability": "Amphibian Rhapsody / Bullbelly Blitz",
+        "ability_icon": "largo_amphibian_rhapsody",
+        "tag": "upgrade",
+        "desc": "Largo can play two songs per beat by strumming both at the same time.\n\nBullbelly Blitz deals additional magic damage per Groovin' stack when used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
+      },
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
@@ -104,6 +152,639 @@
         "ability": "Seaborn Sentinel",
         "tag": "upgrade",
         "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
+      },
+      "legion_commander": {
+        "ability": "Press the Attack / Duel",
+        "ability_icon": "legion_commander_press_the_attack",
+        "tag": "upgrade",
+        "desc": "Press the Attack: Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\nBONUS MOVE SPEED: 25%/28%/31%/34%\n\nDuel: When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
+      },
+      "lycan": {
+        "ability": "Wolf Bite",
+        "ability_icon": "lycan_wolf_bite",
+        "tag": "new ability",
+        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other.\n\nCOOLDOWN: 110/100/90"
+      },
+      "mars": {
+        "ability": "Arena of Blood",
+        "ability_icon": "mars_arena_of_blood",
+        "tag": "upgrade",
+        "desc": "Lowers cooldown by 10s and increases duration. If an enemy is killed in the Arena, Mars and all of his allies inside the Arena restore 35% of their max health and mana and get a 35% attack damage buff for 20s. This effect stacks.\n\nDURATION: 6.5"
+      },
+      "night_stalker": {
+        "ability": "Hunter in the Night",
+        "ability_icon": "night_stalker_hunter_in_the_night",
+        "tag": "upgrade",
+        "desc": "Increases bonus movement speed by 15% and attack speed by 50. Killing an enemy hero resets all basic ability cooldowns.\n\nMOVE SPEED: 39%\nATTACK SPEED: 90"
+      },
+      "ogre_magi": {
+        "ability": "Fireblast / Unrefined Fireblast",
+        "ability_icon": "ogre_magi_fireblast",
+        "tag": "upgrade",
+        "desc": "Fireblast: Refined, reducing cooldown by 1s and increasing cast speed by 25%.\n\nUnrefined Fireblast (New Ability): Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\nSTUN DURATION: 1.2"
+      },
+      "phoenix": {
+        "ability": "Supernova",
+        "ability_icon": "phoenix_supernova",
+        "tag": "upgrade",
+        "desc": "Increases number of attacks to destroy Supernova and allows Phoenix to cast Supernova on an allied hero, bringing both into the sun to be reborn together.\n\nATTACKS TO DESTROY: 7/10/13\nCAST RANGE: 500"
+      },
+      "primal_beast": {
+        "ability": "Uproar",
+        "ability_icon": "primal_beast_uproar",
+        "tag": "upgrade",
+        "desc": "When Primal Beast activates Uproar, he releases 3 waves of 2 projectiles per stack of uproar each in a circle around him. Projectiles deal damage and Break enemies hit. After a short delay, each projectile splinters in two.\n\nDAMAGE: 85\nSPLIT DELAY: 1.25\nBREAK DURATION: 2.5"
+      },
+      "pudge": {
+        "ability": "Rot",
+        "ability_icon": "pudge_rot",
+        "tag": "upgrade",
+        "desc": "Increases Rot radius by 200, damage by 90, and causes it to reduce enemy Health Restoration by 20%.\n\nRADIUS: 450\nDAMAGE: 120/150/180/210\nHEALTH RESTORATION LOSS: 20%"
+      },
+      "spirit_breaker": {
+        "ability": "Greater Bash / Nether Strike",
+        "ability_icon": "spirit_breaker_greater_bash",
+        "tag": "upgrade",
+        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 25% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
+      },
+      "tidehunter": {
+        "ability": "Gush",
+        "ability_icon": "tidehunter_gush",
+        "tag": "upgrade",
+        "desc": "Gush becomes a ground targeted wave ability that affects enemy units in a line. Decreases cooldown.\n\nRADIUS: 260\nCOOLDOWN: 7\nRANGE: 2200"
+      },
+      "timbersaw": {
+        "ability": "Reactive Armor",
+        "ability_icon": "timbersaw_reactive_armor",
+        "tag": "upgrade",
+        "desc": "Reactive Armor can now be activated to get max stacks and 150 damage barrier. Grants Timbersaw 100 + 75 barrier amount per second for each enemy hero within 450 radius of Timbersaw up to a maximum of 800. After 8 seconds, Timbersaw deals damage to every hero within 450 radius equal to 200 + his remaining barrier amount and loses all of his barrier."
+      },
+      "tiny": {
+        "ability": "Tree Volley",
+        "ability_icon": "tiny_tree_volley",
+        "tag": "new ability",
+        "desc": "CHANNELED - Tiny channels to throw random trees within range towards the targeted area. Deals Tiny's attack with Tree Throw bonuses.\n\nTARGET RADIUS: 400\nTREE GRAB RADIUS: 700\nTHROW INTERVAL: 0.5\nMAX CHANNEL TIME: 2.5"
+      },
+      "treant_protector": {
+        "ability": "Overgrowth",
+        "ability_icon": "treant_protector_overgrowth",
+        "tag": "upgrade",
+        "desc": "Decreases Cooldown to 85/75/65 seconds. When casting Overgrowth, Treant Protector draws power from the soil, greatly increasing his size for 16 seconds. While enlarged, he gains phased movement with a fixed speed of 345, 100% bonus Strength, and a splashing attack that deals 60% of his attack damage in a 300 unit radius."
+      },
+      "tusk": {
+        "ability": "Walrus Kick",
+        "ability_icon": "tusk_walrus_kick",
+        "tag": "new ability",
+        "desc": "Kicks the closest enemy unit in the drawn direction, stunning, damaging, and slowing them. Also deals damage to all heroes within 250 radius of its landing area. Cooldown is reduced by 50% if kicking a creep.\n\nKICK PUSH DISTANCE: 1200\nMOVE SLOW: 40%\nSLOW DURATION: 2\nDAMAGE: 550"
+      },
+      "underlord": {
+        "ability": "Pit of Malice / Fiend's Gate",
+        "ability_icon": "underlord_pit_of_malice",
+        "tag": "upgrade",
+        "desc": "Pit of Malice: Increases radius of the Pit of Malice.\nRADIUS: 500\n\nFiend's Gate: Summons a Pit of Malice around each of the portals. Reduces cooldown.\nCOOLDOWN: 100/95/90"
+      },
+      "undying": {
+        "ability": "Decay",
+        "ability_icon": "undying_decay",
+        "tag": "upgrade",
+        "desc": "Increases strength steal.\n\nSTRENGTH STEAL: 8"
+      },
+      "wraith_king": {
+        "ability": "Vampiric Spirit / Reincarnation",
+        "ability_icon": "wraith_king_vampiric_spirit",
+        "tag": "upgrade",
+        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
+      },
+      "bloodseeker": {
+        "ability": "Rupture",
+        "ability_icon": "bloodseeker_rupture",
+        "tag": "upgrade",
+        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 13%"
+      },
+      "bounty_hunter": {
+        "ability": "Shuriken Toss",
+        "ability_icon": "bounty_hunter_shuriken_toss",
+        "tag": "upgrade",
+        "desc": "Increases cast range and applies Jinada on hit.\n\nCAST RANGE: 600"
+      },
+      "broodmother": {
+        "ability": "Spinner's Snare",
+        "ability_icon": "broodmother_spinners_snare",
+        "tag": "new ability",
+        "desc": "Broodmother may create up to 5 invisible web lines touching any existing web. Enemy Heroes that cross the web line will spring the trap, becoming rooted, revealed in fog, and take damage over time. Multiple Heroes can trip on the same line until it's destroyed after being initially triggered. Broodmother's team is alerted via the minimap when an enemy has triggered the snare.\n\nMAX CHARGES: 2\nBASE CHARGE RESTORE TIME: 30\nFORMATION DELAY: 2\nROOT DURATION: 3\nDAMAGE PER SECOND: 100\nWEB LINE WIDTH: 900"
+      },
+      "clinkz": {
+        "ability": "Burning Army",
+        "ability_icon": "clinkz_burning_army",
+        "tag": "new ability",
+        "desc": "Summons a row of Burning Skeleton Archers in the target location.\n\nRANGE: 900\nCOUNT: 6\nSPAWN INTERVAL: 0.1"
+      },
+      "drow_ranger": {
+        "ability": "Frost Arrows",
+        "ability_icon": "drow_ranger_frost_arrows",
+        "tag": "upgrade",
+        "desc": "Frost Arrows now apply a Hypothermia stack to enemies, increasing damage from Frost Arrows and reducing their Health Restoration per stack. If an enemy dies with Hypothermia stacks, they burst and deal damage per stack and slow in an area around it.\n\nHEALTH RESTORATION LOSS PER STACK: 10%\nBONUS DAMAGE PER STACK: 18\nSTACK DURATION: 7\nBURST RADIUS: 650\nBURST DAMAGE PER STACK: 60\nBURST MOVEMENT SLOW: 40%\nBURST SLOW DURATION: 2\nMAX STACKS: 9"
+      },
+      "ember_spirit": {
+        "ability": "Fire Remnant",
+        "ability_icon": "ember_spirit_fire_remnant",
+        "tag": "upgrade",
+        "desc": "Increases cast range, initial remnant speed, and maximum charges.\n\nRANGE: 3000\nSPEED MULTIPLIER: 2\nMAX CHARGES: 5"
+      },
+      "faceless_void": {
+        "ability": "Time Walk / Reverse Time Walk",
+        "ability_icon": "faceless_void_time_walk",
+        "tag": "upgrade",
+        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 400\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+      },
+      "gyrocopter": {
+        "ability": "Side Gunner",
+        "ability_icon": "gyrocopter_side_gunner",
+        "tag": "new ability",
+        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Side Gunner will attack 2 units at a time while Flak Cannon is active. Prioritizes furthest unit away within its range."
+      },
+      "hoodwink": {
+        "ability": "Decoy / Sharpshooter",
+        "ability_icon": "hoodwink_decoy",
+        "tag": "upgrade",
+        "desc": "Decoy (New Ability): Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\nILLUSION DURATION: 6\nBUSHWHACK RADIUS: 250\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%\n\nSharpshooter: Increases arrow speed and movement speed slow.\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
+      },
+      "kez": {
+        "ability": "Switch Discipline",
+        "ability_icon": "kez_switch_discipline",
+        "tag": "upgrade",
+        "desc": "Casting a weapon ability that would set its alternate weapon ability on cooldown does not do so if it's the first one used within 3 seconds after casting Switch Discipline or if it was already on cooldown. Casting any weapon ability refreshes the cooldown of Switch Discipline."
+      },
+      "lone_druid": {
+        "ability": "Entangle",
+        "ability_icon": "lone_druid_spirit_bear_entangle",
+        "tag": "upgrade",
+        "desc": "Entangle applies 5 stacks to enemy heroes in the area and has increased radius. Enemies no longer have protection from gaining stacks while Entangled.\n\nRADIUS: 450"
+      },
+      "luna": {
+        "ability": "Eclipse",
+        "ability_icon": "luna_eclipse",
+        "tag": "upgrade",
+        "desc": "Allows Luna to cast Eclipse on an allied unit or herself and have its effects follow them, or cast it on an area. Increases total beams, reduces duration, removes the limit on beams per unit, and makes the beams appear twice as fast.\n\nTOTAL BEAMS: 6/12/18\nMAX BEAMS PER UNIT: 6/12/18\nECLIPSE DURATION: 1.8/3.6/5.4"
+      },
+      "medusa": {
+        "ability": "Split Shot",
+        "ability_icon": "medusa_split_shot",
+        "tag": "upgrade",
+        "desc": "Allows on-hit effects to apply to the secondary attacks from Split Shot. Increases arrow count.\n\nEXTRA TARGETS: 5"
+      },
+      "meepo": {
+        "ability": "Megameepo / Megameepo Fling",
+        "ability_icon": "meepo_megameepo",
+        "tag": "new ability",
+        "desc": "Megameepo: Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\nDURATION: 20\n\nMegameepo Fling: In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
+      },
+      "mirana": {
+        "ability": "Sacred Arrow",
+        "ability_icon": "mirana_arrow",
+        "tag": "upgrade",
+        "desc": "Causes Sacred Arrow to release a Starstorm on enemies along the travel path of the primary arrow, releasing a second Starstorm that deals less damage to the impacted unit.\n\nSEARCH RADIUS: 500\nPRIMARY HIT STARSTORM DAMAGE: 80%"
+      },
+      "monkey_king": {
+        "ability": "Wukong's Command",
+        "ability_icon": "monkey_king_wukongs_command",
+        "tag": "upgrade",
+        "desc": "Spawns a monkey soldier near Monkey King at regular intervals. Soldiers do not spawn while invisible or on trees. Soldiers only attack buildings when Monkey King himself is nearby. Soldiers can now gain Jingu Mastery charges independently.\n\nSOLDIER SPAWN INTERVAL: 4\nSOLDIER DURATION: 15"
+      },
+      "morphling": {
+        "ability": "Morph",
+        "ability_icon": "morphling_morph_replicate",
+        "tag": "upgrade",
+        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 300%"
+      },
+      "naga_siren": {
+        "ability": "Ensnare / Reel In",
+        "ability_icon": "naga_siren_ensnare",
+        "tag": "upgrade",
+        "desc": "Ensnare: Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break.\n\nReel In: Allows Reel In to affect Spell Immune units."
+      },
+      "phantom_assassin": {
+        "ability": "Fan of Knives",
+        "ability_icon": "phantom_assassin_fan_of_knives",
+        "tag": "new ability",
+        "desc": "Phantom Assassin releases sharp blades around her, dealing a percentage of each victim's max health on impact and applying Break.\n\nMAX HEALTH DAMAGE: 30%\nBREAK DURATION: 4\nRADIUS: 550"
+      },
+      "phantom_lancer": {
+        "ability": "Phantom Rush",
+        "ability_icon": "phantom_lancer_phantom_rush",
+        "tag": "upgrade",
+        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1225/1300/1375/1450\nCOLLISION RADIUS: 125"
+      },
+      "razor": {
+        "ability": "Eye of the Storm",
+        "ability_icon": "razor_eye_of_the_storm",
+        "tag": "upgrade",
+        "desc": "Causes Eye of the Storm to strike two different units instead of one and can damage structures. When striking buildings, it will only target towers, barracks, and the Ancient."
+      },
+      "riki": {
+        "ability": "Tricks of the Trade",
+        "ability_icon": "riki_tricks_of_the_trade",
+        "tag": "upgrade",
+        "desc": "Increases Cast Range to 900. Allows you to target an allied unit, hiding inside them for the duration. While hiding in an allied unit, they have 15% bonus movement speed, and Tricks of the Trade lasts 1s longer and does an additional 2 attacks."
+      },
+      "shadow_fiend": {
+        "ability": "Requiem of Souls",
+        "ability_icon": "nevermore_requiem_of_souls",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown and causes Requiem of Souls to return back to Shadow Fiend. The wave back to Shadow Fiend heals him for all the damage it dealt.\n\nHEAL ON RETURN: 100%\nCOOLDOWN: 90/80/70"
+      },
+      "slark": {
+        "ability": "Pounce",
+        "ability_icon": "slark_pounce",
+        "tag": "upgrade",
+        "desc": "Provides charges and increases range.\n\nCHARGES: 2\nBASE CHARGE RESTORE TIME: 12\nDISTANCE: 900"
+      },
+      "spectre": {
+        "ability": "Haunt",
+        "ability_icon": "spectre_haunt",
+        "tag": "upgrade",
+        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 1.5s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
+      },
+      "templar_assassin": {
+        "ability": "Psionic Projection / Psionic Trap",
+        "ability_icon": "templar_assassin_psionic_projection",
+        "tag": "upgrade",
+        "desc": "Psionic Projection (New Ability): CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld.\n\nPsionic Trap: When activated, traps now silence affected enemies.\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
+      },
+      "terrorblade": {
+        "ability": "Terror Wave",
+        "ability_icon": "terrorblade_terror_wave",
+        "tag": "new ability",
+        "desc": "Causes a wave to travel outwards in all directions forcing enemy heroes to become Feared upon impact and dealing damage, and grants Terrorblade Metamorphosis for a short time.\n\nFEAR DURATION: 2\nRADIUS: 1600\nDAMAGE: 200\nMETAMORPHOSIS DURATION: 15"
+      },
+      "troll_warlord": {
+        "ability": "Whirling Axes (Ranged) / Whirling Axes (Melee)",
+        "ability_icon": "troll_warlord_whirling_axes_ranged",
+        "tag": "upgrade",
+        "desc": "Whirling Axes (Ranged): Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 30\nCOOLDOWN: 4\n\nWhirling Axes (Melee): Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 25\nCOOLDOWN: 4"
+      },
+      "ursa": {
+        "ability": "Enrage",
+        "ability_icon": "ursa_enrage",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown and allows Ursa to use Enrage while disabled.\n\nCOOLDOWN: 30/24/18"
+      },
+      "vengeful_spirit": {
+        "ability": "Vengeance Aura",
+        "ability_icon": "vengefulspirit_vengeance_aura",
+        "tag": "upgrade",
+        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells. If the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 30%\nILLUSION DAMAGE TAKEN: 100%"
+      },
+      "viper": {
+        "ability": "Corrosive Skin / Nosedive",
+        "ability_icon": "viper_corrosive_skin",
+        "tag": "upgrade",
+        "desc": "Corrosive Skin: Applies 4x the attack speed slow to enemies within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while in Nethertoxin, up to 50% increased effect after 4s.\n\nNosedive (New Ability): Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\nRADIUS: 500\nEFFECT DURATION: 4"
+      },
+      "weaver": {
+        "ability": "Time Lapse",
+        "ability_icon": "weaver_time_lapse",
+        "tag": "upgrade",
+        "desc": "Time Lapse may target allied Heroes with 500 cast range."
+      },
+      "lone_druid_bear": {
+        "ability": "Return",
+        "ability_icon": "lone_druid_spirit_bear_return",
+        "tag": "upgrade",
+        "desc": "Allows Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies."
+      },
+      "ancient_apparition": {
+        "ability": "Chilling Touch / Bone Chill",
+        "ability_icon": "ancient_apparition_chilling_touch",
+        "tag": "upgrade",
+        "desc": "Chilling Touch: Removes cooldown.\n\nBone Chill: Increases Base Strength Reduction by 0.8.\nSTRENGTH REDUCTION: 1"
+      },
+      "chen": {
+        "ability": "Hand of God",
+        "ability_icon": "chen_hand_of_god",
+        "tag": "upgrade",
+        "desc": "Decreases the cooldown of Hand of God to 110/90/70s and it becomes a channelled spell that lasts for up to 6 seconds. The initial heal happens at the start of the channel, and while channeling other nearby allied units become debuff immune with 60% magic resistance and the power of the heal over time is increased by 200%.\n\nCHANNEL RADIUS: 800"
+      },
+      "crystal_maiden": {
+        "ability": "Freezing Field",
+        "ability_icon": "crystal_maiden_freezing_field",
+        "tag": "upgrade",
+        "desc": "Allows you to move, cast and attack during Freezing Field. Can still be interrupted by enemies. You move 75% slower during this. Increases total number of explosions by 20%. Applies Frostbite to any unit that has been standing in the Freezing Field for over 2s."
+      },
+      "dark_seer": {
+        "ability": "Normal Punch",
+        "ability_icon": "dark_seer_normal_punch",
+        "tag": "new ability",
+        "desc": "Passive ability. Causes Dark Seer's next attack on a hero to have True Strike, knock a replica out of the victim, damaging and stunning them based on how far Dark Seer has moved in the past 3 seconds. Max power is reached after 1100 distance moved.\n\nMAX STUN DURATION: 1.25\nMAX KNOCKBACK DISTANCE: 350\nILLUSION DURATION: 6\nMAX DAMAGE: 400"
+      },
+      "dark_willow": {
+        "ability": "Shadow Realm",
+        "ability_icon": "dark_willow_shadow_realm",
+        "tag": "upgrade",
+        "desc": "Attacking no longer takes Dark Willow out of Shadow Realm. Each attack still has bonus damage based on the duration of the buff."
+      },
+      "disruptor": {
+        "ability": "Static Storm",
+        "ability_icon": "disruptor_static_storm",
+        "tag": "upgrade",
+        "desc": "Mutes items."
+      },
+      "enchantress": {
+        "ability": "Enchant / Little Friends",
+        "ability_icon": "enchantress_enchant",
+        "tag": "upgrade",
+        "desc": "Enchant: Enchantress can control multiple creeps at a time.\nMAX ENCHANTED CREEPS: 2\n\nLittle Friends (New Ability): Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nRADIUS: 1200\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
+      },
+      "grimstroke": {
+        "ability": "Dark Portrait",
+        "ability_icon": "grimstroke_dark_portrait",
+        "tag": "new ability",
+        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 95% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
+      },
+      "invoker": {
+        "ability": "Quas / Wex / Exort",
+        "ability_icon": "invoker_quas",
+        "tag": "upgrade",
+        "layout": "horizontal",
+        "desc": "OPTION 1 — QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 — WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 — EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+      },
+      "jakiro": {
+        "ability": "Macropyre",
+        "ability_icon": "jakiro_macropyre",
+        "tag": "upgrade",
+        "desc": "Increases Macropyre duration and causes it to deal Pure damage. Jakiro emits two walls of ice along the edges of the Macropyre that slow any enemies trying to cross them by 60%.\n\nDURATION: 15"
+      },
+      "keeper_of_the_light": {
+        "ability": "Will-O-Wisp",
+        "ability_icon": "keeper_of_the_light_will_o_wisp",
+        "tag": "new ability",
+        "desc": "Summons Ignis Fatuus at the targeted area. Alternates on and off, drawing enemies closer with its mesmerising flicker.\n\nRADIUS: 725\nHIT COUNT: 7\nDAMAGE: 85"
+      },
+      "leshrac": {
+        "ability": "Nihilism",
+        "ability_icon": "leshrac_nihilism",
+        "tag": "new ability",
+        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 30%\nRADIUS: 500"
+      },
+      "lich": {
+        "ability": "Sinister Gaze",
+        "ability_icon": "lich_sinister_gaze",
+        "tag": "upgrade",
+        "desc": "Sinister Gaze becomes an Area of Effect ability, affecting units within a radius of 400 in the target area. Sinister Gaze allows Lich to cast other abilities while channeling it."
+      },
+      "lina": {
+        "ability": "Flame Cloak",
+        "ability_icon": "lina_flame_cloak",
+        "tag": "new ability",
+        "desc": "Grants Lina unobstructed movement and increases her spell damage and magic resistance. Grants max fiery soul stacks on activation.\n\nDURATION: 7\nMAGIC RESISTANCE: 35%\nSPELL AMP: 35%"
+      },
+      "lion": {
+        "ability": "Finger of Death",
+        "ability_icon": "lion_finger_of_death",
+        "tag": "upgrade",
+        "desc": "Finger of Death gains area of effect damage on the initial cast, and increases duration and cleave damage on its subsequent melee attacks.\n\nDAMAGE: 700/825/950\nMELEE DURATION: 30\nCLEAVE DAMAGE: 50%\nAREA OF EFFECT: 325"
+      },
+      "necrophos": {
+        "ability": "Heartstopper Aura",
+        "ability_icon": "necrolyte_heartstopper_aura",
+        "tag": "upgrade",
+        "desc": "Heartstopper Aura's Health Decay is increased by 50% of Necrophos's current health regeneration."
+      },
+      "oracle": {
+        "ability": "Diviner's Deck",
+        "ability_icon": "oracle_diviners_deck",
+        "tag": "new ability",
+        "desc": "Oracle pulls a random Tarot Card now and every 90 seconds to receive its buff for 90 seconds. Oracle always knows the next Tarot Card.\n\nDeath: 40% Spell Amplification\nThe Fool: 100% Increased Gold Gain\nThe World: 150% Increased Intelligence\nThe Lovers: 40% Heal Amplification\nThe Tower: 400 All Damage Barrier (regenerates after not taking damage for 7s)"
+      },
+      "outworld_destroyer": {
+        "ability": "Objurgation",
+        "ability_icon": "obsidian_destroyer_astral_imprisonment",
+        "tag": "upgrade",
+        "desc": "Increases max mana to barrier. Damage that would bring Outworld Destroyer below 20% health is prevented. When that happens, Outworld Destroyer receives a strong dispel and gains an undispellable instance of Objurgation. This effect cannot occur more than once every 80 seconds.\n\nMAX MANA BARRIER: 16%"
+      },
+      "puck": {
+        "ability": "Dream Coil",
+        "ability_icon": "puck_dream_coil",
+        "tag": "upgrade",
+        "desc": "All enemies affected by Dream Coil are attacked at a rate equal to 90% of Puck's attack rate. The attacks continue while the target is stunned if they break the Dream Coil."
+      },
+      "pugna": {
+        "ability": "Life Drain",
+        "ability_icon": "pugna_life_drain",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown by 3.5s. When targeting an enemy hero, Pugna reduces their outgoing spell damage by 8% per second up to a maximum of 75% and increases his own, up to a maximum of 100%. When draining through a Nether Ward using Shard, the rate of increase/decrease is 4% instead. Debuff lasts 8 seconds."
+      },
+      "queen_of_pain": {
+        "ability": "Shadow Strike",
+        "ability_icon": "queenofpain_shadow_strike",
+        "tag": "upgrade",
+        "desc": "Causes Shadow Strike to become a 375 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
+      },
+      "ringmaster": {
+        "ability": "Escape Act",
+        "ability_icon": "ringmaster_escape_act",
+        "tag": "upgrade",
+        "desc": "Escape Act has 2 charges. When the box pops open, Impalement Art daggers are thrown in all directions, and all enemies around it take damage.\n\nEXPLOSION RADIUS: 225\nEXPLOSION DAMAGE: 300"
+      },
+      "rubick": {
+        "ability": "Spell Steal",
+        "ability_icon": "rubick_spell_steal",
+        "tag": "upgrade",
+        "desc": "Increases the number of spells that can be stolen to 2. Increases cast range, and upgrades stolen spells to their Scepter version.\n\nCAST RANGE: 1400"
+      },
+      "shadow_demon": {
+        "ability": "Demonic Purge",
+        "ability_icon": "shadow_demon_demonic_purge",
+        "tag": "upgrade",
+        "desc": "Causes Demonic Purge to break and gain 2 charges.\n\nBASE CHARGE RESTORE TIME: 70/65/60"
+      },
+      "shadow_shaman": {
+        "ability": "Shackles",
+        "ability_icon": "shadow_shaman_shackles",
+        "tag": "upgrade",
+        "desc": "Increase cast range. Every 0.9 seconds, shackled units emit a radial Ether Shock hitting all other units within 600 of the target for 100% of Ether Shock's normal damage. Shackles can now also be cast on allies and Mass Serpent Wards that stay within 2000 units of Shadow Shaman. Allied units are not disabled by Shackle.\n\nCAST RANGE: 600"
+      },
+      "silencer": {
+        "ability": "Global Silence",
+        "ability_icon": "silencer_global_silence",
+        "tag": "upgrade",
+        "desc": "Global Silence applies Arcane Curse to heroes for the duration of Global Silence."
+      },
+      "skywrath_mage": {
+        "ability": "Concussive Shot / Ancient Seal / Mystic Flare",
+        "ability_icon": "skywrath_mage_concussive_shot",
+        "tag": "upgrade",
+        "layout": "vertical",
+        "desc": "Concussive Shot: When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority.\n\nAncient Seal: Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority.\n\nMystic Flare: When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
+      },
+      "storm_spirit": {
+        "ability": "Electric Vortex",
+        "ability_icon": "storm_spirit_electric_vortex",
+        "tag": "upgrade",
+        "desc": "Electric Vortex affects all enemies within a radius around Storm Spirit.\n\nRADIUS: 475"
+      },
+      "tinker": {
+        "ability": "Laser / March of the Machines / Deploy Turrets",
+        "ability_icon": "tinker_laser",
+        "tag": "upgrade",
+        "layout": "vertical",
+        "desc": "Laser: Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity.\n\nMarch of the Machines: March of the Machines applies a non-stacking heal over time when passing through allied heroes.\nHEAL PER SECOND: 35\nHEAL DURATION: 4\n\nDeploy Turrets: Turrets fire missiles 20% faster.\nATTACK INTERVAL: 1.2"
+      },
+      "warlock": {
+        "ability": "Chaotic Offering",
+        "ability_icon": "warlock_chaotic_offering",
+        "tag": "upgrade",
+        "desc": "Calls 2 Golems."
+      },
+      "winter_wyvern": {
+        "ability": "Arctic Burn",
+        "ability_icon": "winter_wyvern_arctic_burn",
+        "tag": "upgrade",
+        "desc": "Causes Arctic Burn to be a toggle ability, draining mana every second when active. Increases Winter Wyvern's movement speed.\n\nMANA PER SECOND: 20\nMOVEMENT SPEED: 25%"
+      },
+      "witch_doctor": {
+        "ability": "Death Ward",
+        "ability_icon": "witch_doctor_death_ward",
+        "tag": "upgrade",
+        "desc": "Death Ward attacks bounce between nearby enemies.\n\nBOUNCE RADIUS: 575"
+      },
+      "zeus": {
+        "ability": "Nimbus",
+        "ability_icon": "zuus_nimbus",
+        "tag": "new ability",
+        "desc": "Creates a storm cloud anywhere on the map that automatically casts Lightning Bolt on nearby enemies.\n\nDURATION: 30\nLIGHTNING BOLT BASE COOLDOWN: 2.5\nRADIUS: 450\nHITS TO DESTROY: 8\nCREEP HITS TO DESTROY: 16"
+      },
+      "abaddon": {
+        "ability": "Borrowed Time",
+        "ability_icon": "abaddon_borrowed_time",
+        "tag": "upgrade",
+        "desc": "Increases duration. While Borrowed Time is active, anytime an ally takes more than 550 damage while within Mist Coil's cast range of Abaddon, an individual Mist Coil will automatically fire towards that ally.\n\nDURATION: 7/8/9\nDAMAGE THRESHOLD: 550"
+      },
+      "arc_warden": {
+        "ability": "Flux",
+        "ability_icon": "arc_warden_flux",
+        "tag": "upgrade",
+        "desc": "Flux silences when the target is alone, deals more damage, and lasts longer.\n\nDURATION: 8\nDAMAGE PER SECOND: 22.5/45/67.5/90"
+      },
+      "bane": {
+        "ability": "Fiend's Grip",
+        "ability_icon": "bane_fiends_grip",
+        "tag": "upgrade",
+        "desc": "Reduces Fiend's Grip cooldown by 45. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
+      },
+      "batrider": {
+        "ability": "Flaming Lasso",
+        "ability_icon": "batrider_flaming_lasso",
+        "tag": "upgrade",
+        "desc": "Flaming Lasso grabs both its target, as well as the target's nearest allied hero within 650 units. The secondary target is tethered to the first."
+      },
+      "beastmaster": {
+        "ability": "Drums of Slom",
+        "ability_icon": "beastmaster_drums_of_slom",
+        "tag": "new ability",
+        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 600\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 80\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
+      },
+      "brewmaster": {
+        "ability": "Primal Split",
+        "ability_icon": "brewmaster_primal_split",
+        "tag": "upgrade",
+        "desc": "Primal Split gains 1 max and current level, improving the Brewlings and their abilities. Allows Primal Split to be cancelled early, and causes the Brewlings to be Brewed Up when Primal Split begins."
+      },
+      "dazzle": {
+        "ability": "Shadow Wave",
+        "ability_icon": "dazzle_shadow_wave",
+        "tag": "upgrade",
+        "desc": "Shadow Wave can now target and bounce between enemies in addition to allies. When bouncing to an enemy, they will take damage and heal nearby allies equal to 100% of the normal healing and damage values. Dazzle will also perform an attack against any enemy that Shadow Wave bounces to."
+      },
+      "death_prophet": {
+        "ability": "Exorcism",
+        "ability_icon": "death_prophet_exorcism",
+        "tag": "upgrade",
+        "desc": "Whenever an enemy is affected by Death Prophet's spells or when she attacks an enemy, a ghost will fly out and hit the enemy for an increased bonus of its usual damage then return to her with life.\n\nSPIRIT BONUS DAMAGE: 60%"
+      },
+      "enigma": {
+        "ability": "Black Hole",
+        "ability_icon": "enigma_black_hole",
+        "tag": "upgrade",
+        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 175."
+      },
+      "io": {
+        "ability": "Spirits",
+        "ability_icon": "wisp_spirits",
+        "tag": "upgrade",
+        "desc": "Spirits now passively spawn around Io constantly every second up to the max. Spirits colliding with enemy Heroes slows them briefly. Can be activated to explode spirits.\n\nMOVEMENT SLOW: 25%\nSLOW DURATION: 0.3"
+      },
+      "magnus": {
+        "ability": "Horn Toss",
+        "ability_icon": "magnataur_horn_toss",
+        "tag": "new ability",
+        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 300\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
+      },
+      "marci": {
+        "ability": "Unleash",
+        "ability_icon": "marci_unleash",
+        "tag": "upgrade",
+        "desc": "Reduces Unleash cooldown by 10 seconds and causes Unleash to apply a basic dispel on Marci. While Unleash is Active, all of Marci's abilities unleash pulses when cast. All of Marci's unleash pulses will silence units for 1 second.\n\nDISPEL TYPE: Basic Dispel"
+      },
+      "natures_prophet": {
+        "ability": "Wrath of Nature",
+        "ability_icon": "furion_wrath_of_nature",
+        "tag": "upgrade",
+        "desc": "Entangles all enemies it hits. Duration scales from 1.5s up to 3s at max bounce."
+      },
+      "nyx_assassin": {
+        "ability": "Burrow",
+        "ability_icon": "nyx_assassin_burrow",
+        "tag": "new ability",
+        "desc": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.\n\nMAX HP REGEN: 1%\nMAX MANA REGEN: 1%\nBURROW DAMAGE REDUCTION: 40%\nBURROW BONUS CAST RANGE: 500\nBURROW BONUS COOLDOWN REDUCTION: 25%\nBURROW SPIKED CARAPACE RANGE: 400"
+      },
+      "pangolier": {
+        "ability": "Shield Crash",
+        "ability_icon": "pangolier_shield_crash",
+        "tag": "upgrade",
+        "desc": "Causes Shield Crash to cast a 2-attack Swashbuckle every 90 degrees around your hero that deals 75% damage."
+      },
+      "sand_king": {
+        "ability": "Epicenter",
+        "ability_icon": "sandking_epicenter",
+        "tag": "upgrade",
+        "desc": "When the pulses start, 3 Stinger attack areas are created every 0.5s at random locations, each measuring 35% of the Epicenter's current radius, that apply 40% of Stinger damage to enemies hit. Shard pulses cause 1 attack(s)."
+      },
+      "snapfire": {
+        "ability": "Gobble Up / Spit Out",
+        "ability_icon": "snapfire_gobble_up",
+        "tag": "new ability",
+        "desc": "Gobble Up: Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds.\n\nSpit Out: Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
+      },
+      "techies": {
+        "ability": "Minefield Sign",
+        "ability_icon": "techies_minefield_sign",
+        "tag": "new ability",
+        "desc": "Plant a warning sign, causing Proximity Mines within its radius to be invulnerable and deal 15% more damage. Only one sign can exist at a time. Lasts 240 seconds. When an enemy Hero walks within 200 units of a minefield sign, the 1000 units area around the sign will become a minefield for 10 seconds, dealing damage to enemy Heroes any time they move within its area. Minefield Sign is destroyed after this effect ends.\n\nEFFECT RADIUS: 1000\nSIGN DURATION: 240\nDAMAGE: 300\nMOVEMENT TRIGGER AMOUNT: 200"
+      },
+      "venomancer": {
+        "ability": "Noxious Plague",
+        "ability_icon": "venomancer_noxious_plague",
+        "tag": "upgrade",
+        "desc": "Decreases cooldown by 35 seconds. Infected units have decreased magic resistance. Additional spreads from hero targets deal full impact damage.\n\nMAGIC RESIST REDUCTION: 20%"
+      },
+      "visage": {
+        "ability": "Silent as the Grave",
+        "ability_icon": "visage_silent_as_the_grave",
+        "tag": "upgrade",
+        "desc": "Increases movement speed, damage, and duration. Turns Visage and familiars invisible for the duration until the flying movement is lost.\n\nFLIGHT DURATION: 30\nBONUS MOVESPEED: 24%\nBONUS DAMAGE DURATION: 4\nBONUS DAMAGE: 20%"
+      },
+      "void_spirit": {
+        "ability": "Resonant Pulse",
+        "ability_icon": "void_spirit_resonant_pulse",
+        "tag": "upgrade",
+        "desc": "Causes Resonant Pulse to silence and gain 2 charges.\n\nBASE CHARGE RESTORE TIME: 18\nSILENCE DURATION: 1.75"
+      },
+      "windranger": {
+        "ability": "Tailwind",
+        "ability_icon": "windrunner_windrun",
+        "tag": "upgrade",
+        "desc": "Attacks grant Tailwind. Tailwind lasts longer and is undispellable.\n\nDURATION: 3.5"
       }
     }
   },
@@ -148,11 +829,59 @@
         "tag": "new ability",
         "desc": "Clockwerk activates a jetpack, gaining flying movement, flying vision, and bonus movement speed. Clockwerk has a severely-limited turn rate during this time and cannot attack. Jetpack can be toggled on and off for the duration of the buff.\n\nBONUS SPEED: 20%\nDURATION: 6"
       },
+      "dawnbreaker": {
+        "ability": "Starbreaker",
+        "ability_icon": "dawnbreaker_starbreaker",
+        "tag": "upgrade",
+        "desc": "Dawnbreaker gains debuff immunity with 50% magic resistance and free movement during Starbreaker. Dawnbreaker is slowed by 35% down to a minimum of 215."
+      },
+      "doom_bringer": {
+        "ability": "Devour",
+        "ability_icon": "doom_bringer_devour",
+        "tag": "upgrade",
+        "desc": "Devour has 2 charges and can target Ancients. Stolen creep abilities have 20% increased AoE and 40% increased spell amplification.\n\nBASE CHARGE RESTORE TIME: 66"
+      },
+      "dragon_knight": {
+        "ability": "Fireball",
+        "ability_icon": "dragon_knight_fireball",
+        "tag": "new ability",
+        "desc": "Ignites an area, dealing damage over time that lingers on enemies in it. Has reduced cast range when melee.\n\nRADIUS: 275\nDAMAGE PER SECOND: 85\nDURATION: 6\nLINGER DURATION: 2"
+      },
+      "earth_spirit": {
+        "ability": "Geomagnetic Grip",
+        "ability_icon": "earth_spirit_geomagnetic_grip",
+        "tag": "upgrade",
+        "desc": "Decreases cooldown to 10s and increases allied unit cast range and pull speed.\n\nALLIED UNIT PULL SPEED: 900\nALLIED UNIT CAST RANGE: 825/900/975/1050"
+      },
+      "earthshaker": {
+        "ability": "Fissure",
+        "ability_icon": "earthshaker_fissure",
+        "tag": "upgrade",
+        "desc": "Reduces Fissure cooldown and releases an Aftershock along its path that stuns for a shortened duration when Earthshaker casts another ability.\n\nAFTERSHOCK STUN PCT: 50%\nCOOLDOWN: 16/15/14/13"
+      },
+      "elder_titan": {
+        "ability": "Echo Stomp",
+        "ability_icon": "elder_titan_echo_stomp",
+        "tag": "upgrade",
+        "desc": "Lowers cooldown. Echo Stomp may be alt-cast to allow Elder Titan to take the place of the Astral Spirit as it completes its stomp.\n\nCOOLDOWN: 12/11/10/9"
+      },
+      "kunkka": {
+        "ability": "Tidal Wave",
+        "ability_icon": "kunkka_tidal_wave",
+        "tag": "new ability",
+        "desc": "Releases a Tidal Wave that spawns behind Kunkka. Deals damage and drags enemies along it. Enemies cannot attack while being dragged.\n\nSPEED: 700\nRADIUS: 750\nDAMAGE: 180\nDRAG DURATION: 1\nWAVE DISTANCE: 1800\nKNOCKBACK DISTANCE: 600"
+      },
+      "largo": {
+        "ability": "Encore",
+        "ability_icon": "largo_encore",
+        "tag": "upgrade",
+        "desc": "Whenever Largo applies a Unit Target buff to a friendly hero, he also gets the buff. If Largo targets himself, the buff is also applied to the nearest allied hero within the cast range of the targeted ability."
+      },
       "muerta": {
         "ability": "Spectral Slug",
         "ability_icon": "muerta_spectral_slug",
         "tag": "new ability",
-        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s \u2014 rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
+        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s — rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
       },
       "sven": {
         "ability": "Warcry",
@@ -201,6 +930,637 @@
         "ability_icon": "slardar_slithereen_crush",
         "tag": "upgrade",
         "desc": "Slithereen Crush now applies Corrosive Haze for a short time to units affected.\n\nHAZE DURATION: 5"
+      },
+      "legion_commander": {
+        "ability": "Overwhelming Odds",
+        "ability_icon": "legion_commander_overwhelming_odds",
+        "tag": "upgrade",
+        "desc": "Overwhelming Odds has larger radius and grants an all damage barrier based on the damage it deals to enemy heroes.\n\nRADIUS: 700\nDAMAGE TO BARRIER: 50%\nBARRIER DURATION: 6"
+      },
+      "lycan": {
+        "ability": "Summon Wolves",
+        "ability_icon": "lycan_summon_wolves",
+        "tag": "upgrade",
+        "desc": "Increases the number of wolves summoned. Grants all summoned wolves the ability Hightail, an active ability that gives them phased movement, evasion, movespeed, and attack speed.\n\nWOLF COUNT: 3"
+      },
+      "mars": {
+        "ability": "Spear of Mars",
+        "ability_icon": "mars_spear_of_mars",
+        "tag": "upgrade",
+        "desc": "Spear of Mars impales up to 2 heroes and leaves a fire trail behind that deals damage over time and slows movement speed.\n\nTRAIL DURATION: 10\nTRAIL RADIUS: 200\nDAMAGE PER SECOND: 40\nMOVEMENT SLOW: 20%\nDEBUFF LINGER DURATION: 2"
+      },
+      "night_stalker": {
+        "ability": "Void",
+        "ability_icon": "night_stalker_void",
+        "tag": "upgrade",
+        "desc": "Void now affects all units in a radius around the target.\n\nRADIUS: 400"
+      },
+      "ogre_magi": {
+        "ability": "Fire Shield",
+        "ability_icon": "ogre_magi_fire_shield",
+        "tag": "new ability",
+        "desc": "Creates a shield around the target ally, absorbing a percentage of the damage of next 3 attacks from enemy heroes. When damage is absorbed, a fireball is launched at the attacker. Can be cast on towers.\n\nFIREBALL DAMAGE: 160\nSHIELD DURATION: 25\nDAMAGE ABSORBED: 85%"
+      },
+      "phoenix": {
+        "ability": "Sun Ray",
+        "ability_icon": "phoenix_sun_ray",
+        "tag": "upgrade",
+        "desc": "Allows Sun Ray to be cast during Supernova."
+      },
+      "primal_beast": {
+        "ability": "Rock Throw",
+        "ability_icon": "primal_beast_rock_throw",
+        "tag": "new ability",
+        "desc": "Primal Beast throws a rock at the target location that stuns and damages enemies. The rock cannot be thrown within a minimum range of Primal Beast. After landing, the rock splits into 3 additional fragments that land behind the initial target location. Rock Throw increases stacks of Uproar for each hero hit.\n\nDAMAGE: 325\nIMPACT RADIUS: 225\nMIN RANGE: 550\nMIN TRAVEL TIME: 0.65\nMAX TRAVEL TIME: 1.75\nSTUN DURATION: 1.4\nFRAGMENT FLIGHT DISTANCE: 525\nFRAGMENT IMPACT RADIUS: 185"
+      },
+      "pudge": {
+        "ability": "Meat Hook",
+        "ability_icon": "pudge_meat_hook",
+        "tag": "upgrade",
+        "desc": "When Meat Hook hits an enemy, it deals bonus damage based on the distance pulled. When Meat Hook hits an ally, Meat Hook's cooldown is reduced by 50%.\n\nDISTANCE AS DAMAGE: 20%"
+      },
+      "spirit_breaker": {
+        "ability": "Planar Pocket",
+        "ability_icon": "spirit_breaker_planar_pocket",
+        "tag": "new ability",
+        "desc": "Barathrum gains magic resistance and distorts reality around the selected hero, making any unit-targeted spells cast by enemy heroes get redirected towards Spirit Breaker. Can be cast on both allied and enemy heroes, but only spells cast by enemies of Spirit Breaker will be redirected.\n\nDURATION: 6\nSELF MAGIC RESISTANCE: 40%"
+      },
+      "tidehunter": {
+        "ability": "Dead in the Water",
+        "ability_icon": "tidehunter_dead_in_the_water",
+        "tag": "new ability",
+        "desc": "Tidehunter attaches a heavy anchor to an enemy hero. The hero is leashed while attached to the anchor. Attempting to move more than 350 units away from the anchor forces the hero to 100 move speed, dragging the anchor behind them. The anchor can be destroyed with 4 hero attacks.\n\nATTACKS TO DESTROY: 4\nANCHOR DRAG SPEED: 100\nCHAIN LENGTH: 350\nANCHOR DURATION: 10"
+      },
+      "timbersaw": {
+        "ability": "Flamethrower",
+        "ability_icon": "timbersaw_flamethrower",
+        "tag": "new ability",
+        "desc": "Releases a flame in the direction Timbersaw is facing. Applies a debuff that deals damage per second and slows enemy movement speed. Affects buildings for reduced damage.\n\nDAMAGE PER SECOND: 70\nDURATION: 8\nWIDTH: 275\nRANGE: 400\nMOVE SLOW: 30%\nBUILDING DAMAGE: 50%\nDEBUFF LINGER TIME: 2"
+      },
+      "tiny": {
+        "ability": "Grow",
+        "ability_icon": "tiny_grow",
+        "tag": "upgrade",
+        "desc": "Units tossed by Toss or trees tossed by Tree Throw or Tree Volley now deal additional damage and slow in a larger area of effect at their landing location.\n\nMOVEMENT SLOW: 25%\nATTACK SLOW: 45\nSLOW DURATION: 2.5\nLAND RADIUS BONUS: 125\nTOSS LANDING BONUS DAMAGE: 20%\nTREE THROW BONUS DAMAGE: 50"
+      },
+      "treant_protector": {
+        "ability": "Eyes in the Forest",
+        "ability_icon": "treant_protector_eyes_in_the_forest",
+        "tag": "new ability",
+        "desc": "Treant Protector enchants a tree, which grants him unobstructed vision in that location. The eyes last for 360 seconds and are invisible, but are destroyed if their host tree is destroyed or if they are attacked directly.\n\nMAX CHARGES: 2\nBASE CHARGE RESTORE TIME: 135"
+      },
+      "tusk": {
+        "ability": "Drinking Buddies",
+        "ability_icon": "tusk_drinking_buddies",
+        "tag": "new ability",
+        "desc": "Tusk reaches out to tag an allied unit, pulling them closer. Once tagged, both Tusk and his tagged ally gain movement speed and armor.\n\nBUFF DURATION: 6\nBONUS MOVEMENT SPEED: 25%\nBONUS ARMOR: 7"
+      },
+      "underlord": {
+        "ability": "Firestorm",
+        "ability_icon": "underlord_firestorm",
+        "tag": "upgrade",
+        "desc": "Firestorm can be allied targeted. When used that way, the Firestorm follows the hero around. The wave count is increased, and tick rate / duration time occur more quickly.\n\nWAVE COUNT BONUS: 3\nDURATION/INTERVAL REDUCTION: 25%"
+      },
+      "undying": {
+        "ability": "Tombstone",
+        "ability_icon": "undying_tombstone",
+        "tag": "upgrade",
+        "desc": "Tombstone can be cast on an allied hero to bunker inside of the tombstone. Heroes that enter the Tombstone cannot leave for 2 seconds nor can they re-enter after leaving. If the tombstone is destroyed with a hero inside, that hero gets stunned for 2 seconds."
+      },
+      "wraith_king": {
+        "ability": "Mortal Strike",
+        "ability_icon": "wraith_king_mortal_strike",
+        "tag": "upgrade",
+        "desc": "Mortal Strike hits curse their target, causing them to take 75% of the initial attack damage again as Pure damage after a 3 second delay. Vampiric Spirit's lifesteal applies to the curse damage."
+      },
+      "bloodseeker": {
+        "ability": "Bloodrage",
+        "ability_icon": "bloodseeker_bloodrage",
+        "tag": "upgrade",
+        "desc": "Bloodseeker's Bloodrage attacks now deal 1.5% of the target's max health as Pure damage."
+      },
+      "bounty_hunter": {
+        "ability": "Friendly Shadow",
+        "ability_icon": "bounty_hunter_friendly_shadow",
+        "tag": "new ability",
+        "desc": "Applies Shadow Walk and all of its bonuses to the target ally. Allied fade time is 0.5s. Does not break Bounty Hunter's invisibility when cast."
+      },
+      "broodmother": {
+        "ability": "Insatiable Hunger",
+        "ability_icon": "broodmother_insatiable_hunger",
+        "tag": "upgrade",
+        "desc": "While Hunger is active, the bonus damage is increased by 4% every 1s."
+      },
+      "clinkz": {
+        "ability": "Burning Barrage",
+        "ability_icon": "clinkz_burning_barrage",
+        "tag": "new ability",
+        "desc": "CHANNELED - Clinkz channels and shoots multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of Clinkz' attack damage and applying attack modifiers.\n\nARROWS FIRED: 6\nRANGE: 850\nDAMAGE PER ARROW: 75%\nCHANNEL TIME: 2"
+      },
+      "drow_ranger": {
+        "ability": "Glacier",
+        "ability_icon": "drow_ranger_glacier",
+        "tag": "new ability",
+        "desc": "Drow creates a hill of ice beneath her, knocking away nearby enemies. Units on the hill gain flying vision and Drow and her ranged allies gain bonus attack range. Drow gains additional damage while on the Glacier and attacking targets below her. The front of the hill obscures vision and cannot be moved through except by Drow. Does not interrupt Multishot when cast.\n\nDURATION: 8\nATTACK RANGE BONUS: 200\nHIGH GROUND DAMAGE BONUS: 25%"
+      },
+      "ember_spirit": {
+        "ability": "Immolation / Fire Remnant",
+        "ability_icon": "ember_spirit_immolation",
+        "tag": "upgrade",
+        "desc": "Immolation: Grants Fire Remnants the current level of Immolation, and increases the damage per second and radius.\nRADIUS: 350\nDAMAGE PER SECOND: 21\n\nFire Remnant: If an enemy hero dies near Ember Spirit, a Fire Remnant charge will be replenished.\nCHARGE RADIUS: 400"
+      },
+      "faceless_void": {
+        "ability": "Time Dilation",
+        "ability_icon": "faceless_void_time_dilation",
+        "tag": "upgrade",
+        "desc": "Increases slow per stack. Provides Faceless Void with stacks that increase his attack and movement speed. Amount of stacks is equal to the total amount of Time Dilation stacks applied to enemies at the moment of the cast and linearly fades out over the duration.\n\nMOVEMENT SLOW PER STACK: 9%/10%/11%/12%\nATTACK SLOW PER STACK: 9/10/11/12\nSELF MOVESPEED PER STACK: 9%/10%/11%/12%\nSELF ATTACK SPEED PER STACK: 9/10/11/12"
+      },
+      "gyrocopter": {
+        "ability": "Homing Missile",
+        "ability_icon": "gyrocopter_homing_missile",
+        "tag": "upgrade",
+        "desc": "Homing Missiles now constantly fires the current level of Rocket Barrage in a 700 area of effect after 1 second of being cast. This Rocket Barrage prioritizes the Homing Missile target."
+      },
+      "hoodwink": {
+        "ability": "Hunter's Boomerang",
+        "ability_icon": "hoodwink_hunters_boomerang",
+        "tag": "new ability",
+        "desc": "Tosses a boomerang in an arc. Upon contact, it returns to Hoodwink. The boomerang will deal damage as it passes through or hits enemies, and apply a debuff that causes affected enemies to be slowed and be more vulnerable to spell damage.\n\nRADIUS: 150\nDAMAGE: 200\nDEBUFF DURATION: 6\nMOVEMENT SLOW: 25%\nINCOMING SPELL DAMAGE AMP: 20%"
+      },
+      "kez": {
+        "ability": "Kazurai Katana / Shodo Sai",
+        "ability_icon": "kez_kazurai_katana",
+        "tag": "upgrade",
+        "desc": "Kazurai Katana: Kez lifesteals 100% from the impale. If the impale comes from behind the target, the target is stunned. Increases max burst stacks.\nSTACKS AS BURST DAMAGE: 100%\nMAX BURST STACKS: 1000\n\nShodo Sai: Parrying creates a stronger Mark that deals additional stun and critical damage.\nPARRY BONUS CRITICAL STRIKE: 50%\nPARRY BONUS MARK STUN: 0.2"
+      },
+      "lone_druid": {
+        "ability": "Savage Roar",
+        "ability_icon": "lone_druid_savage_roar",
+        "tag": "upgrade",
+        "desc": "Applies a basic dispel and grants allies in an area around the caster bonus movement and attack speed. Replicates between Lone Druid and Spirit Bear regardless of castability on the other.\n\nDISPEL TYPE: Basic Dispel\nRADIUS: 700\nBONUS MOVEMENT SPEED: 15%\nBONUS ATTACK SPEED: 40\nDURATION: 5"
+      },
+      "luna": {
+        "ability": "Lunar Orbit",
+        "ability_icon": "luna_lunar_orbit",
+        "tag": "upgrade",
+        "desc": "Increases damage reduction. While active, Luna gains 20% bonus movement speed.\n\nDAMAGE REDUCTION: 18%/22%/26%/30%"
+      },
+      "medusa": {
+        "ability": "Cold Blooded",
+        "ability_icon": "medusa_cold_blooded",
+        "tag": "new ability",
+        "desc": "When Medusa is targeted with a spell, a single-target Mystic Snake is sent back towards the enemy that turns them into stone for 1s."
+      },
+      "meepo": {
+        "ability": "Dig",
+        "ability_icon": "meepo_dig",
+        "tag": "new ability",
+        "desc": "Digs into the ground for a short duration, dispelling Meepo and causing him to become invulnerable and untargetable for 3s. Restores 25% of his max health over that duration.\n\nDISPEL TYPE: Basic Dispel\nDURATION: 3\nMAX HP RESTORE: 25%"
+      },
+      "mirana": {
+        "ability": "Leap / Celestial Quiver",
+        "ability_icon": "mirana_leap",
+        "tag": "upgrade",
+        "desc": "Leap: Grants +1 Leap charge.\n\nCelestial Quiver: Grants 3 temporary Charges while Leap's buff is active."
+      },
+      "monkey_king": {
+        "ability": "Boundless Strike",
+        "ability_icon": "monkey_king_boundless_strike",
+        "tag": "upgrade",
+        "desc": "Boundless Strike applies Primal Spring with 35% of the max channeling duration power to enemies along the staff and at the end of the staff. When Boundless Strike is set to alt-cast, Monkey King leaps to the end of his staff."
+      },
+      "morphling": {
+        "ability": "Attribute Shift",
+        "ability_icon": "morphling_attribute_shift_agi_gain",
+        "tag": "upgrade",
+        "desc": "Both Attribute Shift abilities: Morphling can shift attributes while stunned. Reduces mana cost.\n\nMANA COST PER SECOND: 5"
+      },
+      "naga_siren": {
+        "ability": "Song of the Siren",
+        "ability_icon": "naga_siren_song_of_the_siren",
+        "tag": "upgrade",
+        "desc": "Allies in range of Song of the Siren recover a percentage of their health and mana per second.\n\nMAX HP REGEN PER SECOND: 2%/3%/4%\nMAX MANA REGEN PER SECOND: 4%"
+      },
+      "phantom_assassin": {
+        "ability": "Blur",
+        "ability_icon": "phantom_assassin_blur",
+        "tag": "upgrade",
+        "desc": "Decreases Cooldown. Any time Phantom Assassin gets a hero kill, her ability cooldowns advance 60% of their max cooldown values."
+      },
+      "phantom_lancer": {
+        "ability": "Juxtapose",
+        "ability_icon": "phantom_lancer_juxtapose",
+        "tag": "upgrade",
+        "desc": "Adds an active ability to Juxtapose. Renders Phantom Lancer invisible for up to 8 seconds while generating a duplicate image to confuse enemies. His movement speed is increased by 15% during this invisibility."
+      },
+      "razor": {
+        "ability": "Storm Surge",
+        "ability_icon": "razor_unstable_current",
+        "tag": "upgrade",
+        "desc": "While Eye of the Storm is active, strike chance is 2x as high, strike cooldown is reduced by 2s, and Lightning strikes all enemies within Eye of the Storm's radius. Does not apply to the same enemy twice from a single instance."
+      },
+      "riki": {
+        "ability": "Smoke Screen",
+        "ability_icon": "riki_smoke_screen",
+        "tag": "upgrade",
+        "desc": "Enemies caught in the smoke screen have their armor reduced by 5 and cannot be targeted by their allies."
+      },
+      "shadow_fiend": {
+        "ability": "Shadowraze",
+        "ability_icon": "nevermore_shadowraze1",
+        "tag": "upgrade",
+        "desc": "All three Shadowrazes: Cooldown reduced by 2s per enemy hero hit. Applies a stacking 12% movement speed debuff on enemies hit."
+      },
+      "slark": {
+        "ability": "Depth Shroud",
+        "ability_icon": "slark_depth_shroud",
+        "tag": "new ability",
+        "desc": "Creates a cloud at the target location. All allies inside the radius are hidden and affected by Shadow Dance.\n\nDURATION: 2\nRADIUS: 225"
+      },
+      "spectre": {
+        "ability": "Dispersion",
+        "ability_icon": "spectre_dispersion",
+        "tag": "upgrade",
+        "desc": "Dispersion can be activated to increase the amount absorbed and reflected by Dispersion by 50% of its base values for 5s.\n\nCOOLDOWN: 25\nMANA COST: 50"
+      },
+      "templar_assassin": {
+        "ability": "Refraction",
+        "ability_icon": "templar_assassin_refraction",
+        "tag": "upgrade",
+        "desc": "Increases bonus damage. Refraction can be cast while disabled.\n\nBONUS DAMAGE: 45/60/75/90"
+      },
+      "terrorblade": {
+        "ability": "Demon Zeal",
+        "ability_icon": "terrorblade_demon_zeal",
+        "tag": "new ability",
+        "desc": "Costs part of Terrorblade's current HP to cast, providing Terrorblade and nearby illusions bonus movement, HP Regen and attack speed. Does not affect Reflection illusions. Can't be cast while in Metamorphosis and Metamorphosis will remove Demon Zeal.\n\nBONUS ATTACK SPEED: 100\nBONUS MOVEMENT SPEED: 60\nDURATION: 25\nBONUS HEALTH REGEN: 20\nCURRENT HEALTH COST: 20%"
+      },
+      "troll_warlord": {
+        "ability": "Fervor",
+        "ability_icon": "troll_warlord_fervor",
+        "tag": "upgrade",
+        "desc": "Grants Troll 16% + 3% chance per Fervor stack of firing an additional ranged attack to any unit within its ranged attack range plus 175 when attacking an enemy unit."
+      },
+      "ursa": {
+        "ability": "Earthshock",
+        "ability_icon": "ursa_earthshock",
+        "tag": "upgrade",
+        "desc": "Earthshock applies 3 Fury Swipes to enemies hit."
+      },
+      "vengeful_spirit": {
+        "ability": "Magic Missile",
+        "ability_icon": "vengefulspirit_magic_missile",
+        "tag": "upgrade",
+        "desc": "Bounces once on an enemy, prioritizing heroes, within 75% of Magic Missile's current cast range from the first target."
+      },
+      "viper": {
+        "ability": "Poison Attack",
+        "ability_icon": "viper_poison_attack",
+        "tag": "upgrade",
+        "desc": "Increases max stacks, and causes Poison Attack to lower armor per stack and to affect buildings for reduced damage.\n\nMAX STACKS: 8\nARMOR REDUCTION: 1\nBUILDING DAMAGE: 40%"
+      },
+      "weaver": {
+        "ability": "Shukuchi",
+        "ability_icon": "weaver_shukuchi",
+        "tag": "upgrade",
+        "desc": "Shukuchi puts a mark on enemies it damages that last 4.6 seconds. 0.2s after Weaver exits Shukuchi, enemies with a mark within 1200 range will also be attacked with a secondary Geminate attack."
+      },
+      "lone_druid_bear": {
+        "ability": "Fetch",
+        "ability_icon": "lone_druid_spirit_bear_fetch",
+        "tag": "new ability",
+        "desc": "Grabs the Target Ally, Enemy or Rune, and uncontrollably drags them towards Lone Druid for the duration. Enemies receive damage every 0.5s. When dragging a unit, they are Rooted.\n\nDURATION: 2.5\nTOTAL DAMAGE: 300"
+      },
+      "ancient_apparition": {
+        "ability": "Ice Blast",
+        "ability_icon": "ancient_apparition_ice_blast",
+        "tag": "upgrade",
+        "desc": "Freezes enemies hit with the current level of Cold Feet for 50% of the duration."
+      },
+      "chen": {
+        "ability": "Holy Persuasion",
+        "ability_icon": "chen_holy_persuasion",
+        "tag": "upgrade",
+        "desc": "Allows Holy Persuasion to target Ancient creeps. Can control up to 1/2/3 Ancient creeps based on Hand of God's level. Additionally levels up some abilities of creeps by 1 level."
+      },
+      "crystal_maiden": {
+        "ability": "Crystal Clone",
+        "ability_icon": "crystal_maiden_crystal_clone",
+        "tag": "new ability",
+        "desc": "Slides in a direction, creating a crystal clone of herself in her place and disjointing incoming projectiles. If the clone takes enough damage or times out, it shatters, Frostbiting enemies in a 450 AoE around its place. The Clone can also be destroyed by Crystal Maiden's own spells.\n\nDISTANCE: 275\nCLONE DURATION: 5\nCLONE HEALTH: 150"
+      },
+      "dark_seer": {
+        "ability": "Surge",
+        "ability_icon": "dark_seer_surge",
+        "tag": "upgrade",
+        "desc": "Surged units leave behind a 150 radius trail that lasts 7s, slows enemies around it by 35% and deals 40 damage per second in 0.5s intervals. Can be put on alt-cast to disable the trail."
+      },
+      "dark_willow": {
+        "ability": "Cursed Crown",
+        "ability_icon": "dark_willow_cursed_crown",
+        "tag": "upgrade",
+        "desc": "Cursed Crown creates 4 brambles in a 175 radius around the target after the counter ends. Triggers even upon dispel. Cursed Crown cooldown reduced by 1.5 seconds."
+      },
+      "disruptor": {
+        "ability": "Kinetic Fence",
+        "ability_icon": "disruptor_kinetic_fence",
+        "tag": "new ability",
+        "desc": "After a short formation time, creates a wall out of kinetic energy that enemies cannot pass.\n\nLENGTH: 1200\nFORMATION DELAY: 1\nDURATION: 4.4"
+      },
+      "enchantress": {
+        "ability": "Sproink",
+        "ability_icon": "enchantress_sproink",
+        "tag": "new ability",
+        "desc": "Leaps backward, dodges incoming projectiles, and launches an Impetus attack on the 2 furthest enemy units within Enchantress' attack range + 100.\n\nLEAP DISTANCE: 500\nTARGETS: 2\nBONUS RANGE: 100"
+      },
+      "grimstroke": {
+        "ability": "Ink Swell",
+        "ability_icon": "grimstroke_ink_swell",
+        "tag": "upgrade",
+        "desc": "Ink Swell dispels the allied unit when cast. Causes Ink Swell to deal 40% more damage and heal the target for 40% of the damage Ink Swell deals.\n\nDISPEL TYPE: Basic Dispel"
+      },
+      "invoker": {
+        "ability": "Ghost Walk / E.M.P. / Sun Strike",
+        "ability_icon": "invoker_ghost_walk",
+        "tag": "upgrade",
+        "layout": "horizontal",
+        "desc": "OPTION 1 — GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies in a larger radius.\n\nOPTION 2 — E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 — SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
+      },
+      "jakiro": {
+        "ability": "Liquid Fire / Liquid Frost",
+        "ability_icon": "jakiro_liquid_fire",
+        "tag": "upgrade",
+        "desc": "Liquid Fire: Jakiro's Liquid Fire has no mana cost and no longer shares a cooldown with Liquid Frost.\n\nLiquid Frost: Jakiro's Liquid Frost has no mana cost and no longer shares a cooldown with Liquid Fire."
+      },
+      "keeper_of_the_light": {
+        "ability": "Solar Bind / Spirit Form",
+        "ability_icon": "keeper_of_the_light_solar_bind",
+        "tag": "upgrade",
+        "desc": "Solar Bind: Grants 2 charges.\n\nSpirit Form: Increases illuminate heal.\nILLUMINATE HEAL: 100%"
+      },
+      "leshrac": {
+        "ability": "Split Earth",
+        "ability_icon": "leshrac_split_earth",
+        "tag": "upgrade",
+        "desc": "Causes Split Earth to repeat in the same location 2 additional times, with a 5 second delay between each one. Each time the radius increases by 45. Split Earth echo location is visible to both teams."
+      },
+      "lich": {
+        "ability": "Ice Spire",
+        "ability_icon": "lich_ice_spire",
+        "tag": "new ability",
+        "desc": "Creates an Ice Spire at the target spot, slowing enemies around it. Can take 4 hero hits or 8 creep hits and when destroyed it will create a Frost Blast around it. Chain Frost can be cast on the Spire and can bounce to the Spire and damage it by 1 hero attack if there are no other enemies in range. Lich can cast Frost Shield on the Spire; each Frost Shield tick will heal the spire by 1 hero attack.\n\nMOVEMENT SLOW: 25%\nEFFECT RADIUS: 550\nDURATION: 15"
+      },
+      "lina": {
+        "ability": "Laguna Blade",
+        "ability_icon": "lina_laguna_blade",
+        "tag": "upgrade",
+        "desc": "Casting Laguna Blade temporarily supercharges Lina, granting her stacks of Fiery Soul.\n\nSUPERCHARGE DURATION: 5\nSUPERCHARGE STACKS: 12"
+      },
+      "lion": {
+        "ability": "Mana Drain",
+        "ability_icon": "lion_mana_drain",
+        "tag": "upgrade",
+        "desc": "Causes Mana Drain to affect up to 2 additional enemies and increases break distance. Lion becomes Debuff Immune with 60% magic resistance while channeling.\n\nBREAK DISTANCE: 1300"
+      },
+      "necrophos": {
+        "ability": "Death Seeker",
+        "ability_icon": "necrolyte_death_pulse",
+        "tag": "new ability",
+        "desc": "Necrophos turns into a large Death Pulse towards the target unit's position. Once it arrives to the location, the Death Pulse spreads towards nearby enemies and allies."
+      },
+      "oracle": {
+        "ability": "Rain of Destiny",
+        "ability_icon": "oracle_rain_of_destiny",
+        "tag": "new ability",
+        "desc": "Brings forth rain to the target area. Enemies standing in the area receive damage and have reduced Heal Amplification. Allies in the area heal and have increased incoming Heal Amplification.\n\nRADIUS: 650\nDURATION: 10\nDAMAGE/HEAL PER SECOND: 30\nHEAL AMPLIFICATION: 15%"
+      },
+      "outworld_destroyer": {
+        "ability": "Astral Imprisonment",
+        "ability_icon": "obsidian_destroyer_astral_imprisonment",
+        "tag": "upgrade",
+        "desc": "Astral Imprisonment now deals damage in an area. Also allows allies to move at 70% movement speed during Astral Imprisonment (they are visible, but untargetable and can't perform any other actions).\n\nDAMAGE RADIUS: 300"
+      },
+      "puck": {
+        "ability": "Phase Shift",
+        "ability_icon": "puck_phase_shift",
+        "tag": "upgrade",
+        "desc": "Puck's attacks deal bonus magic damage. Puck attacks all enemies within its attack range every time it phase shifts.\n\nBONUS DAMAGE: 20"
+      },
+      "pugna": {
+        "ability": "Nether Ward / Life Drain",
+        "ability_icon": "pugna_nether_ward",
+        "tag": "upgrade",
+        "desc": "Nether Ward: Increases cast range to 350.\n\nLife Drain: Life Drain can target your Nether Ward, causing life drain to refract to all enemy heroes within 700 units of the ward for 75% of its normal value. The effect is interrupted if the ward is destroyed."
+      },
+      "queen_of_pain": {
+        "ability": "Blink",
+        "ability_icon": "queenofpain_blink",
+        "tag": "upgrade",
+        "desc": "Releases a sonic boom when Queen of Pain blinks, at both her starting and ending locations. Deals 125 damage in a 300 AoE and silences the target for 1.75 seconds."
+      },
+      "ringmaster": {
+        "ability": "Spotlight",
+        "ability_icon": "ringmaster_spotlight",
+        "tag": "new ability",
+        "desc": "Ringmaster shines 3 spotlights that sweep over an area. Enemies in the light have a chance to miss their attacks and are revealed if invisible. Illusions hit by the beam fade away, losing a percentage of their maximum health each second. These effects linger for 0.3 seconds after leaving the light.\n\nRADIUS: 275\nILLUSION MAX HEALTH LOSS: 30%\nMISS CHANCE: 30%\nDURATION: 8"
+      },
+      "rubick": {
+        "ability": "Telekinesis / Spell Steal",
+        "ability_icon": "rubick_telekinesis",
+        "tag": "upgrade",
+        "desc": "Telekinesis: Allows you to target yourself or allies with Telekinesis. Throw distance is increased to 600 and throw delay is reduced to 0.5 seconds.\nMAX THROW DISTANCE: 600\n\nSpell Steal: Upgrades stolen spells to their Shard version."
+      },
+      "shadow_demon": {
+        "ability": "Demonic Cleanse",
+        "ability_icon": "shadow_demon_demonic_cleanse",
+        "tag": "new ability",
+        "desc": "Cleanses the target allied unit, removing negative buffs for the duration. At the end of the duration, the unit is healed. Units under the effect of Disruption can still be affected by Demonic Cleanse.\n\nDISPEL TYPE: Basic Dispel\nCLEANSE HEAL: 450\nDURATION: 5"
+      },
+      "shadow_shaman": {
+        "ability": "Urnaconda",
+        "ability_icon": "shadow_shaman_urnaconda",
+        "tag": "new ability",
+        "desc": "Throw a snake jar at the target location, damaging all enemies in the AoE and creating a Massive Serpent Ward with 4x the base Serpent Ward damage and health that lasts 15s.\n\nIMPACT RADIUS: 225\nIMPACT DAMAGE: 275\n\nMass Serpent Ward: Allows creation of a Mega Ward using the Urnaconda ability.\nMEGA WARD HEALTH: 8\nMEGA WARD DAMAGE: 200/340/480"
+      },
+      "silencer": {
+        "ability": "Glaives of Wisdom",
+        "ability_icon": "silencer_glaives_of_wisdom",
+        "tag": "upgrade",
+        "desc": "Causes Glaives of Wisdom to bounce 1 time to a random enemy within 450 range and increases intelligence steal.\n\nINT STEAL: 3/4/5/6"
+      },
+      "skywrath_mage": {
+        "ability": "Arcane Bolt",
+        "ability_icon": "skywrath_mage_arcane_bolt",
+        "tag": "upgrade",
+        "desc": "When Skywrath Mage casts Arcane Bolt, 3 bolts are created, one aimed at the original target, and two others aimed at random enemies within 500 range of the original target. Heroes will take priority."
+      },
+      "storm_spirit": {
+        "ability": "Overload",
+        "ability_icon": "storm_spirit_overload",
+        "tag": "upgrade",
+        "desc": "Can be activated to grant Storm Spirit and nearby allied heroes 3 Overload charges. Provides bonus Attack Speed. Lasts up to 12 seconds or until the charges are depleted.\n\nACTIVATION RADIUS: 750\nMANA COST: 100\nCOOLDOWN: 30\nATTACK SPEED BONUS: 40"
+      },
+      "tinker": {
+        "ability": "Warp Flare",
+        "ability_icon": "tinker_warp_flare",
+        "tag": "new ability",
+        "desc": "Throws a flare towards an enemy, dealing damage, teleporting them away, rooting them and reducing their Cast and Attack Range for 2 seconds. The target is teleported further the closer they are to Tinker.\n\nDAMAGE: 150\nCAST/ATTACK RANGE REDUCTION: 40%"
+      },
+      "warlock": {
+        "ability": "Upheaval / Eldritch Summoning",
+        "ability_icon": "warlock_upheaval",
+        "tag": "upgrade",
+        "desc": "Upheaval: While channeling, Warlock spawns a minor imp every 2 seconds that lasts for 15 seconds and explodes dealing damage to all enemies around them upon death.\n\nEldritch Summoning: Increases the health and explosion damage of minor imps.\nIMP HEALTH: 100\nEXPLOSION DAMAGE: 65"
+      },
+      "winter_wyvern": {
+        "ability": "Cold Embrace",
+        "ability_icon": "winter_wyvern_cold_embrace",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown by 4 seconds. Allied units gain bonus attack damage when emerging from the icy cocoon.\n\nBONUS ATTACK DAMAGE: 60%\nDAMAGE BUFF DURATION: 6"
+      },
+      "witch_doctor": {
+        "ability": "Voodoo Switcheroo",
+        "ability_icon": "witch_doctor_voodoo_switcheroo",
+        "tag": "new ability",
+        "desc": "Turns Witch Doctor into a Death Ward briefly with reduced attack speed. He is hidden during this time.\n\nDURATION: 2.5\nATTACK SPEED REDUCTION: 45"
+      },
+      "zeus": {
+        "ability": "Lightning Hands",
+        "ability_icon": "zuus_lightning_hands",
+        "tag": "new ability",
+        "desc": "Zeus gains bonus attack speed and his attacks create Arc Lightnings that deal a percentage of its damage. Can be toggled off to stop this effect.\n\nBONUS ATTACK SPEED: 30\nARC LIGHTNING DAMAGE: 50%"
+      },
+      "abaddon": {
+        "ability": "Aphotic Shield",
+        "ability_icon": "abaddon_aphotic_shield",
+        "tag": "upgrade",
+        "desc": "75% of absorbed damage is dealt to nearby enemies.\n\nRETURN DAMAGE RADIUS: 675"
+      },
+      "arc_warden": {
+        "ability": "Tempest Double",
+        "ability_icon": "arc_warden_tempest_double",
+        "tag": "upgrade",
+        "desc": "The Tempest Double is infused with the bonuses of Arcane, Invisibility, and Haste Runes for 12s when created. Does not trigger Runic Infusion."
+      },
+      "bane": {
+        "ability": "Brain Sap",
+        "ability_icon": "bane_brain_sap",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown by 3. Causes Brain Sap to become a 550 AoE spell. Secondary targets only heal for 30%."
+      },
+      "batrider": {
+        "ability": "Sticky Napalm",
+        "ability_icon": "batrider_sticky_napalm",
+        "tag": "upgrade",
+        "desc": "Sticky Napalm no longer has a stack limit. Sticky Napalm deals damage to structures.\n\nBUILDING DAMAGE: 25%"
+      },
+      "beastmaster": {
+        "ability": "Wild Axes",
+        "ability_icon": "beastmaster_wild_axes",
+        "tag": "upgrade",
+        "desc": "Beastmaster's attacks on enemy heroes also apply the Wild Axes debuff of its corresponding level."
+      },
+      "brewmaster": {
+        "ability": "Liquid Courage",
+        "ability_icon": "brewmaster_drunken_brawler",
+        "tag": "upgrade",
+        "desc": "Toss a strong drink to a teammate or drink it yourself, activating the maximum power effect of Liquid Courage and granting 2.5% Max HP Regen per second. Lasts 5 seconds."
+      },
+      "dazzle": {
+        "ability": "Weave",
+        "ability_icon": "dazzle_weave",
+        "tag": "upgrade",
+        "desc": "Applying Weave to an ally heals them for 60 per stack of Weave."
+      },
+      "death_prophet": {
+        "ability": "Spirit Siphon",
+        "ability_icon": "death_prophet_spirit_siphon",
+        "tag": "upgrade",
+        "desc": "Increases Spirit Siphon charges by 1 and causes enemies to be feared for 1 second if they are siphoned for 3 seconds consecutively."
+      },
+      "enigma": {
+        "ability": "Malefice",
+        "ability_icon": "enigma_malefice",
+        "tag": "upgrade",
+        "desc": "Increases Malefice stun duration by 0.3s and creates an Eidolon next to the target every instance of Malefice stun. These Eidolons will not multiply further.\n\nSTUN DURATION: 0.6/0.8/1/1.2"
+      },
+      "io": {
+        "ability": "Tether",
+        "ability_icon": "wisp_tether",
+        "tag": "upgrade",
+        "desc": "Tether damages enemies touching it. Io is healed for 50% of the damage done.\n\nDAMAGE PER SECOND: 120"
+      },
+      "magnus": {
+        "ability": "Skewer",
+        "ability_icon": "magnataur_skewer",
+        "tag": "upgrade",
+        "desc": "Increases range and deals additional damage when skewering enemies into trees or cliffs.\n\nDISTANCE: 1100/1200/1300/1400\nTREE HIT DAMAGE: 40\nCLIFF HIT DAMAGE: 150"
+      },
+      "marci": {
+        "ability": "Rebound",
+        "ability_icon": "marci_rebound",
+        "tag": "upgrade",
+        "desc": "Increases damage. Rebound can be cast on enemies, and causes Marci to also get the speed boost when she casts it.\n\nIMPACT DAMAGE: 90/180/270/360"
+      },
+      "natures_prophet": {
+        "ability": "Curse of the Oldgrowth",
+        "ability_icon": "furion_curse_of_the_oldgrowth",
+        "tag": "new ability",
+        "desc": "Applies a curse on all enemy heroes within 900 range, displaying them in fog, slowing them, and dealing damage over time based on the number of trees within 250 radius. Treants count as trees for this purpose.\n\nDURATION: 7\nDPS PER TREE: 15\nSLOW PER TREE: 7%"
+      },
+      "nyx_assassin": {
+        "ability": "Vendetta",
+        "ability_icon": "nyx_assassin_vendetta",
+        "tag": "upgrade",
+        "desc": "Decreases cooldown by 10s. For the first 15s of Vendetta, Nyx is hasted and has unobstructed pathing."
+      },
+      "pangolier": {
+        "ability": "Roll Up",
+        "ability_icon": "pangolier_roll_up",
+        "tag": "new ability",
+        "desc": "Pangolier curls into an immobile protective ball, gaining debuff immunity, 80% magic resistance, and allowing him to turn. Can be cast during Rolling Thunder to temporarily hit the brakes. Can cast Rolling Thunder and Shield Crash during Roll Up. If enemies attack Pangolier during this, he will roll away from the attacker, applying Rolling Thunder damage/stun if there are enemies in the way.\n\nDURATION: 2.25\nROLL AWAY DURATION: 0.75"
+      },
+      "sand_king": {
+        "ability": "Epicenter",
+        "ability_icon": "sandking_epicenter",
+        "tag": "upgrade",
+        "desc": "Increases Epicenter damage per pulse. Every 3s causes a small single Epicenter Pulse around Sand King.\n\nRADIUS: 425"
+      },
+      "snapfire": {
+        "ability": "Firesnap Cookie",
+        "ability_icon": "snapfire_firesnap_cookie",
+        "tag": "upgrade",
+        "desc": "Firesnap cookies become even more potent, healing the target and launching a Mortimer Kiss that does 40% impact damage to the landing destination.\n\nHEAL AMOUNT: 200"
+      },
+      "techies": {
+        "ability": "M.A.D.",
+        "ability_icon": "techies_suicide",
+        "tag": "upgrade",
+        "desc": "M.A.D. becomes an active ability. Increases max mana as damage amount. Techies plant an M.A.D. which can be detonated manually with a sub-ability. Only one M.A.D. from the active ability can be placed at a time.\n\nMAX MANA AS DAMAGE: 40%"
+      },
+      "venomancer": {
+        "ability": "Venomous Gale",
+        "ability_icon": "venomancer_venomous_gale",
+        "tag": "upgrade",
+        "desc": "Increases cast range and projectile speed by 25%. When Venomous Gale impacts enemy heroes, 2 Plague Wards are created around them.\n\nPROJECTILE SPEED: 1500"
+      },
+      "visage": {
+        "ability": "Gravekeeper's Cloak",
+        "ability_icon": "visage_gravekeepers_cloak",
+        "tag": "upgrade",
+        "desc": "Gains an active component, allowing Visage to use Stone Form, stunning enemies for 0.8/1.0/1.2 seconds in a 375 area around it, dealing 60/100/140 damage and becoming invulnerable for 6 seconds. Restores up to 25% of your health.\n\nCOOLDOWN: 65\nMANA COST: 125"
+      },
+      "void_spirit": {
+        "ability": "Aether Remnant",
+        "ability_icon": "void_spirit_aether_remnant",
+        "tag": "upgrade",
+        "desc": "Creates an additional watcher path that rotates around the remnant. The remnant now provides True Sight, and no longer triggers on creeps, instead dealing 50% damage to them every second in both paths. Does not reveal wards."
+      },
+      "windranger": {
+        "ability": "Gale Force",
+        "ability_icon": "windrunner_gale_force",
+        "tag": "new ability",
+        "desc": "Vector Targeted. Summons a strong wind that pushes all enemies in the target area towards the target direction.\n\nDURATION: 3\nWIND SPEED: 240\nRADIUS: 900"
       }
     }
   },
@@ -245,6 +1605,54 @@
         "tag": "new ability",
         "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
       },
+      "dawnbreaker": {
+        "ability": "Break of Dawn / Solar Guardian",
+        "ability_icon": "dawnbreaker_break_of_dawn",
+        "tag": "upgrade",
+        "desc": "Break of Dawn provides healing amplification equal to the current damage increase.\n\nSolar Guardian's aura follows Dawnbreaker for 2s after landing."
+      },
+      "doom_bringer": {
+        "ability": "Doom",
+        "ability_icon": "doom_bringer_doom",
+        "tag": "upgrade",
+        "desc": "Doom applies Break to enemies. Allies in a 350 radius around the doomed target also suffer the effects of Doom. Allows Doom to be self-cast to affect enemies around himself with Doom."
+      },
+      "dragon_knight": {
+        "ability": "Elder Dragon Form",
+        "ability_icon": "dragon_knight_elder_dragon_form",
+        "tag": "upgrade",
+        "desc": "Increases the current level of Dragon Form by one. Adds a Level 4 Black Dragon that has free pathing, bonus magic resistance, and increased other bonuses."
+      },
+      "earth_spirit": {
+        "ability": "Enchant Remnant",
+        "ability_icon": "earth_spirit_enchant_remnant",
+        "tag": "new ability",
+        "desc": "Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After a short duration the remnant shatters, releasing the hero and damaging nearby enemies. Can be cast on Stone Remnants with a 5s cooldown. Has a larger cast range when cast on an ally hero.\n\nREMNANT DURATION: 2.4\nSHATTER DAMAGE: 450\nSHATTER RADIUS: 450\nCAST RANGE ON ALLIES: 500"
+      },
+      "earthshaker": {
+        "ability": "Enchant Totem",
+        "ability_icon": "earthshaker_enchant_totem",
+        "tag": "upgrade",
+        "desc": "Enchant Totem becomes a ground target ability, causing Earthshaker to jump in the air and land at the target spot, casting Enchant Totem there. Self-casting the ability will behave in the original form, without jumping. Grants Enchant Totem a cleaving attack.\n\nJUMP DISTANCE: 950\nCLEAVE DAMAGE: 40%\nCLEAVE DISTANCE: 650"
+      },
+      "elder_titan": {
+        "ability": "Astral Spirit",
+        "ability_icon": "elder_titan_astral_spirit",
+        "tag": "upgrade",
+        "desc": "Causes Elder Titan to become debuff immune and gain 50% magic resistance for 2 seconds per affected enemy hero when the spirit returns."
+      },
+      "kunkka": {
+        "ability": "Ghostship",
+        "ability_icon": "kunkka_ghostship",
+        "tag": "upgrade",
+        "desc": "Ghostship creates a fleet of 2 ships at the target point on a 2.5 second interval. Each ship now also fires 3 waves of cannonballs from the port and starboard side that deal 40% of Ghostship's damage as they pass through enemies."
+      },
+      "largo": {
+        "ability": "Amphibian Rhapsody / Bullbelly Blitz",
+        "ability_icon": "largo_amphibian_rhapsody",
+        "tag": "upgrade",
+        "desc": "Largo can play two songs per beat by strumming both at the same time.\n\nBullbelly Blitz deals additional magic damage per Groovin' stack when used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
+      },
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
@@ -256,6 +1664,680 @@
         "ability_icon": "juggernaut_swift_slash",
         "tag": "new ability",
         "desc": "Performs a short Omnislash for 1 seconds.\n\nDuration: 1"
+      },
+      "sven": {
+        "ability": "Storm Hammer",
+        "ability_icon": "sven_storm_bolt",
+        "tag": "upgrade",
+        "desc": "Increases cast range and applies a basic dispel on the target. Affects invulnerable units. If alt-cast, it deals an additional 180 damage and Sven travels with the Storm Hammer."
+      },
+      "huskar": {
+        "ability": "Life Break",
+        "ability_icon": "huskar_life_break",
+        "tag": "upgrade",
+        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTaunt Duration: 3\nCast Range Bonus: 250"
+      },
+      "lifestealer": {
+        "ability": "Infest",
+        "ability_icon": "life_stealer_infest",
+        "tag": "upgrade",
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 5\nAttack Rate: 1"
+      },
+      "omniknight": {
+        "ability": "Guardian Angel",
+        "ability_icon": "omniknight_guardian_angel",
+        "tag": "upgrade",
+        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
+      },
+      "antimage": {
+        "ability": "Mana Break / Blink",
+        "ability_icon": "antimage_mana_break",
+        "tag": "upgrade",
+        "desc": "Increases Max Mana Burned per Hit.\nMax Mana Burned per Hit: 3.3%/4.2%/5.1%/6%\n\nAfter casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\nDebuff Duration: 6"
+      },
+      "sniper": {
+        "ability": "Assassinate",
+        "ability_icon": "sniper_assassinate",
+        "tag": "upgrade",
+        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nStun Duration: 0.8/1/1.2\nAim Duration: 0.5"
+      },
+      "slardar": {
+        "ability": "Seaborn Sentinel",
+        "tag": "upgrade",
+        "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
+      },
+      "legion_commander": {
+        "ability": "Press the Attack / Duel",
+        "ability_icon": "legion_commander_press_the_attack",
+        "tag": "upgrade",
+        "desc": "Press the Attack: Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\nBONUS MOVE SPEED: 25%/28%/31%/34%\n\nDuel: When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
+      },
+      "lycan": {
+        "ability": "Wolf Bite",
+        "ability_icon": "lycan_wolf_bite",
+        "tag": "new ability",
+        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other.\n\nCOOLDOWN: 110/100/90"
+      },
+      "mars": {
+        "ability": "Arena of Blood",
+        "ability_icon": "mars_arena_of_blood",
+        "tag": "upgrade",
+        "desc": "Lowers cooldown by 10s and increases duration. If an enemy is killed in the Arena, Mars and all of his allies inside the Arena restore 35% of their max health and mana and get a 35% attack damage buff for 20s. This effect stacks.\n\nDURATION: 6.5"
+      },
+      "night_stalker": {
+        "ability": "Hunter in the Night",
+        "ability_icon": "night_stalker_hunter_in_the_night",
+        "tag": "upgrade",
+        "desc": "Increases bonus movement speed by 15% and attack speed by 50. Killing an enemy hero resets all basic ability cooldowns.\n\nMOVE SPEED: 39%\nATTACK SPEED: 90"
+      },
+      "ogre_magi": {
+        "ability": "Fireblast / Unrefined Fireblast",
+        "ability_icon": "ogre_magi_fireblast",
+        "tag": "upgrade",
+        "desc": "Fireblast: Refined, reducing cooldown by 1s and increasing cast speed by 25%.\n\nUnrefined Fireblast (New Ability): Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\nSTUN DURATION: 1.2"
+      },
+      "phoenix": {
+        "ability": "Supernova",
+        "ability_icon": "phoenix_supernova",
+        "tag": "upgrade",
+        "desc": "Increases number of attacks to destroy Supernova and allows Phoenix to cast Supernova on an allied hero, bringing both into the sun to be reborn together.\n\nATTACKS TO DESTROY: 7/10/13\nCAST RANGE: 500"
+      },
+      "primal_beast": {
+        "ability": "Uproar",
+        "ability_icon": "primal_beast_uproar",
+        "tag": "upgrade",
+        "desc": "When Primal Beast activates Uproar, he releases 3 waves of 2 projectiles per stack of uproar each in a circle around him. Projectiles deal damage and Break enemies hit. After a short delay, each projectile splinters in two.\n\nDAMAGE: 85\nSPLIT DELAY: 1.25\nBREAK DURATION: 2.5"
+      },
+      "pudge": {
+        "ability": "Rot",
+        "ability_icon": "pudge_rot",
+        "tag": "upgrade",
+        "desc": "Increases Rot radius by 200, damage by 90, and causes it to reduce enemy Health Restoration by 20%.\n\nRADIUS: 450\nDAMAGE: 120/150/180/210\nHEALTH RESTORATION LOSS: 20%"
+      },
+      "spirit_breaker": {
+        "ability": "Greater Bash / Nether Strike",
+        "ability_icon": "spirit_breaker_greater_bash",
+        "tag": "upgrade",
+        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 25% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
+      },
+      "tidehunter": {
+        "ability": "Gush",
+        "ability_icon": "tidehunter_gush",
+        "tag": "upgrade",
+        "desc": "Gush becomes a ground targeted wave ability that affects enemy units in a line. Decreases cooldown.\n\nRADIUS: 260\nCOOLDOWN: 7\nRANGE: 2200"
+      },
+      "timbersaw": {
+        "ability": "Reactive Armor",
+        "ability_icon": "timbersaw_reactive_armor",
+        "tag": "upgrade",
+        "desc": "Reactive Armor can now be activated to get max stacks and 150 damage barrier. Grants Timbersaw 100 + 75 barrier amount per second for each enemy hero within 450 radius of Timbersaw up to a maximum of 800. After 8 seconds, Timbersaw deals damage to every hero within 450 radius equal to 200 + his remaining barrier amount and loses all of his barrier."
+      },
+      "tiny": {
+        "ability": "Tree Volley",
+        "ability_icon": "tiny_tree_volley",
+        "tag": "new ability",
+        "desc": "CHANNELED - Tiny channels to throw random trees within range towards the targeted area. Deals Tiny's attack with Tree Throw bonuses.\n\nTARGET RADIUS: 400\nTREE GRAB RADIUS: 700\nTHROW INTERVAL: 0.5\nMAX CHANNEL TIME: 2.5"
+      },
+      "treant_protector": {
+        "ability": "Overgrowth",
+        "ability_icon": "treant_protector_overgrowth",
+        "tag": "upgrade",
+        "desc": "Decreases Cooldown to 85/75/65 seconds. When casting Overgrowth, Treant Protector draws power from the soil, greatly increasing his size for 16 seconds. While enlarged, he gains phased movement with a fixed speed of 345, 100% bonus Strength, and a splashing attack that deals 60% of his attack damage in a 300 unit radius."
+      },
+      "tusk": {
+        "ability": "Walrus Kick",
+        "ability_icon": "tusk_walrus_kick",
+        "tag": "new ability",
+        "desc": "Kicks the closest enemy unit in the drawn direction, stunning, damaging, and slowing them. Also deals damage to all heroes within 250 radius of its landing area. Cooldown is reduced by 50% if kicking a creep.\n\nKICK PUSH DISTANCE: 1200\nMOVE SLOW: 40%\nSLOW DURATION: 2\nDAMAGE: 550"
+      },
+      "underlord": {
+        "ability": "Pit of Malice / Fiend's Gate",
+        "ability_icon": "underlord_pit_of_malice",
+        "tag": "upgrade",
+        "desc": "Pit of Malice: Increases radius of the Pit of Malice.\nRADIUS: 500\n\nFiend's Gate: Summons a Pit of Malice around each of the portals. Reduces cooldown.\nCOOLDOWN: 100/95/90"
+      },
+      "undying": {
+        "ability": "Decay",
+        "ability_icon": "undying_decay",
+        "tag": "upgrade",
+        "desc": "Increases strength steal.\n\nSTRENGTH STEAL: 8"
+      },
+      "wraith_king": {
+        "ability": "Vampiric Spirit / Reincarnation",
+        "ability_icon": "wraith_king_vampiric_spirit",
+        "tag": "upgrade",
+        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
+      },
+      "bloodseeker": {
+        "ability": "Rupture",
+        "ability_icon": "bloodseeker_rupture",
+        "tag": "upgrade",
+        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 13%"
+      },
+      "bounty_hunter": {
+        "ability": "Shuriken Toss",
+        "ability_icon": "bounty_hunter_shuriken_toss",
+        "tag": "upgrade",
+        "desc": "Increases cast range and applies Jinada on hit.\n\nCAST RANGE: 600"
+      },
+      "broodmother": {
+        "ability": "Spinner's Snare",
+        "ability_icon": "broodmother_spinners_snare",
+        "tag": "new ability",
+        "desc": "Broodmother may create up to 5 invisible web lines touching any existing web. Enemy Heroes that cross the web line will spring the trap, becoming rooted, revealed in fog, and take damage over time. Multiple Heroes can trip on the same line until it's destroyed after being initially triggered. Broodmother's team is alerted via the minimap when an enemy has triggered the snare.\n\nMAX CHARGES: 2\nBASE CHARGE RESTORE TIME: 30\nFORMATION DELAY: 2\nROOT DURATION: 3\nDAMAGE PER SECOND: 100\nWEB LINE WIDTH: 900"
+      },
+      "clinkz": {
+        "ability": "Burning Army",
+        "ability_icon": "clinkz_burning_army",
+        "tag": "new ability",
+        "desc": "Summons a row of Burning Skeleton Archers in the target location.\n\nRANGE: 900\nCOUNT: 6\nSPAWN INTERVAL: 0.1"
+      },
+      "drow_ranger": {
+        "ability": "Frost Arrows",
+        "ability_icon": "drow_ranger_frost_arrows",
+        "tag": "upgrade",
+        "desc": "Frost Arrows now apply a Hypothermia stack to enemies, increasing damage from Frost Arrows and reducing their Health Restoration per stack. If an enemy dies with Hypothermia stacks, they burst and deal damage per stack and slow in an area around it.\n\nHEALTH RESTORATION LOSS PER STACK: 10%\nBONUS DAMAGE PER STACK: 18\nSTACK DURATION: 7\nBURST RADIUS: 650\nBURST DAMAGE PER STACK: 60\nBURST MOVEMENT SLOW: 40%\nBURST SLOW DURATION: 2\nMAX STACKS: 9"
+      },
+      "ember_spirit": {
+        "ability": "Fire Remnant",
+        "ability_icon": "ember_spirit_fire_remnant",
+        "tag": "upgrade",
+        "desc": "Increases cast range, initial remnant speed, and maximum charges.\n\nRANGE: 3000\nSPEED MULTIPLIER: 2\nMAX CHARGES: 5"
+      },
+      "faceless_void": {
+        "ability": "Time Walk / Reverse Time Walk",
+        "ability_icon": "faceless_void_time_walk",
+        "tag": "upgrade",
+        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 400\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+      },
+      "gyrocopter": {
+        "ability": "Side Gunner",
+        "ability_icon": "gyrocopter_side_gunner",
+        "tag": "new ability",
+        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Side Gunner will attack 2 units at a time while Flak Cannon is active. Prioritizes furthest unit away within its range."
+      },
+      "hoodwink": {
+        "ability": "Decoy / Sharpshooter",
+        "ability_icon": "hoodwink_decoy",
+        "tag": "upgrade",
+        "desc": "Decoy (New Ability): Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\nILLUSION DURATION: 6\nBUSHWHACK RADIUS: 250\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%\n\nSharpshooter: Increases arrow speed and movement speed slow.\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
+      },
+      "kez": {
+        "ability": "Switch Discipline",
+        "ability_icon": "kez_switch_discipline",
+        "tag": "upgrade",
+        "desc": "Casting a weapon ability that would set its alternate weapon ability on cooldown does not do so if it's the first one used within 3 seconds after casting Switch Discipline or if it was already on cooldown. Casting any weapon ability refreshes the cooldown of Switch Discipline."
+      },
+      "lone_druid": {
+        "ability": "Entangle",
+        "ability_icon": "lone_druid_spirit_bear_entangle",
+        "tag": "upgrade",
+        "desc": "Entangle applies 5 stacks to enemy heroes in the area and has increased radius. Enemies no longer have protection from gaining stacks while Entangled.\n\nRADIUS: 450"
+      },
+      "luna": {
+        "ability": "Eclipse",
+        "ability_icon": "luna_eclipse",
+        "tag": "upgrade",
+        "desc": "Allows Luna to cast Eclipse on an allied unit or herself and have its effects follow them, or cast it on an area. Increases total beams, reduces duration, removes the limit on beams per unit, and makes the beams appear twice as fast.\n\nTOTAL BEAMS: 6/12/18\nMAX BEAMS PER UNIT: 6/12/18\nECLIPSE DURATION: 1.8/3.6/5.4"
+      },
+      "medusa": {
+        "ability": "Split Shot",
+        "ability_icon": "medusa_split_shot",
+        "tag": "upgrade",
+        "desc": "Allows on-hit effects to apply to the secondary attacks from Split Shot. Increases arrow count.\n\nEXTRA TARGETS: 5"
+      },
+      "meepo": {
+        "ability": "Megameepo / Megameepo Fling",
+        "ability_icon": "meepo_megameepo",
+        "tag": "new ability",
+        "desc": "Megameepo: Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\nDURATION: 20\n\nMegameepo Fling: In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
+      },
+      "mirana": {
+        "ability": "Sacred Arrow",
+        "ability_icon": "mirana_arrow",
+        "tag": "upgrade",
+        "desc": "Causes Sacred Arrow to release a Starstorm on enemies along the travel path of the primary arrow, releasing a second Starstorm that deals less damage to the impacted unit.\n\nSEARCH RADIUS: 500\nPRIMARY HIT STARSTORM DAMAGE: 80%"
+      },
+      "monkey_king": {
+        "ability": "Wukong's Command",
+        "ability_icon": "monkey_king_wukongs_command",
+        "tag": "upgrade",
+        "desc": "Spawns a monkey soldier near Monkey King at regular intervals. Soldiers do not spawn while invisible or on trees. Soldiers only attack buildings when Monkey King himself is nearby. Soldiers can now gain Jingu Mastery charges independently.\n\nSOLDIER SPAWN INTERVAL: 4\nSOLDIER DURATION: 15"
+      },
+      "morphling": {
+        "ability": "Morph",
+        "ability_icon": "morphling_morph_replicate",
+        "tag": "upgrade",
+        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 300%"
+      },
+      "naga_siren": {
+        "ability": "Ensnare / Reel In",
+        "ability_icon": "naga_siren_ensnare",
+        "tag": "upgrade",
+        "desc": "Ensnare: Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break.\n\nReel In: Allows Reel In to affect Spell Immune units."
+      },
+      "phantom_assassin": {
+        "ability": "Fan of Knives",
+        "ability_icon": "phantom_assassin_fan_of_knives",
+        "tag": "new ability",
+        "desc": "Phantom Assassin releases sharp blades around her, dealing a percentage of each victim's max health on impact and applying Break.\n\nMAX HEALTH DAMAGE: 30%\nBREAK DURATION: 4\nRADIUS: 550"
+      },
+      "phantom_lancer": {
+        "ability": "Phantom Rush",
+        "ability_icon": "phantom_lancer_phantom_rush",
+        "tag": "upgrade",
+        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1225/1300/1375/1450\nCOLLISION RADIUS: 125"
+      },
+      "razor": {
+        "ability": "Eye of the Storm",
+        "ability_icon": "razor_eye_of_the_storm",
+        "tag": "upgrade",
+        "desc": "Causes Eye of the Storm to strike two different units instead of one and can damage structures. When striking buildings, it will only target towers, barracks, and the Ancient."
+      },
+      "riki": {
+        "ability": "Tricks of the Trade",
+        "ability_icon": "riki_tricks_of_the_trade",
+        "tag": "upgrade",
+        "desc": "Increases Cast Range to 900. Allows you to target an allied unit, hiding inside them for the duration. While hiding in an allied unit, they have 15% bonus movement speed, and Tricks of the Trade lasts 1s longer and does an additional 2 attacks."
+      },
+      "shadow_fiend": {
+        "ability": "Requiem of Souls",
+        "ability_icon": "nevermore_requiem_of_souls",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown and causes Requiem of Souls to return back to Shadow Fiend. The wave back to Shadow Fiend heals him for all the damage it dealt.\n\nHEAL ON RETURN: 100%\nCOOLDOWN: 90/80/70"
+      },
+      "slark": {
+        "ability": "Pounce",
+        "ability_icon": "slark_pounce",
+        "tag": "upgrade",
+        "desc": "Provides charges and increases range.\n\nCHARGES: 2\nBASE CHARGE RESTORE TIME: 12\nDISTANCE: 900"
+      },
+      "spectre": {
+        "ability": "Haunt",
+        "ability_icon": "spectre_haunt",
+        "tag": "upgrade",
+        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 1.5s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
+      },
+      "templar_assassin": {
+        "ability": "Psionic Projection / Psionic Trap",
+        "ability_icon": "templar_assassin_psionic_projection",
+        "tag": "upgrade",
+        "desc": "Psionic Projection (New Ability): CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld.\n\nPsionic Trap: When activated, traps now silence affected enemies.\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
+      },
+      "terrorblade": {
+        "ability": "Terror Wave",
+        "ability_icon": "terrorblade_terror_wave",
+        "tag": "new ability",
+        "desc": "Causes a wave to travel outwards in all directions forcing enemy heroes to become Feared upon impact and dealing damage, and grants Terrorblade Metamorphosis for a short time.\n\nFEAR DURATION: 2\nRADIUS: 1600\nDAMAGE: 200\nMETAMORPHOSIS DURATION: 15"
+      },
+      "troll_warlord": {
+        "ability": "Whirling Axes (Ranged) / Whirling Axes (Melee)",
+        "ability_icon": "troll_warlord_whirling_axes_ranged",
+        "tag": "upgrade",
+        "desc": "Whirling Axes (Ranged): Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 30\nCOOLDOWN: 4\n\nWhirling Axes (Melee): Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 25\nCOOLDOWN: 4"
+      },
+      "ursa": {
+        "ability": "Enrage",
+        "ability_icon": "ursa_enrage",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown and allows Ursa to use Enrage while disabled.\n\nCOOLDOWN: 30/24/18"
+      },
+      "vengeful_spirit": {
+        "ability": "Vengeance Aura",
+        "ability_icon": "vengefulspirit_vengeance_aura",
+        "tag": "upgrade",
+        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells. If the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 30%\nILLUSION DAMAGE TAKEN: 100%"
+      },
+      "viper": {
+        "ability": "Corrosive Skin / Nosedive",
+        "ability_icon": "viper_corrosive_skin",
+        "tag": "upgrade",
+        "desc": "Corrosive Skin: Applies 4x the attack speed slow to enemies within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while in Nethertoxin, up to 50% increased effect after 4s.\n\nNosedive (New Ability): Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\nRADIUS: 500\nEFFECT DURATION: 4"
+      },
+      "weaver": {
+        "ability": "Time Lapse",
+        "ability_icon": "weaver_time_lapse",
+        "tag": "upgrade",
+        "desc": "Time Lapse may target allied Heroes with 500 cast range."
+      },
+      "lone_druid_bear": {
+        "ability": "Return",
+        "ability_icon": "lone_druid_spirit_bear_return",
+        "tag": "upgrade",
+        "desc": "Allows Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies."
+      },
+      "ancient_apparition": {
+        "ability": "Chilling Touch / Bone Chill",
+        "ability_icon": "ancient_apparition_chilling_touch",
+        "tag": "upgrade",
+        "desc": "Chilling Touch: Removes cooldown.\n\nBone Chill: Increases Base Strength Reduction by 0.8.\nSTRENGTH REDUCTION: 1"
+      },
+      "chen": {
+        "ability": "Hand of God",
+        "ability_icon": "chen_hand_of_god",
+        "tag": "upgrade",
+        "desc": "Decreases the cooldown of Hand of God to 110/90/70s and it becomes a channelled spell that lasts for up to 6 seconds. The initial heal happens at the start of the channel, and while channeling other nearby allied units become debuff immune with 60% magic resistance and the power of the heal over time is increased by 200%.\n\nCHANNEL RADIUS: 800"
+      },
+      "crystal_maiden": {
+        "ability": "Freezing Field",
+        "ability_icon": "crystal_maiden_freezing_field",
+        "tag": "upgrade",
+        "desc": "Allows you to move, cast and attack during Freezing Field. Can still be interrupted by enemies. You move 75% slower during this. Increases total number of explosions by 20%. Applies Frostbite to any unit that has been standing in the Freezing Field for over 2s."
+      },
+      "dark_seer": {
+        "ability": "Normal Punch",
+        "ability_icon": "dark_seer_normal_punch",
+        "tag": "new ability",
+        "desc": "Passive ability. Causes Dark Seer's next attack on a hero to have True Strike, knock a replica out of the victim, damaging and stunning them based on how far Dark Seer has moved in the past 3 seconds. Max power is reached after 1100 distance moved.\n\nMAX STUN DURATION: 1.25\nMAX KNOCKBACK DISTANCE: 350\nILLUSION DURATION: 6\nMAX DAMAGE: 400"
+      },
+      "dark_willow": {
+        "ability": "Shadow Realm",
+        "ability_icon": "dark_willow_shadow_realm",
+        "tag": "upgrade",
+        "desc": "Attacking no longer takes Dark Willow out of Shadow Realm. Each attack still has bonus damage based on the duration of the buff."
+      },
+      "disruptor": {
+        "ability": "Static Storm",
+        "ability_icon": "disruptor_static_storm",
+        "tag": "upgrade",
+        "desc": "Mutes items."
+      },
+      "enchantress": {
+        "ability": "Enchant / Little Friends",
+        "ability_icon": "enchantress_enchant",
+        "tag": "upgrade",
+        "desc": "Enchant: Enchantress can control multiple creeps at a time.\nMAX ENCHANTED CREEPS: 2\n\nLittle Friends (New Ability): Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nRADIUS: 1200\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
+      },
+      "grimstroke": {
+        "ability": "Dark Portrait",
+        "ability_icon": "grimstroke_dark_portrait",
+        "tag": "new ability",
+        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 95% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
+      },
+      "invoker": {
+        "ability": "Quas / Wex / Exort",
+        "ability_icon": "invoker_quas",
+        "tag": "upgrade",
+        "layout": "horizontal",
+        "desc": "OPTION 1 — QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 — WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 — EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+      },
+      "jakiro": {
+        "ability": "Macropyre",
+        "ability_icon": "jakiro_macropyre",
+        "tag": "upgrade",
+        "desc": "Increases Macropyre duration and causes it to deal Pure damage. Jakiro emits two walls of ice along the edges of the Macropyre that slow any enemies trying to cross them by 60%.\n\nDURATION: 15"
+      },
+      "keeper_of_the_light": {
+        "ability": "Will-O-Wisp",
+        "ability_icon": "keeper_of_the_light_will_o_wisp",
+        "tag": "new ability",
+        "desc": "Summons Ignis Fatuus at the targeted area. Alternates on and off, drawing enemies closer with its mesmerising flicker.\n\nRADIUS: 725\nHIT COUNT: 7\nDAMAGE: 85"
+      },
+      "leshrac": {
+        "ability": "Nihilism",
+        "ability_icon": "leshrac_nihilism",
+        "tag": "new ability",
+        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 30%\nRADIUS: 500"
+      },
+      "lich": {
+        "ability": "Sinister Gaze",
+        "ability_icon": "lich_sinister_gaze",
+        "tag": "upgrade",
+        "desc": "Sinister Gaze becomes an Area of Effect ability, affecting units within a radius of 400 in the target area. Sinister Gaze allows Lich to cast other abilities while channeling it."
+      },
+      "lina": {
+        "ability": "Flame Cloak",
+        "ability_icon": "lina_flame_cloak",
+        "tag": "new ability",
+        "desc": "Grants Lina unobstructed movement and increases her spell damage and magic resistance. Grants max fiery soul stacks on activation.\n\nDURATION: 7\nMAGIC RESISTANCE: 35%\nSPELL AMP: 35%"
+      },
+      "lion": {
+        "ability": "Finger of Death",
+        "ability_icon": "lion_finger_of_death",
+        "tag": "upgrade",
+        "desc": "Finger of Death gains area of effect damage on the initial cast, and increases duration and cleave damage on its subsequent melee attacks.\n\nDAMAGE: 700/825/950\nMELEE DURATION: 30\nCLEAVE DAMAGE: 50%\nAREA OF EFFECT: 325"
+      },
+      "necrophos": {
+        "ability": "Heartstopper Aura",
+        "ability_icon": "necrolyte_heartstopper_aura",
+        "tag": "upgrade",
+        "desc": "Heartstopper Aura's Health Decay is increased by 50% of Necrophos's current health regeneration."
+      },
+      "oracle": {
+        "ability": "Diviner's Deck",
+        "ability_icon": "oracle_diviners_deck",
+        "tag": "new ability",
+        "desc": "Oracle pulls a random Tarot Card now and every 90 seconds to receive its buff for 90 seconds. Oracle always knows the next Tarot Card.\n\nDeath: 40% Spell Amplification\nThe Fool: 100% Increased Gold Gain\nThe World: 150% Increased Intelligence\nThe Lovers: 40% Heal Amplification\nThe Tower: 400 All Damage Barrier (regenerates after not taking damage for 7s)"
+      },
+      "outworld_destroyer": {
+        "ability": "Objurgation",
+        "ability_icon": "obsidian_destroyer_astral_imprisonment",
+        "tag": "upgrade",
+        "desc": "Increases max mana to barrier. Damage that would bring Outworld Destroyer below 20% health is prevented. When that happens, Outworld Destroyer receives a strong dispel and gains an undispellable instance of Objurgation. This effect cannot occur more than once every 80 seconds.\n\nMAX MANA BARRIER: 16%"
+      },
+      "puck": {
+        "ability": "Dream Coil",
+        "ability_icon": "puck_dream_coil",
+        "tag": "upgrade",
+        "desc": "All enemies affected by Dream Coil are attacked at a rate equal to 90% of Puck's attack rate. The attacks continue while the target is stunned if they break the Dream Coil."
+      },
+      "pugna": {
+        "ability": "Life Drain",
+        "ability_icon": "pugna_life_drain",
+        "tag": "upgrade",
+        "desc": "Reduces cooldown by 3.5s. When targeting an enemy hero, Pugna reduces their outgoing spell damage by 8% per second up to a maximum of 75% and increases his own, up to a maximum of 100%. When draining through a Nether Ward using Shard, the rate of increase/decrease is 4% instead. Debuff lasts 8 seconds."
+      },
+      "queen_of_pain": {
+        "ability": "Shadow Strike",
+        "ability_icon": "queenofpain_shadow_strike",
+        "tag": "upgrade",
+        "desc": "Causes Shadow Strike to become a 375 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
+      },
+      "ringmaster": {
+        "ability": "Escape Act",
+        "ability_icon": "ringmaster_escape_act",
+        "tag": "upgrade",
+        "desc": "Escape Act has 2 charges. When the box pops open, Impalement Art daggers are thrown in all directions, and all enemies around it take damage.\n\nEXPLOSION RADIUS: 225\nEXPLOSION DAMAGE: 300"
+      },
+      "rubick": {
+        "ability": "Spell Steal",
+        "ability_icon": "rubick_spell_steal",
+        "tag": "upgrade",
+        "desc": "Increases the number of spells that can be stolen to 2. Increases cast range, and upgrades stolen spells to their Scepter version.\n\nCAST RANGE: 1400"
+      },
+      "shadow_demon": {
+        "ability": "Demonic Purge",
+        "ability_icon": "shadow_demon_demonic_purge",
+        "tag": "upgrade",
+        "desc": "Causes Demonic Purge to break and gain 2 charges.\n\nBASE CHARGE RESTORE TIME: 70/65/60"
+      },
+      "shadow_shaman": {
+        "ability": "Shackles",
+        "ability_icon": "shadow_shaman_shackles",
+        "tag": "upgrade",
+        "desc": "Increase cast range. Every 0.9 seconds, shackled units emit a radial Ether Shock hitting all other units within 600 of the target for 100% of Ether Shock's normal damage. Shackles can now also be cast on allies and Mass Serpent Wards that stay within 2000 units of Shadow Shaman. Allied units are not disabled by Shackle.\n\nCAST RANGE: 600"
+      },
+      "silencer": {
+        "ability": "Global Silence",
+        "ability_icon": "silencer_global_silence",
+        "tag": "upgrade",
+        "desc": "Global Silence applies Arcane Curse to heroes for the duration of Global Silence."
+      },
+      "skywrath_mage": {
+        "ability": "Concussive Shot / Ancient Seal / Mystic Flare",
+        "ability_icon": "skywrath_mage_concussive_shot",
+        "tag": "upgrade",
+        "layout": "vertical",
+        "desc": "Concussive Shot: When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority.\n\nAncient Seal: Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority.\n\nMystic Flare: When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
+      },
+      "storm_spirit": {
+        "ability": "Electric Vortex",
+        "ability_icon": "storm_spirit_electric_vortex",
+        "tag": "upgrade",
+        "desc": "Electric Vortex affects all enemies within a radius around Storm Spirit.\n\nRADIUS: 475"
+      },
+      "tinker": {
+        "ability": "Laser / March of the Machines / Deploy Turrets",
+        "ability_icon": "tinker_laser",
+        "tag": "upgrade",
+        "layout": "vertical",
+        "desc": "Laser: Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity.\n\nMarch of the Machines: March of the Machines applies a non-stacking heal over time when passing through allied heroes.\nHEAL PER SECOND: 35\nHEAL DURATION: 4\n\nDeploy Turrets: Turrets fire missiles 20% faster.\nATTACK INTERVAL: 1.2"
+      },
+      "warlock": {
+        "ability": "Chaotic Offering",
+        "ability_icon": "warlock_chaotic_offering",
+        "tag": "upgrade",
+        "desc": "Calls 2 Golems."
+      },
+      "winter_wyvern": {
+        "ability": "Arctic Burn",
+        "ability_icon": "winter_wyvern_arctic_burn",
+        "tag": "upgrade",
+        "desc": "Causes Arctic Burn to be a toggle ability, draining mana every second when active. Increases Winter Wyvern's movement speed.\n\nMANA PER SECOND: 20\nMOVEMENT SPEED: 25%"
+      },
+      "witch_doctor": {
+        "ability": "Death Ward",
+        "ability_icon": "witch_doctor_death_ward",
+        "tag": "upgrade",
+        "desc": "Death Ward attacks bounce between nearby enemies.\n\nBOUNCE RADIUS: 575"
+      },
+      "zeus": {
+        "ability": "Nimbus",
+        "ability_icon": "zuus_nimbus",
+        "tag": "new ability",
+        "desc": "Creates a storm cloud anywhere on the map that automatically casts Lightning Bolt on nearby enemies.\n\nDURATION: 30\nLIGHTNING BOLT BASE COOLDOWN: 2.5\nRADIUS: 450\nHITS TO DESTROY: 8\nCREEP HITS TO DESTROY: 16"
+      },
+      "abaddon": {
+        "ability": "Borrowed Time",
+        "ability_icon": "abaddon_borrowed_time",
+        "tag": "upgrade",
+        "desc": "Increases duration. While Borrowed Time is active, anytime an ally takes more than 550 damage while within Mist Coil's cast range of Abaddon, an individual Mist Coil will automatically fire towards that ally.\n\nDURATION: 7/8/9\nDAMAGE THRESHOLD: 550"
+      },
+      "arc_warden": {
+        "ability": "Flux",
+        "ability_icon": "arc_warden_flux",
+        "tag": "upgrade",
+        "desc": "Flux silences when the target is alone, deals more damage, and lasts longer.\n\nDURATION: 8\nDAMAGE PER SECOND: 22.5/45/67.5/90"
+      },
+      "bane": {
+        "ability": "Fiend's Grip",
+        "ability_icon": "bane_fiends_grip",
+        "tag": "upgrade",
+        "desc": "Reduces Fiend's Grip cooldown by 45. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
+      },
+      "batrider": {
+        "ability": "Flaming Lasso",
+        "ability_icon": "batrider_flaming_lasso",
+        "tag": "upgrade",
+        "desc": "Flaming Lasso grabs both its target, as well as the target's nearest allied hero within 650 units. The secondary target is tethered to the first."
+      },
+      "beastmaster": {
+        "ability": "Drums of Slom",
+        "ability_icon": "beastmaster_drums_of_slom",
+        "tag": "new ability",
+        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 600\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 80\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
+      },
+      "brewmaster": {
+        "ability": "Primal Split",
+        "ability_icon": "brewmaster_primal_split",
+        "tag": "upgrade",
+        "desc": "Primal Split gains 1 max and current level, improving the Brewlings and their abilities. Allows Primal Split to be cancelled early, and causes the Brewlings to be Brewed Up when Primal Split begins."
+      },
+      "dazzle": {
+        "ability": "Shadow Wave",
+        "ability_icon": "dazzle_shadow_wave",
+        "tag": "upgrade",
+        "desc": "Shadow Wave can now target and bounce between enemies in addition to allies. When bouncing to an enemy, they will take damage and heal nearby allies equal to 100% of the normal healing and damage values. Dazzle will also perform an attack against any enemy that Shadow Wave bounces to."
+      },
+      "death_prophet": {
+        "ability": "Exorcism",
+        "ability_icon": "death_prophet_exorcism",
+        "tag": "upgrade",
+        "desc": "Whenever an enemy is affected by Death Prophet's spells or when she attacks an enemy, a ghost will fly out and hit the enemy for an increased bonus of its usual damage then return to her with life.\n\nSPIRIT BONUS DAMAGE: 60%"
+      },
+      "enigma": {
+        "ability": "Black Hole",
+        "ability_icon": "enigma_black_hole",
+        "tag": "upgrade",
+        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 175."
+      },
+      "io": {
+        "ability": "Spirits",
+        "ability_icon": "wisp_spirits",
+        "tag": "upgrade",
+        "desc": "Spirits now passively spawn around Io constantly every second up to the max. Spirits colliding with enemy Heroes slows them briefly. Can be activated to explode spirits.\n\nMOVEMENT SLOW: 25%\nSLOW DURATION: 0.3"
+      },
+      "magnus": {
+        "ability": "Horn Toss",
+        "ability_icon": "magnataur_horn_toss",
+        "tag": "new ability",
+        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 300\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
+      },
+      "marci": {
+        "ability": "Unleash",
+        "ability_icon": "marci_unleash",
+        "tag": "upgrade",
+        "desc": "Reduces Unleash cooldown by 10 seconds and causes Unleash to apply a basic dispel on Marci. While Unleash is Active, all of Marci's abilities unleash pulses when cast. All of Marci's unleash pulses will silence units for 1 second.\n\nDISPEL TYPE: Basic Dispel"
+      },
+      "natures_prophet": {
+        "ability": "Wrath of Nature",
+        "ability_icon": "furion_wrath_of_nature",
+        "tag": "upgrade",
+        "desc": "Entangles all enemies it hits. Duration scales from 1.5s up to 3s at max bounce."
+      },
+      "nyx_assassin": {
+        "ability": "Burrow",
+        "ability_icon": "nyx_assassin_burrow",
+        "tag": "new ability",
+        "desc": "Nyx Assassin buries himself beneath the battlefield over a short duration. Once burrowed, Spiked Carapace instantly stuns nearby enemies when cast, the range of Mind Flare and Impale is increased, and Impale's cooldown is decreased. While burrowed, Nyx Assassin is stationary, unable to attack, and invisible. Nyx Assassin gains damage reduction from all damage sources.\n\nMAX HP REGEN: 1%\nMAX MANA REGEN: 1%\nBURROW DAMAGE REDUCTION: 40%\nBURROW BONUS CAST RANGE: 500\nBURROW BONUS COOLDOWN REDUCTION: 25%\nBURROW SPIKED CARAPACE RANGE: 400"
+      },
+      "pangolier": {
+        "ability": "Shield Crash",
+        "ability_icon": "pangolier_shield_crash",
+        "tag": "upgrade",
+        "desc": "Causes Shield Crash to cast a 2-attack Swashbuckle every 90 degrees around your hero that deals 75% damage."
+      },
+      "sand_king": {
+        "ability": "Epicenter",
+        "ability_icon": "sandking_epicenter",
+        "tag": "upgrade",
+        "desc": "When the pulses start, 3 Stinger attack areas are created every 0.5s at random locations, each measuring 35% of the Epicenter's current radius, that apply 40% of Stinger damage to enemies hit. Shard pulses cause 1 attack(s)."
+      },
+      "snapfire": {
+        "ability": "Gobble Up / Spit Out",
+        "ability_icon": "snapfire_gobble_up",
+        "tag": "new ability",
+        "desc": "Gobble Up: Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds.\n\nSpit Out: Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
+      },
+      "techies": {
+        "ability": "Minefield Sign",
+        "ability_icon": "techies_minefield_sign",
+        "tag": "new ability",
+        "desc": "Plant a warning sign, causing Proximity Mines within its radius to be invulnerable and deal 15% more damage. Only one sign can exist at a time. Lasts 240 seconds. When an enemy Hero walks within 200 units of a minefield sign, the 1000 units area around the sign will become a minefield for 10 seconds, dealing damage to enemy Heroes any time they move within its area. Minefield Sign is destroyed after this effect ends.\n\nEFFECT RADIUS: 1000\nSIGN DURATION: 240\nDAMAGE: 300\nMOVEMENT TRIGGER AMOUNT: 200"
+      },
+      "venomancer": {
+        "ability": "Noxious Plague",
+        "ability_icon": "venomancer_noxious_plague",
+        "tag": "upgrade",
+        "desc": "Decreases cooldown by 35 seconds. Infected units have decreased magic resistance. Additional spreads from hero targets deal full impact damage.\n\nMAGIC RESIST REDUCTION: 20%"
+      },
+      "visage": {
+        "ability": "Silent as the Grave",
+        "ability_icon": "visage_silent_as_the_grave",
+        "tag": "upgrade",
+        "desc": "Increases movement speed, damage, and duration. Turns Visage and familiars invisible for the duration until the flying movement is lost.\n\nFLIGHT DURATION: 30\nBONUS MOVESPEED: 24%\nBONUS DAMAGE DURATION: 4\nBONUS DAMAGE: 20%"
+      },
+      "void_spirit": {
+        "ability": "Resonant Pulse",
+        "ability_icon": "void_spirit_resonant_pulse",
+        "tag": "upgrade",
+        "desc": "Causes Resonant Pulse to silence and gain 2 charges.\n\nBASE CHARGE RESTORE TIME: 18\nSILENCE DURATION: 1.75"
+      },
+      "windranger": {
+        "ability": "Tailwind",
+        "ability_icon": "windrunner_windrun",
+        "tag": "upgrade",
+        "desc": "Attacks grant Tailwind. Tailwind lasts longer and is undispellable.\n\nDURATION: 3.5"
       }
     }
   }

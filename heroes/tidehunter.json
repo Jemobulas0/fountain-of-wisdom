@@ -1,0 +1,335 @@
+{
+  "id": "tidehunter",
+  "name": "Tidehunter",
+  "attribute": "strength",
+  "version": "7.41b",
+  "overview": {
+    "positions": [3],
+    "roles": "Offlaner · Initiator · Durable",
+    "strengths": [
+      "Strong Initiator & Counter-Initiator",
+      "Incredibly Tanky",
+      "Self-Dispel",
+      "Scaling",
+      "Versatile Builds"
+    ],
+    "weaknesses": [
+      "Break",
+      "Magic & Max HP % Damage"
+    ]
+  },
+  "game_plan": {
+    "early": "You have a strong advantage against most melee carries. Play defensive when facing ranged ones that you can't get on top of. Your lane partner determines if you are going to have a strong kill potential or not. Make a judgement call at the start which of the two options is your best one & stick to it. In most games naturally Anchor Smash is your best friend, as you can both last hit creeps, harass the enemy carry & lower his damage so he both can't fight back or even properly last hits for a few seconds.",
+    "mid": "Ideally you want to play the classic offlaner initiator's dance. When your ultimate is about to recharge soon, you start grouping up a bunch of teammates to make a play. Easiest one is to focus a good target showing somewhere on the map & run him down with a smoke. If nobody shows up to help him - he simply dies. If they do - you have Ravage for a good team fight. And then you chill for about 2 minutes by taking the more dangerous farm & pushing lanes, while your carry is getting the best camp & the safest lane for a while.",
+    "late": "You're a fortress. In team fights you're almost never going to be focused first, because if that happens - your team will almost always win the fight by default. This means that your job is to inflict as much CC & Damage as you possible can. One of the decisions that you have to make each game is are you more effective as an Initiator or a Counter-Initiator in those late game-deciding fights. If it's the latter, you'll often see enemy teams just waiting for you to show up, while your cores are mowing down their base in the meantime. Unless of course they get impatient & jump your team, at which point you counter-initiate hard & outright win the fight.\nA third way to approach big fights is to simply walk forward & be the front shield of your team. This is closed to a Counter-Initiator role since the moment the enemy team initiates on all of you, your Self-Dispel will immediately kick in & allow you to press Ravage against most heroes - thus stopping them in their tracks.",
+    "extras": "While Ravage is one of the best team-fighting abilities in the game, your Shard's Dead in the Water ability is what allows you to be constantly active & play with a much higher tempo. It silences all mobility spells & practically holds your target in place - a perfect setup for one or two teammates to follow up on & kill your enemy on the spot.\n\nDo not forget about your Innate Ability: Leviathan's Touch. Every time an enemy hero dies, he drops a fish on the ground. You just have walk up to it & you'll automatically consume it for permanent bonuses to your Health, Damage Block & Attack Range which also directly affects the radius of Anchor Smash. With that said, sometimes the fish will be in a hard to reach spot where enemy heroes can easily deny it from you. It's not worth it to suicide over it."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Vs Melee Carry",
+      "ult": "tidehunter_ravage",
+      "rows": [
+        {
+          "abilities": [
+            "tidehunter_anchor_smash",
+            "tidehunter_gush",
+            "tidehunter_anchor_smash",
+            "tidehunter_kraken_shell",
+            "tidehunter_anchor_smash",
+            "tidehunter_ravage"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00"
+          }
+        },
+        {
+          "abilities": [
+            "tidehunter_anchor_smash",
+            "tidehunter_gush",
+            "tidehunter_gush",
+            "tidehunter_gush",
+            "tidehunter_kraken_shell",
+            "tidehunter_ravage"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00"
+          }
+        },
+        {
+          "abilities": [
+            "tidehunter_kraken_shell",
+            "tidehunter_kraken_shell",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "tidehunter_ravage"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Anchor Smash affects buildings",
+          "right": "+1s Ravage Stun Duration",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-4 Gush Armor",
+          "right": "Kraken Shell Cleanse triggers Anchor Smash",
+          "chosen": "right"
+        },
+        {
+          "level": 15,
+          "left": "-15s Ravage Cooldown",
+          "right": "+90 Gush Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+20% Gush Slow",
+          "right": "+10% Anchor Smash Damage Reduction",
+          "chosen": "right"
+        }
+      ],
+      "note": "Your most frequent & best case scenario - walk up to the enemy creeps when you can last hit at least one of them & the enemy carry is in range & hit Anchor Smash. Often times after doing this a few times, you'll train the enemy carry to walk away when you're about to do it. In those cases don't just waste your mana & cooldown, and last hit normally. Now he's in a position where he's just looking at you taking a bunch of last hits completely for free. After a number of good trades when they've either invested too many resources or simply has ran out of such, communicate with your support that you want to go for a kill & do it."
+    },
+    {
+      "name": "Skill Build 2 — Vs Ranged Carry",
+      "ult": "tidehunter_ravage",
+      "rows": [
+        {
+          "abilities": [
+            "tidehunter_gush",
+            "tidehunter_anchor_smash",
+            "tidehunter_kraken_shell",
+            "tidehunter_kraken_shell",
+            "tidehunter_kraken_shell",
+            "tidehunter_ravage"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00"
+          }
+        },
+        {
+          "abilities": [
+            "tidehunter_kraken_shell",
+            "tidehunter_gush",
+            "tidehunter_gush",
+            "tidehunter_gush",
+            "tidehunter_anchor_smash",
+            "tidehunter_ravage"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00"
+          }
+        },
+        {
+          "abilities": [
+            "tidehunter_anchor_smash",
+            "tidehunter_anchor_smash",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "tidehunter_ravage"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Anchor Smash affects buildings",
+          "right": "+1s Ravage Stun Duration",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-4 Gush Armor",
+          "right": "Kraken Shell Cleanse triggers Anchor Smash",
+          "chosen": "right"
+        },
+        {
+          "level": 15,
+          "left": "-15s Ravage Cooldown",
+          "right": "+90 Gush Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+20% Gush Slow",
+          "right": "+10% Anchor Smash Damage Reduction",
+          "chosen": "right"
+        }
+      ],
+      "note": "If you have zero kill potential and your goal is maximum survivability, Gush is what will allow you to secure ranged creep last hits, while pulling back creeps with aggro will let you get normal last hits with minimum possible damage taken.\nWith that said in some games it might be possible to go for a kill on levels 2-3 depending on your support. Then you could switch things up a bit and get Anchor Smash on level 2 & go for that kill after you've initially set things up in your favor by pulling the creep equilibrium towards your tower & keeping your HP high. Naturally getting level 2 or 3 (whichever is the one where you want to make your play) before your opponents will give you a huge advantage in this scenario."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Initiator",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "gauntlets",
+            "gauntlets",
+            "branches",
+            "branches"
+          ],
+          "note": "Optimal stats."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "phase_boots",
+            "soul_ring",
+            "magic_wand",
+            "morbid_mask",
+            {
+              "id": "blink",
+              "green": "21:00",
+              "yellow": "18:00"
+            },
+            {
+              "id": "vladmir",
+              "green": "23:00",
+              "yellow": "20:00"
+            },
+            {
+              "id": "ultimate_scepter",
+              "hero": "tidehunter"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero": "tidehunter"
+            },
+            "sheepstick",
+            "refresher"
+          ]
+        }
+      ],
+      "note": "This is your standard high tempo build which allows you constant up-time. You're either fighting or using any available downtime to farm while restoring both your HP & MP in the meantime."
+    },
+    {
+      "name": "Item Build 2 — Aura Carrier",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "magic_stick",
+            "gauntlets",
+            "enchanted_mango"
+          ],
+          "note": "Sustain vs ability spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "phase_boots",
+            "soul_ring",
+            "magic_wand",
+            "morbid_mask",
+            {
+              "id": "blink",
+              "green": "21:00",
+              "yellow": "18:00"
+            },
+            {
+              "id": "vladmir",
+              "green": "23:00",
+              "yellow": "20:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero": "tidehunter"
+            },
+            "pipe",
+            "shivas_guard",
+            "assault",
+            "aghanims_blessing"
+          ]
+        }
+      ],
+      "note": "When your teammates are strong but squishy & you can't keep them safe by initiating first onto the enemy, these aura items will retroactively get the job done while also making you even tankier & the enemy team even weaker."
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "black_king_bar",
+      "note": "In rare cases where you're facing Break + CC or unique spells like [hero:disruptor]'s [ability:disruptor_static_storm] Static Storm."
+    },
+    {
+      "id": "lotus_orb",
+      "note": "Your Armor & Mana are both low in general. If Echo Shell is going to be impactful in this game, this item is a solid purchase for your hero."
+    },
+    {
+      "id": "crella_crozier",
+      "note": "An amazing mid-late game purchase when you need Health Restoration Debuff, which also coincidentally fixes your mana issues - especially when you want to get [item:refresher] Refresher Orb right after."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "Your basic combo is to cast [ability:tidehunter_gush] Gush to apply Armor Reduction & follow it up with [ability:tidehunter_anchor_smash] Anchor Smash, which is a strong Physical Damage attack. To optimize your burst even further - hit with an auto attack & then immediately use [ability:tidehunter_anchor_smash] Anchor Smash to interrupt your attack animation. This is especially effective on a hero like yours who attacks very slowly in the early game."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:tidehunter_kraken_shell] Kraken Shell active is a double edged blade. You might be tempted to always cast it in fights, but in reality it only protects you from auto attacks, while slowing you down significantly. If nobody is actively focusing you down with autos, do not waste."
+    },
+    {
+      "level": "basic",
+      "text": "Regardless of your build or even how well you're doing, [ability:tidehunter_anchor_smash] Anchor Smash remains an amazing ability throughout the entire game. Whenever there's an auto attacking hero actively participating from the enemy team, often times one of your high priorities is to make sure that you're in his face reapplying the 50% base damage reduction at all times."
+    },
+    {
+      "level": "advanced",
+      "text": "During the laning stage a neat little trick is to pretend that you're going to [ability:tidehunter_anchor_smash] Anchor Smash a creep while also hitting an enemy hero & thus scaring him to back away for a moment. It's quite easy to begin casting the ability, only to then cancel the animation and get your last hit with a normal attack. At some point the enemy hero will get tired of being baited & will walk right into an actual hit from you."
+    },
+    {
+      "level": "advanced",
+      "text": "In a similar manner you can bait people to cast their [item:black_king_bar] BKB in later fights by beginning to cast [ability:tidehunter_ravage] Ravage, only to almost immediately interrupt your cast animation. But by this point they've already wasted their [item:black_king_bar] BKB."
+    },
+    {
+      "level": "advanced",
+      "text": "Your ultimate is an amazing ability and even though it always does the same thing, it can be used in different ways. Sometimes you want to jump in for a 5-man [ability:tidehunter_ravage] Ravage & kill everyone. Other times you might still stun 5 people, but a more optimal plan of action would be to burst a key target and run away from the rest. Don't always overcommit until either they or you are dead."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "life_stealer",
+        "alchemist",
+        "sniper",
+        "luna",
+        "nevermore",
+        "crystal_maiden"
+      ],
+      "note": "Physical damage dealers. Backliners in need of protection. Allies who can jump together with Tidehunter. Heroes whose big spells need a good setup."
+    },
+    "counters": {
+      "heroes": [
+        "phantom_lancer",
+        "terrorblade",
+        "medusa",
+        "naga_siren",
+        "chaos_knight",
+        "chen"
+      ],
+      "note": "High Base Damage heroes. All-in enemies who are weak to counter-initiation. Summons."
+    },
+    "countered_by": {
+      "heroes": [
+        "slark",
+        "life_stealer",
+        "juggernaut",
+        "luna",
+        "nevermore",
+        "disruptor"
+      ],
+      "note": "Break. Heroes who don't care about Damage Block. Natural BKB buyers."
+    }
+  }
+}

@@ -50,6 +50,20 @@
     }
   }
 
+  // ── Build a single aghs block ──
+  function buildAghsBlock(aghs) {
+    var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
+    var html = '<div class="fow-tt-aghs">';
+    html += '<div class="fow-tt-aghs-header">';
+    if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
+    html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
+    html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
+    html += '</div>';
+    html += '<div class="fow-tt-aghs-desc">' + aghs.desc.replace(/\n/g, '<br>') + '</div>';
+    html += '</div>';
+    return html;
+  }
+
   // ── Build item tooltip HTML ──
   function buildItemTooltip(itemKey, heroKey) {
     const item = ITEMS[itemKey];
@@ -59,16 +73,12 @@
     if (item.aghs_only) {
       if (!item.aghs || !heroKey || !item.aghs[heroKey]) return null;
       var aghs = item.aghs[heroKey];
-      var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
       var html = '<div class="fow-tt-body">';
-      html += '<div class="fow-tt-aghs">';
-      html += '<div class="fow-tt-aghs-header">';
-      if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
-      html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
-      html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
-      html += '</div>';
-      html += '<div class="fow-tt-aghs-desc">' + aghs.desc.replace(/\n/g, '<br>') + '</div>';
-      html += '</div>';
+      if (Array.isArray(aghs)) {
+        aghs.forEach(function(entry) { html += buildAghsBlock(entry); });
+      } else {
+        html += buildAghsBlock(aghs);
+      }
       html += '</div>';
       return html;
     }
@@ -116,15 +126,11 @@
     // Aghs hero-specific upgrade (on normal items like regular scepter)
     if (item.aghs && heroKey && item.aghs[heroKey]) {
       var aghs = item.aghs[heroKey];
-      var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
-      html += '<div class="fow-tt-aghs">';
-      html += '<div class="fow-tt-aghs-header">';
-      if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
-      html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
-      html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
-      html += '</div>';
-      html += '<div class="fow-tt-aghs-desc">' + aghs.desc.replace(/\n/g, '<br>') + '</div>';
-      html += '</div>';
+      if (Array.isArray(aghs)) {
+        aghs.forEach(function(entry) { html += buildAghsBlock(entry); });
+      } else {
+        html += buildAghsBlock(aghs);
+      }
     }
 
     html += '</div>';

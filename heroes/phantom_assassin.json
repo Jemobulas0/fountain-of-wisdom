@@ -175,11 +175,11 @@
           "items": [
             "tango",
             "quelling_blade",
-            "orb_of_blight",
+            "blight_stone",
             "branches",
             "branches"
           ],
-          "note": "Even if you don't want to commit, a single [ability:phantom_assassin_stifling_dagger] combined with [item:orb_of_blight] will ensure that your support will always severely outtrade the enemy one."
+          "note": "Even if you don't want to commit, a single [ability:phantom_assassin_stifling_dagger] combined with [item:blight_stone] will ensure that your support will always severely outtrade the enemy one."
         },
         {
           "label": "Core Build",
@@ -187,14 +187,14 @@
             "orb_of_corrosion",
             "phase_boots",
             {
-              "id": "battlefury",
+              "id": "bfury",
               "green": "20:00",
               "yellow": "17:00"
             },
             "desolator",
             "black_king_bar",
             "basher",
-            "morbid_mask",
+            "lifesteal",
             "abyssal_blade",
             "satanic"
           ]
@@ -223,7 +223,7 @@
             "power_treads",
             "magic_wand",
             {
-              "id": "battlefury",
+              "id": "bfury",
               "green": "20:00",
               "yellow": "17:00"
             },

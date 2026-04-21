@@ -1,0 +1,350 @@
+{
+  "id": "wraith_king",
+  "name": "Wraith King",
+  "attribute": "strength",
+  "version": "7.41b",
+  "overview": {
+    "positions": [1, 3],
+    "roles": "",
+    "strengths": [
+      "Incredible Farming",
+      "Tower Pusher",
+      "Second Life",
+      "Soft Initiator"
+    ],
+    "weaknesses": [
+      "Mana Burn",
+      "Kiting",
+      "Weak Laning Stage"
+    ]
+  },
+  "game_plan": {
+    "early": "In most games you'll be playing with an on & off switch during the laning stage. Your downtime is all about collecting Bone Guard Charges and when you have enough, you want to jump an enemy hero with your lane partner either looking for a good trade or outright a kill. Once Bone Guard is level 3, you can also start farming jungle camps in between waves - this spell makes you one of the earliest jungling carries in the game.",
+    "mid": "There are a number of ways for you to farm efficiently with Bone Guard. Up to a point in time you want to be together with your Skeletons. At some point it's more efficient to either send them down a lane or to other camps away from you. Every game is unique & you constantly have to take into account all other heroes in the game. Is there an enemy who can insta-kill your Skellies if you send them there? Is there a teammate who will kill your camps if you send them there instead? It's a non-stop decision making process.",
+    "late": "In most games by this point your Skellies will be almost useless in actual team fights, but they still remain great to send them down a wave & split push while your hero remains free. In team fights you're one of the simplest heroes to execute mechanically. You basically have a single target stun & auto attacks. So Blink in & smash your highest priority target's face in.",
+    "extras": "Even though everything else about the hero is as simple as it gets, using Bone Guard efficiently is it's own science. Getting better at this is one of the fastest ways for most players to become significantly better with Wraith King."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Aggressive",
+      "ult": "wraith_king_reincarnation",
+      "rows": [
+        {
+          "abilities": [
+            "wraith_king_vampiric_spirit",
+            "wraith_king_wraithfire_blast",
+            "wraith_king_vampiric_spirit",
+            "wraith_king_mortal_strike",
+            "wraith_king_vampiric_spirit",
+            "wraith_king_reincarnation"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/09:00"
+          }
+        },
+        {
+          "abilities": [
+            "wraith_king_vampiric_spirit",
+            "wraith_king_mortal_strike",
+            "wraith_king_mortal_strike",
+            "wraith_king_mortal_strike",
+            "wraith_king_wraithfire_blast",
+            "wraith_king_reincarnation"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
+        },
+        {
+          "abilities": [
+            "wraith_king_wraithfire_blast",
+            "wraith_king_wraithfire_blast",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "wraith_king_reincarnation"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Reincarnation Casts Wraithfire Blast",
+          "right": "-2s Mortal Strike Cooldown",
+          "chosen": "right"
+        },
+        {
+          "level": 20,
+          "left": "+5 Bone Guard Skeletons Spawned",
+          "right": "+50 Attack Speed",
+          "chosen": "right"
+        },
+        {
+          "level": 15,
+          "left": "+300 Health",
+          "right": "+0.75s Wraithfire Blast Stun Duration",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+2s Wraithfire Blast Slow Duration",
+          "right": "+10% Vampiric Spirit Lifesteal",
+          "chosen": "right"
+        }
+      ],
+      "note": "Use your high attack damage to secure as many last hits as possible. Hit level 2 before the enemy duo & immediately pop 2 Skellies and aim them at your victim with Wraithfire Blast while your lane partner follows up. If you execute it properly, you'll either get a kill or at the very least force the enemy offlaner to sit far away until he heals back up slowly."
+    },
+    {
+      "name": "Skill Build 2 — Passive",
+      "ult": "wraith_king_reincarnation",
+      "rows": [
+        {
+          "abilities": [
+            "wraith_king_wraithfire_blast",
+            "wraith_king_vampiric_spirit",
+            "wraith_king_vampiric_spirit",
+            "wraith_king_mortal_strike",
+            "wraith_king_vampiric_spirit",
+            "wraith_king_reincarnation"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/09:00"
+          }
+        },
+        {
+          "abilities": [
+            "wraith_king_vampiric_spirit",
+            "wraith_king_mortal_strike",
+            "wraith_king_mortal_strike",
+            "wraith_king_mortal_strike",
+            "wraith_king_wraithfire_blast",
+            "wraith_king_reincarnation"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
+        },
+        {
+          "abilities": [
+            "wraith_king_wraithfire_blast",
+            "wraith_king_wraithfire_blast",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "wraith_king_reincarnation"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Reincarnation Casts Wraithfire Blast",
+          "right": "-2s Mortal Strike Cooldown",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "+5 Bone Guard Skeletons Spawned",
+          "right": "+50 Attack Speed",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+300 Health",
+          "right": "+0.75s Wraithfire Blast Stun Duration",
+          "chosen": "right"
+        },
+        {
+          "level": 10,
+          "left": "+2s Wraithfire Blast Slow Duration",
+          "right": "+10% Vampiric Spirit Lifesteal",
+          "chosen": "left"
+        }
+      ],
+      "note": "Use stun to secure last hits & play chill."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Carry",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "gauntlets",
+            "circlet",
+            "branches",
+            "branches"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "bracer",
+            "phase_boots",
+            {
+              "id": "radiance",
+              "green": "22:00",
+              "yellow": "18:00"
+            },
+            {
+              "id": "blink",
+              "green": "25:00",
+              "yellow": "20:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "wraith_king"
+            },
+            "black_king_bar",
+            "assault",
+            "abyssal_blade",
+            "aghanims_blessing",
+            "swift_blink"
+          ]
+        }
+      ],
+      "note": "Standard meta role & build."
+    },
+    {
+      "name": "Item Build 2 — Offlaner",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "magic_stick",
+            "branches",
+            "branches",
+            "branches"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "phase_boots",
+            "magic_wand",
+            {
+              "id": "radiance",
+              "green": "23:00",
+              "yellow": "19:00"
+            },
+            {
+              "id": "blink",
+              "green": "26:00",
+              "yellow": "21:00"
+            },
+            "blade_mail",
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "wraith_king"
+            },
+            "octarine_core",
+            {
+              "id": "ultimate_scepter",
+              "hero": "wraith_king"
+            }
+          ]
+        }
+      ],
+      "note": "A harder to execute but extremely powerful build & playstyle in certain drafts. Make sure to play as an actual offlaner, don't steal safe farm from your other two cores & go occupy the more dangerous part of the map. In fights be the actual initiator & frontliner for your team. The Evasion & Damage Return ensure that you're a terrible first target to focus. All of your spells & half of your items benefit from Cooldown Reduction. This build makes it so you have 100% uptime of Wraithfire Blast debuff on an enemy."
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "nullifier",
+      "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc. Also breaks Passives."
+    },
+    {
+      "id": "monkey_king_bar",
+      "note": "Counters Evasion."
+    },
+    {
+      "id": "skadi",
+      "note": "Counters Health Restoration."
+    },
+    {
+      "id": "orchid",
+      "also": "bloodthorn",
+      "note": "In some games this is the correct answer in the mid-game to an elusive problematic hero."
+    },
+    {
+      "id": "armlet",
+      "note": "Consider this as your first item when you have to fight a lot early on and you can't just sit on nothing but Boots while you're getting ran over."
+    },
+    {
+      "id": "refresher",
+      "note": "In some games having a 3rd life is a game changer. God forbid you have an Aegis for 4 lives then."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "[ability:wraith_king_wraithfire_blast] orders all Skeletons in the vicinity to target that unit. Whenever you want to pop-Skellies in somebody's face & run him down - wait for your Skeletons to actually complete their summoning process & then cast the stun."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:wraith_king_vampiric_spirit] gains charges from denying units as well - including heroes."
+    },
+    {
+      "level": "basic",
+      "text": "Make sure to utilize [ability:wraith_king_mortal_strike] in lane properly. Either secure an important last hit or simply harass an enemy hero when the crit is available. Don't just waste it on a guaranteed last hit if there's something better that you can do with it."
+    },
+    {
+      "level": "advanced",
+      "text": "You can self-cast [ability:wraith_king_reincarnation] in order to instantly kill yourself. The most frequent use case for this is when you're about to have your Mana burned or drained before you're about to die. Second most is when you want to trigger your lvl 25 talent in order to cast [ability:wraith_king_wraithfire_blast] at everyone in the vicinity. And probably the rarest use case is when you simply want to slow down a fleeing enemy so your teammates can catch up to him."
+    },
+    {
+      "level": "advanced",
+      "text": "Regardless of your role, in some matches getting an earlier [item:ultimate_scepter|wraith_king] can flat out win you the game. Best bought against enemy drafts that rely completely on jumping in and bursting a key teammate of yours who would otherwise be a huge problem for them. Well, now he is an extra problem bcs they both used resources for him, yet he is still going to dish out damage from beyond the grave. Making the correct judgement call on when you're in such a scenario takes practice though."
+    },
+    {
+      "level": "advanced",
+      "text": "I can't stress enough how important it is to git gud with [ability:wraith_king_vampiric_spirit] if you aim at mastering the hero."
+    },
+    {
+      "level": "advanced",
+      "text": "If you're playing with a friend, consider asking him to play Dazzle. Shadow Wave + Skeletons is a cheap yet effective synergy. Plus he also lowers the enemies' armor for you & your army while also additionally slowing down your target."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "lich",
+        "grimstroke",
+        "beastmaster",
+        "tidehunter",
+        "keeper_of_the_light",
+        "dazzle"
+      ],
+      "note": "Early active heroes to buy you time to come online."
+    },
+    "counters": {
+      "heroes": [
+        "enigma",
+        "magnataur",
+        "doom_bringer",
+        "skywrath_mage",
+        "clinkz",
+        "muerta"
+      ],
+      "note": "Enemies who rely on unloading their entire kit & winning the fight outright. Squishy burstable heroes."
+    },
+    "countered_by": {
+      "heroes": [
+        "phantom_lancer",
+        "life_stealer",
+        "alchemist",
+        "slardar",
+        "necrolyte",
+        "abyssal_underlord"
+      ],
+      "note": "Heroes who can manfight & outsustain Wraith King."
+    }
+  }
+}

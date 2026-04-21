@@ -1,0 +1,334 @@
+{
+  "id": "phantom_assassin",
+  "name": "Phantom Assassin",
+  "attribute": "agility",
+  "version": "7.41b",
+  "overview": {
+    "positions": [
+      1
+    ],
+    "roles": "",
+    "strengths": [
+      "Highest Evasion in the game",
+      "Extreme Scaling",
+      "Strong Burst",
+      "Break"
+    ],
+    "weaknesses": [
+      "True Strike",
+      "Nukes",
+      "Debuff Piercing CC"
+    ]
+  },
+  "game_plan": {
+    "early": "You're one of the best carries in the game to assist your lane partner with trades. If the 2 supports are fighting to the side, you can easily jump the enemy one and delete him before most offlaners would have a chance to intervene. Use the small time windows while the support is missing to take good 2v1 trades against the offlaner unless you can straight up kill him as well. Your early game focus is to be a maximum threat to the enemy heroes on your lane.",
+    "mid": "The moment you hit your Battlefury, you switch from fighting mode to full farming. Show up only for clean-up fights - where you'll make an actual difference without being in any real danger yourself.",
+    "late": "Depending on the game & your build you can either play as an assassin or a mobile unkillable machine. Identify your winning strategy in advance & execute it. For ex. in some games blinking on a support at the start of a team fight & insta-killing him is often times a good course of action. Naturally you don't want to be caught alone, but also you don't want to stick in the center of your team. Prowl at the edges of team fights & find your perfect opportunities to jump in on your own terms.",
+    "extras": "You're great at taking down both Roshan & Tormentor. With some Lifesteal you can even solo Rosh."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Kill Them All",
+      "ult": "phantom_assassin_coup_de_grace",
+      "rows": [
+        {
+          "abilities": [
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_blur",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_coup_de_grace"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/09:00"
+          }
+        },
+        {
+          "abilities": [
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_blur",
+            "phantom_assassin_coup_de_grace"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
+        },
+        {
+          "abilities": [
+            "phantom_assassin_blur",
+            "phantom_assassin_blur",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "phantom_assassin_coup_de_grace"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Triple Strike Stifling Dagger",
+          "right": "+10% Coup de Grace Chance",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "+60 Phantom Strike Attack Speed",
+          "right": "+200 Phantom Strike Cast Range",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+15% Stifling Dagger Damage",
+          "right": "+20% Immaterial Evasion",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "-2s Stifling Dagger Cooldown",
+          "right": "+0.6s Phantom Strike Duration",
+          "chosen": "left"
+        }
+      ],
+      "note": "Maximum poke & burst potential."
+    },
+    {
+      "name": "Skill Build 2 — Farm Early",
+      "ult": "phantom_assassin_coup_de_grace",
+      "rows": [
+        {
+          "abilities": [
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_blur",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_coup_de_grace"
+          ],
+          "timestamps": {
+            "pos_1_3": "10:00/09:00"
+          }
+        },
+        {
+          "abilities": [
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_blur",
+            "phantom_assassin_coup_de_grace"
+          ],
+          "timestamps": {
+            "pos_1_3": "22:00/20:00"
+          }
+        },
+        {
+          "abilities": [
+            "phantom_assassin_blur",
+            "phantom_assassin_blur",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "phantom_assassin_coup_de_grace"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Triple Strike Stifling Dagger",
+          "right": "+10% Coup de Grace Chance",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "+60 Phantom Strike Attack Speed",
+          "right": "+200 Phantom Strike Cast Range",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+15% Stifling Dagger Damage",
+          "right": "+20% Immaterial Evasion",
+          "chosen": "right"
+        },
+        {
+          "level": 10,
+          "left": "-2s Stifling Dagger Cooldown",
+          "right": "+0.6s Phantom Strike Duration",
+          "chosen": "right"
+        }
+      ],
+      "note": "Better for farming & standing your ground in fights."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Assassin",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "orb_of_blight",
+            "branches",
+            "branches"
+          ],
+          "note": "Even if you don't want to commit, a single [ability:phantom_assassin_stifling_dagger] combined with [item:orb_of_blight] will ensure that your support will always severely outtrade the enemy one."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "orb_of_corrosion",
+            "phase_boots",
+            {
+              "id": "battlefury",
+              "green": "20:00",
+              "yellow": "17:00"
+            },
+            "desolator",
+            "black_king_bar",
+            "basher",
+            "morbid_mask",
+            "abyssal_blade",
+            "satanic"
+          ]
+        }
+      ],
+      "note": "You excel at picking off enemy heroes & also deleting somebody at the start of fights before they could even blink."
+    },
+    {
+      "name": "Item Build 2 — Fighter",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "magic_stick",
+            "branches",
+            "branches",
+            "branches"
+          ],
+          "note": "If you're facing ability spammers or it's simply impossible to get any kills on your lane, your objective is to trade as well as you can while prioritizing your farm above all else."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "power_treads",
+            "magic_wand",
+            {
+              "id": "battlefury",
+              "green": "20:00",
+              "yellow": "17:00"
+            },
+            "black_king_bar",
+            "satanic",
+            "basher",
+            "skadi",
+            "abyssal_blade"
+          ]
+        }
+      ],
+      "note": "You can show up much earlier to big team fights while standing your ground for much longer."
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "nullifier",
+      "note": "When you have a good game & you're a significant threat to the enemy team early on, people will often itemize to defend themselves against you (ex. supports will frequently get Glimmer Cape, Ghost Scepter, Force Staff, Eul's, etc.) Consider this as an early purchase to make sure that your tempo won't be halted by a cheap defensive item on the enemy team. As an all-in hero you pay a higher price if you can't get a kill that you're committing to."
+    },
+    {
+      "id": "ultimate_scepter",
+      "note": "You have a superior option when Break is needed than most other carries who have to rely on the more expensive single target [item:silver_edge]. It is also a solid item against tanky heroes.",
+      "hero": "phantom_assassin"
+    },
+    {
+      "id": "monkey_king_bar",
+      "note": "Counters Evasion."
+    },
+    {
+      "id": "aghanims_shard",
+      "note": "In games where you can't get from the second Tormentor for free, feel free to buy it when you have some excess gold after you've already finished your last big item.",
+      "hero_shard": "phantom_assassin"
+    },
+    {
+      "id": "swift_blink",
+      "note": "Late game luxury item for when you're full build & want to replace your Boots with something better. At this point in the game [ability:phantom_assassin_blur] is already giving you a lot of Move Speed to traverse the map. And for fights this is naturally way superior to ordinary Boots. Also your [item:swift_blink] + [item:abyssal_blade] combo is much faster & catches people by surprise."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "You can use [ability:phantom_assassin_stifling_dagger] right after doing an auto attack to cancel your wind-up animation & increase your damage output."
+    },
+    {
+      "level": "basic",
+      "text": "During the laning stage you can walk behind trees to hide from enemy vision when casting [ability:phantom_assassin_stifling_dagger]. This way you won't give free [item:magic_stick] charges to the enemy heroes."
+    },
+    {
+      "level": "basic",
+      "text": "You can prepare your [ability:phantom_assassin_coup_de_grace] before going into a fight. If you have creeps around you & a few seconds to prepare - attack them until you proc your ult & make your next attack to be a crit. Then go in & mess people up. Same goes for the laning stage once you hit level 6. If up to this point the lane was 50/50, quite often this is what forces the enemy offlaner to leave, as you can now just spam [ability:phantom_assassin_stifling_dagger] with a guaranteed crit each time."
+    },
+    {
+      "level": "basic",
+      "text": "For the majority of the game using [ability:phantom_assassin_stifling_dagger] instead of auto attack when your [ability:phantom_assassin_coup_de_grace] is prepared will cause more damage - so prioritize the dagger for crits whenever you can."
+    },
+    {
+      "level": "basic",
+      "text": "If your evasion gets countered by [item:monkey_king_bar], there's nothing that you can do about that. But if you're being targeted by Break, then [item:black_king_bar] will keep your Evasion up for its duration."
+    },
+    {
+      "level": "advanced",
+      "text": "You can cast [ability:phantom_assassin_blur] to disjoint enemy projectiles. If timed well it works even if there are enemy heroes next to you."
+    },
+    {
+      "level": "advanced",
+      "text": "Since [ability:phantom_assassin_phantom_strike] has 2 charges, you can use it to either go all in for maximum damage output. Or to jump in - do some damage/burst somebody - jump out."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:phantom_assassin_blur] hides your presence on the minimap. But it also makes you untargetable. This means that certain threats like [hero:spirit_breaker] or short-range spells are a much less threat to you than to most other carries in the game."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "dazzle",
+        "oracle",
+        "zuus",
+        "dawnbreaker",
+        "slardar",
+        "phoenix"
+      ],
+      "note": "Lane partners with high kill threat potential & also saves. Global presence for easy pickoffs. Heroes with large amounts of CC to buy you a few seconds to get the job done in teamfights."
+    },
+    "counters": {
+      "heroes": [
+        "mars",
+        "antimage",
+        "huskar",
+        "spectre",
+        "enchantress",
+        "obsidian_destroyer"
+      ],
+      "note": "Squishy burstable enemies. Heroes that suffer from Break."
+    },
+    "countered_by": {
+      "heroes": [
+        "axe",
+        "pudge",
+        "bristleback",
+        "slark",
+        "queenofpain",
+        "spirit_breaker"
+      ],
+      "note": "Debuff Piercing CC. Nukers."
+    }
+  }
+}

@@ -191,7 +191,11 @@
               "green": "20:00",
               "yellow": "17:00"
             },
-            "desolator",
+            {
+              "id": "desolator",
+              "green": "25:00",
+              "yellow": "21:00"
+            },
             "black_king_bar",
             "basher",
             "lifesteal",
@@ -227,8 +231,11 @@
               "green": "20:00",
               "yellow": "17:00"
             },
-            "black_king_bar",
-            "satanic",
+            {
+              "id": "black_king_bar",
+              "green": "26:00",
+              "yellow": "22:00"
+            },
             "basher",
             "skadi",
             "abyssal_blade"

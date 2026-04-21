@@ -1,0 +1,353 @@
+{
+  "id": "legion_commander",
+  "name": "Legion Commander",
+  "attribute": "strength",
+  "version": "7.41b",
+  "overview": {
+    "positions": [
+      3
+    ],
+    "roles": "",
+    "strengths": [
+      "Insane Scaling",
+      "Strong Dispel",
+      "Solo Killer"
+    ],
+    "weaknesses": [
+      "Enemies with Saves"
+    ]
+  },
+  "game_plan": {
+    "early": "Take frequent small but good trades until you weaken the enemy carry enough to go in for the kill together with your support. Optimize your downtime by farming jungle camps earlier than most other heroes in the game can thanks to Moment of Courage.",
+    "mid": "This is your time to shine. Max tempo, max aggression, Duels galore. Here is where most LC players fail — they either play overaggressively & begin to feed, or they're too passive and jungle way too much. Finding just the right balance will elevate your gameplay to a whole new level.",
+    "late": "At a certain point in most games you'll feel how the enemy team stopped fearing you as much & your opportunities on the map become more limited. Moving towards the end-game team fights your main objective is to make sure that you'll lock down a key enemy hero & delete him — even at the cost of your own life. Don't get tempted by supports or tanks baiting you to jump in for an easy duel. Be patient and find your win condition target. Of course this can change once you hit level 25 and your Duel gets refreshed on each victory.",
+    "extras": "Being able to make a judgement call as early as the drafting phase or at least the early game about how the game is going to roughly play out is key for you to perform well. Sometimes your team will be completely unable to participate in an aggressive high tempo playstyle. Rushing Blink first item in such a game is usually not a good idea & vice versa. Both your hero's playstyle & item builds can be very versatile. This means that you can adapt to many scenarios but also make a lot of bad calls. Plan ahead & execute well."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Aggression",
+      "ult": "legion_commander_duel",
+      "rows": [
+        {
+          "abilities": [
+            "legion_commander_overwhelming_odds",
+            "legion_commander_moment_of_courage",
+            "legion_commander_overwhelming_odds",
+            "legion_commander_press_the_attack",
+            "legion_commander_overwhelming_odds",
+            "legion_commander_duel"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00"
+          }
+        },
+        {
+          "abilities": [
+            "legion_commander_overwhelming_odds",
+            "legion_commander_moment_of_courage",
+            "legion_commander_moment_of_courage",
+            "legion_commander_moment_of_courage",
+            "legion_commander_press_the_attack",
+            "legion_commander_duel"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00"
+          }
+        },
+        {
+          "abilities": [
+            "legion_commander_press_the_attack",
+            "legion_commander_press_the_attack",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "legion_commander_duel"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Duel Refreshes Cooldown On Victory",
+          "right": "+100% Moment of Courage Lifesteal",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-1 Moment of Courage Attacks To Trigger",
+          "right": "+0.75s Duel Duration",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+35 Overwhelming Odds Damage per Hero",
+          "right": "+40 Press The Attack HP Regen",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+1 Outfight Them! Armor",
+          "right": "-2s Overwhelming Odds Cooldown",
+          "chosen": "left"
+        }
+      ],
+      "note": "Standard build for maximum kill threat potential."
+    },
+    {
+      "name": "Skill Build 2 — Sustain",
+      "ult": "legion_commander_duel",
+      "rows": [
+        {
+          "abilities": [
+            "legion_commander_overwhelming_odds",
+            "legion_commander_press_the_attack",
+            "legion_commander_overwhelming_odds",
+            "legion_commander_moment_of_courage",
+            "legion_commander_overwhelming_odds",
+            "legion_commander_duel"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00"
+          }
+        },
+        {
+          "abilities": [
+            "legion_commander_overwhelming_odds",
+            "legion_commander_moment_of_courage",
+            "legion_commander_moment_of_courage",
+            "legion_commander_moment_of_courage",
+            "legion_commander_press_the_attack",
+            "legion_commander_duel"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00"
+          }
+        },
+        {
+          "abilities": [
+            "legion_commander_press_the_attack",
+            "legion_commander_press_the_attack",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "legion_commander_duel"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "Duel Refreshes Cooldown On Victory",
+          "right": "+100% Moment of Courage Lifesteal",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-1 Moment of Courage Attacks To Trigger",
+          "right": "+0.75s Duel Duration",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+35 Overwhelming Odds Damage per Hero",
+          "right": "+40 Press The Attack HP Regen",
+          "chosen": "right"
+        },
+        {
+          "level": 10,
+          "left": "+1 Outfight Them! Armor",
+          "right": "-2s Overwhelming Odds Cooldown",
+          "chosen": "left"
+        }
+      ],
+      "note": "Press the Attack is one of the best Strong Dispels in the game. Against all-in heroes whose lane objective is to kill you sometimes as early as level 1 — you can often times completely negate their entire kill threat with this spell. Adapt to your opponents. In some rarer cases you might even want to take it at level 1 — for ex. to dispel Terrorblade's Reflection & Dazzle's Poison Touch at the same time & instead of flat out dying immediately — to remain at full health."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Scaling",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "gauntlets",
+            "circlet",
+            "branches",
+            "branches"
+          ],
+          "note": "Optimal stats."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "bracer",
+            "phase_boots",
+            {
+              "id": "armlet",
+              "green": "16:00",
+              "yellow": "13:00"
+            },
+            {
+              "id": "blink",
+              "green": "20:00",
+              "yellow": "16:00"
+            },
+            "black_king_bar",
+            "harpoon",
+            "greater_crit",
+            "assault",
+            "swift_blink"
+          ]
+        }
+      ],
+      "note": "Armlet builds nicely from good components & offers you a solid early game. This way you avoid being overly reliant on early Blink which requires immediate payoff with a few Duel victories. And besides being able to initiate onto a single hero and delete him, you're essentially turning into a second carry for your team."
+    },
+    {
+      "name": "Item Build 2 — High Tempo",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "quelling_blade",
+            "magic_stick",
+            "branches",
+            "branches",
+            "branches"
+          ],
+          "note": "When facing ability spammers."
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "phase_boots",
+            "magic_wand",
+            {
+              "id": "blink",
+              "green": "15:00",
+              "yellow": "13:00"
+            },
+            {
+              "id": "blade_mail",
+              "green": "20:00",
+              "yellow": "17:00"
+            },
+            "black_king_bar",
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "legion_commander"
+            },
+            {
+              "id": "ultimate_scepter",
+              "hero": "legion_commander"
+            },
+            "greater_crit"
+          ]
+        }
+      ],
+      "note": "If even a couple of your teammates can keep up with you, this build ensures that you'll decimate most of your games if you hit your early timings. And in the games where all enemy heroes basically disappear from the map very early on due to being afraid of getting surprise Dueled — that's also fine for you even if you're not constantly killing people. Because you're destroying the way they want to play on the map & your team benefits immensely from it."
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "monkey_king_bar",
+      "also": "bloodthorn",
+      "note": "Counters Evasion. Unlike other heroes, you can often times pop [item:bloodthorn] Bloodthorn & disable the enemy hero from self-dispelling if you can instantly [ability:legion_commander_duel] Duel him right after."
+    },
+    {
+      "id": "nullifier",
+      "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc."
+    },
+    {
+      "id": "aghanims_shard",
+      "note": "When you need a bit of extra sustain in the mid-game to survive fights."
+    },
+    {
+      "id": "satanic",
+      "note": "Self-Dispel & Sustain."
+    },
+    {
+      "id": "silver_edge",
+      "note": "Breaks Passives."
+    },
+    {
+      "id": "ultimate_scepter",
+      "note": "In many scenarios, [ability:legion_commander_press_the_attack] Press the Attack is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel] Duel. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel] Duel. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
+    },
+    {
+      "level": "basic",
+      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press the Attack."
+    },
+    {
+      "level": "basic",
+      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel] Duel. This means that things like [item:blade_mail] Blade Mail & [item:armlet] Armlet of Mordiggian need to be activated right before casting [ability:legion_commander_duel] Duel."
+    },
+    {
+      "level": "basic",
+      "text": "Since your hero is gaining both damage & more frequent auto attacks from her kit, usually your build evolves around first enabling you to [ability:legion_commander_duel] Duel an enemy hero of your choice successfully, which often takes a couple of items to ensure. And by that point Daedalus is often times your best DPS item since it best utilizes all the damage that you've already accumulated from your ultimate."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] Primal Roar or [hero:bane]'s [ability:bane_fiends_grip] Fiend's Grip & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
+    },
+    {
+      "level": "advanced",
+      "text": "To bring the previous tip home even further, your [item:ultimate_scepter] Aghanim's Scepter turns your second ability into one of the best non-ultimates in the entire game. Your teams will always feel the strong benefits from it."
+    },
+    {
+      "level": "advanced",
+      "text": "Two main decisions separate good LC players from great ones. When to stop primarily roaming for random [ability:legion_commander_duel] Duel kills & transition into a more team fighting mentality. And which are your most important targets to [ability:legion_commander_duel] Duel."
+    },
+    {
+      "level": "advanced",
+      "text": "The most common item that you'll see on the enemy team will be [item:sphere] Linken's Sphere. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon] Harpoon, [item:orchid] Orchid, [item:bloodthorn] Bloodthorn, [item:nullifier] Nullifier or even less frequently bought items like [item:heavens_halberd] Halberd, [item:diffusal_blade] Diffusal Blade, [item:disperser] Disperser."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "life_stealer",
+        "slark",
+        "alchemist",
+        "lich",
+        "furion",
+        "zuus"
+      ],
+      "note": "Heroes who can keep up with her tempo & can jump in with her. Global heroes who can assist her Duels from anywhere on the map."
+    },
+    "counters": {
+      "heroes": [
+        "juggernaut",
+        "mirana",
+        "storm_spirit",
+        "bristleback",
+        "venomancer",
+        "beastmaster"
+      ],
+      "note": "Mobile heroes. Squishy cores. Enemies with nasty but dispellable debuffs."
+    },
+    "countered_by": {
+      "heroes": [
+        "slark",
+        "io",
+        "oracle",
+        "omniknight",
+        "treant",
+        "dawnbreaker"
+      ],
+      "note": "Save heroes who negate Duel."
+    }
+  }
+}

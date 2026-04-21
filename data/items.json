@@ -153,12 +153,20 @@
         "tag": "upgrade",
         "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
       },
-      "legion_commander": {
-        "ability": "Press the Attack / Duel",
-        "ability_icon": "legion_commander_press_the_attack",
-        "tag": "upgrade",
-        "desc": "Press the Attack: Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\nBONUS MOVE SPEED: 25%/28%/31%/34%\n\nDuel: When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
-      },
+      "legion_commander": [
+        {
+          "ability": "Press the Attack",
+          "ability_icon": "legion_commander_press_the_attack",
+          "tag": "upgrade",
+          "desc": "Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\n\nBONUS MOVE SPEED: 25% / 28% / 31% / 34%"
+        },
+        {
+          "ability": "Duel",
+          "ability_icon": "legion_commander_duel",
+          "tag": "upgrade",
+          "desc": "When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
+        }
+      ],
       "lycan": {
         "ability": "Wolf Bite",
         "ability_icon": "lycan_wolf_bite",

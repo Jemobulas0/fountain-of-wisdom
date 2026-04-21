@@ -254,7 +254,7 @@
     {
       "id": "monkey_king_bar",
       "also": "bloodthorn",
-      "note": "Counters Evasion. Unlike other heroes, you can often times pop [item:bloodthorn] Bloodthorn & disable the enemy hero from self-dispelling if you can instantly [ability:legion_commander_duel] Duel him right after."
+      "note": "Counters Evasion. Unlike other heroes, you can often times pop [item:bloodthorn] & disable the enemy hero from self-dispelling if you can instantly [ability:legion_commander_duel] him right after."
     },
     {
       "id": "nullifier",
@@ -262,7 +262,8 @@
     },
     {
       "id": "aghanims_shard",
-      "note": "When you need a bit of extra sustain in the mid-game to survive fights."
+      "note": "When you need a bit of extra sustain in the mid-game to survive fights.",
+      "hero_shard": "legion_commander"
     },
     {
       "id": "satanic",
@@ -274,45 +275,46 @@
     },
     {
       "id": "ultimate_scepter",
-      "note": "In many scenarios, [ability:legion_commander_press_the_attack] Press the Attack is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games."
+      "note": "In many scenarios, [ability:legion_commander_press_the_attack] is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games.",
+      "hero": "legion_commander"
     }
   ],
   "tips": [
     {
       "level": "basic",
-      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel] Duel. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel] Duel. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
+      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel]. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel]. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
     },
     {
       "level": "basic",
-      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press the Attack."
+      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel]. This means that you can instantly cast [ability:legion_commander_duel] giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack]."
     },
     {
       "level": "basic",
-      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel] Duel. This means that things like [item:blade_mail] Blade Mail & [item:armlet] Armlet of Mordiggian need to be activated right before casting [ability:legion_commander_duel] Duel."
+      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel]. This means that things like [item:blade_mail] & [item:armlet] need to be activated right before casting [ability:legion_commander_duel]."
     },
     {
       "level": "basic",
-      "text": "Since your hero is gaining both damage & more frequent auto attacks from her kit, usually your build evolves around first enabling you to [ability:legion_commander_duel] Duel an enemy hero of your choice successfully, which often takes a couple of items to ensure. And by that point Daedalus is often times your best DPS item since it best utilizes all the damage that you've already accumulated from your ultimate."
+      "text": "Since your hero is gaining both damage & more frequent auto attacks from her kit, usually your build evolves around first enabling you to [ability:legion_commander_duel] an enemy hero of your choice successfully, which often takes a couple of items to ensure. And by that point Daedalus is often times your best DPS item since it best utilizes all the damage that you've already accumulated from your ultimate."
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
+      "text": "[ability:legion_commander_moment_of_courage] can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] Primal Roar or [hero:bane]'s [ability:bane_fiends_grip] Fiend's Grip & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
+      "text": "[ability:legion_commander_press_the_attack] is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] or [hero:bane]'s [ability:bane_fiends_grip] & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
     },
     {
       "level": "advanced",
-      "text": "To bring the previous tip home even further, your [item:ultimate_scepter] Aghanim's Scepter turns your second ability into one of the best non-ultimates in the entire game. Your teams will always feel the strong benefits from it."
+      "text": "To bring the previous tip home even further, your [item:ultimate_scepter|legion_commander] turns your second ability into one of the best non-ultimates in the entire game. Your teams will always feel the strong benefits from it."
     },
     {
       "level": "advanced",
-      "text": "Two main decisions separate good LC players from great ones. When to stop primarily roaming for random [ability:legion_commander_duel] Duel kills & transition into a more team fighting mentality. And which are your most important targets to [ability:legion_commander_duel] Duel."
+      "text": "Two main decisions separate good LC players from great ones. When to stop primarily roaming for random [ability:legion_commander_duel] kills & transition into a more team fighting mentality. And which are your most important targets to [ability:legion_commander_duel]."
     },
     {
       "level": "advanced",
-      "text": "The most common item that you'll see on the enemy team will be [item:sphere] Linken's Sphere. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon] Harpoon, [item:orchid] Orchid, [item:bloodthorn] Bloodthorn, [item:nullifier] Nullifier or even less frequently bought items like [item:heavens_halberd] Halberd, [item:diffusal_blade] Diffusal Blade, [item:disperser] Disperser."
+      "text": "The most common item that you'll see on the enemy team will be [item:sphere]. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon], [item:orchid], [item:bloodthorn], [item:nullifier] or even less frequently bought items like [item:heavens_halberd], [item:diffusal_blade], [item:disperser]."
     }
   ],
   "allies_and_counters": {
@@ -341,7 +343,7 @@
     "countered_by": {
       "heroes": [
         "slark",
-        "io",
+        "wisp",
         "oracle",
         "omniknight",
         "treant",

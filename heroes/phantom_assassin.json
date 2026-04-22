@@ -36,7 +36,7 @@
             "phantom_assassin_stifling_dagger",
             "phantom_assassin_phantom_strike",
             "phantom_assassin_stifling_dagger",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
             "phantom_assassin_stifling_dagger",
             "phantom_assassin_coup_de_grace"
           ],
@@ -50,7 +50,7 @@
             "phantom_assassin_phantom_strike",
             "phantom_assassin_phantom_strike",
             "phantom_assassin_phantom_strike",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
             "phantom_assassin_coup_de_grace"
           ],
           "timestamps": {
@@ -59,8 +59,8 @@
         },
         {
           "abilities": [
-            "phantom_assassin_blur",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
+            "phantom_assassin_immaterial",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
@@ -94,7 +94,8 @@
           "chosen": "left"
         }
       ],
-      "note": "Maximum poke & burst potential."
+      "note": "Maximum poke & kill potential.",
+      "talent_note": "Maximum poke & burst potential."
     },
     {
       "name": "Skill Build 2 — Farm Early",
@@ -105,7 +106,7 @@
             "phantom_assassin_stifling_dagger",
             "phantom_assassin_phantom_strike",
             "phantom_assassin_stifling_dagger",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
             "phantom_assassin_phantom_strike",
             "phantom_assassin_coup_de_grace"
           ],
@@ -119,7 +120,7 @@
             "phantom_assassin_stifling_dagger",
             "phantom_assassin_stifling_dagger",
             "phantom_assassin_phantom_strike",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
             "phantom_assassin_coup_de_grace"
           ],
           "timestamps": {
@@ -128,8 +129,8 @@
         },
         {
           "abilities": [
-            "phantom_assassin_blur",
-            "phantom_assassin_blur",
+            "phantom_assassin_immaterial",
+            "phantom_assassin_immaterial",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
@@ -163,7 +164,8 @@
           "chosen": "right"
         }
       ],
-      "note": "Better for farming & standing your ground in fights."
+      "note": "Survive the lane when being aggressive is not an option & optimize for maximum farming potential.",
+      "talent_note": "Better for farming & standing your ground in fights."
     }
   ],
   "item_builds": [

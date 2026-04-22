@@ -34,10 +34,10 @@
         {
           "abilities": [
             "phantom_assassin_stifling_dagger",
-            "phantom_assassin_phantom_strike",
-            "phantom_assassin_stifling_dagger",
             "phantom_assassin_immaterial",
-            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_phantom_strike",
+            "phantom_assassin_phantom_strike",
             "phantom_assassin_coup_de_grace"
           ],
           "timestamps": {
@@ -46,10 +46,10 @@
         },
         {
           "abilities": [
+            "phantom_assassin_phantom_strike",
             "phantom_assassin_stifling_dagger",
-            "phantom_assassin_phantom_strike",
-            "phantom_assassin_phantom_strike",
-            "phantom_assassin_phantom_strike",
+            "phantom_assassin_stifling_dagger",
+            "phantom_assassin_stifling_dagger",
             "phantom_assassin_immaterial",
             "phantom_assassin_coup_de_grace"
           ],

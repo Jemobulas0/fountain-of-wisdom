@@ -348,8 +348,8 @@ function buildSkillBuilds(builds, heroPositions) {
     return `<div class="build-card">` +
       `<h4>${build.name}</h4>` +
       `<div class="build-body"><div class="build-spells">${tsHeader}${rowsHTML}</div></div>` +
-      (build.talent_note ? `<div class="talent-note-label">${build.talent_note}</div>` : '') +
       `<div class="talent-tree">${talentsHTML}</div>` +
+      (build.talent_note ? `<div class="talent-note-label">${build.talent_note}</div>` : '') +
       `<div class="build-note">${build.note}</div>` +
     `</div>`;
   }).join('');

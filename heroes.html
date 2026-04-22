@@ -544,7 +544,7 @@
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
 const recentlyAddedHeroes = [
-  { name: 'Wraith King',      key: 'wraith_king' },
+  { name: 'Wraith King',      key: 'wraith_king',      cdn: 'skeleton_king' },
   { name: 'Phantom Assassin', key: 'phantom_assassin' },
   { name: 'Legion Commander', key: 'legion_commander' },
   { name: 'Tidehunter',  key: 'tidehunter' },
@@ -570,7 +570,7 @@ const heroes = [
   { name: 'Kunkka',             key: 'kunkka',             attr: 'str', roles: ['midlane','offlane'],  covered: false },
   { name: 'Largo',              key: 'largo',              attr: 'str', roles: ['support'],            covered: false },
   { name: 'Legion Commander',   key: 'legion_commander',   attr: 'str', roles: ['offlane'],            covered: true  },
-  { name: 'Lifestealer',        key: 'lifestealer',        attr: 'str', roles: ['carry'],              covered: true  },
+  { name: 'Lifestealer',        key: 'lifestealer',        cdn: 'life_stealer',   attr: 'str', roles: ['carry'],              covered: true  },
   { name: 'Lycan',              key: 'lycan',              attr: 'str', roles: ['carry','offlane'],    covered: false },
   { name: 'Mars',               key: 'mars',               attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Night Stalker',      key: 'night_stalker',      attr: 'str', roles: ['offlane'],            covered: false },
@@ -589,7 +589,7 @@ const heroes = [
   { name: 'Tusk',               key: 'tusk',               attr: 'str', roles: ['support','offlane'],  covered: false },
   { name: 'Underlord',          key: 'abyssal_underlord',  attr: 'str', roles: ['offlane'],            covered: false },
   { name: 'Undying',            key: 'undying',            attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Wraith King',        key: 'wraith_king',        attr: 'str', roles: ['carry','offlane'],    covered: true  },
+  { name: 'Wraith King',        key: 'wraith_king',        cdn: 'skeleton_king',  attr: 'str', roles: ['carry','offlane'],    covered: true  },
 
   // AGILITY (35)
   { name: 'Anti-Mage',          key: 'antimage',           attr: 'agi', roles: ['carry'],              covered: true  },
@@ -760,7 +760,7 @@ function filterHeroes() {
       const roleDisplay = h.roles.map(r => r.charAt(0).toUpperCase() + r.slice(1)).join(', ');
       card.innerHTML = `
         <div class="hero-img-wrap">
-          <img src="${CDN}${h.key}.png" alt="${h.name}" loading="lazy" onerror="this.style.opacity='0'">
+          <img src="${CDN}${h.cdn || h.key}.png" alt="${h.name}" loading="lazy" onerror="this.style.opacity='0'">
           <div class="hero-attr-badge ${h.attr}"><img src="${attrIcons[h.attr]}" alt="${h.attr}"></div>
         </div>
         <div class="hero-card-body">
@@ -785,7 +785,7 @@ recentlyAddedHeroes.slice(0, 4).forEach(h => {
   const a = document.createElement('a');
   a.href = `hero_template.html?id=${h.page || h.key}`;
   a.className = 'recently-card';
-  a.innerHTML = `<img src="${CDN_H}${h.key}.png" alt="${h.name}">`;
+  a.innerHTML = `<img src="${CDN_H}${h.cdn || h.key}.png" alt="${h.name}">`;
   recentGrid.appendChild(a);
 });
 const pct = Math.round((coveredCount / totalHeroes) * 100);

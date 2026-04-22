@@ -259,7 +259,7 @@
       },
       "wraith_king": {
         "ability": "Vampiric Spirit / Reincarnation",
-        "ability_icon": "wraith_king_vampiric_spirit",
+        "ability_icon": "skeleton_king_vampiric_aura",
         "tag": "upgrade",
         "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
       },
@@ -1037,7 +1037,7 @@
       },
       "wraith_king": {
         "ability": "Mortal Strike",
-        "ability_icon": "wraith_king_mortal_strike",
+        "ability_icon": "skeleton_king_mortal_strike",
         "tag": "upgrade",
         "desc": "Mortal Strike hits curse their target, causing them to take 75% of the initial attack damage again as Pure damage after a 3 second delay. Vampiric Spirit's lifesteal applies to the curse damage."
       },
@@ -1812,7 +1812,7 @@
       },
       "wraith_king": {
         "ability": "Vampiric Spirit / Reincarnation",
-        "ability_icon": "wraith_king_vampiric_spirit",
+        "ability_icon": "skeleton_king_vampiric_aura",
         "tag": "upgrade",
         "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
       },

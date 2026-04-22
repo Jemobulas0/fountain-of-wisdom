@@ -1,5 +1,5 @@
 {
-  "id": "wraith_king",
+  "id": "skeleton_king",
   "name": "Wraith King",
   "attribute": "strength",
   "version": "7.41b",
@@ -202,14 +202,14 @@
             },
             {
               "id": "aghanims_shard",
-              "hero_shard": "skeleton_king"
+              "hero_shard": "wraith_king"
             },
             "black_king_bar",
             "assault",
             "abyssal_blade",
             {
               "id": "ultimate_scepter_2",
-              "hero": "skeleton_king"
+              "hero": "wraith_king"
             },
             "swift_blink"
           ]
@@ -250,12 +250,12 @@
             "blade_mail",
             {
               "id": "aghanims_shard",
-              "hero_shard": "skeleton_king"
+              "hero_shard": "wraith_king"
             },
             "octarine_core",
             {
               "id": "ultimate_scepter",
-              "hero": "skeleton_king"
+              "hero": "wraith_king"
             }
           ]
         }
@@ -293,19 +293,19 @@
   "tips": [
     {
       "level": "basic",
-      "text": "[ability:wraith_king_wraithfire_blast] orders all Skeletons in the vicinity to target that unit. Whenever you want to pop-Skellies in somebody's face & run him down - wait for your Skeletons to actually complete their summoning process & then cast the stun."
+      "text": "[ability:skeleton_king_hellfire_blast] orders all Skeletons in the vicinity to target that unit. Whenever you want to pop-Skellies in somebody's face & run him down - wait for your Skeletons to actually complete their summoning process & then cast the stun."
     },
     {
       "level": "basic",
-      "text": "[ability:wraith_king_vampiric_spirit] gains charges from denying units as well - including heroes."
+      "text": "[ability:skeleton_king_bone_guard] gains charges from denying units as well - including heroes."
     },
     {
       "level": "basic",
-      "text": "Make sure to utilize [ability:wraith_king_mortal_strike] in lane properly. Either secure an important last hit or simply harass an enemy hero when the crit is available. Don't just waste it on a guaranteed last hit if there's something better that you can do with it."
+      "text": "Make sure to utilize [ability:skeleton_king_mortal_strike] in lane properly. Either secure an important last hit or simply harass an enemy hero when the crit is available. Don't just waste it on a guaranteed last hit if there's something better that you can do with it."
     },
     {
       "level": "advanced",
-      "text": "You can self-cast [ability:wraith_king_reincarnation] in order to instantly kill yourself. The most frequent use case for this is when you're about to have your Mana burned or drained before you're about to die. Second most is when you want to trigger your lvl 25 talent in order to cast [ability:wraith_king_wraithfire_blast] at everyone in the vicinity. And probably the rarest use case is when you simply want to slow down a fleeing enemy so your teammates can catch up to him."
+      "text": "You can self-cast [ability:skeleton_king_reincarnation] in order to instantly kill yourself. The most frequent use case for this is when you're about to have your Mana burned or drained before you're about to die. Second most is when you want to trigger your lvl 25 talent in order to cast [ability:skeleton_king_hellfire_blast] at everyone in the vicinity. And probably the rarest use case is when you simply want to slow down a fleeing enemy so your teammates can catch up to him."
     },
     {
       "level": "advanced",
@@ -313,7 +313,7 @@
     },
     {
       "level": "advanced",
-      "text": "I can't stress enough how important it is to git gud with [ability:wraith_king_vampiric_spirit] if you aim at mastering the hero."
+      "text": "I can't stress enough how important it is to git gud with [ability:skeleton_king_bone_guard] if you aim at mastering the hero."
     },
     {
       "level": "advanced",

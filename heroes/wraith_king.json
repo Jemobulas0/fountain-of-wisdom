@@ -95,7 +95,7 @@
           "chosen": "right"
         }
       ],
-      "talent_note": "Carry Build",
+      "talent_note": "Carry Talents",
       "note": "Use your high attack damage to secure as many last hits as possible. Hit level 2 before the enemy duo & immediately pop 2 Skellies and aim them at your victim with Wraithfire Blast while your lane partner follows up. If you execute it properly, you'll either get a kill or at the very least force the enemy offlaner to sit far away until he heals back up slowly."
     },
     {
@@ -166,7 +166,7 @@
         }
       ],
       "note": "Use stun to secure last hits & play chill.",
-      "talent_note": "Offlaner Build"
+      "talent_note": "Offlaner Talents"
     }
   ],
   "item_builds": [

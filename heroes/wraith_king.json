@@ -4,7 +4,10 @@
   "attribute": "strength",
   "version": "7.41b",
   "overview": {
-    "positions": [1, 3],
+    "positions": [
+      1,
+      3
+    ],
     "roles": "",
     "strengths": [
       "Incredible Farming",
@@ -27,16 +30,16 @@
   "skill_builds": [
     {
       "name": "Skill Build 1 — Aggressive",
-      "ult": "wraith_king_reincarnation",
+      "ult": "skeleton_king_reincarnation",
       "rows": [
         {
           "abilities": [
-            "wraith_king_vampiric_spirit",
-            "wraith_king_wraithfire_blast",
-            "wraith_king_vampiric_spirit",
-            "wraith_king_mortal_strike",
-            "wraith_king_vampiric_spirit",
-            "wraith_king_reincarnation"
+            "skeleton_king_bone_guard",
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_bone_guard",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_bone_guard",
+            "skeleton_king_reincarnation"
           ],
           "timestamps": {
             "pos_1_3": "10:00/09:00"
@@ -44,12 +47,12 @@
         },
         {
           "abilities": [
-            "wraith_king_vampiric_spirit",
-            "wraith_king_mortal_strike",
-            "wraith_king_mortal_strike",
-            "wraith_king_mortal_strike",
-            "wraith_king_wraithfire_blast",
-            "wraith_king_reincarnation"
+            "skeleton_king_bone_guard",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_reincarnation"
           ],
           "timestamps": {
             "pos_1_3": "22:00/20:00"
@@ -57,12 +60,12 @@
         },
         {
           "abilities": [
-            "wraith_king_wraithfire_blast",
-            "wraith_king_wraithfire_blast",
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_hellfire_blast",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
-            "wraith_king_reincarnation"
+            "skeleton_king_reincarnation"
           ]
         }
       ],
@@ -92,20 +95,21 @@
           "chosen": "right"
         }
       ],
+      "talent_note": "Carry Build",
       "note": "Use your high attack damage to secure as many last hits as possible. Hit level 2 before the enemy duo & immediately pop 2 Skellies and aim them at your victim with Wraithfire Blast while your lane partner follows up. If you execute it properly, you'll either get a kill or at the very least force the enemy offlaner to sit far away until he heals back up slowly."
     },
     {
       "name": "Skill Build 2 — Passive",
-      "ult": "wraith_king_reincarnation",
+      "ult": "skeleton_king_reincarnation",
       "rows": [
         {
           "abilities": [
-            "wraith_king_wraithfire_blast",
-            "wraith_king_vampiric_spirit",
-            "wraith_king_vampiric_spirit",
-            "wraith_king_mortal_strike",
-            "wraith_king_vampiric_spirit",
-            "wraith_king_reincarnation"
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_bone_guard",
+            "skeleton_king_bone_guard",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_bone_guard",
+            "skeleton_king_reincarnation"
           ],
           "timestamps": {
             "pos_1_3": "10:00/09:00"
@@ -113,12 +117,12 @@
         },
         {
           "abilities": [
-            "wraith_king_vampiric_spirit",
-            "wraith_king_mortal_strike",
-            "wraith_king_mortal_strike",
-            "wraith_king_mortal_strike",
-            "wraith_king_wraithfire_blast",
-            "wraith_king_reincarnation"
+            "skeleton_king_bone_guard",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_mortal_strike",
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_reincarnation"
           ],
           "timestamps": {
             "pos_1_3": "22:00/20:00"
@@ -126,12 +130,12 @@
         },
         {
           "abilities": [
-            "wraith_king_wraithfire_blast",
-            "wraith_king_wraithfire_blast",
+            "skeleton_king_hellfire_blast",
+            "skeleton_king_hellfire_blast",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
-            "wraith_king_reincarnation"
+            "skeleton_king_reincarnation"
           ]
         }
       ],
@@ -161,7 +165,8 @@
           "chosen": "left"
         }
       ],
-      "note": "Use stun to secure last hits & play chill."
+      "note": "Use stun to secure last hits & play chill.",
+      "talent_note": "Offlaner Build"
     }
   ],
   "item_builds": [
@@ -197,12 +202,15 @@
             },
             {
               "id": "aghanims_shard",
-              "hero_shard": "wraith_king"
+              "hero_shard": "skeleton_king"
             },
             "black_king_bar",
             "assault",
             "abyssal_blade",
-            "aghanims_blessing",
+            {
+              "id": "ultimate_scepter_2",
+              "hero": "skeleton_king"
+            },
             "swift_blink"
           ]
         }
@@ -242,12 +250,12 @@
             "blade_mail",
             {
               "id": "aghanims_shard",
-              "hero_shard": "wraith_king"
+              "hero_shard": "skeleton_king"
             },
             "octarine_core",
             {
               "id": "ultimate_scepter",
-              "hero": "wraith_king"
+              "hero": "skeleton_king"
             }
           ]
         }

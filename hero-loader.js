@@ -391,12 +391,13 @@ function buildItemBuilds(builds, situational) {
         `<a href="items/${item.id}.html" class="item-link" data-tooltip="item" data-item="${item.id}"${heroAttr}>` +
           `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
         `</a>`;
-      const alsoIcon = item.also
-        ? `<a href="items/${item.also}.html" class="item-link" data-tooltip="item" data-item="${item.also}">` +
-            `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.also}.png" alt="${item.also}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
-          `</a>`
-        : '';
-      return `<div class="sit-item">${mainIcon}${alsoIcon}<div class="sit-item-note">${parseText(item.note)}</div></div>`;
+      const alsoIds = Array.isArray(item.also) ? item.also : [item.also, item.also2, item.also3].filter(Boolean);
+      const alsoIcons = alsoIds.map(function(a) {
+        return `<a href="items/${a}.html" class="item-link" data-tooltip="item" data-item="${a}">` +
+          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${a}.png" alt="${a}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
+          `</a>`;
+      }).join('');
+      return `<div class="sit-item">${mainIcon}${alsoIcons}<div class="sit-item-note">${parseText(item.note)}</div></div>`;
     }).join('');
 
     sitHTML =

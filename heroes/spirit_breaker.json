@@ -31,11 +31,11 @@
       "rows": [
         {
           "abilities": [
-            "spirit_breaker_bulldoze",
+            "spirit_breaker_greater_bash",
             "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_bulldoze",
             "spirit_breaker_greater_bash",
             "spirit_breaker_bulldoze",
+            "spirit_breaker_greater_bash",
             "spirit_breaker_nether_strike"
           ],
           "timestamps": {
@@ -46,11 +46,11 @@
         },
         {
           "abilities": [
-            "spirit_breaker_bulldoze",
-            "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_charge_of_darkness",
             "spirit_breaker_greater_bash",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_bulldoze",
             "spirit_breaker_nether_strike"
           ],
           "timestamps": {
@@ -61,8 +61,8 @@
         },
         {
           "abilities": [
-            "spirit_breaker_greater_bash",
-            "spirit_breaker_greater_bash",
+            "spirit_breaker_bulldoze",
+            "spirit_breaker_bulldoze",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
@@ -105,10 +105,10 @@
         {
           "abilities": [
             "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_bulldoze",
-            "spirit_breaker_bulldoze",
+            "spirit_breaker_greater_bash",
             "spirit_breaker_greater_bash",
             "spirit_breaker_bulldoze",
+            "spirit_breaker_greater_bash",
             "spirit_breaker_nether_strike"
           ],
           "timestamps": {
@@ -119,11 +119,11 @@
         },
         {
           "abilities": [
-            "spirit_breaker_bulldoze",
-            "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_charge_of_darkness",
-            "spirit_breaker_charge_of_darkness",
             "spirit_breaker_greater_bash",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_charge_of_darkness",
+            "spirit_breaker_bulldoze",
             "spirit_breaker_nether_strike"
           ],
           "timestamps": {
@@ -134,8 +134,8 @@
         },
         {
           "abilities": [
-            "spirit_breaker_greater_bash",
-            "spirit_breaker_greater_bash",
+            "spirit_breaker_bulldoze",
+            "spirit_breaker_bulldoze",
             "attribute_bonus",
             "attribute_bonus",
             "attribute_bonus",
@@ -328,7 +328,7 @@
         "terrorblade",
         "phantom_assassin"
       ],
-      "note": "Any hero that relies on Debuff Immunity in order to stay their ground in fights. Mobile enemies."
+      "note": "Any hero that relies on Debuff Immunity in order to stand their ground in fights. Mobile enemies."
     },
     "countered_by": {
       "heroes": [

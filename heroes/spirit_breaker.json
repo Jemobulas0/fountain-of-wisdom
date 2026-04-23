@@ -300,6 +300,10 @@
     {
       "level": "advanced",
       "text": "[item:ultimate_scepter|spirit_breaker] is a must-have item for team fights and especially amazing vs deathball strategies where most if not all of the enemy heroes are always stacked together. It gives a chain-reaction effect to your [ability:spirit_breaker_greater_bash] - no matter how you apply it. It also increases the knockback distance of your bash by an extra one-third & doubles your ultimate's. This item suddenly makes you a priority target due to how much of an impact you'll have in such fights."
+    },
+    {
+      "level": "advanced",
+      "text": "Your hero can arguably make more use of your Courier than any other hero in the game. You can place it at neutral camps beforehand. This way you can ensure that you'll have an available [ability:spirit_breaker_charge_of_darkness] target at all times."
     }
   ],
   "allies_and_counters": {

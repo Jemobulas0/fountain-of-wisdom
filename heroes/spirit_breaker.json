@@ -193,13 +193,13 @@
             "phase_boots",
             {
               "id": "spirit_vessel",
-              "green": "19:00",
-              "yellow": "24:00"
+              "green": "22:00",
+              "yellow": "28:00"
             },
             {
               "id": "invis_sword",
-              "green": "24:00",
-              "yellow": "31:00"
+              "green": "29:00",
+              "yellow": "38:00"
             },
             {
               "id": "ultimate_scepter",
@@ -229,12 +229,14 @@
             "phase_boots",
             {
               "id": "lotus_orb",
-              "green": "19:00",
-              "yellow": "24:00"
+              "green": "26:00",
+              "yellow": "34:00"
             },
             {
               "id": "aghanims_shard",
-              "hero_shard": "spirit_breaker"
+              "hero_shard": "spirit_breaker",
+              "green": "29:00",
+              "yellow": "38:00"
             }
           ]
         }

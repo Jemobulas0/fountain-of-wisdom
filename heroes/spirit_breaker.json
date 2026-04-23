@@ -189,6 +189,7 @@
         {
           "label": "Core Build",
           "items": [
+            "urn_of_shadows",
             "phase_boots",
             {
               "id": "spirit_vessel",
@@ -196,7 +197,7 @@
               "yellow": "24:00"
             },
             {
-              "id": "shadow_blade",
+              "id": "invis_sword",
               "green": "24:00",
               "yellow": "31:00"
             },
@@ -248,7 +249,7 @@
     },
     {
       "id": "aeon_disk",
-      "note": "When you're countering a lot of CC target spells with your [item:aghanims_shard|spirit_breaker], your [ability:spirit_breaker_bulldoze] is giving you all the Status Resistance that you need to get back on your feet asap. But when protecting an ally from hard nukes like [hero:lina] & [hero:lion]'s ultimates, you can just block their damage this way."
+      "note": "When you're countering a lot of CC target spells with your [item:aghanims_shard], your [ability:spirit_breaker_bulldoze] is giving you all the Status Resistance that you need to get back on your feet asap. But when protecting an ally from hard nukes like [hero:lina] & [hero:lion]'s ultimates, you can just block their damage this way."
     },
     {
       "id": "cyclone",
@@ -257,11 +258,11 @@
     },
     {
       "id": "silver_edge",
-      "note": "In most games you get all that you need from the cheaper [item:shadow_blade] which most notably is the ability to charge somebody with much less fear of being interrupted. As a non-farming support you have to prioritize your items more than most others. But when Break can counter an enemy hero hard - it's a natural upgrade for you."
+      "note": "In most games you get all that you need from the cheaper [item:invis_sword] which most notably is the ability to charge somebody with much less fear of being interrupted. As a non-farming support you have to prioritize your items more than most others. But when Break can counter an enemy hero hard - it's a natural upgrade for you."
     },
     {
       "id": "black_king_bar",
-      "note": "In rare cases when facing spells that completely remove your impact from the game, you have to get Debuff Immunity so you don't just sit afk in every single fight. Think of heroes like [hero:mars], [hero:underlord], [hero:disruptor], [hero:dark_willow], [hero:rattletrap] with big Area Denial spells. Keep in mind that you can also activate BKB mid-charge without interrupting it."
+      "note": "In rare cases when facing spells that completely remove your impact from the game, you have to get Debuff Immunity so you don't just sit afk in every single fight. Think of heroes like [hero:mars], [hero:abyssal_underlord], [hero:disruptor], [hero:dark_willow], [hero:rattletrap] with big Area Denial spells. Keep in mind that you can also activate BKB mid-charge without interrupting it."
     }
   ],
   "tips": [
@@ -333,7 +334,7 @@
       "heroes": [
         "shadow_demon",
         "faceless_void",
-        "underlord",
+        "abyssal_underlord",
         "mars",
         "techies",
         "winter_wyvern"

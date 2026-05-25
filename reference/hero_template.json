@@ -1,0 +1,283 @@
+{
+  "id": "",
+  "name": "",
+  "attribute": "",
+  "version": "7.41b",
+  "overview": {
+    "positions": [],
+    "roles": "",
+    "strengths": [
+      "",
+      ""
+    ],
+    "weaknesses": [
+      "",
+      ""
+    ]
+  },
+  "game_plan": {
+    "early": "",
+    "mid": "",
+    "late": "",
+    "extras": ""
+  },
+  "skill_builds": [
+    {
+      "name": "",
+      "ult": "",
+      "rows": [
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "00:00/00:00"
+          }
+        },
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "00:00/00:00"
+          }
+        },
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "",
+      "ult": "",
+      "rows": [
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "00:00/00:00"
+          }
+        },
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "00:00/00:00"
+          }
+        },
+        {
+          "abilities": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "",
+          "right": "",
+          "chosen": "left"
+        }
+      ],
+      "note": ""
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "",
+            ""
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "",
+            {
+              "id": "",
+              "green": "00:00",
+              "yellow": "00:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero_shard": ""
+            },
+            {
+              "id": "ultimate_scepter",
+              "hero_shard": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "",
+            ""
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "",
+            {
+              "id": "",
+              "green": "00:00",
+              "yellow": "00:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero_shard": ""
+            },
+            {
+              "id": "ultimate_scepter",
+              "hero_shard": ""
+            }
+          ]
+        }
+      ],
+      "note": ""
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "",
+      "note": ""
+    },
+    {
+      "id": "",
+      "note": ""
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": ""
+    },
+    {
+      "level": "advanced",
+      "text": ""
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "",
+        ""
+      ],
+      "note": ""
+    },
+    "counters": {
+      "heroes": [
+        "",
+        ""
+      ],
+      "note": ""
+    },
+    "countered_by": {
+      "heroes": [
+        "",
+        ""
+      ],
+      "note": ""
+    }
+  }
+}

@@ -1,0 +1,363 @@
+{
+  "id": "skywrath_mage",
+  "name": "Skywrath Mage",
+  "attribute": "intelligence",
+  "version": "7.41b",
+  "overview": {
+    "positions": [2, 4, 5],
+    "roles": "",
+    "strengths": [
+      "Incredible Nuker",
+      "Long Range Caster",
+      "Full Health Burster",
+      "The Auto-Attacker of Casters"
+    ],
+    "weaknesses": [
+      "Squishy",
+      "Immobile",
+      "Easily Counterable"
+    ]
+  },
+  "game_plan": {
+    "early": "Poke whomever you want to eventually kill frequently. Use your spells with the occasional auto attacks without letting them reply with their own damage whenever possible. Make sure that you always have enough mana for when you need to commit & properly kill your target. Alternatively if a kill is highly unlikely, then prioritize your mana around last hits. Use Concussive Shot to slow down enemy heroes running forward to kill a creep and if you need to last hit a contested creep - double-damage it with Arcane Bolt + Auto Attack in this order, so they land together at the exact same time.",
+    "mid": "The moment you hit lvl 6, should already have a plan who you want to kill. Skywrath is one of the fastest heroes in the game. You can go from the side on your lane, you can travel through the Twingate or roam mid. Communicate with your relevant teammates on your target and go for it. Bonus points if you can hit lvl 6 in fog of war to give yourself an even bigger element of surprise.",
+    "late": "Your one of the highest damage casters in the game, which comes with the downside of very little utility offered to your team. On the upside though you have both a strong burst, and an incredible sustain damage at the same time, which is quite a rare combination. This means that you're not allowed to just run in, kill a guy and die yourself right after. With this order of thinking your itemization & playstyle naturally lead to imitating a carry mentality. Since your spells offer next to no utility, this means that your itemization almost entirely defines your success. In a perfect game you'll have no enemy heroes threatening you & you'll be able to just spam spells from the backline. In most games though you'll have to identify which key enemy heroes will be gunning down for you in teamfights & buy items to counteract them. Once you've enabled yourself to be alive in fights, you can proceed with items that increase your kill threat.",
+    "extras": "As with many other things in DotA, this is of course a situational thinking - albeit being the most commonly correct in pub games. Nevertheless I have to at least mention the alternative where there is indeed a single key enemy hero that makes or breaks their entire draft. If you are able to go all in on the offense and just buy for ex. Hex + Root making sure that you are deleting him every single time as early as possible, and then you die right after - that's allright. Your team will clean up after and you'll win the game this way. But this is a hard scenario to identify beforehand and it rarely works on solo queue."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "skywrath_mage_mystic_flare",
+      "rows": [
+        {
+          "abilities": [
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_mystic_flare"
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "08:00/07:00",
+            "pos_4_5": "13:00/12:00"
+          }
+        },
+        {
+          "abilities": [
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_mystic_flare"
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "20:00/18:00",
+            "pos_4_5": "27:00/24:00"
+          }
+        },
+        {
+          "abilities": [
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_concussive_shot",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "skywrath_mage_mystic_flare"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "-35s Mystic Flare Cooldown",
+          "right": "Arcane Bolt Provides True Sight",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "+200 Arcane Bolt Damage",
+          "right": "Concussive Shot Applies Ancient Seal",
+          "chosen": "right"
+        },
+        {
+          "level": 15,
+          "left": "-3s Concussive Shot Cooldown",
+          "right": "+2 Mystic Flare Instances",
+          "chosen": "right"
+        },
+        {
+          "level": 10,
+          "left": "+20 Movement Speed",
+          "right": "+1.5s Ancient Seal Duration",
+          "chosen": "right"
+        }
+      ],
+      "note": "Concussive Shot is more mana cost efficient than Arcane Bolt + it has a slow & a potential for AoE damage."
+    },
+    {
+      "name": "Skill Build 2 — Early Kill/First Blood",
+      "ult": "skywrath_mage_mystic_flare",
+      "rows": [
+        {
+          "abilities": [
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_mystic_flare"
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "08:00/07:00",
+            "pos_4_5": "13:00/12:00"
+          }
+        },
+        {
+          "abilities": [
+            "skywrath_mage_arcane_bolt",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_ancient_seal",
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_mystic_flare"
+          ],
+          "timestamps": {
+            "pos_1_3": "00:00/00:00",
+            "pos_2": "20:00/18:00",
+            "pos_4_5": "27:00/24:00"
+          }
+        },
+        {
+          "abilities": [
+            "skywrath_mage_concussive_shot",
+            "skywrath_mage_concussive_shot",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "skywrath_mage_mystic_flare"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "-35s Mystic Flare Cooldown",
+          "right": "Arcane Bolt Provides True Sight",
+          "chosen": "right"
+        },
+        {
+          "level": 20,
+          "left": "+200 Arcane Bolt Damage",
+          "right": "Concussive Shot Applies Ancient Seal",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "-3s Concussive Shot Cooldown",
+          "right": "+2 Mystic Flare Instances",
+          "chosen": "right"
+        },
+        {
+          "level": 10,
+          "left": "+20 Movement Speed",
+          "right": "+1.5s Ancient Seal Duration",
+          "chosen": "left"
+        }
+      ],
+      "note": "In two scenarios you want to maximum damage output regardless of mana efficiency on lvl 1. And these are a large fight for the Bounty Runes or an all-in unload on an enemy hero at the start of a lane for when you have an extremely high kill potential, either because your carry enables you or because your other support lingered for a kill before he takes the Twingate."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Support",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "faerie_fire",
+            "magic_stick",
+            "enchanted_mango",
+            "tango",
+            "blood_grenade",
+            "ward_sentry",
+            "ward_observer",
+            "smoke_of_deceit"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "null_talisman",
+            "null_talisman",
+            {
+              "id": "arcane_boots",
+              "green": "14:00",
+              "yellow": "19:00"
+            },
+            {
+              "id": "rod_of_atos",
+              "green": "24:00",
+              "yellow": "30:00"
+            },
+            "ghost",
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "skywrath_mage",
+              "green": "29:00",
+              "yellow": "35:00"
+            },
+            "blink",
+            "sheepstick"
+          ]
+        }
+      ],
+      "note": ""
+    },
+    {
+      "name": "Item Build 2 — Mid",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "faerie_fire",
+            "tango",
+            "mantle",
+            "mantle",
+            "circlet"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "null_talisman",
+            "null_talisman",
+            "boots",
+            {
+              "id": "sheepstick",
+              "green": "17:00",
+              "yellow": "22:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "skywrath_mage",
+              "green": "21:00",
+              "yellow": "25:00"
+            },
+            "travel_boots",
+            {
+              "id": "ultimate_scepter",
+              "hero_shard": "skywrath_mage",
+              "green": "33:00",
+              "yellow": "40:00"
+            },
+            "octarine_core",
+            "blink",
+            "crella_crozier",
+            "aghanims_blessing",
+            "yasha_and_kaya",
+            "arcane_blink"
+          ]
+        }
+      ],
+      "note": ""
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "ghost",
+      "note": "Protection vs Physical. Also builds into [item:crella_crozier]."
+    },
+    {
+      "id": "cyclone",
+      "note": "Protection vs most heroes with the ability to burst you down while providing nice stats."
+    },
+    {
+      "id": "aeon_disk",
+      "note": "Sometimes it's impossible to react to an enemy threat & this is your most reliable option of staying alive. The enemy hero will either waste his kit on you or the item will serve as a deterrent, allowing you to act freely in fights."
+    },
+    {
+      "id": "angels_demise",
+      "note": "Breaks Passives. Keep in mind that in your case the Break will apply only once [ability:skywrath_mage_arcane_bolt] has connected with the target."
+    },
+    {
+      "id": "gleipnir",
+      "note": "A good counter against mobile heroes like the Spirits for ex. Do keep in mind that while it allows you to more easily land your ult, it also makes it easier for enemy heroes to stack together inside it & share the damage thus saving your kill target."
+    },
+    {
+      "id": "dagon",
+      "note": "Not the best item in most games, but if bursting a very important hero every single fight is your one & all goal, then this is your go-to item. The extra Cast Range is a nice bonus."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "[ability:skywrath_mage_ancient_seal] serves 2 main purposes that can be used either in conjunction or separately: Silence & Magic Damage Amplification."
+    },
+    {
+      "level": "basic",
+      "text": "Your hero is very quick, but has no mobility or defensive abilities. This means that relying on good positioning is key to stay alive in fights & in return dish out all the damage you possible can."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:skywrath_mage_mystic_flare] will deal damage only to enemy heroes as long as at least one is receiving damage from the spell. If there are no heroes, then the spell will deal damage to creeps. The spell also splits its damage between all units hit. So ideally in most cases you aim to only hit a single hero when attempting to burst somebody down."
+    },
+    {
+      "level": "basic",
+      "text": "Your [item:ultimate_scepter|skywrath_mage] greatly increases your team fight contribution, without asking much more out of you in terms of execution. Yes - you can definitely min-max a ton around which targets will get the additional casts, but if you're learning the hero don't stress too much about it at first. Just enjoy the fireworks."
+    },
+    {
+      "level": "advanced",
+      "text": "If you can't rely on items or teammates to lock down an enemy hero for you to reliable ult him, your best bet is to use the slow from [ability:skywrath_mage_concussive_shot] & cast your ult just so slightly in front of your target in the direction that he's moving at. Here you can easily see the difference between a good player & a master. The latter can get into the head of his opponent and cast the ult at the exact moment that his victim is making a split-second decision and can not immediately react to dodge properly, thus eating the entire spell."
+    },
+    {
+      "level": "advanced",
+      "text": "[ability:skywrath_mage_arcane_bolt] provides vision around itself. This turns its slow projectile speed from a disadvantage into an advantage. Reason being is that you can keep spamming Arcane Bolt on your target because you'll get vision over him before your previous cast hits him. Especially nasty for heroes trying to juke you in trees, Rosh pit, etc."
+    },
+    {
+      "level": "advanced",
+      "text": "The more that you progress into the game & buy your core items, the more you transition from a purely burst hero into a sustain magic damage dealer as well. [ability:skywrath_mage_arcane_bolt] is essentially your Auto Attack. And your Shard gives you a multi-shot effect hitting up to 3 targets on each cast. And by the late game you can easily deal at least 1100 damage per single bolt every 1.5s without taking into account magic amplification effects. This means that in fights just your Arcane Bolt alone deals around 3000+ DPS easily."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "faceless_void",
+        "axe",
+        "magnataur",
+        "bane",
+        "pugna",
+        "largo"
+      ],
+      "note": "Hard CC. Magic Dmg Amplifiers. Zoning heroes to keep enemies away from you."
+    },
+    "counters": {
+      "heroes": [
+        "storm_spirit",
+        "zuus",
+        "muerta",
+        "necrolyte",
+        "windrunner",
+        "weaver"
+      ],
+      "note": "Squishy targets with no means of immediate defense."
+    },
+    "countered_by": {
+      "heroes": [
+        "lone_druid",
+        "phantom_lancer",
+        "life_stealer",
+        "huskar",
+        "sven",
+        "rubick"
+      ],
+      "note": "Debuff Immunity. Self-Dispel. Tankiness."
+    }
+  }
+}

@@ -61,7 +61,7 @@ These aren't off-limits — Jemo can ask for work on any of them — they're jus
 
 ## Common workflow: building a new hero page
 
-1. **Confirm the target JSON file exists.** `heroes/[hero_id].json` should already be in place, copied from the template by Jemo. If it doesn't exist, ask Jemo before creating it.
+1. **Create the hero file. Copy reference/hero_template.json to heroes/[hero_id].json, using the exact hero ID Jemo specifies in his prompt. If a file with that name already exists, stop and ask Jemo before overwriting — it may contain real content. Confirm the new file is a clean copy of the template before proceeding.
 2. **Read `reference/hero_template.json`** to refresh the schema.
 3. **Read `heroes/spirit_breaker.json`** as a structural and voice reference.
 4. **Read `reference/style_guide.md`** for voice rules.

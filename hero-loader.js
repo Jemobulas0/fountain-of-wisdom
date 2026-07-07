@@ -139,8 +139,11 @@ const HERO_NAMES = {
   zuus: "Zeus",
 };
 
+let HERO_DATA = {};
+
 function getHeroName(id) {
-  return HERO_NAMES[id] || id.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const hero = HERO_DATA[id];
+  return (hero && hero.name) || id.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
 
@@ -467,12 +470,16 @@ if (!heroId) {
   document.getElementById('hero-sections').innerHTML =
     '<div style="padding:40px;text-align:center;color:var(--text-dim);">No hero specified. Add ?id=hero-name to the URL.</div>';
 } else {
-  fetch('heroes/' + heroId + '.json')
-    .then(function(r) {
+  Promise.all([
+    fetch('heroes/' + heroId + '.json').then(function(r) {
       if (!r.ok) throw new Error('Hero not found: ' + heroId);
       return r.json();
-    })
-    .then(function(data) {
+    }),
+    fetch('data/heroes.json').then(function(r) { return r.json(); })
+  ])
+    .then(function(results) {
+      const data = results[0];
+      HERO_DATA = results[1];
       buildHeader(data);
       const container = document.getElementById('hero-sections');
       container.appendChild(buildOverview(data.overview));

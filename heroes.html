@@ -543,153 +543,19 @@
 <script>
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
-const recentlyAddedHeroes = [
-  { name: 'Skywrath Mage', key: 'skywrath_mage' },
-  { name: 'Spirit Breaker', key: 'spirit_breaker' },
-  { name: 'Wraith King',      key: 'wraith_king',      cdn: 'skeleton_king' },
-  { name: 'Phantom Assassin', key: 'phantom_assassin' },
-  { name: 'Legion Commander', key: 'legion_commander' },
-  { name: 'Tidehunter',  key: 'tidehunter' },
-  { name: 'Slardar',     key: 'slardar' },
-  { name: 'Muerta',      key: 'muerta' },
+const recentlyAddedIds = [
+  'skywrath_mage',
+  'spirit_breaker',
+  'skeleton_king',
+  'phantom_assassin',
+  'legion_commander',
+  'tidehunter',
+  'slardar',
+  'muerta',
 ];
 
-const heroes = [
-  // STRENGTH (36)
-  { name: 'Alchemist',          key: 'alchemist',          attr: 'str', roles: ['carry'],              covered: false },
-  { name: 'Axe',                key: 'axe',                attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Bristleback',        key: 'bristleback',        attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Centaur Warrunner',  key: 'centaur',            attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Chaos Knight',       key: 'chaos_knight',       attr: 'str', roles: ['carry','offlane'],    covered: false },
-  { name: 'Clockwerk',          key: 'rattletrap',         attr: 'str', roles: ['offlane','support'],  covered: false },
-  { name: 'Dawnbreaker',        key: 'dawnbreaker',        attr: 'str', roles: ['offlane','support'],  covered: false },
-  { name: 'Doom',               key: 'doom_bringer',       attr: 'str', roles: ['offlane','carry'],    covered: false },
-  { name: 'Dragon Knight',      key: 'dragon_knight',      attr: 'str', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Earth Spirit',       key: 'earth_spirit',       attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Earth Shaker',       key: 'earthshaker',        attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Elder Titan',        key: 'elder_titan',        attr: 'str', roles: ['support'],            covered: false },
-  { name: 'Huskar',             key: 'huskar',             attr: 'str', roles: ['midlane'],            covered: true  },
-  { name: 'Kunkka',             key: 'kunkka',             attr: 'str', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Largo',              key: 'largo',              attr: 'str', roles: ['support'],            covered: false },
-  { name: 'Legion Commander',   key: 'legion_commander',   attr: 'str', roles: ['offlane'],            covered: true  },
-  { name: 'Lifestealer',        key: 'lifestealer',        cdn: 'life_stealer',   attr: 'str', roles: ['carry'],              covered: true  },
-  { name: 'Lycan',              key: 'lycan',              attr: 'str', roles: ['carry','offlane'],    covered: false },
-  { name: 'Mars',               key: 'mars',               attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Night Stalker',      key: 'night_stalker',      attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Ogre Magi',          key: 'ogre_magi',          attr: 'str', roles: ['support'],            covered: false },
-  { name: 'Omniknight',         key: 'omniknight',         attr: 'str', roles: ['offlane'],            covered: true  },
-  { name: 'Phoenix',            key: 'phoenix',            attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Primal Beast',       key: 'primal_beast',       attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Pudge',              key: 'pudge',              attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Slardar',            key: 'slardar',            attr: 'str', roles: ['offlane'],            covered: true  },
-  { name: 'Spirit Breaker',     key: 'spirit_breaker',     attr: 'str', roles: ['support','offlane'],  covered: true  },
-  { name: 'Sven',               key: 'sven',               attr: 'str', roles: ['carry'],              covered: true  },
-  { name: 'Tidehunter',         key: 'tidehunter',         attr: 'str', roles: ['offlane'],            covered: true  },
-  { name: 'Timbersaw',          key: 'shredder',           attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Tiny',               key: 'tiny',               attr: 'str', roles: ['carry','offlane'],    covered: false },
-  { name: 'Treant Protector',   key: 'treant',             attr: 'str', roles: ['support'],            covered: false },
-  { name: 'Tusk',               key: 'tusk',               attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Underlord',          key: 'abyssal_underlord',  attr: 'str', roles: ['offlane'],            covered: false },
-  { name: 'Undying',            key: 'undying',            attr: 'str', roles: ['support','offlane'],  covered: false },
-  { name: 'Wraith King',        key: 'wraith_king',        cdn: 'skeleton_king',  attr: 'str', roles: ['carry','offlane'],    covered: true  },
-
-  // AGILITY (35)
-  { name: 'Anti-Mage',          key: 'antimage',           attr: 'agi', roles: ['carry'],              covered: true  },
-  { name: 'Bloodseeker',        key: 'bloodseeker',        attr: 'agi', roles: ['carry','offlane'],    covered: false },
-  { name: 'Bounty Hunter',      key: 'bounty_hunter',      attr: 'agi', roles: ['support','offlane'],  covered: false },
-  { name: 'Broodmother',        key: 'broodmother',        attr: 'agi', roles: ['offlane','carry'],    covered: false },
-  { name: 'Clinkz',             key: 'clinkz',             attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Drow Ranger',        key: 'drow_ranger',        attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Ember Spirit',       key: 'ember_spirit',       attr: 'agi', roles: ['midlane','carry'],    covered: false },
-  { name: 'Faceless Void',      key: 'faceless_void',      attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Gyrocopter',         key: 'gyrocopter',         attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Hoodwink',           key: 'hoodwink',           attr: 'agi', roles: ['support'],            covered: false },
-  { name: 'Juggernaut',         key: 'juggernaut',         attr: 'agi', roles: ['carry'],              covered: true  },
-  { name: 'Kez',                key: 'kez',                attr: 'agi', roles: ['midlane','carry'],    covered: false },
-  { name: 'Lone Druid',         key: 'lone_druid',         attr: 'agi', roles: ['carry','offlane'],    covered: false },
-  { name: 'Luna',               key: 'luna',               attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Medusa',             key: 'medusa',             attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Meepo',              key: 'meepo',              attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Mirana',             key: 'mirana',             attr: 'agi', roles: ['support','midlane'],  covered: false },
-  { name: 'Monkey King',        key: 'monkey_king',        attr: 'agi', roles: ['carry','midlane'],    covered: false },
-  { name: 'Morphling',          key: 'morphling',          attr: 'agi', roles: ['carry','midlane'],    covered: false },
-  { name: 'Naga Siren',         key: 'naga_siren',         attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Phantom Assassin',   key: 'phantom_assassin',   attr: 'agi', roles: ['carry'],              covered: true  },
-  { name: 'Phantom Lancer',     key: 'phantom_lancer',     attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Razor',              key: 'razor',              attr: 'agi', roles: ['carry','midlane'],    covered: false },
-  { name: 'Riki',               key: 'riki',               attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Shadow Fiend',       key: 'nevermore',          attr: 'agi', roles: ['midlane','carry'],    covered: false },
-  { name: 'Slark',              key: 'slark',              attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Sniper',             key: 'sniper',             attr: 'agi', roles: ['carry','midlane'],    covered: true  },
-  { name: 'Spectre',            key: 'spectre',            attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Templar Assassin',   key: 'templar_assassin',   attr: 'agi', roles: ['midlane','carry'],    covered: false },
-  { name: 'Terrorblade',        key: 'terrorblade',        attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Troll Warlord',      key: 'troll_warlord',      attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Ursa',               key: 'ursa',               attr: 'agi', roles: ['carry'],              covered: false },
-  { name: 'Vengeful Spirit',    key: 'vengefulspirit',     attr: 'agi', roles: ['support'],            covered: false },
-  { name: 'Viper',              key: 'viper',              attr: 'agi', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Weaver',             key: 'weaver',             attr: 'agi', roles: ['carry','offlane'],    covered: false },
-
-  // INTELLIGENCE (34)
-  { name: 'Ancient Apparition', key: 'ancient_apparition', attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Chen',               key: 'chen',               attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Crystal Maiden',     key: 'crystal_maiden',     attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Dark Seer',          key: 'dark_seer',          attr: 'int', roles: ['offlane'],            covered: false },
-  { name: 'Dark Willow',        key: 'dark_willow',        attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Disruptor',          key: 'disruptor',          attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Enchantress',        key: 'enchantress',        attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Grimstroke',         key: 'grimstroke',         attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Invoker',            key: 'invoker',            attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Jakiro',             key: 'jakiro',             attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Keeper of the Light',key: 'keeper_of_the_light',attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Leshrac',            key: 'leshrac',            attr: 'int', roles: ['midlane','support'],  covered: false },
-  { name: 'Lich',               key: 'lich',               attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Lina',               key: 'lina',               attr: 'int', roles: ['midlane','support'],  covered: false },
-  { name: 'Lion',               key: 'lion',               attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Muerta',             key: 'muerta',             attr: 'int', roles: ['carry'],              covered: true  },
-  { name: 'Necrophos',          key: 'necrolyte',          attr: 'int', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Oracle',             key: 'oracle',             attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Outworld Destroyer', key: 'obsidian_destroyer', attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Puck',               key: 'puck',               attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Pugna',              key: 'pugna',              attr: 'int', roles: ['midlane','support'],  covered: false },
-  { name: 'Queen of Pain',      key: 'queenofpain',        attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Ringmaster',         key: 'ringmaster',         attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Rubick',             key: 'rubick',             attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Shadow Demon',       key: 'shadow_demon',       attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Shadow Shaman',      key: 'shadow_shaman',      attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Silencer',           key: 'silencer',           attr: 'int', roles: ['carry','support'],    covered: false },
-  { name: 'Skywrath Mage',      key: 'skywrath_mage',      attr: 'int', roles: ['support','midlane'],  covered: true  },
-  { name: 'Storm Spirit',       key: 'storm_spirit',       attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Tinker',             key: 'tinker',             attr: 'int', roles: ['midlane'],            covered: false },
-  { name: 'Warlock',            key: 'warlock',            attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Winter Wyvern',      key: 'winter_wyvern',      attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Witch Doctor',       key: 'witch_doctor',       attr: 'int', roles: ['support'],            covered: false },
-  { name: 'Zeus',               key: 'zuus',               attr: 'int', roles: ['midlane','support'],  covered: false },
-
-  // UNIVERSAL (22)
-  { name: 'Abaddon',            key: 'abaddon',            attr: 'uni', roles: ['support','carry'],    covered: false },
-  { name: 'Arc Warden',         key: 'arc_warden',         attr: 'uni', roles: ['carry','midlane'],    covered: false },
-  { name: 'Bane',               key: 'bane',               attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Batrider',           key: 'batrider',           attr: 'uni', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Beastmaster',        key: 'beastmaster',        attr: 'uni', roles: ['offlane'],            covered: false },
-  { name: 'Brewmaster',         key: 'brewmaster',         attr: 'uni', roles: ['offlane'],            covered: false },
-  { name: 'Dazzle',             key: 'dazzle',             attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Death Prophet',      key: 'death_prophet',      attr: 'uni', roles: ['midlane','offlane'],  covered: false },
-  { name: 'Enigma',             key: 'enigma',             attr: 'uni', roles: ['offlane'],            covered: false },
-  { name: 'Io',                 key: 'wisp',               attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Magnus',             key: 'magnataur',          attr: 'uni', roles: ['offlane','midlane'],  covered: false },
-  { name: 'Marci',              key: 'marci',              attr: 'uni', roles: ['support','offlane'],  covered: false },
-  { name: "Nature's Prophet",   key: 'furion',             attr: 'uni', roles: ['carry','offlane'],    covered: false },
-  { name: 'Nyx Assassin',       key: 'nyx_assassin',       attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Pangolier',          key: 'pangolier',          attr: 'uni', roles: ['offlane','midlane'],  covered: false },
-  { name: 'Sand King',          key: 'sand_king',          attr: 'uni', roles: ['offlane','support'],  covered: false },
-  { name: 'Snapfire',           key: 'snapfire',           attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Techies',            key: 'techies',            attr: 'uni', roles: ['support'],            covered: false },
-  { name: 'Venomancer',         key: 'venomancer',         attr: 'uni', roles: ['offlane','support'],  covered: false },
-  { name: 'Visage',             key: 'visage',             attr: 'uni', roles: ['support','offlane'],  covered: false },
-  { name: 'Void Spirit',        key: 'void_spirit',        attr: 'uni', roles: ['midlane'],            covered: false },
-  { name: 'Windranger',         key: 'windrunner',         attr: 'uni', roles: ['midlane','support'],  covered: false },
-];
+let heroes = [];
+let heroesData = {};
 
 let currentAttr = 'all';
 let currentRole = 'all';
@@ -776,22 +642,44 @@ function filterHeroes() {
   });
 }
 
-filterHeroes();
+fetch('data/heroes.json')
+  .then(r => r.json())
+  .then(data => {
+    heroesData = data;
+    heroes = Object.keys(data).map(key => {
+      const h = data[key];
+      return {
+        name: h.name,
+        key: h.page || key,
+        cdn: h.icon,
+        attr: h.attr,
+        roles: h.roles,
+        covered: h.covered
+      };
+    });
 
-// Recently Added
-const CDN_H = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
-const recentGrid = document.getElementById('recently-grid');
-const totalHeroes = heroes.length;
-const coveredCount = heroes.filter(h => h.covered).length;
-recentlyAddedHeroes.slice(0, 4).forEach(h => {
-  const a = document.createElement('a');
-  a.href = `hero_template.html?id=${h.page || h.key}`;
-  a.className = 'recently-card';
-  a.innerHTML = `<img src="${CDN_H}${h.cdn || h.key}.png" alt="${h.name}">`;
-  recentGrid.appendChild(a);
-});
-const pct = Math.round((coveredCount / totalHeroes) * 100);
-document.getElementById('progress-fill').style.width = pct + '%';
+    filterHeroes();
+
+    // Recently Added
+    const CDN_H = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
+    const recentGrid = document.getElementById('recently-grid');
+    const totalHeroes = heroes.length;
+    const coveredCount = heroes.filter(h => h.covered).length;
+    recentlyAddedIds.slice(0, 4).forEach(id => {
+      const h = heroesData[id];
+      if (!h) return;
+      const a = document.createElement('a');
+      a.href = `hero_template.html?id=${h.page || id}`;
+      a.className = 'recently-card';
+      a.innerHTML = `<img src="${CDN_H}${h.icon}.png" alt="${h.name}">`;
+      recentGrid.appendChild(a);
+    });
+    const pct = Math.round((coveredCount / totalHeroes) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+  })
+  .catch(err => {
+    console.error('[FoW Heroes] Failed to load heroes.json:', err);
+  });
 </script>
 </body>
 </html>

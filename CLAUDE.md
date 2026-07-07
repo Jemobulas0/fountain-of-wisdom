@@ -44,12 +44,12 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 
 **Hero workflow files** (read and modify during hero-building):
 - `heroes/[hero_id].json` — one per hero, named by hero ID
-- `heroes.html` — heroes landing page; needs two edits per new hero (see workflow below)
+- `data/heroes.json` — single source of truth for hero metadata (`name`, `icon`, `attr`, `roles`, `covered`, and `page` where the hero-page filename differs from the icon id). Flip `covered` to `true` here when a hero page goes live. `heroes.html`'s grid, its "Recently Added" strip, and every hero page's Allies & Counters labels all read from this one file.
+- `heroes.html` — heroes landing page; fetches from `data/heroes.json`, so no per-hero edit is required there except optionally featuring a hero in `recentlyAddedIds` (see workflow below)
 
 **Live site infrastructure** (read when relevant; don't modify unless explicitly asked):
 - `hero_template.html` (root) — HTML template that renders hero pages from JSON
-- `hero-loader.js` (root) — JavaScript that fetches and renders hero JSON. Contains a HERO_NAMES dictionary mapping hero IDs to display names. Already includes all current Dota heroes — only needs editing if Valve releases a brand-new hero not in the dictionary.
-- `data/heroes.json` — site-wide hero metadata
+- `hero-loader.js` (root) — JavaScript that fetches and renders hero JSON. `getHeroName` reads display names from `data/heroes.json` (fetched once per hero page load).
 - `data/items.json` — site-wide item metadata
 - `data/tooltips.css`, `data/tooltips.js` — tooltip infrastructure
 
@@ -68,9 +68,10 @@ These aren't off-limits — Jemo can ask for work on any of them — they're jus
 5. **Read `reference/cdn_paths.md`** before writing any asset IDs.
 6. **If filling timing fields, read `reference/gold_exp_framework.md`** and apply the formulas based on this hero's role/position.
 7. **Fill the JSON file** section by section from Jemo's prose.
-8. **Update `heroes.html` with two edits:**
-   - Find the hero in the `heroes` array (lines ~556-691). Change `covered: false` to `covered: true`.
-   - Add a new entry to the top of `recentlyAddedHeroes` array (lines ~546-554). Format: `{ name: 'Display Name', key: 'hero_id' }`. Include `cdn: 'legacy_name'` if the hero has a CDN exception per `cdn_paths.md`.
+8. **Update `data/heroes.json` with one edit:**
+   - Find the hero's entry (keyed by CDN/internal id — check `cdn_paths.md` if unsure which id) and change `"covered": false` to `"covered": true`.
+   - If Jemo wants it featured, add the hero's CDN/internal id to the top of the `recentlyAddedIds` array in `heroes.html`.
+   - (If this is a brand-new Dota hero not yet in `data/heroes.json` at all, add a full new entry there — `name`, `icon`, `attr`, `roles`, `covered`, and `page` if the hero-page filename differs from the icon id — instead of editing `hero-loader.js`.)
 9. **Summarize what you wrote** (which sections filled, which timings calculated, any choices that weren't fully specified by Jemo's input) so he can review on the rendered page.
 
 ## When something is unique or unclear

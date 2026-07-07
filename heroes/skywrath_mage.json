@@ -2,7 +2,7 @@
   "id": "skywrath_mage",
   "name": "Skywrath Mage",
   "attribute": "intelligence",
-  "version": "7.41b",
+  "version": "7.41d",
   "overview": {
     "positions": [2, 4, 5],
     "roles": "",

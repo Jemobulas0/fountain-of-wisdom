@@ -1,510 +1,1197 @@
 {
   "alchemist": {
     "name": "Alchemist",
-    "icon": "alchemist"
+    "icon": "alchemist",
+    "attr": "str",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "axe": {
     "name": "Axe",
-    "icon": "axe"
+    "icon": "axe",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "bristleback": {
     "name": "Bristleback",
-    "icon": "bristleback"
+    "icon": "bristleback",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "centaur": {
     "name": "Centaur Warrunner",
-    "icon": "centaur"
+    "icon": "centaur",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "chaos_knight": {
     "name": "Chaos Knight",
-    "icon": "chaos_knight"
+    "icon": "chaos_knight",
+    "attr": "str",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "rattletrap": {
     "name": "Clockwerk",
-    "icon": "rattletrap"
+    "icon": "rattletrap",
+    "attr": "str",
+    "roles": [
+      "offlane",
+      "support"
+    ],
+    "covered": false
   },
   "dawnbreaker": {
     "name": "Dawnbreaker",
-    "icon": "dawnbreaker"
+    "icon": "dawnbreaker",
+    "attr": "str",
+    "roles": [
+      "offlane",
+      "support"
+    ],
+    "covered": false
   },
   "doom_bringer": {
     "name": "Doom",
-    "icon": "doom_bringer"
+    "icon": "doom_bringer",
+    "attr": "str",
+    "roles": [
+      "offlane",
+      "carry"
+    ],
+    "covered": false
   },
   "dragon_knight": {
     "name": "Dragon Knight",
-    "icon": "dragon_knight"
+    "icon": "dragon_knight",
+    "attr": "str",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "earth_spirit": {
     "name": "Earth Spirit",
-    "icon": "earth_spirit"
+    "icon": "earth_spirit",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "earthshaker": {
     "name": "Earth Shaker",
-    "icon": "earthshaker"
+    "icon": "earthshaker",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "elder_titan": {
     "name": "Elder Titan",
-    "icon": "elder_titan"
+    "icon": "elder_titan",
+    "attr": "str",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "huskar": {
     "name": "Huskar",
-    "icon": "huskar"
+    "icon": "huskar",
+    "attr": "str",
+    "roles": [
+      "midlane"
+    ],
+    "covered": true
   },
   "kunkka": {
     "name": "Kunkka",
-    "icon": "kunkka"
+    "icon": "kunkka",
+    "attr": "str",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "largo": {
     "name": "Largo",
-    "icon": "largo"
+    "icon": "largo",
+    "attr": "str",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "legion_commander": {
     "name": "Legion Commander",
-    "icon": "legion_commander"
+    "icon": "legion_commander",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": true
   },
   "life_stealer": {
     "name": "Lifestealer",
-    "icon": "life_stealer"
+    "icon": "life_stealer",
+    "attr": "str",
+    "roles": [
+      "carry"
+    ],
+    "covered": true,
+    "page": "lifestealer"
   },
   "lycan": {
     "name": "Lycan",
-    "icon": "lycan"
+    "icon": "lycan",
+    "attr": "str",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "mars": {
     "name": "Mars",
-    "icon": "mars"
+    "icon": "mars",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "night_stalker": {
     "name": "Night Stalker",
-    "icon": "night_stalker"
+    "icon": "night_stalker",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "ogre_magi": {
     "name": "Ogre Magi",
-    "icon": "ogre_magi"
+    "icon": "ogre_magi",
+    "attr": "str",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "omniknight": {
     "name": "Omniknight",
-    "icon": "omniknight"
+    "icon": "omniknight",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": true
   },
   "phoenix": {
     "name": "Phoenix",
-    "icon": "phoenix"
+    "icon": "phoenix",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "primal_beast": {
     "name": "Primal Beast",
-    "icon": "primal_beast"
+    "icon": "primal_beast",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "pudge": {
     "name": "Pudge",
-    "icon": "pudge"
+    "icon": "pudge",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "slardar": {
     "name": "Slardar",
-    "icon": "slardar"
+    "icon": "slardar",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": true
   },
   "spirit_breaker": {
     "name": "Spirit Breaker",
-    "icon": "spirit_breaker"
+    "icon": "spirit_breaker",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": true
   },
   "sven": {
     "name": "Sven",
-    "icon": "sven"
+    "icon": "sven",
+    "attr": "str",
+    "roles": [
+      "carry"
+    ],
+    "covered": true
   },
   "tidehunter": {
     "name": "Tidehunter",
-    "icon": "tidehunter"
+    "icon": "tidehunter",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": true
   },
   "shredder": {
     "name": "Timbersaw",
-    "icon": "shredder"
+    "icon": "shredder",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "tiny": {
     "name": "Tiny",
-    "icon": "tiny"
+    "icon": "tiny",
+    "attr": "str",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "treant": {
     "name": "Treant Protector",
-    "icon": "treant"
+    "icon": "treant",
+    "attr": "str",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "tusk": {
     "name": "Tusk",
-    "icon": "tusk"
+    "icon": "tusk",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "abyssal_underlord": {
     "name": "Underlord",
-    "icon": "abyssal_underlord"
+    "icon": "abyssal_underlord",
+    "attr": "str",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "undying": {
     "name": "Undying",
-    "icon": "undying"
+    "icon": "undying",
+    "attr": "str",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "skeleton_king": {
     "name": "Wraith King",
-    "icon": "skeleton_king"
+    "icon": "skeleton_king",
+    "attr": "str",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": true,
+    "page": "wraith_king"
   },
   "antimage": {
     "name": "Anti-Mage",
-    "icon": "antimage"
+    "icon": "antimage",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": true
   },
   "bloodseeker": {
     "name": "Bloodseeker",
-    "icon": "bloodseeker"
+    "icon": "bloodseeker",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "bounty_hunter": {
     "name": "Bounty Hunter",
-    "icon": "bounty_hunter"
+    "icon": "bounty_hunter",
+    "attr": "agi",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "broodmother": {
     "name": "Broodmother",
-    "icon": "broodmother"
+    "icon": "broodmother",
+    "attr": "agi",
+    "roles": [
+      "offlane",
+      "carry"
+    ],
+    "covered": false
   },
   "clinkz": {
     "name": "Clinkz",
-    "icon": "clinkz"
+    "icon": "clinkz",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "drow_ranger": {
     "name": "Drow Ranger",
-    "icon": "drow_ranger"
+    "icon": "drow_ranger",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "ember_spirit": {
     "name": "Ember Spirit",
-    "icon": "ember_spirit"
+    "icon": "ember_spirit",
+    "attr": "agi",
+    "roles": [
+      "midlane",
+      "carry"
+    ],
+    "covered": false
   },
   "faceless_void": {
     "name": "Faceless Void",
-    "icon": "faceless_void"
+    "icon": "faceless_void",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "gyrocopter": {
     "name": "Gyrocopter",
-    "icon": "gyrocopter"
+    "icon": "gyrocopter",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "hoodwink": {
     "name": "Hoodwink",
-    "icon": "hoodwink"
+    "icon": "hoodwink",
+    "attr": "agi",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "juggernaut": {
     "name": "Juggernaut",
-    "icon": "juggernaut"
+    "icon": "juggernaut",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": true
   },
   "kez": {
     "name": "Kez",
-    "icon": "kez"
+    "icon": "kez",
+    "attr": "agi",
+    "roles": [
+      "midlane",
+      "carry"
+    ],
+    "covered": false
   },
   "lone_druid": {
     "name": "Lone Druid",
-    "icon": "lone_druid"
+    "icon": "lone_druid",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "luna": {
     "name": "Luna",
-    "icon": "luna"
+    "icon": "luna",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "medusa": {
     "name": "Medusa",
-    "icon": "medusa"
+    "icon": "medusa",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "meepo": {
     "name": "Meepo",
-    "icon": "meepo"
+    "icon": "meepo",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "mirana": {
     "name": "Mirana",
-    "icon": "mirana"
+    "icon": "mirana",
+    "attr": "agi",
+    "roles": [
+      "support",
+      "midlane"
+    ],
+    "covered": false
   },
   "monkey_king": {
     "name": "Monkey King",
-    "icon": "monkey_king"
+    "icon": "monkey_king",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "midlane"
+    ],
+    "covered": false
   },
   "morphling": {
     "name": "Morphling",
-    "icon": "morphling"
+    "icon": "morphling",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "midlane"
+    ],
+    "covered": false
   },
   "naga_siren": {
     "name": "Naga Siren",
-    "icon": "naga_siren"
+    "icon": "naga_siren",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "phantom_assassin": {
     "name": "Phantom Assassin",
-    "icon": "phantom_assassin"
+    "icon": "phantom_assassin",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": true
   },
   "phantom_lancer": {
     "name": "Phantom Lancer",
-    "icon": "phantom_lancer"
+    "icon": "phantom_lancer",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "razor": {
     "name": "Razor",
-    "icon": "razor"
+    "icon": "razor",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "midlane"
+    ],
+    "covered": false
   },
   "riki": {
     "name": "Riki",
-    "icon": "riki"
+    "icon": "riki",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "nevermore": {
     "name": "Shadow Fiend",
-    "icon": "nevermore"
+    "icon": "nevermore",
+    "attr": "agi",
+    "roles": [
+      "midlane",
+      "carry"
+    ],
+    "covered": false
   },
   "slark": {
     "name": "Slark",
-    "icon": "slark"
+    "icon": "slark",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "sniper": {
     "name": "Sniper",
-    "icon": "sniper"
+    "icon": "sniper",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "midlane"
+    ],
+    "covered": true
   },
   "spectre": {
     "name": "Spectre",
-    "icon": "spectre"
+    "icon": "spectre",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "templar_assassin": {
     "name": "Templar Assassin",
-    "icon": "templar_assassin"
+    "icon": "templar_assassin",
+    "attr": "agi",
+    "roles": [
+      "midlane",
+      "carry"
+    ],
+    "covered": false
   },
   "terrorblade": {
     "name": "Terrorblade",
-    "icon": "terrorblade"
+    "icon": "terrorblade",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "troll_warlord": {
     "name": "Troll Warlord",
-    "icon": "troll_warlord"
+    "icon": "troll_warlord",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "ursa": {
     "name": "Ursa",
-    "icon": "ursa"
+    "icon": "ursa",
+    "attr": "agi",
+    "roles": [
+      "carry"
+    ],
+    "covered": false
   },
   "vengefulspirit": {
     "name": "Vengeful Spirit",
-    "icon": "vengefulspirit"
+    "icon": "vengefulspirit",
+    "attr": "agi",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "viper": {
     "name": "Viper",
-    "icon": "viper"
+    "icon": "viper",
+    "attr": "agi",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "weaver": {
     "name": "Weaver",
-    "icon": "weaver"
+    "icon": "weaver",
+    "attr": "agi",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "ancient_apparition": {
     "name": "Ancient Apparition",
-    "icon": "ancient_apparition"
+    "icon": "ancient_apparition",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "chen": {
     "name": "Chen",
-    "icon": "chen"
+    "icon": "chen",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "crystal_maiden": {
     "name": "Crystal Maiden",
-    "icon": "crystal_maiden"
+    "icon": "crystal_maiden",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "dark_seer": {
     "name": "Dark Seer",
-    "icon": "dark_seer"
+    "icon": "dark_seer",
+    "attr": "int",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "dark_willow": {
     "name": "Dark Willow",
-    "icon": "dark_willow"
+    "icon": "dark_willow",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "disruptor": {
     "name": "Disruptor",
-    "icon": "disruptor"
+    "icon": "disruptor",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "enchantress": {
     "name": "Enchantress",
-    "icon": "enchantress"
+    "icon": "enchantress",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "grimstroke": {
     "name": "Grimstroke",
-    "icon": "grimstroke"
+    "icon": "grimstroke",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "invoker": {
     "name": "Invoker",
-    "icon": "invoker"
+    "icon": "invoker",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "jakiro": {
     "name": "Jakiro",
-    "icon": "jakiro"
+    "icon": "jakiro",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "keeper_of_the_light": {
     "name": "Keeper of the Light",
-    "icon": "keeper_of_the_light"
+    "icon": "keeper_of_the_light",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "leshrac": {
     "name": "Leshrac",
-    "icon": "leshrac"
+    "icon": "leshrac",
+    "attr": "int",
+    "roles": [
+      "midlane",
+      "support"
+    ],
+    "covered": false
   },
   "lich": {
     "name": "Lich",
-    "icon": "lich"
+    "icon": "lich",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "lina": {
     "name": "Lina",
-    "icon": "lina"
+    "icon": "lina",
+    "attr": "int",
+    "roles": [
+      "midlane",
+      "support"
+    ],
+    "covered": false
   },
   "lion": {
     "name": "Lion",
-    "icon": "lion"
+    "icon": "lion",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "muerta": {
     "name": "Muerta",
-    "icon": "muerta"
+    "icon": "muerta",
+    "attr": "int",
+    "roles": [
+      "carry"
+    ],
+    "covered": true
   },
   "necrolyte": {
     "name": "Necrophos",
-    "icon": "necrolyte"
+    "icon": "necrolyte",
+    "attr": "int",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "oracle": {
     "name": "Oracle",
-    "icon": "oracle"
+    "icon": "oracle",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "obsidian_destroyer": {
     "name": "Outworld Destroyer",
-    "icon": "obsidian_destroyer"
+    "icon": "obsidian_destroyer",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "puck": {
     "name": "Puck",
-    "icon": "puck"
+    "icon": "puck",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "pugna": {
     "name": "Pugna",
-    "icon": "pugna"
+    "icon": "pugna",
+    "attr": "int",
+    "roles": [
+      "midlane",
+      "support"
+    ],
+    "covered": false
   },
   "queenofpain": {
     "name": "Queen of Pain",
-    "icon": "queenofpain"
+    "icon": "queenofpain",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "ringmaster": {
     "name": "Ringmaster",
-    "icon": "ringmaster"
+    "icon": "ringmaster",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "rubick": {
     "name": "Rubick",
-    "icon": "rubick"
+    "icon": "rubick",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "shadow_demon": {
     "name": "Shadow Demon",
-    "icon": "shadow_demon"
+    "icon": "shadow_demon",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "shadow_shaman": {
     "name": "Shadow Shaman",
-    "icon": "shadow_shaman"
+    "icon": "shadow_shaman",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "silencer": {
     "name": "Silencer",
-    "icon": "silencer"
+    "icon": "silencer",
+    "attr": "int",
+    "roles": [
+      "carry",
+      "support"
+    ],
+    "covered": false
   },
   "skywrath_mage": {
     "name": "Skywrath Mage",
-    "icon": "skywrath_mage"
+    "icon": "skywrath_mage",
+    "attr": "int",
+    "roles": [
+      "support",
+      "midlane"
+    ],
+    "covered": true
   },
   "storm_spirit": {
     "name": "Storm Spirit",
-    "icon": "storm_spirit"
+    "icon": "storm_spirit",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "tinker": {
     "name": "Tinker",
-    "icon": "tinker"
+    "icon": "tinker",
+    "attr": "int",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "warlock": {
     "name": "Warlock",
-    "icon": "warlock"
+    "icon": "warlock",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "winter_wyvern": {
     "name": "Winter Wyvern",
-    "icon": "winter_wyvern"
+    "icon": "winter_wyvern",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "witch_doctor": {
     "name": "Witch Doctor",
-    "icon": "witch_doctor"
+    "icon": "witch_doctor",
+    "attr": "int",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "zuus": {
     "name": "Zeus",
-    "icon": "zuus"
+    "icon": "zuus",
+    "attr": "int",
+    "roles": [
+      "midlane",
+      "support"
+    ],
+    "covered": false
   },
   "abaddon": {
     "name": "Abaddon",
-    "icon": "abaddon"
+    "icon": "abaddon",
+    "attr": "uni",
+    "roles": [
+      "support",
+      "carry"
+    ],
+    "covered": false
   },
   "arc_warden": {
     "name": "Arc Warden",
-    "icon": "arc_warden"
+    "icon": "arc_warden",
+    "attr": "uni",
+    "roles": [
+      "carry",
+      "midlane"
+    ],
+    "covered": false
   },
   "bane": {
     "name": "Bane",
-    "icon": "bane"
+    "icon": "bane",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "batrider": {
     "name": "Batrider",
-    "icon": "batrider"
+    "icon": "batrider",
+    "attr": "uni",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "beastmaster": {
     "name": "Beastmaster",
-    "icon": "beastmaster"
+    "icon": "beastmaster",
+    "attr": "uni",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "brewmaster": {
     "name": "Brewmaster",
-    "icon": "brewmaster"
+    "icon": "brewmaster",
+    "attr": "uni",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "dazzle": {
     "name": "Dazzle",
-    "icon": "dazzle"
+    "icon": "dazzle",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "death_prophet": {
     "name": "Death Prophet",
-    "icon": "death_prophet"
+    "icon": "death_prophet",
+    "attr": "uni",
+    "roles": [
+      "midlane",
+      "offlane"
+    ],
+    "covered": false
   },
   "enigma": {
     "name": "Enigma",
-    "icon": "enigma"
+    "icon": "enigma",
+    "attr": "uni",
+    "roles": [
+      "offlane"
+    ],
+    "covered": false
   },
   "wisp": {
     "name": "Io",
-    "icon": "wisp"
+    "icon": "wisp",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "magnataur": {
     "name": "Magnus",
-    "icon": "magnataur"
+    "icon": "magnataur",
+    "attr": "uni",
+    "roles": [
+      "offlane",
+      "midlane"
+    ],
+    "covered": false
   },
   "marci": {
     "name": "Marci",
-    "icon": "marci"
+    "icon": "marci",
+    "attr": "uni",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "furion": {
     "name": "Nature's Prophet",
-    "icon": "furion"
+    "icon": "furion",
+    "attr": "uni",
+    "roles": [
+      "carry",
+      "offlane"
+    ],
+    "covered": false
   },
   "nyx_assassin": {
     "name": "Nyx Assassin",
-    "icon": "nyx_assassin"
+    "icon": "nyx_assassin",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "pangolier": {
     "name": "Pangolier",
-    "icon": "pangolier"
+    "icon": "pangolier",
+    "attr": "uni",
+    "roles": [
+      "offlane",
+      "midlane"
+    ],
+    "covered": false
   },
   "sand_king": {
     "name": "Sand King",
-    "icon": "sand_king"
+    "icon": "sand_king",
+    "attr": "uni",
+    "roles": [
+      "offlane",
+      "support"
+    ],
+    "covered": false
   },
   "snapfire": {
     "name": "Snapfire",
-    "icon": "snapfire"
+    "icon": "snapfire",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "techies": {
     "name": "Techies",
-    "icon": "techies"
+    "icon": "techies",
+    "attr": "uni",
+    "roles": [
+      "support"
+    ],
+    "covered": false
   },
   "venomancer": {
     "name": "Venomancer",
-    "icon": "venomancer"
+    "icon": "venomancer",
+    "attr": "uni",
+    "roles": [
+      "offlane",
+      "support"
+    ],
+    "covered": false
   },
   "visage": {
     "name": "Visage",
-    "icon": "visage"
+    "icon": "visage",
+    "attr": "uni",
+    "roles": [
+      "support",
+      "offlane"
+    ],
+    "covered": false
   },
   "void_spirit": {
     "name": "Void Spirit",
-    "icon": "void_spirit"
+    "icon": "void_spirit",
+    "attr": "uni",
+    "roles": [
+      "midlane"
+    ],
+    "covered": false
   },
   "windrunner": {
     "name": "Windranger",
-    "icon": "windrunner"
+    "icon": "windrunner",
+    "attr": "uni",
+    "roles": [
+      "midlane",
+      "support"
+    ],
+    "covered": false
   }
 }

@@ -328,7 +328,7 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": true
   },
   "skeleton_king": {
     "name": "Wraith King",

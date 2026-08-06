@@ -1,0 +1,344 @@
+{
+  "id": "undying",
+  "name": "Undying",
+  "attribute": "strength",
+  "version": "7.41d",
+  "overview": {
+    "positions": [
+      3,
+      4,
+      5
+    ],
+    "roles": "",
+    "strengths": [
+      "Lane Dominator",
+      "Anti-Strength",
+      "Versatile Teamfighter",
+      "Saves from enemy Bursts"
+    ],
+    "weaknesses": [
+      "Mana Hungry",
+      "Multi-hit Heroes"
+    ]
+  },
+  "game_plan": {
+    "early": "Dominate your lane. You're not a chill hero regardless of your position. Identify your initial power spikes, coordinate with your lane partner, weaken your opponents & go for the kills hard.",
+    "mid": "As a support your priority steps are: Fight > Stack > Soak free lane farm. As an offlaner you still want to primarily fight, but naturally prioritize farming as much as possible in your downtime.",
+    "late": "As the game progresses, your spells gradually lower in value, but the debuff that you apply with your ultimate increases. Your two biggest impacts in most games will be to save teammates who are getting gone on with Tombstone + Shard & to apply Damage Amplification while being in Flesh Golem form.",
+    "extras": "Undying is the best hero for employing the early game suicide tactic on due to your Innate ability."
+  },
+  "skill_builds": [
+    {
+      "name": "Skill Build 1 — Standard",
+      "ult": "undying_flesh_golem",
+      "rows": [
+        {
+          "abilities": [
+            "undying_decay",
+            "undying_tombstone",
+            "undying_decay",
+            "undying_tombstone",
+            "undying_decay",
+            "undying_flesh_golem"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "14:00/13:00"
+          }
+        },
+        {
+          "abilities": [
+            "undying_decay",
+            "undying_tombstone",
+            "undying_tombstone",
+            "undying_soul_rip",
+            "undying_soul_rip",
+            "undying_flesh_golem"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "28:00/26:00"
+          }
+        },
+        {
+          "abilities": [
+            "undying_soul_rip",
+            "undying_soul_rip",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "undying_flesh_golem"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "+50% Flesh Golem Strength Bonus",
+          "right": "Tombstone On Death",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-15s Tombstone Cooldown",
+          "right": "+4 Tombstone Attacks to Destroy",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+12 Soul Rip Damage/Heal",
+          "right": "+20 Zombie Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+30 Decay Damage",
+          "right": "-2s Decay Cooldown",
+          "chosen": "left"
+        }
+      ],
+      "note": "Maxing out Decay is your non-negotiable bread 'n butter. Tombstone is your go-to spell to destroy your opponents - both in a small skirmish or a huge team fight."
+    },
+    {
+      "name": "Skill Build 2 — Tombstone Denied",
+      "ult": "undying_flesh_golem",
+      "rows": [
+        {
+          "abilities": [
+            "undying_decay",
+            "undying_tombstone",
+            "undying_decay",
+            "undying_soul_rip",
+            "undying_decay",
+            "undying_flesh_golem"
+          ],
+          "timestamps": {
+            "pos_1_3": "11:00/10:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "14:00/13:00"
+          }
+        },
+        {
+          "abilities": [
+            "undying_decay",
+            "undying_soul_rip",
+            "undying_soul_rip",
+            "undying_soul_rip",
+            "undying_tombstone",
+            "undying_flesh_golem"
+          ],
+          "timestamps": {
+            "pos_1_3": "23:00/22:00",
+            "pos_2": "00:00/00:00",
+            "pos_4_5": "28:00/26:00"
+          }
+        },
+        {
+          "abilities": [
+            "undying_tombstone",
+            "undying_tombstone",
+            "attribute_bonus",
+            "attribute_bonus",
+            "attribute_bonus",
+            "undying_flesh_golem"
+          ]
+        }
+      ],
+      "talents": [
+        {
+          "level": 25,
+          "left": "+50% Flesh Golem Strength Bonus",
+          "right": "Tombstone On Death",
+          "chosen": "left"
+        },
+        {
+          "level": 20,
+          "left": "-15s Tombstone Cooldown",
+          "right": "+4 Tombstone Attacks to Destroy",
+          "chosen": "left"
+        },
+        {
+          "level": 15,
+          "left": "+12 Soul Rip Damage/Heal",
+          "right": "+20 Zombie Damage",
+          "chosen": "left"
+        },
+        {
+          "level": 10,
+          "left": "+30 Decay Damage",
+          "right": "-2s Decay Cooldown",
+          "chosen": "left"
+        }
+      ],
+      "note": "When facing a high attack speed hero (ex. Ursa) and your team has no way of preventing him from just insta-gibbing your Tombstone, then opt out for only a value point into it and max out Soul Rip. One might say that Undying shouldn't be picked in such a match up to begin with, but at the same time the hero is usually being picked earlier into the draft, so shit happens. Adapt & proceed."
+    }
+  ],
+  "item_builds": [
+    {
+      "name": "Item Build 1 — Support",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "faerie_fire",
+            "magic_stick",
+            "enchanted_mango",
+            "tango",
+            "blood_grenade",
+            "ward_sentry",
+            "ward_observer",
+            "smoke_of_deceit"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "arcane_boots",
+            {
+              "id": "mekansm",
+              "green": "20:00",
+              "yellow": "25:00"
+            },
+            {
+              "id": "aghanims_shard",
+              "hero_shard": "undying",
+              "green": "26:00",
+              "yellow": "30:00"
+            },
+            {
+              "id": "guardian_greaves",
+              "green": "37:00",
+              "yellow": "46:00"
+            },
+            "pipe",
+            "blink"
+          ]
+        }
+      ],
+      "note": "Your spells provide incredible damage to both small & big fights. And in most games you can't amplify your offensive power nearly as much, as you can your defensive one - which is severely lacking in your kit. After grabbing the 2 go-to support team fight items & an early [item:aghanims_shard|undying] Shard you're now secured to buy your [item:blink] Blink to truly unlock both your saving & kill potential. If a teammate is getting gone on hard - you Blink safe him with [ability:undying_tombstone] Tombstone & turn the fight around. And if your team needs to focus down a key target, you pop [ability:undying_flesh_golem] Ult & Blink on top of him with the Amplify Damage debuff."
+    },
+    {
+      "name": "Item Build 2 — Offlaner",
+      "phases": [
+        {
+          "label": "Starting Items",
+          "items": [
+            "tango",
+            "enchanted_mango",
+            "enchanted_mango",
+            "gauntlets",
+            "gauntlets",
+            "quelling_blade"
+          ],
+          "note": ""
+        },
+        {
+          "label": "Core Build",
+          "items": [
+            "soul_ring",
+            "power_treads",
+            {
+              "id": "radiance",
+              "green": "20:00",
+              "yellow": "23:00"
+            },
+            {
+              "id": "harpoon",
+              "green": "27:00",
+              "yellow": "31:00"
+            },
+            "octarine_core",
+            "heart"
+          ]
+        }
+      ],
+      "note": "Your goal in the lane is to dominate the enemy carry. Don't endlessly spam [ability:undying_decay] Decay & waste your mana, but at the same time you can't be playing passively. Identify in advance when can you kill your target - is it as early as the very beginning of the lane or do you need level 2? Land at least 2-3 Decays in advance & go for the kill when the time comes. The two Mangos are more than enough to enable this start. [item:soul_ring] Soul Ring takes over as a solution for your mana issues afterwards. Since you're one of the few heroes who buy this item without having a way to heal themselves, make sure to use it only when needed. Make sure to also always Treads-Swap when casting spells. For your hero the impact is huge. With [item:radiance] Radiance transition for the time being to a slightly more farm-oriented playstyle, but still be more active on the map than most other offlaners would be - push lanes & play around teammates while looking for good fights. You can't really start them yet, but you damn sure can finish them. The moment you grab your [item:harpoon] Harpoon though, everything changes. Now you can choose a key target in each fight & for most heroes in the game this means certain death, if they don't have escape mechanisms or the entire enemy team focuses you down hard - which means that you've done your job as an offlaner by providing all the space for your teammates to do as they please in the team fight. [item:octarine_core] Octarine solves your mana issues while making you even more oppressive. Your small CD spells become even more spammable in fights, while your big CD spells will allow you to participate in big fights with your full potential more frequently."
+    }
+  ],
+  "situational_items": [
+    {
+      "id": "solar_crest",
+      "note": "Some games are much more oriented around smaller skirmishes rather than big team fights. This item is a great way to adapt to them."
+    },
+    {
+      "id": "black_king_bar",
+      "note": "Regardless of your position, being able to run at enemy heroes in big fights & applying your Amplify Damage debuff is one of your biggest impact moves. If Debuff Immunity is what's required to achieve this, then so be it."
+    },
+    {
+      "id": "shivas_guard",
+      "note": "If you're going to be running headlong into danger, you might as well make the enemy team's life as miserable as possible. Especially when facing high amounts of Physical damage. The bonus AoE increase is also significant for your [ability:undying_decay] Decay."
+    }
+  ],
+  "tips": [
+    {
+      "level": "basic",
+      "text": "[ability:undying_decay] Decay is one of the few spells in the game which benefit a lot from not being put on Quickcast. Make sure to always catch as many enemy heroes as possible with it - especially during the laning stage!"
+    },
+    {
+      "level": "basic",
+      "text": "The damage of [ability:undying_decay] Decay is dealt after the Strength Reduction. This means that the spell deals way more damage than one might initially expect. Also when the lost Strength returns to your opponents, the lost HP from it does not."
+    },
+    {
+      "level": "basic",
+      "text": "[ability:undying_tombstone] Tombstone is a two-sided blade. On one hand it all but guarantees winning early fights if placed properly. On the other, it's a huge cooldown spell that you can also waste pretty easily or even worse - feed a lot of gold to an enemy hero."
+    },
+    {
+      "level": "basic",
+      "text": "Zombies spawned by your [ability:undying_tombstone] Tombstone are Spell Immune. So you don't have to worry about random AoE spells taking them out. Use & abuse this against slow attack speed heroes in the early game."
+    },
+    {
+      "level": "advanced",
+      "text": "Ally [hero:pugna] Pugna can cast [ability:pugna_decrepify] Decrepify on your [ability:undying_tombstone] Tombstone to make it invulnerable to enemy attacks."
+    },
+    {
+      "level": "advanced",
+      "text": "Ally [hero:naga_siren] Naga can put the entire enemy team to sleep, while your Tombstone is generating a massive amount of zombies on top of each enemy hero while they're asleep."
+    },
+    {
+      "level": "advanced",
+      "text": "Enemy [hero:earthshaker] Earthshaker can use your zombies to blow up your entire team for a godlike massive Echo Slam. But just as well you can break his Blink just before a fight with a well placed Tombstone generating a zombie to hit him. So be very careful how you play out your teamfights against this hero."
+    },
+    {
+      "level": "advanced",
+      "text": "When casting [ability:undying_decay] Decay on the following heroes, you will deal the damage part to all of them, but you will only steal Strength from one of the player's hero-type units: [hero:arc_warden] Arc Warden, [hero:lone_druid] Lone Druid & [hero:meepo] Meepo."
+    }
+  ],
+  "allies_and_counters": {
+    "allies": {
+      "heroes": [
+        "pugna",
+        "naga_siren",
+        "luna",
+        "medusa",
+        "troll_warlord",
+        "sven"
+      ],
+      "note": "Unique synergies and carries who are amazing team fighters, but have the tendency to get blown up at the start of an engagement, but Undying can simply turn the whole fight around with a well timed Tombstone."
+    },
+    "counters": {
+      "heroes": [
+        "axe",
+        "shredder",
+        "pudge",
+        "doom_bringer",
+        "centaur",
+        "life_stealer"
+      ],
+      "note": "Strength Offlaners during the laning stage. Tanky heroes who melt under the Damage Amplification debuff for the later teamfights."
+    },
+    "countered_by": {
+      "heroes": [
+        "medusa",
+        "luna",
+        "ursa",
+        "snapfire",
+        "sniper",
+        "earthshaker"
+      ],
+      "note": "Multi-shot & Attack Speed burst."
+    }
+  }
+}

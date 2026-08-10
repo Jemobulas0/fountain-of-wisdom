@@ -44,7 +44,7 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 
 **Hero workflow files** (read and modify during hero-building):
 - `heroes/[hero_id].json` — one per hero, named by hero ID
-- `data/heroes.json` — single source of truth for hero metadata (`name`, `icon`, `attr`, `roles`, `covered`, and `page` where the hero-page filename differs from the icon id). Flip `covered` to `true` here when a hero page goes live. `heroes.html`'s grid, its "Recently Added" strip, and every hero page's Allies & Counters labels all read from this one file.
+- `data/heroes.json` — single source of truth for hero metadata (`name`, `icon`, `attr`, `roles`, `covered`, and `page` where the hero-page filename differs from the icon id). Flip `covered` to `true` here when a hero page goes live. `heroes.html`'s grid and every hero page's Allies & Counters labels read from this one file. The "Recently Added" strip does NOT — it's a hardcoded `recentlyAddedIds` array in `heroes.html` and must be edited separately.
 - `heroes.html` — heroes landing page; fetches from `data/heroes.json`, so no per-hero edit is required there except optionally featuring a hero in `recentlyAddedIds` (see workflow below)
 
 **Live site infrastructure** (read when relevant; don't modify unless explicitly asked):
@@ -70,7 +70,7 @@ These aren't off-limits — Jemo can ask for work on any of them — they're jus
 7. **Fill the JSON file** section by section from Jemo's prose.
 8. **Update `data/heroes.json` with one edit:**
    - Find the hero's entry (keyed by CDN/internal id — check `cdn_paths.md` if unsure which id) and change `"covered": false` to `"covered": true`.
-   - If Jemo wants it featured, add the hero's CDN/internal id to the top of the `recentlyAddedIds` array in `heroes.html`.
+   - Add the hero's CDN/internal id to the top of the `recentlyAddedIds` array in `heroes.html`. Every newly covered hero goes there by default — only skip this if Jemo explicitly says not to.
    - (If this is a brand-new Dota hero not yet in `data/heroes.json` at all, add a full new entry there — `name`, `icon`, `attr`, `roles`, `covered`, and `page` if the hero-page filename differs from the icon id — instead of editing `hero-loader.js`.)
 9. **Summarize what you wrote** (which sections filled, which timings calculated, any choices that weren't fully specified by Jemo's input) so he can review on the rendered page.
 

@@ -1,0 +1,106 @@
+/* ══════════════════════════════════════════════════════════
+   MOBILE.CSS — collapses multi-column grids at 768px and 480px.
+   Linked from every page. Selectors are scoped to classes that
+   only exist on the page(s) noted in each comment, so this file
+   is safe to share site-wide even though class names aren't
+   globally unique.
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* index.html */
+  .tiles-grid,
+  .philosophy-three,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* coaching.html */
+  .philosophy-grid,
+  .expect-grid,
+  .for-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* concepts.html */
+  .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* guides.html */
+  .guide-card {
+    grid-template-columns: 1fr;
+  }
+
+  /* guides/wasting_time.html */
+  .stat-callout,
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* hero_template.html */
+  .header,
+  .pros-cons,
+  .gameplan-grid,
+  .syn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* hero_template.html — hero-loader.js sets an inline grid-template-columns
+     on this one based on build count, so the override needs !important */
+  .builds-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* items.html — section layout */
+  .sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* items.html — shop icon grid: reduce columns, don't collapse to 1 */
+  .item-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* items.html — search/recently-added sidebar no longer fits beside search at this width */
+  .search-recently-row {
+    flex-direction: column;
+  }
+  .search-recently-right {
+    width: 100%;
+  }
+  .recently-grid-items {
+    width: 100%;
+  }
+
+  /* heroes.html — filters/recently-added sidebar, same reasoning as above */
+  .filters-top-row {
+    flex-direction: column;
+  }
+  .filters-right {
+    width: 100%;
+  }
+  .recently-grid {
+    width: 100%;
+  }
+
+  /* heroes.html — hero icon grid: shrink tile minimum instead of collapsing to 1 */
+  .heroes-grid-section {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* items.html + heroes.html — icon/thumbnail grids: 2 columns rather than 1,
+     since a single-column icon would render full-width and oversized */
+  .item-grid,
+  .recently-grid-items,
+  .recently-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroes-grid-section {
+    grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  }
+}

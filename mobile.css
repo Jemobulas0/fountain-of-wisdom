@@ -83,7 +83,7 @@
   }
   .header:has(.item-avatar) .header-right {
     margin-left: 0;
-    align-items: flex-start;
+    align-items: flex-end;
     width: 100%;
   }
   .item-name {
@@ -142,9 +142,11 @@
     grid-template-columns: 1fr;
   }
 
-  /* items.html — shop icon grid: reduce columns, don't collapse to 1 */
+  /* items.html — shop icon grid: item tiles are much larger than hero
+     tiles, so auto-fill on their own min width (matching the pattern
+     .heroes-grid-section uses below) rather than a fixed column count. */
   .item-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
   }
 
   /* items.html — search/recently-added sidebar no longer fits beside search at this width */
@@ -174,6 +176,20 @@
   /* heroes.html — hero icon grid: shrink tile minimum instead of collapsing to 1 */
   .heroes-grid-section {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  /* heroes.html — attribute/role filter buttons wrap raggedly in a flex
+     row at this width; lay them out as an even 2-column grid instead,
+     with the label on its own row above. */
+  .filter-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .filter-label {
+    grid-column: 1 / -1;
+    margin-right: 0;
+    margin-bottom: 4px;
   }
 
   /* concepts.html, guides.html, heroes.html, items.html share this exact
@@ -338,9 +354,10 @@
 
 @media (max-width: 480px) {
 
-  /* items.html + heroes.html — icon/thumbnail grids: 2 columns rather than 1,
-     since a single-column icon would render full-width and oversized */
-  .item-grid,
+  /* items.html + heroes.html — recently-added strips: 2 columns rather than
+     1, since a single-column icon would render full-width and oversized.
+     .item-grid keeps its auto-fill(95px) rule from the 768px block above —
+     it doesn't need a narrower-breakpoint override. */
   .recently-grid-items,
   .recently-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -352,5 +369,45 @@
 
   .page-title {
     font-size: 22px;
+  }
+
+  /* hero_template.html — .spell-row packs six 32px .spell-icon elements
+     plus .timestamp-group into one card row; on phones that's wider than
+     the card, so timestamps and position circles render outside the
+     border. Shrink the icons and the timestamp columns to match. */
+  .spell-icon {
+    width: 26px;
+    height: 26px;
+  }
+  .spell-row {
+    gap: 4px;
+  }
+  .timestamp-col,
+  .timestamp-header-inner .th-col {
+    min-width: 26px;
+  }
+  .timestamp {
+    font-size: 9px;
+  }
+  .timestamp-header-inner {
+    gap: 4px;
+  }
+  .build-card {
+    padding: 10px;
+  }
+}
+
+/* replay-review.html — Role/Bracket sit side by side on desktop; below
+   640px there's no room for two selects, and the form/callout padding
+   (40px 48px / 28px 32px) eats too much of a phone's width. */
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .review-form {
+    padding: 24px 20px;
+  }
+  .callout-box {
+    padding: 20px 20px;
   }
 }

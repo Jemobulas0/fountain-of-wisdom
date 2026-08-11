@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replay Review — The Fountain of Wisdom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; border-color: var(--gold) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 100%, rgba(26,74,74,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(74,26,74,0.07) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 640px; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--gold-light); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero-title { font-family: 'Cinzel', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--text-bright); letter-spacing: 4px; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px; }
+  .hero-title span { color: var(--gold); }
+  .hero-subtitle { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 28px; }
+  .hero-divider { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 28px; }
+  .hero-desc { font-size: clamp(15px, 2vw, 18px); color: var(--text); line-height: 1.8; font-style: italic; }
+  .hero-desc strong { color: var(--text-bright); font-style: normal; }
+
+  /* ── MAIN CONTENT ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
+  .section-title { font-family: 'Cinzel', serif; font-size: clamp(18px, 3vw, 26px); font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+
+  /* ── CALLOUT ── */
+  .callout-box { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 3px 3px 0; padding: 28px 32px; margin-bottom: 56px; }
+  .callout-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 16px; }
+  .callout-text { font-size: 16px; color: var(--text); line-height: 1.7; margin-bottom: 14px; }
+
+  /* ── FORM ── */
+  .form-section { margin-bottom: 72px; }
+  .review-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 40px 48px; }
+  .form-group { margin-bottom: 24px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .form-label { display: block; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; }
+  .form-optional { color: var(--text-dim); font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; }
+  .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: var(--gold-dark); }
+  .form-textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; line-height: 1.6; outline: none; resize: vertical; transition: border-color 0.2s; }
+  .form-textarea:focus { border-color: var(--gold-dark); }
+  .form-select { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; cursor: pointer; transition: border-color 0.2s; }
+  .form-select:focus { border-color: var(--gold-dark); }
+  .form-hint { font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; margin-top: 6px; }
+  .form-note { font-size: 13px; color: var(--text); font-style: italic; margin-top: 20px; text-align: center; }
+  .form-actions { text-align: center; margin-top: 32px; }
+
+  /* ── SUCCESS / ERROR ── */
+  .success-block { display: none; text-align: center; padding: 40px 20px; }
+  .success-icon { font-size: 40px; color: var(--green); margin-bottom: 16px; }
+  .success-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 16px; }
+  .success-text { font-size: 16px; color: var(--text); line-height: 1.7; max-width: 480px; margin: 0 auto 28px; }
+  .error-block { display: none; background: rgba(192,57,43,0.1); border: 1px solid rgba(192,57,43,0.3); border-radius: 3px; padding: 16px 20px; margin-top: 20px; color: #e05c4a; font-size: 14px; text-align: center; }
+
+  .btn-primary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--gold); border: none; padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; font-weight: 700; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,168,76,0.25); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+  .btn-secondary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold-dark); padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+</style>
+<link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="items.html">Items</a></li>
+    <li><a href="concepts.html">Concepts</a></li>
+    <li><a href="guides.html">Guides</a></li>
+    <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Replay Review</div>
+    <h1 class="hero-title">Send Me<br><span>Your Games</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      You watch your own replays and see nothing.<br>I watch them and see the pattern.
+    </p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+  <!-- WHICH GAMES TO SEND -->
+  <div class="callout-box">
+    <div class="callout-title">Which Games to Send</div>
+    <p class="callout-text">Not your worst losses, and not your best wins. You are one player out of ten — a fifth of your own team. The result of a DotA game is mostly other people. What matters is your own read of it.</p>
+    <p class="callout-text">Send the games where something felt off. Where you were unsure what to do next and picked something anyway. Where it slipped away and you still can't say when. Where you already know there's a mistake in there but can't name it.</p>
+    <p class="callout-text">Send two or three. Two if you want one game opened properly. Three if you suspect the same thing keeps going wrong and you want me to find what it is. Either is fine — pick whichever matches what you're actually asking.</p>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="section-label">Get Started</div>
+    <div class="section-title">Submit Your Games</div>
+
+    <form id="review-form" class="review-form" action="https://formspree.io/f/xgawkpob" method="POST">
+
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New Replay Review request — Fountain of Wisdom">
+
+      <div class="form-group">
+        <label class="form-label" for="field-matches">Match IDs</label>
+        <textarea class="form-textarea" id="field-matches" name="Match IDs" rows="3" required></textarea>
+        <div class="form-hint">Two or three, one per line — found in match history on Dotabuff or the Recent Games tab in the client.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-dotabuff">Dotabuff Profile</label>
+        <input class="form-input" type="url" id="field-dotabuff" name="Dotabuff Profile" required>
+        <div class="form-hint">Must be public, or I can't see anything beyond the matches themselves.</div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="field-role">Role to Focus On</label>
+          <select class="form-select" id="field-role" name="Role" required>
+            <option value="" disabled selected>Select a role</option>
+            <option value="Position 1 - Safelane Carry">Position 1 — Safelane Carry</option>
+            <option value="Position 2 - Midlane">Position 2 — Midlane</option>
+            <option value="Position 3 - Offlane">Position 3 — Offlane</option>
+            <option value="Position 4 - Soft Support">Position 4 — Soft Support</option>
+            <option value="Position 5 - Hard Support">Position 5 — Hard Support</option>
+            <option value="Mixed / I play everything">Mixed / I play everything</option>
+            <option value="Not sure - that's part of the problem">Not sure — that's part of the problem</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="field-bracket">Bracket</label>
+          <select class="form-select" id="field-bracket" name="Bracket" required>
+            <option value="" disabled selected>Select a bracket</option>
+            <option value="Herald">Herald</option>
+            <option value="Guardian">Guardian</option>
+            <option value="Crusader">Crusader</option>
+            <option value="Archon">Archon</option>
+            <option value="Legend">Legend</option>
+            <option value="Ancient">Ancient</option>
+            <option value="Divine">Divine</option>
+            <option value="Immortal">Immortal</option>
+            <option value="Uncalibrated / don't know">Uncalibrated / don't know</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-mmr">Approximate MMR <span class="form-optional">(optional)</span></label>
+        <input class="form-input" type="text" id="field-mmr" name="MMR">
+        <div class="form-hint">An estimate is fine — it sets the standard I hold the game to, not a bar you have to clear.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-focus">What Do You Want Looked At?</label>
+        <textarea class="form-textarea" id="field-focus" name="What to look at" rows="6" required></textarea>
+        <div class="form-hint">The more specific, the more you get back — "my laning" is a start, but "I keep losing lane as pos 4 against aggressive supports and I can't tell if it's my positioning or my pull timings" gets something worth reading.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="field-discord">Discord Handle</label>
+        <input class="form-input" type="text" id="field-discord" name="Discord" required>
+        <div class="form-hint">This is where the review comes back.</div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary" id="submit-btn">Send for Review</button>
+        <div class="form-note">Pay what you feel it was worth, after you've read it, not before — no price, no card, nothing up front.</div>
+      </div>
+
+      <div class="error-block" id="error-block">Something went wrong sending that. Try again, or reach out on Discord instead.</div>
+
+    </form>
+
+    <div class="success-block" id="success-block">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Games Received</div>
+      <p class="success-text">I'll watch them properly rather than quickly, so give me a few days. The review comes back to you on Discord.</p>
+      <a href="index.html" class="btn-secondary">Return Home</a>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="heroes.html">Heroes</a>
+    <a href="items.html">Items</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="guides.html">Guides</a>
+    <a href="coaching.html">Coaching</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo · Not affiliated with Valve Corporation</div>
+</footer>
+
+<script>
+  const reviewForm = document.getElementById('review-form');
+  const errorBlock = document.getElementById('error-block');
+  const successBlock = document.getElementById('success-block');
+  const submitBtn = document.getElementById('submit-btn');
+
+  reviewForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBlock.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch(reviewForm.action, {
+      method: 'POST',
+      body: new FormData(reviewForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        reviewForm.style.display = 'none';
+        successBlock.style.display = 'block';
+      } else {
+        throw new Error('Submission failed');
+      }
+    }).catch(function () {
+      errorBlock.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send for Review';
+    });
+  });
+</script>
+
+</body>
+</html>

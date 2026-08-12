@@ -410,4 +410,10 @@
   .callout-box {
     padding: 20px 20px;
   }
+
+  /* Role checkbox rows: bump to a full 44px tap target, matching the
+     min-height convention used for buttons/links elsewhere on mobile. */
+  .form-checkbox-label {
+    min-height: 44px;
+  }
 }

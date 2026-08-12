@@ -92,6 +92,10 @@
   .form-sublabel { display: block; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
   .form-match-row { margin-bottom: 12px; }
   .form-conditional { display: none; margin-top: 10px; }
+  .form-checkbox-row { margin-bottom: 12px; }
+  .form-checkbox-label { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 15px; color: var(--text-bright); cursor: pointer; }
+  .form-checkbox { accent-color: var(--gold); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+  .form-error { display: none; color: #c0392b; font-size: 14px; font-style: italic; margin-top: 10px; }
   .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
   .form-input:focus { border-color: var(--gold-dark); }
   .form-textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; line-height: 1.6; outline: none; resize: vertical; transition: border-color 0.2s; }
@@ -199,17 +203,49 @@
 
       <div class="form-grid">
         <div class="form-group">
-          <label class="form-label" for="field-role">Role to Focus On</label>
-          <select class="form-select" id="field-role" name="Role" required>
-            <option value="" disabled selected>Select a role</option>
-            <option value="Position 1 - Safelane Carry">Position 1 — Safelane Carry</option>
-            <option value="Position 2 - Midlane">Position 2 — Midlane</option>
-            <option value="Position 3 - Offlane">Position 3 — Offlane</option>
-            <option value="Position 4 - Soft Support">Position 4 — Soft Support</option>
-            <option value="Position 5 - Hard Support">Position 5 — Hard Support</option>
-            <option value="Something else - let me explain">Something else — let me explain</option>
-          </select>
-          <input class="form-input form-conditional" type="text" id="field-role-other" name="Role — other" maxlength="120" placeholder="Tell me in a sentence.">
+          <label class="form-label" for="field-role-1">Which Roles Should I Focus On?</label>
+          <div class="form-hint">Check as many as apply.</div>
+
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-1" name="Roles" value="Position 1 - Safelane Carry">
+              Position 1 — Safelane Carry
+            </label>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-2" name="Roles" value="Position 2 - Midlane">
+              Position 2 — Midlane
+            </label>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-3" name="Roles" value="Position 3 - Offlane">
+              Position 3 — Offlane
+            </label>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-4" name="Roles" value="Position 4 - Soft Support">
+              Position 4 — Soft Support
+            </label>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-5" name="Roles" value="Position 5 - Hard Support">
+              Position 5 — Hard Support
+            </label>
+          </div>
+          <div class="form-checkbox-row">
+            <label class="form-checkbox-label">
+              <input class="form-checkbox" type="checkbox" id="field-role-something-else" name="Roles" value="Something else">
+              Something else
+            </label>
+          </div>
+
+          <input class="form-input form-conditional" type="text" id="field-role-other" name="Roles — other" maxlength="120" placeholder="Explain briefly.">
+
+          <div class="form-error" id="role-error">Pick at least one.</div>
         </div>
 
         <div class="form-group">
@@ -227,7 +263,7 @@
           </select>
           <div class="form-conditional" id="group-immortal-mmr">
             <label class="form-label" for="field-immortal-mmr">Your MMR</label>
-            <input class="form-input" type="text" id="field-immortal-mmr" name="Immortal MMR" maxlength="10" placeholder="e.g. 8500">
+            <input class="form-input" type="text" id="field-immortal-mmr" name="Immortal MMR" maxlength="10">
           </div>
         </div>
       </div>
@@ -283,12 +319,30 @@
   const successBlock = document.getElementById('success-block');
   const submitBtn = document.getElementById('submit-btn');
 
-  // "Something else" reveals a free-text field for Role — required is only
-  // ever set in JS so a hidden field can never silently block submission.
-  const roleSelect = document.getElementById('field-role');
+  // Role checkboxes — "Something else" reveals a free-text field, required
+  // is only ever set in JS so a hidden field can never silently block
+  // submission. Separately, at least one checkbox must be checked; HTML
+  // required on a checkbox only enforces that single box, so that's
+  // handled in JS too, inside the submit handler below.
+  const roleCheckboxes = [].slice.call(document.querySelectorAll('input[name="Roles"]'));
+  const roleOtherCheckbox = document.getElementById('field-role-something-else');
   const roleOther = document.getElementById('field-role-other');
-  roleSelect.addEventListener('change', function () {
-    if (roleSelect.value === 'Something else - let me explain') {
+  const roleError = document.getElementById('role-error');
+
+  function anyRoleChecked() {
+    return roleCheckboxes.some(function (cb) { return cb.checked; });
+  }
+
+  roleCheckboxes.forEach(function (cb) {
+    cb.addEventListener('change', function () {
+      if (anyRoleChecked()) {
+        roleError.style.display = 'none';
+      }
+    });
+  });
+
+  roleOtherCheckbox.addEventListener('change', function () {
+    if (roleOtherCheckbox.checked) {
       roleOther.style.display = 'block';
       roleOther.required = true;
     } else {
@@ -335,6 +389,13 @@
   reviewForm.addEventListener('submit', function (e) {
     e.preventDefault();
     errorBlock.style.display = 'none';
+
+    if (!anyRoleChecked()) {
+      roleError.style.display = 'block';
+      return;
+    }
+    roleError.style.display = 'none';
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 

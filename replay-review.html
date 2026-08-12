@@ -89,6 +89,9 @@
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
   .form-label { display: block; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 8px; }
   .form-optional { color: var(--text-dim); font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; }
+  .form-sublabel { display: block; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+  .form-match-row { margin-bottom: 12px; }
+  .form-conditional { display: none; margin-top: 10px; }
   .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; transition: border-color 0.2s; }
   .form-input:focus { border-color: var(--gold-dark); }
   .form-textarea { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; line-height: 1.6; outline: none; resize: vertical; transition: border-color 0.2s; }
@@ -96,6 +99,7 @@
   .form-select { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', serif; font-size: 15px; outline: none; cursor: pointer; transition: border-color 0.2s; }
   .form-select:focus { border-color: var(--gold-dark); }
   .form-hint { font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; margin-top: 6px; }
+  .form-counter { font-size: 13px; font-style: italic; color: var(--text-dim); text-align: right; margin-top: 6px; }
   .form-note { font-size: 13px; color: var(--text); font-style: italic; margin-top: 20px; text-align: center; }
   .form-actions { text-align: center; margin-top: 32px; }
 
@@ -171,14 +175,25 @@
       <input type="hidden" name="_subject" value="New Replay Review request — Fountain of Wisdom">
 
       <div class="form-group">
-        <label class="form-label" for="field-matches">Match IDs</label>
-        <textarea class="form-textarea" id="field-matches" name="Match IDs" rows="3" required></textarea>
-        <div class="form-hint">Two or three, one per line — found in match history on Dotabuff or the Recent Games tab in the client.</div>
+        <label class="form-label" for="field-match-1">Match IDs</label>
+        <div class="form-match-row">
+          <label class="form-sublabel" for="field-match-1">Match ID 1</label>
+          <input class="form-input" type="text" id="field-match-1" name="Match ID 1" maxlength="11" inputmode="numeric" pattern="[0-9]*" required>
+        </div>
+        <div class="form-match-row">
+          <label class="form-sublabel" for="field-match-2">Match ID 2</label>
+          <input class="form-input" type="text" id="field-match-2" name="Match ID 2" maxlength="11" inputmode="numeric" pattern="[0-9]*" required>
+        </div>
+        <div class="form-match-row">
+          <label class="form-sublabel" for="field-match-3">Match ID 3 <span class="form-optional">(optional)</span></label>
+          <input class="form-input" type="text" id="field-match-3" name="Match ID 3" maxlength="11" inputmode="numeric" pattern="[0-9]*">
+        </div>
+        <div class="form-hint">Found in match history on Dotabuff or the Recent Games tab in the client.</div>
       </div>
 
       <div class="form-group">
         <label class="form-label" for="field-dotabuff">Dotabuff Profile</label>
-        <input class="form-input" type="url" id="field-dotabuff" name="Dotabuff Profile" required>
+        <input class="form-input" type="url" id="field-dotabuff" name="Dotabuff Profile" maxlength="100" required>
         <div class="form-hint">Must be public, or I can't see anything beyond the matches themselves.</div>
       </div>
 
@@ -192,9 +207,9 @@
             <option value="Position 3 - Offlane">Position 3 — Offlane</option>
             <option value="Position 4 - Soft Support">Position 4 — Soft Support</option>
             <option value="Position 5 - Hard Support">Position 5 — Hard Support</option>
-            <option value="Mixed / I play everything">Mixed / I play everything</option>
-            <option value="Not sure - that's part of the problem">Not sure — that's part of the problem</option>
+            <option value="Something else - let me explain">Something else — let me explain</option>
           </select>
+          <input class="form-input form-conditional" type="text" id="field-role-other" name="Role — other" maxlength="120" placeholder="Tell me in a sentence.">
         </div>
 
         <div class="form-group">
@@ -209,26 +224,24 @@
             <option value="Ancient">Ancient</option>
             <option value="Divine">Divine</option>
             <option value="Immortal">Immortal</option>
-            <option value="Uncalibrated / don't know">Uncalibrated / don't know</option>
           </select>
+          <div class="form-conditional" id="group-immortal-mmr">
+            <label class="form-label" for="field-immortal-mmr">Your MMR</label>
+            <input class="form-input" type="text" id="field-immortal-mmr" name="Immortal MMR" maxlength="10" placeholder="e.g. 8500">
+          </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="field-mmr">Approximate MMR <span class="form-optional">(optional)</span></label>
-        <input class="form-input" type="text" id="field-mmr" name="MMR">
-        <div class="form-hint">An estimate is fine — it sets the standard I hold the game to, not a bar you have to clear.</div>
-      </div>
-
-      <div class="form-group">
         <label class="form-label" for="field-focus">What Do You Want Looked At?</label>
-        <textarea class="form-textarea" id="field-focus" name="What to look at" rows="6" required></textarea>
+        <textarea class="form-textarea" id="field-focus" name="What to look at" rows="6" maxlength="1500" required></textarea>
+        <div class="form-counter" id="focus-counter">0 / 1500</div>
         <div class="form-hint">The more specific, the more you get back — "my laning" is a start, but "I keep losing lane as pos 4 against aggressive supports and I can't tell if it's my positioning or my pull timings" gets something worth reading.</div>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="field-discord">Discord Handle</label>
-        <input class="form-input" type="text" id="field-discord" name="Discord" required>
+        <label class="form-label" for="field-discord">Discord ID</label>
+        <input class="form-input" type="text" id="field-discord" name="Discord" maxlength="40" required>
         <div class="form-hint">This is where the review comes back.</div>
       </div>
 
@@ -269,6 +282,55 @@
   const errorBlock = document.getElementById('error-block');
   const successBlock = document.getElementById('success-block');
   const submitBtn = document.getElementById('submit-btn');
+
+  // "Something else" reveals a free-text field for Role — required is only
+  // ever set in JS so a hidden field can never silently block submission.
+  const roleSelect = document.getElementById('field-role');
+  const roleOther = document.getElementById('field-role-other');
+  roleSelect.addEventListener('change', function () {
+    if (roleSelect.value === 'Something else - let me explain') {
+      roleOther.style.display = 'block';
+      roleOther.required = true;
+    } else {
+      roleOther.style.display = 'none';
+      roleOther.required = false;
+      roleOther.value = '';
+    }
+  });
+
+  // Immortal reveals an MMR field — same required-in-JS-only rule applies.
+  const bracketSelect = document.getElementById('field-bracket');
+  const immortalGroup = document.getElementById('group-immortal-mmr');
+  const immortalInput = document.getElementById('field-immortal-mmr');
+  bracketSelect.addEventListener('change', function () {
+    if (bracketSelect.value === 'Immortal') {
+      immortalGroup.style.display = 'block';
+      immortalInput.required = true;
+    } else {
+      immortalGroup.style.display = 'none';
+      immortalInput.required = false;
+      immortalInput.value = '';
+    }
+  });
+
+  // Live character counter for "What to look at" only.
+  const focusField = document.getElementById('field-focus');
+  const focusCounter = document.getElementById('focus-counter');
+  const FOCUS_MAX = 1500;
+  function updateFocusCounter() {
+    const len = focusField.value.length;
+    focusCounter.textContent = len + ' / ' + FOCUS_MAX;
+    const ratio = len / FOCUS_MAX;
+    if (ratio >= 0.95) {
+      focusCounter.style.color = '#c0392b';
+    } else if (ratio >= 0.8) {
+      focusCounter.style.color = 'var(--gold)';
+    } else {
+      focusCounter.style.color = '';
+    }
+  }
+  focusField.addEventListener('input', updateFocusCounter);
+  updateFocusCounter();
 
   reviewForm.addEventListener('submit', function (e) {
     e.preventDefault();

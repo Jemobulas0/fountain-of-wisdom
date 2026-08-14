@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Test</title>
+<style>
+  body { background:#0a0c10; color:#c8cdd8; font-family:Georgia,serif; margin:0; padding:48px 24px; }
+  .wrap { max-width:1000px; margin:0 auto; }
+  h1 { font-size:14px; letter-spacing:3px; text-transform:uppercase; color:#c9a84c; font-weight:400; margin:0 0 40px; }
+  .row { border-bottom:1px solid #2a2f3d; padding:32px 0; }
+  .name { font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#6b7280; margin-bottom:20px; }
+  .sizes { display:flex; align-items:flex-end; gap:40px; flex-wrap:wrap; }
+  .cell { text-align:center; color:#c9a84c; }
+  .cap { font-size:10px; color:#6b7280; margin-top:8px; font-style:italic; }
+  .lockup { display:flex; align-items:center; gap:16px; color:#c9a84c; margin-top:16px; }
+  .lock-text { line-height:1.15; }
+  .lock-a { font-size:19px; letter-spacing:3.5px; color:#e8ecf4; }
+  .lock-b { font-size:19px; letter-spacing:3.5px; color:#c9a84c; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+<defs>
+
+<symbol id="a-line" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="3.5"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="3.5"/>
+    <path d="M28,52 C28,70 72,70 72,52"/>
+    <path d="M50,66 L50,78"/>
+    <path d="M36,78 L64,78"/>
+  </g>
+</symbol>
+
+<symbol id="a-solid" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="7"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="7"/>
+    <path d="M28,52 C28,70 72,70 72,52"/>
+    <path d="M50,66 L50,78"/>
+    <path d="M36,78 L64,78"/>
+  </g>
+</symbol>
+
+<symbol id="b-line" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="3.5"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="3.5"/>
+    <path d="M30,52 L38,68 L62,68 L70,52"/>
+    <path d="M50,68 L50,80"/>
+    <path d="M36,80 L64,80"/>
+  </g>
+</symbol>
+
+<symbol id="b-solid" viewBox="0 0 100 100">
+  <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="7"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="7"/>
+    <path d="M30,52 L38,68 L62,68 L70,52"/>
+    <path d="M50,68 L50,80"/>
+    <path d="M36,80 L64,80"/>
+  </g>
+</symbol>
+
+<symbol id="c-line" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#3a3020" stroke-width="2"/>
+  <g transform="translate(11,11) scale(0.78)" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="4"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="4"/>
+    <path d="M28,52 C28,70 72,70 72,52"/>
+    <path d="M50,66 L50,78"/>
+    <path d="M36,78 L64,78"/>
+  </g>
+</symbol>
+
+<symbol id="c-solid" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#3a3020" stroke-width="4"/>
+  <g transform="translate(11,11) scale(0.78)" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round">
+    <path d="M50,18 L50,52"/>
+    <path d="M50,18 C38,26 33,38 33,50" stroke-width="8"/>
+    <path d="M50,18 C62,26 67,38 67,50" stroke-width="8"/>
+    <path d="M28,52 C28,70 72,70 72,52"/>
+    <path d="M50,66 L50,78"/>
+    <path d="M36,78 L64,78"/>
+  </g>
+</symbol>
+
+</defs>
+</svg>
+
+<div class="wrap">
+<h1>Fountain of Wisdom — logo candidates</h1>
+
+<div class="row">
+  <div class="name">A — Open arc · line</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#a-line"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#a-line"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#a-line"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#a-line"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="name">A — Open arc · solid</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#a-solid"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#a-solid"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#a-solid"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#a-solid"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="name">B — Chalice · line</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#b-line"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#b-line"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#b-line"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#b-line"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="name">B — Chalice · solid</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#b-solid"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#b-solid"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#b-solid"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#b-solid"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="name">C — Enclosed · line</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#c-line"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#c-line"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#c-line"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#c-line"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="name">C — Enclosed · solid</div>
+  <div class="sizes">
+    <div class="cell"><svg width="160" height="160"><use href="#c-solid"/></svg><div class="cap">160</div></div>
+    <div class="cell"><svg width="48" height="48"><use href="#c-solid"/></svg><div class="cap">48</div></div>
+    <div class="cell"><svg width="32" height="32"><use href="#c-solid"/></svg><div class="cap">32</div></div>
+    <div class="cell"><svg width="16" height="16"><use href="#c-solid"/></svg><div class="cap">16</div></div>
+  </div>
+</div>
+
+<div class="row" style="border-bottom:none">
+  <div class="name">Lockup preview</div>
+  <div class="lockup"><svg width="64" height="64"><use href="#a-line"/></svg><div class="lock-text"><div class="lock-a">THE FOUNTAIN</div><div class="lock-b">OF WISDOM</div></div></div>
+  <div class="lockup"><svg width="64" height="64"><use href="#b-line"/></svg><div class="lock-text"><div class="lock-a">THE FOUNTAIN</div><div class="lock-b">OF WISDOM</div></div></div>
+  <div class="lockup"><svg width="64" height="64"><use href="#c-line"/></svg><div class="lock-text"><div class="lock-a">THE FOUNTAIN</div><div class="lock-b">OF WISDOM</div></div></div>
+</div>
+
+</div>
+</body>
+</html>

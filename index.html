@@ -200,6 +200,16 @@
     color: var(--gold);
   }
 
+  .gate {
+    display: inline-block;
+    vertical-align: -0.30em;
+    width: 1.12em;
+    height: 1.12em;
+    color: var(--gold);
+    margin-left: -0.09em;
+    margin-right: -0.05em;
+  }
+
   .hero-subtitle {
     font-family: 'Cinzel', serif;
     font-size: clamp(12px, 2vw, 16px);
@@ -701,6 +711,19 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="gate-red" viewBox="0 0 100 100">
+  <path d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#e03a2a" stroke-width="7" stroke-linecap="round"/>
+</symbol>
+<symbol id="gate-blue" viewBox="0 0 100 100">
+  <path d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#3ec6e0" stroke-width="7" stroke-linecap="round"/>
+</symbol>
+</defs></svg>
+
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-brand">The Fountain of Wisdom</a>
@@ -719,7 +742,7 @@
     <div class="hero-grid-lines"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">DotA 2 Knowledge Hub</div>
-      <h1 class="hero-title">The Fountain<br><span>of Wisdom</span></h1>
+      <h1 class="hero-title">The F<svg class="gate"><use href="#gate-red"/></svg>untain<br><span>of Wisd<svg class="gate"><use href="#gate-blue"/></svg>m</span></h1>
       <div class="hero-subtitle">Know the game. Master yourself.</div>
       <div class="hero-divider"></div>
       <p class="hero-desc">

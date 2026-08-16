@@ -5,37 +5,24 @@
    names aren't globally unique.
 
    Sections:
+   0. Nav — its own 860px breakpoint (wider than everything else below,
+      see comment above that block for why), responsive + tap targets
    1. Overflow safety net (no horizontal scroll)
-   2. Nav — responsive + tap targets
-   3. Grid collapse (768px / 480px)
-   4. Container edge padding (16px)
-   5. Tap target sizing (buttons, links, cards)
-   6. Body text minimum size + line-height
-   7. Heading size reduction
+   2. Grid collapse (768px / 480px)
+   3. Container edge padding (16px)
+   4. Tap target sizing (buttons, links, cards)
+   5. Body text minimum size + line-height
+   6. Heading size reduction
    ══════════════════════════════════════════════════════════ */
 
-@media (max-width: 768px) {
-
-  /* ── 1. OVERFLOW SAFETY NET ─────────────────────────────── */
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  img, svg {
-    max-width: 100%;
-  }
-  /* footer-links is a single nowrap row on desktop (5 links across every
-     page); at ~320px width it no longer fits and pushes past the edge. */
-  .footer-links {
-    flex-wrap: wrap;
-    row-gap: 8px;
-  }
-
-  /* ── 2. NAV — all pages share this markup/class structure.
-     The link row doesn't fit at mobile widths, so instead of
-     wrapping (which would change nav height and require
-     re-tuning every page's top padding), it scrolls horizontally
-     within the nav bar itself. Nav height stays 56px everywhere. ── */
+/* ── NAV — all pages share this six-item markup (Heroes/Items/Concepts/
+   Guides/Support/Coaching). It stops fitting on one line well above the
+   768px content breakpoint below, so it gets its own wider one: measured
+   overflow starting ~800-810px, comfortably clear by 840px. Below this
+   width the link row scrolls horizontally within the nav bar itself
+   rather than wrapping (wrapping would change nav height and require
+   re-tuning every page's top padding). Nav height stays 56px throughout. ── */
+@media (max-width: 860px) {
   nav {
     padding: 0 16px;
   }
@@ -66,6 +53,24 @@
     padding-left: 4px;
     padding-right: 4px;
   }
+}
+
+@media (max-width: 768px) {
+
+  /* ── 1. OVERFLOW SAFETY NET ─────────────────────────────── */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  img, svg {
+    max-width: 100%;
+  }
+  /* footer-links is a single nowrap row on desktop (5 links across every
+     page); at ~320px width it no longer fits and pushes past the edge. */
+  .footer-links {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
 
   /* items/iron_branch.html — .header is a flex row (avatar + name + badge)
      here. hero_template.html reuses the same class name for its grid
@@ -91,7 +96,7 @@
     letter-spacing: 1.5px;
   }
 
-  /* ── 3. GRID COLLAPSE ── */
+  /* ── 2. GRID COLLAPSE ── */
 
   /* index.html */
   .tiles-grid,
@@ -218,7 +223,7 @@
     white-space: normal;
   }
 
-  /* ── 4. CONTAINER EDGE PADDING — 16px everywhere, overriding
+  /* ── 3. CONTAINER EDGE PADDING — 16px everywhere, overriding
      the 20–40px desktop side padding. Top/bottom padding is left
      alone; only the left/right edge is touched. ── */
   .hero,
@@ -249,7 +254,7 @@
     padding-right: 16px;
   }
 
-  /* ── 5. TAP TARGET SIZING — 44px minimum in the smallest dimension ── */
+  /* ── 4. TAP TARGET SIZING — 44px minimum in the smallest dimension ── */
   .btn-primary,
   .btn-secondary,
   .back-link-bottom,
@@ -274,7 +279,7 @@
     font-size: 16px;
   }
 
-  /* ── 6. BODY TEXT — minimum 16px, ~1.6 line-height, on mobile.
+  /* ── 5. BODY TEXT — minimum 16px, ~1.6 line-height, on mobile.
      Scoped to actual reading content (descriptions, notes, tips,
      list items). Decorative UI chrome — nav links, badges/tags,
      section eyebrows, footer links, button labels, timestamps —
@@ -343,7 +348,7 @@
     font-size: 16px;
   }
 
-  /* ── 7. HEADING SIZE REDUCTION — the hero titles and section
+  /* ── 6. HEADING SIZE REDUCTION — the hero titles and section
      titles already use clamp() and self-limit at mobile widths.
      .page-title (concepts/guides/heroes/items) is a fixed 36px
      and doesn't — it's the one heading that needs a mobile override. ── */

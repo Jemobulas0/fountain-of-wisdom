@@ -9,8 +9,8 @@
 <meta property="og:site_name" content="The Fountain of Wisdom">
 <meta property="og:title" content="Replay Review — The Fountain of Wisdom">
 <meta property="og:description" content="Send your DotA 2 replays for review — submit two or three games and get back a coach's honest read on the pattern you can't see yourself.">
-<meta property="og:url" content="https://jemobulas0.github.io/fountain-of-wisdom/replay-review.html">
-<meta property="og:image" content="https://jemobulas0.github.io/fountain-of-wisdom/og-image-v2.png">
+<meta property="og:url" content="https://thefountainofwisdom.com/replay-review.html">
+<meta property="og:image" content="https://thefountainofwisdom.com/og-image-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -178,7 +178,6 @@
     <div class="callout-title">Which Games to Send</div>
     <p class="callout-text">Not your worst losses, and not your best wins. You are one player out of ten — a fifth of your own team. The result of a DotA game is mostly other people. What matters is your own read of it.</p>
     <p class="callout-text">Send the games where something felt off. Where you were unsure what to do next and picked something anyway. Where it slipped away and you still can't say when. Where you already know there's a mistake in there but can't name it.</p>
-    <p class="callout-text">Send two or three. Two if you want one game opened properly. Three if you suspect the same thing keeps going wrong and you want me to find what it is. Either is fine — pick whichever matches what you're actually asking.</p>
   </div>
 
   <!-- FORM -->
@@ -190,6 +189,7 @@
 
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <input type="hidden" name="_subject" value="New Replay Review request — Fountain of Wisdom">
+      <input type="hidden" name="_next" value="https://buy.stripe.com/fZu5kE7KB3fEdAS9Lt8N200">
 
       <div class="form-group">
         <label class="form-label" for="field-match-1">Match IDs</label>
@@ -198,8 +198,8 @@
           <input class="form-input" type="text" id="field-match-1" name="Match ID 1" maxlength="11" inputmode="numeric" pattern="[0-9]*" required>
         </div>
         <div class="form-match-row">
-          <label class="form-sublabel" for="field-match-2">Match ID 2</label>
-          <input class="form-input" type="text" id="field-match-2" name="Match ID 2" maxlength="11" inputmode="numeric" pattern="[0-9]*" required>
+          <label class="form-sublabel" for="field-match-2">Match ID 2 <span class="form-optional">(optional)</span></label>
+          <input class="form-input" type="text" id="field-match-2" name="Match ID 2" maxlength="11" inputmode="numeric" pattern="[0-9]*">
         </div>
         <div class="form-match-row">
           <label class="form-sublabel" for="field-match-3">Match ID 3 <span class="form-optional">(optional)</span></label>
@@ -293,20 +293,13 @@
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn-primary" id="submit-btn">Send for Review</button>
+        <button type="submit" class="btn-primary" id="submit-btn">Continue to Payment</button>
         <div class="form-note">Pay what you feel it was worth, after you've read it, not before — no price, no card, nothing up front.</div>
       </div>
 
       <div class="error-block" id="error-block">Something went wrong sending that. Try again, or reach out on Discord instead.</div>
 
     </form>
-
-    <div class="success-block" id="success-block">
-      <div class="success-icon">✓</div>
-      <div class="success-title">Games Received</div>
-      <p class="success-text">I'll watch them properly rather than quickly, so give me a few days. The review comes back to you on Discord.</p>
-      <a href="index.html" class="btn-secondary">Return Home</a>
-    </div>
 
   </div>
 
@@ -320,6 +313,7 @@
     <a href="concepts.html">Concepts</a>
     <a href="guides.html">Guides</a>
     <a href="coaching.html">Coaching</a>
+    <a href="support.html">Support</a>
   </div>
   <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemo</div>
   <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
@@ -328,7 +322,6 @@
 <script>
   const reviewForm = document.getElementById('review-form');
   const errorBlock = document.getElementById('error-block');
-  const successBlock = document.getElementById('success-block');
   const submitBtn = document.getElementById('submit-btn');
 
   // Role checkboxes — "Something else" reveals a free-text field, required
@@ -417,15 +410,14 @@
       headers: { 'Accept': 'application/json' }
     }).then(function (response) {
       if (response.ok) {
-        reviewForm.style.display = 'none';
-        successBlock.style.display = 'block';
+        window.location.href = reviewForm.querySelector('input[name="_next"]').value;
       } else {
         throw new Error('Submission failed');
       }
     }).catch(function () {
       errorBlock.style.display = 'block';
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send for Review';
+      submitBtn.textContent = 'Continue to Payment';
     });
   });
 </script>

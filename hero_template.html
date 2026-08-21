@@ -111,7 +111,7 @@
   /* ── POSITIONS ── */
   .positions-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; }
   .pos-circle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--gold-dark); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 18px; font-weight: 600; line-height: 1; padding-top: 0.1em; color: var(--gold-dark); background: var(--bg); }
-  .pos-circle.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); box-shadow: 0 0 12px rgba(201,168,76,0.2); }
+  .pos-circle.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.1); }
   .roles-text { text-align: center; font-size: 17px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; font-family: 'Cinzel', serif; margin-bottom: 16px; }
   .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .pros-cons-col h4 { font-family: 'Cinzel', serif; font-size: 18px; letter-spacing: 2px; margin-bottom: 12px; text-transform: uppercase; text-align: center; font-weight: 700; }
@@ -131,7 +131,8 @@
 
   /* ── SKILL / ITEM BUILDS ── */
   .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; display: flex; flex-direction: column; }
+  .build-card:has(.item-phase) .build-note { margin-top: auto; }
   .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
 
   .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
@@ -162,14 +163,14 @@
 
   .talent-tree { display: grid; grid-template-rows: repeat(4, 1fr); gap: 4px; margin-top: 8px; }
   .talent-row { display: flex; align-items: stretch; gap: 4px; }
-  .talent-box { flex: 1 1 0; min-width: 0; font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; font-weight: 400; letter-spacing: 0.3px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 3px 6px; line-height: 1.3; text-align: center; display: flex; align-items: center; justify-content: center; }
+  .talent-box { flex: 1 1 0; min-width: 0; min-height: 50px; font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; font-weight: 400; letter-spacing: 0.3px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 3px 6px; line-height: 1.3; text-align: center; display: flex; align-items: center; justify-content: center; }
   .talent-box.chosen { color: var(--gold); border-color: var(--gold-dark); background: rgba(201,168,76,0.08); box-shadow: 0 0 6px rgba(201,168,76,0.15); }
-  .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
+  .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; line-height: 1; padding-top: 0.1em; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
 
   /* ── ITEM BUILDS ── */
   .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
   .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
-  .item-phase-label { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 1.5px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
   .item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
   .item-note-inline { font-size: 16px; color: var(--text); font-style: italic; margin: 6px 0 0; }

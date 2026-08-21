@@ -97,7 +97,12 @@
 
     // Ability type (e.g. "Ability: Point Target")
     if (item.type) {
-      html += '<div class="fow-tt-type">' + item.type + '</div>';
+      var typeMatch = item.type.match(/^([^:]+:)\s*(.*)$/);
+      if (typeMatch) {
+        html += '<div class="fow-tt-type"><span class="fow-tt-type-label">' + typeMatch[1] + '</span> <span class="fow-tt-type-value">' + typeMatch[2] + '</span></div>';
+      } else {
+        html += '<div class="fow-tt-type">' + item.type + '</div>';
+      }
     }
 
     // Passive stats

@@ -141,15 +141,15 @@
   "tips": [
     {
       "level": "basic",
-      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard|slardar] - [ability:slardar_slithereen_crush] first applies your [ability:slardar_amplify_damage] & only then it deals its now amplified damage."
+      "text": "Your hero is 100% completely Physical - including your spells. Whenever possible use all available Armor Reduction sources at your disposal before unleashing your damage onto your target. And don't worry about your [item:aghanims_shard|slardar] - [ability:slardar_slithereen_crush] Slithereen Crush first applies your [ability:slardar_amplify_damage] Corrosive Haze & only then it deals its now amplified damage."
     },
     {
       "level": "basic",
-      "text": "You can reveal invisible units once you have your [item:aghanims_shard|slardar]. [ability:slardar_slithereen_crush] is an AoE ability & it will hit everyone around you while also applying [ability:slardar_amplify_damage] in the process."
+      "text": "You can reveal invisible units once you have your [item:aghanims_shard|slardar]. [ability:slardar_slithereen_crush] Slithereen Crush is an AoE ability & it will hit everyone around you while also applying [ability:slardar_amplify_damage] Corrosive Haze in the process."
     },
     {
       "level": "basic",
-      "text": "[ability:slardar_sprint] grants you 100% Slow Resistance for 2.5s. This means that you have an answer to heroes like [hero:venomancer] with a million slows, but keep in mind that abilities that affect your maximum movement speed counter you hard like [hero:tidehunter]'s [ability:tidehunter_dead_in_the_water]."
+      "text": "[ability:slardar_sprint] Guardian Sprint grants you 100% Slow Resistance for 2.5s. This means that you have an answer to heroes like [hero:venomancer] with a million slows, but keep in mind that abilities that affect your maximum movement speed counter you hard like [hero:tidehunter]'s [ability:tidehunter_dead_in_the_water] Dead in the Water."
     },
     {
       "level": "basic",
@@ -157,19 +157,19 @@
     },
     {
       "level": "basic",
-      "text": "Slardar is one of the few heroes where every next Talent that he gets is both a significant upgrade to his kit and also increasingly more impactful than the one before. This culminates with his [ability:slardar_amplify_damage] being Undispellable, which ultimately makes his kit practically uncounterable. At this point in the game people have numerous sources of Debuff Immunity & Dispels. And now all of a sudden none of them work. Combined with [ability:slardar_bash], you're an absolute menace."
+      "text": "Slardar is one of the few heroes where every next Talent that he gets is both a significant upgrade to his kit and also increasingly more impactful than the one before. This culminates with his [ability:slardar_amplify_damage] Corrosive Haze being Undispellable, which ultimately makes his kit practically uncounterable. At this point in the game people have numerous sources of Debuff Immunity & Dispels. And now all of a sudden none of them work. Combined with [ability:slardar_bash] Bash of the Deep, you're an absolute menace."
     },
     {
       "level": "basic",
-      "text": "Speaking of Trail - [ability:slardar_amplify_damage] leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your Seaborn Sentinel is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
+      "text": "Speaking of Trail - [ability:slardar_amplify_damage] Corrosive Haze leaves a water trail. This doesn't help you if you're running away from somebody, but it absolutely means that your Seaborn Sentinel is fully active while chasing down your target. Don't underestimate your ability to catch up to fleeing enemies."
     },
     {
       "level": "advanced",
-      "text": "Pre-[item:aghanims_shard|slardar] it's crucial to know when you can jump an enemy with [ability:slardar_amplify_damage] & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] or an auto attack with a prepared [ability:slardar_bash] on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard|slardar]. Then you always want to open up with [ability:slardar_slithereen_crush] first."
+      "text": "Pre-[item:aghanims_shard|slardar] it's crucial to know when you can jump an enemy with [ability:slardar_amplify_damage] Corrosive Haze & then unload the rest of your kit. And when you have to open up with a CC before you're allowed to ult them. Mobile heroes who can escape you between your ult & CC require an instant disable on your part. And here is your second optimization: you can choose between opening up with [ability:slardar_slithereen_crush] Slithereen Crush or an auto attack with a prepared [ability:slardar_bash] Bash of the Deep on your next attack. Your spell deals 300 damage when maxed out & in the early game it's more powerful than your attack. But the moment your normal attack damage goes above 100, then combined with the +200 bash damage it's now the stronger option. You'll deal more damage if you open up with your less damaging option & then cast your ult followed by your other option. Of course all of this optimization becomes irrelevant once you get your [item:aghanims_shard|slardar]. Then you always want to open up with [ability:slardar_slithereen_crush] Slithereen Crush first."
     },
     {
       "level": "advanced",
-      "text": "[item:ultimate_scepter|slardar] is Slardar's signature item. The 2 main things which people most often forget are the bonus Status Resistance & AoE + Duration to his Puddle & Trail. This item unlocks your ability to not only be an initiator, but also a standard frontliner for your team. Just go up to a tower, cast [ability:slardar_slithereen_crush] before anyone jumps you and now you're near-unkillable."
+      "text": "[item:ultimate_scepter|slardar] is Slardar's signature item. The 2 main things which people most often forget are the bonus Status Resistance & AoE + Duration to his Puddle & Trail. This item unlocks your ability to not only be an initiator, but also a standard frontliner for your team. Just go up to a tower, cast [ability:slardar_slithereen_crush] Slithereen Crush before anyone jumps you and now you're near-unkillable."
     }
   ],
 

@@ -275,19 +275,19 @@
   "tips": [
     {
       "level": "basic",
-      "text": "You can use [ability:phantom_assassin_stifling_dagger] right after doing an auto attack to cancel your wind-up animation & increase your damage output."
+      "text": "You can use [ability:phantom_assassin_stifling_dagger] Stifling Dagger right after doing an auto attack to cancel your wind-up animation & increase your damage output."
     },
     {
       "level": "basic",
-      "text": "During the laning stage you can walk behind trees to hide from enemy vision when casting [ability:phantom_assassin_stifling_dagger]. This way you won't give free [item:magic_stick] charges to the enemy heroes."
+      "text": "During the laning stage you can walk behind trees to hide from enemy vision when casting [ability:phantom_assassin_stifling_dagger] Stifling Dagger. This way you won't give free [item:magic_stick] charges to the enemy heroes."
     },
     {
       "level": "basic",
-      "text": "You can prepare your [ability:phantom_assassin_coup_de_grace] before going into a fight. If you have creeps around you & a few seconds to prepare - attack them until you proc your ult & make your next attack to be a crit. Then go in & mess people up. Same goes for the laning stage once you hit level 6. If up to this point the lane was 50/50, quite often this is what forces the enemy offlaner to leave, as you can now just spam [ability:phantom_assassin_stifling_dagger] with a guaranteed crit each time."
+      "text": "You can prepare your [ability:phantom_assassin_coup_de_grace] Coup de Grace before going into a fight. If you have creeps around you & a few seconds to prepare - attack them until you proc your ult & make your next attack to be a crit. Then go in & mess people up. Same goes for the laning stage once you hit level 6. If up to this point the lane was 50/50, quite often this is what forces the enemy offlaner to leave, as you can now just spam [ability:phantom_assassin_stifling_dagger] Stifling Dagger with a guaranteed crit each time."
     },
     {
       "level": "basic",
-      "text": "For the majority of the game using [ability:phantom_assassin_stifling_dagger] instead of auto attack when your [ability:phantom_assassin_coup_de_grace] is prepared will cause more damage - so prioritize the dagger for crits whenever you can."
+      "text": "For the majority of the game using [ability:phantom_assassin_stifling_dagger] Stifling Dagger instead of auto attack when your [ability:phantom_assassin_coup_de_grace] Coup de Grace is prepared will cause more damage - so prioritize the dagger for crits whenever you can."
     },
     {
       "level": "basic",
@@ -295,15 +295,15 @@
     },
     {
       "level": "advanced",
-      "text": "You can cast [ability:phantom_assassin_blur] to disjoint enemy projectiles. If timed well it works even if there are enemy heroes next to you."
+      "text": "You can cast [ability:phantom_assassin_blur] Blur to disjoint enemy projectiles. If timed well it works even if there are enemy heroes next to you."
     },
     {
       "level": "advanced",
-      "text": "Since [ability:phantom_assassin_phantom_strike] has 2 charges, you can use it to either go all in for maximum damage output. Or to jump in - do some damage/burst somebody - jump out."
+      "text": "Since [ability:phantom_assassin_phantom_strike] Phantom Strike has 2 charges, you can use it to either go all in for maximum damage output. Or to jump in - do some damage/burst somebody - jump out."
     },
     {
       "level": "advanced",
-      "text": "[ability:phantom_assassin_blur] hides your presence on the minimap. But it also makes you untargetable. This means that certain threats like [hero:spirit_breaker] or short-range spells are a much less threat to you than to most other carries in the game."
+      "text": "[ability:phantom_assassin_blur] Blur hides your presence on the minimap. But it also makes you untargetable. This means that certain threats like [hero:spirit_breaker] or short-range spells are a much less threat to you than to most other carries in the game."
     }
   ],
   "allies_and_counters": {

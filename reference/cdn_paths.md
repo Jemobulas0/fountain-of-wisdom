@@ -42,6 +42,9 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 |---|---|---|
 | Khanda | `angels_demise` | Item was renamed; CDN still uses the original. |
 | Parasma | `devastator` | Item was renamed; CDN still uses the original. |
+| Gleipnir | `gungir` | Item was renamed; CDN still uses the original. |
+| Aghanim's Blessing | `ultimate_scepter_2` | CDN uses this internal name instead of the current in-game name. |
+| Crella's Crozier | `crellas_crozier` | Confirmed via api.opendota.com/api/constants/items — display name matches exactly. |
 
 ## When adding new entries
 

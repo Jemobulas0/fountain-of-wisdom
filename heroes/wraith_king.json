@@ -293,19 +293,19 @@
   "tips": [
     {
       "level": "basic",
-      "text": "[ability:skeleton_king_hellfire_blast] orders all Skeletons in the vicinity to target that unit. Whenever you want to pop-Skellies in somebody's face & run him down - wait for your Skeletons to actually complete their summoning process & then cast the stun."
+      "text": "[ability:skeleton_king_hellfire_blast] Wraithfire Blast orders all Skeletons in the vicinity to target that unit. Whenever you want to pop-Skellies in somebody's face & run him down - wait for your Skeletons to actually complete their summoning process & then cast the stun."
     },
     {
       "level": "basic",
-      "text": "[ability:skeleton_king_bone_guard] gains charges from denying units as well - including heroes."
+      "text": "[ability:skeleton_king_bone_guard] Bone Guard gains charges from denying units as well - including heroes."
     },
     {
       "level": "basic",
-      "text": "Make sure to utilize [ability:skeleton_king_mortal_strike] in lane properly. Either secure an important last hit or simply harass an enemy hero when the crit is available. Don't just waste it on a guaranteed last hit if there's something better that you can do with it."
+      "text": "Make sure to utilize [ability:skeleton_king_mortal_strike] Mortal Strike in lane properly. Either secure an important last hit or simply harass an enemy hero when the crit is available. Don't just waste it on a guaranteed last hit if there's something better that you can do with it."
     },
     {
       "level": "advanced",
-      "text": "You can self-cast [ability:skeleton_king_reincarnation] in order to instantly kill yourself. The most frequent use case for this is when you're about to have your Mana burned or drained before you're about to die. Second most is when you want to trigger your lvl 25 talent in order to cast [ability:skeleton_king_hellfire_blast] at everyone in the vicinity. And probably the rarest use case is when you simply want to slow down a fleeing enemy so your teammates can catch up to him."
+      "text": "You can self-cast [ability:skeleton_king_reincarnation] Reincarnation in order to instantly kill yourself. The most frequent use case for this is when you're about to have your Mana burned or drained before you're about to die. Second most is when you want to trigger your lvl 25 talent in order to cast [ability:skeleton_king_hellfire_blast] Wraithfire Blast at everyone in the vicinity. And probably the rarest use case is when you simply want to slow down a fleeing enemy so your teammates can catch up to him."
     },
     {
       "level": "advanced",
@@ -313,7 +313,7 @@
     },
     {
       "level": "advanced",
-      "text": "I can't stress enough how important it is to git gud with [ability:skeleton_king_bone_guard] if you aim at mastering the hero."
+      "text": "I can't stress enough how important it is to git gud with [ability:skeleton_king_bone_guard] Bone Guard if you aim at mastering the hero."
     },
     {
       "level": "advanced",

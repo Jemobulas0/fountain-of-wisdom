@@ -282,27 +282,27 @@
   "tips": [
     {
       "level": "basic",
-      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel]. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel]. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
+      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel] Duel. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel] Duel. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
     },
     {
       "level": "basic",
-      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel]. This means that you can instantly cast [ability:legion_commander_duel] giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack]."
+      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press the Attack."
     },
     {
       "level": "basic",
-      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel]. This means that things like [item:blade_mail] & [item:armlet] need to be activated right before casting [ability:legion_commander_duel]."
+      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel] Duel. This means that things like [item:blade_mail] & [item:armlet] need to be activated right before casting [ability:legion_commander_duel] Duel."
     },
     {
       "level": "basic",
-      "text": "Since your hero is gaining both damage & more frequent auto attacks from her kit, usually your build evolves around first enabling you to [ability:legion_commander_duel] an enemy hero of your choice successfully, which often takes a couple of items to ensure. And by that point Daedalus is often times your best DPS item since it best utilizes all the damage that you've already accumulated from your ultimate."
+      "text": "Since your hero is gaining both damage & more frequent auto attacks from her kit, usually your build evolves around first enabling you to [ability:legion_commander_duel] Duel an enemy hero of your choice successfully, which often takes a couple of items to ensure. And by that point Daedalus is often times your best DPS item since it best utilizes all the damage that you've already accumulated from your ultimate."
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_moment_of_courage] can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
+      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_press_the_attack] is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] or [hero:bane]'s [ability:bane_fiends_grip] & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
+      "text": "[ability:legion_commander_press_the_attack] Press the Attack is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] Primal Roar or [hero:bane]'s [ability:bane_fiends_grip] Fiend's Grip & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
     },
     {
       "level": "advanced",
@@ -310,7 +310,7 @@
     },
     {
       "level": "advanced",
-      "text": "Two main decisions separate good LC players from great ones. When to stop primarily roaming for random [ability:legion_commander_duel] kills & transition into a more team fighting mentality. And which are your most important targets to [ability:legion_commander_duel]."
+      "text": "Two main decisions separate good LC players from great ones. When to stop primarily roaming for random [ability:legion_commander_duel] Duel kills & transition into a more team fighting mentality. And which are your most important targets to [ability:legion_commander_duel] Duel."
     },
     {
       "level": "advanced",

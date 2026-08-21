@@ -154,11 +154,11 @@
     },
     {
       "level": "basic",
-      "text": "[ability:juggernaut_omni_slash] Omnislash's number of hits is based on your Attack Speed. [ability:juggernaut_blade_dance] & all on-hit effects also work fully during your ultimate."
+      "text": "[ability:juggernaut_omni_slash] Omnislash's number of hits is based on your Attack Speed. [ability:juggernaut_blade_dance] Blade Dance & all on-hit effects also work fully during your ultimate."
     },
     {
       "level": "basic",
-      "text": "During [ability:juggernaut_blade_fury] Blade Fury you can still proc on-hit effects on units and also deal normal damage to non-units like buildings, wards & Phoenix's [ability:phoenix_supernova] or KotL's [ability:keeper_of_the_light_will_o_wisp]."
+      "text": "During [ability:juggernaut_blade_fury] Blade Fury you can still proc on-hit effects on units and also deal normal damage to non-units like buildings, wards & Phoenix's [ability:phoenix_supernova] Supernova or KotL's [ability:keeper_of_the_light_will_o_wisp] Will-o-Wisp."
     },
     {
       "level": "advanced",

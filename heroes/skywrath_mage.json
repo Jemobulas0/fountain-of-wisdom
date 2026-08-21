@@ -259,8 +259,8 @@
             },
             "octarine_core",
             "blink",
-            "crella_crozier",
-            "aghanims_blessing",
+            "crellas_crozier",
+            "ultimate_scepter_2",
             "yasha_and_kaya",
             "arcane_blink"
           ]
@@ -272,7 +272,7 @@
   "situational_items": [
     {
       "id": "ghost",
-      "note": "Protection vs Physical. Also builds into [item:crella_crozier]."
+      "note": "Protection vs Physical. Also builds into [item:crellas_crozier]."
     },
     {
       "id": "cyclone",
@@ -287,7 +287,7 @@
       "note": "Breaks Passives. Keep in mind that in your case the Break will apply only once [ability:skywrath_mage_arcane_bolt] has connected with the target."
     },
     {
-      "id": "gleipnir",
+      "id": "gungir",
       "note": "A good counter against mobile heroes like the Spirits for ex. Do keep in mind that while it allows you to more easily land your ult, it also makes it easier for enemy heroes to stack together inside it & share the damage thus saving your kill target."
     },
     {
@@ -298,7 +298,7 @@
   "tips": [
     {
       "level": "basic",
-      "text": "[ability:skywrath_mage_ancient_seal] serves 2 main purposes that can be used either in conjunction or separately: Silence & Magic Damage Amplification."
+      "text": "[ability:skywrath_mage_ancient_seal] Ancient Seal serves 2 main purposes that can be used either in conjunction or separately: Silence & Magic Damage Amplification."
     },
     {
       "level": "basic",
@@ -306,7 +306,7 @@
     },
     {
       "level": "basic",
-      "text": "[ability:skywrath_mage_mystic_flare] will deal damage only to enemy heroes as long as at least one is receiving damage from the spell. If there are no heroes, then the spell will deal damage to creeps. The spell also splits its damage between all units hit. So ideally in most cases you aim to only hit a single hero when attempting to burst somebody down."
+      "text": "[ability:skywrath_mage_mystic_flare] Mystic Flare will deal damage only to enemy heroes as long as at least one is receiving damage from the spell. If there are no heroes, then the spell will deal damage to creeps. The spell also splits its damage between all units hit. So ideally in most cases you aim to only hit a single hero when attempting to burst somebody down."
     },
     {
       "level": "basic",
@@ -314,15 +314,15 @@
     },
     {
       "level": "advanced",
-      "text": "If you can't rely on items or teammates to lock down an enemy hero for you to reliable ult him, your best bet is to use the slow from [ability:skywrath_mage_concussive_shot] & cast your ult just so slightly in front of your target in the direction that he's moving at. Here you can easily see the difference between a good player & a master. The latter can get into the head of his opponent and cast the ult at the exact moment that his victim is making a split-second decision and can not immediately react to dodge properly, thus eating the entire spell."
+      "text": "If you can't rely on items or teammates to lock down an enemy hero for you to reliable ult him, your best bet is to use the slow from [ability:skywrath_mage_concussive_shot] Concussive Shot & cast your ult just so slightly in front of your target in the direction that he's moving at. Here you can easily see the difference between a good player & a master. The latter can get into the head of his opponent and cast the ult at the exact moment that his victim is making a split-second decision and can not immediately react to dodge properly, thus eating the entire spell."
     },
     {
       "level": "advanced",
-      "text": "[ability:skywrath_mage_arcane_bolt] provides vision around itself. This turns its slow projectile speed from a disadvantage into an advantage. Reason being is that you can keep spamming Arcane Bolt on your target because you'll get vision over him before your previous cast hits him. Especially nasty for heroes trying to juke you in trees, Rosh pit, etc."
+      "text": "[ability:skywrath_mage_arcane_bolt] Arcane Bolt provides vision around itself. This turns its slow projectile speed from a disadvantage into an advantage. Reason being is that you can keep spamming Arcane Bolt on your target because you'll get vision over him before your previous cast hits him. Especially nasty for heroes trying to juke you in trees, Rosh pit, etc."
     },
     {
       "level": "advanced",
-      "text": "The more that you progress into the game & buy your core items, the more you transition from a purely burst hero into a sustain magic damage dealer as well. [ability:skywrath_mage_arcane_bolt] is essentially your Auto Attack. And your Shard gives you a multi-shot effect hitting up to 3 targets on each cast. And by the late game you can easily deal at least 1100 damage per single bolt every 1.5s without taking into account magic amplification effects. This means that in fights just your Arcane Bolt alone deals around 3000+ DPS easily."
+      "text": "The more that you progress into the game & buy your core items, the more you transition from a purely burst hero into a sustain magic damage dealer as well. [ability:skywrath_mage_arcane_bolt] Arcane Bolt is essentially your Auto Attack. And your Shard gives you a multi-shot effect hitting up to 3 targets on each cast. And by the late game you can easily deal at least 1100 damage per single bolt every 1.5s without taking into account magic amplification effects. This means that in fights just your Arcane Bolt alone deals around 3000+ DPS easily."
     }
   ],
   "allies_and_counters": {

@@ -125,11 +125,13 @@
   .itc-icon { width: 52px; height: 38px; border-radius: 3px; overflow: hidden; flex-shrink: 0; border: 1px solid #3a3f4d; }
   .itc-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .itc-name { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; }
-  .itc-type { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; color: var(--blue); text-transform: uppercase; padding: 8px 16px 8px; border-bottom: 1px solid #2a2f3d; }
+  .itc-type { font-size: 9px; letter-spacing: 1.5px; color: var(--blue); padding: 8px 16px 8px; border-bottom: 1px solid #2a2f3d; }
+  .itc-type-label { font-family: 'Cinzel', serif; text-transform: uppercase; }
+  .itc-type-value { font-family: 'Crimson Pro', Georgia, serif; }
   .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; }
   .itc-active { background: rgba(76,175,125,0.08); border-top: 2px solid var(--green); padding: 10px 16px 12px; }
   .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .itc-active-label { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
+  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
   .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
   .itc-active-range .range-icon { width: 12px; height: 12px; border-radius: 50%; background: var(--green); display: inline-block; }
   .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
@@ -145,7 +147,7 @@
   .build-tree-icon { width: 48px; height: 36px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
   .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
   .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .build-tree-name { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.5px; color: var(--text-dim); text-align: center; }
+  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 9px; letter-spacing: 0.5px; color: var(--text-dim); text-align: center; }
   .build-tree-name.current { color: var(--gold); }
   .build-tree-cost { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dark); margin-bottom: 6px; }
   a.build-tree-link { text-decoration: none; color: inherit; }
@@ -231,7 +233,7 @@
     <div class="section-title">Stats & Abilities</div>
 
     <div class="item-tooltip-card">
-      <div class="itc-type">Ability: Point Target</div>
+      <div class="itc-type"><span class="itc-type-label">Ability:</span> <span class="itc-type-value">Point Target</span></div>
       <div class="itc-passive">+ <strong>1</strong> All Attributes</div>
       <div class="itc-active">
         <div class="itc-active-header">

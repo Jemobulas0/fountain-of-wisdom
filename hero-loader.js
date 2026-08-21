@@ -65,7 +65,7 @@ function buildItemHTML(item) {
 
 // Parses [item:id] and [hero:id] tags inside tip text into inline icons
 function parseText(text) {
-  text = text.replace(/→/g, '<span style="color:var(--text-dim);font-size:12px;">→</span>');
+  text = text.replace(/→/g, '<span style="color:var(--text-dim);font-size:17px;">→</span>');
   text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
     return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:28px;height:28px;display:inline-flex;flex-shrink:0;border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
   });

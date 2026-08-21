@@ -36,10 +36,9 @@ function getActiveGroups(heroPositions) {
 
 
 // Renders a standard item icon with link and tooltip
-function itemIconHTML(id, size, heroShard) {
-  size = size || '36px';
+function itemIconHTML(id, heroShard) {
   const shardAttr = heroShard ? ` data-hero="${heroShard}"` : '';
-  return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${shardAttr}><div class="item-icon" style="width:${size};height:${size};"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
+  return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${shardAttr}><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
 }
 
 // Renders an item from a build phase — handles strings, plain objects, and timed objects
@@ -53,11 +52,11 @@ function buildItemHTML(item) {
   if (green || yellow) {
     html += `<div class="item-timed">`;
     if (green) html += `<span class="timestamp green">${green}</span>`;
-    html += itemIconHTML(id, '36px', heroContext);
+    html += itemIconHTML(id, heroContext);
     if (yellow) html += `<span class="timestamp yellow">${yellow}</span>`;
     html += `</div>`;
   } else {
-    html += itemIconHTML(id, '36px', heroContext);
+    html += itemIconHTML(id, heroContext);
   }
   if (also) html += itemIconHTML(also);
   return html;
@@ -67,11 +66,11 @@ function buildItemHTML(item) {
 function parseText(text) {
   text = text.replace(/→/g, '<span style="color:var(--text-dim);font-size:17px;">→</span>');
   text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
-    return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:28px;height:28px;display:inline-flex;flex-shrink:0;border:1px solid var(--border);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
+    return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="ability-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
   });
   text = text.replace(/\[item:([^|\]]+)(?:\|([^\]]+))?\]/g, function(_, id, hero) {
     const heroAttr = hero ? ` data-hero="${hero}"` : '';
-    return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${heroAttr} style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon" style="width:28px;height:28px;display:inline-flex;flex-shrink:0;background:linear-gradient(135deg,#1a2a1a,#0d150d);border-radius:3px;overflow:hidden;"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
+    return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${heroAttr} style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
   });
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
     return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>`;

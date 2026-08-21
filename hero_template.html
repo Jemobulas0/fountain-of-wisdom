@@ -133,19 +133,19 @@
   .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; display: flex; flex-direction: column; }
   .build-card:has(.item-phase) .build-note { margin-top: auto; }
-  .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+  .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; line-height: 1.2; min-height: 2.4em; }
 
   .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
-  .spell-icon { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+  .spell-icon { width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
   .spell-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .spell-icon.ult { border-color: var(--gold-dark); }
 
   .timestamp-group { display: flex; flex-direction: row; gap: 6px; margin-left: 4px; }
-  .timestamp-col { display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 30px; text-align: center; }
+  .timestamp-col { display: flex; flex-direction: column; align-items: center; gap: 1px; width: 44px; text-align: center; }
   .pos-circle-sm { height: 30px; border-radius: 999px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; line-height: 1; color: var(--gold); background: rgba(201,168,76,0.1); min-width: 30px; padding: 0.1em 7px 0; flex-shrink: 0; }
   .timestamp-header { display: flex; justify-content: flex-end; margin-bottom: 4px; margin-left: 4px; }
   .timestamp-header-inner { display: flex; gap: 6px; }
-  .timestamp-header-inner .th-col { min-width: 30px; display: flex; justify-content: center; }
+  .timestamp-header-inner .th-col { width: 44px; display: flex; justify-content: center; }
   .timestamp { font-size: 15px; font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
   .timestamp-col .timestamp { display: block; }
   .timestamp.green { color: var(--green); }
@@ -165,19 +165,19 @@
   .talent-row { display: flex; align-items: stretch; gap: 4px; }
   .talent-box { flex: 1 1 0; min-width: 0; min-height: 50px; font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; font-weight: 400; letter-spacing: 0.3px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 3px 6px; line-height: 1.3; text-align: center; display: flex; align-items: center; justify-content: center; }
   .talent-box.chosen { color: var(--gold); border-color: var(--gold-dark); background: rgba(201,168,76,0.08); box-shadow: 0 0 6px rgba(201,168,76,0.15); }
-  .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; line-height: 1; padding-top: 0.1em; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
+  .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; line-height: 1; padding-top: 5px; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
 
   /* ── ITEM BUILDS ── */
   .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
   .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
   .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
-  .item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .item-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
   .item-note-inline { font-size: 16px; color: var(--text); font-style: italic; margin: 6px 0 0; }
   .situational-items { margin-top: 12px; border-top: 1px solid var(--border); padding-top: 12px; }
   .situational-label { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 1.5px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
   .sit-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
-  .sit-item-icon { width: 30px; height: 30px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .sit-item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
   .sit-item-note { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.4; padding-top: 4px; }
 
   /* ── TIPS ── */

@@ -98,7 +98,7 @@
   .phil-item { display: flex; flex-direction: column; gap: 10px; }
   .phil-number { font-family: 'Cinzel', serif; font-size: 32px; font-weight: 900; color: var(--gold-dim); line-height: 1; }
   .phil-title { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-  .phil-desc { font-size: 15px; color: var(--text); font-style: italic; line-height: 1.6; }
+  .phil-desc { font-size: 15px; color: var(--text); line-height: 1.6; }
 
   /* ── SECTION LABEL ── */
   .section-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
@@ -113,11 +113,11 @@
   .expect-icon { font-size: 18px; line-height: 1; margin-top: 2px; flex-shrink: 0; }
   .expect-text {}
   .expect-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
-  .expect-desc { font-size: 14px; color: var(--text); font-style: italic; line-height: 1.5; }
+  .expect-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
 
   /* ── WHAT TO BRING ── */
   .bring-section { margin-bottom: 72px; }
-  .bring-desc { font-size: 15px; color: var(--text); font-style: italic; line-height: 1.7; margin-top: 14px; max-width: 700px; }
+  .bring-desc { font-size: 15px; color: var(--text); line-height: 1.7; margin-top: 14px; max-width: 700px; }
 
   /* ── WHO THIS IS FOR ── */
   .for-section { margin-bottom: 72px; }
@@ -136,7 +136,6 @@
   .cta-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; padding: 56px 48px; position: relative; overflow: hidden; }
   .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
   .cta-title { font-family: 'Cinzel', serif; font-size: clamp(18px, 3vw, 26px); font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 36px; }
-  .cta-desc { font-size: 17px; color: var(--text); font-style: italic; line-height: 1.7; max-width: 500px; margin: 0 auto 36px; }
   .cta-options { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .cta-option { display: flex; flex-direction: column; align-items: center; gap: 8px; }
   .cta-btn { min-width: 230px; text-align: center; }
@@ -147,7 +146,7 @@
   .btn-secondary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold-dark); padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
   .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
 
-  .cta-note { font-size: 13px; color: var(--text-dim); font-style: italic; margin-top: 20px; }
+  .cta-note { font-size: 13px; color: var(--text-dim); margin-top: 20px; }
   .cta-note-link { color: var(--gold); text-decoration: underline; }
 
   /* ── FOOTER ── */
@@ -231,7 +230,7 @@
       <div class="expect-item">
         <div class="expect-text">
           <div class="expect-title">Book a Live Session — €30 · 60 minutes</div>
-          <div class="expect-desc">Voice and screen share on Discord. We start with what you're after — a single session on something specific, or the first step of a longer climb. If you already have clear objectives, we work to them. If you don't, we set them together. The hour is yours and it goes where it needs to go.</div>
+          <div class="expect-desc">Voice and screen share on Discord. We start with what you're after — a single session on something specific, or the first step of a longer climb. If you already have clear objectives, we tackle them. If you don't, we set them together. The hour is yours and it goes where it needs to go.</div>
         </div>
       </div>
     </div>

@@ -90,10 +90,10 @@
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-dim); }
   .section-title { font-family: 'Cinzel', serif; font-size: clamp(18px, 3vw, 26px); font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
 
-  /* ── CALLOUT ── */
-  .callout-box { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 3px 3px 0; padding: 28px 32px; margin-bottom: 56px; }
-  .callout-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 16px; }
-  .callout-text { font-size: 16px; color: var(--text); line-height: 1.7; margin-bottom: 14px; }
+  /* ── WHICH GAMES TO SEND ── */
+  .games-section { margin-bottom: 56px; }
+  .games-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-bright); margin-bottom: 16px; }
+  .games-text { font-size: 16px; color: var(--text); line-height: 1.8; margin-bottom: 12px; }
 
   /* ── FORM ── */
   .form-section { margin-bottom: 72px; }
@@ -167,7 +167,7 @@
     <h1 class="hero-title">Send Me<br><span>Your Games</span></h1>
     <div class="hero-divider"></div>
     <p class="hero-desc">
-      You watch your own replays and see nothing.<br>I watch them and see the pattern.
+      I take your games apart down to the fundamentals — the decisions, the reasoning behind them, and the mental state you were playing in. The flaws that surface there are the ones actually costing you games. And now we'll use them to help you grow.
     </p>
   </div>
 </div>
@@ -176,10 +176,9 @@
 <div class="content">
 
   <!-- WHICH GAMES TO SEND -->
-  <div class="callout-box">
-    <div class="callout-title">Which Games to Send</div>
-    <p class="callout-text">Not your worst losses, and not your best wins. You are one player out of ten — a fifth of your own team. The result of a DotA game is mostly other people. What matters is your own read of it.</p>
-    <p class="callout-text">Send the games where something felt off. Where you were unsure what to do next and picked something anyway. Where it slipped away and you still can't say when. Where you already know there's a mistake in there but can't name it.</p>
+  <div class="games-section">
+    <div class="games-title">Which Games to Send</div>
+    <p class="games-text">Bring a game you weren't sure about. Regardless of whether it's a win or a loss — one where something felt off and you couldn't name what, or where you knew you were underperforming but not sure why.</p>
   </div>
 
   <!-- FORM -->
@@ -207,7 +206,7 @@
           <label class="form-sublabel" for="field-match-3">Match ID 3 <span class="form-optional">(optional)</span></label>
           <input class="form-input" type="text" id="field-match-3" name="Match ID 3" maxlength="11" inputmode="numeric" pattern="[0-9]*">
         </div>
-        <div class="form-hint">Found in match history on Dotabuff or the Recent Games tab in the client.</div>
+        <div class="form-hint">Found in your game client's Profile Match History and also at Dotabuff.</div>
       </div>
 
       <div class="form-group">
@@ -217,8 +216,7 @@
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="field-role-1">Which Roles Should I Focus On?</label>
-        <div class="form-hint">Check as many as apply.</div>
+        <label class="form-label" for="field-role-1">Which role(s) do you main?</label>
 
         <div class="form-checkbox-row">
           <label class="form-checkbox-label">
@@ -283,9 +281,9 @@
 
       <div class="form-group">
         <label class="form-label" for="field-focus">What Do You Want Looked At?</label>
-        <textarea class="form-textarea" id="field-focus" name="What to look at" rows="6" maxlength="1500" required></textarea>
+        <textarea class="form-textarea" id="field-focus" name="What to look at" rows="6" maxlength="1500" required placeholder="Something specific, or should I find your biggest flaws myself?"></textarea>
         <div class="form-counter" id="focus-counter">0 / 1500</div>
-        <div class="form-hint">The more specific, the more you get back — "my laning" is a start, but "I keep losing lane as pos 4 against aggressive supports and I can't tell if it's my positioning or my pull timings" gets something worth reading.</div>
+        <div class="form-hint">Would you like me to focus on specific aspects of your gameplay or would you like me to find your biggest flaws and analyze them by my own judgement?</div>
       </div>
 
       <div class="form-group">

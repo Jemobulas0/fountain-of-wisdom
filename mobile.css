@@ -401,14 +401,11 @@
   }
 }
 
-/* replay-review.html — the form/callout padding (40px 48px / 28px 32px)
-   eats too much of a phone's width below 640px. */
+/* replay-review.html — the form padding (40px 48px) eats too much of a
+   phone's width below 640px. */
 @media (max-width: 640px) {
   .review-form {
     padding: 24px 20px;
-  }
-  .callout-box {
-    padding: 20px 20px;
   }
 
   /* Role checkbox rows: bump to a full 44px tap target, matching the

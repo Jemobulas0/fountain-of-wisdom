@@ -105,6 +105,18 @@
     grid-template-columns: 1fr;
   }
 
+  /* index.html — Explore index rows: name stacks above its description,
+     tighter padding, arrow dropped (it only reads as an affordance beside
+     the row on desktop). */
+  .index-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 16px;
+  }
+  .index-row-arrow {
+    display: none;
+  }
+
   /* coaching.html */
   .philosophy-grid,
   .expect-grid,

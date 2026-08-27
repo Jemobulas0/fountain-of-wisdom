@@ -454,6 +454,60 @@
   .tile.concepts .tile-icon { color: var(--gold); }
   .tile.guides .tile-icon { color: var(--blue); }
 
+  /* ── EXPLORE INDEX ROWS ── */
+  .index-rows {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+  }
+
+  .index-row {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+
+  .index-row-name {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-bright);
+    transition: color 0.25s;
+  }
+
+  .index-row-desc {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .index-row-arrow {
+    justify-self: end;
+    font-size: 20px;
+    color: var(--gold-dark);
+    transition: color 0.25s, transform 0.25s;
+  }
+
+  .index-row:hover {
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%);
+  }
+
+  .index-row:hover .index-row-name {
+    color: var(--gold-light);
+  }
+
+  .index-row:hover .index-row-arrow {
+    color: var(--gold);
+    transform: translateX(5px);
+  }
+
   /* ── PHILOSOPHY ── */
   .philosophy-section {
     background: var(--bg-card);
@@ -797,20 +851,18 @@
       <div class="section-desc">Start wherever your questions lie.</div>
       <div class="section-divider"></div>
     </div>
-    <div class="tiles-grid">
+    <div class="index-rows">
 
-      <a href="heroes.html" class="tile heroes">
-        <div class="tile-icon">⚔</div>
-        <div class="tile-title">Heroes</div>
-        <div class="tile-desc">Roles, skill and item builds, game plan, tips and counters. With timing benchmarks so you always know where you stand.</div>
-        <div class="tile-arrow">Browse Heroes</div>
+      <a href="heroes.html" class="index-row">
+        <div class="index-row-name">Heroes</div>
+        <div class="index-row-desc">Roles, skill and item builds, game plan, tips and counters. With timing benchmarks so you always know where you stand.</div>
+        <div class="index-row-arrow">→</div>
       </a>
 
-      <a href="items.html" class="tile items">
-        <div class="tile-icon">🎒</div>
-        <div class="tile-title">Items</div>
-        <div class="tile-desc">What each item actually does, when to buy it, which heroes get the most out of it, and the properties most players never find out it has. Every item in the game, not only the ones you already buy.</div>
-        <div class="tile-arrow">Browse Items</div>
+      <a href="items.html" class="index-row">
+        <div class="index-row-name">Items</div>
+        <div class="index-row-desc">What each item actually does, when to buy it, which heroes get the most out of it, and the properties most players never find out it has. Every item in the game, not only the ones you already buy.</div>
+        <div class="index-row-arrow">→</div>
       </a>
 
       <!--
@@ -822,11 +874,10 @@
       </a>
       -->
 
-      <a href="guides.html" class="tile guides">
-        <div class="tile-icon">📖</div>
-        <div class="tile-title">Guides</div>
-        <div class="tile-desc">Long-form pieces on strategy, mindset, roles and mechanics. The things that truly need our in-depth attention.</div>
-        <div class="tile-arrow">Read Guides</div>
+      <a href="guides.html" class="index-row">
+        <div class="index-row-name">Guides</div>
+        <div class="index-row-desc">Long-form pieces on strategy, mindset, roles and mechanics. The things that truly need our in-depth attention.</div>
+        <div class="index-row-arrow">→</div>
       </a>
 
     </div>

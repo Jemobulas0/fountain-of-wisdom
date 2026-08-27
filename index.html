@@ -304,7 +304,14 @@
     letter-spacing: 2px;
     color: var(--text-bright);
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
     animation: bounce 2s infinite;
+  }
+
+  .scroll-hint:hover {
+    color: var(--gold-light);
   }
 
   .scroll-hint::after {
@@ -530,17 +537,6 @@
     margin-bottom: 24px;
     position: relative;
     padding: 0 40px;
-  }
-
-  .philosophy-quote::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -10px;
-    font-size: 60px;
-    color: var(--gold-dark);
-    font-family: 'Cinzel', serif;
-    line-height: 1;
   }
 
   .philosophy-three {
@@ -812,11 +808,11 @@
         <a href="guides.html" class="btn-secondary">Read the Guides</a>
       </div>
     </div>
-    <div class="scroll-hint">Explore</div>
+    <a href="#the-approach" class="scroll-hint">Explore</a>
   </div>
 
   <!-- PHILOSOPHY -->
-  <div class="philosophy-section full-width">
+  <div class="philosophy-section full-width" id="the-approach">
     <div class="philosophy-inner">
       <div class="section-label">The Approach</div>
       <div class="philosophy-quote">

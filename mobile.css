@@ -237,6 +237,7 @@
   /* items.html — search/recently-added sidebar no longer fits beside search at this width */
   .search-recently-row {
     flex-direction: column;
+    gap: 0;   /* desktop's 40px column gap; vertical spacing is set per-child below */
   }
   .search-recently-right {
     width: 100%;
@@ -244,6 +245,17 @@
   .recently-grid-items,
   .item-progress-wrap {
     width: 100%;
+  }
+  /* items.html — the coverage counter is moved onto the progress bar by the
+     inline script on this page (desktop keeps it in .page-header). Space the
+     regrouped counter+bar unit clear of the search bar above and Recently
+     Added below, with the number sitting just above its bar. */
+  .search-recently-right > .item-count {
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .search-recently-right > .item-progress-wrap {
+    margin-bottom: 28px;
   }
 
   /* heroes.html — filters/recently-added sidebar, same reasoning as above */
@@ -256,6 +268,17 @@
   .recently-grid,
   .progress-wrap {
     width: 100%;
+  }
+  /* heroes.html — the coverage counter is moved onto the progress bar by the
+     inline script on this page (desktop keeps it in .page-header). Space the
+     regrouped counter+bar unit clear of the role filters above and Recently
+     Added below, with the number sitting just above its bar. */
+  .filters-right > .hero-count {
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .filters-right > .progress-wrap {
+    margin-bottom: 28px;
   }
 
   /* heroes.html — hero icon grid: shrink tile minimum instead of collapsing to 1 */
@@ -345,6 +368,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    /* When a label wraps to two lines, justify-content only centres the
+       text block as a whole — the lines inside it still follow text-align,
+       which is inherited (e.g. `start` in .about-right on index.html, so
+       "Book a Coaching Session" sat left with a gap on the right). Force
+       centre so wrapped button labels stay centred everywhere. */
+    text-align: center;
   }
   .back-link {
     min-height: 44px;

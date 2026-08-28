@@ -213,6 +213,32 @@
 </footer>
 
 <script>
+/* Mobile only (≤768px): regroup the coverage counter with its progress bar.
+   On desktop .item-count lives in .page-header, top-right beside the title,
+   directly above the progress bar in the column below it — already a pair.
+   Once .page-header and .search-recently-row stack, the search bar ends up
+   between the counter and the bar. Move the counter to sit right on top of
+   .item-progress-wrap; reverse above 768px so desktop DOM/layout is
+   untouched. Spacing is in mobile.css (.search-recently-right > .item-count
+   / > .item-progress-wrap). */
+(function () {
+  var header = document.querySelector('.page-header');
+  var right = document.querySelector('.search-recently-right');
+  var count = header && header.querySelector('.item-count');
+  var progress = right && right.querySelector('.item-progress-wrap');
+  if (!header || !right || !count || !progress) return;
+  var mq = window.matchMedia('(max-width: 768px)');
+  function sync() {
+    if (mq.matches) {
+      if (count.parentElement !== right) right.insertBefore(count, progress);
+    } else if (count.parentElement !== header) {
+      header.appendChild(count);
+    }
+  }
+  if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+  sync();
+})();
+
 const recentlyAddedItems = [
   { name: 'Iron Branch', key: 'iron_branch' },
 ];

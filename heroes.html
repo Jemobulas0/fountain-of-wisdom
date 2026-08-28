@@ -570,6 +570,32 @@
 </footer>
 
 <script>
+/* Mobile only (≤768px): regroup the coverage counter with its progress bar.
+   On desktop .hero-count lives in .page-header, top-right beside the title,
+   directly above the progress bar in the column below it — already a pair.
+   Once .page-header and .filters-top-row stack, that leaves the counter
+   stranded at the very top of the page, a full filter block away from the
+   bar. Move it to sit right on top of .progress-wrap; reverse above 768px so
+   desktop DOM/layout is untouched. Spacing for the regrouped unit is in
+   mobile.css (.filters-right > .hero-count / > .progress-wrap). */
+(function () {
+  var header = document.querySelector('.page-header');
+  var right = document.querySelector('.filters-right');
+  var count = header && header.querySelector('.hero-count');
+  var progress = right && right.querySelector('.progress-wrap');
+  if (!header || !right || !count || !progress) return;
+  var mq = window.matchMedia('(max-width: 768px)');
+  function sync() {
+    if (mq.matches) {
+      if (count.parentElement !== right) right.insertBefore(count, progress);
+    } else if (count.parentElement !== header) {
+      header.appendChild(count);
+    }
+  }
+  if (mq.addEventListener) { mq.addEventListener('change', sync); } else { mq.addListener(sync); }
+  sync();
+})();
+
 const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/';
 
 const recentlyAddedIds = [

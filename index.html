@@ -632,6 +632,20 @@
     flex: 1;
   }
 
+  /* "Discord Server" — same size/shape as the primary button, lighter
+     colour weight: muted border + dimmer text instead of the gold CTA look
+     (its styling before the two-column block was collapsed). */
+  .about-actions .btn-muted {
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  .about-actions .btn-muted:hover {
+    color: var(--gold);
+    border-color: var(--gold-dark);
+    background: transparent;
+  }
+
   .stats-row {
     display: flex;
     justify-content: center;
@@ -871,7 +885,7 @@
         <p>Which is why what you build here doesn't just remain here. Assessing a situation before committing to it, keeping a cool head and staying focused when things go sideways, being able to tell the difference between a bad decision and a good but unlucky one — developing these universal qualities helps everywhere in life. And DotA is an incredibly fertile ground for such skills to grow.</p>
         <div class="about-actions">
           <a href="coaching.html" class="btn-secondary">Book a Coaching Session</a>
-          <a href="coaching.html" class="btn-secondary">Discord Server</a>
+          <a href="coaching.html" class="btn-secondary btn-muted">Discord Server</a>
         </div>
       </div>
     </div>

@@ -110,7 +110,7 @@
   .article-body {
     max-width: 760px;
     margin: 0 auto;
-    padding: 0 40px 80px;
+    padding: 0 40px 40px;
   }
 
   .article-body p {
@@ -120,7 +120,9 @@
     margin-bottom: 28px;
   }
 
-  .article-body p:last-child { margin-bottom: 0; }
+  /* zero the trailing margin of whatever ends the article (p or .pull-quote)
+     so the footer divider sits a consistent distance below it */
+  .article-body > :last-child { margin-bottom: 0; }
 
   /* Pull quote / highlight box */
   .pull-quote {

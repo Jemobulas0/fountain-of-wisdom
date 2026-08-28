@@ -427,10 +427,9 @@
   .solution-desc {
     font-size: 16px;
   }
-  .author-bio {
-    font-size: 16px;
-    line-height: 1.6;
-  }
+  /* .author-bio is no longer a bio paragraph — it's a single-line author
+     credit in .author-block, so it stays at its 14px design size (like the
+     other caption-level text) rather than getting the reading-content bump. */
 
   /* hero_template.html */
   .pros-cons-col ul li,

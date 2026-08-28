@@ -198,6 +198,16 @@
     grid-template-columns: 1fr;
   }
 
+  /* coaching.html — testimonials carousel: one card fully visible with an
+     edge peek on each side, still swipeable + tap controls. Narrower peek
+     than desktop so the single card keeps enough width for the text. */
+  .tst-carousel {
+    --tst-peek: 34px;
+  }
+  .tst-card {
+    flex-basis: calc(100% - 2 * var(--tst-peek));
+  }
+
   /* concepts.html */
   .concepts-grid {
     grid-template-columns: 1fr;
@@ -413,7 +423,8 @@
   /* coaching.html */
   .phil-desc,
   .expect-desc,
-  .for-item {
+  .for-item,
+  .tst-quote {
     font-size: 16px;
     line-height: 1.6;
   }

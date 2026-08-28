@@ -74,7 +74,14 @@
      under the 10px brand so the site name stays the most prominent text in
      the bar. Gold border box comes from `.nav-cta` inline styles; the 44px
      tap target from the `.nav-cta` rule in section 4 below (min-height:44px
-     holds the box height regardless of this smaller text). */
+     holds the box height regardless of this smaller text).
+
+     Horizontal padding is trimmed from the inline `6px 14px` down to 10px a
+     side so the box hugs the word instead of looking oversized next to the
+     hamburger. `!important` + the extra specificity here are needed to beat
+     the inline `padding: … !important`; only the left/right are touched, so
+     the 6px top/bottom (and the hamburger-matched height) are unchanged.
+     Box still lands ~72px wide — comfortably past the 44px min. */
   nav > .nav-cta {
     flex-shrink: 0;
     font-family: 'Cinzel', serif;
@@ -82,6 +89,8 @@
     font-size: 9px;
     letter-spacing: 1px;
     text-decoration: none;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
 
   /* .nav-links becomes a dropdown panel under the bar */

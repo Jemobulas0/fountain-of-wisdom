@@ -67,13 +67,20 @@
   nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
   nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-  /* Coaching CTA — lifted out of .nav-links by nav.js; keep the link
-     styling it loses by leaving the <ul>. Visual box comes from .nav-cta
-     (inline styles) + the .nav-cta tap-target rule further down this file. */
+  /* Coaching CTA — lifted out of .nav-links by nav.js. Leaving the <ul>
+     drops every text rule it inherited from `.nav-links a` (only index.html
+     re-declares them on `.nav-cta` itself), so restore them here: font,
+     weight, size, letter-spacing, no underline. Deliberately 9px — a notch
+     under the 10px brand so the site name stays the most prominent text in
+     the bar. Gold border box comes from `.nav-cta` inline styles; the 44px
+     tap target from the `.nav-cta` rule in section 4 below (min-height:44px
+     holds the box height regardless of this smaller text). */
   nav > .nav-cta {
     flex-shrink: 0;
     font-family: 'Cinzel', serif;
     font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 1px;
     text-decoration: none;
   }
 

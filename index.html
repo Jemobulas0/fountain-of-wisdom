@@ -577,18 +577,10 @@
   }
 
   /* ── ABOUT THE COACH ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 48px;
-    align-items: center;
-  }
-
-  .about-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  .about-single {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .coach-name {
@@ -598,7 +590,6 @@
     color: var(--text-bright);
     letter-spacing: 3px;
     text-transform: uppercase;
-    text-align: center;
   }
 
   .coach-tag {
@@ -607,61 +598,43 @@
     letter-spacing: 2px;
     color: var(--gold);
     text-transform: uppercase;
-    text-align: center;
+    margin-top: 8px;
   }
 
-  .coach-links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-  }
-
-  .coach-link {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text);
-    text-decoration: none;
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 2px;
-    text-align: center;
-    transition: all 0.2s;
-  }
-
-  .coach-link:hover {
-    border-color: var(--gold-dark);
-    color: var(--gold);
-  }
-
-  .about-right {
-    padding-top: 8px;
-  }
-
-  .about-right h3 {
+  .about-single h3 {
     font-family: 'Crimson Pro', Georgia, serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--text-bright);
     letter-spacing: 2px;
+    margin-top: 28px;
     margin-bottom: 32px;
   }
 
-  .about-right p {
+  .about-single p {
     font-size: 16px;
     color: var(--text);
     line-height: 1.8;
     margin-bottom: 16px;
+    text-align: left;
   }
 
-  .about-right p:last-of-type {
-    margin-bottom: 24px;
+  .about-single p:last-of-type {
+    margin-bottom: 28px;
+  }
+
+  .about-actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  .about-actions .btn-secondary {
+    flex: 1;
   }
 
   .stats-row {
     display: flex;
+    justify-content: center;
     gap: 32px;
     margin-bottom: 24px;
   }
@@ -669,6 +642,7 @@
   .stat {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 4px;
   }
 
@@ -875,33 +849,29 @@
         <div class="section-title">About the Coach</div>
         <div class="section-divider"></div>
       </div>
-      <div class="about-grid">
-        <div class="about-left">
-          <div class="coach-name">Jemobulas</div>
-          <div class="coach-tag">DotA 2 Coach · 23 Years</div>
-          <div class="coach-links">
-            <a href="coaching.html" class="coach-link">⟐ Discord Server</a>
+      <div class="about-single">
+        <div class="coach-name">Jemobulas</div>
+        <div class="coach-tag">DotA 2 Coach · 23 Years</div>
+        <h3>Mastery is a direction, not a destination.</h3>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-number">23</div>
+            <div class="stat-label">Years Playing</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">20</div>
+            <div class="stat-label">Years Coaching</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">10<span style="font-size:0.85em; position:relative; top:0.05em;">k</span>+</div>
+            <div class="stat-label">Peak MMR</div>
           </div>
         </div>
-        <div class="about-right">
-          <h3>Mastery is a direction, not a destination.</h3>
-          <div class="stats-row">
-            <div class="stat">
-              <div class="stat-number">23</div>
-              <div class="stat-label">Years Playing</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">20</div>
-              <div class="stat-label">Years Coaching</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">10<span style="font-size:0.85em; position:relative; top:0.05em;">k</span>+</div>
-              <div class="stat-label">Peak MMR</div>
-            </div>
-          </div>
-          <p>I've played DotA since its birth — and MOBAs older than Aeon of Strife before that. I've spent more hours in this game than most people spend on any single thing in their lives, and what I've found is that in the long run, we are our own biggest obstacle to conquer.</p>
-          <p>Which is why what you build here doesn't just remain here. Assessing a situation before committing to it, keeping a cool head and staying focused when things go sideways, being able to tell the difference between a bad decision and a good but unlucky one — developing these universal qualities helps everywhere in life. And DotA is an incredibly fertile ground for such skills to grow.</p>
+        <p>I've played DotA since its birth — and MOBAs older than Aeon of Strife before that. I've spent more hours in this game than most people spend on any single thing in their lives, and what I've found is that in the long run, we are our own biggest obstacle to conquer.</p>
+        <p>Which is why what you build here doesn't just remain here. Assessing a situation before committing to it, keeping a cool head and staying focused when things go sideways, being able to tell the difference between a bad decision and a good but unlucky one — developing these universal qualities helps everywhere in life. And DotA is an incredibly fertile ground for such skills to grow.</p>
+        <div class="about-actions">
           <a href="coaching.html" class="btn-secondary">Book a Coaching Session</a>
+          <a href="coaching.html" class="btn-secondary">Discord Server</a>
         </div>
       </div>
     </div>

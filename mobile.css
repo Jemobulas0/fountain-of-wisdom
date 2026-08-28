@@ -168,9 +168,15 @@
 
   /* index.html */
   .tiles-grid,
-  .philosophy-three,
-  .about-grid {
+  .philosophy-three {
     grid-template-columns: 1fr;
+  }
+
+  /* index.html — "About the Coach" stats row: the 32px desktop gap between
+     the three stats overflows the narrow centred column (it clips at ~340px
+     and below). Tighten it so the three fit with room for the labels. */
+  .stats-row {
+    gap: 16px;
   }
 
   /* index.html — Explore index rows: name stacks above its description,
@@ -370,9 +376,8 @@
     justify-content: center;
     /* When a label wraps to two lines, justify-content only centres the
        text block as a whole — the lines inside it still follow text-align,
-       which is inherited (e.g. `start` in .about-right on index.html, so
-       "Book a Coaching Session" sat left with a gap on the right). Force
-       centre so wrapped button labels stay centred everywhere. */
+       which is inherited and may be `start` (e.g. a left-aligned container).
+       Force centre so wrapped button labels stay centred everywhere. */
     text-align: center;
   }
   .back-link {
@@ -427,9 +432,6 @@
   .solution-desc {
     font-size: 16px;
   }
-  /* .author-bio is no longer a bio paragraph — it's a single-line author
-     credit in .author-block, so it stays at its 14px design size (like the
-     other caption-level text) rather than getting the reading-content bump. */
 
   /* hero_template.html */
   .pros-cons-col ul li,
@@ -461,6 +463,25 @@
      and doesn't — it's the one heading that needs a mobile override. ── */
   .page-title {
     font-size: 26px;
+  }
+}
+
+/* index.html — "About the Coach" action buttons. They sit side by side
+   (each flex:1, together spanning the ~640px text column). "Book a Coaching
+   Session" is the long label; measured, each button needs ~267px to hold it
+   on one line, so the pair needs ~550px of column width. Given this section's
+   112px of horizontal padding on mobile, that comes up short at ~660px and
+   is only marginal to ~700px — so stack below 700px. Once stacked they're
+   full-column-width; trim the 32px side padding to 20px so the long label
+   still fits on one line down to ~340px viewports (it wraps below that,
+   which is acceptable on tiny screens). */
+@media (max-width: 700px) {
+  .about-actions {
+    flex-direction: column;
+  }
+  .about-actions .btn-secondary {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

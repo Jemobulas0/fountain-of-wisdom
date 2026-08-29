@@ -224,13 +224,26 @@
   /* reserve three lines for the heading so a card with a long, wrapping
      heading is the same height as one with a short heading */
   .tst-heading { min-height: 3.9em; line-height: 1.3; }
-  .tst-card:not(.is-expanded) .tst-quote {
+
+  /* expanding / collapsing animates the quote's height; the carousel is
+     align-items:flex-start (above), so only this card changes height —
+     the loop clones and the neighbouring peeks are untouched */
+  .tst-quote { transition: max-height 0.35s ease; }
+
+  /* resting collapsed: line-clamped for a clean ellipsis and pinned to
+     --tst-clamp lines so every collapsed card is the same height */
+  .tst-card:not(.is-expanded):not(.is-animating) .tst-quote {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--tst-clamp);
     overflow: hidden;
     min-height: calc(var(--tst-clamp) * 1.6em);
+    max-height: calc(var(--tst-clamp) * 1.6em);
   }
+  /* mid-animation (either direction): full text present, height driven by
+     the inline max-height that JS transitions between the two endpoints */
+  .tst-card.is-animating .tst-quote { overflow: hidden; }
+
   .tst-more { display: inline-block; }
   .tst-more.is-unneeded { visibility: hidden; }
 

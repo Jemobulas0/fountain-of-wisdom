@@ -439,11 +439,60 @@
     dots.push(d);
   });
 
-  /* ── mobile "Read more": clamp long quotes, expand a single card in place ──
-     The clamp itself is CSS (mobile.css); here we add the toggle and decide,
-     per card, whether it's even needed. Buttons are added before cloning so
-     the loop clones carry one too and keep matching height in the peek. */
+  /* ── mobile "Read more": clamp long quotes, expand ONE card in place ──
+     The clamp + the height transition are CSS (mobile.css). Here we drive
+     the toggle, decide per card whether it's even needed, and — since only
+     the card in view may be expanded — collapse any expanded card once the
+     carousel settles on a different one. Buttons are added before cloning
+     so the loop clones carry one too and keep matching height in the peek. */
   var mq = window.matchMedia('(max-width: 768px)');
+  var CLAMP_ANIM_MS = 350;   // keep in sync with the .tst-quote transition
+
+  function clampHeightPx(quote) {
+    var lh = parseFloat(getComputedStyle(quote).lineHeight) || 26;
+    var n = parseInt(getComputedStyle(carousel).getPropertyValue('--tst-clamp'), 10) || 5;
+    return lh * n;
+  }
+
+  // Animate a card between collapsed and expanded by transitioning the quote's
+  // max-height between two measured pixel heights. Purely vertical: it never
+  // touches scrollLeft, and align-items:flex-start keeps neighbours/clones put.
+  function setExpanded(card, expand) {
+    if (!mq.matches) return;
+    if (!!expand === card.classList.contains('is-expanded')) return;
+    var quote = card.querySelector('.tst-quote');
+    var btn = card.querySelector('.tst-more');
+    if (!quote) return;
+
+    clearTimeout(quote._clampT);
+    var startH = quote.getBoundingClientRect().height;
+
+    card.classList.add('is-animating');            // drop the line-clamp, show full text
+    card.classList.toggle('is-expanded', expand);
+    if (btn) btn.textContent = expand ? 'Show less' : 'Read more';
+
+    quote.style.maxHeight = 'none';
+    var endH = expand ? quote.scrollHeight : clampHeightPx(quote);
+    quote.style.maxHeight = startH + 'px';
+    void quote.offsetHeight;                       // commit the start height…
+    quote.style.maxHeight = endH + 'px';           // …then transition to the target
+
+    quote._clampT = setTimeout(function () {
+      card.classList.remove('is-animating');       // re-applies the line-clamp when collapsed
+      quote.style.maxHeight = '';                  // hand height back to CSS
+    }, CLAMP_ANIM_MS + 40);
+  }
+
+  // Only the card at currentIndex may stay expanded; collapse the rest.
+  function collapseAwayCards(currentIndex) {
+    if (!mq.matches) return;
+    originals.forEach(function (card, i) {
+      if (i !== currentIndex && card.classList.contains('is-expanded')) {
+        setExpanded(card, false);
+      }
+    });
+  }
+
   originals.forEach(function (card) {
     var quote = card.querySelector('.tst-quote');
     var btn = document.createElement('button');
@@ -452,9 +501,7 @@
     btn.textContent = 'Read more';
     quote.insertAdjacentElement('afterend', btn);
     btn.addEventListener('click', function () {
-      var expanded = card.classList.toggle('is-expanded');
-      btn.textContent = expanded ? 'Show less' : 'Read more';
-      // nothing horizontal changed — scroll position and the loop are untouched
+      setExpanded(card, !card.classList.contains('is-expanded'));
     });
   });
 
@@ -464,6 +511,9 @@
       var quote = card.querySelector('.tst-quote');
       var btn = card.querySelector('.tst-more');
       if (!btn) return;
+      clearTimeout(quote._clampT);
+      card.classList.remove('is-animating');
+      quote.style.maxHeight = '';
       if (!mobile) {
         card.classList.remove('is-expanded');
         btn.textContent = 'Read more';
@@ -476,6 +526,7 @@
       card.classList.add('is-expanded');
       var fullH = quote.scrollHeight;
       card.classList.toggle('is-expanded', keep);
+      btn.textContent = keep ? 'Show less' : 'Read more';
       btn.classList.toggle('is-unneeded', fullH - clampedH <= 4);
     });
   }
@@ -633,21 +684,21 @@
     if (!raf) raf = requestAnimationFrame(function () { raf = 0; updateDots(); });
     scheduleSeam();
   });
+  // Runs once the carousel has come to rest (never mid-drag): re-seam the
+  // loop, sync the dots, and collapse any card we've moved away from.
+  function settle() {
+    if (dragging) return;
+    normalize();
+    updateDots();
+    collapseAwayCards(realIndex());
+  }
   var seamTimer;
   function scheduleSeam() {
     clearTimeout(seamTimer);
-    seamTimer = setTimeout(function () {
-      if (dragging) return;
-      normalize();
-      updateDots();
-    }, 140);
+    seamTimer = setTimeout(settle, 140);
   }
   if ('onscrollend' in carousel) {
-    carousel.addEventListener('scrollend', function () {
-      if (dragging) return;
-      normalize();
-      updateDots();
-    });
+    carousel.addEventListener('scrollend', settle);
   }
 
   /* ── init ── */

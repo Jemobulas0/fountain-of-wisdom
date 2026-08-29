@@ -204,10 +204,35 @@
   .tst-carousel {
     --tst-peek: 34px;
     --tst-fade: 40px;
+    /* size cards to their own content so expanding one ("Read more") doesn't
+       stretch its neighbours or the loop clones */
+    align-items: flex-start;
   }
   .tst-card {
     flex-basis: calc(100% - 2 * var(--tst-peek) - 2 * var(--tst-gap));
   }
+
+  /* One full card fills the phone screen, so the long testimonials are
+     clamped to --tst-clamp lines with a "Read more" toggle. Every collapsed
+     card is the same height: the heading reserves two lines, the quote is
+     pinned to exactly --tst-clamp lines, and the toggle keeps its box even
+     when a short testimonial doesn't need it. Expanding only grows that one
+     card (align-items:flex-start above); nothing horizontal moves, so the
+     scroll position and the infinite loop are untouched. The full text stays
+     in the DOM for search engines and screen readers. */
+  .tst-carousel { --tst-clamp: 5; }
+  /* reserve three lines for the heading so a card with a long, wrapping
+     heading is the same height as one with a short heading */
+  .tst-heading { min-height: 3.9em; line-height: 1.3; }
+  .tst-card:not(.is-expanded) .tst-quote {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--tst-clamp);
+    overflow: hidden;
+    min-height: calc(var(--tst-clamp) * 1.6em);
+  }
+  .tst-more { display: inline-block; }
+  .tst-more.is-unneeded { visibility: hidden; }
 
   /* concepts.html */
   .concepts-grid {

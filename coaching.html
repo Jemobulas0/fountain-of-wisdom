@@ -177,6 +177,26 @@
   .tst-heading { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
   .tst-quote { font-size: 15px; color: var(--text); line-height: 1.7; }
   .tst-attr { margin-top: auto; padding-top: 6px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); }
+  /* "Read more" — desktop shows the full quote, so the control is hidden here;
+     mobile.css reveals it and clamps .tst-quote (see the testimonials block there). */
+  .tst-more {
+    display: none;
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 4px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--gold-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    cursor: pointer;
+  }
+  .tst-more:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+  .tst-clone .tst-more { pointer-events: none; }
   .tst-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 24px; }
   .tst-arrow {
     width: 44px; height: 44px;
@@ -330,14 +350,19 @@
     <div class="section-title">What Students Say</div>
     <div class="tst-carousel">
       <div class="tst-card">
-        <div class="tst-heading">Overcoming overwhelm</div>
-        <p class="tst-quote">Before my session with Jemo, I felt behind on all the necessary Dota 2 mechanics as a new player. In just a few hours, he not only managed to explain important distinctions between characters very clearly and concisely, but he also made suggestions based on my relevant skill set and personal play style. I appreciate the ease and consideration that really made this experience as enjoyable as it was valuable. After the coaching session, I no longer had doubts about my limited knowledge, as it was much easier to maintain focus throughout the game by following Jemo's adaptable strategies. I'd recommend him to anyone who wants to improve at the game.</p>
-        <div class="tst-attr">Darry, new to DotA</div>
+        <div class="tst-heading">A 7 year journey, still ongoing</div>
+        <p class="tst-quote">I've been coached by Jemo since 2019, when we started I was around 2k. I've had so many on and offs from the game, but every time I'm coming back to the game I always reached out to Jemo for one or two (in my case a bit more) sessions for a quick catch up with the new patch notes, metas etc. And now I'm around 4-4.5k which for me is very good!</p>
+        <div class="tst-attr">eCape, 4.5k</div>
       </div>
       <div class="tst-card">
         <div class="tst-heading">Stuck with no idea what's wrong</div>
         <p class="tst-quote">Working with Jemobulas as a Dota coach has been an eye-opening experience. His coaching style is effective, offering valuable insights and strategies that have helped me think critically about my decision making and why I am playing the way I am playing. I was a 6.5k mmr pos3 player for who Jem was instantly able to point out clear decision making issues and overall approach to the way I play my games. Not only does he talk about mechanics and ingame concepts but also about mentality and what it means to play dota. Highly recommend for anyone stuck with no idea what's going wrong.</p>
         <div class="tst-attr">Moose, 6.5k</div>
+      </div>
+      <div class="tst-card">
+        <div class="tst-heading">Overcoming overwhelm</div>
+        <p class="tst-quote">Before my session with Jemo, I felt behind on all the necessary Dota 2 mechanics as a new player. In just a few hours, he not only managed to explain important distinctions between characters very clearly and concisely, but he also made suggestions based on my relevant skill set and personal play style. I appreciate the ease and consideration that really made this experience as enjoyable as it was valuable. After the coaching session, I no longer had doubts about my limited knowledge, as it was much easier to maintain focus throughout the game by following Jemo's adaptable strategies. I'd recommend him to anyone who wants to improve at the game.</p>
+        <div class="tst-attr">Darry, new to DotA</div>
       </div>
       <div class="tst-card">
         <div class="tst-heading">League player, learning DotA properly</div>
@@ -414,6 +439,50 @@
     dots.push(d);
   });
 
+  /* ── mobile "Read more": clamp long quotes, expand a single card in place ──
+     The clamp itself is CSS (mobile.css); here we add the toggle and decide,
+     per card, whether it's even needed. Buttons are added before cloning so
+     the loop clones carry one too and keep matching height in the peek. */
+  var mq = window.matchMedia('(max-width: 768px)');
+  originals.forEach(function (card) {
+    var quote = card.querySelector('.tst-quote');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tst-more';
+    btn.textContent = 'Read more';
+    quote.insertAdjacentElement('afterend', btn);
+    btn.addEventListener('click', function () {
+      var expanded = card.classList.toggle('is-expanded');
+      btn.textContent = expanded ? 'Show less' : 'Read more';
+      // nothing horizontal changed — scroll position and the loop are untouched
+    });
+  });
+
+  function refreshClamp() {
+    var mobile = mq.matches;
+    originals.forEach(function (card) {
+      var quote = card.querySelector('.tst-quote');
+      var btn = card.querySelector('.tst-more');
+      if (!btn) return;
+      if (!mobile) {
+        card.classList.remove('is-expanded');
+        btn.textContent = 'Read more';
+        btn.classList.remove('is-unneeded');
+        return;
+      }
+      var keep = card.classList.contains('is-expanded');
+      card.classList.remove('is-expanded');
+      var clampedH = quote.clientHeight;
+      card.classList.add('is-expanded');
+      var fullH = quote.scrollHeight;
+      card.classList.toggle('is-expanded', keep);
+      btn.classList.toggle('is-unneeded', fullH - clampedH <= 4);
+    });
+  }
+  refreshClamp();   // set button state before cloning so clones inherit it
+  if (mq.addEventListener) mq.addEventListener('change', refreshClamp);
+  else if (mq.addListener) mq.addListener(refreshClamp);   // older Safari
+
   /* ── infinite loop: clone the whole set on both sides ──
      Layout becomes [clones][originals][clones]. We keep scrollLeft inside
      the band that covers the originals; when it drifts out we shift it by
@@ -428,6 +497,9 @@
       var c = originals[i].cloneNode(true);
       c.classList.add('tst-clone');
       c.setAttribute('aria-hidden', 'true');
+      // keep the cloned "Read more" buttons out of the tab order
+      var b = c.querySelector('.tst-more');
+      if (b) { b.tabIndex = -1; b.setAttribute('aria-hidden', 'true'); }
       return c;
     }
     for (var j = 0; j < CLONES_PER_SIDE; j++) {
@@ -582,6 +654,7 @@
   measure();
   setLeft(baseLeft, false);
   updateDots();
+  refreshClamp();
 
   var resizeTimer;
   window.addEventListener('resize', function () {
@@ -591,6 +664,7 @@
       measure();
       setLeft(baseLeft + i * step, false);
       updateDots();
+      refreshClamp();
     }, 150);
   });
 })();

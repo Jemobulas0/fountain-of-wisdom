@@ -156,11 +156,7 @@
             mask-image: linear-gradient(to right, transparent, #000 var(--tst-fade), #000 calc(100% - var(--tst-fade)), transparent);
   }
   .tst-carousel::-webkit-scrollbar { display: none; }
-  /* Applied only while a mouse drag is in progress, removed on release —
-     never a permanent rule, so quote text stays selectable at rest. */
   .tst-carousel.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
-  .tst-carousel.is-dragging,
-  .tst-carousel.is-dragging * { -webkit-user-select: none; user-select: none; }
   .tst-card {
     flex: 0 0 calc((100% - 2 * var(--tst-peek) - 3 * var(--tst-gap)) / 2);
     scroll-snap-align: start;
@@ -172,13 +168,15 @@
     border-radius: 3px;
     padding: 26px 26px 24px;
     transition: border-color 0.2s;
+    /* The whole card is a drag handle — no selectable text anywhere in it,
+       so stray highlights can't fight the drag. */
+    -webkit-user-select: none;
+            user-select: none;
   }
   .tst-card:hover { border-color: var(--gold-dim); }
   .tst-heading { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
-  /* Quote text is NOT a drag handle — normal text selection, like any
-     paragraph on the site. The drag handler ignores mousedown here. */
-  .tst-quote { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; cursor: text; }
-  .tst-attr { margin-top: auto; padding-top: 6px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); }
+  .tst-quote { font-size: 15px; color: var(--text); line-height: 1.7; }
+  .tst-attr { margin-top: auto; padding-top: 6px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); }
   .tst-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 24px; }
   .tst-arrow {
     width: 44px; height: 44px;
@@ -339,10 +337,10 @@
       <div class="tst-card">
         <div class="tst-heading">Stuck with no idea what's wrong</div>
         <p class="tst-quote">Working with Jemobulas as a Dota coach has been an eye-opening experience. His coaching style is effective, offering valuable insights and strategies that have helped me think critically about my decision making and why I am playing the way I am playing. I was a 6.5k mmr pos3 player for who Jem was instantly able to point out clear decision making issues and overall approach to the way I play my games. Not only does he talk about mechanics and ingame concepts but also about mentality and what it means to play dota. Highly recommend for anyone stuck with no idea what's going wrong.</p>
-        <div class="tst-attr">Moose, 6.5k, position 3</div>
+        <div class="tst-attr">Moose, 6.5k</div>
       </div>
       <div class="tst-card">
-        <div class="tst-heading">The what and the why</div>
+        <div class="tst-heading">League player, learning DotA properly</div>
         <p class="tst-quote">I had a great experience with Jemo. He was patient, knowledgeable, and clearly explained both what to do and why. His guidance helped me understand the fundamentals and improve my decision-making. He was also available outside sessions to answer questions and provide constructive feedback. I highly recommend him to anyone looking to improve at the game.</p>
         <div class="tst-attr">Alegior, 2.5k</div>
       </div>
@@ -511,7 +509,6 @@
   carousel.addEventListener('pointerdown', function (e) {
     if (e.pointerType && e.pointerType !== 'mouse') return;   // touch / pen: native
     if (e.button !== 0) return;
-    if (e.target.closest('.tst-quote')) return;               // let the browser select text
     dragging = true;
     moved = false;
     startX = lastX = e.clientX;

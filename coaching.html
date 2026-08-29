@@ -136,19 +136,33 @@
   .tst-carousel {
     --tst-gap: 20px;
     --tst-peek: 46px;
+    --tst-fade: 64px;
     display: flex;
     gap: var(--tst-gap);
     margin-top: 8px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    scroll-padding-left: calc(var(--tst-peek) + var(--tst-gap));
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scrollbar-width: none;
     padding-bottom: 4px;
+    cursor: grab;
+    /* Peeking cards fade out toward both edges instead of hard-cropping.
+       The mask lives on the scroller, well clear of the arrow controls
+       (which sit in .tst-controls below). */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--tst-fade), #000 calc(100% - var(--tst-fade)), transparent);
+            mask-image: linear-gradient(to right, transparent, #000 var(--tst-fade), #000 calc(100% - var(--tst-fade)), transparent);
   }
   .tst-carousel::-webkit-scrollbar { display: none; }
+  /* Applied only while a mouse drag is in progress, removed on release —
+     never a permanent rule, so quote text stays selectable at rest. */
+  .tst-carousel.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .tst-carousel.is-dragging,
+  .tst-carousel.is-dragging * { -webkit-user-select: none; user-select: none; }
   .tst-card {
-    flex: 0 0 calc((100% - var(--tst-gap) - var(--tst-peek)) / 2);
+    flex: 0 0 calc((100% - 2 * var(--tst-peek) - 3 * var(--tst-gap)) / 2);
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -161,7 +175,9 @@
   }
   .tst-card:hover { border-color: var(--gold-dim); }
   .tst-heading { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
-  .tst-quote { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; }
+  /* Quote text is NOT a drag handle — normal text selection, like any
+     paragraph on the site. The drag handler ignores mousedown here. */
+  .tst-quote { font-size: 15px; color: var(--text); line-height: 1.7; font-style: italic; cursor: text; }
   .tst-attr { margin-top: auto; padding-top: 6px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); }
   .tst-controls { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 24px; }
   .tst-arrow {
@@ -177,8 +193,6 @@
     transition: border-color 0.2s, background 0.2s;
   }
   .tst-arrow:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
-  .tst-arrow:disabled { opacity: 0.3; cursor: default; }
-  .tst-arrow:disabled:hover { border-color: var(--gold-dark); background: transparent; }
   .tst-dots { display: flex; gap: 10px; }
   .tst-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-dim); border: none; padding: 0; cursor: pointer; transition: background 0.2s, transform 0.2s; }
   .tst-dot.active { background: var(--gold); transform: scale(1.25); }
@@ -381,60 +395,207 @@
 (function () {
   var carousel = document.querySelector('.tst-carousel');
   if (!carousel) return;
-  var cards = Array.prototype.slice.call(carousel.querySelectorAll('.tst-card'));
+
+  var originals = Array.prototype.slice.call(carousel.querySelectorAll('.tst-card'));
+  var N = originals.length;
+  if (!N) return;
+
   var prev = document.querySelector('.tst-arrow-prev');
   var next = document.querySelector('.tst-arrow-next');
   var dotsWrap = document.querySelector('.tst-dots');
-  var dots = [];
 
-  cards.forEach(function (_, i) {
+  /* ── dots: one per real testimonial ── */
+  var dots = [];
+  originals.forEach(function (_, i) {
     var d = document.createElement('button');
     d.type = 'button';
     d.className = 'tst-dot';
     d.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
-    d.addEventListener('click', function () { scrollToCard(i); });
+    d.addEventListener('click', function () { goToReal(i); });
     dotsWrap.appendChild(d);
     dots.push(d);
   });
 
-  function base() { return cards[0].offsetLeft; }
+  /* ── infinite loop: clone the whole set on both sides ──
+     Layout becomes [clones][originals][clones]. We keep scrollLeft inside
+     the band that covers the originals; when it drifts out we shift it by
+     exactly one set-width. Because the clones are pixel-identical copies
+     laid out on the same grid, that shift lands on an indistinguishable
+     frame — no visible jump or snap-back. */
+  var CLONES_PER_SIDE = Math.max(2 * N + 4, 10);
+  (function buildClones() {
+    var lead = document.createDocumentFragment();
+    var trail = document.createDocumentFragment();
+    function clone(i) {
+      var c = originals[i].cloneNode(true);
+      c.classList.add('tst-clone');
+      c.setAttribute('aria-hidden', 'true');
+      return c;
+    }
+    for (var j = 0; j < CLONES_PER_SIDE; j++) {
+      // both blocks tile the originals continuously across the seam
+      lead.appendChild(clone(((j - CLONES_PER_SIDE) % N + N) % N));
+      trail.appendChild(clone(j % N));
+    }
+    carousel.appendChild(trail);
+    carousel.insertBefore(lead, carousel.firstChild);
+  })();
 
-  function currentIndex() {
-    var pos = carousel.scrollLeft;
-    var best = 0, bestDist = Infinity;
-    cards.forEach(function (c, i) {
-      var d = Math.abs((c.offsetLeft - base()) - pos);
-      if (d < bestDist) { bestDist = d; best = i; }
-    });
-    return best;
+  var allCards = Array.prototype.slice.call(carousel.querySelectorAll('.tst-card'));
+  var firstReal = CLONES_PER_SIDE;
+
+  /* ── geometry (re-measured on resize) ── */
+  var step = 0, setWidth = 0, baseLeft = 0;
+  function px(name) {
+    return parseFloat(getComputedStyle(carousel).getPropertyValue(name)) || 0;
+  }
+  function measure() {
+    var a = allCards[firstReal].getBoundingClientRect();
+    var b = allCards[firstReal + 1].getBoundingClientRect();
+    var c = carousel.getBoundingClientRect();
+    step = b.left - a.left;
+    setWidth = step * N;
+    // scrollLeft at which the first real card rests at (peek + gap) from
+    // the left edge — i.e. a card peeking on the left, a card peeking right.
+    baseLeft = carousel.scrollLeft + (a.left - c.left) - (px('--tst-peek') + px('--tst-gap'));
   }
 
-  function scrollToCard(i) {
-    i = Math.max(0, Math.min(cards.length - 1, i));
-    // Assign scrollLeft directly so navigation works regardless of smooth-
-    // scroll support; the carousel's CSS `scroll-behavior: smooth` animates
-    // it where available and falls back to an instant jump where it isn't.
-    carousel.scrollLeft = cards[i].offsetLeft - base();
+  function setLeft(value, animate) {
+    var prevBehavior = carousel.style.scrollBehavior;
+    carousel.style.scrollBehavior = animate ? 'smooth' : 'auto';
+    carousel.scrollLeft = value;
+    carousel.style.scrollBehavior = prevBehavior;
   }
 
-  function update() {
-    var i = currentIndex();
+  function normalize() {
+    if (!setWidth) return;
+    var sl = carousel.scrollLeft, wrapped = sl;
+    while (wrapped < baseLeft) wrapped += setWidth;
+    while (wrapped >= baseLeft + setWidth) wrapped -= setWidth;
+    if (Math.abs(wrapped - sl) > 0.5) setLeft(wrapped, false);
+  }
+
+  function realIndexAt(sl) {
+    if (!step) return 0;
+    var i = Math.round((sl - baseLeft) / step);
+    return ((i % N) + N) % N;
+  }
+  function realIndex() { return realIndexAt(carousel.scrollLeft); }
+
+  function updateDots(idx) {
+    var i = (idx == null) ? realIndex() : idx;
     dots.forEach(function (d, di) { d.classList.toggle('active', di === i); });
-    if (prev) prev.disabled = carousel.scrollLeft <= 2;
-    if (next) next.disabled = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 2;
   }
 
-  if (prev) prev.addEventListener('click', function () { scrollToCard(currentIndex() - 1); });
-  if (next) next.addEventListener('click', function () { scrollToCard(currentIndex() + 1); });
+  /* ── arrow + dot navigation ── */
+  function nudge(dir) {
+    normalize();
+    var target = carousel.scrollLeft + dir * step;
+    setLeft(target, true);
+    updateDots(realIndexAt(target));
+  }
+  function goToReal(i) {
+    var delta = i - realIndex();
+    if (delta > N / 2) delta -= N;          // take the short way round
+    if (delta < -N / 2) delta += N;
+    normalize();
+    setLeft(carousel.scrollLeft + delta * step, true);
+    updateDots(i);
+  }
+  if (prev) prev.addEventListener('click', function () { nudge(-1); });
+  if (next) next.addEventListener('click', function () { nudge(1); });
 
-  var ticking = false;
-  carousel.addEventListener('scroll', function () {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () { update(); ticking = false; });
+  /* ── mouse drag (pointer events; touch is left to native scrolling) ── */
+  var dragging = false, startX = 0, startLeft = 0, lastX = 0, lastT = 0, vx = 0, moved = false;
+
+  carousel.addEventListener('pointerdown', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;   // touch / pen: native
+    if (e.button !== 0) return;
+    if (e.target.closest('.tst-quote')) return;               // let the browser select text
+    dragging = true;
+    moved = false;
+    startX = lastX = e.clientX;
+    startLeft = carousel.scrollLeft;
+    lastT = e.timeStamp;
+    vx = 0;
+    carousel.classList.add('is-dragging');
+    try { carousel.setPointerCapture(e.pointerId); } catch (err) {}
   });
-  window.addEventListener('resize', update);
-  update();
+
+  carousel.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 3) moved = true;
+    carousel.scrollLeft = startLeft - dx;
+    var dt = e.timeStamp - lastT;
+    if (dt > 0) vx = (e.clientX - lastX) / dt;   // px/ms
+    lastX = e.clientX;
+    lastT = e.timeStamp;
+  });
+
+  function endDrag(e) {
+    if (!dragging) return;
+    dragging = false;
+    // project the release velocity a little, then settle on the nearest card;
+    // cap the throw at one full cycle so the glide can't outrun the clone buffer
+    var projected = carousel.scrollLeft - vx * 140;
+    var here = Math.round((carousel.scrollLeft - baseLeft) / step);
+    var k = Math.round((projected - baseLeft) / step);
+    k = Math.max(here - N, Math.min(here + N, k));
+    var target = baseLeft + k * step;
+    carousel.classList.remove('is-dragging');
+    try { carousel.releasePointerCapture(e.pointerId); } catch (err) {}
+    setLeft(target, true);
+    updateDots(realIndexAt(target));
+    if (moved) suppressNextClick();
+  }
+  carousel.addEventListener('pointerup', endDrag);
+  carousel.addEventListener('pointercancel', endDrag);
+
+  function suppressNextClick() {
+    var kill = function (ev) { ev.stopPropagation(); ev.preventDefault(); };
+    carousel.addEventListener('click', kill, { capture: true, once: true });
+    setTimeout(function () { carousel.removeEventListener('click', kill, true); }, 320);
+  }
+
+  /* ── keep dots in sync, and re-seam the loop once motion settles ── */
+  var raf = 0;
+  carousel.addEventListener('scroll', function () {
+    if (!raf) raf = requestAnimationFrame(function () { raf = 0; updateDots(); });
+    scheduleSeam();
+  });
+  var seamTimer;
+  function scheduleSeam() {
+    clearTimeout(seamTimer);
+    seamTimer = setTimeout(function () {
+      if (dragging) return;
+      normalize();
+      updateDots();
+    }, 140);
+  }
+  if ('onscrollend' in carousel) {
+    carousel.addEventListener('scrollend', function () {
+      if (dragging) return;
+      normalize();
+      updateDots();
+    });
+  }
+
+  /* ── init ── */
+  measure();
+  setLeft(baseLeft, false);
+  updateDots();
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      var i = realIndex();
+      measure();
+      setLeft(baseLeft + i * step, false);
+      updateDots();
+    }, 150);
+  });
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->

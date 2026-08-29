@@ -199,13 +199,14 @@
   }
 
   /* coaching.html — testimonials carousel: one card fully visible with an
-     edge peek on each side, still swipeable + tap controls. Narrower peek
-     than desktop so the single card keeps enough width for the text. */
+     edge peek on BOTH sides, still swipeable + tap controls. Narrower peek
+     and edge fade than desktop so the single card keeps enough width. */
   .tst-carousel {
     --tst-peek: 34px;
+    --tst-fade: 40px;
   }
   .tst-card {
-    flex-basis: calc(100% - 2 * var(--tst-peek));
+    flex-basis: calc(100% - 2 * var(--tst-peek) - 2 * var(--tst-gap));
   }
 
   /* concepts.html */

@@ -137,6 +137,32 @@
   }
 }
 
+/* ── NAV — desktop row (above the 1100px collapse). Two fixes that must land
+   the same on every page, so they live here rather than in each page's inline
+   <style> (which sets the nav's look and loads before this file):
+
+   1. line-height is pinned. .nav-links a otherwise inherits it from <body>,
+      which is 1.6 on hero pages (21px body) and normal elsewhere (16px body) —
+      that alone dropped the hero-page nav links ~1.7px lower than the rest of
+      the site.
+   2. the link is stretched to the full bar height (flex chain from the <ul>
+      down), so its hover/active border-bottom meets the nav's own 1px bottom
+      border with no gap — one continuous line instead of two stacked ones.
+      The wordmark isn't in .nav-links so it's unaffected; the Coaching pill
+      opts out of the stretch with align-self so it keeps its own height.
+
+   Scoped to min-width:1101px so the <=1100px dropdown block above is untouched. */
+@media (min-width: 1101px) {
+  nav > .nav-links { align-self: stretch; }
+  .nav-links > li { display: flex; align-items: stretch; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    line-height: normal;
+  }
+  .nav-links a.nav-cta { align-self: center; }
+}
+
 @media (max-width: 768px) {
 
   /* ── 1. OVERFLOW SAFETY NET ─────────────────────────────── */

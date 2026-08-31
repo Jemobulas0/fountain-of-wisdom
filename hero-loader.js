@@ -72,8 +72,9 @@ function parseText(text) {
     const heroAttr = hero ? ` data-hero="${hero}"` : '';
     return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${heroAttr} style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
   });
+  // Inline hero mentions are tooltip triggers only — never navigation, whatever the hero's coverage.
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
-    return `<a href="heroes/${id}.html" class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></a>`;
+    return `<span class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></span>`;
   });
   return text;
 }
@@ -304,14 +305,18 @@ function buildAlliesCounters(ac) {
   const section = makeSection('Allies &amp; Counters');
 
   function colHTML(data, type) {
-    const titles = { allies: 'Allies', counters: 'Counters', countered: 'Countered By' };
+    const titles = { allies: 'Allies', counters: 'Strong Against', countered: 'Weak Against' };
     const heroes = data.heroes.map(function(id) {
-      return `<a href="heroes/${id}.html" class="hero-link">` +
+      const meta = HERO_DATA[id];
+      const thumb =
         `<div class="hero-thumb">` +
           `<div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
           `<div class="hero-thumb-name">${getHeroName(id)}</div>` +
-        `</div>` +
-      `</a>`;
+        `</div>`;
+      // Clickable only when the hero has a page; otherwise the same portrait with no link.
+      return (meta && meta.covered)
+        ? `<a href="hero_template.html?id=${meta.page || id}" class="hero-link">${thumb}</a>`
+        : thumb;
     }).join('');
     return `<div class="syn-col ${type}"><h4>${titles[type]}</h4><div class="hero-thumbs">${heroes}</div><div class="syn-note">${data.note}</div></div>`;
   }

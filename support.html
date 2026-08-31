@@ -42,7 +42,7 @@
   .nav-brand:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold-light); }
   .nav-links { display: flex; gap: 12px; list-style: none; }
   .nav-links a { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; padding: 14px 20px; border-bottom: 1px solid transparent; transition: color 0.2s, background 0.2s; }
-  .nav-links a:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-links a:hover, .nav-links a.active { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
   .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
   .nav-cta:hover { background: rgba(201,168,76,0.1) !important; border-color: var(--gold) !important; }
 
@@ -124,7 +124,7 @@
     <li><a href="items.html">Items</a></li>
     <!-- <li><a href="concepts.html">Concepts</a></li> -->
     <li><a href="guides.html">Guides</a></li>
-    <li><a href="support.html">Donations</a></li>
+    <li><a href="support.html" class="active">Donations</a></li>
     <li><a href="coaching.html" class="nav-cta">Coaching</a></li>
   </ul>
 </nav>

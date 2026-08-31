@@ -40,6 +40,13 @@
     letter-spacing: 1px;
     line-height: 1.3;
     max-width: 150px;
+    /* Desktop pulls the brand left with margin-left:-22px (padding:12px 22px
+       keeps the text aligned) so the hover glow bleeds past the wordmark.
+       At the 16px mobile nav padding that -22px overshoots the viewport by
+       6px and clips the wordmark. Drop the pull and the matching left pad so
+       the brand sits flush against the 16px page content edge. */
+    margin-left: 0;
+    padding-left: 0;
   }
 
   /* hamburger button — injected by nav.js, sits between brand and CTA */

@@ -54,8 +54,9 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 - `data/tooltips.css`, `data/tooltips.js` — tooltip infrastructure
 
 **Other content types** (not part of current hero workflow):
-- `items/`, `concepts/`, `guides/` — content folders. Workflows for these will be added to this file when Jemo is ready to work on them.
-- `coaching.html`, `concepts.html`, `guides.html`, `items.html`, `index.html` — landing pages for other site sections.
+- `items/`, `guides/` — content folders. Workflows for these will be added to this file when Jemo is ready to work on them.
+- `hero-links.js` (root) — makes hero mentions on static pages clickable when the hero is covered. Any item or guide page that mentions a hero needs the markup `<span class="hero-link" data-tooltip="hero" data-hero-key="{id}">Name</span>` plus `<script src="../hero-links.js"></script>` alongside the existing tooltips.js include. Never hardcode a hero URL — the script reads `covered` from `data/heroes.json` and decides. `items/iron_branch.html` is the working example.
+- `coaching.html`, `guides.html`, `items.html`, `index.html` — landing pages for other site sections.
 
 These aren't off-limits — Jemo can ask for work on any of them — they're just not part of the standard hero-building workflow.
 

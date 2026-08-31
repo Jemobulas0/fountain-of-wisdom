@@ -722,9 +722,13 @@
   }
 
   /* ── FULL WIDTH WRAPPERS ── */
+  /* .philosophy-section divs are direct children of <body>, which has no
+     horizontal padding or max-width, so they already span the full page.
+     The old width:100vw + margin-left:calc(-50vw + 50%) re-broke them out
+     against the viewport *including* the scrollbar, pushing ~15px of extra
+     width and causing a horizontal scrollbar at every width. */
   .full-width {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    width: 100%;
   }
 </style>
 <link rel="stylesheet" href="mobile.css">

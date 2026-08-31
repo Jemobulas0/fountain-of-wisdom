@@ -5,7 +5,7 @@
    names aren't globally unique.
 
    Sections:
-   0. Nav — its own 860px breakpoint (wider than everything else below,
+   0. Nav — its own 1100px breakpoint (wider than everything else below,
       see comment above that block for why), responsive + tap targets
    1. Overflow safety net (no horizontal scroll)
    2. Grid collapse (768px / 480px)
@@ -18,7 +18,10 @@
 /* ── NAV — all pages share the same six-item markup (Heroes/Items/
    Concepts[commented out]/Guides/Donations/Coaching). It stops fitting on
    one line well above the 768px content breakpoint below, so it keeps its
-   own wider 860px breakpoint. Below 860px, nav.js collapses the link row
+   own wider 1100px breakpoint: at 15px link text the desktop row needs
+   ~1090px of viewport before .nav-brand can sit on one line beside it, so
+   below that it wraps 2-4 lines and spills the 56px bar.
+   Below 1100px, nav.js collapses the link row
    into a hamburger dropdown: the brand stays at the left, the Coaching CTA
    is lifted out of the list and stays at the right, and every other link
    drops into a panel toggled by the button. The panel is just the original
@@ -27,7 +30,7 @@
 
 .nav-toggle { display: none; }
 
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   nav {
     padding: 0 16px;
     gap: 8px;
@@ -120,6 +123,10 @@
     width: 100%;
     min-height: 48px;
     padding: 12px 24px;
+    /* Without this the dropdown links inherit the 15px desktop size and
+       outweigh the 11px brand / 10px CTA. Match the CTA at 10px so the
+       menu sits below the brand, same as before the desktop bump. */
+    font-size: 10px;
   }
 }
 

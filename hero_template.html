@@ -130,8 +130,13 @@
   .extras-box p { font-size: 18px; color: var(--text); margin-bottom: 12px; padding-left: 36px; }
 
   /* ── SKILL / ITEM BUILDS ── */
-  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; display: flex; flex-direction: column; }
+  /* Two subgrid rows — .build-inner (content) and .build-note (description) —
+     so every card's description starts at the same Y regardless of how much
+     content sits above it. row-gap:0 keeps the card internals tight; the
+     between-card gap on mobile still comes from .builds-grid's gap. */
+  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; gap: 16px; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; grid-row: span 2; display: grid; grid-template-rows: subgrid; row-gap: 0; }
+  .build-inner { display: flex; flex-direction: column; }
   .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; line-height: 1.2; min-height: 2.4em; }
 
   .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
@@ -168,7 +173,7 @@
 
   /* ── ITEM BUILDS ── */
   .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
-  .item-phase:first-of-type { border-bottom: 1px solid var(--border); min-height: 139px; }
+  .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
   .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
   .item-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -276,7 +281,7 @@
   </footer>
 </div>
 
-<script src="hero-loader.js?v=9"></script>
+<script src="hero-loader.js?v=10"></script>
 <script src="data/tooltips.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

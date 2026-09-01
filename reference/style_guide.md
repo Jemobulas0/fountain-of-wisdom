@@ -13,7 +13,7 @@ The primary readers are:
 
 These two groups are addressed simultaneously. Casual veterans have decades of game knowledge — heroes, items, mechanics — but lack the structural understanding the site teaches. New players are still building both layers at once. What unites them is that neither has had someone clearly point out the patterns and concepts that the site exists to surface.
 
-The site's primary focus is casual and new players, but the work isn't only for them. Higher-MMR players can gain significant value too — especially from the Concepts and Guides sections, where Jemo covers topics that are hardly ever discussed elsewhere online. The reader isn't assumed to be a pro or a top-percentile grinder, but the work isn't dumbed down for anyone either. It's someone who wants the game to make more sense — at whatever level they're playing.
+The site's primary focus is casual and new players, but the work isn't only for them. Higher-MMR players can gain significant value too — especially from the Guides section, where Jemo covers topics that are hardly ever discussed elsewhere online. The reader isn't assumed to be a pro or a top-percentile grinder, but the work isn't dumbed down for anyone either. It's someone who wants the game to make more sense — at whatever level they're playing.
 
 ## Voice — what Jemo's writing sounds like
 
@@ -27,9 +27,14 @@ The site's primary focus is casual and new players, but the work isn't only for 
 
 **Acknowledging and overturning intuition.** When something is counterintuitive, Jemo names that it's counterintuitive and explains why the right answer is right anyway. "Which albeit counterintuitive to new players, is actually perfectly fine since..." This pattern is intentional — it pre-empts the reader's resistance. Don't edit out the acknowledgment.
 
-**Anti-clickbait opening posture.** Guides and concepts often open by undercutting their own importance ("Most players never put their finger on this one — so it feels inconsequential"). The body then proves the point matters. Don't "improve" these intros into stronger hooks — the undercut is doing real work.
+**Anti-clickbait opening posture.** Guides often open by undercutting their own importance ("Most players never put their finger on this one — so it feels inconsequential"). The body then proves the point matters. Don't "improve" these intros into stronger hooks — the undercut is doing real work.
 
-**Personal authority without arrogance.** "21 years of DotA. Writing about the concepts most players never put their finger on — until now." Confidence anchored in time invested, not credentials or rank-flexing.
+**Personal authority without arrogance.** "I've spent more hours in this game than most people spend on any single thing in their lives, and what I've found is that in the long run, we are our own biggest obstacle to conquer." Confidence anchored in time invested, not credentials or rank-flexing.
+
+**Icons carry their names.** When referencing an item or ability by its icon in notes or tips, the name follows the icon. New players don't recognize icons alone, and until every item has a page with a tooltip, the icon by itself tells them nothing. Exception: dense stacks of several icons in a row, where names would bloat the line — leave those as icons only. Older hero JSONs still use icon-only in places; that's legacy, not the standard.
+
+- Ability names follow Valve's own casing, e.g., "Press The Attack."
+- Items use the name players actually say: "BKB," not "Black King Bar." The full name belongs only on the item's own page, where it's the title.
 
 ## Voice — what Jemo's writing avoids (so don't introduce these when editing)
 
@@ -42,11 +47,6 @@ The site's primary focus is casual and new players, but the work isn't only for 
 **No marketing-speak in section headers.** Headers describe what the section IS. "The Problem" / "The Fix" / "The Pre-Game Plan." Not "Discover the secrets of..." or "5 things you need to know about..."
 
 **No condescension.** The site doesn't explain things the reader already knows just because the explanation feels safer. Trust the audience.
-
-**Icons carry their names.** When referencing an item or ability by its icon in notes or tips, the name follows the icon. New players don't recognize icons alone, and until every item has a page with a tooltip, the icon by itself tells them nothing. Exception: dense stacks of several icons in a row, where names would bloat the line — leave those as icons only. Older hero JSONs still use icon-only in places; that's legacy, not the standard.
-
-- Ability names follow Valve's own casing, e.g., "Press The Attack."
-- Items use the name players actually say: "BKB," not "Black King Bar." The full name belongs only on the item's own page, where it's the title.
 
 ## Structure conventions
 
@@ -62,7 +62,7 @@ Hero pages are built from `hero_template.json`, with `spirit_breaker.json` as th
 6. **Tips** — basic and advanced. Basic = foundational mechanics. Advanced = pattern recognition, optimization, non-obvious uses.
 7. **Allies and Counters** — three buckets (allies, counters, countered_by), each with 4–6 hero names plus a note explaining the pattern, not just the list.
 
-### Items, Concepts, and Guides
+### Items and Guides
 
 Conventions for these content types are not yet codified — too few examples exist on the site to abstract from confidently. As more pages get built, this section will be filled in based on what Jemo actually writes.
 

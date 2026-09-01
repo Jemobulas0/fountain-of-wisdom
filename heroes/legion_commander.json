@@ -160,7 +160,7 @@
           "chosen": "left"
         }
       ],
-      "note": "Press the Attack is one of the best Strong Dispels in the game. Against all-in heroes whose lane objective is to kill you sometimes as early as level 1 — you can often times completely negate their entire kill threat with this spell. Adapt to your opponents. In some rarer cases you might even want to take it at level 1 — for ex. to dispel Terrorblade's Reflection & Dazzle's Poison Touch at the same time & instead of flat out dying immediately — to remain at full health."
+      "note": "Press The Attack is one of the best Strong Dispels in the game. Against all-in heroes whose lane objective is to kill you sometimes as early as level 1 — you can often times completely negate their entire kill threat with this spell. Adapt to your opponents. In some rarer cases you might even want to take it at level 1 — for ex. to dispel Terrorblade's Reflection & Dazzle's Poison Touch at the same time & instead of flat out dying immediately — to remain at full health."
     }
   ],
   "item_builds": [
@@ -275,7 +275,7 @@
     },
     {
       "id": "ultimate_scepter",
-      "note": "In many scenarios, [ability:legion_commander_press_the_attack] Press the Attack is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games.",
+      "note": "In many scenarios, [ability:legion_commander_press_the_attack] Press The Attack is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games.",
       "hero": "legion_commander"
     }
   ],
@@ -286,7 +286,7 @@
     },
     {
       "level": "basic",
-      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press the Attack."
+      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press The Attack."
     },
     {
       "level": "basic",
@@ -302,7 +302,7 @@
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_press_the_attack] Press the Attack is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] Primal Roar or [hero:bane]'s [ability:bane_fiends_grip] Fiend's Grip & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
+      "text": "[ability:legion_commander_press_the_attack] Press The Attack is one of the very few Strong Dispels in the entire game. And an amazing one to boot since it's a low cooldown normal ability. This means that an ally hero next to you could have been just ulted by Debuff Immunity Piercing Disables like [hero:beastmaster]'s [ability:beastmaster_primal_roar] Primal Roar or [hero:bane]'s [ability:bane_fiends_grip] Fiend's Grip & immediately remove the entire CC from him. Both the Move Speed & HP Regen buffs are nice, but usually the Strong Dispel is the selling point of this spell."
     },
     {
       "level": "advanced",

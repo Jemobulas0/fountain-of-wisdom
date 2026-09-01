@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 let HERO_DATA = {};
+let ITEM_PAGES = {};   // item id (canonical OR cdn/legacy alias) -> canonical page id; from data/item-pages.json
 
 function getHeroName(id) {
   const hero = HERO_DATA[id];
@@ -35,10 +36,40 @@ function getActiveGroups(heroPositions) {
 }
 
 
+// Builds the ITEM_PAGES lookup from data/item-pages.json. Each entry is keyed by
+// the item's canonical id (= its page filename) and may carry a "cdn" alias — the
+// legacy id hero JSONs actually emit (e.g. Iron Branch is written as "branches").
+// Both ids point at the same canonical page.
+function buildItemPageIndex(registry) {
+  ITEM_PAGES = {};
+  Object.keys(registry || {}).forEach(function(canonical) {
+    const entry = registry[canonical];
+    if (!entry || typeof entry !== 'object') return;   // skip __README__ etc.
+    ITEM_PAGES[canonical] = canonical;
+    if (entry.cdn) ITEM_PAGES[entry.cdn] = canonical;
+  });
+}
+
+// Wraps an item icon: a real link when the item has a page (listed in
+// data/item-pages.json), a plain non-navigable span when it doesn't. The tooltip
+// attributes (data-tooltip / data-item / data-hero) are identical either way —
+// coverage decides the link, data/items.json decides the tooltip, never each other.
+function itemLinkWrap(id, inner, opts) {
+  opts = opts || {};
+  const heroAttr = opts.hero ? ` data-hero="${opts.hero}"` : '';
+  const styleAttr = opts.style ? ` style="${opts.style}"` : '';
+  const attrs = `class="item-link" data-tooltip="item" data-item="${id}"${heroAttr}${styleAttr}`;
+  const page = ITEM_PAGES[id];
+  return page
+    ? `<a href="items/${page}.html" ${attrs}>${inner}</a>`
+    : `<span ${attrs}>${inner}</span>`;
+}
+
 // Renders a standard item icon with link and tooltip
 function itemIconHTML(id, heroShard) {
-  const shardAttr = heroShard ? ` data-hero="${heroShard}"` : '';
-  return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${shardAttr}><div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
+  return itemLinkWrap(id,
+    `<div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+    { hero: heroShard });
 }
 
 // Renders an item from a build phase — handles strings, plain objects, and timed objects
@@ -69,8 +100,9 @@ function parseText(text) {
     return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="ability-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
   });
   text = text.replace(/\[item:([^|\]]+)(?:\|([^\]]+))?\]/g, function(_, id, hero) {
-    const heroAttr = hero ? ` data-hero="${hero}"` : '';
-    return `<a href="items/${id}.html" class="item-link" data-tooltip="item" data-item="${id}"${heroAttr} style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="item-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></a>`;
+    return itemLinkWrap(id,
+      `<div class="item-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+      { hero: hero, style: 'display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;' });
   });
   // Inline hero mentions are tooltip triggers only — never navigation, whatever the hero's coverage.
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
@@ -256,16 +288,13 @@ function buildItemBuilds(builds, situational) {
   let sitHTML = '';
   if (situational && situational.length) {
     const sitItemsHTML = situational.map(function(item) {
-      const heroAttr = (item.hero || item.hero_shard) ? ` data-hero="${item.hero || item.hero_shard}"` : '';
-      const mainIcon =
-        `<a href="items/${item.id}.html" class="item-link" data-tooltip="item" data-item="${item.id}"${heroAttr}>` +
-          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
-        `</a>`;
+      const mainIcon = itemLinkWrap(item.id,
+        `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+        { hero: item.hero || item.hero_shard });
       const alsoIds = Array.isArray(item.also) ? item.also : [item.also, item.also2, item.also3].filter(Boolean);
       const alsoIcons = alsoIds.map(function(a) {
-        return `<a href="items/${a}.html" class="item-link" data-tooltip="item" data-item="${a}">` +
-          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${a}.png" alt="${a}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>` +
-          `</a>`;
+        return itemLinkWrap(a,
+          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${a}.png" alt="${a}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`);
       }).join('');
       return `<div class="sit-item">${mainIcon}${alsoIcons}<div class="sit-item-note">${parseText(item.note)}</div></div>`;
     }).join('');
@@ -344,11 +373,13 @@ if (!heroId) {
       if (!r.ok) throw new Error('Hero not found: ' + heroId);
       return r.json();
     }),
-    fetch('data/heroes.json').then(function(r) { return r.json(); })
+    fetch('data/heroes.json').then(function(r) { return r.json(); }),
+    fetch('data/item-pages.json').then(function(r) { return r.ok ? r.json() : {}; }).catch(function() { return {}; })
   ])
     .then(function(results) {
       const data = results[0];
       HERO_DATA = results[1];
+      buildItemPageIndex(results[2]);
       buildHeader(data);
       const container = document.getElementById('hero-sections');
       container.appendChild(buildOverview(data.overview));

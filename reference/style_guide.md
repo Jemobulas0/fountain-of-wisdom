@@ -43,6 +43,8 @@ The site's primary focus is casual and new players, but the work isn't only for 
 
 **No condescension.** The site doesn't explain things the reader already knows just because the explanation feels safer. Trust the audience.
 
+**Icons carry their names.** When referencing an item or ability by its icon in notes or tips, the name follows the icon. New players don't recognize icons alone, and until every item has a page with a tooltip, the icon by itself tells them nothing. Exception: dense stacks of several icons in a row, where names would bloat the line — leave those as icons only. Older hero JSONs still use icon-only in places; that's legacy, not the standard.
+
 ## Structure conventions
 
 ### Hero pages

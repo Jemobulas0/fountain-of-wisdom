@@ -51,11 +51,13 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 - `hero_template.html` (root) — HTML template that renders hero pages from JSON
 - `hero-loader.js` (root) — JavaScript that fetches and renders hero JSON. `getHeroName` reads display names from `data/heroes.json` (fetched once per hero page load).
 - `data/items.json` — site-wide item metadata
+- `data/item-pages.json` — registry of items that have their own page. Adding an entry makes that item clickable everywhere on the site; leaving it out makes the icon non-clickable while keeping its tooltip. Add `"item_id": {}` when the filename matches the id hero JSONs use, or `"item_id": { "cdn": "other_id" }` when they differ. Tooltips are unaffected — they come from `data/items.json`, and the two systems are independent.
 - `data/tooltips.css`, `data/tooltips.js` — tooltip infrastructure
 
 **Other content types** (not part of current hero workflow):
 - `items/`, `guides/` — content folders. Workflows for these will be added to this file when Jemo is ready to work on them.
 - `hero-links.js` (root) — makes hero mentions on static pages clickable when the hero is covered. Any item or guide page that mentions a hero needs the markup `<span class="hero-link" data-tooltip="hero" data-hero-key="{id}">Name</span>` plus `<script src="../hero-links.js"></script>` alongside the existing tooltips.js include. Never hardcode a hero URL — the script reads `covered` from `data/heroes.json` and decides. `items/iron_branch.html` is the working example.
+- `item-links.js` (root) — makes item mentions on static pages clickable when the item has a page. Any item or guide page that mentions an item needs the markup `<span class="item-link" data-tooltip="item" data-item="{id}">…icon…</span>` plus `<script src="../item-links.js"></script>` alongside the existing tooltips.js include. Never hardcode an item URL — the script reads `data/item-pages.json` and decides (it accepts either the canonical id or the CDN id hero JSONs use). Tooltips are unaffected — they come from `data/items.json`. `items/iron_branch.html` is the working example.
 - `coaching.html`, `guides.html`, `items.html`, `index.html` — landing pages for other site sections.
 
 These aren't off-limits — Jemo can ask for work on any of them — they're just not part of the standard hero-building workflow.

@@ -309,7 +309,7 @@
     },
     {
       "level": "advanced",
-      "text": "Once you have [item:ultimate_scepter|lifestealer] & [item:black_king_bar]: using [ability:life_stealer_rage] Rage → [ability:life_stealer_infest] Infest → [item:black_king_bar] actually gives you enough time of Debuff Immunity + Invulnerability for your Rage to fully recharge & use it a 2nd time without becoming susceptible to normal spells. And once the 2nd Rage expires, you only have 7 seconds until your second Infest is back up again."
+      "text": "Once you have [item:ultimate_scepter|lifestealer] Aghanim's Scepter & [item:black_king_bar] BKB: using [ability:life_stealer_rage] Rage → [ability:life_stealer_infest] Infest → [item:black_king_bar] BKB actually gives you enough time of Debuff Immunity + Invulnerability for your Rage to fully recharge & use it a 2nd time without becoming susceptible to normal spells. And once the 2nd Rage expires, you only have 7 seconds until your second Infest is back up again."
     }
   ],
   "allies_and_counters": {

@@ -132,7 +132,6 @@
   /* ── SKILL / ITEM BUILDS ── */
   .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; display: flex; flex-direction: column; }
-  .build-card:has(.item-phase) .build-note { margin-top: auto; }
   .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; line-height: 1.2; min-height: 2.4em; }
 
   .spell-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; align-items: center; }
@@ -209,7 +208,7 @@
   /* ── LINKS ── */
   a.item-link, a.hero-link { text-decoration: none; color: inherit; }
   a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
-  a.item-link { display: contents; }
+  .item-link { display: contents; }
   a.item-link .item-icon, a.item-link .sit-item-icon { transition: border-color 0.2s, box-shadow 0.2s; }
   a.item-link:hover .item-icon, a.item-link:hover .sit-item-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   a.hero-link { display: inline-block; }
@@ -277,7 +276,7 @@
   </footer>
 </div>
 
-<script src="hero-loader.js?v=8"></script>
+<script src="hero-loader.js?v=9"></script>
 <script src="data/tooltips.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

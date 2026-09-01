@@ -254,7 +254,7 @@
     {
       "id": "monkey_king_bar",
       "also": "bloodthorn",
-      "note": "Counters Evasion. Unlike other heroes, you can often times pop [item:bloodthorn] & disable the enemy hero from self-dispelling if you can instantly [ability:legion_commander_duel] him right after."
+      "note": "Counters Evasion. Unlike other heroes, you can often times pop [item:bloodthorn] Bloodthorn & disable the enemy hero from self-dispelling if you can instantly [ability:legion_commander_duel] Duel him right after."
     },
     {
       "id": "nullifier",
@@ -275,7 +275,7 @@
     },
     {
       "id": "ultimate_scepter",
-      "note": "In many scenarios, [ability:legion_commander_press_the_attack] is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games.",
+      "note": "In many scenarios, [ability:legion_commander_press_the_attack] Press the Attack is the highest impact spell you can use in a fight. This turns the spell into a team-wide AoE ability. Strongly consider this item in most of your games.",
       "hero": "legion_commander"
     }
   ],
@@ -290,7 +290,7 @@
     },
     {
       "level": "basic",
-      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel] Duel. This means that things like [item:blade_mail] & [item:armlet] need to be activated right before casting [ability:legion_commander_duel] Duel."
+      "text": "Unlike your abilities though, you cannot use items during [ability:legion_commander_duel] Duel. This means that things like [item:blade_mail] Blade Mail & [item:armlet] Armlet of Mordiggian need to be activated right before casting [ability:legion_commander_duel] Duel."
     },
     {
       "level": "basic",
@@ -306,7 +306,7 @@
     },
     {
       "level": "advanced",
-      "text": "To bring the previous tip home even further, your [item:ultimate_scepter|legion_commander] turns your second ability into one of the best non-ultimates in the entire game. Your teams will always feel the strong benefits from it."
+      "text": "To bring the previous tip home even further, your [item:ultimate_scepter|legion_commander] Aghanim's Scepter turns your second ability into one of the best non-ultimates in the entire game. Your teams will always feel the strong benefits from it."
     },
     {
       "level": "advanced",
@@ -314,7 +314,7 @@
     },
     {
       "level": "advanced",
-      "text": "The most common item that you'll see on the enemy team will be [item:sphere]. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon], [item:orchid], [item:bloodthorn], [item:nullifier] or even less frequently bought items like [item:heavens_halberd], [item:diffusal_blade], [item:disperser]."
+      "text": "The most common item that you'll see on the enemy team will be [item:sphere] Linken's Sphere. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon], [item:orchid], [item:bloodthorn], [item:nullifier] or even less frequently bought items like [item:heavens_halberd], [item:diffusal_blade], [item:disperser]."
     }
   ],
   "allies_and_counters": {

@@ -172,7 +172,7 @@
   /* ── LINKS ── */
   a.item-link, a.hero-link { text-decoration: none; color: inherit; }
   a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
-  a.item-link { display: contents; }
+  .item-link { display: contents; }
   a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
   a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   a.hero-link { display: inline-block; }
@@ -253,7 +253,7 @@
 
     <div class="build-tree">
       <div class="build-tree-row">
-        <a href="magic_wand.html" class="build-tree-link" data-tooltip="item" data-item="magic_wand">
+        <span class="build-tree-link" data-tooltip="item" data-item="magic_wand">
           <div class="build-tree-item">
             <div class="build-tree-icon">
               <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_wand.png" alt="Magic Wand">
@@ -261,20 +261,20 @@
             <div class="build-tree-name">Magic Wand</div>
             <div class="build-tree-cost">450</div>
           </div>
-        </a>
+        </span>
       </div>
 
       <div class="build-tree-connector"></div>
 
       <div class="build-tree-row">
-        <a href="magic_stick.html" class="build-tree-link" data-tooltip="item" data-item="magic_stick">
+        <span class="build-tree-link" data-tooltip="item" data-item="magic_stick">
           <div class="build-tree-item">
             <div class="build-tree-icon">
               <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/magic_stick.png" alt="Magic Stick">
             </div>
             <div class="build-tree-name">Magic Stick</div>
           </div>
-        </a>
+        </span>
 
         <div class="build-tree-plus">+</div>
 
@@ -314,10 +314,10 @@
       <!-- Tango interaction -->
       <div class="use-case">
         <div class="use-case-icons">
-          <a href="tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></a>
+          <span class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></span>
         </div>
         <div class="use-case-body">
-          You can consume the planted Tree with a <a href="tango.html" class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></a> Tango in order to double the duration and thus the overall healing — from 112 to 224 HP.
+          You can consume the planted Tree with a <span class="item-link" data-tooltip="item" data-item="tango"><div class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/tango.png" alt="Tango"></div></span> Tango in order to double the duration and thus the overall healing — from 112 to 224 HP.
         </div>
       </div>
 
@@ -449,6 +449,7 @@
 </div>
   <script src="../data/tooltips.js"></script>
   <script src="../hero-links.js"></script>
+  <script src="../item-links.js"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

@@ -1,0 +1,4 @@
+{
+  "__README__": "Registry of items that have a page. KEY = the item's canonical id, which is ALSO its page filename: items/<key>.html. Optional \"cdn\" = the legacy/CDN id that hero pages and data-item attributes use for this item when it differs from the key (Iron Branch is emitted as \"branches\" by hero JSONs). Omit \"cdn\" when it matches the key. To make an item clickable everywhere, add one entry here — no code changes. This file controls CLICKABILITY ONLY. Tooltips are owned entirely by data/items.json and are unaffected by anything here (e.g. adding Aghanim's Scepter here would make it a link but must not, and does not, give it a standard item tooltip).",
+  "iron_branch": { "cdn": "branches" }
+}

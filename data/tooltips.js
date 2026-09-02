@@ -7,7 +7,8 @@
 (function() {
   'use strict';
 
-  const CDN = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react';
+  // Icon src resolver shared with hero-loader.js — see icon-src.js.
+  const resolveIconSrc = window.FoWIcon.src;
   // Derive data folder path from this script's own src attribute
   var scriptEl = document.currentScript;
   var DATA_PATH = scriptEl ? scriptEl.src.replace(/[^/]*$/, '') : '../data/';
@@ -55,7 +56,7 @@
     var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
     var html = '<div class="fow-tt-aghs">';
     html += '<div class="fow-tt-aghs-header">';
-    if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + CDN + '/abilities/' + aghs.ability_icon + '.png" alt="' + aghs.ability + '"></div>';
+    if (aghs.ability_icon) html += '<div class="fow-tt-aghs-ability-icon"><img src="' + resolveIconSrc(aghs.ability_icon, 'abilities') + '" alt="' + aghs.ability + '"></div>';
     html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
     html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
     html += '</div>';
@@ -87,7 +88,7 @@
 
     // Header: icon, name, cost top-right
     html += '<div class="fow-tt-header">';
-    html += '<div class="fow-tt-icon"><img src="' + CDN + '/items/' + item.icon + '.png" alt="' + item.name + '"></div>';
+    html += '<div class="fow-tt-icon"><img src="' + resolveIconSrc(item.icon, 'items') + '" alt="' + item.name + '"></div>';
     html += '<div class="fow-tt-name">' + item.name + '</div>';
     if (item.cost) html += '<div class="fow-tt-cost">' + item.cost + '</div>';
     html += '</div>';
@@ -148,7 +149,7 @@
     if (!hero) return null;
 
     var html = '<div class="fow-tt-hero">';
-    html += '<div class="fow-tt-hero-avatar"><img src="' + CDN + '/heroes/' + hero.icon + '.png" alt="' + hero.name + '"></div>';
+    html += '<div class="fow-tt-hero-avatar"><img src="' + resolveIconSrc(hero.icon, 'heroes') + '" alt="' + hero.name + '"></div>';
     html += '<div class="fow-tt-hero-name">' + hero.name + '</div>';
     html += '</div>';
     return html;

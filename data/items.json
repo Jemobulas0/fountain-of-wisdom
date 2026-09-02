@@ -150,6 +150,7 @@
       },
       "slardar": {
         "ability": "Seaborn Sentinel",
+        "ability_icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png",
         "tag": "upgrade",
         "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
       },
@@ -1711,6 +1712,7 @@
       },
       "slardar": {
         "ability": "Seaborn Sentinel",
+        "ability_icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png",
         "tag": "upgrade",
         "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
       },

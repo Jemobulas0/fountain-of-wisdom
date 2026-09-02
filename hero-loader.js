@@ -68,7 +68,7 @@ function itemLinkWrap(id, inner, opts) {
 // Renders a standard item icon with link and tooltip
 function itemIconHTML(id, heroShard) {
   return itemLinkWrap(id,
-    `<div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+    `<div class="item-icon"><img src="${FoWIcon.src(id, 'items')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
     { hero: heroShard });
 }
 
@@ -97,16 +97,16 @@ function buildItemHTML(item) {
 function parseText(text) {
   text = text.replace(/→/g, '<span style="color:var(--text-dim);font-size:17px;">→</span>');
   text = text.replace(/\[ability:([^\]]+)\]/g, function(_, id) {
-    return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="ability-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
+    return `<span style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div class="ability-icon-inline"><img src="${FoWIcon.src(id, 'abilities')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div></span>`;
   });
   text = text.replace(/\[item:([^|\]]+)(?:\|([^\]]+))?\]/g, function(_, id, hero) {
     return itemLinkWrap(id,
-      `<div class="item-icon-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+      `<div class="item-icon-inline"><img src="${FoWIcon.src(id, 'items')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
       { hero: hero, style: 'display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;' });
   });
   // Inline hero mentions are tooltip triggers only — never navigation, whatever the hero's coverage.
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
-    return `<span class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></span>`;
+    return `<span class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="${FoWIcon.src(id, 'heroes')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></span>`;
   });
   return text;
 }
@@ -146,11 +146,11 @@ function buildHeader(data) {
 
   document.getElementById('hero-center').innerHTML =
     `<div class="hero-avatar">` +
-      `<img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${data.id}.png" alt="${data.name}" onerror="this.parentElement.innerHTML='⚔️'">` +
+      `<img src="${FoWIcon.src(data.id, 'heroes')}" alt="${data.name}" onerror="this.parentElement.innerHTML='⚔️'">` +
     `</div>` +
     `<div class="hero-name">${data.name}</div>` +
     `<div class="hero-attr" style="color:${attrColor};">` +
-      `<img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_${data.attribute}.png" alt="${attrName}" style="width:16px;height:16px;">` +
+      `<img src="${FoWIcon.src('hero_' + data.attribute, 'icons')}" alt="${attrName}" style="width:16px;height:16px;">` +
       attrName +
     `</div>`;
 
@@ -222,7 +222,7 @@ function buildSkillBuilds(builds, heroPositions) {
     const rowsHTML = build.rows.map(function(row) {
       const icons = row.abilities.map(function(ab) {
         const isUlt = ab === build.ult;
-        return `<div class="spell-icon${isUlt ? ' ult' : ''}"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ab}.png" alt="${ab}"></div>`;
+        return `<div class="spell-icon${isUlt ? ' ult' : ''}"><img src="${FoWIcon.src(ab, 'abilities')}" alt="${ab}"></div>`;
       }).join('');
 
       let timestamps = '';
@@ -293,12 +293,12 @@ function buildItemBuilds(builds, situational) {
   if (situational && situational.length) {
     const sitItemsHTML = situational.map(function(item) {
       const mainIcon = itemLinkWrap(item.id,
-        `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${item.id}.png" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
+        `<div class="sit-item-icon"><img src="${FoWIcon.src(item.id, 'items')}" alt="${item.id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
         { hero: item.hero || item.hero_shard });
       const alsoIds = Array.isArray(item.also) ? item.also : [item.also, item.also2, item.also3].filter(Boolean);
       const alsoIcons = alsoIds.map(function(a) {
         return itemLinkWrap(a,
-          `<div class="sit-item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/${a}.png" alt="${a}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`);
+          `<div class="sit-item-icon"><img src="${FoWIcon.src(a, 'items')}" alt="${a}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`);
       }).join('');
       return `<div class="sit-item">${mainIcon}${alsoIcons}<div class="sit-item-note">${parseText(item.note)}</div></div>`;
     }).join('');
@@ -343,7 +343,7 @@ function buildAlliesCounters(ac) {
       const meta = HERO_DATA[id];
       const thumb =
         `<div class="hero-thumb">` +
-          `<div class="hero-thumb-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/${id}.png" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
+          `<div class="hero-thumb-icon"><img src="${FoWIcon.src(id, 'heroes')}" alt="${getHeroName(id)}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>` +
           `<div class="hero-thumb-name">${getHeroName(id)}</div>` +
         `</div>`;
       // Clickable only when the hero has a page; otherwise the same portrait with no link.

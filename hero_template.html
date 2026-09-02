@@ -130,12 +130,16 @@
   .extras-box p { font-size: 18px; color: var(--text); margin-bottom: 12px; padding-left: 36px; }
 
   /* ── SKILL / ITEM BUILDS ── */
-  /* Two subgrid rows — .build-inner (content) and .build-note (description) —
-     so every card's description starts at the same Y regardless of how much
-     content sits above it. row-gap:0 keeps the card internals tight; the
-     between-card gap on mobile still comes from .builds-grid's gap. */
-  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; gap: 16px; }
-  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; grid-row: span 2; display: grid; grid-template-rows: subgrid; row-gap: 0; }
+  /* Card internals ride a subgrid: every card in a .builds-grid shares one row
+     set, so the title row, each item-phase row and the description row all line
+     up across cards however tall each card's content is. The grid's own rows
+     and the --build-rows span count are set inline per grid (see
+     buildSkillBuilds / buildItemBuilds): skill cards use 2 rows
+     (.build-inner + .build-note); item cards use 1 (title) + N phases + 1 (note).
+     row-gap:0 keeps internals tight; on mobile the single column still flows
+     card 2 onto implicit rows below card 1, gapped by .builds-grid's gap. */
+  .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; grid-row: span var(--build-rows, 2); display: grid; grid-template-rows: subgrid; row-gap: 0; }
   .build-inner { display: flex; flex-direction: column; }
   .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; line-height: 1.2; min-height: 2.4em; }
 
@@ -160,7 +164,7 @@
   .item-timed .timestamp.green { color: var(--green); }
   .item-timed .timestamp.yellow { color: var(--yellow); }
 
-  .build-note { font-size: 17px; color: var(--text); line-height: 1.4; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; }
+  .build-note { font-size: 17px; color: var(--text); line-height: 1.4; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 8px; grid-row: -2 / -1; }
   .talent-note-label { font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; letter-spacing: 2px; color: var(--text-dim); text-transform: uppercase; text-align: center; margin-top: 8px; }
   .build-body { display: flex; gap: 8px; align-items: flex-start; }
   .build-spells { display: flex; flex-direction: column; gap: 0; flex-shrink: 0; }
@@ -172,7 +176,10 @@
   .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; align-self: center; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
 
   /* ── ITEM BUILDS ── */
-  .item-phase { padding-bottom: 10px; margin-bottom: 10px; }
+  /* Each .item-phase is a direct subgrid row of .build-card; align-self:start
+     keeps the phase (and its separator border) tight to its own content while
+     the next phase row still starts at the same Y in every card. */
+  .item-phase { padding-bottom: 10px; margin-bottom: 10px; align-self: start; }
   .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
   .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
@@ -282,9 +289,9 @@
   </footer>
 </div>
 
-<script src="icon-src.js"></script>
-<script src="hero-loader.js?v=10"></script>
-<script src="data/tooltips.js"></script>
+<script src="icon-src.js?v=11"></script>
+<script src="hero-loader.js?v=11"></script>
+<script src="data/tooltips.js?v=11"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

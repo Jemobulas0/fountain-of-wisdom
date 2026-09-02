@@ -258,8 +258,9 @@ function buildSkillBuilds(builds, heroPositions) {
     `</div>`;
   }).join('');
 
+  // 2 subgrid rows: .build-inner (content) + .build-note (description).
   const skillGridCols = Array(builds.length).fill('1fr').join(' ');
-  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${skillGridCols}">${buildsHTML}</div>`;
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${skillGridCols};grid-template-rows:1fr auto;--build-rows:2">${buildsHTML}</div>`;
   return section;
 }
 
@@ -273,6 +274,9 @@ function buildItemBuilds(builds, situational) {
       `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Casual player timings</span></div>` +
     `</div>`;
 
+  // Widest build sets the shared row count: title + one row per phase + note.
+  const maxPhases = builds.reduce(function(m, b) { return Math.max(m, b.phases.length); }, 0);
+
   const buildsHTML = builds.map(function(build) {
     const phasesHTML = build.phases.map(function(phase) {
       const items = phase.items.map(buildItemHTML).join('');
@@ -280,11 +284,11 @@ function buildItemBuilds(builds, situational) {
       return `<div class="item-phase"><div class="item-phase-label">${phase.label}</div><div class="item-row">${items}</div>${note}</div>`;
     }).join('');
 
+    // h4, each phase and the note are direct grid children so every one is its
+    // own subgrid row and lines up with the matching row in the other card.
     return `<div class="build-card">` +
-      `<div class="build-inner">` +
-        `<h4>${build.name}</h4>` +
-        phasesHTML +
-      `</div>` +
+      `<h4>${build.name}</h4>` +
+      phasesHTML +
       `<div class="build-note">${parseText(build.note)}</div>` +
     `</div>`;
   }).join('');
@@ -311,7 +315,8 @@ function buildItemBuilds(builds, situational) {
   }
 
   const itemGridCols = Array(builds.length).fill('1fr').join(' ');
-  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols}">${buildsHTML}</div>` + sitHTML;
+  const itemGridRows = new Array(maxPhases + 2).fill('auto').join(' '); // title + phases + note
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols};grid-template-rows:${itemGridRows};--build-rows:${maxPhases + 2}">${buildsHTML}</div>` + sitHTML;
   return section;
 }
 

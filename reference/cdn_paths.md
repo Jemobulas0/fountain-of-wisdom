@@ -34,7 +34,9 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 
 ### Abilities
 
-(Empty — add entries as exceptions are discovered.)
+| In-Game Name | Legacy CDN Name | Notes |
+|---|---|---|
+| Curse of the Oldgrowth | `furion_curse_of_the_forest` | Nature's Prophet innate. CDN id keeps the old "forest" internal name, not "oldgrowth". Confirmed 200 via api.opendota.com/api/constants/abilities. |
 
 ### Items
 

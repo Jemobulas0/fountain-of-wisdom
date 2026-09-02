@@ -1513,7 +1513,7 @@
       },
       "natures_prophet": {
         "ability": "Curse of the Oldgrowth",
-        "ability_icon": "furion_curse_of_the_oldgrowth",
+        "ability_icon": "furion_curse_of_the_forest",
         "tag": "new ability",
         "desc": "Applies a curse on all enemy heroes within 900 range, displaying them in fog, slowing them, and dealing damage over time based on the number of trees within 250 radius. Treants count as trees for this purpose.\n\nDURATION: 7\nDPS PER TREE: 15\nSLOW PER TREE: 7%"
       },

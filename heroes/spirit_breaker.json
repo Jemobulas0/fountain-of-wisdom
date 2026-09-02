@@ -256,11 +256,11 @@
     {
       "id": "cyclone",
       "also": "wind_waker",
-      "note": "All the stats from [item:cyclone] are good for you. The item can be used to Dispel and CC an enemy hero or to buy yourself a few seconds when you find yourself in the middle of the enemy team and your team is following up on you. Later on [item:wind_waker] can be used to save allies as well as yourself from heavily focused damage."
+      "note": "All the stats from [item:cyclone] Eul's are good for you. The item can be used to Dispel and CC an enemy hero or to buy yourself a few seconds when you find yourself in the middle of the enemy team and your team is following up on you. Later on [item:wind_waker] Wind Waker can be used to save allies as well as yourself from heavily focused damage."
     },
     {
       "id": "silver_edge",
-      "note": "In most games you get all that you need from the cheaper [item:invis_sword] which most notably is the ability to charge somebody with much less fear of being interrupted. As a non-farming support you have to prioritize your items more than most others. But when Break can counter an enemy hero hard - it's a natural upgrade for you."
+      "note": "In most games you get all that you need from the cheaper [item:invis_sword] Shadow Blade which most notably is the ability to charge somebody with much less fear of being interrupted. As a non-farming support you have to prioritize your items more than most others. But when Break can counter an enemy hero hard - it's a natural upgrade for you."
     },
     {
       "id": "black_king_bar",
@@ -278,7 +278,7 @@
     },
     {
       "level": "basic",
-      "text": "[ability:spirit_breaker_charge_of_darkness] Charge of Darkness provides vision around your target. Sometimes it's useful to charge somebody who's being chased by your teammates just for the vision alone - even if you won't be able to get to him on time. Especially useful against certain heroes like [hero:slark] who benefit extra from being in the Fog of War or any invisible hero since [item:dust] costs practically nothing and you can always pop it when you slam at your target."
+      "text": "[ability:spirit_breaker_charge_of_darkness] Charge of Darkness provides vision around your target. Sometimes it's useful to charge somebody who's being chased by your teammates just for the vision alone - even if you won't be able to get to him on time. Especially useful against certain heroes like [hero:slark] who benefit extra from being in the Fog of War or any invisible hero since [item:dust] Dust costs practically nothing and you can always pop it when you slam at your target."
     },
     {
       "level": "advanced",
@@ -294,15 +294,15 @@
     },
     {
       "level": "advanced",
-      "text": "You can pop an enemy's [item:sphere] from anywhere on the map instantly with [ability:spirit_breaker_charge_of_darkness] Charge of Darkness. While heroes often buy this item to protect themselves from instant initiation, you can enable your teammates by removing said protection just before they go in on the target."
+      "text": "You can pop an enemy's [item:sphere] Linken's Sphere from anywhere on the map instantly with [ability:spirit_breaker_charge_of_darkness] Charge of Darkness. While heroes often buy this item to protect themselves from instant initiation, you can enable your teammates by removing said protection just before they go in on the target."
     },
     {
       "level": "advanced",
-      "text": "You're one of the best heroes to fix waves pushing into your side of the map that nobody else wants to take, because you're hard to kill plus you can quickly return back to your team soon after. In a similar way if you're caught anywhere on the map, you can charge at any visible enemy unit anywhere on the map. Sometimes this might mean that you'll have to charge towards the enemy base, which albeit counterintuitive to new players, is actually perfectly fine since you can just stop mid-way and use [item:tpscroll] to safety."
+      "text": "You're one of the best heroes to fix waves pushing into your side of the map that nobody else wants to take, because you're hard to kill plus you can quickly return back to your team soon after. In a similar way if you're caught anywhere on the map, you can charge at any visible enemy unit anywhere on the map. Sometimes this might mean that you'll have to charge towards the enemy base, which albeit counterintuitive to new players, is actually perfectly fine since you can just stop mid-way and use [item:tpscroll] Town Portal Scroll to safety."
     },
     {
       "level": "advanced",
-      "text": "[item:ultimate_scepter|spirit_breaker] is a must-have item for team fights and especially amazing vs deathball strategies where most if not all of the enemy heroes are always stacked together. It gives a chain-reaction effect to your [ability:spirit_breaker_greater_bash] Greater Bash - no matter how you apply it. It also increases the knockback distance of your bash by an extra one-third & doubles your ultimate's. This item suddenly makes you a priority target due to how much of an impact you'll have in such fights."
+      "text": "[item:ultimate_scepter|spirit_breaker] Aghanim's Scepter is a must-have item for team fights and especially amazing vs deathball strategies where most if not all of the enemy heroes are always stacked together. It gives a chain-reaction effect to your [ability:spirit_breaker_greater_bash] Greater Bash - no matter how you apply it. It also increases the knockback distance of your bash by an extra one-third & doubles your ultimate's. This item suddenly makes you a priority target due to how much of an impact you'll have in such fights."
     },
     {
       "level": "advanced",

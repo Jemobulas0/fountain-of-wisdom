@@ -276,7 +276,7 @@ function buildItemBuilds(builds, situational) {
   const buildsHTML = builds.map(function(build) {
     const phasesHTML = build.phases.map(function(phase) {
       const items = phase.items.map(buildItemHTML).join('');
-      const note = phase.note ? `<div class="item-note-inline">${phase.note}</div>` : '';
+      const note = phase.note ? `<div class="item-note-inline">${parseText(phase.note)}</div>` : '';
       return `<div class="item-phase"><div class="item-phase-label">${phase.label}</div><div class="item-row">${items}</div>${note}</div>`;
     }).join('');
 
@@ -285,7 +285,7 @@ function buildItemBuilds(builds, situational) {
         `<h4>${build.name}</h4>` +
         phasesHTML +
       `</div>` +
-      `<div class="build-note">${build.note}</div>` +
+      `<div class="build-note">${parseText(build.note)}</div>` +
     `</div>`;
   }).join('');
 

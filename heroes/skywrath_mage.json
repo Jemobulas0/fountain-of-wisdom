@@ -272,7 +272,7 @@
   "situational_items": [
     {
       "id": "ghost",
-      "note": "Protection vs Physical. Also builds into [item:crellas_crozier]."
+      "note": "Protection vs Physical. Also builds into [item:crellas_crozier] Crella's Crozier."
     },
     {
       "id": "cyclone",
@@ -284,7 +284,7 @@
     },
     {
       "id": "angels_demise",
-      "note": "Breaks Passives. Keep in mind that in your case the Break will apply only once [ability:skywrath_mage_arcane_bolt] has connected with the target."
+      "note": "Breaks Passives. Ideally instantly with [ability:skywrath_mage_ancient_seal] Ancient Seal. If you do it with [ability:skywrath_mage_arcane_bolt] Arcane Bolt, the Break will apply only once the spell's projectile connects with its target."
     },
     {
       "id": "gungir",

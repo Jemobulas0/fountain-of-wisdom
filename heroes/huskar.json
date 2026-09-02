@@ -140,7 +140,7 @@
     { "id": "monkey_king_bar", "note": "Counters Evasion." },
     { "id": "skadi", "note": "Counters Health Restoration." },
     { "id": "silver_edge", "note": "Breaks Passives." },
-    { "id": "basher", "also": "abyssal_blade", "note": "Even though the item is less effective on ranged heroes, your extreme attack speed does allow you to almost lock down your victim. Abyssal also works naturally with Life Break and/or Blink, since you're a great gap closer." }
+    { "id": "basher", "also": "abyssal_blade", "note": "Even though the item is less effective on ranged heroes, your extreme attack speed does allow you to almost lock down your victim. Abyssal also works naturally with [ability:huskar_life_break] Life Break and/or [item:blink] Blink, since you're a great gap closer." }
   ],
 
   "tips": [

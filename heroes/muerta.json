@@ -145,10 +145,10 @@
     { "id": "skadi", "note": "Counters Health Restoration." },
     { "id": "refresher", "note": "In prolonged fights where your ultimate is not enough to remove a Physical threat ([hero:skeleton_king] [hero:troll_warlord] [hero:ursa] etc.), having a second ultimate can be all the difference in the world." },
     { "id": "satanic", "note": "Since 7.41 Muerta can finally use Satanic for the first time ever. Regardless if you're dealing Physical or Magical Damage — the Lifesteal works fully. So whenever you need sustain — be it too much Magical Damage or Prolonged Fights — indulge in this new option for your hero." },
-    { "id": "revenants_brooch", "note": "If you're looking for a cheaper alternative to [item:satanic] which also boosts your damage on top of it, look no further. Keep in mind that this only provides Spell Lifesteal, so it won't affect your normal Physical attacks, but it will still work with Magical damage from items like [item:mjollnir] at all times." },
-    { "id": "bloodstone", "note": "A slightly more expensive alternative to [item:revenants_brooch] which trades the crit procs for higher survivability + Spell Weakness Aura which increases the damage from spells by all enemies around you by 12%. A preferred choice if your team deals a lot of overall magical damage & nobody else has bought or plans to buy the item." },
-    { "id": "sphere", "note": "In games where only a few but highly deadly spells are a threat to you ([ability:doom_bringer_doom] [ability:beastmaster_primal_roar] etc.) & [item:black_king_bar] isn't a solution, this could be a lifesaver." },
-    { "id": "sheepstick", "note": "You sacrifice a great deal of DPS, but sometimes a [item:blink] → [item:sheepstick] is the only thing that works against that single out of control enemy hero." }
+    { "id": "revenants_brooch", "note": "If you're looking for a cheaper alternative to [item:satanic] Satanic which also boosts your damage on top of it, look no further. Keep in mind that this only provides Spell Lifesteal, so it won't affect your normal Physical attacks, but it will still work with Magical damage from items like [item:mjollnir] Mjollnir at all times." },
+    { "id": "bloodstone", "note": "A slightly more expensive alternative to [item:revenants_brooch] Revenant's Brooch which trades the crit procs for higher survivability + Spell Weakness Aura which increases the damage from spells by all enemies around you by 12%. A preferred choice if your team deals a lot of overall magical damage & nobody else has bought or plans to buy the item." },
+    { "id": "sphere", "note": "In games where only a few but highly deadly spells are a threat to you ([ability:doom_bringer_doom] [ability:beastmaster_primal_roar] etc.) & [item:black_king_bar] BKB isn't a solution, this could be a lifesaver." },
+    { "id": "sheepstick", "note": "You sacrifice a great deal of DPS, but sometimes a [item:blink] Blink Dagger → [item:sheepstick] Scythe of Vyse is the only thing that works against that single out of control enemy hero." }
   ],
 
   "tips": [
@@ -162,7 +162,7 @@
     },
     {
       "level": "basic",
-      "text": "Due to the nature of Multishot mechanics in this game, one would think that [ability:muerta_gunslinger] Gunslinger is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly — it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan very early on with her [ability:muerta_pierce_the_veil] Pierce the Veil and also Tormentor with [ability:muerta_pierce_the_veil] Pierce the Veil + [item:black_king_bar]."
+      "text": "Due to the nature of Multishot mechanics in this game, one would think that [ability:muerta_gunslinger] Gunslinger is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly — it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan very early on with her [ability:muerta_pierce_the_veil] Pierce the Veil and also Tormentor with [ability:muerta_pierce_the_veil] Pierce the Veil + [item:black_king_bar] BKB."
     },
     {
       "level": "basic",

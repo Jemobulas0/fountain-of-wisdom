@@ -255,7 +255,7 @@
     },
     {
       "id": "ultimate_scepter",
-      "note": "You have a superior option when Break is needed than most other carries who have to rely on the more expensive single target [item:silver_edge]. It is also a solid item against tanky heroes.",
+      "note": "You have a superior option when Break is needed than most other carries who have to rely on the more expensive single target [item:silver_edge] Silver Edge. It is also a solid item against tanky heroes.",
       "hero": "phantom_assassin"
     },
     {
@@ -269,7 +269,7 @@
     },
     {
       "id": "swift_blink",
-      "note": "Late game luxury item for when you're full build & want to replace your Boots with something better. At this point in the game [ability:phantom_assassin_blur] is already giving you a lot of Move Speed to traverse the map. And for fights this is naturally way superior to ordinary Boots. Also your [item:swift_blink] + [item:abyssal_blade] combo is much faster & catches people by surprise."
+      "note": "Late game luxury item for when you're full build & want to replace your Boots with something better. At this point in the game [ability:phantom_assassin_blur] Blur is already giving you a lot of Move Speed to traverse the map. And for fights this is naturally way superior to ordinary Boots. Also your [item:swift_blink] Swift Blink + [item:abyssal_blade] Abyssal Blade combo is much faster & catches people by surprise."
     }
   ],
   "tips": [
@@ -279,7 +279,7 @@
     },
     {
       "level": "basic",
-      "text": "During the laning stage you can walk behind trees to hide from enemy vision when casting [ability:phantom_assassin_stifling_dagger] Stifling Dagger. This way you won't give free [item:magic_stick] charges to the enemy heroes."
+      "text": "During the laning stage you can walk behind trees to hide from enemy vision when casting [ability:phantom_assassin_stifling_dagger] Stifling Dagger. This way you won't give free [item:magic_stick] Stick charges to the enemy heroes."
     },
     {
       "level": "basic",
@@ -291,7 +291,7 @@
     },
     {
       "level": "basic",
-      "text": "If your evasion gets countered by [item:monkey_king_bar], there's nothing that you can do about that. But if you're being targeted by Break, then [item:black_king_bar] will keep your Evasion up for its duration."
+      "text": "If your evasion gets countered by [item:monkey_king_bar] MKB, there's nothing that you can do about that. But if you're being targeted by Break, then [item:black_king_bar] BKB will keep your Evasion up for its duration."
     },
     {
       "level": "advanced",

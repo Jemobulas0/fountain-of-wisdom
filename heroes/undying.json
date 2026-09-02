@@ -251,6 +251,10 @@
               "yellow": "31:00"
             },
             "octarine_core",
+            {
+              "id": "ultimate_scepter",
+              "hero_shard": "undying"
+            },
             "heart"
           ]
         }
@@ -291,19 +295,19 @@
     },
     {
       "level": "advanced",
-      "text": "Ally [hero:pugna] Pugna can cast [ability:pugna_decrepify] Decrepify on your [ability:undying_tombstone] Tombstone to make it invulnerable to enemy attacks."
+      "text": "Ally [hero:pugna] can cast [ability:pugna_decrepify] Decrepify on your [ability:undying_tombstone] Tombstone to make it invulnerable to enemy attacks."
     },
     {
       "level": "advanced",
-      "text": "Ally [hero:naga_siren] Naga can put the entire enemy team to sleep, while your Tombstone is generating a massive amount of zombies on top of each enemy hero while they're asleep."
+      "text": "Ally [hero:naga_siren] can put the entire enemy team to sleep, while your Tombstone is generating a massive amount of zombies on top of each enemy hero while they're asleep."
     },
     {
       "level": "advanced",
-      "text": "Enemy [hero:earthshaker] Earthshaker can use your zombies to blow up your entire team for a godlike massive Echo Slam. But just as well you can break his Blink just before a fight with a well placed Tombstone generating a zombie to hit him. So be very careful how you play out your teamfights against this hero."
+      "text": "Enemy [hero:earthshaker] can use your zombies to blow up your entire team for a godlike massive Echo Slam. But just as well you can break his Blink just before a fight with a well placed Tombstone generating a zombie to hit him. So be very careful how you play out your teamfights against this hero."
     },
     {
       "level": "advanced",
-      "text": "When casting [ability:undying_decay] Decay on the following heroes, you will deal the damage part to all of them, but you will only steal Strength from one of the player's hero-type units: [hero:arc_warden] Arc Warden, [hero:lone_druid] Lone Druid & [hero:meepo] Meepo."
+      "text": "When casting [ability:undying_decay] Decay on the following heroes, you will deal the damage part to all of them, but you will only steal Strength from one of the player's hero-type units: [hero:arc_warden], [hero:lone_druid] & [hero:meepo]."
     }
   ],
   "allies_and_counters": {

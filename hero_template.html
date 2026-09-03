@@ -130,16 +130,19 @@
   .extras-box p { font-size: 18px; color: var(--text); margin-bottom: 12px; padding-left: 36px; }
 
   /* ── SKILL / ITEM BUILDS ── */
-  /* Card internals ride a subgrid: every card in a .builds-grid shares one row
-     set, so the title row, each item-phase row and the description row all line
-     up across cards however tall each card's content is. The grid's own rows
-     and the --build-rows span count are set inline per grid (see
-     buildSkillBuilds / buildItemBuilds): skill cards use 2 rows
-     (.build-inner + .build-note); item cards use 1 (title) + N phases + 1 (note).
-     row-gap:0 keeps internals tight; on mobile the single column still flows
-     card 2 onto implicit rows below card 1, gapped by .builds-grid's gap. */
+  /* Card internals ride a subgrid so every card in a .builds-grid shares one row
+     set: the title row, each item-phase row and the description row all line up
+     across cards however tall each card's content is. Two things are set inline
+     ON THE GRID (never per-card) by buildSkillBuilds / buildItemBuilds — the row
+     track list (grid-template-rows) and, on each card, an identical integer
+     `grid-row: span N`. N is a literal, not a custom property: `span var(--x)`
+     silently degrades to `span 1` in engines that don't resolve var() in the
+     grid-row shorthand, which collapses the subgrid and was the alignment bug.
+     Skill cards span 2 rows (.build-inner + .build-note); item cards span
+     1 (title) + N phases + 1 (note). row-gap:0 keeps internals tight; on mobile
+     the single column flows card 2 onto implicit rows below card 1. */
   .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; grid-row: span var(--build-rows, 2); display: grid; grid-template-rows: subgrid; row-gap: 0; }
+  .build-card { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 14px; grid-row: span 2; display: grid; grid-template-rows: subgrid; row-gap: 0; }
   .build-inner { display: flex; flex-direction: column; }
   .build-card h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; line-height: 1.2; min-height: 2.4em; }
 
@@ -289,9 +292,9 @@
   </footer>
 </div>
 
-<script src="icon-src.js?v=11"></script>
-<script src="hero-loader.js?v=11"></script>
-<script src="data/tooltips.js?v=11"></script>
+<script src="icon-src.js?v=12"></script>
+<script src="hero-loader.js?v=12"></script>
+<script src="data/tooltips.js?v=12"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

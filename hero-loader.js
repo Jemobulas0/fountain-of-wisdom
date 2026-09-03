@@ -247,7 +247,9 @@ function buildSkillBuilds(builds, heroPositions) {
       `</div>`;
     }).join('');
 
-    return `<div class="build-card">` +
+    // 2 subgrid rows: .build-inner (content) + .build-note (description).
+    // Literal span, identical for every card — see the .build-card CSS comment.
+    return `<div class="build-card" style="grid-row:span 2">` +
       `<div class="build-inner">` +
         `<h4>${build.name}</h4>` +
         `<div class="build-body"><div class="build-spells">${tsHeader}${rowsHTML}</div></div>` +
@@ -258,9 +260,8 @@ function buildSkillBuilds(builds, heroPositions) {
     `</div>`;
   }).join('');
 
-  // 2 subgrid rows: .build-inner (content) + .build-note (description).
   const skillGridCols = Array(builds.length).fill('1fr').join(' ');
-  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${skillGridCols};grid-template-rows:1fr auto;--build-rows:2">${buildsHTML}</div>`;
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${skillGridCols};grid-template-rows:1fr auto">${buildsHTML}</div>`;
   return section;
 }
 
@@ -276,6 +277,7 @@ function buildItemBuilds(builds, situational) {
 
   // Widest build sets the shared row count: title + one row per phase + note.
   const maxPhases = builds.reduce(function(m, b) { return Math.max(m, b.phases.length); }, 0);
+  const rowCount = maxPhases + 2;
 
   const buildsHTML = builds.map(function(build) {
     const phasesHTML = build.phases.map(function(phase) {
@@ -286,7 +288,9 @@ function buildItemBuilds(builds, situational) {
 
     // h4, each phase and the note are direct grid children so every one is its
     // own subgrid row and lines up with the matching row in the other card.
-    return `<div class="build-card">` +
+    // grid-row span is a literal integer (identical for every card in this grid);
+    // a custom property here would degrade to span 1 in some engines.
+    return `<div class="build-card" style="grid-row:span ${rowCount}">` +
       `<h4>${build.name}</h4>` +
       phasesHTML +
       `<div class="build-note">${parseText(build.note)}</div>` +
@@ -315,8 +319,8 @@ function buildItemBuilds(builds, situational) {
   }
 
   const itemGridCols = Array(builds.length).fill('1fr').join(' ');
-  const itemGridRows = new Array(maxPhases + 2).fill('auto').join(' '); // title + phases + note
-  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols};grid-template-rows:${itemGridRows};--build-rows:${maxPhases + 2}">${buildsHTML}</div>` + sitHTML;
+  const itemGridRows = new Array(rowCount).fill('auto').join(' '); // title + phases + note — the shared track list
+  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols};grid-template-rows:${itemGridRows}">${buildsHTML}</div>` + sitHTML;
   return section;
 }
 

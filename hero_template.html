@@ -184,9 +184,12 @@
      drawn as border-TOP on the following phase: that edge is the shared subgrid
      track boundary, so it lands at the same Y in every card regardless of how
      tall each card's phase content is. (border-bottom on the first phase would
-     sit at that phase's own content bottom and drift between cards.) */
+     sit at that phase's own content bottom and drift between cards.)
+     padding-top on the bordered phase is uniform (same on every card), so it
+     pushes the label down without moving the border Y — the line keeps air
+     below it and reads as a divider, not a label underline. */
   .item-phase { padding-bottom: 10px; margin-bottom: 10px; align-self: start; }
-  .item-phase + .item-phase { border-top: 1px solid var(--border); }
+  .item-phase + .item-phase { border-top: 1px solid var(--border); padding-top: 12px; }
   .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
   .item-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }

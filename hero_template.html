@@ -179,11 +179,14 @@
   .talent-lvl { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--text-dim); width: 30px; height: 30px; text-align: center; flex-shrink: 0; align-self: center; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; background: var(--bg); }
 
   /* ── ITEM BUILDS ── */
-  /* Each .item-phase is a direct subgrid row of .build-card; align-self:start
-     keeps the phase (and its separator border) tight to its own content while
-     the next phase row still starts at the same Y in every card. */
+  /* Each .item-phase is a direct subgrid row of .build-card. align-self:start
+     keeps its content tight to the top of its track. The section separator is
+     drawn as border-TOP on the following phase: that edge is the shared subgrid
+     track boundary, so it lands at the same Y in every card regardless of how
+     tall each card's phase content is. (border-bottom on the first phase would
+     sit at that phase's own content bottom and drift between cards.) */
   .item-phase { padding-bottom: 10px; margin-bottom: 10px; align-self: start; }
-  .item-phase:first-of-type { border-bottom: 1px solid var(--border); }
+  .item-phase + .item-phase { border-top: 1px solid var(--border); }
   .item-phase-label { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 1.5px; color: var(--text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
   .item-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-bottom: 5px; }
   .item-icon { width: 44px; height: 44px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }

@@ -179,11 +179,11 @@
 }
 
 /* ── Enchantment tooltip (build.enchantment — see hero-loader.js) ──
-   Uses hero_template.html's :root palette vars (--green, --text-dim, --text-bright,
-   --red) since this tooltip type currently only renders on hero pages. */
+   Uses the --ench-* vars defined alongside the gold palette in hero_template.html's
+   :root, since this tooltip type currently only renders on hero pages. */
 .fow-tt-ench-header {
   padding: 10px 12px;
-  background: linear-gradient(90deg, rgba(201,168,76,0.08) 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--ench-header-from) 0%, var(--ench-header-to) 100%);
   border-bottom: 1px solid #2a2f3d;
 }
 .fow-tt-ench-name {
@@ -191,7 +191,7 @@
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-bright);
+  color: var(--ench-name);
   letter-spacing: 1px;
   margin-bottom: 3px;
 }
@@ -203,19 +203,20 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-/* Tier 2 → --green as the tier colour; no existing tier-colour convention on the
-   site, so this is a stand-in — see report. */
-.fow-tt-ench-tier { color: var(--green); font-weight: 600; }
-.fow-tt-ench-kind { color: var(--text-dim); }
+.fow-tt-ench-tier { color: var(--ench-tier); font-weight: 600; }
+.fow-tt-ench-kind { color: var(--ench-text-light); }
 .fow-tt-ench-body { padding: 10px 12px; }
+/* Line default colour covers the sign (bare text) and, unless overridden below,
+   the stat name — both are the same "light" colour on a positive line. */
 .fow-tt-ench-line {
   font-size: 16px;
   line-height: 1.6;
-  color: var(--text-bright);
+  color: var(--ench-text-light);
 }
-.fow-tt-ench-line .fow-tt-ench-val { color: var(--text-dim); }
-.fow-tt-ench-line.negative,
-.fow-tt-ench-line.negative .fow-tt-ench-val { color: var(--red); }
+.fow-tt-ench-line .fow-tt-ench-val { color: var(--ench-text-muted); }
+/* Negative line: only the stat name goes red — the sign and the numbers keep
+   the same colours as a positive line. */
+.fow-tt-ench-line.negative .fow-tt-ench-stat { color: var(--ench-text-negative); }
 
 /* ── Hero tooltip ── */
 .fow-tt-hero {

@@ -47,6 +47,7 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 | Gleipnir | `gungir` | Item was renamed; CDN still uses the original. |
 | Aghanim's Blessing | `ultimate_scepter_2` | CDN uses this internal name instead of the current in-game name. |
 | Crella's Crozier | `crellas_crozier` | Confirmed via api.opendota.com/api/constants/items — display name matches exactly. |
+| Greedy (Enchantment) | `enhancement_greedy` | Not a shop item — an enchantment (see `build.enchantment` in hero JSON). CDN spells it "enhancement", not "enchantment". |
 
 ## When adding new entries
 

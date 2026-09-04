@@ -282,10 +282,12 @@ function enchantmentRowHTML(ench) {
     window.FOW_ENCHANTMENTS[ench.id] = ench;
   }
   const src = FoWIcon.src(ench.icon || ench.id, 'items');
+  // The tooltip trigger binds ONLY to the icon span — never the row or the label/
+  // name text either side of it — so hovering the words has no popup behaviour.
   const tipAttr = (ench.tooltip && ench.id) ? ` data-tooltip="enchantment" data-enchantment="${ench.id}"` : '';
-  return `<div class="enchantment-row"${tipAttr}>` +
+  return `<div class="enchantment-row">` +
     `<span class="enchantment-label">Enchantment:</span>` +
-    `<span class="item-icon-inline"><img src="${src}" alt="${ench.name}" onerror="this.closest('.item-icon-inline').remove()" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></span>` +
+    `<span class="item-icon-inline"${tipAttr}><img src="${src}" alt="${ench.name}" onerror="this.closest('.item-icon-inline').remove()" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></span>` +
     `<span class="enchantment-name">${ench.name}</span>` +
   `</div>`;
 }

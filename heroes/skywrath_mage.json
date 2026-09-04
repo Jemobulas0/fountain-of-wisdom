@@ -260,7 +260,7 @@
             "octarine_core",
             "blink",
             "crellas_crozier",
-            "ultimate_scepter_2",
+            { "id": "ultimate_scepter_2", "hero": "skywrath_mage" },
             "yasha_and_kaya",
             "arcane_blink"
           ]

@@ -256,6 +256,21 @@
           ]
         }
       ],
+      "enchantment": {
+        "id": "greedy",
+        "name": "Greedy",
+        "icon": "enhancement_greedy",
+        "tooltip": {
+          "name": "Greedy",
+          "tier": "Tier 2",
+          "kind": "Enchantment",
+          "lines": [
+            { "sign": "+", "values": "65 / 90", "stat": "GPM BONUS" },
+            { "sign": "+", "values": "150 / 200", "stat": "Mana" },
+            { "sign": "-", "values": "30 / 60", "stat": "Attack Damage", "negative": true }
+          ]
+        }
+      },
       "note": "When playing against a lot of problematic target spells and you have a core who can auto-win you the game if he simply doesn't get hit by them - you're the perfect solution to this."
     }
   ],

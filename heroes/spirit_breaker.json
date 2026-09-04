@@ -208,6 +208,21 @@
           ]
         }
       ],
+      "enchantment": {
+        "id": "greedy",
+        "name": "Greedy",
+        "icon": "assets/enchantments/greedy.png",
+        "tooltip": {
+          "name": "Greedy",
+          "tier": "Tier 2",
+          "kind": "Enchantment",
+          "lines": [
+            { "sign": "+", "values": "65 / 90", "stat": "GPM BONUS" },
+            { "sign": "+", "values": "150 / 200", "stat": "Mana" },
+            { "sign": "-", "values": "30 / 60", "stat": "Attack Damage", "negative": true }
+          ]
+        }
+      },
       "note": "The train never stops. Get aboard the Kill Express!"
     },
     {

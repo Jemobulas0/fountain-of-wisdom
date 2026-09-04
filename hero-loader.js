@@ -266,6 +266,30 @@ function buildSkillBuilds(builds, heroPositions) {
 }
 
 
+// Renders the optional Enchantment row at the foot of a build's last phase
+// (the Core Build phase). Absent/empty build.enchantment -> caller skips this
+// entirely, so no empty row or reserved space.
+// Icon sizing is NOT set here: the <span> uses .item-icon-inline, the same class
+// [item:id] uses inside body text, so its size always tracks that CSS rule.
+// When ench.tooltip is present, the full enchantment spec is stashed on
+// window.FOW_ENCHANTMENTS so data/tooltips.js (loaded separately, no shared data
+// file for enchantments yet) can build the popup for the existing tooltip engine
+// without hero-loader.js reaching into its DOM.
+function enchantmentRowHTML(ench) {
+  if (!ench || !ench.name) return '';
+  if (ench.tooltip && ench.id) {
+    window.FOW_ENCHANTMENTS = window.FOW_ENCHANTMENTS || {};
+    window.FOW_ENCHANTMENTS[ench.id] = ench;
+  }
+  const src = FoWIcon.src(ench.icon || ench.id, 'items');
+  const tipAttr = (ench.tooltip && ench.id) ? ` data-tooltip="enchantment" data-enchantment="${ench.id}"` : '';
+  return `<div class="enchantment-row"${tipAttr}>` +
+    `<span class="enchantment-label">Enchantment:</span>` +
+    `<span class="item-icon-inline"><img src="${src}" alt="${ench.name}" onerror="this.closest('.item-icon-inline').remove()" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></span>` +
+    `<span class="enchantment-name">${ench.name}</span>` +
+  `</div>`;
+}
+
 function buildItemBuilds(builds, situational) {
   const section = makeSection('Item Builds');
 
@@ -280,10 +304,14 @@ function buildItemBuilds(builds, situational) {
   const rowCount = maxPhases + 2;
 
   const buildsHTML = builds.map(function(build) {
-    const phasesHTML = build.phases.map(function(phase) {
+    const phasesHTML = build.phases.map(function(phase, i) {
       const items = phase.items.map(buildItemHTML).join('');
       const note = phase.note ? `<div class="item-note-inline">${parseText(phase.note)}</div>` : '';
-      return `<div class="item-phase"><div class="item-phase-label">${phase.label}</div><div class="item-row">${items}</div>${note}</div>`;
+      // Enchantment row belongs to the build, but renders at the foot of its last
+      // phase (the Core Build phase) — below the last item row, above build-note's
+      // divider — so it stays nested inside the subgrid row instead of adding one.
+      const ench = (i === build.phases.length - 1) ? enchantmentRowHTML(build.enchantment) : '';
+      return `<div class="item-phase"><div class="item-phase-label">${phase.label}</div><div class="item-row">${items}</div>${note}${ench}</div>`;
     }).join('');
 
     // h4, each phase and the note are direct grid children so every one is its

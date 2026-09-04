@@ -178,6 +178,45 @@
   line-height: 1.5;
 }
 
+/* ── Enchantment tooltip (build.enchantment — see hero-loader.js) ──
+   Uses hero_template.html's :root palette vars (--green, --text-dim, --text-bright,
+   --red) since this tooltip type currently only renders on hero pages. */
+.fow-tt-ench-header {
+  padding: 10px 12px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.08) 0%, transparent 100%);
+  border-bottom: 1px solid #2a2f3d;
+}
+.fow-tt-ench-name {
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+}
+.fow-tt-ench-sub {
+  display: flex;
+  gap: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+/* Tier 2 → --green as the tier colour; no existing tier-colour convention on the
+   site, so this is a stand-in — see report. */
+.fow-tt-ench-tier { color: var(--green); font-weight: 600; }
+.fow-tt-ench-kind { color: var(--text-dim); }
+.fow-tt-ench-body { padding: 10px 12px; }
+.fow-tt-ench-line {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-bright);
+}
+.fow-tt-ench-line .fow-tt-ench-val { color: var(--text-dim); }
+.fow-tt-ench-line.negative,
+.fow-tt-ench-line.negative .fow-tt-ench-val { color: var(--red); }
+
 /* ── Hero tooltip ── */
 .fow-tt-hero {
   display: flex;

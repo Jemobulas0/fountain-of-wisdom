@@ -143,6 +143,34 @@
     return html;
   }
 
+  // ── Build enchantment tooltip HTML ──
+  // Reads window.FOW_ENCHANTMENTS, populated by hero-loader.js's
+  // enchantmentRowHTML when it renders a build.enchantment row.
+  function buildEnchantmentTooltip(enchKey) {
+    var registry = window.FOW_ENCHANTMENTS || {};
+    var ench = enchKey && registry[enchKey];
+    if (!ench || !ench.tooltip) return null;
+    var t = ench.tooltip;
+
+    var html = '<div class="fow-tt-ench-header">';
+    html += '<div class="fow-tt-ench-name">' + (t.name || ench.name) + '</div>';
+    html += '<div class="fow-tt-ench-sub">';
+    if (t.tier) html += '<span class="fow-tt-ench-tier">' + t.tier + '</span>';
+    if (t.kind) html += '<span class="fow-tt-ench-kind">' + t.kind + '</span>';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="fow-tt-ench-body">';
+    (t.lines || []).forEach(function(line) {
+      var cls = 'fow-tt-ench-line' + (line.negative ? ' negative' : '');
+      html += '<div class="' + cls + '">' + line.sign +
+        ' <span class="fow-tt-ench-val">' + line.values + '</span> ' +
+        '<span class="fow-tt-ench-stat">' + line.stat + '</span></div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
   // ── Build hero tooltip HTML ──
   function buildHeroTooltip(heroKey) {
     var hero = HEROES[heroKey];
@@ -171,6 +199,10 @@
       var heroKey = target.getAttribute('data-hero-key');
       if (!heroKey) return;
       html = buildHeroTooltip(heroKey);
+    } else if (type === 'enchantment') {
+      var enchKey = target.getAttribute('data-enchantment');
+      if (!enchKey) return;
+      html = buildEnchantmentTooltip(enchKey);
     }
 
     if (!html) return;
@@ -185,7 +217,7 @@
   // ── Position tooltip ──
   function positionTooltip(target) {
     // Use the visible icon element inside the link, not the <a> itself
-    var posEl = target.querySelector('.item-icon, .inline-icon, .sit-item-icon, .hero-thumb-icon') || target;
+    var posEl = target.querySelector('.item-icon, .inline-icon, .sit-item-icon, .hero-thumb-icon, .item-icon-inline') || target;
     var rect = posEl.getBoundingClientRect();
     var ttRect = tooltipEl.getBoundingClientRect();
     var pad = 8;
@@ -250,6 +282,9 @@
       } else if (type === 'hero') {
         var key = el.getAttribute('data-hero-key');
         found = key && HEROES[key];
+      } else if (type === 'enchantment') {
+        var key = el.getAttribute('data-enchantment');
+        found = key && window.FOW_ENCHANTMENTS && window.FOW_ENCHANTMENTS[key];
       }
 
       // Apply debug styles to the visible icon element, not the wrapper <a>

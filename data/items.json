@@ -619,13 +619,26 @@
         "tag": "upgrade",
         "desc": "Global Silence applies Arcane Curse to heroes for the duration of Global Silence."
       },
-      "skywrath_mage": {
-        "ability": "Concussive Shot / Ancient Seal / Mystic Flare",
-        "ability_icon": "skywrath_mage_concussive_shot",
-        "tag": "upgrade",
-        "layout": "vertical",
-        "desc": "Concussive Shot: When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority.\n\nAncient Seal: Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority.\n\nMystic Flare: When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
-      },
+      "skywrath_mage": [
+        {
+          "ability": "Concussive Shot",
+          "ability_icon": "skywrath_mage_concussive_shot",
+          "tag": "upgrade",
+          "desc": "When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority."
+        },
+        {
+          "ability": "Ancient Seal",
+          "ability_icon": "skywrath_mage_ancient_seal",
+          "tag": "upgrade",
+          "desc": "Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority."
+        },
+        {
+          "ability": "Mystic Flare",
+          "ability_icon": "skywrath_mage_mystic_flare",
+          "tag": "upgrade",
+          "desc": "When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
+        }
+      ],
       "storm_spirit": {
         "ability": "Electric Vortex",
         "ability_icon": "storm_spirit_electric_vortex",
@@ -2173,13 +2186,26 @@
         "tag": "upgrade",
         "desc": "Global Silence applies Arcane Curse to heroes for the duration of Global Silence."
       },
-      "skywrath_mage": {
-        "ability": "Concussive Shot / Ancient Seal / Mystic Flare",
-        "ability_icon": "skywrath_mage_concussive_shot",
-        "tag": "upgrade",
-        "layout": "vertical",
-        "desc": "Concussive Shot: When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority.\n\nAncient Seal: Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority.\n\nMystic Flare: When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
-      },
+      "skywrath_mage": [
+        {
+          "ability": "Concussive Shot",
+          "ability_icon": "skywrath_mage_concussive_shot",
+          "tag": "upgrade",
+          "desc": "When Skywrath Mage casts Concussive Shot, a different random target within 500 range of the original target will be hit with the same ability. Heroes will take priority."
+        },
+        {
+          "ability": "Ancient Seal",
+          "ability_icon": "skywrath_mage_ancient_seal",
+          "tag": "upgrade",
+          "desc": "Anytime Skywrath Mage casts Ancient Seal, a different random target within 500 range of the original target will be affected by the same ability. Heroes will take priority."
+        },
+        {
+          "ability": "Mystic Flare",
+          "ability_icon": "skywrath_mage_mystic_flare",
+          "tag": "upgrade",
+          "desc": "When Skywrath Mage casts Mystic Flare, another Mystic Flare will be created on the position of a different random target enemy within 500 range of the original target. Heroes will take priority."
+        }
+      ],
       "storm_spirit": {
         "ability": "Electric Vortex",
         "ability_icon": "storm_spirit_electric_vortex",

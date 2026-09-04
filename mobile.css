@@ -535,6 +535,25 @@
     line-height: 1.6;
   }
 
+  /* hero_template.html — situational items with multiple leading icons.
+     Desktop keeps every entry on one row: icons, then note. On a narrow
+     screen a fixed row of icons squeezes the note into a tall 1-2-word
+     column (Lifestealer's satanic/disperser/manta/black_king_bar entry
+     is the current worst case). Let the row wrap and give the note a
+     shrink floor so it drops onto its own full-width line once the icons
+     leave it too little room. 180px is a readability floor, not a number
+     derived from any column width: below roughly 180px, 17px body text
+     holds only three or four words per line and degrades into a column.
+     Don't retune it to a specific viewport. 1-2 leading icons still fit
+     beside a >=180px note and stay inline exactly as on desktop; 3+
+     icons push the note below. */
+  .sit-item {
+    flex-wrap: wrap;
+  }
+  .sit-item-note {
+    flex: 1 1 180px;
+  }
+
   /* items/iron_branch.html */
   .itc-active-desc,
   .itc-lore,

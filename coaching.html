@@ -34,6 +34,9 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
   body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
 
   /* ── NAV ── */
@@ -268,6 +271,7 @@
     <div class="hero-eyebrow">One-on-One Coaching</div>
     <h1 class="hero-title">Your Biggest Flaws.<br><span>Found and Fixed.</span></h1>
     <div class="hero-subtitle">23 Years Playing DotA. 20 Years Coaching. Peaked at 10k+.</div>
+    <a href="#book" class="btn-primary" style="margin-bottom: 28px;">Get Coached</a>
     <div class="hero-divider"></div>
     <p class="hero-desc">
       Give a player a build and he wins a game.<br>
@@ -379,17 +383,17 @@
   </div>
 
   <!-- CTA -->
-  <div class="cta-section">
+  <div class="cta-section" id="book">
     <div class="cta-box">
       <div class="cta-title">Ready?</div>
       <div class="cta-options">
         <div class="cta-option">
-          <a href="replay-review.html" class="btn-primary cta-btn">Send a Replay</a>
-          <div class="cta-price">€20 · up to three games</div>
-        </div>
-        <div class="cta-option">
           <a href="https://cal.com/jemobulas/live-coaching-session" class="btn-primary cta-btn" target="_blank" rel="noopener">Book a Live Session</a>
           <div class="cta-price">€30 · 60 minutes</div>
+        </div>
+        <div class="cta-option">
+          <a href="replay-review.html" class="btn-primary cta-btn">Send a Replay</a>
+          <div class="cta-price">€20 · up to three games</div>
         </div>
       </div>
       <p class="cta-note">Not sure I'm the right fit, or none of the open slots work with your timezone? Message me on <a href="https://discord.gg/GrRgJ3N" class="cta-note-link" target="_blank" rel="noopener">Discord</a> - happy to talk first, and we can usually find an hour that suits us both.</p>

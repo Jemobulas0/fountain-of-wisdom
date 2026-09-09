@@ -24,12 +24,12 @@
     "early": "Farm defensively & only join good fights with low to no risk of dying.",
     "mid": "Split-push lanes when your team is pushing the opposite side of the map. Or consider showing up for an important objective, but never go into the fight first.",
     "late": "Pick off isolated heroes with Blink. Use Mana Void to punish high-mana enemies in team fights.",
-    "extras": "Manta, BKB and Counterspell will protect you against most of the spells in the game. But each game during the drafting stage make a conscious note of whether there are any spells on the enemy team that will ruin your day even after you have those items. If you identify such abilities — always stay on the fringes of team fights until you see them being used up and then go in."
+    "extras": "Manta, BKB and Counterspell will protect you against most of the spells in the game. But each game during the drafting stage make a conscious note of whether there are any spells on the enemy team that will ruin your day even after you have those items. If you identify such abilities - always stay on the fringes of team fights until you see them being used up and then go in."
   },
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "antimage_mana_void",
       "rows": [
         {
@@ -53,7 +53,7 @@
       "note": "Standard build for when you want to transition to farming asap and you don't need Counterspell to stay on lane."
     },
     {
-      "name": "Skill Build 2 — Aggressive",
+      "name": "Skill Build 2 - Aggressive",
       "ult": "antimage_mana_void",
       "rows": [
         {
@@ -80,7 +80,7 @@
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Standard",
+      "name": "Item Build 1 - Standard",
       "phases": [
         {
           "label": "Starting Items",
@@ -103,7 +103,7 @@
       "note": "Initially, consider Battle Fury and Manta Style to be your core items. With experience, you can gradually start experimenting with the rest of the build to adjust it for each game."
     },
     {
-      "name": "Item Build 2 — Survivability",
+      "name": "Item Build 2 - Survivability",
       "phases": [
         {
           "label": "Starting Items",
@@ -123,13 +123,13 @@
           ]
         }
       ],
-      "note": "Extreme survivability. This build is aimed as a learning experience. You will feel how steep it is to buy items with big, expensive components as early as your 2nd choice. On the other hand, you will experience a drastic difference in your survivability, since every angle is covered — magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With experience, you will eventually develop a feel for which items to incorporate into your standard builds and when."
+      "note": "Extreme survivability. This build is aimed as a learning experience. You will feel how steep it is to buy items with big, expensive components as early as your 2nd choice. On the other hand, you will experience a drastic difference in your survivability, since every angle is covered - magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With experience, you will eventually develop a feel for which items to incorporate into your standard builds and when."
     }
   ],
 
   "situational_items": [
     { "id": "monkey_king_bar", "note": "Buy after Manta, or later, to counter a high-evasion hero." },
-    { "id": "nullifier", "note": "Buy after Manta to counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
+    { "id": "nullifier", "note": "Buy after Manta to counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
     { "id": "black_king_bar", "note": "Buy as your 3rd item at the earliest, when facing hard CC spells that Counterspell cannot deal with." }
   ],
 
@@ -148,7 +148,7 @@
     },
     {
       "level": "advanced",
-      "text": "Use [ability:antimage_spell_shield] Counterspell reactively to reflect single-target spells — such as Sven's [ability:sven_storm_bolt] Storm Bolt or Vengeful Spirit's [ability:vengefulspirit_magic_missile] Magic Missile — back at the caster."
+      "text": "Use [ability:antimage_spell_shield] Counterspell reactively to reflect single-target spells - such as Sven's [ability:sven_storm_bolt] Storm Bolt or Vengeful Spirit's [ability:vengefulspirit_magic_missile] Magic Missile - back at the caster."
     },
     {
       "level": "advanced",
@@ -167,7 +167,7 @@
     },
     "counters": {
       "heroes": ["medusa", "storm_spirit", "tinker", "pugna", "shredder", "tidehunter"],
-      "note": "Anti-Mage best counters heroes with mana pools in both extremes. Low max mana heroes immediately lose their ability to cast spells against him, while high max mana heroes become the perfect opportunity for Mana Void to turn into a nuclear bomb — especially in team fights."
+      "note": "Anti-Mage best counters heroes with mana pools in both extremes. Low max mana heroes immediately lose their ability to cast spells against him, while high max mana heroes become the perfect opportunity for Mana Void to turn into a nuclear bomb - especially in team fights."
     },
     "countered_by": {
       "heroes": ["huskar", "axe", "legion_commander", "meepo", "slardar", "slark"],

@@ -28,7 +28,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Kill Them All",
+      "name": "Skill Build 1 - Kill Them All",
       "ult": "phantom_assassin_coup_de_grace",
       "rows": [
         {
@@ -98,7 +98,7 @@
       "talent_note": "Maximum poke & burst talents"
     },
     {
-      "name": "Skill Build 2 — Farm Early",
+      "name": "Skill Build 2 - Farm Early",
       "ult": "phantom_assassin_coup_de_grace",
       "rows": [
         {
@@ -170,7 +170,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Assassin",
+      "name": "Item Build 1 - Assassin",
       "phases": [
         {
           "label": "Starting Items",
@@ -209,7 +209,7 @@
       "note": "You excel at picking off enemy heroes & also deleting somebody at the start of fights before they could even blink."
     },
     {
-      "name": "Item Build 2 — Fighter",
+      "name": "Item Build 2 - Fighter",
       "phases": [
         {
           "label": "Starting Items",

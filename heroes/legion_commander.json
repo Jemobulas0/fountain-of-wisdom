@@ -19,13 +19,13 @@
   },
   "game_plan": {
     "early": "Take frequent small but good trades until you weaken the enemy carry enough to go in for the kill together with your support. Optimize your downtime by farming jungle camps earlier than most other heroes in the game can thanks to Moment of Courage.",
-    "mid": "This is your time to shine. Max tempo, max aggression, Duels galore. Here is where most LC players fail — they either play overaggressively & begin to feed, or they're too passive and jungle way too much. Finding just the right balance will elevate your gameplay to a whole new level.",
-    "late": "At a certain point in most games you'll feel how the enemy team stopped fearing you as much & your opportunities on the map become more limited. Moving towards the end-game team fights your main objective is to make sure that you'll lock down a key enemy hero & delete him — even at the cost of your own life. Don't get tempted by supports or tanks baiting you to jump in for an easy duel. Be patient and find your win condition target. Of course this can change once you hit level 25 and your Duel gets refreshed on each victory.",
+    "mid": "This is your time to shine. Max tempo, max aggression, Duels galore. Here is where most LC players fail - they either play overaggressively & begin to feed, or they're too passive and jungle way too much. Finding just the right balance will elevate your gameplay to a whole new level.",
+    "late": "At a certain point in most games you'll feel how the enemy team stopped fearing you as much & your opportunities on the map become more limited. Moving towards the end-game team fights your main objective is to make sure that you'll lock down a key enemy hero & delete him - even at the cost of your own life. Don't get tempted by supports or tanks baiting you to jump in for an easy duel. Be patient and find your win condition target. Of course this can change once you hit level 25 and your Duel gets refreshed on each victory.",
     "extras": "Being able to make a judgement call as early as the drafting phase or at least the early game about how the game is going to roughly play out is key for you to perform well. Sometimes your team will be completely unable to participate in an aggressive high tempo playstyle. Rushing Blink first item in such a game is usually not a good idea & vice versa. Both your hero's playstyle & item builds can be very versatile. This means that you can adapt to many scenarios but also make a lot of bad calls. Plan ahead & execute well."
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Aggression",
+      "name": "Skill Build 1 - Aggression",
       "ult": "legion_commander_duel",
       "rows": [
         {
@@ -94,7 +94,7 @@
       "note": "Standard build for maximum kill threat potential."
     },
     {
-      "name": "Skill Build 2 — Sustain",
+      "name": "Skill Build 2 - Sustain",
       "ult": "legion_commander_duel",
       "rows": [
         {
@@ -160,12 +160,12 @@
           "chosen": "left"
         }
       ],
-      "note": "Press The Attack is one of the best Strong Dispels in the game. Against all-in heroes whose lane objective is to kill you sometimes as early as level 1 — you can often times completely negate their entire kill threat with this spell. Adapt to your opponents. In some rarer cases you might even want to take it at level 1 — for ex. to dispel Terrorblade's Reflection & Dazzle's Poison Touch at the same time & instead of flat out dying immediately — to remain at full health."
+      "note": "Press The Attack is one of the best Strong Dispels in the game. Against all-in heroes whose lane objective is to kill you sometimes as early as level 1 - you can often times completely negate their entire kill threat with this spell. Adapt to your opponents. In some rarer cases you might even want to take it at level 1 - for ex. to dispel Terrorblade's Reflection & Dazzle's Poison Touch at the same time & instead of flat out dying immediately - to remain at full health."
     }
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Scaling",
+      "name": "Item Build 1 - Scaling",
       "phases": [
         {
           "label": "Starting Items",
@@ -205,7 +205,7 @@
       "note": "Armlet builds nicely from good components & offers you a solid early game. This way you avoid being overly reliant on early Blink which requires immediate payoff with a few Duel victories. And besides being able to initiate onto a single hero and delete him, you're essentially turning into a second carry for your team."
     },
     {
-      "name": "Item Build 2 — High Tempo",
+      "name": "Item Build 2 - High Tempo",
       "phases": [
         {
           "label": "Starting Items",
@@ -247,7 +247,7 @@
           ]
         }
       ],
-      "note": "If even a couple of your teammates can keep up with you, this build ensures that you'll decimate most of your games if you hit your early timings. And in the games where all enemy heroes basically disappear from the map very early on due to being afraid of getting surprise Dueled — that's also fine for you even if you're not constantly killing people. Because you're destroying the way they want to play on the map & your team benefits immensely from it."
+      "note": "If even a couple of your teammates can keep up with you, this build ensures that you'll decimate most of your games if you hit your early timings. And in the games where all enemy heroes basically disappear from the map very early on due to being afraid of getting surprise Dueled - that's also fine for you even if you're not constantly killing people. Because you're destroying the way they want to play on the map & your team benefits immensely from it."
     }
   ],
   "situational_items": [
@@ -258,7 +258,7 @@
     },
     {
       "id": "nullifier",
-      "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc."
+      "note": "Counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc."
     },
     {
       "id": "aghanims_shard",
@@ -282,11 +282,11 @@
   "tips": [
     {
       "level": "basic",
-      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel] Duel. This means that against heroes who can CC you and walk away, or heroes who have mobility spells — you usually want to immediately cast [ability:legion_commander_duel] Duel. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
+      "text": "When jumping a target you always follow the same pattern: deal as much damage as possible before casting [ability:legion_commander_duel] Duel. This means that against heroes who can CC you and walk away, or heroes who have mobility spells - you usually want to immediately cast [ability:legion_commander_duel] Duel. But sometimes you have the opportunity to deal some damage beforehand, thus ensuring that your target will actually die during the Duel duration & not after."
     },
     {
       "level": "basic",
-      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you — you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press The Attack."
+      "text": "You can freely cast both of your abilities during [ability:legion_commander_duel] Duel. This means that you can instantly cast [ability:legion_commander_duel] Duel giving no reaction time to your enemy & still using [ability:legion_commander_overwhelming_odds] Overwhelming Odds to deal extra damage & gain the Attack Speed buff immediately. Meanwhile if anybody applies some sort of debuff to you - you can also Dispel it whenever you like with [ability:legion_commander_press_the_attack] Press The Attack."
     },
     {
       "level": "basic",
@@ -298,7 +298,7 @@
     },
     {
       "level": "advanced",
-      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber — you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
+      "text": "[ability:legion_commander_moment_of_courage] Moment of Courage can be intentionally saved in order to double hit enemies. In your Status Bar you can see how many attacks on you are left before you can trigger the proc. So you can use creeps to hit you for a little bit of damage & when your next proc is in the chamber - you can run at an enemy hero and double hit him intentionally. Doing this over & over again during the laning stage builds up a huge trade advantage in your favor. And when you're unable to get a hit on a hero, you can always use this trick to ensure that you'll get a last hit that might otherwise get denied. Keep in mind that for the proc to happen, you need to be attacked in the meantime as well. Which usually occurs naturally since you're getting aggro from the enemy creeps when running in to harass the enemy hero."
     },
     {
       "level": "advanced",
@@ -314,7 +314,7 @@
     },
     {
       "level": "advanced",
-      "text": "The most common item that you'll see on the enemy team will be [item:sphere] Linken's Sphere. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself — [item:harpoon], [item:orchid], [item:bloodthorn], [item:nullifier] or even less frequently bought items like [item:heavens_halberd], [item:diffusal_blade], [item:disperser]."
+      "text": "The most common item that you'll see on the enemy team will be [item:sphere] Linken's Sphere. Most heroes don't naturally buy this item, which means that you're already interfering with their builds. Meanwhile you have a plethora of options to choose from in order to counter this yourself - [item:harpoon], [item:orchid], [item:bloodthorn], [item:nullifier] or even less frequently bought items like [item:heavens_halberd], [item:diffusal_blade], [item:disperser]."
     }
   ],
   "allies_and_counters": {

@@ -26,7 +26,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "spirit_breaker_nether_strike",
       "rows": [
         {
@@ -99,7 +99,7 @@
       "note": "You can apply a lot of pressure on the enemy carry with Bashes from the get go."
     },
     {
-      "name": "Skill Build 2 — Kill on Bounty Runes",
+      "name": "Skill Build 2 - Kill on Bounty Runes",
       "ult": "spirit_breaker_nether_strike",
       "rows": [
         {
@@ -174,7 +174,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Choo Choo!",
+      "name": "Item Build 1 - Choo Choo!",
       "phases": [
         {
           "label": "Starting Items",
@@ -226,7 +226,7 @@
       "note": "The train never stops. Get aboard the Kill Express!"
     },
     {
-      "name": "Item Build 2 — Get behind me Mr. President!",
+      "name": "Item Build 2 - Get behind me Mr. President!",
       "phases": [
         {
           "label": "Starting Items",

@@ -21,15 +21,15 @@
   },
 
   "game_plan": {
-    "early": "Focus on trading frequently with Hammer of Purity & backing off immediately if they have high kill potential. Wear them down. And when they're finally open after you've exhausted their sustain — go for the kills!",
+    "early": "Focus on trading frequently with Hammer of Purity & backing off immediately if they have high kill potential. Wear them down. And when they're finally open after you've exhausted their sustain - go for the kills!",
     "mid": "You're a powerhouse. The enemy team most likely prefers to be on the other side of the map. If possible, play aggressive on the map & force objectives whenever your Guardian Angel is up.",
-    "late": "Group up with your team & deathball into the enemies. Your spells are amazingly strong, but only for a short while. In prolonged fights where you're either getting kited or outsustained — you're at a disadvantage.",
+    "late": "Group up with your team & deathball into the enemies. Your spells are amazingly strong, but only for a short while. In prolonged fights where you're either getting kited or outsustained - you're at a disadvantage.",
     "extras": "Your preferred playstyle when you're at your strongest is to be aggressive on the map. This isn't possible every single game be it because the enemy team isn't allowing you or your team is simply too passive. In those games it's better to play the long game instead of griefing yourself by being overly aggressive."
   },
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Lane Domination",
+      "name": "Skill Build 1 - Lane Domination",
       "ult": "omniknight_guardian_angel",
       "rows": [
         {
@@ -53,7 +53,7 @@
       "note": "Maximum aggression to beat down your opponents into submission. Starting with 2 points into Hammer of Purity allows for optimal DPS at maximum frequency, while still ensuring that Purification will be maxed out at level 7."
     },
     {
-      "name": "Skill Build 2 — Survivability",
+      "name": "Skill Build 2 - Survivability",
       "ult": "omniknight_guardian_angel",
       "rows": [
         {
@@ -74,13 +74,13 @@
         { "level": 15, "left": "-20s Guardian Angel Cooldown", "right": "-0.5s Hammer of Purity Cooldown", "chosen": "left" },
         { "level": 10, "left": "+30 Base Damage", "right": "+200 Repel Cast Range", "chosen": "left" }
       ],
-      "note": "Sometimes you're facing hyper aggressive duos that rely on hitting level 2 asap & killing you to assert dominance on the lane. Often times those are easily countered with a single point of Repel on level 2. Yes — your own kill threat diminishes a little this way, but theirs goes down much, much more."
+      "note": "Sometimes you're facing hyper aggressive duos that rely on hitting level 2 asap & killing you to assert dominance on the lane. Often times those are easily countered with a single point of Repel on level 2. Yes - your own kill threat diminishes a little this way, but theirs goes down much, much more."
     }
   ],
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Aggression",
+      "name": "Item Build 1 - Aggression",
       "phases": [
         {
           "label": "Starting Items",
@@ -108,7 +108,7 @@
       "note": "The more direct 'in your face' build, which allows Omniknight to be an unignorable threat while transitioning into a more protective role later on."
     },
     {
-      "name": "Item Build 2 — The Long Game",
+      "name": "Item Build 2 - The Long Game",
       "phases": [
         {
           "label": "Starting Items",
@@ -137,7 +137,7 @@
 
   "situational_items": [
     { "id": "orchid", "note": "A potential second item when it would enable you to kill key heroes early on." },
-    { "id": "sphere", "also": "lotus_orb", "note": "An alternative to Octarine Core — these items' active effects might be just what you need in order to win your fights." },
+    { "id": "sphere", "also": "lotus_orb", "note": "An alternative to Octarine Core - these items' active effects might be just what you need in order to win your fights." },
     { "id": "guardian_greaves", "note": "If Silence is the only issue you're having, these cost less than Phase Boots + BKB, solve your issue & help your team at the same time." }
   ],
 
@@ -148,7 +148,7 @@
     },
     {
       "level": "basic",
-      "text": "[ability:omniknight_repel] Repel provides primarily Magic Resistance & Debuff Immunity. This means that you have to approach different heroes differently. When running into stuns or silences, you have to cast it in advance. But when facing soft CCs like slows & roots, you can wait until you get hit by them & only then Repel yourself, as to not lose any of the spell's duration — or give an opportunity to your enemies to just wait it out & then CC you."
+      "text": "[ability:omniknight_repel] Repel provides primarily Magic Resistance & Debuff Immunity. This means that you have to approach different heroes differently. When running into stuns or silences, you have to cast it in advance. But when facing soft CCs like slows & roots, you can wait until you get hit by them & only then Repel yourself, as to not lose any of the spell's duration - or give an opportunity to your enemies to just wait it out & then CC you."
     },
     {
       "level": "basic",
@@ -156,11 +156,11 @@
     },
     {
       "level": "advanced",
-      "text": "Your [item:ultimate_scepter|omniknight] Scepter turns [ability:omniknight_guardian_angel] Guardian Angel into a global spell, which affects buildings & increases Health Restoration by an extra +50%. This effectively gives your team an extra Glyph of Fortification. And it makes Omniknight a great synergy hero with other healers. And naturally — if you're about to ult with a Scepter, save your [ability:omniknight_purification] Purification for after using Guardian Angel."
+      "text": "Your [item:ultimate_scepter|omniknight] Scepter turns [ability:omniknight_guardian_angel] Guardian Angel into a global spell, which affects buildings & increases Health Restoration by an extra +50%. This effectively gives your team an extra Glyph of Fortification. And it makes Omniknight a great synergy hero with other healers. And naturally - if you're about to ult with a Scepter, save your [ability:omniknight_purification] Purification for after using Guardian Angel."
     },
     {
       "level": "advanced",
-      "text": "The later the game goes on, often times the more important it is to cast [ability:omniknight_repel] Repel on your carry or midlaner. Be mindful of who's the higher priority hero on your team to receive the spell. With that in mind, if you have an Enigma who wants to [item:blink] Blink in with [ability:enigma_black_hole] Black Hole & has no [item:black_king_bar] BKB (or a similar support) — don't be shy from casting [ability:omniknight_repel] Repel on him as well."
+      "text": "The later the game goes on, often times the more important it is to cast [ability:omniknight_repel] Repel on your carry or midlaner. Be mindful of who's the higher priority hero on your team to receive the spell. With that in mind, if you have an Enigma who wants to [item:blink] Blink in with [ability:enigma_black_hole] Black Hole & has no [item:black_king_bar] BKB (or a similar support) - don't be shy from casting [ability:omniknight_repel] Repel on him as well."
     },
     {
       "level": "advanced",

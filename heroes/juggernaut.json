@@ -21,15 +21,15 @@
   },
 
   "game_plan": {
-    "early": "You have one of the strongest normal spells in the entire game. Blade Fury does 400 AoE Damage on level 1. If you have a high kill threat support on your lane, you can immediately kill someone on lane before even a single creep has fallen. You're a lane dominator — so dominate!",
-    "mid": "The moment you hit Battle Fury, you immediately switch to max farming mode in between your ultimates. But don't just mindlessly rush at enemy heroes when Omnislash is up. Farm well, play smart & look for good opportunities to fight.\n\nHealing Ward is an extremely powerful AoE healing ability. Don't go on for minutes without using it. First — it allows you to take Tormentor & Roshan much quicker than most normal team drafts are able to. And second — even if you're simply jungling for a while & you see a teammate being low on HP on his lane — just pop the spell & send it to him. It lasts for 24 seconds. This is more than enough time to reach him & heal him up, without you wasting any time to go there yourself.",
-    "late": "You have two main ways of approaching the late game definitive team fights. You either clump into a death ball with your team or you wait on the side to either follow up on your initiator or counter-initiate theirs. This depends on the enemy team — if they want you grouped up together for a Shaker, Puck or Enigma ults for example, then you want to be on the side & look for your opening to jump in. If you get caught in such spells, you'll just die for free. But if no such threat exists — just pop that Healing Ward, walk high ground with your team & force the enemy team to fight you on your own terms, without you overextending yourself.",
+    "early": "You have one of the strongest normal spells in the entire game. Blade Fury does 400 AoE Damage on level 1. If you have a high kill threat support on your lane, you can immediately kill someone on lane before even a single creep has fallen. You're a lane dominator - so dominate!",
+    "mid": "The moment you hit Battle Fury, you immediately switch to max farming mode in between your ultimates. But don't just mindlessly rush at enemy heroes when Omnislash is up. Farm well, play smart & look for good opportunities to fight.\n\nHealing Ward is an extremely powerful AoE healing ability. Don't go on for minutes without using it. First - it allows you to take Tormentor & Roshan much quicker than most normal team drafts are able to. And second - even if you're simply jungling for a while & you see a teammate being low on HP on his lane - just pop the spell & send it to him. It lasts for 24 seconds. This is more than enough time to reach him & heal him up, without you wasting any time to go there yourself.",
+    "late": "You have two main ways of approaching the late game definitive team fights. You either clump into a death ball with your team or you wait on the side to either follow up on your initiator or counter-initiate theirs. This depends on the enemy team - if they want you grouped up together for a Shaker, Puck or Enigma ults for example, then you want to be on the side & look for your opening to jump in. If you get caught in such spells, you'll just die for free. But if no such threat exists - just pop that Healing Ward, walk high ground with your team & force the enemy team to fight you on your own terms, without you overextending yourself.",
     "extras": "Omnislash allows you to be one of the few heroes who can straight up kill a hero from full to zero. But it's also one of the easiest spells to counter with a large number of items & spells or simply by walking next to a creep for you to bounce to it, and then the enemy hero walking away to safety. Glimmer Cape you can counter with cheap Dust. But things like Eul's will require more. So always try to predict in advance how things will go before Omnislashing."
   },
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "juggernaut_omni_slash",
       "rows": [
         {
@@ -50,10 +50,10 @@
         { "level": 15, "left": "45 Movement Speed During Blade Fury", "right": "-15s Omnislash Cooldown", "chosen": "right" },
         { "level": 10, "left": "-1s Bladeform Stack Gain Interval", "right": "-12s Healing Ward Cooldown", "chosen": "left" }
       ],
-      "note": "Standard build — Healing Ward early point at level 4 keeps you and your support in lane. Blade Dance maxed second for crit scaling."
+      "note": "Standard build - Healing Ward early point at level 4 keeps you and your support in lane. Blade Dance maxed second for crit scaling."
     },
     {
-      "name": "Skill Build 2 — Survivability",
+      "name": "Skill Build 2 - Survivability",
       "ult": "juggernaut_omni_slash",
       "rows": [
         {
@@ -80,7 +80,7 @@
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Standard",
+      "name": "Item Build 1 - Standard",
       "phases": [
         {
           "label": "Starting Items",
@@ -108,7 +108,7 @@
       "note": "Standard item build with a number of power spikes for your hero."
     },
     {
-      "name": "Item Build 2 — Alternative",
+      "name": "Item Build 2 - Alternative",
       "phases": [
         {
           "label": "Starting Items",
@@ -132,15 +132,15 @@
           ]
         }
       ],
-      "note": "Trade-off with this build is around -30 DPS from Phase Boots, but higher mobility for when you need to stay on top of enemies with Blade Fury, chase people down with Omnislash & travel between camps faster. On the downside, Mjollnir gives way higher DPS than Battle Fury at the cost of no Mana Regen. That's why we opt for Linken's as our second item — which both has a defensive element to it (like Manta does) and it also fixes our Mana issues. From then on things are pretty standard again."
+      "note": "Trade-off with this build is around -30 DPS from Phase Boots, but higher mobility for when you need to stay on top of enemies with Blade Fury, chase people down with Omnislash & travel between camps faster. On the downside, Mjollnir gives way higher DPS than Battle Fury at the cost of no Mana Regen. That's why we opt for Linken's as our second item - which both has a defensive element to it (like Manta does) and it also fixes our Mana issues. From then on things are pretty standard again."
     }
   ],
 
   "situational_items": [
-    { "id": "nullifier", "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
+    { "id": "nullifier", "note": "Counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
     { "id": "silver_edge", "note": "Breaks Passives." },
     { "id": "monkey_king_bar", "note": "Counters Evasion." },
-    { "id": "black_king_bar", "note": "In most cases Manta will be enough to allow you to escape Silence or dodge a hard CC in order to cast your abilities in combat. But sometimes you need a BKB — for ex. against Night Stalker's Crippling Fear." }
+    { "id": "black_king_bar", "note": "In most cases Manta will be enough to allow you to escape Silence or dodge a hard CC in order to cast your abilities in combat. But sometimes you need a BKB - for ex. against Night Stalker's Crippling Fear." }
   ],
 
   "tips": [
@@ -162,7 +162,7 @@
     },
     {
       "level": "advanced",
-      "text": "In fights you can allow yourself to get hit by soft CCs (not silence or stun) and cast [ability:juggernaut_omni_slash] Omnislash right after — thus wasting the spells of your enemies."
+      "text": "In fights you can allow yourself to get hit by soft CCs (not silence or stun) and cast [ability:juggernaut_omni_slash] Omnislash right after - thus wasting the spells of your enemies."
     },
     {
       "level": "advanced",
@@ -170,11 +170,11 @@
     },
     {
       "level": "advanced",
-      "text": "Attempt to micro your [ability:juggernaut_healing_ward] Healing Ward — especially in the early parts of the game. The reason it provides amazing healing is that it's also quite easy to be taken out."
+      "text": "Attempt to micro your [ability:juggernaut_healing_ward] Healing Ward - especially in the early parts of the game. The reason it provides amazing healing is that it's also quite easy to be taken out."
     },
     {
       "level": "advanced",
-      "text": "Your level 25 talent allows you to basically heal to full every time you cast [ability:juggernaut_swift_slash] Swiftslash. Keep in mind that the ability also applies a Basic Dispel to yourself just like your ultimate does — even though it's not stated in the tooltip. So unless you need it in order to reach an enemy, save it for after a fight starts & you've lost some health first."
+      "text": "Your level 25 talent allows you to basically heal to full every time you cast [ability:juggernaut_swift_slash] Swiftslash. Keep in mind that the ability also applies a Basic Dispel to yourself just like your ultimate does - even though it's not stated in the tooltip. So unless you need it in order to reach an enemy, save it for after a fight starts & you've lost some health first."
     }
   ],
 

@@ -26,7 +26,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "skywrath_mage_mystic_flare",
       "rows": [
         {
@@ -99,7 +99,7 @@
       "note": "Concussive Shot is more mana cost efficient than Arcane Bolt + it has a slow & a potential for AoE damage."
     },
     {
-      "name": "Skill Build 2 — Early Kill/First Blood",
+      "name": "Skill Build 2 - Early Kill/First Blood",
       "ult": "skywrath_mage_mystic_flare",
       "rows": [
         {
@@ -174,7 +174,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Support",
+      "name": "Item Build 1 - Support",
       "phases": [
         {
           "label": "Starting Items",
@@ -235,7 +235,7 @@
       "note": "Rod of Atos enables you to easily solo kill heroes who lack the tools to avoid your burst. Ghost Scepter is your survival tool against cores who have just hit their timings to start blowing squishies up. And the rest of your build boosts your overall damage output, mobility, survivability & crowd control across the board."
     },
     {
-      "name": "Item Build 2 — Mid",
+      "name": "Item Build 2 - Mid",
       "phases": [
         {
           "label": "Starting Items",

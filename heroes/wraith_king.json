@@ -29,7 +29,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Aggressive",
+      "name": "Skill Build 1 - Aggressive",
       "ult": "skeleton_king_reincarnation",
       "rows": [
         {
@@ -99,7 +99,7 @@
       "note": "Use your high attack damage to secure as many last hits as possible. Hit level 2 before the enemy duo & immediately pop 2 Skellies and aim them at your victim with Wraithfire Blast while your lane partner follows up. If you execute it properly, you'll either get a kill or at the very least force the enemy offlaner to sit far away until he heals back up slowly."
     },
     {
-      "name": "Skill Build 2 — Passive",
+      "name": "Skill Build 2 - Passive",
       "ult": "skeleton_king_reincarnation",
       "rows": [
         {
@@ -171,7 +171,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Carry",
+      "name": "Item Build 1 - Carry",
       "phases": [
         {
           "label": "Starting Items",
@@ -218,7 +218,7 @@
       "note": "Standard meta role & build."
     },
     {
-      "name": "Item Build 2 — Offlaner",
+      "name": "Item Build 2 - Offlaner",
       "phases": [
         {
           "label": "Starting Items",
@@ -266,7 +266,7 @@
   "situational_items": [
     {
       "id": "nullifier",
-      "note": "Counter enemy buffs which prevent you from killing your targets — ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc. Also breaks Passives."
+      "note": "Counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc. Also breaks Passives."
     },
     {
       "id": "monkey_king_bar",

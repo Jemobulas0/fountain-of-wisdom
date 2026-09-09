@@ -24,14 +24,14 @@
 
   "game_plan": {
     "early": "You have the ability to delete most offlaners as early as level 2, if your support has a high kill threat potential. Do not overextend though as you're extremely squishy early on. Focus on hitting your first farming item as soon as possible in order to not fall behind the enemy carry too much.",
-    "mid": "Unlike some other heroes, you can't just chill in the jungle and hope for the best. You're decent at farming, but far from being the best. Utilize your extreme kill threat potential by farming & playing around your team — especially when your ultimate is up. Look for opportunities to delete Roshan with Pierce the Veil & the Tormentor with that + BKB.",
-    "late": "If you succeed in spending even a couple of seconds of free-firing at the enemy team without being disrupted, you'll most likely win your teamfights. Your itemization is extremely important each game — as is your positioning & timing in fights. Your sustain damage is nice, but what's truly important is to apply your huge burst at the right time & on the right target.",
-    "extras": "Your Innate allows you to stack Spell Amplification to extreme numbers. And even though you have a limit, you lose half of your stacks rounded down (currently this is bugged and they're being sadly rounded up). So even though it's in your best interest to not die, do not fall into the psychological trap of playing too passively & losing the game because of this. At the end of the day, your goal is the destruction of the enemy Throne — not to accumulate as many stacks as possible."
+    "mid": "Unlike some other heroes, you can't just chill in the jungle and hope for the best. You're decent at farming, but far from being the best. Utilize your extreme kill threat potential by farming & playing around your team - especially when your ultimate is up. Look for opportunities to delete Roshan with Pierce the Veil & the Tormentor with that + BKB.",
+    "late": "If you succeed in spending even a couple of seconds of free-firing at the enemy team without being disrupted, you'll most likely win your teamfights. Your itemization is extremely important each game - as is your positioning & timing in fights. Your sustain damage is nice, but what's truly important is to apply your huge burst at the right time & on the right target.",
+    "extras": "Your Innate allows you to stack Spell Amplification to extreme numbers. And even though you have a limit, you lose half of your stacks rounded down (currently this is bugged and they're being sadly rounded up). So even though it's in your best interest to not die, do not fall into the psychological trap of playing too passively & losing the game because of this. At the end of the day, your goal is the destruction of the enemy Throne - not to accumulate as many stacks as possible."
   },
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "muerta_pierce_the_veil",
       "rows": [
         {
@@ -55,7 +55,7 @@
       "note": "You're able to be aggressive on lane & kill all who oppose you (and your support)."
     },
     {
-      "name": "Skill Build 2 — Farming",
+      "name": "Skill Build 2 - Farming",
       "ult": "muerta_pierce_the_veil",
       "rows": [
         {
@@ -82,7 +82,7 @@
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Scaling",
+      "name": "Item Build 1 - Scaling",
       "phases": [
         {
           "label": "Starting Items",
@@ -110,7 +110,7 @@
       "note": "Standard scaling build."
     },
     {
-      "name": "Item Build 2 — Assassin",
+      "name": "Item Build 2 - Assassin",
       "phases": [
         {
           "label": "Starting Items",
@@ -144,7 +144,7 @@
     { "id": "monkey_king_bar", "note": "Counters Evasion." },
     { "id": "skadi", "note": "Counters Health Restoration." },
     { "id": "refresher", "note": "In prolonged fights where your ultimate is not enough to remove a Physical threat ([hero:skeleton_king] [hero:troll_warlord] [hero:ursa] etc.), having a second ultimate can be all the difference in the world." },
-    { "id": "satanic", "note": "Since 7.41 Muerta can finally use Satanic for the first time ever. Regardless if you're dealing Physical or Magical Damage — the Lifesteal works fully. So whenever you need sustain — be it too much Magical Damage or Prolonged Fights — indulge in this new option for your hero." },
+    { "id": "satanic", "note": "Since 7.41 Muerta can finally use Satanic for the first time ever. Regardless if you're dealing Physical or Magical Damage - the Lifesteal works fully. So whenever you need sustain - be it too much Magical Damage or Prolonged Fights - indulge in this new option for your hero." },
     { "id": "revenants_brooch", "note": "If you're looking for a cheaper alternative to [item:satanic] Satanic which also boosts your damage on top of it, look no further. Keep in mind that this only provides Spell Lifesteal, so it won't affect your normal Physical attacks, but it will still work with Magical damage from items like [item:mjollnir] Mjollnir at all times." },
     { "id": "bloodstone", "note": "A slightly more expensive alternative to [item:revenants_brooch] Revenant's Brooch which trades the crit procs for higher survivability + Spell Weakness Aura which increases the damage from spells by all enemies around you by 12%. A preferred choice if your team deals a lot of overall magical damage & nobody else has bought or plans to buy the item." },
     { "id": "sphere", "note": "In games where only a few but highly deadly spells are a threat to you ([ability:doom_bringer_doom] [ability:beastmaster_primal_roar] etc.) & [item:black_king_bar] BKB isn't a solution, this could be a lifesaver." },
@@ -158,15 +158,15 @@
     },
     {
       "level": "basic",
-      "text": "Since the majority of your damage is Magical, it's unfortunate that due to items priority you're unable to buy any Kaya related items, but on the other hand allies that Amplify All Damage Received by enemies (Undying's [ability:undying_flesh_golem] Flesh Golem or Bounty Hunter's [ability:bounty_hunter_track] Track) & especially allies that either boost Spell Damage Taken (Hoodwink's [ability:hoodwink_hunters_boomerang] Hunter's Boomerang or Ancient Black Drake's Magic Amplification Aura) or Spell Damage Dealt (Io's [ability:wisp_overcharge] Overcharge) immensely boost your overall damage numbers. This is more of a 'good to know' type of info if you're playing solo, since you get what you get as teammates, but important to notice when you do actually get such heroes on your team, so you can make the best use out of them. And if you're playing with at least one friend — the synergies are amazing, especially the Io one."
+      "text": "Since the majority of your damage is Magical, it's unfortunate that due to items priority you're unable to buy any Kaya related items, but on the other hand allies that Amplify All Damage Received by enemies (Undying's [ability:undying_flesh_golem] Flesh Golem or Bounty Hunter's [ability:bounty_hunter_track] Track) & especially allies that either boost Spell Damage Taken (Hoodwink's [ability:hoodwink_hunters_boomerang] Hunter's Boomerang or Ancient Black Drake's Magic Amplification Aura) or Spell Damage Dealt (Io's [ability:wisp_overcharge] Overcharge) immensely boost your overall damage numbers. This is more of a 'good to know' type of info if you're playing solo, since you get what you get as teammates, but important to notice when you do actually get such heroes on your team, so you can make the best use out of them. And if you're playing with at least one friend - the synergies are amazing, especially the Io one."
     },
     {
       "level": "basic",
-      "text": "Due to the nature of Multishot mechanics in this game, one would think that [ability:muerta_gunslinger] Gunslinger is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly — it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan very early on with her [ability:muerta_pierce_the_veil] Pierce the Veil and also Tormentor with [ability:muerta_pierce_the_veil] Pierce the Veil + [item:black_king_bar] BKB."
+      "text": "Due to the nature of Multishot mechanics in this game, one would think that [ability:muerta_gunslinger] Gunslinger is the worst of them, since it only attacks 1 extra target and only sometimes. But in reality it is an absurd ability, because unlike other similar abilities, this one actually procs on-hit effects and most amazingly - it will target your main target for double the damage if there are no other targets available. This is one of the reasons why Muerta is also able to solo Roshan very early on with her [ability:muerta_pierce_the_veil] Pierce the Veil and also Tormentor with [ability:muerta_pierce_the_veil] Pierce the Veil + [item:black_king_bar] BKB."
     },
     {
       "level": "basic",
-      "text": "[ability:muerta_the_calling] The Calling is an amazing ability in teamfights. It does take getting a bit used to placing it though. You want to hit enemies with your revenants as much as possible, but you don't want them to be able to take a single step and walk outside of your spell either. Your best friend is either the terrain or other heroes' spells which create barriers & walls. The simplest example is fighting on a Ramp — in such a case you can usually just place the border of your spell on the Ramp itself and you're good to go. Same goes for the Rosh pit and so on. Chokepoints are your friends. Sometimes though all that you need is the slow itself for fleeing or chasing enemies — then things are much simpler. Cover as much ground in their path as possible & that's it."
+      "text": "[ability:muerta_the_calling] The Calling is an amazing ability in teamfights. It does take getting a bit used to placing it though. You want to hit enemies with your revenants as much as possible, but you don't want them to be able to take a single step and walk outside of your spell either. Your best friend is either the terrain or other heroes' spells which create barriers & walls. The simplest example is fighting on a Ramp - in such a case you can usually just place the border of your spell on the Ramp itself and you're good to go. Same goes for the Rosh pit and so on. Chokepoints are your friends. Sometimes though all that you need is the slow itself for fleeing or chasing enemies - then things are much simpler. Cover as much ground in their path as possible & that's it."
     },
     {
       "level": "advanced",

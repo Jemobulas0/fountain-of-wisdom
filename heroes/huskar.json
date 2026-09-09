@@ -22,14 +22,14 @@
 
   "game_plan": {
     "early": "Annihilate your lane. Freeze the creep equilibrium in front of your tower. Position yourself forward (around the enemy ranged creep) and W-click the enemy hero when he comes close in order to avoid drawing creep aggro thus ruining your equilibrium & losing unnecessary HP. As late as level 3 you should be able to pull off without an issue. If done properly, your opponent should be forced to abandon the lane or do long range farming if his spell kit allows it.",
-    "mid": "There's almost no other hero who wants to be as aggressive as Huskar does so early on. Identify if there are any heroes on the enemy team who can actually counter you hard (ex. AA's Ice Blast) & play around them. Everyone else — run them down & take early objectives with your team. If you manage to jump a hero who has no mobility — it's almost always a guaranteed kill straight away.",
+    "mid": "There's almost no other hero who wants to be as aggressive as Huskar does so early on. Identify if there are any heroes on the enemy team who can actually counter you hard (ex. AA's Ice Blast) & play around them. Everyone else - run them down & take early objectives with your team. If you manage to jump a hero who has no mobility - it's almost always a guaranteed kill straight away.",
     "late": "At this point in the game the enemy team is more grouped up & geared up. So even if you were doing amazing up until now, you should go down a gear and play more around your team. Hard disable a key enemy hero with your Agh's, create as much chaos in the enemy midst and even if you go down, make sure that most of the enemy team goes down with you.",
-    "extras": "You can actually kill Roshan as early as level 7 once you buy your Armlet. My personal record in a real game is to kill him at 6:30 on lvl 5. Make sure to always buy your own Smoke & go into the Rosh pit that way — never go in without it. Works even better if the enemy team has an early Obs & gets a false sense of security by not seeing you."
+    "extras": "You can actually kill Roshan as early as level 7 once you buy your Armlet. My personal record in a real game is to kill him at 6:30 on lvl 5. Make sure to always buy your own Smoke & go into the Rosh pit that way - never go in without it. Works even better if the enemy team has an early Obs & gets a false sense of security by not seeing you."
   },
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "huskar_life_break",
       "rows": [
         {
@@ -53,7 +53,7 @@
       "note": "Maximum survivability plus oppression."
     },
     {
-      "name": "Skill Build 2 — Earlier Silence",
+      "name": "Skill Build 2 - Earlier Silence",
       "ult": "huskar_life_break",
       "rows": [
         {
@@ -74,13 +74,13 @@
         { "level": 15, "left": "+12% Lifesteal", "right": "+5 Burning Spear Burn Damage", "chosen": "left" },
         { "level": 10, "left": "+2s Life Break Slow Duration", "right": "+0.75s Inner Fire Duration", "chosen": "right" }
       ],
-      "note": "Against some heroes an earlier Silence does miracles — especially when you Life Break them and their only escape is a stun or a mobility spell. The level 25 talent choice can be simplified as follows: take left vs squishy primary targets & take right in prolonged fights vs beefy/sustainable enemies."
+      "note": "Against some heroes an earlier Silence does miracles - especially when you Life Break them and their only escape is a stun or a mobility spell. The level 25 talent choice can be simplified as follows: take left vs squishy primary targets & take right in prolonged fights vs beefy/sustainable enemies."
     }
   ],
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Aggression",
+      "name": "Item Build 1 - Aggression",
       "phases": [
         {
           "label": "Starting Items",
@@ -108,7 +108,7 @@
       "note": "Standard Aggressive approach while gradually building into Initiation with Blink & later Agh's."
     },
     {
-      "name": "Item Build 2 — Scaling",
+      "name": "Item Build 2 - Scaling",
       "phases": [
         {
           "label": "Starting Items",
@@ -150,7 +150,7 @@
     },
     {
       "level": "basic",
-      "text": "Your Shard grants you a new active ability, which is an extra Basic Self-Dispel. It costs 30% of Current HP & 3 seconds later it heals you back for the amount of health consumed + 3% Max HP per debuff dispelled. This means that you can use the spell in several different ways. One is to simply wait for a specific debuff that you want to dispel. Another is if you're worried about getting killed quickly once you go in, you could activate the ability at Full HP before engaging (thus sacrificing the maximum possible amount of HP), jump into the fight & take a lot of damage initially, but then 3 seconds later you'll receive a large heal — thus surviving their initial burst & hopefully winning the fight as a result. The drawback is that your Life Break will also do less damage since your HP will be lower. The second use keeps the ability relevant even when you're not trying to actively dispel something."
+      "text": "Your Shard grants you a new active ability, which is an extra Basic Self-Dispel. It costs 30% of Current HP & 3 seconds later it heals you back for the amount of health consumed + 3% Max HP per debuff dispelled. This means that you can use the spell in several different ways. One is to simply wait for a specific debuff that you want to dispel. Another is if you're worried about getting killed quickly once you go in, you could activate the ability at Full HP before engaging (thus sacrificing the maximum possible amount of HP), jump into the fight & take a lot of damage initially, but then 3 seconds later you'll receive a large heal - thus surviving their initial burst & hopefully winning the fight as a result. The drawback is that your Life Break will also do less damage since your HP will be lower. The second use keeps the ability relevant even when you're not trying to actively dispel something."
     },
     {
       "level": "basic",
@@ -174,11 +174,11 @@
     },
     {
       "level": "advanced",
-      "text": "Use the Armlet Toggle technique to effectively become immortal. This is how you can kill Rosh in the early game & this is how you can fight certain enemy heroes without them being able to ever kill you in the early & mid game. It's even possible to Armlet Toggle against many DoTs in the game — some tic multiple times per second making it almost impossible, but others tic much slower thus allowing you to avoid lethal damage. Same logic applies when fighting heroes with fast & slow attack speed."
+      "text": "Use the Armlet Toggle technique to effectively become immortal. This is how you can kill Rosh in the early game & this is how you can fight certain enemy heroes without them being able to ever kill you in the early & mid game. It's even possible to Armlet Toggle against many DoTs in the game - some tic multiple times per second making it almost impossible, but others tic much slower thus allowing you to avoid lethal damage. Same logic applies when fighting heroes with fast & slow attack speed."
     },
     {
       "level": "advanced",
-      "text": "Specifically for Roshan — don't stress too much about that if you're new to the hero. Get a couple of games under your belt first. Then go into Demo & practice until you get it right. Once you get the hang of it, it will become second nature and you won't accidentally kill yourself in a real game, thus ruining your entire early game & potentially the whole match."
+      "text": "Specifically for Roshan - don't stress too much about that if you're new to the hero. Get a couple of games under your belt first. Then go into Demo & practice until you get it right. Once you get the hang of it, it will become second nature and you won't accidentally kill yourself in a real game, thus ruining your entire early game & potentially the whole match."
     },
     {
       "level": "advanced",

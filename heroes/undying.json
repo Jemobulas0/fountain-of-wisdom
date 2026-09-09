@@ -29,7 +29,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "undying_flesh_golem",
       "rows": [
         {
@@ -102,7 +102,7 @@
       "note": "Maxing out Decay is your non-negotiable bread 'n butter. Tombstone is your go-to spell to destroy your opponents - both in a small skirmish or a huge team fight."
     },
     {
-      "name": "Skill Build 2 — Tombstone Denied",
+      "name": "Skill Build 2 - Tombstone Denied",
       "ult": "undying_flesh_golem",
       "rows": [
         {
@@ -177,7 +177,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Support",
+      "name": "Item Build 1 - Support",
       "phases": [
         {
           "label": "Starting Items",
@@ -236,7 +236,7 @@
       "note": "Your spells provide incredible damage to both small & big fights. And in most games you can't amplify your offensive power nearly as much, as you can your defensive one - which is severely lacking in your kit. After grabbing the 2 go-to support team fight items & an early [item:aghanims_shard|undying] Shard you're now secured to buy your [item:blink] Blink to truly unlock both your saving & kill potential. If a teammate is getting gone on hard - you Blink safe him with [ability:undying_tombstone] Tombstone & turn the fight around. And if your team needs to focus down a key target, you pop [ability:undying_flesh_golem] Ult & [item:blink] Blink on top of him with the Amplify Damage debuff."
     },
     {
-      "name": "Item Build 2 — Offlaner",
+      "name": "Item Build 2 - Offlaner",
       "phases": [
         {
           "label": "Starting Items",

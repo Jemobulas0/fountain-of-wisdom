@@ -29,7 +29,7 @@
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Standard",
+      "name": "Skill Build 1 - Standard",
       "ult": "sven_gods_strength",
       "rows": [
         {
@@ -53,7 +53,7 @@
       "note": "When facing standard melee offlaners, you can harass them while last hitting creeps."
     },
     {
-      "name": "Skill Build 2 — Survivability",
+      "name": "Skill Build 2 - Survivability",
       "ult": "sven_gods_strength",
       "rows": [
         {
@@ -80,7 +80,7 @@
 
   "item_builds": [
     {
-      "name": "Item Build 1 — Standard",
+      "name": "Item Build 1 - Standard",
       "phases": [
         {
           "label": "Starting Items",
@@ -107,7 +107,7 @@
       "note": "Standard reliable build."
     },
     {
-      "name": "Item Build 2 — Assassin",
+      "name": "Item Build 2 - Assassin",
       "phases": [
         {
           "label": "Starting Items",
@@ -129,7 +129,7 @@
           ]
         }
       ],
-      "note": "A non-meta alternative to show you a different side of the hero as a learning experience. Your purpose with this build is to become an assassin & pick off people that are straying away from your team. And if you get them to a point where everyone's too scared to be by themselves, you automatically open the map for your team simply by keeping the enemies afraid. Silver Edge Breaks & slows down your target no matter how many speed buffs they have. Orchid makes sure that they won't just escape with mobility spells. And it will force supports to buy defensive items that will cost them way more time to farm up than the Orchid cost you. Meanwhile cores will be forced into the expensive options like a BKB. And the final nail in the coffin is your Scepter which turns you into Thor & makes your Storm Hammer dispel enemy heroes — Ghost Scepter is a frequent counter to Sven."
+      "note": "A non-meta alternative to show you a different side of the hero as a learning experience. Your purpose with this build is to become an assassin & pick off people that are straying away from your team. And if you get them to a point where everyone's too scared to be by themselves, you automatically open the map for your team simply by keeping the enemies afraid. Silver Edge Breaks & slows down your target no matter how many speed buffs they have. Orchid makes sure that they won't just escape with mobility spells. And it will force supports to buy defensive items that will cost them way more time to farm up than the Orchid cost you. Meanwhile cores will be forced into the expensive options like a BKB. And the final nail in the coffin is your Scepter which turns you into Thor & makes your Storm Hammer dispel enemy heroes - Ghost Scepter is a frequent counter to Sven."
     }
   ],
 

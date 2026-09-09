@@ -133,7 +133,7 @@ function makeSection(titleText) {
 // ── BUILDERS ──────────────────────────────────────────────────────────────────
 
 function buildHeader(data) {
-  document.title = `${data.name} — The Fountain of Wisdom`;
+  document.title = `${data.name} - The Fountain of Wisdom`;
 
   const attrColors = {
     agility: 'var(--green)',

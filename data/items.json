@@ -515,7 +515,7 @@
         "ability_icon": "invoker_quas",
         "tag": "upgrade",
         "layout": "horizontal",
-        "desc": "OPTION 1 — QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 — WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 — EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+        "desc": "OPTION 1 - QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 - WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 - EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
       },
       "jakiro": {
         "ability": "Macropyre",
@@ -903,7 +903,7 @@
         "ability": "Spectral Slug",
         "ability_icon": "muerta_spectral_slug",
         "tag": "new ability",
-        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s — rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
+        "desc": "Muerta shoots a spectral bullet at an enemy, dealing 225 damage, knocking them back, and turning them ethereal for 3s - rendering them immune to physical damage and unable to attack. The target is slowed by 30% and takes 20% more magic damage."
       },
       "sven": {
         "ability": "Warcry",
@@ -1306,7 +1306,7 @@
         "ability_icon": "invoker_ghost_walk",
         "tag": "upgrade",
         "layout": "horizontal",
-        "desc": "OPTION 1 — GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies in a larger radius.\n\nOPTION 2 — E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 — SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
+        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies in a larger radius.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
       },
       "jakiro": {
         "ability": "Liquid Fire / Liquid Frost",
@@ -2082,7 +2082,7 @@
         "ability_icon": "invoker_quas",
         "tag": "upgrade",
         "layout": "horizontal",
-        "desc": "OPTION 1 — QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 — WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 — EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+        "desc": "OPTION 1 - QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 - WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 - EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
       },
       "jakiro": {
         "ability": "Macropyre",

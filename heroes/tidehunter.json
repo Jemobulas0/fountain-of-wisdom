@@ -26,7 +26,7 @@
   },
   "skill_builds": [
     {
-      "name": "Skill Build 1 — Vs Melee Carry",
+      "name": "Skill Build 1 - Vs Melee Carry",
       "ult": "tidehunter_ravage",
       "rows": [
         {
@@ -95,7 +95,7 @@
       "note": "Your most frequent & best case scenario - walk up to the enemy creeps when you can last hit at least one of them & the enemy carry is in range & hit Anchor Smash. Often times after doing this a few times, you'll train the enemy carry to walk away when you're about to do it. In those cases don't just waste your mana & cooldown, and last hit normally. Now he's in a position where he's just looking at you taking a bunch of last hits completely for free. After a number of good trades when they've either invested too many resources or simply has ran out of such, communicate with your support that you want to go for a kill & do it."
     },
     {
-      "name": "Skill Build 2 — Vs Ranged Carry",
+      "name": "Skill Build 2 - Vs Ranged Carry",
       "ult": "tidehunter_ravage",
       "rows": [
         {
@@ -166,7 +166,7 @@
   ],
   "item_builds": [
     {
-      "name": "Item Build 1 — Initiator",
+      "name": "Item Build 1 - Initiator",
       "phases": [
         {
           "label": "Starting Items",
@@ -213,7 +213,7 @@
       "note": "This is your standard high tempo build which allows you constant up-time. You're either fighting or using any available downtime to farm while restoring both your HP & MP in the meantime."
     },
     {
-      "name": "Item Build 2 — Aura Carrier",
+      "name": "Item Build 2 - Aura Carrier",
       "phases": [
         {
           "label": "Starting Items",

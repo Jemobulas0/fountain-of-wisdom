@@ -630,14 +630,15 @@ function setRole(val, btn) {
 }
 
 function filterHeroes() {
-  const query = document.getElementById('search').value.toLowerCase();
+  const query = document.getElementById('search').value.toLowerCase().trim();
   const grid = document.getElementById('heroes-grid');
   grid.innerHTML = '';
 
   const filtered = heroes.filter(h => {
     const matchAttr = currentAttr === 'all' || h.attr === currentAttr;
     const matchRole = currentRole === 'all' || h.roles.includes(currentRole);
-    const matchSearch = h.name.toLowerCase().includes(query);
+    const matchSearch = h.name.toLowerCase().includes(query) ||
+      h.aliases.some(a => a.includes(query));
     return matchAttr && matchRole && matchSearch;
   });
 
@@ -709,7 +710,8 @@ fetch('data/heroes.json')
         cdn: h.icon,
         attr: h.attr,
         roles: h.roles,
-        covered: h.covered
+        covered: h.covered,
+        aliases: h.aliases || []
       };
     });
 

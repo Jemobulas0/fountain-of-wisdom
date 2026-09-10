@@ -6,7 +6,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "razzil"
+    ]
   },
   "axe": {
     "name": "Axe",
@@ -15,7 +18,8 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "bristleback": {
     "name": "Bristleback",
@@ -24,7 +28,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "rigwarl",
+      "bb"
+    ]
   },
   "centaur": {
     "name": "Centaur Warrunner",
@@ -33,7 +41,8 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "chaos_knight": {
     "name": "Chaos Knight",
@@ -43,7 +52,10 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ck"
+    ]
   },
   "rattletrap": {
     "name": "Clockwerk",
@@ -53,7 +65,11 @@
       "offlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "rattletrap",
+      "cw"
+    ]
   },
   "dawnbreaker": {
     "name": "Dawnbreaker",
@@ -63,7 +79,10 @@
       "offlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "valora"
+    ]
   },
   "doom_bringer": {
     "name": "Doom",
@@ -73,7 +92,10 @@
       "offlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "db"
+    ]
   },
   "dragon_knight": {
     "name": "Dragon Knight",
@@ -83,7 +105,12 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "dk",
+      "davion",
+      "dragon's blood"
+    ]
   },
   "earth_spirit": {
     "name": "Earth Spirit",
@@ -93,7 +120,11 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "es",
+      "kaolin"
+    ]
   },
   "earthshaker": {
     "name": "Earth Shaker",
@@ -103,7 +134,11 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "es",
+      "raigor"
+    ]
   },
   "elder_titan": {
     "name": "Elder Titan",
@@ -112,7 +147,12 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "tc",
+      "cairne",
+      "et"
+    ]
   },
   "huskar": {
     "name": "Huskar",
@@ -121,7 +161,8 @@
     "roles": [
       "midlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": []
   },
   "kunkka": {
     "name": "Kunkka",
@@ -131,7 +172,10 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "admiral"
+    ]
   },
   "largo": {
     "name": "Largo",
@@ -140,7 +184,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bard_frog"
+    ]
   },
   "legion_commander": {
     "name": "Legion Commander",
@@ -149,7 +196,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "tresdin",
+      "lc"
+    ]
   },
   "life_stealer": {
     "name": "Lifestealer",
@@ -159,7 +210,11 @@
       "carry"
     ],
     "covered": true,
-    "page": "lifestealer"
+    "page": "lifestealer",
+    "aliases": [
+      "ls",
+      "naix"
+    ]
   },
   "lycan": {
     "name": "Lycan",
@@ -169,7 +224,11 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "banehallow",
+      "wolf"
+    ]
   },
   "mars": {
     "name": "Mars",
@@ -178,7 +237,8 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "night_stalker": {
     "name": "Night Stalker",
@@ -187,7 +247,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ns",
+      "balanar"
+    ]
   },
   "ogre_magi": {
     "name": "Ogre Magi",
@@ -196,7 +260,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "om"
+    ]
   },
   "omniknight": {
     "name": "Omniknight",
@@ -205,7 +272,10 @@
     "roles": [
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "purist thunderwrath"
+    ]
   },
   "phoenix": {
     "name": "Phoenix",
@@ -215,7 +285,8 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "primal_beast": {
     "name": "Primal Beast",
@@ -224,7 +295,10 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "pb"
+    ]
   },
   "pudge": {
     "name": "Pudge",
@@ -234,7 +308,10 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "toy butcher"
+    ]
   },
   "slardar": {
     "name": "Slardar",
@@ -243,7 +320,10 @@
     "roles": [
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "slithereen guard"
+    ]
   },
   "spirit_breaker": {
     "name": "Spirit Breaker",
@@ -253,7 +333,11 @@
       "support",
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "sb",
+      "barathrum"
+    ]
   },
   "sven": {
     "name": "Sven",
@@ -262,7 +346,10 @@
     "roles": [
       "carry"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "rogue knight"
+    ]
   },
   "tidehunter": {
     "name": "Tidehunter",
@@ -271,7 +358,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "th",
+      "leviathan"
+    ]
   },
   "shredder": {
     "name": "Timbersaw",
@@ -280,7 +371,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "rizzrack",
+      "shredder"
+    ]
   },
   "tiny": {
     "name": "Tiny",
@@ -290,7 +385,10 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "stone giant"
+    ]
   },
   "treant": {
     "name": "Treant Protector",
@@ -299,7 +397,8 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "tusk": {
     "name": "Tusk",
@@ -309,7 +408,10 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ymir"
+    ]
   },
   "abyssal_underlord": {
     "name": "Underlord",
@@ -318,7 +420,12 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "pitlord",
+      "azgalor",
+      "ul"
+    ]
   },
   "undying": {
     "name": "Undying",
@@ -328,7 +435,10 @@
       "support",
       "offlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "dirge"
+    ]
   },
   "skeleton_king": {
     "name": "Wraith King",
@@ -339,7 +449,15 @@
       "offlane"
     ],
     "covered": true,
-    "page": "wraith_king"
+    "page": "wraith_king",
+    "aliases": [
+      "sk",
+      "snk",
+      "wk",
+      "skeleton",
+      "one true king",
+      "ostarion"
+    ]
   },
   "antimage": {
     "name": "Anti-Mage",
@@ -348,7 +466,11 @@
     "roles": [
       "carry"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "am",
+      "wei"
+    ]
   },
   "bloodseeker": {
     "name": "Bloodseeker",
@@ -358,7 +480,10 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bs"
+    ]
   },
   "bounty_hunter": {
     "name": "Bounty Hunter",
@@ -368,7 +493,10 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bh"
+    ]
   },
   "broodmother": {
     "name": "Broodmother",
@@ -378,7 +506,12 @@
       "offlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bm",
+      "arachnia",
+      "spider"
+    ]
   },
   "clinkz": {
     "name": "Clinkz",
@@ -387,7 +520,8 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "drow_ranger": {
     "name": "Drow Ranger",
@@ -396,7 +530,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "traxex"
+    ]
   },
   "ember_spirit": {
     "name": "Ember Spirit",
@@ -406,7 +543,11 @@
       "midlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "xin",
+      "es"
+    ]
   },
   "faceless_void": {
     "name": "Faceless Void",
@@ -415,7 +556,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "fv"
+    ]
   },
   "gyrocopter": {
     "name": "Gyrocopter",
@@ -424,7 +568,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "aurel"
+    ]
   },
   "hoodwink": {
     "name": "Hoodwink",
@@ -433,7 +580,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "squirrel",
+      "hw"
+    ]
   },
   "juggernaut": {
     "name": "Juggernaut",
@@ -442,7 +593,10 @@
     "roles": [
       "carry"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "yurnero"
+    ]
   },
   "kez": {
     "name": "Kez",
@@ -452,7 +606,11 @@
       "midlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bird samurai",
+      "kestrel"
+    ]
   },
   "lone_druid": {
     "name": "Lone Druid",
@@ -462,7 +620,12 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ld",
+      "bear",
+      "sylla"
+    ]
   },
   "luna": {
     "name": "Luna",
@@ -471,7 +634,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "moon rider"
+    ]
   },
   "medusa": {
     "name": "Medusa",
@@ -480,7 +646,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "gorgon"
+    ]
   },
   "meepo": {
     "name": "Meepo",
@@ -489,7 +658,11 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "geomancer",
+      "meepwn"
+    ]
   },
   "mirana": {
     "name": "Mirana",
@@ -499,7 +672,12 @@
       "support",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "princess",
+      "moon",
+      "potm"
+    ]
   },
   "monkey_king": {
     "name": "Monkey King",
@@ -509,7 +687,11 @@
       "carry",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "mk",
+      "sun wukong"
+    ]
   },
   "morphling": {
     "name": "Morphling",
@@ -519,7 +701,8 @@
       "carry",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "naga_siren": {
     "name": "Naga Siren",
@@ -528,7 +711,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "slithice"
+    ]
   },
   "phantom_assassin": {
     "name": "Phantom Assassin",
@@ -537,7 +723,11 @@
     "roles": [
       "carry"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "pa",
+      "mortred"
+    ]
   },
   "phantom_lancer": {
     "name": "Phantom Lancer",
@@ -546,7 +736,11 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "pl",
+      "azwraith"
+    ]
   },
   "razor": {
     "name": "Razor",
@@ -556,7 +750,10 @@
       "carry",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "lightning revenant"
+    ]
   },
   "riki": {
     "name": "Riki",
@@ -565,7 +762,11 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "stealth assassin",
+      "sa"
+    ]
   },
   "nevermore": {
     "name": "Shadow Fiend",
@@ -575,7 +776,11 @@
       "midlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "sf",
+      "nevermore"
+    ]
   },
   "slark": {
     "name": "Slark",
@@ -584,7 +789,8 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "sniper": {
     "name": "Sniper",
@@ -594,7 +800,10 @@
       "carry",
       "midlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "kardel sharpeye"
+    ]
   },
   "spectre": {
     "name": "Spectre",
@@ -603,7 +812,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "mercurial"
+    ]
   },
   "templar_assassin": {
     "name": "Templar Assassin",
@@ -613,7 +825,11 @@
       "midlane",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ta",
+      "lanaya"
+    ]
   },
   "terrorblade": {
     "name": "Terrorblade",
@@ -622,7 +838,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "tb"
+    ]
   },
   "troll_warlord": {
     "name": "Troll Warlord",
@@ -631,7 +850,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "jahrakal"
+    ]
   },
   "ursa": {
     "name": "Ursa",
@@ -640,7 +862,10 @@
     "roles": [
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ulfsaar"
+    ]
   },
   "vengefulspirit": {
     "name": "Vengeful Spirit",
@@ -649,7 +874,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "vs",
+      "shendelzare"
+    ]
   },
   "viper": {
     "name": "Viper",
@@ -659,7 +888,10 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "netherdrake"
+    ]
   },
   "weaver": {
     "name": "Weaver",
@@ -669,7 +901,11 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "nw",
+      "skitskurr"
+    ]
   },
   "ancient_apparition": {
     "name": "Ancient Apparition",
@@ -678,7 +914,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "aa"
+    ]
   },
   "chen": {
     "name": "Chen",
@@ -687,7 +926,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "holy knight"
+    ]
   },
   "crystal_maiden": {
     "name": "Crystal Maiden",
@@ -696,7 +938,12 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "cm",
+      "rylai",
+      "wolf"
+    ]
   },
   "dark_seer": {
     "name": "Dark Seer",
@@ -705,7 +952,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ds",
+      "ishkafel"
+    ]
   },
   "dark_willow": {
     "name": "Dark Willow",
@@ -714,7 +965,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "dw",
+      "mireska"
+    ]
   },
   "disruptor": {
     "name": "Disruptor",
@@ -723,7 +978,8 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "enchantress": {
     "name": "Enchantress",
@@ -732,7 +988,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "aiushtha"
+    ]
   },
   "grimstroke": {
     "name": "Grimstroke",
@@ -741,7 +1000,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "gs"
+    ]
   },
   "invoker": {
     "name": "Invoker",
@@ -750,7 +1012,10 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "kid"
+    ]
   },
   "jakiro": {
     "name": "Jakiro",
@@ -759,7 +1024,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "thd",
+      "twin headed dragon"
+    ]
   },
   "keeper_of_the_light": {
     "name": "Keeper of the Light",
@@ -768,7 +1037,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ezalor",
+      "kotl"
+    ]
   },
   "leshrac": {
     "name": "Leshrac",
@@ -778,7 +1051,10 @@
       "midlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ts"
+    ]
   },
   "lich": {
     "name": "Lich",
@@ -787,7 +1063,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ethreain"
+    ]
   },
   "lina": {
     "name": "Lina",
@@ -797,7 +1076,10 @@
       "midlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "slayer"
+    ]
   },
   "lion": {
     "name": "Lion",
@@ -806,7 +1088,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "demon witch"
+    ]
   },
   "muerta": {
     "name": "Muerta",
@@ -815,7 +1100,8 @@
     "roles": [
       "carry"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": []
   },
   "necrolyte": {
     "name": "Necrophos",
@@ -825,7 +1111,10 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "rotundjere"
+    ]
   },
   "oracle": {
     "name": "Oracle",
@@ -834,7 +1123,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "nerif"
+    ]
   },
   "obsidian_destroyer": {
     "name": "Outworld Destroyer",
@@ -843,7 +1135,11 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "od",
+      "harbinger"
+    ]
   },
   "puck": {
     "name": "Puck",
@@ -852,7 +1148,11 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "faerie dragon",
+      "fd"
+    ]
   },
   "pugna": {
     "name": "Pugna",
@@ -862,7 +1162,8 @@
       "midlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "queenofpain": {
     "name": "Queen of Pain",
@@ -871,7 +1172,11 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "qop",
+      "akasha"
+    ]
   },
   "ringmaster": {
     "name": "Ringmaster",
@@ -880,7 +1185,12 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "rm",
+      "marionetto",
+      "cogliostro"
+    ]
   },
   "rubick": {
     "name": "Rubick",
@@ -889,7 +1199,8 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "shadow_demon": {
     "name": "Shadow Demon",
@@ -898,7 +1209,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "sd"
+    ]
   },
   "shadow_shaman": {
     "name": "Shadow Shaman",
@@ -907,7 +1221,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ss",
+      "rhasta"
+    ]
   },
   "silencer": {
     "name": "Silencer",
@@ -917,7 +1235,10 @@
       "carry",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "nortrom"
+    ]
   },
   "skywrath_mage": {
     "name": "Skywrath Mage",
@@ -927,7 +1248,11 @@
       "support",
       "midlane"
     ],
-    "covered": true
+    "covered": true,
+    "aliases": [
+      "sm",
+      "dragonus"
+    ]
   },
   "storm_spirit": {
     "name": "Storm Spirit",
@@ -936,7 +1261,12 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ss",
+      "raijin",
+      "thunderkeg"
+    ]
   },
   "tinker": {
     "name": "Tinker",
@@ -945,7 +1275,10 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "boush"
+    ]
   },
   "warlock": {
     "name": "Warlock",
@@ -954,7 +1287,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "wl",
+      "demnok lannik"
+    ]
   },
   "winter_wyvern": {
     "name": "Winter Wyvern",
@@ -963,7 +1300,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ww",
+      "auroth"
+    ]
   },
   "witch_doctor": {
     "name": "Witch Doctor",
@@ -972,7 +1313,11 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "wd",
+      "zharvakko"
+    ]
   },
   "zuus": {
     "name": "Zeus",
@@ -982,7 +1327,10 @@
       "midlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "lord of heaven"
+    ]
   },
   "abaddon": {
     "name": "Abaddon",
@@ -992,7 +1340,8 @@
       "support",
       "carry"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "arc_warden": {
     "name": "Arc Warden",
@@ -1002,7 +1351,11 @@
       "carry",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "zet",
+      "aw"
+    ]
   },
   "bane": {
     "name": "Bane",
@@ -1011,7 +1364,8 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "batrider": {
     "name": "Batrider",
@@ -1021,7 +1375,10 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "br"
+    ]
   },
   "beastmaster": {
     "name": "Beastmaster",
@@ -1030,7 +1387,10 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bm"
+    ]
   },
   "brewmaster": {
     "name": "Brewmaster",
@@ -1039,7 +1399,11 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "bm",
+      "mangix"
+    ]
   },
   "dazzle": {
     "name": "Dazzle",
@@ -1048,7 +1412,8 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "death_prophet": {
     "name": "Death Prophet",
@@ -1058,7 +1423,11 @@
       "midlane",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "dp",
+      "krobelus"
+    ]
   },
   "enigma": {
     "name": "Enigma",
@@ -1067,7 +1436,8 @@
     "roles": [
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "wisp": {
     "name": "Io",
@@ -1076,7 +1446,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "wisp"
+    ]
   },
   "magnataur": {
     "name": "Magnus",
@@ -1086,7 +1459,10 @@
       "offlane",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "magnataur"
+    ]
   },
   "marci": {
     "name": "Marci",
@@ -1096,7 +1472,8 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": []
   },
   "furion": {
     "name": "Nature's Prophet",
@@ -1106,7 +1483,10 @@
       "carry",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "np"
+    ]
   },
   "nyx_assassin": {
     "name": "Nyx Assassin",
@@ -1115,7 +1495,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "na"
+    ]
   },
   "pangolier": {
     "name": "Pangolier",
@@ -1125,7 +1508,10 @@
       "offlane",
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "ar"
+    ]
   },
   "sand_king": {
     "name": "Sand King",
@@ -1135,7 +1521,11 @@
       "offlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "sk",
+      "crixalis"
+    ]
   },
   "snapfire": {
     "name": "Snapfire",
@@ -1144,7 +1534,10 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "mortimer"
+    ]
   },
   "techies": {
     "name": "Techies",
@@ -1153,7 +1546,12 @@
     "roles": [
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "squee",
+      "spleen",
+      "spoon"
+    ]
   },
   "venomancer": {
     "name": "Venomancer",
@@ -1163,7 +1561,10 @@
       "offlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "lesale"
+    ]
   },
   "visage": {
     "name": "Visage",
@@ -1173,7 +1574,10 @@
       "support",
       "offlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "necrolic"
+    ]
   },
   "void_spirit": {
     "name": "Void Spirit",
@@ -1182,7 +1586,11 @@
     "roles": [
       "midlane"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "vs",
+      "inai"
+    ]
   },
   "windrunner": {
     "name": "Windranger",
@@ -1192,6 +1600,10 @@
       "midlane",
       "support"
     ],
-    "covered": false
+    "covered": false,
+    "aliases": [
+      "wr",
+      "lyralei"
+    ]
   }
 }

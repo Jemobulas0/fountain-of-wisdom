@@ -295,24 +295,21 @@
   .toc-link:hover { color: var(--gold); }
   .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
 
-  /* Primary gold CTA — written for this file (no .btn-primary defined here). */
+  /* CTA — reuses this file's .nav-cta (the outlined-gold treatment from the nav
+     bar's Coaching button). .toc-cta only adds the block layout + the typography
+     that .nav-cta normally inherits from `.nav-links a`. Deliberately understated
+     so it sits beside the article rather than competing with it. */
   .toc-cta {
     display: block;
     margin-top: 28px;
     font-family: 'Cinzel', serif;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
-    color: var(--bg);
-    background: var(--gold);
-    border-radius: 2px;
-    padding: 13px 18px;
     text-decoration: none;
-    transition: background 0.2s;
   }
-  .toc-cta:hover { background: var(--gold-light); }
   .toc-panel.no-toc .toc-cta { margin-top: 0; }
 
   /* Mobile (site-wide 768px breakpoint): no sidebar; the CTA moves below the
@@ -320,7 +317,10 @@
   .toc-cta-mobile { display: none; }
   @media (max-width: 768px) {
     .toc-sidebar { display: none; }
-    .toc-cta-mobile { display: block; margin: 8px 16px 48px; }
+    /* a.toc-cta-mobile beats mobile.css's `.nav-cta { display: inline-flex }`
+       tap-target rule so the button goes full width; its 44px min-height,
+       centering and 6px inline padding still come from that .nav-cta rule. */
+    a.toc-cta-mobile { display: flex; margin: 8px 16px 48px; }
   }
 
   /* ── ARTICLE FOOTER ── */
@@ -487,13 +487,13 @@
     <div class="toc-panel">
       <div class="toc-label">On This Page</div>
       <div class="toc-list" role="navigation" aria-label="Table of contents"></div>
-      <a href="../coaching.html" class="toc-cta">Get Coached</a>
+      <a href="../coaching.html" class="nav-cta toc-cta">Coaching</a>
     </div>
   </aside>
 
 </div><!-- /.article-layout -->
 
-<a href="../coaching.html" class="toc-cta toc-cta-mobile">Get Coached</a>
+<a href="../coaching.html" class="nav-cta toc-cta toc-cta-mobile">Coaching</a>
 
 <!-- ARTICLE FOOTER -->
 <div class="article-footer">
@@ -573,7 +573,7 @@
   var titleLink = document.createElement('a');
   titleLink.className = 'toc-link';
   titleLink.href = '#top';
-  titleLink.textContent = title.textContent.trim();
+  titleLink.textContent = 'Start';
   list.appendChild(titleLink);
   entries.push({ link: titleLink, el: null });
 

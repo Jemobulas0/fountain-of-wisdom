@@ -74,8 +74,8 @@
   .shop-section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--gold-dim); display: flex; align-items: center; gap: 8px; }
   .shop-section-title::before { content: '◆'; font-size: 5px; color: var(--gold-dark); }
 
-  /* 4 columns — matches in-game shop layout */
-  .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  /* 6 columns — sized so each item card's image height (~58px) matches the hero cards on heroes.html */
+  .item-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
 
   .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
   a.item-card { cursor: pointer; text-decoration: none; color: inherit; }
@@ -107,7 +107,7 @@
   .recently-label-items { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
   .recently-grid-items { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 340px; margin-top: 6px; }
   .recently-card-items { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
-  .recently-card-items img { width: 78px; height: 56px; object-fit: cover; border-radius: 3px; border: 1px solid var(--gold-dark); display: block; transition: border-color 0.2s, box-shadow 0.2s; }
+  .recently-card-items img { width: 61px; height: 44px; object-fit: cover; border-radius: 3px; border: 1px solid var(--gold-dark); display: block; transition: border-color 0.2s, box-shadow 0.2s; }
   .recently-card-items:hover img { border-color: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   .item-progress-wrap { width: 340px; margin-bottom: 6px; }
   .item-progress-bar-bg { width: 100%; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }

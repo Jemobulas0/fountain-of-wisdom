@@ -93,9 +93,7 @@
       "carry"
     ],
     "covered": false,
-    "aliases": [
-      "db"
-    ]
+    "aliases": []
   },
   "dragon_knight": {
     "name": "Dragon Knight",
@@ -127,7 +125,7 @@
     ]
   },
   "earthshaker": {
-    "name": "Earth Shaker",
+    "name": "Earthshaker",
     "icon": "earthshaker",
     "attr": "str",
     "roles": [

@@ -74,8 +74,8 @@
   .shop-section-title { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--gold-dim); display: flex; align-items: center; gap: 8px; }
   .shop-section-title::before { content: '◆'; font-size: 5px; color: var(--gold-dark); }
 
-  /* 5 columns — sized so each item card's image height (~69px) matches the hero cards on heroes.html */
-  .item-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+  /* 4 columns — mirrors the in-game item shop layout */
+  .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 
   .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
   a.item-card { cursor: pointer; text-decoration: none; color: inherit; }

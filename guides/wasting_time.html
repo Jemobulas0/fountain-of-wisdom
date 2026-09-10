@@ -138,7 +138,6 @@
     padding: 20px 24px;
     margin: 36px 0;
     font-size: 18px;
-    font-style: italic;
     color: var(--text-bright);
     line-height: 1.6;
     position: relative;
@@ -153,7 +152,7 @@
   }
   .section-break-title {
     font-family: 'Cinzel', serif;
-    font-size: 11px;
+    font-size: 15px;
     letter-spacing: 3px;
     color: var(--gold);
     text-transform: uppercase;
@@ -293,7 +292,7 @@
     <span class="meta-dot">·</span>
     <span class="article-date">March 2026</span>
     <span class="meta-dot">·</span>
-    <span class="article-readtime">6 min read</span>
+    <span class="article-readtime">3 min read</span>
   </div>
 
   <h1 class="article-title">You're Wasting 10-15 Minutes Every Game Without Realizing It</h1>
@@ -421,5 +420,21 @@
 </footer>
 
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
+
+<!-- Computed read time: counts visible words in .article-body, ÷230 wpm, round up (min 1),
+     writes "N min read" into .article-readtime. The span keeps a hardcoded fallback for no-JS.
+     Self-contained and generic — paste into any article page unchanged. -->
+<script>
+(function () {
+  var body = document.querySelector('.article-body');
+  var slot = document.querySelector('.article-readtime');
+  if (!body || !slot) return;
+  var text = (body.innerText || body.textContent || '').trim();
+  if (!text) return;
+  var words = text.split(/\s+/).length;
+  var minutes = Math.max(1, Math.ceil(words / 230));
+  slot.textContent = minutes + ' min read';
+})();
+</script>
 </body>
 </html>

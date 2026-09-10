@@ -261,12 +261,20 @@
 
   .toc-panel {
     position: sticky;
-    top: 80px;                       /* 56px fixed nav + 24px */
+    /* Vertically centred in the viewport: stick with the top edge at 50%, then
+       pull the box up by half its own height. Because the sticky box is still
+       clamped inside .toc-sidebar (which spans only .article-layout), it can't
+       ride up over the nav or drift down over the footer — it releases at both
+       ends of the article. The height cap keeps a tall TOC inside the viewport
+       (60px clear of the 56px nav when centred) and scrolls it internally
+       instead of spilling off both edges. */
+    top: 50%;
+    transform: translateY(-50%);
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 20px;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 120px);
     overflow-y: auto;
   }
 
@@ -276,7 +284,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text-dim);
+    color: var(--text);
     margin-bottom: 14px;
   }
 
@@ -485,7 +493,7 @@
 
   <aside class="toc-sidebar" aria-label="Article contents">
     <div class="toc-panel">
-      <div class="toc-label">On This Page</div>
+      <div class="toc-label">Contents</div>
       <div class="toc-list" role="navigation" aria-label="Table of contents"></div>
       <a href="../coaching.html" class="nav-cta toc-cta">Coaching</a>
     </div>

@@ -82,7 +82,12 @@
   .back-link::before { content: '←'; font-size: 12px; }
 
   .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-  .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid rgba(91,155,213,0.3); background: rgba(91,155,213,0.12); color: #5b9bd5; }
+  .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
+  .article-tag.strategy  { color: #5b9bd5;       border-color: rgba(91,155,213,0.3);  background: rgba(91,155,213,0.12); }
+  .article-tag.mindset   { color: var(--yellow); border-color: rgba(232,184,75,0.3);  background: rgba(232,184,75,0.12); }
+  .article-tag.laning    { color: var(--green);  border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
+  .article-tag.mechanics { color: #e05a3a;       border-color: rgba(224,90,58,0.3);   background: rgba(224,90,58,0.12); }
+  .article-tag.economy   { color: #c084e8;       border-color: rgba(155,89,182,0.3);  background: rgba(155,89,182,0.22); }
   .article-date { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
   .article-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
   .meta-dot { color: var(--text-dim); }
@@ -284,7 +289,7 @@
   <a href="../guides.html" class="back-link">All Guides</a>
 
   <div class="article-meta">
-    <span class="article-tag">Strategy</span>
+    <span class="article-tag mindset">Mindset</span>
     <span class="meta-dot">·</span>
     <span class="article-date">March 2026</span>
     <span class="meta-dot">·</span>

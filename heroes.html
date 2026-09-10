@@ -224,6 +224,18 @@
   }
   .filter-btn:hover { border-color: var(--gold-dark); color: var(--text); }
   .filter-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+  /* attribute filter buttons: icon + label aligned, tinted (dimmed) at rest */
+  .filter-btn.str, .filter-btn.agi, .filter-btn.int, .filter-btn.uni {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .filter-btn .attr-icon { width: 14px; height: 14px; opacity: 0.6; transition: opacity 0.15s; }
+  .filter-btn.active .attr-icon { opacity: 1; }
+  .filter-btn.str { color: color-mix(in srgb, var(--str) 60%, transparent); }
+  .filter-btn.agi { color: color-mix(in srgb, var(--agi) 60%, transparent); }
+  .filter-btn.int { color: color-mix(in srgb, var(--int) 60%, transparent); }
+  .filter-btn.uni { color: color-mix(in srgb, var(--uni) 60%, transparent); }
   .filter-btn.str.active { border-color: var(--str); color: var(--str); background: rgba(224,90,58,0.08); }
   .filter-btn.agi.active { border-color: var(--agi); color: var(--agi); background: rgba(76,175,125,0.08); }
   .filter-btn.int.active { border-color: var(--int); color: var(--int); background: rgba(91,155,213,0.08); }
@@ -525,10 +537,10 @@
       <div class="filter-row">
         <span class="filter-label">Attributes</span>
         <button class="filter-btn active" data-attr="all" onclick="setAttr('all', this)">All</button>
-        <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)">Strength</button>
-        <button class="filter-btn agi" data-attr="agi" onclick="setAttr('agi', this)">Agility</button>
-        <button class="filter-btn int" data-attr="int" onclick="setAttr('int', this)">Intelligence</button>
-        <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)">Universal</button>
+        <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" alt="Strength">Strength</button>
+        <button class="filter-btn agi" data-attr="agi" onclick="setAttr('agi', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt="Agility">Agility</button>
+        <button class="filter-btn int" data-attr="int" onclick="setAttr('int', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" alt="Intelligence">Intelligence</button>
+        <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png" alt="Universal">Universal</button>
       </div>
       <div class="filter-row">
         <span class="filter-label">Roles</span>

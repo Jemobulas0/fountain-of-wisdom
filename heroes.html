@@ -629,16 +629,69 @@ function setRole(val, btn) {
   filterHeroes();
 }
 
+/* Exact-abbreviation search overrides.
+   When the trimmed, lowercased search query is EXACTLY one of these keys, the
+   text-match step returns ONLY the heroes listed here (by data/heroes.json id)
+   instead of the normal name/alias substring match. Any active Attribute or
+   Role filter still applies on top, exactly as with a normal search.
+   This is a whole-query match only: "es" fires, "esx" / "e s" do not.
+   Edit freely - keys must stay lowercase, values are hero ids (not names). */
+const HERO_SEARCH_OVERRIDES = {
+  bb:   ['bristleback'],
+  ck:   ['chaos_knight'],
+  db:   ['dawnbreaker'],
+  dk:   ['dragon_knight'],
+  es:   ['earthshaker', 'earth_spirit', 'ember_spirit'],
+  et:   ['elder_titan'],
+  lc:   ['legion_commander'],
+  ls:   ['life_stealer'],
+  ns:   ['night_stalker', 'naga_siren'],
+  sb:   ['spirit_breaker'],
+  wk:   ['skeleton_king'],
+  am:   ['antimage'],
+  bs:   ['bloodseeker'],
+  bh:   ['bounty_hunter'],
+  ld:   ['lone_druid'],
+  pa:   ['phantom_assassin'],
+  pl:   ['phantom_lancer'],
+  sf:   ['nevermore'],
+  ta:   ['templar_assassin'],
+  tb:   ['terrorblade'],
+  aa:   ['ancient_apparition'],
+  cm:   ['crystal_maiden'],
+  ds:   ['dark_seer'],
+  dw:   ['dark_willow'],
+  kotl: ['keeper_of_the_light'],
+  od:   ['obsidian_destroyer'],
+  qop:  ['queenofpain'],
+  sd:   ['shadow_demon'],
+  ss:   ['shadow_shaman', 'storm_spirit'],
+  ww:   ['winter_wyvern'],
+  wd:   ['witch_doctor'],
+  bm:   ['beastmaster', 'brewmaster', 'broodmother'],
+  dp:   ['death_prophet'],
+  np:   ['furion'],
+  sk:   ['sand_king', 'skeleton_king'],
+  vs:   ['vengefulspirit', 'void_spirit'],
+  wr:   ['windrunner'],
+};
+
 function filterHeroes() {
   const query = document.getElementById('search').value.toLowerCase().trim();
   const grid = document.getElementById('heroes-grid');
   grid.innerHTML = '';
 
+  const overrideIds = Object.prototype.hasOwnProperty.call(HERO_SEARCH_OVERRIDES, query)
+    ? HERO_SEARCH_OVERRIDES[query]
+    : null;
+
   const filtered = heroes.filter(h => {
     const matchAttr = currentAttr === 'all' || h.attr === currentAttr;
     const matchRole = currentRole === 'all' || h.roles.includes(currentRole);
-    const matchSearch = h.name.toLowerCase().includes(query) ||
-      h.aliases.some(a => a.includes(query));
+    const matchSearch = overrideIds
+      ? overrideIds.includes(h.id)
+      : (h.name.toLowerCase().includes(query) ||
+        h.aliases.some(a => a.includes(query)));
     return matchAttr && matchRole && matchSearch;
   });
 
@@ -706,6 +759,7 @@ fetch('data/heroes.json')
       const h = data[key];
       return {
         name: h.name,
+        id: key,
         key: h.page || key,
         cdn: h.icon,
         attr: h.attr,

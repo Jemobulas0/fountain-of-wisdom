@@ -20,7 +20,7 @@
         "ability": "Greevil's Greed",
         "ability_icon": "alchemist_greevils_greed",
         "tag": "upgrade",
-        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 6 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
+        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 3 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
       },
       "axe": {
         "ability": "Counter Helix",
@@ -382,7 +382,7 @@
         "ability": "Phantom Rush",
         "ability_icon": "phantom_lancer_phantom_rush",
         "tag": "upgrade",
-        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1225/1300/1375/1450\nCOLLISION RADIUS: 125"
+        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1175/1250/1325/1400\nCOLLISION RADIUS: 125"
       },
       "razor": {
         "ability": "Eye of the Storm",
@@ -587,7 +587,7 @@
         "ability": "Shadow Strike",
         "ability_icon": "queenofpain_shadow_strike",
         "tag": "upgrade",
-        "desc": "Causes Shadow Strike to become a 375 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
+        "desc": "Causes Shadow Strike to become a 300 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
       },
       "ringmaster": {
         "ability": "Escape Act",
@@ -704,7 +704,7 @@
         "ability": "Drums of Slom",
         "ability_icon": "beastmaster_drums_of_slom",
         "tag": "new ability",
-        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 600\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 80\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
+        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 525\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 70\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
       },
       "brewmaster": {
         "ability": "Primal Split",
@@ -1119,7 +1119,7 @@
         "ability": "Savage Roar",
         "ability_icon": "lone_druid_savage_roar",
         "tag": "upgrade",
-        "desc": "Applies a basic dispel and grants allies in an area around the caster bonus movement and attack speed. Replicates between Lone Druid and Spirit Bear regardless of castability on the other.\n\nDISPEL TYPE: Basic Dispel\nRADIUS: 700\nBONUS MOVEMENT SPEED: 15%\nBONUS ATTACK SPEED: 40\nDURATION: 5"
+        "desc": "Applies a basic dispel and grants allies in an area around the caster bonus movement and attack speed. Replicates between Lone Druid and Spirit Bear regardless of castability on the other.\n\nDISPEL TYPE: Basic Dispel\nRADIUS: 700\nBONUS MOVEMENT SPEED: 10%\nBONUS ATTACK SPEED: 40\nDURATION: 4"
       },
       "luna": {
         "ability": "Lunar Orbit",
@@ -1474,7 +1474,7 @@
         "ability": "Sticky Napalm",
         "ability_icon": "batrider_sticky_napalm",
         "tag": "upgrade",
-        "desc": "Sticky Napalm no longer has a stack limit. Sticky Napalm deals damage to structures.\n\nBUILDING DAMAGE: 25%"
+        "desc": "Sticky Napalm no longer has a stack limit. Sticky Napalm deals damage to structures.\n\nBUILDING DAMAGE: 20%"
       },
       "beastmaster": {
         "ability": "Wild Axes",
@@ -1595,7 +1595,7 @@
         "ability": "Greevil's Greed",
         "ability_icon": "alchemist_greevils_greed",
         "tag": "upgrade",
-        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 6 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
+        "desc": "Alchemist melts down Aghanim's Scepter to grant an allied hero all Aghanim's Scepter upgrades. Alchemist will gain bonus 15 damage and 3 additional base and max Greevil's Greed Extra Gold for each melted Scepter.\n\nBASE BONUS GOLD: 2\nMAX BONUS GOLD PER KILL: 16"
       },
       "axe": {
         "ability": "Counter Helix",
@@ -1949,7 +1949,7 @@
         "ability": "Phantom Rush",
         "ability_icon": "phantom_lancer_phantom_rush",
         "tag": "upgrade",
-        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1225/1300/1375/1450\nCOLLISION RADIUS: 125"
+        "desc": "Increases Range. Whenever Phantom Lancer Rushes through enemies, he creates Juxtapose illusions that attack them. Additionally, every 600 units rushed creates a Juxtapose illusion that rushes to the target alongside Phantom Lancer.\n\nMAX RUSH DISTANCE: 1175/1250/1325/1400\nCOLLISION RADIUS: 125"
       },
       "razor": {
         "ability": "Eye of the Storm",
@@ -2154,7 +2154,7 @@
         "ability": "Shadow Strike",
         "ability_icon": "queenofpain_shadow_strike",
         "tag": "upgrade",
-        "desc": "Causes Shadow Strike to become a 375 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
+        "desc": "Causes Shadow Strike to become a 300 AoE Spell. When Shadow Strike ends or is re-applied to an enemy Hero, the target emits a Scream of Pain, hitting any nearby enemies."
       },
       "ringmaster": {
         "ability": "Escape Act",
@@ -2271,7 +2271,7 @@
         "ability": "Drums of Slom",
         "ability_icon": "beastmaster_drums_of_slom",
         "tag": "new ability",
-        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 600\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 80\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
+        "desc": "Attacks from Beastmaster or a nearby unit he controls will cause him to bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase. Using Primal Roar counts as 10 attacks.\n\nDAMAGE RADIUS: 525\nATTACKS FOR SHORTEST INTERVAL: 20\nSHORTEST DRUM INTERVAL: 0.5\nLONGEST DRUM INTERVAL: 3\nDRUM HIT DAMAGE: 70\nHEAL FROM HEROES: 20%\nHEAL FROM CREEPS: 5%"
       },
       "brewmaster": {
         "ability": "Primal Split",

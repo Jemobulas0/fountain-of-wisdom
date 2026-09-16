@@ -98,6 +98,46 @@
     return html;
   }
 
+  // ── Detect an "option columns" aghs entry (Invoker's Quas/Wex/Exort
+  // choices): an array of { option, theme, rows: [...] } groups, as opposed
+  // to the ordinary array-of-rows format used by every other multi-row hero.
+  function isOptionColumns(aghs) {
+    return Array.isArray(aghs) && aghs.length > 0 && aghs[0] && Array.isArray(aghs[0].rows);
+  }
+
+  // ── Invoker-only inline word colouring inside option descs ──
+  // Wraps whole-word "Quas"/"Wex" in colour spans. Never applied outside
+  // the option-columns path, so no other hero's desc text is touched.
+  function highlightInvokerWords(text) {
+    return text
+      .replace(/\bQuas\b/g, '<span class="fow-tt-invoker-quas">Quas</span>')
+      .replace(/\bWex\b/g, '<span class="fow-tt-invoker-wex">Wex</span>');
+  }
+
+  // ── Build the three-column "OPTION 1/2/3" layout ──
+  // optionGroups: [{ option, theme, rows: [{ability, ability_icon, tag, desc}, ...] }, ...]
+  // Each row reuses buildAghsBlock unchanged, so row icon/heading/tag/gap
+  // styling always matches every other array-of-rows aghs entry.
+  function buildAghsOptionColumns(optionGroups, highlightWords) {
+    var html = '<div class="fow-tt-aghs-options">';
+    optionGroups.forEach(function(group) {
+      html += '<div class="fow-tt-aghs-option theme-' + group.theme + '">';
+      html += '<div class="fow-tt-aghs-option-badge">OPTION ' + group.option + '</div>';
+      html += '<div class="fow-tt-aghs-option-rows">';
+      group.rows.forEach(function(row) {
+        var rowToRender = row;
+        if (highlightWords) {
+          rowToRender = { ability: row.ability, ability_icon: row.ability_icon, tag: row.tag, desc: highlightInvokerWords(row.desc) };
+        }
+        html += buildAghsBlock(rowToRender);
+      });
+      html += '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
   // ── Build item tooltip HTML ──
   function buildItemTooltip(itemKey, heroKey) {
     const item = ITEMS[itemKey];
@@ -108,7 +148,9 @@
       if (!item.aghs || !heroKey || !item.aghs[heroKey]) return null;
       var aghs = item.aghs[heroKey];
       var html = '<div class="fow-tt-body">';
-      if (Array.isArray(aghs)) {
+      if (isOptionColumns(aghs)) {
+        html += buildAghsOptionColumns(aghs, heroKey === 'invoker');
+      } else if (Array.isArray(aghs)) {
         aghs.forEach(function(entry) { html += buildAghsBlock(entry); });
       } else {
         html += buildAghsBlock(aghs);
@@ -165,7 +207,9 @@
     // Aghs hero-specific upgrade (on normal items like regular scepter)
     if (item.aghs && heroKey && item.aghs[heroKey]) {
       var aghs = item.aghs[heroKey];
-      if (Array.isArray(aghs)) {
+      if (isOptionColumns(aghs)) {
+        html += buildAghsOptionColumns(aghs, heroKey === 'invoker');
+      } else if (Array.isArray(aghs)) {
         aghs.forEach(function(entry) { html += buildAghsBlock(entry); });
       } else {
         html += buildAghsBlock(aghs);

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEMP PREVIEW - Invoker Aghs Pop-ups</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="data/tooltips.css">
+<style>
+  body {
+    background: #0a0c10;
+    color: #e8ecf4;
+    font-family: 'Crimson Pro', Georgia, serif;
+    padding: 40px;
+  }
+  h1 { font-family: 'Cinzel', serif; font-size: 20px; }
+  p { color: #9aa2b1; max-width: 600px; }
+  .row {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .slot .item-icon {
+    width: 64px;
+    height: 48px;
+    border: 1px solid #3a3f52;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .slot .label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c9a84c;
+  }
+</style>
+</head>
+<body>
+  <h1>TEMPORARY PREVIEW - Invoker Aghanim's pop-ups (delete when reviewed)</h1>
+  <p>Hover any icon below to trigger its real tooltip via the site's own tooltips.js / tooltips.css. This page is not part of the live site - it only exists so the new Invoker option-column layout can be reviewed before a real hero page exists.</p>
+
+  <div class="row">
+    <div class="slot">
+      <span class="item-link" data-tooltip="item" data-item="ultimate_scepter" data-hero="invoker">
+        <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="ultimate_scepter" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </span>
+      <div class="label">Scepter</div>
+    </div>
+    <div class="slot">
+      <span class="item-link" data-tooltip="item" data-item="ultimate_scepter_2" data-hero="invoker">
+        <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter_2.png" alt="ultimate_scepter_2" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </span>
+      <div class="label">Blessing</div>
+    </div>
+    <div class="slot">
+      <span class="item-link" data-tooltip="item" data-item="aghanims_shard" data-hero="invoker">
+        <div class="item-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="aghanims_shard" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </span>
+      <div class="label">Shard</div>
+    </div>
+  </div>
+
+  <script src="icon-src.js"></script>
+  <script src="data/tooltips.js"></script>
+</body>
+</html>

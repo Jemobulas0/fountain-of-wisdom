@@ -189,6 +189,87 @@
   margin-top: 8px;
 }
 
+/* ── Aghs "OPTION" columns (Invoker's Quas/Wex/Exort choices) ──
+   Three side-by-side columns, each themed to its orb colour: a top-to-bottom
+   wash strongest near the badge, and a badge band that fades to transparent
+   towards the left. Rows inside reuse .fow-tt-aghs as-is, so row icon/
+   heading/tag/gap styling is identical to any other array aghs entry. */
+.fow-tt-aghs-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.fow-tt-aghs-option {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  border-radius: 4px;
+  padding: 22px 8px 6px;
+}
+.fow-tt-aghs-option-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3px 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: right;
+  border-radius: 4px 4px 0 0;
+}
+.fow-tt-aghs-option .fow-tt-aghs-option-rows > .fow-tt-aghs:first-child {
+  margin-top: 0;
+}
+/* Columns are much narrower than a full-width row, so the ability name can
+   run out of room next to its tag — let the tag drop to its own line
+   instead of overlapping. Scoped to columns; other heroes' rows are
+   untouched. */
+.fow-tt-aghs-option .fow-tt-aghs-header {
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+.fow-tt-aghs-option .fow-tt-aghs-ability-name {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fow-tt-aghs-option.theme-quas {
+  background: linear-gradient(180deg, rgba(79,195,247,0.16) 0%, rgba(79,195,247,0) 65%);
+}
+.fow-tt-aghs-option.theme-quas .fow-tt-aghs-option-badge {
+  background: linear-gradient(to left, rgba(79,195,247,0.45) 0%, rgba(79,195,247,0) 100%);
+  color: #bfe9ff;
+}
+.fow-tt-aghs-option.theme-wex {
+  background: linear-gradient(180deg, rgba(199,125,255,0.16) 0%, rgba(199,125,255,0) 65%);
+}
+.fow-tt-aghs-option.theme-wex .fow-tt-aghs-option-badge {
+  background: linear-gradient(to left, rgba(199,125,255,0.45) 0%, rgba(199,125,255,0) 100%);
+  color: #ecd4ff;
+}
+.fow-tt-aghs-option.theme-exort {
+  background: linear-gradient(180deg, rgba(255,157,77,0.16) 0%, rgba(255,157,77,0) 65%);
+}
+.fow-tt-aghs-option.theme-exort .fow-tt-aghs-option-badge {
+  background: linear-gradient(to left, rgba(255,157,77,0.45) 0%, rgba(255,157,77,0) 100%);
+  color: #ffe0c2;
+}
+
+/* Invoker-only inline word colouring inside option descs (see
+   highlightInvokerWords in tooltips.js — never applied to other heroes). */
+.fow-tt-invoker-quas { color: #4fc3f7; }
+.fow-tt-invoker-wex { color: #c77dff; }
+
+@media (max-width: 480px) {
+  .fow-tt-aghs-options {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
 /* ── Enchantment tooltip (build.enchantment — see hero-loader.js) ──
    Uses the --ench-* vars defined alongside the gold palette in hero_template.html's
    :root, since this tooltip type currently only renders on hero pages. */

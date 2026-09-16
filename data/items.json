@@ -606,13 +606,62 @@
         "tag": "new ability",
         "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 90% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
       },
-      "invoker": {
-        "ability": "Quas / Wex / Exort",
-        "ability_icon": "invoker_quas",
-        "tag": "upgrade",
-        "layout": "horizontal",
-        "desc": "OPTION 1 - QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 - WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 - EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
-      },
+      "invoker": [
+        {
+          "option": 1,
+          "theme": "quas",
+          "rows": [
+            {
+              "ability": "Quas",
+              "ability_icon": "invoker_quas",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Ice Wall",
+              "ability_icon": "invoker_ice_wall",
+              "tag": "upgrade",
+              "desc": "Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas."
+            }
+          ]
+        },
+        {
+          "option": 2,
+          "theme": "wex",
+          "rows": [
+            {
+              "ability": "Wex",
+              "ability_icon": "invoker_wex",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Tornado",
+              "ability_icon": "invoker_tornado",
+              "tag": "upgrade",
+              "desc": "Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (half damage to creeps.)"
+            }
+          ]
+        },
+        {
+          "option": 3,
+          "theme": "exort",
+          "rows": [
+            {
+              "ability": "Exort",
+              "ability_icon": "invoker_exort",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Sun Strike",
+              "ability_icon": "invoker_sun_strike",
+              "tag": "upgrade",
+              "desc": "Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+            }
+          ]
+        }
+      ],
       "jakiro": {
         "ability": "Macropyre",
         "ability_icon": "jakiro_macropyre",
@@ -1410,13 +1459,44 @@
         "tag": "upgrade",
         "desc": "Ink Swell dispels the allied unit when cast. Causes Ink Swell to deal 40% more damage and heal the target for 40% of the damage Ink Swell deals.\n\nDISPEL TYPE: Basic Dispel"
       },
-      "invoker": {
-        "ability": "Ghost Walk / E.M.P. / Sun Strike",
-        "ability_icon": "invoker_ghost_walk",
-        "tag": "upgrade",
-        "layout": "horizontal",
-        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemy heroes.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
-      },
+      "invoker": [
+        {
+          "option": 1,
+          "theme": "quas",
+          "rows": [
+            {
+              "ability": "Ghost Walk",
+              "ability_icon": "invoker_ghost_walk",
+              "tag": "upgrade",
+              "desc": "Ghost Walk now also applies the Ice Wall Damage Per Second to enemy heroes in its area of effect."
+            }
+          ]
+        },
+        {
+          "option": 2,
+          "theme": "wex",
+          "rows": [
+            {
+              "ability": "E.M.P.",
+              "ability_icon": "invoker_emp",
+              "tag": "upgrade",
+              "desc": "Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second."
+            }
+          ]
+        },
+        {
+          "option": 3,
+          "theme": "exort",
+          "rows": [
+            {
+              "ability": "Sun Strike",
+              "ability_icon": "invoker_sun_strike",
+              "tag": "upgrade",
+              "desc": "If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
+            }
+          ]
+        }
+      ],
       "jakiro": {
         "ability": "Liquid Fire / Liquid Frost",
         "ability_icon": "jakiro_liquid_fire",
@@ -2298,13 +2378,62 @@
         "tag": "new ability",
         "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 90% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
       },
-      "invoker": {
-        "ability": "Quas / Wex / Exort",
-        "ability_icon": "invoker_quas",
-        "tag": "upgrade",
-        "layout": "horizontal",
-        "desc": "OPTION 1 - QUAS: Grants 1 current and max level.\nIce Wall: Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas.\n\nOPTION 2 - WEX: Grants 1 current and max level.\nTornado: Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (Half damage to creeps.)\n\nOPTION 3 - EXORT: Grants 1 current and max level.\nSun Strike: Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
-      },
+      "invoker": [
+        {
+          "option": 1,
+          "theme": "quas",
+          "rows": [
+            {
+              "ability": "Quas",
+              "ability_icon": "invoker_quas",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Ice Wall",
+              "ability_icon": "invoker_ice_wall",
+              "tag": "upgrade",
+              "desc": "Ice Wall becomes Ice Floe, Vector Targeted. After a delay, Ice Floe appears as a 150 width Ice Wall. Enemy heroes in its area for longer than 2.5 seconds become rooted and take magic damage based on Quas."
+            }
+          ]
+        },
+        {
+          "option": 2,
+          "theme": "wex",
+          "rows": [
+            {
+              "ability": "Wex",
+              "ability_icon": "invoker_wex",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Tornado",
+              "ability_icon": "invoker_tornado",
+              "tag": "upgrade",
+              "desc": "Tornado spawns twisters along its path. They persist for Tornado's duration plus additional time based on Quas, dealing damage based on Wex in a 150 radius every 0.25 seconds. (half damage to creeps.)"
+            }
+          ]
+        },
+        {
+          "option": 3,
+          "theme": "exort",
+          "rows": [
+            {
+              "ability": "Exort",
+              "ability_icon": "invoker_exort",
+              "tag": "upgrade",
+              "desc": "Grants 1 current and max level."
+            },
+            {
+              "ability": "Sun Strike",
+              "ability_icon": "invoker_sun_strike",
+              "tag": "upgrade",
+              "desc": "Creates a Cataclysm when Sun Strike is double tapped. Puts it on a 90 second cooldown. Creates 2 visible 75% damage Sun Strikes within 90-180 range of each enemy hero."
+            }
+          ]
+        }
+      ],
       "jakiro": {
         "ability": "Macropyre",
         "ability_icon": "jakiro_macropyre",

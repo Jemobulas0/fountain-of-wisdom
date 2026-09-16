@@ -180,7 +180,7 @@
         "ability": "Wolf Bite",
         "ability_icon": "lycan_wolf_bite",
         "tag": "new ability",
-        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other.\n\nCOOLDOWN: 110/100/90"
+        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other."
       },
       "mars": {
         "ability": "Arena of Blood",
@@ -669,13 +669,26 @@
         "tag": "upgrade",
         "desc": "Electric Vortex affects all enemies within a radius around Storm Spirit.\n\nRADIUS: 475"
       },
-      "tinker": {
-        "ability": "Laser / March of the Machines / Deploy Turrets",
-        "ability_icon": "tinker_laser",
-        "tag": "upgrade",
-        "layout": "vertical",
-        "desc": "Laser: Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity.\n\nMarch of the Machines: March of the Machines applies a non-stacking heal over time when passing through allied heroes.\nHEAL PER SECOND: 35\nHEAL DURATION: 4\n\nDeploy Turrets: Turrets fire missiles 20% faster.\nATTACK INTERVAL: 1.2"
-      },
+      "tinker": [
+        {
+          "ability": "Laser",
+          "ability_icon": "tinker_laser",
+          "tag": "upgrade",
+          "desc": "Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity."
+        },
+        {
+          "ability": "March of the Machines",
+          "ability_icon": "tinker_march_of_the_machines",
+          "tag": "upgrade",
+          "desc": "March of the Machines applies a non-stacking heal over time when passing through allied heroes.\n\nHEAL PER SECOND: 35\nHEAL DURATION: 4"
+        },
+        {
+          "ability": "Deploy Turrets",
+          "ability_icon": "tinker_deploy_turrets",
+          "tag": "upgrade",
+          "desc": "Turrets fire missiles 20% faster.\n\nATTACK INTERVAL: 1.2"
+        }
+      ],
       "warlock": {
         "ability": "Chaotic Offering",
         "ability_icon": "warlock_chaotic_offering",
@@ -1458,7 +1471,7 @@
         "ability": "Warp Flare",
         "ability_icon": "tinker_warp_flare",
         "tag": "new ability",
-        "desc": "Throws a flare towards an enemy, dealing damage, teleporting them away, rooting them and reducing their Cast and Attack Range for 2 seconds. The target is teleported further the closer they are to Tinker.\n\nDAMAGE: 150\nCAST/ATTACK RANGE REDUCTION: 40%"
+        "desc": "Throws a flare towards an enemy, dealing damage, teleporting them away, rooting them and reducing their Cast and Attack Range for 2 seconds.\n\nThe target is teleported further the closer they are to Tinker.\n\nDAMAGE: 150\nCAST/ATTACK RANGE REDUCTION: 40%"
       },
       "warlock": {
         "ability": "Upheaval / Eldritch Summoning",
@@ -1787,7 +1800,7 @@
         "ability": "Wolf Bite",
         "ability_icon": "lycan_wolf_bite",
         "tag": "new ability",
-        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other.\n\nCOOLDOWN: 110/100/90"
+        "desc": "Lycan bites an allied hero or creep-hero, granting them Shapeshift properties. Lycan and the bitten target gain 40% Lifesteal and share the healing effect of Lifesteal with each other as long as they are within 1200 range of each other."
       },
       "mars": {
         "ability": "Arena of Blood",
@@ -2276,13 +2289,26 @@
         "tag": "upgrade",
         "desc": "Electric Vortex affects all enemies within a radius around Storm Spirit.\n\nRADIUS: 475"
       },
-      "tinker": {
-        "ability": "Laser / March of the Machines / Deploy Turrets",
-        "ability_icon": "tinker_laser",
-        "tag": "upgrade",
-        "layout": "vertical",
-        "desc": "Laser: Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity.\n\nMarch of the Machines: March of the Machines applies a non-stacking heal over time when passing through allied heroes.\nHEAL PER SECOND: 35\nHEAL DURATION: 4\n\nDeploy Turrets: Turrets fire missiles 20% faster.\nATTACK INTERVAL: 1.2"
-      },
+      "tinker": [
+        {
+          "ability": "Laser",
+          "ability_icon": "tinker_laser",
+          "tag": "upgrade",
+          "desc": "Upgrades Tinker's Laser into a Shrink Ray, reducing the main target's size, current health, and maximum health by 13% (stacking). Does not pierce debuff immunity."
+        },
+        {
+          "ability": "March of the Machines",
+          "ability_icon": "tinker_march_of_the_machines",
+          "tag": "upgrade",
+          "desc": "March of the Machines applies a non-stacking heal over time when passing through allied heroes.\n\nHEAL PER SECOND: 35\nHEAL DURATION: 4"
+        },
+        {
+          "ability": "Deploy Turrets",
+          "ability_icon": "tinker_deploy_turrets",
+          "tag": "upgrade",
+          "desc": "Turrets fire missiles 20% faster.\n\nATTACK INTERVAL: 1.2"
+        }
+      ],
       "warlock": {
         "ability": "Chaotic Offering",
         "ability_icon": "warlock_chaotic_offering",

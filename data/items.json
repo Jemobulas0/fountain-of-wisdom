@@ -102,12 +102,20 @@
         "tag": "upgrade",
         "desc": "Ghostship creates a fleet of 2 ships at the target point on a 2.5 second interval. Each ship now also fires 3 waves of cannonballs from the port and starboard side that deal 40% of Ghostship's damage as they pass through enemies."
       },
-      "largo": {
-        "ability": "Amphibian Rhapsody / Bullbelly Blitz",
-        "ability_icon": "largo_amphibian_rhapsody",
-        "tag": "upgrade",
-        "desc": "Largo can play two songs per beat by strumming both at the same time.\n\nBullbelly Blitz deals additional magic damage per Groovin' stack when used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
-      },
+      "largo": [
+        {
+          "ability": "Amphibian Rhapsody",
+          "ability_icon": "largo_amphibian_rhapsody",
+          "tag": "upgrade",
+          "desc": "Largo can play two songs per beat by strumming both at the same time."
+        },
+        {
+          "ability": "Bullbelly Blitz",
+          "ability_icon": "largo_song_fight_song",
+          "tag": "upgrade",
+          "desc": "Deals additional 6/10/14 magic damage per Groovin' stack when this song is used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
+        }
+      ],
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
@@ -202,12 +210,20 @@
         "tag": "upgrade",
         "desc": "Increases bonus movement speed by 15% and attack speed by 50. Killing an enemy hero resets all basic ability cooldowns.\n\nMOVE SPEED: 39%\nATTACK SPEED: 90"
       },
-      "ogre_magi": {
-        "ability": "Fireblast / Unrefined Fireblast",
-        "ability_icon": "ogre_magi_fireblast",
-        "tag": "upgrade",
-        "desc": "Fireblast: Refined, reducing cooldown by 1s and increasing cast speed by 25%.\n\nUnrefined Fireblast (New Ability): Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\nSTUN DURATION: 1.2"
-      },
+      "ogre_magi": [
+        {
+          "ability": "Fireblast",
+          "ability_icon": "ogre_magi_fireblast",
+          "tag": "upgrade",
+          "desc": "Fireblast is refined, reducing cooldown by 1s and increasing cast speed by 25%."
+        },
+        {
+          "ability": "Unrefined Fireblast",
+          "ability_icon": "ogre_magi_unrefined_fireblast",
+          "tag": "new ability",
+          "desc": "Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\n\nSTUN DURATION: 1.2"
+        }
+      ],
       "phoenix": {
         "ability": "Supernova",
         "ability_icon": "phoenix_supernova",
@@ -390,12 +406,20 @@
         "tag": "upgrade",
         "desc": "Allows on-hit effects to apply to the secondary attacks from Split Shot. Increases arrow count.\n\nEXTRA TARGETS: 5"
       },
-      "meepo": {
-        "ability": "Megameepo / Megameepo Fling",
-        "ability_icon": "meepo_megameepo",
-        "tag": "new ability",
-        "desc": "Megameepo: Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\nDURATION: 20\n\nMegameepo Fling: In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
-      },
+      "meepo": [
+        {
+          "ability": "Megameepo",
+          "ability_icon": "meepo_megameepo",
+          "tag": "new ability",
+          "desc": "Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\n\nDURATION: 20"
+        },
+        {
+          "ability": "Megameepo Fling",
+          "ability_icon": "meepo_megameepo_fling",
+          "tag": "new ability",
+          "desc": "In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\n\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
+        }
+      ],
       "mirana": {
         "ability": "Sacred Arrow",
         "ability_icon": "mirana_arrow",
@@ -414,12 +438,20 @@
         "tag": "upgrade",
         "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 200%"
       },
-      "naga_siren": {
-        "ability": "Ensnare / Reel In",
-        "ability_icon": "naga_siren_ensnare",
-        "tag": "upgrade",
-        "desc": "Ensnare: Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break.\n\nReel In: Allows Reel In to affect Spell Immune units."
-      },
+      "naga_siren": [
+        {
+          "ability": "Ensnare",
+          "ability_icon": "naga_siren_ensnare",
+          "tag": "upgrade",
+          "desc": "Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break."
+        },
+        {
+          "ability": "Reel In",
+          "ability_icon": "naga_siren_reel_in",
+          "tag": "upgrade",
+          "desc": "Allows Reel In to affect Spell Immune units."
+        }
+      ],
       "phantom_assassin": {
         "ability": "Fan of Knives",
         "ability_icon": "phantom_assassin_fan_of_knives",
@@ -974,7 +1006,7 @@
         "ability": "Encore",
         "ability_icon": "largo_encore",
         "tag": "upgrade",
-        "desc": "Whenever Largo applies a Unit Target buff to a friendly hero, he also gets the buff. If Largo targets himself, the buff is also applied to the nearest allied hero within the cast range of the targeted ability."
+        "desc": "Whenever Largo applies a Unit Target buff to a friendly hero, he also gets the buff.\n\nIf Largo targets himself, the buff is also applied to the nearest allied hero within the cast range of the targeted ability."
       },
       "muerta": {
         "ability": "Spectral Slug",
@@ -1058,7 +1090,7 @@
         "ability": "Fire Shield",
         "ability_icon": "ogre_magi_fire_shield",
         "tag": "new ability",
-        "desc": "Creates a shield around the target ally, absorbing a percentage of the damage of next 3 attacks from enemy heroes. When damage is absorbed, a fireball is launched at the attacker. Can be cast on towers.\n\nFIREBALL DAMAGE: 160\nSHIELD DURATION: 25\nDAMAGE ABSORBED: 85%"
+        "desc": "Creates a shield around the target ally, absorbing a percentage of the damage of next 3 attacks from enemy heroes. When damage is absorbed, a fireball is launched at the attacker. Can be cast on towers.\n\nDAMAGE ABSORBED: 85%\nFIREBALL DAMAGE: 160\nSHIELD DURATION: 25"
       },
       "phoenix": {
         "ability": "Sun Ray",
@@ -1762,12 +1794,20 @@
         "tag": "upgrade",
         "desc": "Ghostship creates a fleet of 2 ships at the target point on a 2.5 second interval. Each ship now also fires 3 waves of cannonballs from the port and starboard side that deal 40% of Ghostship's damage as they pass through enemies."
       },
-      "largo": {
-        "ability": "Amphibian Rhapsody / Bullbelly Blitz",
-        "ability_icon": "largo_amphibian_rhapsody",
-        "tag": "upgrade",
-        "desc": "Largo can play two songs per beat by strumming both at the same time.\n\nBullbelly Blitz deals additional magic damage per Groovin' stack when used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
-      },
+      "largo": [
+        {
+          "ability": "Amphibian Rhapsody",
+          "ability_icon": "largo_amphibian_rhapsody",
+          "tag": "upgrade",
+          "desc": "Largo can play two songs per beat by strumming both at the same time."
+        },
+        {
+          "ability": "Bullbelly Blitz",
+          "ability_icon": "largo_song_fight_song",
+          "tag": "upgrade",
+          "desc": "Deals additional 6/10/14 magic damage per Groovin' stack when this song is used in double-strumming.\n\nDAMAGE PER STACK: 6/10/14"
+        }
+      ],
       "muerta": {
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
@@ -1862,12 +1902,20 @@
         "tag": "upgrade",
         "desc": "Increases bonus movement speed by 15% and attack speed by 50. Killing an enemy hero resets all basic ability cooldowns.\n\nMOVE SPEED: 39%\nATTACK SPEED: 90"
       },
-      "ogre_magi": {
-        "ability": "Fireblast / Unrefined Fireblast",
-        "ability_icon": "ogre_magi_fireblast",
-        "tag": "upgrade",
-        "desc": "Fireblast: Refined, reducing cooldown by 1s and increasing cast speed by 25%.\n\nUnrefined Fireblast (New Ability): Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\nSTUN DURATION: 1.2"
-      },
+      "ogre_magi": [
+        {
+          "ability": "Fireblast",
+          "ability_icon": "ogre_magi_fireblast",
+          "tag": "upgrade",
+          "desc": "Fireblast is refined, reducing cooldown by 1s and increasing cast speed by 25%."
+        },
+        {
+          "ability": "Unrefined Fireblast",
+          "ability_icon": "ogre_magi_unrefined_fireblast",
+          "tag": "new ability",
+          "desc": "Blasts an enemy unit with a wave of fire, dealing 150 + 1.5x Ogre's Strength in damage and stunning the target. Its mana cost is 35% of Ogre Magi's current mana.\n\nSTUN DURATION: 1.2"
+        }
+      ],
       "phoenix": {
         "ability": "Supernova",
         "ability_icon": "phoenix_supernova",
@@ -2050,12 +2098,20 @@
         "tag": "upgrade",
         "desc": "Allows on-hit effects to apply to the secondary attacks from Split Shot. Increases arrow count.\n\nEXTRA TARGETS: 5"
       },
-      "meepo": {
-        "ability": "Megameepo / Megameepo Fling",
-        "ability_icon": "meepo_megameepo",
-        "tag": "new ability",
-        "desc": "Megameepo: Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\nDURATION: 20\n\nMegameepo Fling: In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
-      },
+      "meepo": [
+        {
+          "ability": "Megameepo",
+          "ability_icon": "meepo_megameepo",
+          "tag": "new ability",
+          "desc": "Primary Meepo mounts all other Meepos in a 600 radius around him on top of his shoulders. While in this form, he gains 40% of the other Meepo stats and can Fling them at enemies, dealing damage and slowing them. When cast, Earthbind generates additional nets and Poof deals 50% more damage for each Meepo on top.\n\nDURATION: 20"
+        },
+        {
+          "ability": "Megameepo Fling",
+          "ability_icon": "meepo_megameepo_fling",
+          "tag": "new ability",
+          "desc": "In MegaMeepo form, Meepo flings the topmost meepo towards a target within a 900 range, dealing damage and slowing their movement speed.\n\nDAMAGE: 225\nMOVEMENT SLOW: 60%"
+        }
+      ],
       "mirana": {
         "ability": "Sacred Arrow",
         "ability_icon": "mirana_arrow",
@@ -2074,12 +2130,20 @@
         "tag": "upgrade",
         "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 200%"
       },
-      "naga_siren": {
-        "ability": "Ensnare / Reel In",
-        "ability_icon": "naga_siren_ensnare",
-        "tag": "upgrade",
-        "desc": "Ensnare: Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break.\n\nReel In: Allows Reel In to affect Spell Immune units."
-      },
+      "naga_siren": [
+        {
+          "ability": "Ensnare",
+          "ability_icon": "naga_siren_ensnare",
+          "tag": "upgrade",
+          "desc": "Increases cast range and projectile speed. Allows Ensnare to target and affect Debuff Immune units. Ensnare applies Break."
+        },
+        {
+          "ability": "Reel In",
+          "ability_icon": "naga_siren_reel_in",
+          "tag": "upgrade",
+          "desc": "Allows Reel In to affect Spell Immune units."
+        }
+      ],
       "phantom_assassin": {
         "ability": "Fan of Knives",
         "ability_icon": "phantom_assassin_fan_of_knives",

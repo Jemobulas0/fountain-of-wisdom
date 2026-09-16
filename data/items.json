@@ -52,12 +52,20 @@
         "tag": "new ability",
         "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
       },
-      "dawnbreaker": {
-        "ability": "Break of Dawn / Solar Guardian",
-        "ability_icon": "dawnbreaker_break_of_dawn",
-        "tag": "upgrade",
-        "desc": "Break of Dawn provides healing amplification equal to the current damage increase.\n\nSolar Guardian's aura follows Dawnbreaker for 2s after landing."
-      },
+      "dawnbreaker": [
+        {
+          "ability": "Break of Dawn",
+          "ability_icon": "dawnbreaker_break_of_dawn",
+          "tag": "upgrade",
+          "desc": "Break of Dawn provides healing amplification equal to the current damage increase."
+        },
+        {
+          "ability": "Solar Guardian",
+          "ability_icon": "dawnbreaker_solar_guardian",
+          "tag": "upgrade",
+          "desc": "Solar Guardian's aura follows Dawnbreaker for 2s after landing."
+        }
+      ],
       "doom_bringer": {
         "ability": "Doom",
         "ability_icon": "doom_bringer_doom",
@@ -324,24 +332,40 @@
         "tag": "upgrade",
         "desc": "Increases cast range, initial remnant speed, and maximum charges.\n\nRANGE: 3000\nSPEED MULTIPLIER: 2\nMAX CHARGES: 5"
       },
-      "faceless_void": {
-        "ability": "Time Walk / Reverse Time Walk",
-        "ability_icon": "faceless_void_time_walk",
-        "tag": "upgrade",
-        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 325\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
-      },
+      "faceless_void": [
+        {
+          "ability": "Time Walk",
+          "ability_icon": "faceless_void_time_walk",
+          "tag": "upgrade",
+          "desc": "Applies a Time Lock to all units at the landing destination.\n\nTIME LOCK RADIUS: 325"
+        },
+        {
+          "ability": "Reverse Time Walk",
+          "ability_icon": "faceless_void_time_walk_reverse",
+          "tag": "new ability",
+          "desc": "Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+        }
+      ],
       "gyrocopter": {
         "ability": "Side Gunner",
         "ability_icon": "gyrocopter_side_gunner",
         "tag": "new ability",
         "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Prioritizes furthest unit away within its range."
       },
-      "hoodwink": {
-        "ability": "Decoy / Sharpshooter",
-        "ability_icon": "hoodwink_decoy",
-        "tag": "upgrade",
-        "desc": "Decoy (New Ability): Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\nILLUSION DURATION: 6\nBUSHWHACK RADIUS: 250\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%\n\nSharpshooter: Increases arrow speed and movement speed slow.\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
-      },
+      "hoodwink": [
+        {
+          "ability": "Decoy",
+          "ability_icon": "hoodwink_decoy",
+          "tag": "new ability",
+          "desc": "Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\n\nBUSHWHACK RADIUS: 250\nILLUSION DURATION: 6\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%"
+        },
+        {
+          "ability": "Sharpshooter",
+          "ability_icon": "hoodwink_sharpshooter",
+          "tag": "upgrade",
+          "desc": "Increases arrow speed and movement speed slow.\n\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
+        }
+      ],
       "kez": {
         "ability": "Switch Discipline",
         "ability_icon": "kez_switch_discipline",
@@ -486,12 +510,20 @@
         "tag": "upgrade",
         "desc": "Allows Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies."
       },
-      "ancient_apparition": {
-        "ability": "Chilling Touch / Bone Chill",
-        "ability_icon": "ancient_apparition_chilling_touch",
-        "tag": "upgrade",
-        "desc": "Chilling Touch: Removes cooldown.\n\nBone Chill: Increases Base Strength Reduction by 0.8.\nSTRENGTH REDUCTION: 1"
-      },
+      "ancient_apparition": [
+        {
+          "ability": "Chilling Touch",
+          "ability_icon": "ancient_apparition_chilling_touch",
+          "tag": "upgrade",
+          "desc": "Removes cooldown."
+        },
+        {
+          "ability": "Bone Chill",
+          "ability_icon": "ancient_apparition_bone_chill",
+          "tag": "upgrade",
+          "desc": "Increases Base Strength Reduction by 0.8.\n\nSTRENGTH REDUCTION: 1"
+        }
+      ],
       "chen": {
         "ability": "Hand of God",
         "ability_icon": "chen_hand_of_god",
@@ -522,12 +554,20 @@
         "tag": "upgrade",
         "desc": "Mutes items."
       },
-      "enchantress": {
-        "ability": "Enchant / Little Friends",
-        "ability_icon": "enchantress_enchant",
-        "tag": "upgrade",
-        "desc": "Enchant: Enchantress can control multiple creeps at a time.\nMAX ENCHANTED CREEPS: 2\n\nLittle Friends (New Ability): Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nRADIUS: 1200\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
-      },
+      "enchantress": [
+        {
+          "ability": "Enchant",
+          "ability_icon": "enchantress_enchant",
+          "tag": "upgrade",
+          "desc": "Enchantress can control multiple creeps at a time.\n\nMAX ENCHANTED CREEPS: 2"
+        },
+        {
+          "ability": "Little Friends",
+          "ability_icon": "enchantress_little_friends",
+          "tag": "new ability",
+          "desc": "Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\n\nRADIUS: 1200\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
+        }
+      ],
       "grimstroke": {
         "ability": "Dark Portrait",
         "ability_icon": "grimstroke_dark_portrait",
@@ -1672,12 +1712,20 @@
         "tag": "new ability",
         "desc": "Supercharges Clockwerk's abilities:\nBattery Assault: Increased radius and affects all enemies in its range.\nPower Cogs: Radius increased, and Clockwerk's armor while near Power Cogs is increased.\nRocket Flares: Increased damage, vision and slow duration, and fires additional rockets to either side of the target.\nHookshot: Stun radius and duration increased.\nJetpack: Moves faster.\nClockwerk's movement and attack speed becomes slowed to a crawl after the duration runs out.\n\nDURATION: 18\nSELF SLOW DURATION: 3\nBONUS ARMOR NEAR COGS: 25%\nBATTERY ASSAULT RADIUS: 330\nCOGS RADIUS: 330\nHOOKSHOT RADIUS BONUS: 50%\nHOOKSHOT DURATION BONUS: 50%\nBONUS ROCKET FLARES: 2\nROCKET FLARE DURATION BONUS: 35%\nROCKET FLARE DAMAGE BONUS: 35%\nJETPACK SPEED: 40%"
       },
-      "dawnbreaker": {
-        "ability": "Break of Dawn / Solar Guardian",
-        "ability_icon": "dawnbreaker_break_of_dawn",
-        "tag": "upgrade",
-        "desc": "Break of Dawn provides healing amplification equal to the current damage increase.\n\nSolar Guardian's aura follows Dawnbreaker for 2s after landing."
-      },
+      "dawnbreaker": [
+        {
+          "ability": "Break of Dawn",
+          "ability_icon": "dawnbreaker_break_of_dawn",
+          "tag": "upgrade",
+          "desc": "Break of Dawn provides healing amplification equal to the current damage increase."
+        },
+        {
+          "ability": "Solar Guardian",
+          "ability_icon": "dawnbreaker_solar_guardian",
+          "tag": "upgrade",
+          "desc": "Solar Guardian's aura follows Dawnbreaker for 2s after landing."
+        }
+      ],
       "doom_bringer": {
         "ability": "Doom",
         "ability_icon": "doom_bringer_doom",
@@ -1944,24 +1992,40 @@
         "tag": "upgrade",
         "desc": "Increases cast range, initial remnant speed, and maximum charges.\n\nRANGE: 3000\nSPEED MULTIPLIER: 2\nMAX CHARGES: 5"
       },
-      "faceless_void": {
-        "ability": "Time Walk / Reverse Time Walk",
-        "ability_icon": "faceless_void_time_walk",
-        "tag": "upgrade",
-        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 325\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
-      },
+      "faceless_void": [
+        {
+          "ability": "Time Walk",
+          "ability_icon": "faceless_void_time_walk",
+          "tag": "upgrade",
+          "desc": "Applies a Time Lock to all units at the landing destination.\n\nTIME LOCK RADIUS: 325"
+        },
+        {
+          "ability": "Reverse Time Walk",
+          "ability_icon": "faceless_void_time_walk_reverse",
+          "tag": "new ability",
+          "desc": "Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+        }
+      ],
       "gyrocopter": {
         "ability": "Side Gunner",
         "ability_icon": "gyrocopter_side_gunner",
         "tag": "new ability",
         "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Prioritizes furthest unit away within its range."
       },
-      "hoodwink": {
-        "ability": "Decoy / Sharpshooter",
-        "ability_icon": "hoodwink_decoy",
-        "tag": "upgrade",
-        "desc": "Decoy (New Ability): Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\nILLUSION DURATION: 6\nBUSHWHACK RADIUS: 250\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%\n\nSharpshooter: Increases arrow speed and movement speed slow.\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
-      },
+      "hoodwink": [
+        {
+          "ability": "Decoy",
+          "ability_icon": "hoodwink_decoy",
+          "tag": "new ability",
+          "desc": "Hoodwink turns invisible, increasing her movement speed, and creates a decoy illusion that starts aiming a decreased damage Sharpshooter at the nearest enemy hero. If the illusion is attacked or hit by a targeted ability, it is destroyed and it throws a lesser bushwhack towards the enemy.\n\nBUSHWHACK RADIUS: 250\nILLUSION DURATION: 6\nBUSHWHACK DURATION: 1.6\nMOVEMENT SPEED: 15%\nSHARPSHOOTER DAMAGE: 60%"
+        },
+        {
+          "ability": "Sharpshooter",
+          "ability_icon": "hoodwink_sharpshooter",
+          "tag": "upgrade",
+          "desc": "Increases arrow speed and movement speed slow.\n\nARROW SPEED: 2750\nMOVE SLOW: 50%/60%/70%"
+        }
+      ],
       "kez": {
         "ability": "Switch Discipline",
         "ability_icon": "kez_switch_discipline",
@@ -2106,12 +2170,20 @@
         "tag": "upgrade",
         "desc": "Allows Spirit Bear to attack at any range from Lone Druid, and to survive if Lone Druid dies."
       },
-      "ancient_apparition": {
-        "ability": "Chilling Touch / Bone Chill",
-        "ability_icon": "ancient_apparition_chilling_touch",
-        "tag": "upgrade",
-        "desc": "Chilling Touch: Removes cooldown.\n\nBone Chill: Increases Base Strength Reduction by 0.8.\nSTRENGTH REDUCTION: 1"
-      },
+      "ancient_apparition": [
+        {
+          "ability": "Chilling Touch",
+          "ability_icon": "ancient_apparition_chilling_touch",
+          "tag": "upgrade",
+          "desc": "Removes cooldown."
+        },
+        {
+          "ability": "Bone Chill",
+          "ability_icon": "ancient_apparition_bone_chill",
+          "tag": "upgrade",
+          "desc": "Increases Base Strength Reduction by 0.8.\n\nSTRENGTH REDUCTION: 1"
+        }
+      ],
       "chen": {
         "ability": "Hand of God",
         "ability_icon": "chen_hand_of_god",
@@ -2142,12 +2214,20 @@
         "tag": "upgrade",
         "desc": "Mutes items."
       },
-      "enchantress": {
-        "ability": "Enchant / Little Friends",
-        "ability_icon": "enchantress_enchant",
-        "tag": "upgrade",
-        "desc": "Enchant: Enchantress can control multiple creeps at a time.\nMAX ENCHANTED CREEPS: 2\n\nLittle Friends (New Ability): Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nRADIUS: 1200\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
-      },
+      "enchantress": [
+        {
+          "ability": "Enchant",
+          "ability_icon": "enchantress_enchant",
+          "tag": "upgrade",
+          "desc": "Enchantress can control multiple creeps at a time.\n\nMAX ENCHANTED CREEPS: 2"
+        },
+        {
+          "ability": "Little Friends",
+          "ability_icon": "enchantress_little_friends",
+          "tag": "new ability",
+          "desc": "Enchantress roots an enemy unit. All creeps, ally, enemy and neutral within a radius will gain bonus movement and attack speed and attack the chosen target for 6 seconds.\n\nRADIUS: 1200\nBONUS ATTACK SPEED: 70\nBONUS MOVE SPEED: 100%\nMINIMUM ROOT DURATION: 2\nROOT DURATION PER UNIT: 0.5"
+        }
+      ],
       "grimstroke": {
         "ability": "Dark Portrait",
         "ability_icon": "grimstroke_dark_portrait",

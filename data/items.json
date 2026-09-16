@@ -692,7 +692,7 @@
         "ability": "Fiend's Grip",
         "ability_icon": "bane_fiends_grip",
         "tag": "upgrade",
-        "desc": "Reduces Fiend's Grip cooldown by 45. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
+        "desc": "Reduces Fiend's Grip cooldown by 40. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
       },
       "batrider": {
         "ability": "Flaming Lasso",
@@ -740,7 +740,7 @@
         "ability": "Horn Toss",
         "ability_icon": "magnataur_horn_toss",
         "tag": "new ability",
-        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 300\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
+        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 325\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
       },
       "marci": {
         "ability": "Unleash",
@@ -837,7 +837,7 @@
         "ability": "Double Edge",
         "ability_icon": "centaur_double_edge",
         "tag": "upgrade",
-        "desc": "Causes Double Edge to slow enemy heroes and increase Centaur's strength per hero hit for a short time. Duration refreshes per stack, up to a max of 5 stacks.\n\nBONUS STRENGTH: 12%\nSTRENGTH DURATION: 15\nMOVEMENT SLOW: 25%\nSLOW DURATION: 2"
+        "desc": "Causes Double Edge to slow enemy heroes and increase Centaur's strength per hero hit for a short time. Duration refreshes per stack, up to a max of 5 stacks.\n\nBONUS STRENGTH: 12%\nSTRENGTH DURATION: 12\nMOVEMENT SLOW: 25%\nSLOW DURATION: 2"
       },
       "chaos_knight": {
         "ability": "Chaos Bolt",
@@ -1306,7 +1306,7 @@
         "ability_icon": "invoker_ghost_walk",
         "tag": "upgrade",
         "layout": "horizontal",
-        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies in a larger radius.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
+        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
       },
       "jakiro": {
         "ability": "Liquid Fire / Liquid Frost",
@@ -1458,7 +1458,7 @@
         "ability": "Lightning Hands",
         "ability_icon": "zuus_lightning_hands",
         "tag": "new ability",
-        "desc": "Zeus gains bonus attack speed and his attacks create Arc Lightnings that deal a percentage of its damage. Can be toggled off to stop this effect.\n\nBONUS ATTACK SPEED: 30\nARC LIGHTNING DAMAGE: 50%"
+        "desc": "Zeus gains bonus attack speed and his attacks create Arc Lightnings that deal a percentage of its damage. Can be toggled off to stop this effect.\n\nBONUS ATTACK SPEED: 20\nARC LIGHTNING DAMAGE: 50%"
       },
       "abaddon": {
         "ability": "Aphotic Shield",
@@ -2267,7 +2267,7 @@
         "ability": "Fiend's Grip",
         "ability_icon": "bane_fiends_grip",
         "tag": "upgrade",
-        "desc": "Reduces Fiend's Grip cooldown by 45. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
+        "desc": "Reduces Fiend's Grip cooldown by 40. Fiend's Grip now creates two uncontrollable illusions that are also channeling Fiend's Grip on the target. Illusions take 225% incoming damage and immediately die if they are interrupted. Damage does not stack."
       },
       "batrider": {
         "ability": "Flaming Lasso",
@@ -2315,7 +2315,7 @@
         "ability": "Horn Toss",
         "ability_icon": "magnataur_horn_toss",
         "tag": "new ability",
-        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 300\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
+        "desc": "Magnus tosses any enemies in front of him, launching them to his rear. Enemies take damage, spend 0.6 seconds in the air, and are stunned while in the air and an additional amount of time after landing.\n\nDAMAGE: 325\nAIR DURATION: 0.6\nSTUN DURATION: 0.75"
       },
       "marci": {
         "ability": "Unleash",

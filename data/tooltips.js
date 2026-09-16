@@ -51,6 +51,39 @@
     }
   }
 
+  // ── Detect a "stat block" paragraph in an aghs desc: every line is a
+  // LABEL: value pair (all-caps label, value not ending in . ! ?). Used to
+  // shrink the gap in front of it — prose-to-prose gaps are untouched.
+  var STAT_LINE_RE = /^([A-Z0-9][A-Z0-9 '/.\-]*): (.+)$/;
+  function isStatBlockParagraph(paragraph) {
+    var lines = paragraph.split('\n');
+    return lines.every(function(line) {
+      var t = line.trim();
+      if (!t) return false;
+      var m = STAT_LINE_RE.exec(t);
+      return !!m && !/[.!?]$/.test(m[2].trim());
+    });
+  }
+
+  // ── Render an aghs desc string ──
+  // Paragraphs (split on \n\n) render with the usual full gap between them,
+  // except a paragraph that is entirely a stat block gets pulled into its
+  // own tightly-spaced block instead. Single \n line breaks are untouched.
+  function buildAghsDesc(desc) {
+    var html = '';
+    desc.split('\n\n').forEach(function(para, i) {
+      var lineHtml = para.replace(/\n/g, '<br>');
+      if (i === 0) {
+        html += lineHtml;
+      } else if (isStatBlockParagraph(para)) {
+        html += '<div class="fow-tt-aghs-stats">' + lineHtml + '</div>';
+      } else {
+        html += '<br><br>' + lineHtml;
+      }
+    });
+    return html;
+  }
+
   // ── Build a single aghs block ──
   function buildAghsBlock(aghs) {
     var tagClass = aghs.tag === 'upgrade' ? 'upgrade' : 'new-ability';
@@ -60,7 +93,7 @@
     html += '<div class="fow-tt-aghs-ability-name">' + aghs.ability + '</div>';
     html += '<span class="fow-tt-aghs-tag ' + tagClass + '">' + aghs.tag + '</span>';
     html += '</div>';
-    html += '<div class="fow-tt-aghs-desc">' + aghs.desc.replace(/\n/g, '<br>') + '</div>';
+    html += '<div class="fow-tt-aghs-desc">' + buildAghsDesc(aghs.desc) + '</div>';
     html += '</div>';
     return html;
   }

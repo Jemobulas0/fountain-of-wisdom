@@ -138,6 +138,12 @@
 .fow-tt-aghs {
   margin-top: 8px;
 }
+/* Array entries (e.g. skywrath_mage, pugna): gap before every row after the
+   first, about one line of .fow-tt-aghs-desc (15px * 1.5 line-height) and
+   never smaller than the prose paragraph gap. The first row is unaffected. */
+.fow-tt-aghs + .fow-tt-aghs {
+  margin-top: 24px;
+}
 .fow-tt-aghs-header {
   display: flex;
   align-items: center;
@@ -176,6 +182,11 @@
   font-size: 15px;
   color: #c8cdd8;
   line-height: 1.5;
+}
+/* A stat-block paragraph (every line "LABEL: value") — tighter gap before
+   it than a normal prose paragraph break, about a third of a line. */
+.fow-tt-aghs-stats {
+  margin-top: 8px;
 }
 
 /* ── Enchantment tooltip (build.enchantment — see hero-loader.js) ──

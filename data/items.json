@@ -214,7 +214,7 @@
         "ability": "Greater Bash / Nether Strike",
         "ability_icon": "spirit_breaker_greater_bash",
         "tag": "upgrade",
-        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 25% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
+        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
       },
       "tidehunter": {
         "ability": "Gush",
@@ -262,13 +262,13 @@
         "ability": "Vampiric Spirit / Reincarnation",
         "ability_icon": "skeleton_king_vampiric_aura",
         "tag": "upgrade",
-        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
+        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 170/140/110"
       },
       "bloodseeker": {
         "ability": "Rupture",
         "ability_icon": "bloodseeker_rupture",
         "tag": "upgrade",
-        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 13%"
+        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 15%"
       },
       "bounty_hunter": {
         "ability": "Shuriken Toss",
@@ -304,13 +304,13 @@
         "ability": "Time Walk / Reverse Time Walk",
         "ability_icon": "faceless_void_time_walk",
         "tag": "upgrade",
-        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 400\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 325\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
       },
       "gyrocopter": {
         "ability": "Side Gunner",
         "ability_icon": "gyrocopter_side_gunner",
         "tag": "new ability",
-        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Side Gunner will attack 2 units at a time while Flak Cannon is active. Prioritizes furthest unit away within its range."
+        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Prioritizes furthest unit away within its range."
       },
       "hoodwink": {
         "ability": "Decoy / Sharpshooter",
@@ -364,7 +364,7 @@
         "ability": "Morph",
         "ability_icon": "morphling_morph_replicate",
         "tag": "upgrade",
-        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 300%"
+        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 200%"
       },
       "naga_siren": {
         "ability": "Ensnare / Reel In",
@@ -412,7 +412,7 @@
         "ability": "Haunt",
         "ability_icon": "spectre_haunt",
         "tag": "upgrade",
-        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 1.5s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
+        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 2s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
       },
       "templar_assassin": {
         "ability": "Psionic Projection / Psionic Trap",
@@ -508,7 +508,7 @@
         "ability": "Dark Portrait",
         "ability_icon": "grimstroke_dark_portrait",
         "tag": "new ability",
-        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 95% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
+        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 90% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
       },
       "invoker": {
         "ability": "Quas / Wex / Exort",
@@ -533,7 +533,7 @@
         "ability": "Nihilism",
         "ability_icon": "leshrac_nihilism",
         "tag": "new ability",
-        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 30%\nRADIUS: 500"
+        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 40%\nRADIUS: 500"
       },
       "lich": {
         "ability": "Sinister Gaze",
@@ -861,7 +861,7 @@
         "ability": "Devour",
         "ability_icon": "doom_bringer_devour",
         "tag": "upgrade",
-        "desc": "Devour has 2 charges and can target Ancients. Stolen creep abilities have 20% increased AoE and 40% increased spell amplification.\n\nBASE CHARGE RESTORE TIME: 66"
+        "desc": "Devour has 2 charges and can target Ancients. Stolen creep abilities have 15% increased AoE and 40% increased spell amplification.\n\nBASE CHARGE RESTORE TIME: 66"
       },
       "dragon_knight": {
         "ability": "Fireball",
@@ -1017,13 +1017,13 @@
         "ability": "Flamethrower",
         "ability_icon": "timbersaw_flamethrower",
         "tag": "new ability",
-        "desc": "Releases a flame in the direction Timbersaw is facing. Applies a debuff that deals damage per second and slows enemy movement speed. Affects buildings for reduced damage.\n\nDAMAGE PER SECOND: 70\nDURATION: 8\nWIDTH: 275\nRANGE: 400\nMOVE SLOW: 30%\nBUILDING DAMAGE: 50%\nDEBUFF LINGER TIME: 2"
+        "desc": "Releases a flame in the direction Timbersaw is facing. Applies a debuff that deals damage per second and slows enemy movement speed. Affects buildings for reduced damage.\n\nDAMAGE PER SECOND: 70\nDURATION: 8\nWIDTH: 275\nRANGE: 400\nMOVE SLOW: 40%\nBUILDING DAMAGE: 50%\nDEBUFF LINGER TIME: 2"
       },
       "tiny": {
         "ability": "Grow",
         "ability_icon": "tiny_grow",
         "tag": "upgrade",
-        "desc": "Units tossed by Toss or trees tossed by Tree Throw or Tree Volley now deal additional damage and slow in a larger area of effect at their landing location.\n\nMOVEMENT SLOW: 25%\nATTACK SLOW: 45\nSLOW DURATION: 2.5\nLAND RADIUS BONUS: 125\nTOSS LANDING BONUS DAMAGE: 20%\nTREE THROW BONUS DAMAGE: 50"
+        "desc": "Units tossed by Toss or trees tossed by Tree Throw or Tree Volley now deal additional damage and slow in a larger area of effect at their landing location.\n\nMOVEMENT SLOW: 35%\nATTACK SLOW: 45\nSLOW DURATION: 3\nLAND RADIUS BONUS: 125\nTOSS LANDING BONUS DAMAGE: 20%\nTREE THROW BONUS DAMAGE: 50"
       },
       "treant_protector": {
         "ability": "Eyes in the Forest",
@@ -1368,12 +1368,20 @@
         "tag": "upgrade",
         "desc": "Puck's attacks deal bonus magic damage. Puck attacks all enemies within its attack range every time it phase shifts.\n\nBONUS DAMAGE: 20"
       },
-      "pugna": {
-        "ability": "Nether Ward / Life Drain",
-        "ability_icon": "pugna_nether_ward",
-        "tag": "upgrade",
-        "desc": "Nether Ward: Increases cast range to 350.\n\nLife Drain: Life Drain can target your Nether Ward, causing life drain to refract to all enemy heroes within 700 units of the ward for 75% of its normal value. The effect is interrupted if the ward is destroyed."
-      },
+      "pugna": [
+        {
+          "ability": "Nether Ward",
+          "ability_icon": "pugna_nether_ward",
+          "tag": "upgrade",
+          "desc": "Increases cast range to 375."
+        },
+        {
+          "ability": "Life Drain",
+          "ability_icon": "pugna_life_drain",
+          "tag": "upgrade",
+          "desc": "Life Drain can target your Nether Ward, causing life drain to refract to all enemy heroes within 700 units of the ward for 75% of its normal value. The effect is interrupted if the ward is destroyed."
+        }
+      ],
       "queen_of_pain": {
         "ability": "Blink",
         "ability_icon": "queenofpain_blink",
@@ -1486,7 +1494,7 @@
         "ability": "Liquid Courage",
         "ability_icon": "brewmaster_drunken_brawler",
         "tag": "upgrade",
-        "desc": "Toss a strong drink to a teammate or drink it yourself, activating the maximum power effect of Liquid Courage and granting 2.5% Max HP Regen per second. Lasts 5 seconds."
+        "desc": "Toss a strong drink to a teammate or drink it yourself, activating the maximum power effect of Liquid Courage and granting 3% Max HP Regen per second. Lasts 5 seconds."
       },
       "dazzle": {
         "ability": "Weave",
@@ -1552,7 +1560,7 @@
         "ability": "Firesnap Cookie",
         "ability_icon": "snapfire_firesnap_cookie",
         "tag": "upgrade",
-        "desc": "Firesnap cookies become even more potent, healing the target and launching a Mortimer Kiss that does 40% impact damage to the landing destination.\n\nHEAL AMOUNT: 200"
+        "desc": "Firesnap cookies become even more potent, healing the target and launching a Mortimer Kiss that does 40% impact damage to the landing destination.\n\nHEAL AMOUNT: 175"
       },
       "techies": {
         "ability": "M.A.D.",
@@ -1781,7 +1789,7 @@
         "ability": "Greater Bash / Nether Strike",
         "ability_icon": "spirit_breaker_greater_bash",
         "tag": "upgrade",
-        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 25% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
+        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
       },
       "tidehunter": {
         "ability": "Gush",
@@ -1829,13 +1837,13 @@
         "ability": "Vampiric Spirit / Reincarnation",
         "ability_icon": "skeleton_king_vampiric_aura",
         "tag": "upgrade",
-        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 165/135/105"
+        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 170/140/110"
       },
       "bloodseeker": {
         "ability": "Rupture",
         "ability_icon": "bloodseeker_rupture",
         "tag": "upgrade",
-        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 13%"
+        "desc": "Increases initial damage and grants 2 Rupture Charges.\n\nHEALTH DAMAGE: 15%"
       },
       "bounty_hunter": {
         "ability": "Shuriken Toss",
@@ -1871,13 +1879,13 @@
         "ability": "Time Walk / Reverse Time Walk",
         "ability_icon": "faceless_void_time_walk",
         "tag": "upgrade",
-        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 400\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
+        "desc": "Time Walk: Applies a Time Lock to all units at the landing destination.\nTIME LOCK RADIUS: 325\n\nReverse Time Walk (New Ability): Available for 1.5 seconds after landing Time Walk. If used in this period, you will reverse your time walk back to your previous cast location. Does not affect health or proc scepter hits."
       },
       "gyrocopter": {
         "ability": "Side Gunner",
         "ability_icon": "gyrocopter_side_gunner",
         "tag": "new ability",
-        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Side Gunner will attack 2 units at a time while Flak Cannon is active. Prioritizes furthest unit away within its range."
+        "desc": "Gyrocopter gains a Side Gunner that attacks enemy units in a 700 unit radius every 1.3s with his attack. Prioritizes furthest unit away within its range."
       },
       "hoodwink": {
         "ability": "Decoy / Sharpshooter",
@@ -1931,7 +1939,7 @@
         "ability": "Morph",
         "ability_icon": "morphling_morph_replicate",
         "tag": "upgrade",
-        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 300%"
+        "desc": "Adds an alt-cast to Morph. When enabled, a strong illusion is created of the target hero that can cast all of the hero's basic abilities. If the illusion is alive when Morphling toggles the ability, he will take the place of the illusion, destroying it.\n\nILLUSION OUTGOING DAMAGE: 100%\nILLUSION INCOMING DAMAGE: 200%"
       },
       "naga_siren": {
         "ability": "Ensnare / Reel In",
@@ -1979,7 +1987,7 @@
         "ability": "Haunt",
         "ability_icon": "spectre_haunt",
         "tag": "upgrade",
-        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 1.5s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
+        "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 2s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
       },
       "templar_assassin": {
         "ability": "Psionic Projection / Psionic Trap",
@@ -2075,7 +2083,7 @@
         "ability": "Dark Portrait",
         "ability_icon": "grimstroke_dark_portrait",
         "tag": "new ability",
-        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 95% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
+        "desc": "Creates an ink illusion of a target enemy hero. Illusion is debuff immune, has 90% magic resistance, and has bonus movement speed and attack damage.\n\nILLUSION DURATION: 25\nILLUSION OUTGOING DAMAGE: 125%\nILLUSION DAMAGE TAKEN: 275%\nILLUSION MOVESPEED BONUS: 30%"
       },
       "invoker": {
         "ability": "Quas / Wex / Exort",
@@ -2100,7 +2108,7 @@
         "ability": "Nihilism",
         "ability_icon": "leshrac_nihilism",
         "tag": "new ability",
-        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 30%\nRADIUS: 500"
+        "desc": "Causes Leshrac and all nearby enemies to turn ethereal, preventing them from attacking, slowing them, and making them take more magic damage. Increases Leshrac's speed rather than reducing it. Does not cause Leshrac to take amplified damage.\n\nDURATION: 4\nINCREASED MAGIC DAMAGE: 30%\nSLOW: 40%\nRADIUS: 500"
       },
       "lich": {
         "ability": "Sinister Gaze",

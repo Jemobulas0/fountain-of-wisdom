@@ -494,24 +494,40 @@
         "tag": "upgrade",
         "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 2s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
       },
-      "templar_assassin": {
-        "ability": "Psionic Projection / Psionic Trap",
-        "ability_icon": "templar_assassin_psionic_projection",
-        "tag": "upgrade",
-        "desc": "Psionic Projection (New Ability): CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld.\n\nPsionic Trap: When activated, traps now silence affected enemies.\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
-      },
+      "templar_assassin": [
+        {
+          "ability": "Psionic Projection",
+          "ability_icon": "templar_assassin_psionic_projection",
+          "tag": "new ability",
+          "desc": "CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld."
+        },
+        {
+          "ability": "Psionic Trap",
+          "ability_icon": "templar_assassin_psionic_trap",
+          "tag": "upgrade",
+          "desc": "When activated, traps now silence affected enemies.\n\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
+        }
+      ],
       "terrorblade": {
         "ability": "Terror Wave",
         "ability_icon": "terrorblade_terror_wave",
         "tag": "new ability",
         "desc": "Causes a wave to travel outwards in all directions forcing enemy heroes to become Feared upon impact and dealing damage, and grants Terrorblade Metamorphosis for a short time.\n\nFEAR DURATION: 2\nRADIUS: 1600\nDAMAGE: 200\nMETAMORPHOSIS DURATION: 15"
       },
-      "troll_warlord": {
-        "ability": "Whirling Axes (Ranged) / Whirling Axes (Melee)",
-        "ability_icon": "troll_warlord_whirling_axes_ranged",
-        "tag": "upgrade",
-        "desc": "Whirling Axes (Ranged): Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 30\nCOOLDOWN: 4\n\nWhirling Axes (Melee): Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 25\nCOOLDOWN: 4"
-      },
+      "troll_warlord": [
+        {
+          "ability": "Whirling Axes (Ranged)",
+          "ability_icon": "troll_warlord_whirling_axes_ranged",
+          "tag": "upgrade",
+          "desc": "Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\n\nDISPEL TYPE: Basic Dispel\n\nMANA COST: 20\nCOOLDOWN: 4"
+        },
+        {
+          "ability": "Whirling Axes (Melee)",
+          "ability_icon": "troll_warlord_whirling_axes_melee",
+          "tag": "upgrade",
+          "desc": "Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\n\nDISPEL TYPE: Basic Dispel\n\nMANA COST: 25\nCOOLDOWN: 4"
+        }
+      ],
       "ursa": {
         "ability": "Enrage",
         "ability_icon": "ursa_enrage",
@@ -524,12 +540,20 @@
         "tag": "upgrade",
         "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells.\n\nIf the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 35%\nILLUSION DAMAGE TAKEN: 100%"
       },
-      "viper": {
-        "ability": "Corrosive Skin / Nosedive",
-        "ability_icon": "viper_corrosive_skin",
-        "tag": "upgrade",
-        "desc": "Corrosive Skin: Applies 4x the attack speed slow to enemies within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while in Nethertoxin, up to 50% increased effect after 4s.\n\nNosedive (New Ability): Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\nRADIUS: 500\nEFFECT DURATION: 4"
-      },
+      "viper": [
+        {
+          "ability": "Corrosive Skin",
+          "ability_icon": "viper_corrosive_skin",
+          "tag": "upgrade",
+          "desc": "Corrosive Skin applies 4x the attack speed slow to enemies that are within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while he is in Nethertoxin, up to 50% increased effect after 4s."
+        },
+        {
+          "ability": "Nosedive",
+          "ability_icon": "viper_nose_dive",
+          "tag": "new ability",
+          "desc": "Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\n\nRADIUS: 500\nEFFECT DURATION: 4"
+        }
+      ],
       "weaver": {
         "ability": "Time Lapse",
         "ability_icon": "weaver_time_lapse",
@@ -930,12 +954,20 @@
         "tag": "upgrade",
         "desc": "When the pulses start, 3 Stinger attack areas are created every 0.5s at random locations, each measuring 35% of the Epicenter's current radius, that apply 40% of Stinger damage to enemies hit. Shard pulses cause 1 attack(s)."
       },
-      "snapfire": {
-        "ability": "Gobble Up / Spit Out",
-        "ability_icon": "snapfire_gobble_up",
-        "tag": "new ability",
-        "desc": "Gobble Up: Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds.\n\nSpit Out: Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
-      },
+      "snapfire": [
+        {
+          "ability": "Gobble Up",
+          "ability_icon": "snapfire_gobble_up",
+          "tag": "new ability",
+          "desc": "Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds."
+        },
+        {
+          "ability": "Spit Out",
+          "ability_icon": "snapfire_spit_creep",
+          "tag": "new ability",
+          "desc": "Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\n\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
+        }
+      ],
       "techies": {
         "ability": "Minefield Sign",
         "ability_icon": "techies_minefield_sign",
@@ -2266,24 +2298,40 @@
         "tag": "upgrade",
         "desc": "The first time Spectre uses Reality on a Haunt illusion, enemies in a 400 area around the target are Feared away from Spectre for 2s and have their movement speed slowed by 50%. Reduces cooldown by 20s."
       },
-      "templar_assassin": {
-        "ability": "Psionic Projection / Psionic Trap",
-        "ability_icon": "templar_assassin_psionic_projection",
-        "tag": "upgrade",
-        "desc": "Psionic Projection (New Ability): CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld.\n\nPsionic Trap: When activated, traps now silence affected enemies.\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
-      },
+      "templar_assassin": [
+        {
+          "ability": "Psionic Projection",
+          "ability_icon": "templar_assassin_psionic_projection",
+          "tag": "new ability",
+          "desc": "CHANNELED - Allows Templar Assassin to teleport to any Psionic Trap after channeling for 2 seconds, detonating it upon arrival as if it was fully charged and instantly dealing 400 bonus damage. Channeling Psionic Projection does not break Meld."
+        },
+        {
+          "ability": "Psionic Trap",
+          "ability_icon": "templar_assassin_psionic_trap",
+          "tag": "upgrade",
+          "desc": "When activated, traps now silence affected enemies.\n\nMIN SILENCE DURATION: 0.25\nMAX SILENCE DURATION: 3"
+        }
+      ],
       "terrorblade": {
         "ability": "Terror Wave",
         "ability_icon": "terrorblade_terror_wave",
         "tag": "new ability",
         "desc": "Causes a wave to travel outwards in all directions forcing enemy heroes to become Feared upon impact and dealing damage, and grants Terrorblade Metamorphosis for a short time.\n\nFEAR DURATION: 2\nRADIUS: 1600\nDAMAGE: 200\nMETAMORPHOSIS DURATION: 15"
       },
-      "troll_warlord": {
-        "ability": "Whirling Axes (Ranged) / Whirling Axes (Melee)",
-        "ability_icon": "troll_warlord_whirling_axes_ranged",
-        "tag": "upgrade",
-        "desc": "Whirling Axes (Ranged): Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 30\nCOOLDOWN: 4\n\nWhirling Axes (Melee): Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\nDISPEL TYPE: Basic Dispel\nMANA COST: 25\nCOOLDOWN: 4"
-      },
+      "troll_warlord": [
+        {
+          "ability": "Whirling Axes (Ranged)",
+          "ability_icon": "troll_warlord_whirling_axes_ranged",
+          "tag": "upgrade",
+          "desc": "Causes Whirling Axes (Ranged) to dispel enemies. Reduces cooldown and mana cost.\n\nDISPEL TYPE: Basic Dispel\n\nMANA COST: 20\nCOOLDOWN: 4"
+        },
+        {
+          "ability": "Whirling Axes (Melee)",
+          "ability_icon": "troll_warlord_whirling_axes_melee",
+          "tag": "upgrade",
+          "desc": "Causes Whirling Axes (Melee) to dispel Troll Warlord. Reduces cooldown and mana cost.\n\nDISPEL TYPE: Basic Dispel\n\nMANA COST: 25\nCOOLDOWN: 4"
+        }
+      ],
       "ursa": {
         "ability": "Enrage",
         "ability_icon": "ursa_enrage",
@@ -2296,12 +2344,20 @@
         "tag": "upgrade",
         "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells.\n\nIf the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 35%\nILLUSION DAMAGE TAKEN: 100%"
       },
-      "viper": {
-        "ability": "Corrosive Skin / Nosedive",
-        "ability_icon": "viper_corrosive_skin",
-        "tag": "upgrade",
-        "desc": "Corrosive Skin: Applies 4x the attack speed slow to enemies within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while in Nethertoxin, up to 50% increased effect after 4s.\n\nNosedive (New Ability): Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\nRADIUS: 500\nEFFECT DURATION: 4"
-      },
+      "viper": [
+        {
+          "ability": "Corrosive Skin",
+          "ability_icon": "viper_corrosive_skin",
+          "tag": "upgrade",
+          "desc": "Corrosive Skin applies 4x the attack speed slow to enemies that are within 500 distance of Viper. Viper's Corrosive Skin Magic Resistance and Damage per Second are gradually increased while he is in Nethertoxin, up to 50% increased effect after 4s."
+        },
+        {
+          "ability": "Nosedive",
+          "ability_icon": "viper_nose_dive",
+          "tag": "new ability",
+          "desc": "Viper slams into the ground, releasing a Nethertoxin and splattering each enemy in a 500 AoE for 4 seconds with the effect of Corrosive Skin.\n\nRADIUS: 500\nEFFECT DURATION: 4"
+        }
+      ],
       "weaver": {
         "ability": "Time Lapse",
         "ability_icon": "weaver_time_lapse",
@@ -2702,12 +2758,20 @@
         "tag": "upgrade",
         "desc": "When the pulses start, 3 Stinger attack areas are created every 0.5s at random locations, each measuring 35% of the Epicenter's current radius, that apply 40% of Stinger damage to enemies hit. Shard pulses cause 1 attack(s)."
       },
-      "snapfire": {
-        "ability": "Gobble Up / Spit Out",
-        "ability_icon": "snapfire_gobble_up",
-        "tag": "new ability",
-        "desc": "Gobble Up: Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds.\n\nSpit Out: Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
-      },
+      "snapfire": [
+        {
+          "ability": "Gobble Up",
+          "ability_icon": "snapfire_gobble_up",
+          "tag": "new ability",
+          "desc": "Mortimer gobbles up a creep or an allied hero, which he can then spit towards enemies. The unit stays in his belly up to 3 seconds."
+        },
+        {
+          "ability": "Spit Out",
+          "ability_icon": "snapfire_spit_creep",
+          "tag": "new ability",
+          "desc": "Mortimer spits out the unit that's in his mouth, causing impact damage and stun in a large area. The glob leaves a pool of firespit based on the current level of Mortimer Kisses, that slows and applies damage over time. Spit Out has no minimum launch range.\n\nIMPACT RADIUS: 400\nSTUN DURATION: 1.2"
+        }
+      ],
       "techies": {
         "ability": "Minefield Sign",
         "ability_icon": "techies_minefield_sign",

@@ -128,7 +128,7 @@
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 5\nAttack Rate: 1"
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 4\nAttack Rate: 1"
       },
       "omniknight": {
         "ability": "Guardian Angel",
@@ -247,10 +247,10 @@
         "desc": "Kicks the closest enemy unit in the drawn direction, stunning, damaging, and slowing them. Also deals damage to all heroes within 250 radius of its landing area. Cooldown is reduced by 50% if kicking a creep.\n\nKICK PUSH DISTANCE: 1200\nMOVE SLOW: 40%\nSLOW DURATION: 2\nDAMAGE: 550"
       },
       "underlord": {
-        "ability": "Pit of Malice / Fiend's Gate",
-        "ability_icon": "underlord_pit_of_malice",
+        "ability": "Fiend's Gate",
+        "ability_icon": "abyssal_underlord_dark_portal",
         "tag": "upgrade",
-        "desc": "Pit of Malice: Increases radius of the Pit of Malice.\nRADIUS: 500\n\nFiend's Gate: Summons a Pit of Malice around each of the portals. Reduces cooldown.\nCOOLDOWN: 100/95/90"
+        "desc": "Summons a Pit of Malice around each of the portals. Reduces cooldown.\n\nCOOLDOWN: 90/85/80"
       },
       "undying": {
         "ability": "Decay",
@@ -442,7 +442,7 @@
         "ability": "Vengeance Aura",
         "ability_icon": "vengefulspirit_vengeance_aura",
         "tag": "upgrade",
-        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells. If the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 30%\nILLUSION DAMAGE TAKEN: 100%"
+        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells.\n\nIf the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 35%\nILLUSION DAMAGE TAKEN: 100%"
       },
       "viper": {
         "ability": "Corrosive Skin / Nosedive",
@@ -728,7 +728,7 @@
         "ability": "Black Hole",
         "ability_icon": "enigma_black_hole",
         "tag": "upgrade",
-        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 175."
+        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 150."
       },
       "io": {
         "ability": "Spirits",
@@ -1306,7 +1306,7 @@
         "ability_icon": "invoker_ghost_walk",
         "tag": "upgrade",
         "layout": "horizontal",
-        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemies.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
+        "desc": "OPTION 1 - GHOST WALK: Ghost Walk now also applies the Ice Wall Damage Per Second to enemy heroes.\n\nOPTION 2 - E.M.P.: Increases damage for each point of mana drained by EMP and pulls enemy units into the EMP's center at 125 units per second.\n\nOPTION 3 - SUN STRIKE: If Sun Strike damages an enemy Hero, a Forge Spirit of current level is created at the location."
       },
       "jakiro": {
         "ability": "Liquid Fire / Liquid Frost",
@@ -1711,7 +1711,7 @@
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 5\nAttack Rate: 1"
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 4\nAttack Rate: 1"
       },
       "omniknight": {
         "ability": "Guardian Angel",
@@ -1822,10 +1822,10 @@
         "desc": "Kicks the closest enemy unit in the drawn direction, stunning, damaging, and slowing them. Also deals damage to all heroes within 250 radius of its landing area. Cooldown is reduced by 50% if kicking a creep.\n\nKICK PUSH DISTANCE: 1200\nMOVE SLOW: 40%\nSLOW DURATION: 2\nDAMAGE: 550"
       },
       "underlord": {
-        "ability": "Pit of Malice / Fiend's Gate",
-        "ability_icon": "underlord_pit_of_malice",
+        "ability": "Fiend's Gate",
+        "ability_icon": "abyssal_underlord_dark_portal",
         "tag": "upgrade",
-        "desc": "Pit of Malice: Increases radius of the Pit of Malice.\nRADIUS: 500\n\nFiend's Gate: Summons a Pit of Malice around each of the portals. Reduces cooldown.\nCOOLDOWN: 100/95/90"
+        "desc": "Summons a Pit of Malice around each of the portals. Reduces cooldown.\n\nCOOLDOWN: 90/85/80"
       },
       "undying": {
         "ability": "Decay",
@@ -2017,7 +2017,7 @@
         "ability": "Vengeance Aura",
         "ability_icon": "vengefulspirit_vengeance_aura",
         "tag": "upgrade",
-        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells. If the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 30%\nILLUSION DAMAGE TAKEN: 100%"
+        "desc": "Increases self multiplier. Upon death, creates a strong illusion of Vengeful Spirit that deals full damage, and can cast all of her spells.\n\nIf the illusion is alive when Vengeful Spirit respawns, she will take its place. XP earned by her illusion is given to her. Strong Illusions are not instantly killed by spells.\n\nSELF MULTIPLIER: 35%\nILLUSION DAMAGE TAKEN: 100%"
       },
       "viper": {
         "ability": "Corrosive Skin / Nosedive",
@@ -2303,7 +2303,7 @@
         "ability": "Black Hole",
         "ability_icon": "enigma_black_hole",
         "tag": "upgrade",
-        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 175."
+        "desc": "Black Hole deals additional damage equivalent to 4% of the unit's Max Health per second and does a non-interrupting pull towards it in a 1000 AoE. Pulls at a rate of 150."
       },
       "io": {
         "ability": "Spirits",

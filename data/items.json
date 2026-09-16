@@ -104,7 +104,7 @@
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
         "tag": "upgrade",
-        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDAMAGE: 225/300/375/450"
       },
       "sven": {
         "ability": "Storm Hammer",
@@ -116,25 +116,25 @@
         "ability": "Life Break",
         "ability_icon": "huskar_life_break",
         "tag": "upgrade",
-        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTaunt Duration: 3\nCast Range Bonus: 250"
+        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTAUNT DURATION: 3\nCAST RANGE BONUS: 250"
       },
       "juggernaut": {
         "ability": "Swiftslash",
         "ability_icon": "juggernaut_swift_slash",
         "tag": "new ability",
-        "desc": "Performs a short Omnislash for 1 seconds.\n\nDuration: 1"
+        "desc": "Performs a short Omnislash for 1 seconds.\n\nDURATION: 1"
       },
       "lifestealer": {
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 4\nAttack Rate: 1"
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSELF MAX HP REGEN: 6%/8%/10%\nENEMY DURATION: 4\nATTACK RATE: 1"
       },
       "omniknight": {
         "ability": "Guardian Angel",
         "ability_icon": "omniknight_guardian_angel",
         "tag": "upgrade",
-        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
+        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBONUS HEALTH RESTORATION: 50%"
       },
       "antimage": [
         {
@@ -154,7 +154,7 @@
         "ability": "Assassinate",
         "ability_icon": "sniper_assassinate",
         "tag": "upgrade",
-        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nStun Duration: 0.8/1/1.2\nAim Duration: 0.5"
+        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nSTUN DURATION: 0.8/1/1.2\nAIM DURATION: 0.5"
       },
       "slardar": {
         "ability": "Seaborn Sentinel",
@@ -933,19 +933,19 @@
         "ability": "Warcry",
         "ability_icon": "sven_warcry",
         "tag": "upgrade",
-        "desc": "Increases radius and bonus movement speed. Warcry is now undispellable and provides a 300 physical damage barrier.\n\nBonus Speed: 9%/12%/15%/18%\nRadius: 900\nPhysical Barrier Amount: 300"
+        "desc": "Increases radius and bonus movement speed. Warcry is now undispellable and provides a 300 physical damage barrier.\n\nBONUS SPEED: 9%/12%/15%/18%\nRADIUS: 900\nPHYSICAL BARRIER AMOUNT: 300"
       },
       "huskar": {
         "ability": "Berserker's Blood",
         "ability_icon": "huskar_berserkers_blood",
         "tag": "upgrade",
-        "desc": "Huskar can activate Berserker's Blood for a health cost to cauterize himself. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.\n\nCurrent HP Cost: 30%\nCooldown: 20\nCauterize Delay: 3\nMax HP Heal per Debuff: 3%"
+        "desc": "Huskar can activate Berserker's Blood for a health cost to cauterize himself. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.\n\nCURRENT HP COST: 30%\nCOOLDOWN: 20\nCAUTERIZE DELAY: 3\nMAX HP HEAL PER DEBUFF: 3%"
       },
       "juggernaut": {
         "ability": "Healing Ward",
         "ability_icon": "juggernaut_healing_ward",
         "tag": "upgrade",
-        "desc": "Increases ward healing and health.\n\nMax Health per Second: 3.5%/4.5%/5.5%/6.5%\nHits to Destroy: 2"
+        "desc": "Increases ward healing and health.\n\nMAX HEALTH PER SECOND: 3.5%/4.5%/5.5%/6.5%\nHITS TO DESTROY: 2"
       },
       "omniknight": {
         "ability": "Purification",
@@ -957,7 +957,7 @@
         "ability": "Concussive Grenade",
         "ability_icon": "sniper_concussive_grenade",
         "tag": "new ability",
-        "desc": "Launches a grenade at the target area, dealing damage to enemies and knocking them and Sniper back. Enemies affected are disarmed and have their movement slowed after the knockback.\n\nDamage: 200\nRadius: 375\nMove Slow: 50%\nSlow Duration: 3\nKnockback Distance: 475"
+        "desc": "Launches a grenade at the target area, dealing damage to enemies and knocking them and Sniper back. Enemies affected are disarmed and have their movement slowed after the knockback.\n\nDAMAGE: 200\nRADIUS: 375\nMOVE SLOW: 50%\nSLOW DURATION: 3\nKNOCKBACK DISTANCE: 475"
       },
       "antimage": {
         "ability": "Counterspell",
@@ -969,7 +969,7 @@
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health.\n\nRemaining Health as Total Damage: 30%\nDamage over Time Duration: 3"
+        "desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health.\n\nREMAINING HEALTH AS TOTAL DAMAGE: 30%\nDAMAGE OVER TIME DURATION: 3"
       },
       "slardar": {
         "ability": "Slithereen Crush",
@@ -1711,13 +1711,13 @@
         "ability": "Dead Shot",
         "ability_icon": "muerta_dead_shot",
         "tag": "upgrade",
-        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDamage: 225/300/375/450"
+        "desc": "Dead Shot damage is increased. Dead Shot expands after it ricochets and pierces through enemy heroes as it fears them.\n\nDAMAGE: 225/300/375/450"
       },
       "juggernaut": {
         "ability": "Swiftslash",
         "ability_icon": "juggernaut_swift_slash",
         "tag": "new ability",
-        "desc": "Performs a short Omnislash for 1 seconds.\n\nDuration: 1"
+        "desc": "Performs a short Omnislash for 1 seconds.\n\nDURATION: 1"
       },
       "sven": {
         "ability": "Storm Hammer",
@@ -1729,19 +1729,19 @@
         "ability": "Life Break",
         "ability_icon": "huskar_life_break",
         "tag": "upgrade",
-        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTaunt Duration: 3\nCast Range Bonus: 250"
+        "desc": "Forces the enemy target to attack Huskar and increases cast range.\n\nTAUNT DURATION: 3\nCAST RANGE BONUS: 250"
       },
       "lifestealer": {
         "ability": "Infest",
         "ability_icon": "life_stealer_infest",
         "tag": "upgrade",
-        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSelf Max HP Regen: 6%/8%/10%\nEnemy Duration: 4\nAttack Rate: 1"
+        "desc": "Increases cast range and reduces cooldown to 20s. Infest may target enemy heroes for a short duration, attacking them from the inside while increasing Lifestealer's regeneration rate.\n\nSELF MAX HP REGEN: 6%/8%/10%\nENEMY DURATION: 4\nATTACK RATE: 1"
       },
       "omniknight": {
         "ability": "Guardian Angel",
         "ability_icon": "omniknight_guardian_angel",
         "tag": "upgrade",
-        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
+        "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBONUS HEALTH RESTORATION: 50%"
       },
       "antimage": [
         {
@@ -1761,7 +1761,7 @@
         "ability": "Assassinate",
         "ability_icon": "sniper_assassinate",
         "tag": "upgrade",
-        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nStun Duration: 0.8/1/1.2\nAim Duration: 0.5"
+        "desc": "Causes Assassinate to fire quicker and stun the enemy target.\n\nSTUN DURATION: 0.8/1/1.2\nAIM DURATION: 0.5"
       },
       "slardar": {
         "ability": "Seaborn Sentinel",

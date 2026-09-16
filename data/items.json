@@ -136,12 +136,20 @@
         "tag": "upgrade",
         "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
       },
-      "antimage": {
-        "ability": "Mana Break / Blink",
-        "ability_icon": "antimage_mana_break",
-        "tag": "upgrade",
-        "desc": "Increases Max Mana Burned per Hit.\nMax Mana Burned per Hit: 3.3%/4.2%/5.1%/6%\n\nAfter casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\nDebuff Duration: 6"
-      },
+      "antimage": [
+        {
+          "ability": "Mana Break",
+          "ability_icon": "antimage_mana_break",
+          "tag": "upgrade",
+          "desc": "Increases Max Mana Burned per Hit.\n\nMAX MANA BURNED PER HIT: 3.3%/4.2%/5.1%/6%"
+        },
+        {
+          "ability": "Blink",
+          "ability_icon": "antimage_blink",
+          "tag": "upgrade",
+          "desc": "After casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\n\nDEBUFF DURATION: 6"
+        }
+      ],
       "sniper": {
         "ability": "Assassinate",
         "ability_icon": "sniper_assassinate",
@@ -210,12 +218,20 @@
         "tag": "upgrade",
         "desc": "Increases Rot radius by 200, damage by 90, and causes it to reduce enemy Health Restoration by 20%.\n\nRADIUS: 450\nDAMAGE: 120/150/180/210\nHEALTH RESTORATION LOSS: 20%"
       },
-      "spirit_breaker": {
-        "ability": "Greater Bash / Nether Strike",
-        "ability_icon": "spirit_breaker_greater_bash",
-        "tag": "upgrade",
-        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
-      },
+      "spirit_breaker": [
+        {
+          "ability": "Greater Bash",
+          "ability_icon": "spirit_breaker_greater_bash",
+          "tag": "upgrade",
+          "desc": "Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\n\nKNOCKBACK DISTANCE: 193/202/208/212"
+        },
+        {
+          "ability": "Nether Strike",
+          "ability_icon": "spirit_breaker_nether_strike",
+          "tag": "upgrade",
+          "desc": "Greatly increases knockback."
+        }
+      ],
       "tidehunter": {
         "ability": "Gush",
         "ability_icon": "tidehunter_gush",
@@ -258,12 +274,20 @@
         "tag": "upgrade",
         "desc": "Increases strength steal.\n\nSTRENGTH STEAL: 8"
       },
-      "wraith_king": {
-        "ability": "Vampiric Spirit / Reincarnation",
-        "ability_icon": "skeleton_king_vampiric_aura",
-        "tag": "upgrade",
-        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 170/140/110"
-      },
+      "wraith_king": [
+        {
+          "ability": "Vampiric Spirit",
+          "ability_icon": "skeleton_king_vampiric_aura",
+          "tag": "upgrade",
+          "desc": "Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\n\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200"
+        },
+        {
+          "ability": "Reincarnation",
+          "ability_icon": "skeleton_king_reincarnation",
+          "tag": "upgrade",
+          "desc": "Reduces cooldown.\n\nCOOLDOWN: 170/140/110"
+        }
+      ],
       "bloodseeker": {
         "ability": "Rupture",
         "ability_icon": "bloodseeker_rupture",
@@ -1719,12 +1743,20 @@
         "tag": "upgrade",
         "desc": "Guardian Angel has global radius, affects buildings, and amplifies health restoration.\n\nBonus Health Restoration: 50%"
       },
-      "antimage": {
-        "ability": "Mana Break / Blink",
-        "ability_icon": "antimage_mana_break",
-        "tag": "upgrade",
-        "desc": "Increases Max Mana Burned per Hit.\nMax Mana Burned per Hit: 3.3%/4.2%/5.1%/6%\n\nAfter casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\nDebuff Duration: 6"
-      },
+      "antimage": [
+        {
+          "ability": "Mana Break",
+          "ability_icon": "antimage_mana_break",
+          "tag": "upgrade",
+          "desc": "Increases Max Mana Burned per Hit.\n\nMAX MANA BURNED PER HIT: 3.3%/4.2%/5.1%/6%"
+        },
+        {
+          "ability": "Blink",
+          "ability_icon": "antimage_blink",
+          "tag": "upgrade",
+          "desc": "After casting Blink, your next Mana Break within 5s burns an additional 20% max mana and prevents the target from regenerating or gaining mana for a short duration. This debuff is undispellable.\n\nDEBUFF DURATION: 6"
+        }
+      ],
       "sniper": {
         "ability": "Assassinate",
         "ability_icon": "sniper_assassinate",
@@ -1737,12 +1769,20 @@
         "tag": "upgrade",
         "desc": "Provides additional HP Regen, Armor and Status Resistance while in a puddle, trail, or river. Increases puddle/trail radius by 75% and puddle/trail duration by 5s.\n\nHP REGEN: 22\nBONUS ARMOR: 10\nSTATUS RESISTANCE: 40%"
       },
-      "legion_commander": {
-        "ability": "Press the Attack / Duel",
-        "ability_icon": "legion_commander_press_the_attack",
-        "tag": "upgrade",
-        "desc": "Press the Attack: Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\nBONUS MOVE SPEED: 25%/28%/31%/34%\n\nDuel: When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
-      },
+      "legion_commander": [
+        {
+          "ability": "Press the Attack",
+          "ability_icon": "legion_commander_press_the_attack",
+          "tag": "upgrade",
+          "desc": "Increases movement speed and becomes a 500 area of effect ability, and always affects Legion Commander when used.\n\nBONUS MOVE SPEED: 25% / 28% / 31% / 34%"
+        },
+        {
+          "ability": "Duel",
+          "ability_icon": "legion_commander_duel",
+          "tag": "upgrade",
+          "desc": "When Legion Commander wins a duel, Press the Attack is automatically triggered around her."
+        }
+      ],
       "lycan": {
         "ability": "Wolf Bite",
         "ability_icon": "lycan_wolf_bite",
@@ -1785,12 +1825,20 @@
         "tag": "upgrade",
         "desc": "Increases Rot radius by 200, damage by 90, and causes it to reduce enemy Health Restoration by 20%.\n\nRADIUS: 450\nDAMAGE: 120/150/180/210\nHEALTH RESTORATION LOSS: 20%"
       },
-      "spirit_breaker": {
-        "ability": "Greater Bash / Nether Strike",
-        "ability_icon": "spirit_breaker_greater_bash",
-        "tag": "upgrade",
-        "desc": "Greater Bash: Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\nKNOCKBACK DISTANCE: 193/202/208/212\n\nNether Strike: Greatly increases knockback."
-      },
+      "spirit_breaker": [
+        {
+          "ability": "Greater Bash",
+          "ability_icon": "spirit_breaker_greater_bash",
+          "tag": "upgrade",
+          "desc": "Increases knockback. If a knocked-back enemy collides with another enemy, the second enemy is bashed (creeps only receive 20% damage), and the original target takes 25% of Greater Bash's damage again.\n\nKNOCKBACK DISTANCE: 193/202/208/212"
+        },
+        {
+          "ability": "Nether Strike",
+          "ability_icon": "spirit_breaker_nether_strike",
+          "tag": "upgrade",
+          "desc": "Greatly increases knockback."
+        }
+      ],
       "tidehunter": {
         "ability": "Gush",
         "ability_icon": "tidehunter_gush",
@@ -1833,12 +1881,20 @@
         "tag": "upgrade",
         "desc": "Increases strength steal.\n\nSTRENGTH STEAL: 8"
       },
-      "wraith_king": {
-        "ability": "Vampiric Spirit / Reincarnation",
-        "ability_icon": "skeleton_king_vampiric_aura",
-        "tag": "upgrade",
-        "desc": "Vampiric Spirit: Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200\n\nReincarnation: Reduces cooldown.\nCOOLDOWN: 170/140/110"
-      },
+      "wraith_king": [
+        {
+          "ability": "Vampiric Spirit",
+          "ability_icon": "skeleton_king_vampiric_aura",
+          "tag": "upgrade",
+          "desc": "Turns Vampiric Spirit into an aura, allowing allied heroes to turn into wraiths when slain. Extends wraith duration.\n\nWRAITH DURATION: 5.25\nAURA RADIUS: 1200"
+        },
+        {
+          "ability": "Reincarnation",
+          "ability_icon": "skeleton_king_reincarnation",
+          "tag": "upgrade",
+          "desc": "Reduces cooldown.\n\nCOOLDOWN: 170/140/110"
+        }
+      ],
       "bloodseeker": {
         "ability": "Rupture",
         "ability_icon": "bloodseeker_rupture",

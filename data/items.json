@@ -1275,12 +1275,20 @@
         "tag": "new ability",
         "desc": "Drow creates a hill of ice beneath her, knocking away nearby enemies. Units on the hill gain flying vision and Drow and her ranged allies gain bonus attack range. Drow gains additional damage while on the Glacier and attacking targets below her. The front of the hill obscures vision and cannot be moved through except by Drow. Does not interrupt Multishot when cast.\n\nDURATION: 8\nATTACK RANGE BONUS: 200\nHIGH GROUND DAMAGE BONUS: 25%"
       },
-      "ember_spirit": {
-        "ability": "Immolation / Fire Remnant",
-        "ability_icon": "ember_spirit_immolation",
-        "tag": "upgrade",
-        "desc": "Immolation: Grants Fire Remnants the current level of Immolation, and increases the damage per second and radius.\nRADIUS: 350\nDAMAGE PER SECOND: 21\n\nFire Remnant: If an enemy hero dies near Ember Spirit, a Fire Remnant charge will be replenished.\nCHARGE RADIUS: 400"
-      },
+      "ember_spirit": [
+        {
+          "ability": "Immolation",
+          "ability_icon": "ember_spirit_immolation",
+          "tag": "upgrade",
+          "desc": "Grants Fire Remnants the current level of Immolation, and increases the damage per second and radius.\n\nRADIUS: 350\nDAMAGE PER SECOND: 21"
+        },
+        {
+          "ability": "Fire Remnant",
+          "ability_icon": "ember_spirit_fire_remnant",
+          "tag": "upgrade",
+          "desc": "If an enemy hero dies near Ember Spirit, a Fire Remnant charge will be replenished. Additionally, when Ember Spirit dies a Fire Remnant is spawned at his location.\n\nCHARGE RADIUS: 400"
+        }
+      ],
       "faceless_void": {
         "ability": "Time Dilation",
         "ability_icon": "faceless_void_time_dilation",
@@ -1299,12 +1307,20 @@
         "tag": "new ability",
         "desc": "Tosses a boomerang in an arc. Upon contact, it returns to Hoodwink. The boomerang will deal damage as it passes through or hits enemies, and apply a debuff that causes affected enemies to be slowed and be more vulnerable to spell damage.\n\nRADIUS: 150\nDAMAGE: 200\nDEBUFF DURATION: 6\nMOVEMENT SLOW: 25%\nINCOMING SPELL DAMAGE AMP: 20%"
       },
-      "kez": {
-        "ability": "Kazurai Katana / Shodo Sai",
-        "ability_icon": "kez_kazurai_katana",
-        "tag": "upgrade",
-        "desc": "Kazurai Katana: Kez lifesteals 100% from the impale. If the impale comes from behind the target, the target is stunned. Increases max burst stacks.\nSTACKS AS BURST DAMAGE: 100%\nMAX BURST STACKS: 1000\n\nShodo Sai: Parrying creates a stronger Mark that deals additional stun and critical damage.\nPARRY BONUS CRITICAL STRIKE: 50%\nPARRY BONUS MARK STUN: 0.2"
-      },
+      "kez": [
+        {
+          "ability": "Kazurai Katana",
+          "ability_icon": "kez_kazurai_katana",
+          "tag": "upgrade",
+          "desc": "Kez lifesteals 100% from the impale. If the impale comes from behind the target, the target is stunned. Increases max burst stacks.\n\nSTACKS AS BURST DAMAGE: 100%\nMAX BURST STACKS: 1000"
+        },
+        {
+          "ability": "Shodo Sai",
+          "ability_icon": "kez_shodo_sai",
+          "tag": "upgrade",
+          "desc": "Parrying creates a stronger Mark that deals additional stun and critical damage.\n\nPARRY BONUS CRITICAL STRIKE: 50%\nPARRY BONUS MARK STUN: 0.2"
+        }
+      ],
       "lone_druid": {
         "ability": "Savage Roar",
         "ability_icon": "lone_druid_savage_roar",
@@ -1329,12 +1345,20 @@
         "tag": "new ability",
         "desc": "Digs into the ground for a short duration, dispelling Meepo and causing him to become invulnerable and untargetable for 3s. Restores 25% of his max health over that duration.\n\nDISPEL TYPE: Basic Dispel\nDURATION: 3\nMAX HP RESTORE: 25%"
       },
-      "mirana": {
-        "ability": "Leap / Celestial Quiver",
-        "ability_icon": "mirana_leap",
-        "tag": "upgrade",
-        "desc": "Leap: Grants +1 Leap charge.\n\nCelestial Quiver: Grants 3 temporary Charges while Leap's buff is active."
-      },
+      "mirana": [
+        {
+          "ability": "Leap",
+          "ability_icon": "mirana_leap",
+          "tag": "upgrade",
+          "desc": "Grants +1 Leap charge."
+        },
+        {
+          "ability": "Celestial Quiver",
+          "ability_icon": "mirana_celestial_quiver",
+          "tag": "upgrade",
+          "desc": "Grants 3 temporary Charges while Leap's buff is active."
+        }
+      ],
       "monkey_king": {
         "ability": "Boundless Strike",
         "ability_icon": "monkey_king_boundless_strike",
@@ -1529,12 +1553,20 @@
           ]
         }
       ],
-      "jakiro": {
-        "ability": "Liquid Fire / Liquid Frost",
-        "ability_icon": "jakiro_liquid_fire",
-        "tag": "upgrade",
-        "desc": "Liquid Fire: Jakiro's Liquid Fire has no mana cost and no longer shares a cooldown with Liquid Frost.\n\nLiquid Frost: Jakiro's Liquid Frost has no mana cost and no longer shares a cooldown with Liquid Fire."
-      },
+      "jakiro": [
+        {
+          "ability": "Liquid Fire",
+          "ability_icon": "jakiro_liquid_fire",
+          "tag": "upgrade",
+          "desc": "Jakiro's Liquid Fire has no mana cost and no longer shares a cooldown with Liquid Frost."
+        },
+        {
+          "ability": "Liquid Frost",
+          "ability_icon": "jakiro_liquid_ice",
+          "tag": "upgrade",
+          "desc": "Jakiro's Liquid Frost has no mana cost and no longer shares a cooldown with Liquid Fire."
+        }
+      ],
       "keeper_of_the_light": {
         "ability": "Solar Bind / Spirit Form",
         "ability_icon": "keeper_of_the_light_solar_bind",
@@ -1615,12 +1647,20 @@
         "tag": "new ability",
         "desc": "Ringmaster shines 3 spotlights that sweep over an area. Enemies in the light have a chance to miss their attacks and are revealed if invisible. Illusions hit by the beam fade away, losing a percentage of their maximum health each second. These effects linger for 0.3 seconds after leaving the light.\n\nRADIUS: 275\nILLUSION MAX HEALTH LOSS: 30%\nMISS CHANCE: 30%\nDURATION: 8"
       },
-      "rubick": {
-        "ability": "Telekinesis / Spell Steal",
-        "ability_icon": "rubick_telekinesis",
-        "tag": "upgrade",
-        "desc": "Telekinesis: Allows you to target yourself or allies with Telekinesis. Throw distance is increased to 600 and throw delay is reduced to 0.5 seconds.\nMAX THROW DISTANCE: 600\n\nSpell Steal: Upgrades stolen spells to their Shard version."
-      },
+      "rubick": [
+        {
+          "ability": "Telekinesis",
+          "ability_icon": "rubick_telekinesis",
+          "tag": "upgrade",
+          "desc": "Allows you to target yourself or allies with Telekinesis. Throw distance is increased to 600 and throw delay is reduced to 0.5 seconds.\n\nMAX THROW DISTANCE: 600"
+        },
+        {
+          "ability": "Spell Steal",
+          "ability_icon": "rubick_spell_steal",
+          "tag": "upgrade",
+          "desc": "Upgrades stolen spells to their Shard version."
+        }
+      ],
       "shadow_demon": {
         "ability": "Demonic Cleanse",
         "ability_icon": "shadow_demon_demonic_cleanse",
@@ -1657,12 +1697,20 @@
         "tag": "new ability",
         "desc": "Throws a flare towards an enemy, dealing damage, teleporting them away, rooting them and reducing their Cast and Attack Range for 2 seconds.\n\nThe target is teleported further the closer they are to Tinker.\n\nDAMAGE: 150\nCAST/ATTACK RANGE REDUCTION: 40%"
       },
-      "warlock": {
-        "ability": "Upheaval / Eldritch Summoning",
-        "ability_icon": "warlock_upheaval",
-        "tag": "upgrade",
-        "desc": "Upheaval: While channeling, Warlock spawns a minor imp every 2 seconds that lasts for 15 seconds and explodes dealing damage to all enemies around them upon death.\n\nEldritch Summoning: Increases the health and explosion damage of minor imps.\nIMP HEALTH: 100\nEXPLOSION DAMAGE: 65"
-      },
+      "warlock": [
+        {
+          "ability": "Upheaval",
+          "ability_icon": "warlock_upheaval",
+          "tag": "upgrade",
+          "desc": "While channeling, Warlock spawns a minor imp every 2 seconds that lasts for 15 seconds and explodes dealing damage to all enemies around them upon death."
+        },
+        {
+          "ability": "Eldritch Summoning",
+          "ability_icon": "warlock_innate_eldritch_summoning",
+          "tag": "upgrade",
+          "desc": "Increases the health and explosion damage of minor imps.\n\nIMP HEALTH: 100\nEXPLOSION DAMAGE: 65"
+        }
+      ],
       "winter_wyvern": {
         "ability": "Cold Embrace",
         "ability_icon": "winter_wyvern_cold_embrace",

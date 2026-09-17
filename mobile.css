@@ -556,15 +556,16 @@
 
   /* items/iron_branch.html */
   .itc-active-desc,
-  .itc-lore,
-  .use-case {
+  .itc-lore {
     font-size: 16px;
     line-height: 1.6;
   }
-  .coaching-text,
   .itc-passive {
     font-size: 16px;
   }
+  /* .coaching-text and .use-case are full-sentence running prose, sized to
+     match hero pages' body text (21px/1.6) on desktop — that same size holds
+     at this breakpoint too, so no override here. */
 
   /* ── 6. HEADING SIZE REDUCTION — the hero titles and section
      titles already use clamp() and self-limit at mobile widths.

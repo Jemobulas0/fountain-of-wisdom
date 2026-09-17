@@ -134,7 +134,7 @@
   .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
   .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
   .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
-  .itc-active-range .range-icon { width: 12px; height: 12px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
   .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
   .itc-active-desc strong { color: var(--text-bright); }
   .itc-lore { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; }
@@ -156,8 +156,9 @@
   a.build-tree-link:hover .build-tree-name { color: var(--gold); }
   .build-tree-plus { font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-dim); height: 60px; display: flex; align-items: center; justify-content: center; }
 
-  /* ── COACHING TEXT ── */
-  .coaching-text { font-size: 15px; line-height: 1.7; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }
+  /* ── COACHING TEXT — font-size/line-height match hero_template.html's
+     body rule (21px / 1.6), the standard for running prose on hero pages. ── */
+  .coaching-text { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }
 
   /* ── USE CASES ── */
   .use-cases { display: flex; flex-direction: column; gap: 12px; }
@@ -180,12 +181,13 @@
   a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
   a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
 
-  /* ── TIPS (reused from hero pages for the Advanced Tip section; font-size,
-     line-height and bullet size match hero_template.html's .tip exactly) ── */
-  .tip { font-size: 19px; line-height: 1.5; padding-left: 30px; position: relative; text-align: left; max-width: 700px; margin: 0 auto; }
+  /* ── ADVANCED TIP — font-size/line-height match hero_template.html's body
+     rule (21px / 1.6), the standard for running prose on hero pages. The
+     hero-page .tip component's "▸▸" bullet decoration is deliberately not
+     reused here (per Jemo: remove the arrow decorations), so no ::before
+     or reserved indent. ── */
+  .tip { font-size: 21px; line-height: 1.6; text-align: left; max-width: 700px; margin: 0 auto; }
   .tip.advanced { color: var(--yellow); }
-  .tip::before { position: absolute; left: 0; font-size: 15px; top: 2px; width: 22px; text-align: right; }
-  .tip.advanced::before { content: '▸▸'; color: var(--yellow); }
 
   /* ── REFLECT / DISPEL LABELS — mirrors hero pages' .item-timed / .timestamp
      pattern (green/yellow timing text above/below an item icon), reused here
@@ -198,19 +200,18 @@
   .item-timed .timestamp { font-family: 'Cinzel', serif; letter-spacing: 0.5px; line-height: 1; text-align: center; }
   .item-timed .timestamp.green { color: var(--green); }
   .item-timed .timestamp.red { color: var(--red); }
-  .item-timed.effect .timestamp { font-size: 15px; text-transform: uppercase; }
+  .item-timed.effect .timestamp { font-size: 12px; font-weight: 700; text-transform: uppercase; }
   .item-timed .timestamp.invisible { visibility: hidden; }
 
   .effect-row { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 22px; }
   .effect-row:last-child { margin-bottom: 0; }
   .effect-icons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  /* The compact grid sits directly in the section (not inside an .effect-row),
+     so it needs its own bottom margin to match the 22px gap .effect-row's
+     margin-bottom gives every other row below it. */
+  .effect-icons.item-grid { margin-bottom: 22px; }
   .effect-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .effect-caption { font-size: 16px; color: var(--text); text-align: center; max-width: 640px; }
-
-  /* Good Buyers coaching line — a size bump scoped to this line only via the
-     extra class, so the shared .coaching-text rule (also used by Overview,
-     which wasn't asked to change) stays untouched. */
-  .coaching-text.large { font-size: 16px; }
+  .effect-caption { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 640px; }
 
   /* ── HERO ROWS (Heroes section) ── */
   .hero-row-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
@@ -223,7 +224,7 @@
   a.hero-link:hover .hero-row-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   .hero-row-spells { display: flex; gap: 16px; flex-wrap: nowrap; }
   .build-tree-icon.small { width: 60px; height: 45px; }
-  .hero-row-caption { font-size: 16px; color: var(--text); padding-left: 120px; }
+  .hero-row-caption { font-size: 21px; line-height: 1.6; color: var(--text); }
 
   .buyer-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
   .hero-row-icon.medium { width: 48px; height: 48px; }
@@ -293,7 +294,7 @@
       <div class="itc-active">
         <div class="itc-active-header">
           <div class="itc-active-label">Active: Echo Shell</div>
-          <div class="itc-active-range"><span class="range-icon"></span> 900</div>
+          <div class="itc-active-range"><img class="range-icon" src="../assets/cast_range.png" alt="Cast Range"> 900</div>
         </div>
         <div class="itc-active-desc">Applies a shield to the target unit for <strong>5</strong> seconds which re-casts most targeted spells back to their caster.</div>
         <div class="itc-active-desc" style="margin-top:10px;">The shielded unit will still take damage from the spell.</div>
@@ -381,7 +382,7 @@
     <div class="section-title">Items</div>
 
     <!-- Compact grid: every item without a caption -->
-    <div class="effect-icons">
+    <div class="effect-icons item-grid">
       <div class="effect-item">
         <div class="item-timed effect">
           <span class="timestamp red invisible">Reflect</span>
@@ -672,14 +673,6 @@
         <div class="hero-row-spells">
           <div class="effect-item">
             <div class="item-timed effect">
-              <span class="timestamp red">Reflect</span>
-              <div class="build-tree-icon small"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/batrider_flaming_lasso.png" alt="Flaming Lasso"></div>
-              <span class="timestamp green invisible">Dispel</span>
-            </div>
-            <div class="build-tree-name">Flaming Lasso</div>
-          </div>
-          <div class="effect-item">
-            <div class="item-timed effect">
               <span class="timestamp red invisible">Reflect</span>
               <div class="build-tree-icon small"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/batrider_sticky_napalm.png" alt="Sticky Napalm"></div>
               <span class="timestamp green">Dispel</span>
@@ -693,6 +686,14 @@
               <span class="timestamp green">Dispel</span>
             </div>
             <div class="build-tree-name">Flamebreak</div>
+          </div>
+          <div class="effect-item">
+            <div class="item-timed effect">
+              <span class="timestamp red">Reflect</span>
+              <div class="build-tree-icon small"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/batrider_flaming_lasso.png" alt="Flaming Lasso"></div>
+              <span class="timestamp green invisible">Dispel</span>
+            </div>
+            <div class="build-tree-name">Flaming Lasso</div>
           </div>
         </div>
       </div>
@@ -1054,15 +1055,15 @@
   <!-- GOOD BUYERS -->
   <div class="section">
     <div class="section-title">Good Buyers</div>
-    <div class="coaching-text large">Heroes with mana problems who get focused by physical damage.</div>
+    <div class="coaching-text">Heroes with mana problems who get focused by physical damage, as well as heroes who need a dispel for their kit.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="shredder"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png" alt="Timbersaw"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="dark_seer"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png" alt="Dark Seer"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="bristleback"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png" alt="Bristleback"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="earth_spirit"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/earth_spirit.png" alt="Earth Spirit"></div></span>
-      <span class="hero-link" data-tooltip="hero" data-hero-key="necrolyte"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" alt="Necrophos"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="phoenix"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phoenix.png" alt="Phoenix"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="abyssal_underlord"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png" alt="Underlord"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="necrolyte"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" alt="Necrophos"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="bounty_hunter"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" alt="Bounty Hunter"></div></span>
     </div>
   </div>

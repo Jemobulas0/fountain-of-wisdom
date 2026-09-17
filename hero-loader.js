@@ -12,6 +12,16 @@ function getHeroName(id) {
   return (hero && hero.name) || id.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
 }
 
+// Wraps a version string's trailing patch letter(s) (e.g. the "f" in "7.41f") in a
+// span so it can be sized down independently — Crimson Pro's lowercase ascenders
+// render taller than lining-figure digits at the same font-size.
+function formatVersionLabel(version) {
+  const m = String(version).match(/^([\d.]+)([a-zA-Z]*)$/);
+  if (!m) return version;
+  const [, num, letter] = m;
+  return letter ? `${num}<span class="version-letter">${letter}</span>` : num;
+}
+
 
 // ── POSITION GROUPS ───────────────────────────────────────────────────────────
 // Defines the three timing groups. The loader uses this to build timestamp
@@ -155,7 +165,7 @@ function buildHeader(data) {
     `</div>`;
 
   document.getElementById('header-right').innerHTML =
-    `<div class="version-badge">v ${data.version}</div>`;
+    `<div class="version-badge">${formatVersionLabel(data.version)}</div>`;
 }
 
 

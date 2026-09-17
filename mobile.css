@@ -574,6 +574,54 @@
   .page-title {
     font-size: 26px;
   }
+
+  /* items/iron_branch.html, items/lotus_orb.html — Build Tree section only.
+     Scoped via the .build-tree ancestor so this doesn't touch the same
+     .build-tree-icon/.build-tree-name/.build-tree-item classes reused by
+     lotus_orb.html's Items section grid. The desktop sizing (80x60 icons,
+     15px text, 80px-wide columns) needs ~620px for the 4-item bottom row
+     both pages have; this shrinks it back down to the original pre-redesign
+     48x36/11px/48px-wide sizing so that row fits on one line at 375px. */
+  .build-tree .build-tree-item {
+    width: 48px;
+  }
+  .build-tree .build-tree-icon {
+    width: 48px;
+    height: 36px;
+  }
+  .build-tree .build-tree-name {
+    font-size: 11px;
+    max-width: 48px;
+  }
+  .build-tree .build-tree-cost {
+    font-size: 11px;
+  }
+  .build-tree-plus {
+    font-size: 14px;
+    height: 36px;
+  }
+  .build-tree-row {
+    gap: 8px;
+  }
+
+  /* items/lotus_orb.html — Heroes section. Side-by-side (portrait beside
+     its spells) needs ~620px for the 4-spell rows (Bane, Venomancer), so
+     below 768px stack the portrait above its spells instead and let the
+     spells wrap. Every spell cell keeps the same fixed width regardless of
+     wrapping, so a hero's own spells still line up with each other; different
+     heroes' spell columns no longer share a start position, which is fine
+     since there's no more shared portrait-width offset to align them against. */
+  .hero-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .hero-row > .hero-link {
+    margin-top: 0;
+  }
+  .hero-row-spells {
+    flex-wrap: wrap;
+  }
 }
 
 /* index.html — "About the Coach" action buttons. They sit side by side

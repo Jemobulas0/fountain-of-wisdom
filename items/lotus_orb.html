@@ -141,20 +141,20 @@
 
   /* ── BUILD TREE ── */
   .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
-  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: flex-start; }
   .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
   .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
-  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .build-tree-icon { width: 48px; height: 36px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 80px; }
+  .build-tree-icon { width: 80px; height: 60px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
   .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
   .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 9px; letter-spacing: 0.5px; color: var(--text-dim); text-align: center; }
+  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; letter-spacing: 0.5px; color: var(--text); text-align: center; }
   .build-tree-name.current { color: var(--gold); }
-  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dark); margin-bottom: 6px; }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; }
   a.build-tree-link { text-decoration: none; color: inherit; }
   a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   a.build-tree-link:hover .build-tree-name { color: var(--gold); }
-  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 14px; color: var(--text-dim); }
+  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-dim); height: 60px; display: flex; align-items: center; justify-content: center; }
 
   /* ── COACHING TEXT ── */
   .coaching-text { font-size: 15px; line-height: 1.7; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }
@@ -180,39 +180,50 @@
   a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
   a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
 
-  /* ── TIPS (reused from hero pages for the Advanced Tip section) ── */
-  .tip { font-size: 15px; line-height: 1.7; padding-left: 30px; position: relative; text-align: left; max-width: 700px; margin: 0 auto; }
+  /* ── TIPS (reused from hero pages for the Advanced Tip section; font-size,
+     line-height and bullet size match hero_template.html's .tip exactly) ── */
+  .tip { font-size: 19px; line-height: 1.5; padding-left: 30px; position: relative; text-align: left; max-width: 700px; margin: 0 auto; }
   .tip.advanced { color: var(--yellow); }
-  .tip::before { position: absolute; left: 0; font-size: 13px; top: 2px; width: 22px; text-align: right; }
+  .tip::before { position: absolute; left: 0; font-size: 15px; top: 2px; width: 22px; text-align: right; }
   .tip.advanced::before { content: '▸▸'; color: var(--yellow); }
 
   /* ── REFLECT / DISPEL LABELS — mirrors hero pages' .item-timed / .timestamp
      pattern (green/yellow timing text above/below an item icon), reused here
      with a red "Reflect" label above and the existing green reused below for
-     "Dispel". .timestamp.red is new; .item-timed/.timestamp/.green are the
-     exact hero-page classes. ── */
+     "Dispel". .timestamp.red is new; .item-timed, .item-timed .timestamp and
+     .item-timed .timestamp.green are the exact hero-page rules (hero_template.html),
+     reused verbatim so the labels center and space themselves the same way the
+     hero pages' build-timing labels do. ── */
+  .item-timed { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .item-timed .timestamp { font-family: 'Cinzel', serif; letter-spacing: 0.5px; line-height: 1; text-align: center; }
+  .item-timed .timestamp.green { color: var(--green); }
   .item-timed .timestamp.red { color: var(--red); }
-  .item-timed.effect .timestamp { font-size: 9px; text-transform: uppercase; }
+  .item-timed.effect .timestamp { font-size: 15px; text-transform: uppercase; }
   .item-timed .timestamp.invisible { visibility: hidden; }
 
   .effect-row { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 22px; }
   .effect-row:last-child { margin-bottom: 0; }
   .effect-icons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
   .effect-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .effect-caption { font-size: 13px; color: var(--text-dim); text-align: center; max-width: 640px; }
-  .also-dispels { text-align: center; margin-top: 8px; font-size: 14px; color: var(--text); }
-  .also-dispels-label { color: var(--text-dim); margin-right: 6px; }
+  .effect-caption { font-size: 16px; color: var(--text); text-align: center; max-width: 640px; }
+
+  /* Good Buyers coaching line — a size bump scoped to this line only via the
+     extra class, so the shared .coaching-text rule (also used by Overview,
+     which wasn't asked to change) stays untouched. */
+  .coaching-text.large { font-size: 16px; }
 
   /* ── HERO ROWS (Heroes section) ── */
   .hero-row-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
   .hero-row-block:last-child { margin-bottom: 0; }
   .hero-row { display: flex; align-items: center; gap: 18px; }
-  .hero-row-icon { width: 60px; height: 60px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+  /* Same rectangular dimensions/border as hero pages' Allies & Counters
+     hero-thumb-icon (hero_template.html), just reused directly here. */
+  .hero-row-icon { width: 102px; height: 57px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }
   .hero-row-icon img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
   a.hero-link:hover .hero-row-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   .hero-row-spells { display: flex; gap: 16px; flex-wrap: nowrap; }
-  .build-tree-icon.small { width: 36px; height: 27px; }
-  .hero-row-caption { font-size: 13px; color: var(--text-dim); padding-left: 78px; }
+  .build-tree-icon.small { width: 60px; height: 45px; }
+  .hero-row-caption { font-size: 16px; color: var(--text); padding-left: 120px; }
 
   .buyer-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
   .hero-row-icon.medium { width: 48px; height: 48px; }
@@ -369,6 +380,150 @@
   <div class="section">
     <div class="section-title">Items</div>
 
+    <!-- Compact grid: every item without a caption -->
+    <div class="effect-icons">
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="urn_of_shadows">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/urn_of_shadows.png" alt="Urn of Shadows"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Urn of Shadows</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="spirit_vessel">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/spirit_vessel.png" alt="Spirit Vessel"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Spirit Vessel</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="essence_distiller">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/essence_distiller.png" alt="Essence Distiller"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Essence Distiller</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="orchid">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orchid.png" alt="Orchid Malevolence"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Orchid Malevolence</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="bloodthorn">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png" alt="Bloodthorn"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Bloodthorn</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="rod_of_atos">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rod_of_atos.png" alt="Rod of Atos"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Rod of Atos</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="gungir">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gungir.png" alt="Gleipnir"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Gleipnir</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="ethereal_blade">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ethereal_blade.png" alt="Ethereal Blade"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Ethereal Blade</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="veil_of_discord">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/veil_of_discord.png" alt="Veil of Discord"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Veil of Discord</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="shivas_guard">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png" alt="Shiva's Guard"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Shiva's Guard</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="diffusal_blade">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png" alt="Diffusal Blade"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Diffusal Blade</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red invisible">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="disperser">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png" alt="Disperser"></div>
+          </span>
+          <span class="timestamp green">Dispel</span>
+        </div>
+        <div class="build-tree-name">Disperser</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="sheepstick">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png" alt="Scythe of Vyse"></div>
+          </span>
+          <span class="timestamp green invisible">Dispel</span>
+        </div>
+        <div class="build-tree-name">Scythe of Vyse</div>
+      </div>
+      <div class="effect-item">
+        <div class="item-timed effect">
+          <span class="timestamp red">Reflect</span>
+          <span class="item-link" data-tooltip="item" data-item="dagon">
+            <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dagon.png" alt="Dagon"></div>
+          </span>
+          <span class="timestamp green invisible">Dispel</span>
+        </div>
+        <div class="build-tree-name">Dagon</div>
+      </div>
+    </div>
+
     <!-- Dust of Appearance -->
     <div class="effect-row">
       <div class="effect-icons">
@@ -386,111 +541,6 @@
       <div class="effect-caption">Can only be dispelled once you leave its area, or the area expires and the debuff starts running out.</div>
     </div>
 
-    <!-- Urn of Shadows, Spirit Vessel, Essence Distiller -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="urn_of_shadows">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/urn_of_shadows.png" alt="Urn of Shadows"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Urn of Shadows</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="spirit_vessel">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/spirit_vessel.png" alt="Spirit Vessel"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Spirit Vessel</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="essence_distiller">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/essence_distiller.png" alt="Essence Distiller"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Essence Distiller</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Orchid Malevolence, Bloodthorn -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="orchid">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/orchid.png" alt="Orchid Malevolence"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Orchid Malevolence</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="bloodthorn">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodthorn.png" alt="Bloodthorn"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Bloodthorn</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rod of Atos, Gleipnir -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="rod_of_atos">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/rod_of_atos.png" alt="Rod of Atos"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Rod of Atos</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="gungir">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gungir.png" alt="Gleipnir"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Gleipnir</div>
-        </div>
-      </div>
-      <div class="effect-caption">Gleipnir is an area effect, but it still gets reflected.</div>
-    </div>
-
-    <!-- Ethereal Blade -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="ethereal_blade">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ethereal_blade.png" alt="Ethereal Blade"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Ethereal Blade</div>
-        </div>
-      </div>
-    </div>
-
     <!-- Meteor Hammer -->
     <div class="effect-row">
       <div class="effect-icons">
@@ -506,91 +556,6 @@
         </div>
       </div>
       <div class="effect-caption">Dispels the damage over time, not the stun.</div>
-    </div>
-
-    <!-- Veil of Discord -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="veil_of_discord">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/veil_of_discord.png" alt="Veil of Discord"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Veil of Discord</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Shiva's Guard -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="shivas_guard">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/shivas_guard.png" alt="Shiva's Guard"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Shiva's Guard</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Khanda, Phylactery -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="angels_demise">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/angels_demise.png" alt="Khanda"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Khanda</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="phylactery">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/phylactery.png" alt="Phylactery"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Phylactery</div>
-        </div>
-      </div>
-      <div class="effect-caption">Dispels the slow, not the Break.</div>
-    </div>
-
-    <!-- Diffusal Blade, Disperser -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="diffusal_blade">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/diffusal_blade.png" alt="Diffusal Blade"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Diffusal Blade</div>
-        </div>
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red invisible">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="disperser">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/disperser.png" alt="Disperser"></div>
-            </span>
-            <span class="timestamp green">Dispel</span>
-          </div>
-          <div class="build-tree-name">Disperser</div>
-        </div>
-      </div>
     </div>
 
     <!-- Force Staff, Hurricane Pike, Harpoon -->
@@ -628,44 +593,6 @@
         </div>
       </div>
       <div class="effect-caption">Being pushed by an enemy's Force Staff, Hurricane Pike or Harpoon counts as a debuff. Dispel yourself with good timing to stop the movement instantly.</div>
-    </div>
-
-    <!-- Scythe of Vyse -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="sheepstick">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sheepstick.png" alt="Scythe of Vyse"></div>
-            </span>
-            <span class="timestamp green invisible">Dispel</span>
-          </div>
-          <div class="build-tree-name">Scythe of Vyse</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Dagon -->
-    <div class="effect-row">
-      <div class="effect-icons">
-        <div class="effect-item">
-          <div class="item-timed effect">
-            <span class="timestamp red">Reflect</span>
-            <span class="item-link" data-tooltip="item" data-item="dagon">
-              <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/dagon.png" alt="Dagon"></div>
-            </span>
-            <span class="timestamp green invisible">Dispel</span>
-          </div>
-          <div class="build-tree-name">Dagon</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="also-dispels">
-      <span class="also-dispels-label">Also dispels:</span>
-      <span class="item-link" data-tooltip="item" data-item="crellas_crozier"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/crellas_crozier.png" alt="Crella's Crozier"></span></span> Crella's Crozier,
-      <span class="item-link" data-tooltip="item" data-item="hydras_breath"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/hydras_breath.png" alt="Hydra's Breath"></span></span> Hydra's Breath
     </div>
   </div>
 
@@ -1127,7 +1054,7 @@
   <!-- GOOD BUYERS -->
   <div class="section">
     <div class="section-title">Good Buyers</div>
-    <div class="coaching-text">Heroes with mana problems who get focused by physical damage.</div>
+    <div class="coaching-text large">Heroes with mana problems who get focused by physical damage.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="shredder"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png" alt="Timbersaw"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="dark_seer"><div class="hero-row-icon medium"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_seer.png" alt="Dark Seer"></div></span>
@@ -1144,7 +1071,7 @@
   <div class="section">
     <div class="section-title">Advanced Tip</div>
     <div class="tip advanced">
-      If the enemy casting on you has upgraded that spell with <span class="item-link" data-tooltip="item" data-item="ultimate_scepter"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter"></span></span> Aghanim's Scepter or <span class="item-link" data-tooltip="item" data-item="aghanims_shard"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard"></span></span> Aghanim's Shard, Lotus Orb reflects the upgraded version. But if the upgrade turns a targeted spell into an area spell, it isn't reflected at all, like <span class="hero-link" data-tooltip="hero" data-hero-key="storm_spirit"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm Spirit"></span></span> Storm Spirit's <span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/storm_spirit_electric_vortex.png" alt="Electric Vortex"></span> Electric Vortex.
+      If the enemy caster's spell is upgraded by <span class="item-link" data-tooltip="item" data-item="ultimate_scepter"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png" alt="Aghanim's Scepter"></span></span> Aghanim's Scepter or <span class="item-link" data-tooltip="item" data-item="aghanims_shard"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png" alt="Aghanim's Shard"></span></span> Aghanim's Shard, Lotus Orb reflects the upgraded version. But if the upgrade transforms an otherwise targeted spell into an AoE one, then it will be no longer reflected at all - ex. <span class="hero-link" data-tooltip="hero" data-hero-key="storm_spirit"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm Spirit"></span></span> Storm Spirit's <span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/storm_spirit_electric_vortex.png" alt="Electric Vortex"></span> Electric Vortex.
     </div>
   </div>
 

@@ -141,20 +141,20 @@
 
   /* ── BUILD TREE ── */
   .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
-  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: flex-start; }
   .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
   .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
-  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .build-tree-icon { width: 48px; height: 36px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 80px; }
+  .build-tree-icon { width: 80px; height: 60px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
   .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
   .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 9px; letter-spacing: 0.5px; color: var(--text-dim); text-align: center; }
+  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; letter-spacing: 0.5px; color: var(--text); text-align: center; }
   .build-tree-name.current { color: var(--gold); }
-  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dark); margin-bottom: 6px; }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; }
   a.build-tree-link { text-decoration: none; color: inherit; }
   a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   a.build-tree-link:hover .build-tree-name { color: var(--gold); }
-  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 14px; color: var(--text-dim); }
+  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-dim); height: 60px; display: flex; align-items: center; justify-content: center; }
 
   /* ── COACHING TEXT ── */
   .coaching-text { font-size: 15px; line-height: 1.7; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }

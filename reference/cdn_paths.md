@@ -37,6 +37,9 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 | In-Game Name | Legacy CDN Name | Notes |
 |---|---|---|
 | Curse of the Oldgrowth | `furion_curse_of_the_forest` | Nature's Prophet innate. CDN id keeps the old "forest" internal name, not "oldgrowth". Confirmed 200 via api.opendota.com/api/constants/abilities. |
+| Lion: Hex | `lion_voodoo` | CDN/internal id predates the "Hex" rename. Confirmed via api.opendota.com/api/constants/abilities (built while sourcing lotus_orb.html). |
+| Shadow Shaman: Hex | `shadow_shaman_voodoo` | Same "Hex" rename as Lion's, different hero. Confirmed via api.opendota.com/api/constants/abilities. |
+| Silencer: Arcane Curse | `silencer_curse_of_the_silent` | CDN keeps the ability's old name. Confirmed via api.opendota.com/api/constants/abilities. |
 
 ### Items
 
@@ -48,6 +51,8 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 | Aghanim's Blessing | `ultimate_scepter_2` | CDN uses this internal name instead of the current in-game name. |
 | Crella's Crozier | `crellas_crozier` | Confirmed via api.opendota.com/api/constants/items — display name matches exactly. |
 | Greedy (Enchantment) | `enhancement_greedy` | Not a shop item — an enchantment (see `build.enchantment` in hero JSON). CDN spells it "enhancement", not "enchantment". |
+| Perseverance | `pers` | CDN/internal id is a short form, not a rename. Confirmed via api.opendota.com/api/constants/items (built while sourcing lotus_orb.html). |
+| Scythe of Vyse | `sheepstick` | CDN keeps the item's old "Sheepstick" internal name. Confirmed via api.opendota.com/api/constants/items. |
 
 ## When adding new entries
 

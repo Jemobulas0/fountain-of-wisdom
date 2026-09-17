@@ -213,10 +213,30 @@
   .effect-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .effect-caption { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 640px; }
 
+  /* Fixed cell width for the Heroes section spell cells and the Items
+     section's captioned rows (not the compact item grid, which keeps its
+     shrink-to-fit cells) — 104px fits the longest name on one line
+     ("Finger of Death", "Venomous Gale", "Noxious Plague" all measure
+     ~100px at this font), so every cell is the same width regardless of
+     name length and icons land in straight columns row to row. */
+  .hero-row-spells .effect-item,
+  .effect-row .effect-item {
+    width: 104px;
+  }
+  .hero-row-spells .build-tree-name,
+  .effect-row .build-tree-name {
+    max-width: 104px;
+  }
+
   /* ── HERO ROWS (Heroes section) ── */
   .hero-row-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
   .hero-row-block:last-child { margin-bottom: 0; }
-  .hero-row { display: flex; align-items: center; gap: 18px; }
+  /* align-items:flex-start, not center — centering against the whole cell
+     (icon + labels + name) sits the portrait too low, since the cell is
+     taller than just the icon. The hero-link's margin-top below shifts the
+     portrait down to align its own center with the icon's center instead. */
+  .hero-row { display: flex; align-items: flex-start; gap: 18px; }
+  .hero-row > .hero-link { margin-top: 8px; }
   /* Same rectangular dimensions/border as hero pages' Allies & Counters
      hero-thumb-icon (hero_template.html), just reused directly here. */
   .hero-row-icon { width: 102px; height: 57px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }

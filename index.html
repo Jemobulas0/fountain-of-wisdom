@@ -210,6 +210,36 @@
 
   .gate-flip { transform: scaleX(-1); }
 
+  /* Twin Gate channeled-state motion, matching favicon-anim.js:
+     outer arc counter-clockwise, middle clockwise, inner (colored)
+     counter-clockwise, all completing 360 degrees in 10s so every
+     gate returns to its starting frame each loop. transform-origin
+     is set in the symbol's own 100x100 user-unit space (50 50 is
+     the shared arc center), so this rotates in place regardless of
+     the gate's rendered size or the gate-flip mirroring. */
+  .gate-arc {
+    transform-box: view-box;
+    transform-origin: 50px 50px;
+  }
+  .gate-arc-outer { animation: gate-spin-ccw 10s linear infinite; }
+  .gate-arc-mid { animation: gate-spin-cw 10s linear infinite; }
+  .gate-arc-inner { animation: gate-spin-ccw 10s linear infinite; }
+
+  @keyframes gate-spin-cw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes gate-spin-ccw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gate-arc-outer, .gate-arc-mid, .gate-arc-inner {
+      animation: none;
+    }
+  }
+
   .hero-subtitle {
     font-family: 'Cinzel', serif;
     font-size: clamp(12px, 2vw, 16px);
@@ -739,14 +769,14 @@
 
 <svg width="0" height="0" style="position:absolute"><defs>
 <symbol id="gate-red" viewBox="0 0 100 100">
-  <path d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#e03a2a" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-outer" d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-mid" d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-inner" d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#e03a2a" stroke-width="7" stroke-linecap="round"/>
 </symbol>
 <symbol id="gate-blue" viewBox="0 0 100 100">
-  <path d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#3ec6e0" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-outer" d="M 22.31,15.81 A 44,44 0 0 1 77.69,15.81" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-mid" d="M 40.11,81.48 A 33,33 0 1 0 18.53,59.92" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <path class="gate-arc gate-arc-inner" d="M 70.98,56.62 A 22,22 0 1 0 56.59,70.99" fill="none" stroke="#3ec6e0" stroke-width="7" stroke-linecap="round"/>
 </symbol>
 </defs></svg>
 

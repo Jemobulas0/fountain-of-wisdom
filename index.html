@@ -643,6 +643,15 @@
     margin-bottom: 28px;
   }
 
+  /* Inline text links inside running homepage prose (e.g. "Built by One
+     Person"'s Discord mention) — no such link existed on this page before,
+     so this mirrors the one other place the site links out mid-sentence:
+     terms.html's `.legal-block p a` (gold, underlined). */
+  .about-single p a {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
   .about-actions {
     display: flex;
     gap: 16px;
@@ -841,80 +850,94 @@
     </div>
   </div>
 
-  <!-- MAIN NAVIGATION TILES -->
-  <section id="explore">
+  <!-- BUILT BY ONE PERSON -->
+  <section id="built-by-one-person">
     <div class="section-header">
-      <div class="section-label">What's Inside</div>
-      <div class="section-title">Explore the Fountain</div>
-      <div class="section-desc">Start wherever your questions lie.</div>
+      <div class="section-label">One Person, Every Page</div>
+      <div class="section-title">Built by One Person</div>
       <div class="section-divider"></div>
     </div>
-    <div class="index-rows">
-
-      <a href="heroes.html" class="index-row">
-        <div class="index-row-name">Heroes</div>
-        <div class="index-row-desc">Roles, skill and item builds, game plan, tips and counters. With timing benchmarks so you always know where you stand.</div>
-        <div class="index-row-arrow">→</div>
-      </a>
-
-      <a href="items.html" class="index-row">
-        <div class="index-row-name">Items</div>
-        <div class="index-row-desc">What each item actually does, when to buy it, which heroes get the most out of it, and the properties most players never find out it has. Every item in the game, not only the ones you already buy.</div>
-        <div class="index-row-arrow">→</div>
-      </a>
-
-      <!--
-      <a href="concepts.html" class="tile concepts">
-        <div class="tile-icon">◈</div>
-        <div class="tile-title">Concepts</div>
-        <div class="tile-desc">The hidden fundamentals that separate good players from great ones. Things most players never put their finger on — but feel every game.</div>
-        <div class="tile-arrow">Learn Concepts</div>
-      </a>
-      -->
-
-      <a href="guides.html" class="index-row">
-        <div class="index-row-name">Guides</div>
-        <div class="index-row-desc">Long-form pieces on strategy, mindset, roles and mechanics. The things that truly need our in-depth attention.</div>
-        <div class="index-row-arrow">→</div>
-      </a>
-
+    <div class="about-single">
+      <p>I've wanted to build this for about 20 years now. Everything here comes from me. Every hero page, every item, every guide. No team, no writers, no scraped data.</p>
+      <p>Two decades of playing and coaching, through the good and the bad, taught me things I want to give back. We grow through shared knowledge.</p>
+      <p>New content goes up as I make it. If there's anything you want covered next, there's a request channel on our <a href="https://discord.gg/GrRgJ3N" target="_blank" rel="noopener">Discord server</a>.</p>
     </div>
   </section>
 
-  <!-- ABOUT THE COACH -->
-  <div class="philosophy-section full-width" id="coach">
+  <!-- MAIN NAVIGATION TILES -->
+  <div class="philosophy-section full-width" id="explore">
     <div style="max-width:1100px; margin:0 auto; padding: 0 40px;">
-      <div class="section-header" style="margin-bottom:16px;">
-        <div class="section-label">Behind the Fountain</div>
-        <div class="section-title">About the Coach</div>
+      <div class="section-header">
+        <div class="section-label">What's Inside</div>
+        <div class="section-title">Explore the Fountain</div>
+        <div class="section-desc">Start wherever your questions lie.</div>
         <div class="section-divider"></div>
       </div>
-      <div class="about-single">
-        <div class="coach-name">Jemobulas</div>
-        <h3>Mastery is a direction, not a destination.</h3>
-        <div class="stats-row">
-          <div class="stat">
-            <div class="stat-number">23</div>
-            <div class="stat-label">Years Playing</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">20</div>
-            <div class="stat-label">Years Coaching</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">10<span style="font-size:0.85em; position:relative; top:0.05em;">k</span>+</div>
-            <div class="stat-label">Peak MMR</div>
-          </div>
-        </div>
-        <p>I've played DotA since its birth - and MOBAs older than Aeon of Strife before that. I've spent more hours in this game than most people spend on any single thing in their lives, and what I've found is that in the long run, we are our own biggest obstacle to conquer.</p>
-        <p>Which is why what you build here doesn't just remain here. Assessing a situation before committing to it, keeping a cool head and staying focused when things go sideways, being able to tell the difference between a bad decision and a good but unlucky one - developing these universal qualities helps everywhere in life. And DotA is an incredibly fertile ground for such skills to grow.</p>
-        <div class="about-actions">
-          <a href="coaching.html" class="btn-primary">Book a Coaching Session</a>
-          <a href="https://discord.gg/GrRgJ3N" class="btn-secondary" target="_blank" rel="noopener">Discord Server</a>
-        </div>
+      <div class="index-rows">
+
+        <a href="heroes.html" class="index-row">
+          <div class="index-row-name">Heroes</div>
+          <div class="index-row-desc">Roles, skill and item builds, game plan, tips and counters. With timing benchmarks so you always know where you stand.</div>
+          <div class="index-row-arrow">→</div>
+        </a>
+
+        <a href="items.html" class="index-row">
+          <div class="index-row-name">Items</div>
+          <div class="index-row-desc">What each item actually does, when to buy it, which heroes get the most out of it, and the properties most players never find out it has. Every item in the game, not only the ones you already buy.</div>
+          <div class="index-row-arrow">→</div>
+        </a>
+
+        <!--
+        <a href="concepts.html" class="tile concepts">
+          <div class="tile-icon">◈</div>
+          <div class="tile-title">Concepts</div>
+          <div class="tile-desc">The hidden fundamentals that separate good players from great ones. Things most players never put their finger on — but feel every game.</div>
+          <div class="tile-arrow">Learn Concepts</div>
+        </a>
+        -->
+
+        <a href="guides.html" class="index-row">
+          <div class="index-row-name">Guides</div>
+          <div class="index-row-desc">Long-form pieces on strategy, mindset, roles and mechanics. The things that truly need our in-depth attention.</div>
+          <div class="index-row-arrow">→</div>
+        </a>
+
       </div>
     </div>
   </div>
+
+  <!-- ABOUT THE COACH -->
+  <section id="coach">
+    <div class="section-header" style="margin-bottom:16px;">
+      <div class="section-label">Behind the Fountain</div>
+      <div class="section-title">About the Coach</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-single">
+      <div class="coach-name">Jemobulas</div>
+      <h3>Mastery is a direction, not a destination.</h3>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-number">23</div>
+          <div class="stat-label">Years Playing</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">20</div>
+          <div class="stat-label">Years Coaching</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10<span style="font-size:0.85em; position:relative; top:0.05em;">k</span>+</div>
+          <div class="stat-label">Peak MMR</div>
+        </div>
+      </div>
+      <p>I've played DotA since its birth - and MOBAs older than Aeon of Strife before that. I've spent more hours in this game than most people spend on any single thing in their lives, and what I've found is that in the long run, we are our own biggest obstacle to conquer.</p>
+      <p>Which is why what you build here doesn't just remain here. Assessing a situation before committing to it, keeping a cool head and staying focused when things go sideways, being able to tell the difference between a bad decision and a good but unlucky one - developing these universal qualities helps everywhere in life. And DotA is an incredibly fertile ground for such skills to grow.</p>
+      <div class="about-actions">
+        <a href="coaching.html" class="btn-primary">Book a Coaching Session</a>
+        <a href="https://discord.gg/GrRgJ3N" class="btn-secondary" target="_blank" rel="noopener">Discord Server</a>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>

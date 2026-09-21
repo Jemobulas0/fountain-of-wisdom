@@ -221,10 +221,17 @@
 
   /* ── TIPS ── */
   .tips-list { display: flex; flex-direction: column; gap: 20px; }
-  .tip { font-size: 19px; line-height: 1.5; padding-left: 30px; position: relative; }
+  .tip { font-size: 19px; line-height: 1.5; padding-left: 30px; position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .tip.basic { color: var(--green); }
   .tip.advanced { color: var(--yellow); }
-  .tip::before { position: absolute; left: 0; font-size: 15px; top: 2px; width: 22px; text-align: right; }
+  /* Arrow: same glyph as before, right edge still at 22px. It is sized to its own glyph
+     (right: calc(100% - 22px) instead of left:0 + width:22px + text-align:right) so the
+     rotation pivots on the arrow itself. Open = turned to point down; collapsed = as-is (right). */
+  .tip::before { position: absolute; right: calc(100% - 22px); font-size: 15px; top: 2px; white-space: nowrap; transform: rotate(90deg); transition: transform 0.2s ease; }
+  .tip.is-collapsed::before { transform: none; }
+  /* Collapsed: first line only, ellipsis after it. Icons in that line stay live. */
+  .tip.is-collapsed { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden; }
+  .tip:focus-visible { outline: 1px solid var(--gold-dark); outline-offset: 4px; }
   .tip.basic::before { content: '▸'; color: var(--green); }
   .tip.advanced::before { content: '▸▸'; color: var(--yellow); }
   .tips-legend { display: flex; gap: 16px; margin-bottom: 12px; }
@@ -317,6 +324,7 @@
 </div>
 
 <script src="icon-src.js?v=12"></script>
+<script src="mobile-toc.js"></script>
 <script src="hero-loader.js?v=12"></script>
 <script src="data/tooltips.js?v=12"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->

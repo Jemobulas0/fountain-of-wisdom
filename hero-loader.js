@@ -374,12 +374,40 @@ function buildTips(tips) {
       `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>` +
     `</div>`;
 
+  // Every tip starts open (no state is stored between visits). Each .tip is its own
+  // toggle: role=button + tabindex + aria-expanded, kept in sync by toggleTip.
   const tipsHTML = tips.map(function(tip) {
-    return `<div class="tip ${tip.level}">${parseText(tip.text)}</div>`;
+    return `<div class="tip ${tip.level}" role="button" tabindex="0" aria-expanded="true">${parseText(tip.text)}</div>`;
   }).join('');
 
   section.innerHTML += legendHTML + `<div class="tips-list">${tipsHTML}</div>`;
+  wireTipToggles(section.querySelector('.tips-list'));
   return section;
+}
+
+function toggleTip(tip) {
+  const collapsed = tip.classList.toggle('is-collapsed');
+  tip.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+}
+
+// One delegated pair of listeners for the whole list. Item / spell / hero icons and
+// links inside a tip keep their own behaviour, so a click on any of them never toggles.
+// A click that ends a text selection does not toggle either.
+function wireTipToggles(list) {
+  list.addEventListener('click', function(e) {
+    const tip = e.target.closest('.tip');
+    if (!tip) return;
+    if (e.target.closest('a, [data-tooltip], .hero-link, .item-link, .ability-icon-inline, img')) return;
+    if (window.getSelection && window.getSelection().toString()) return;
+    toggleTip(tip);
+  });
+  list.addEventListener('keydown', function(e) {
+    if (!e.target.classList.contains('tip')) return;   // keys on a link inside a tip are the link's own
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleTip(e.target);
+    }
+  });
 }
 
 
@@ -441,6 +469,8 @@ if (!heroId) {
       container.appendChild(buildItemBuilds(data.item_builds, data.situational_items));
       container.appendChild(buildTips(data.tips));
       container.appendChild(buildAlliesCounters(data.allies_and_counters));
+      // Sections now exist: build the mobile Contents block from their headings.
+      if (window.FoWMobileToc) window.FoWMobileToc.init();
     })
     .catch(function(err) {
       console.error('Failed to load hero:', err);

@@ -163,94 +163,166 @@
   .nav-links a.nav-cta { align-self: center; }
 }
 
-/* ── MOBILE CONTENTS BLOCK + BACK-TO-CONTENTS BUTTON (hero, item and guide
-   pages) - both are injected by mobile-toc.js. Hidden at every width by
-   default; the 768px block below is the only place they are switched on, so
-   desktop never sees them. ── */
+/* ── FLOATING SECTION MENU (hero, item and guide pages) - the button, scrim and
+   bottom panel are injected by mobile-toc.js. Hidden at every width by default;
+   the 768px block below is the only place they are switched on, so desktop never
+   sees them. (.fow-mtoc and .fow-mtoc-back are the previous inline-block design;
+   kept hidden so a browser still holding the old cached script shows nothing.) ── */
 .fow-mtoc,
-.fow-mtoc-back {
+.fow-mtoc-back,
+.fow-mtoc-fab,
+.fow-mtoc-scrim,
+.fow-mtoc-panel {
   display: none;
 }
 
 @media (max-width: 768px) {
 
-  /* ── MOBILE CONTENTS BLOCK ─────────────────────────────────
-     Normal page flow, directly under the page title. Not sticky, not fixed.
-     Two variants set by mobile-toc.js:
-       --attached   hero + item pages: hangs off the bottom of the .header card
-                    like one more card in the stack (no top edge, no gap)
-       --standalone guide pages: a free-standing card under the h1
-     Colours are the page's own :root gold palette; nothing new. */
-  .fow-mtoc {
-    display: block;
+  /* ── FLOATING SECTION MENU ─────────────────────────────────
+     Colours are the page's own :root palette; nothing new. Layers: nav 100,
+     button 90, scrim 200, panel 201 (tooltips stay above at 9999). */
+
+  /* Round list button, fixed bottom-right at every scroll position. mobile-toc.js
+     writes --fow-lift (how much of the footer is on screen) and this raises the
+     button by that much, so it rests above the footer's top edge and returns to
+     the corner when the footer leaves. */
+  .fow-mtoc-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    transform: translateY(calc(var(--fow-lift, 0px) * -1));
+    width: 44px;
+    height: 44px;
+    padding: 0;
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    scroll-margin-top: 72px;   /* 56px fixed nav + 16px, for the back button's scroll */
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 90;
+    -webkit-tap-highlight-color: transparent;
   }
-  .fow-mtoc--attached {
-    border-top: none;
+  .fow-mtoc-fab svg {
+    width: 22px;
+    height: 22px;
   }
-  .fow-mtoc--standalone {
-    border-radius: 3px;
-    margin-bottom: 16px;
+  .fow-mtoc-fab:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 2px;
+  }
+  /* hidden while the panel is open */
+  .fow-mtoc-fab.is-hidden {
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  /* collapsed row: label left, arrow right, 44px tall tap target */
-  .fow-mtoc-toggle {
+  /* dark translucent scrim over the whole page, nav included */
+  .fow-mtoc-scrim {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(10, 12, 16, 0.75);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .fow-mtoc-scrim.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease, visibility 0s;
+  }
+
+  /* bottom panel: full width, about 70% of the viewport tall at most, list scrolls
+     inside it. Slides up from the bottom edge. */
+  .fow-mtoc-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 70vh;
+    max-height: 70dvh;
+    background: var(--bg-card);
+    border-top: 1px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    z-index: 201;
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .fow-mtoc-panel.is-open {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s;
+  }
+
+  .fow-mtoc-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    min-height: 44px;
-    padding: 0 16px;
-    background: none;
-    border: 0;
-    border-radius: 0;
-    color: var(--gold);
+    flex-shrink: 0;
+    padding: 8px 12px 8px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .fow-mtoc-label {
     font-family: 'Cinzel', serif;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    text-align: left;
+    color: var(--gold);
+  }
+  .fow-mtoc-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: 1px solid var(--gold-dark);
+    border-radius: 2px;
+    color: var(--gold);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-  .fow-mtoc-toggle:focus-visible {
-    outline: 1px solid var(--gold-dark);
-    outline-offset: -3px;
+  .fow-mtoc-close svg {
+    width: 20px;
+    height: 20px;
   }
-
-  /* Same glyph as the Tips & Tricks arrow (a right-pointing triangle), same
-     font stack and size. Collapsed: turned to point down. Open: turned to
-     point up. */
-  .fow-mtoc-arrow {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 15px;
-    letter-spacing: 0;
-    line-height: 1;
-    transform: rotate(90deg);
-    transition: transform 0.2s ease;
-  }
-  .fow-mtoc.is-open .fow-mtoc-arrow {
-    transform: rotate(-90deg);
+  .fow-mtoc-close:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 2px;
   }
 
   .fow-mtoc-list {
     display: flex;
     flex-direction: column;
-    padding: 0 16px 8px;
-  }
-  .fow-mtoc:not(.is-open) .fow-mtoc-list {
-    display: none;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 4px 16px 8px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* entries: body-size Crimson Pro in the normal text colour; the gold
-     underline is what marks them as tappable. Title Case comes straight from
-     the heading text, so no text-transform here. */
+  /* entries: body-size Crimson Pro in the normal text colour; the gold underline
+     marks them as tappable. Title Case comes straight from the heading text, so no
+     text-transform. The entry for the section on screen is gold. */
   .fow-mtoc-link {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     min-height: 44px;
     padding: 6px 0;
     font-family: 'Crimson Pro', Georgia, serif;
@@ -263,10 +335,20 @@
     text-underline-offset: 5px;
     -webkit-tap-highlight-color: transparent;
   }
+  .fow-mtoc-link.is-current,
   .fow-mtoc-link:active,
   .fow-mtoc-link:focus-visible {
     color: var(--gold);
     text-decoration-color: var(--gold);
+  }
+
+  /* page scroll lock while the panel is open. mobile-toc.js sets --fow-lock-top to
+     minus the scroll position, so the page stays exactly where it was. */
+  html.fow-mtoc-locked body {
+    position: fixed;
+    top: var(--fow-lock-top, 0px);
+    left: 0;
+    right: 0;
   }
 
   /* section headings clear the 56px fixed nav when scrolled to. Matches the
@@ -274,51 +356,6 @@
      the top edge of a hero/item .section card above its title. */
   .section-title {
     scroll-margin-top: 88px;
-  }
-
-  /* ── FLOATING BACK-TO-CONTENTS BUTTON ──────────────────────
-     Fixed bottom-right, lifted by the safe-area inset. Below the nav (100) and
-     the tooltip layer (9999). Faded in by mobile-toc.js via .is-visible only
-     while the Contents block is off screen and the footer is not on screen.
-     visibility keeps it out of the tab order while hidden. */
-  .fow-mtoc-back {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    right: 16px;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    color: var(--gold);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    z-index: 90;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .fow-mtoc-back.is-visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition: opacity 0.2s ease, visibility 0s;
-  }
-  .fow-mtoc-back:focus-visible {
-    outline: 2px solid var(--gold-light);
-    outline-offset: 2px;
-  }
-  .fow-mtoc-back-arrow {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 20px;
-    line-height: 1;
-    transform: rotate(-90deg);   /* the tips arrow glyph, turned to point up */
   }
 
   /* ── 1. OVERFLOW SAFETY NET ─────────────────────────────── */

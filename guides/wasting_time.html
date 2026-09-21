@@ -263,15 +263,20 @@
   }
 
   .toc-panel {
-    position: sticky;
-    /* Vertically centred in the viewport: stick with the top edge at 50%, then
-       pull the box up by half its own height. Because the sticky box is still
-       clamped inside .toc-sidebar (which spans only .article-layout), it can't
-       ride up over the nav or drift down over the footer — it releases at both
-       ends of the article. The height cap keeps a tall TOC inside the viewport
-       (60px clear of the 56px nav when centred) and scrolls it internally
+    /* Vertically centred in the viewport at every scroll position: fixed, top edge
+       at 50%, then pulled up by half its own height. (It was position:sticky, which
+       is clamped inside .toc-sidebar, and that spans only .article-layout - so at the
+       top of the page the rail could not rise above the layout's top edge, i.e. below
+       the article header, and at the bottom it was pushed up by the article footer and
+       page footer.) left:auto keeps the horizontal position the rail already had -
+       the static position inside .toc-sidebar, 24px right of the article column -
+       and width matches .toc-sidebar. The height cap keeps a tall TOC inside the
+       viewport (60px clear of the 56px nav when centred) and scrolls it internally
        instead of spilling off both edges. */
+    position: fixed;
     top: 50%;
+    left: auto;
+    width: 200px;
     transform: translateY(-50%);
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -664,6 +669,6 @@
 </script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
-<script src="../mobile-toc.js"></script>
+<script src="../mobile-toc.js?v=13"></script>
 </body>
 </html>

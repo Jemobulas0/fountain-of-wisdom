@@ -133,6 +133,24 @@
   .btn-secondary { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold-dark); padding: 14px 32px; border-radius: 2px; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
   .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-1px); }
 
+  /* ── FALLBACK MODAL ── */
+  html.modal-open, html.modal-open body { overflow: hidden; }
+  .modal-overlay { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: flex-start; justify-content: center; padding: 24px 16px; background: rgba(10,12,16,0.92); overflow-y: auto; overscroll-behavior: contain; }
+  .modal-overlay[hidden] { display: none; }
+  .modal-dialog { position: relative; width: 100%; max-width: 640px; margin: auto; background: var(--bg-card); border: 1px solid var(--gold-dark); border-radius: 4px; padding: 56px 32px 32px; }
+  .modal-close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--border); border-radius: 2px; color: var(--gold); font-family: 'Crimson Pro', Georgia, serif; font-size: 30px; line-height: 1; cursor: pointer; transition: all 0.2s; }
+  .modal-close:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  .modal-text { font-size: 21px; line-height: 1.6; color: var(--text-bright); margin-bottom: 20px; }
+  .modal-box { display: block; width: 100%; max-height: 40vh; margin-bottom: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 14px; color: var(--text-bright); font-family: 'Crimson Pro', Georgia, serif; font-size: 21px; line-height: 1.6; white-space: pre-wrap; overflow-y: auto; resize: none; outline: none; }
+  .modal-box:focus { border-color: var(--gold-dark); }
+  .modal-status { font-size: 21px; line-height: 1.6; color: var(--text-bright); margin-top: 24px; margin-bottom: 16px; }
+  .modal-continue { border: 1px solid transparent; }
+  .modal-continue:disabled { background: transparent; color: var(--text-dim); border: 1px dashed var(--border); opacity: 1; cursor: not-allowed; transform: none; box-shadow: none; }
+  @media (max-width: 480px) {
+    .modal-dialog { padding: 56px 20px 24px; }
+    .modal-dialog .btn-primary, .modal-dialog .btn-secondary { width: 100%; }
+  }
+
   /* ── FOOTER ── */
   footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
   .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
@@ -326,6 +344,18 @@
   <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
 </footer>
 
+<div class="modal-overlay" id="fallback-modal" hidden>
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="Replay Review request details" aria-describedby="fallback-explain">
+    <button type="button" class="modal-close" id="fallback-close" aria-label="Close">&times;</button>
+    <!-- PLACEHOLDER COPY: Jemobulas to rewrite -->
+    <p class="modal-text" id="fallback-explain">Your details didn't go through. Copy them below and send them to Jemobulas in a direct message on the Discord server after your payment. You'll be taken to the server at the end.</p>
+    <textarea class="modal-box" id="fallback-text" rows="1" readonly spellcheck="false" aria-label="Your Replay Review request"></textarea>
+    <button type="button" class="btn-secondary" id="fallback-copy">Copy to Clipboard</button>
+    <p class="modal-status" id="fallback-status" role="status" aria-live="polite">Click the Copy to Clipboard button in order to continue to payment.</p>
+    <button type="button" class="btn-primary modal-continue" id="fallback-continue" disabled>Continue to Payment</button>
+  </div>
+</div>
+
 <script>
   const reviewForm = document.getElementById('review-form');
   const errorBlock = document.getElementById('error-block');
@@ -422,10 +452,145 @@
         throw new Error('Submission failed');
       }
     }).catch(function () {
-      errorBlock.style.display = 'block';
       submitBtn.disabled = false;
       submitBtn.textContent = 'Continue to Payment';
+      openFallbackModal();
     });
+  });
+
+  // Fallback modal - shown instead of #error-block when the submission fails.
+  // A DOM overlay (not window.open) so pop-up blockers can't stop it.
+  const fallbackModal = document.getElementById('fallback-modal');
+  const fallbackText = document.getElementById('fallback-text');
+  const fallbackCopy = document.getElementById('fallback-copy');
+  const fallbackStatus = document.getElementById('fallback-status');
+  const fallbackContinue = document.getElementById('fallback-continue');
+  const fallbackClose = document.getElementById('fallback-close');
+
+  const STATUS_BEFORE = 'Click the Copy to Clipboard button in order to continue to payment.';
+  const STATUS_COPIED = 'Text copied to clipboard. Proceed to payment.';
+  const STATUS_MANUAL = 'Copying did not work automatically. Copy the text in the box manually with your keyboard, or long-press it on a phone. Then proceed to payment.';
+
+  function fieldValue(id) {
+    return document.getElementById(id).value.replace(/\r\n?/g, '\n').trim();
+  }
+
+  function buildSubmissionText() {
+    const lines = ['Replay Review request'];
+    function add(label, value) {
+      if (value) { lines.push(label + ': ' + value); }
+    }
+    add('Match ID 1', fieldValue('field-match-1'));
+    add('Match ID 2', fieldValue('field-match-2'));
+    add('Match ID 3', fieldValue('field-match-3'));
+    add('Dotabuff Profile', fieldValue('field-dotabuff'));
+    const roles = roleCheckboxes.filter(function (cb) { return cb.checked; }).map(function (cb) {
+      if (cb === roleOtherCheckbox) {
+        const other = fieldValue('field-role-other');
+        return other ? 'Something else (' + other + ')' : 'Something else';
+      }
+      return cb.value;
+    });
+    add('Roles', roles.join(', '));
+    add('Bracket', bracketSelect.value);
+    if (bracketSelect.value === 'Immortal') {
+      add('MMR', fieldValue('field-immortal-mmr'));
+    }
+    add('What do you want looked at', fieldValue('field-focus'));
+    add('Discord username', fieldValue('field-discord'));
+    return lines.join('\n');
+  }
+
+  function selectFallbackText() {
+    fallbackText.focus();
+    fallbackText.select();
+    fallbackText.setSelectionRange(0, fallbackText.value.length);
+  }
+
+  function legacyCopy() {
+    selectFallbackText();
+    try {
+      return document.execCommand('copy');
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function copyFallbackText() {
+    const text = fallbackText.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () {
+        return true;
+      }).catch(function () {
+        return legacyCopy();
+      });
+    }
+    return Promise.resolve(legacyCopy());
+  }
+
+  let fallbackReturnFocus = null;
+
+  function openFallbackModal() {
+    fallbackText.value = buildSubmissionText();
+    fallbackStatus.textContent = STATUS_BEFORE;
+    fallbackContinue.disabled = true;
+    fallbackReturnFocus = document.activeElement;
+    fallbackModal.hidden = false;
+    document.documentElement.classList.add('modal-open');
+    fallbackModal.scrollTop = 0;
+    fallbackText.style.height = 'auto';
+    fallbackText.style.height = (fallbackText.scrollHeight + 2) + 'px';
+    fallbackCopy.focus();
+  }
+
+  function closeFallbackModal() {
+    fallbackModal.hidden = true;
+    document.documentElement.classList.remove('modal-open');
+    if (fallbackReturnFocus && fallbackReturnFocus.focus) {
+      fallbackReturnFocus.focus();
+    } else {
+      submitBtn.focus();
+    }
+  }
+
+  fallbackCopy.addEventListener('click', function () {
+    copyFallbackText().then(function (ok) {
+      if (ok) {
+        fallbackStatus.textContent = STATUS_COPIED;
+      } else {
+        selectFallbackText();
+        fallbackStatus.textContent = STATUS_MANUAL;
+      }
+      fallbackContinue.disabled = false;
+    });
+  });
+
+  fallbackContinue.addEventListener('click', function () {
+    window.location.href = reviewForm.querySelector('input[name="_next"]').value;
+  });
+
+  fallbackClose.addEventListener('click', closeFallbackModal);
+
+  document.addEventListener('keydown', function (e) {
+    if (fallbackModal.hidden) { return; }
+    if (e.key === 'Escape') {
+      closeFallbackModal();
+      return;
+    }
+    if (e.key === 'Tab') {
+      const focusable = [].slice.call(fallbackModal.querySelectorAll('button, textarea')).filter(function (el) {
+        return !el.disabled;
+      });
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
 </script>
 

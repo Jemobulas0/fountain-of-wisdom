@@ -305,10 +305,16 @@
     pointer-events: none;
   }
 
+  /* contain:paint is a hard guarantee (beyond plain overflow:hidden) that the
+     hover-scaled img's paint never escapes this box on any browser/zoom. The
+     card's own flush top-bleed design is unchanged — see items.html's
+     .item-img-wrap for the sibling fix on the item catalog's tiles, which
+     also gets breathing-room padding since its complaint was different. */
   .hero-img-wrap {
     position: relative;
     aspect-ratio: 16/9;
     overflow: hidden;
+    contain: paint;
     background: #0d1520;
   }
 

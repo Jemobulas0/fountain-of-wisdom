@@ -510,6 +510,20 @@
     grid-template-columns: 1fr !important;
   }
 
+  /* hero_template.html — Skill Builds: .build-spells is flex-shrink:0 (desktop
+     needs it pinned to full width beside the talent tree), which also stops it
+     shrinking to the card's width on phones. Its content — spell icons plus, for
+     heroes with 2+ position groups, the timestamp-header/-group columns (fixed
+     44px each) — then renders at full natural width and pushes past the card's
+     right border, clipped only by the page's edge (the position-group badge,
+     e.g. "4/5", was rendering off-screen). Letting it shrink here means
+     .spell-row's existing flex-wrap:wrap can wrap icons/timestamps onto another
+     line instead of overflowing. */
+  .build-spells {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
   /* items.html — section layout */
   .sections-grid {
     grid-template-columns: 1fr;
@@ -726,6 +740,49 @@
   .item-note-inline,
   .sit-item-note {
     line-height: 1.6;
+  }
+
+  /* hero_template.html — Game Plan (early/mid/late/extras) and Tips & Tricks
+     read as an indented column on desktop (36px/30px padding-left) so the
+     h4 label sits flush left with the paragraph tucked under it. On phones
+     that reserved margin just wastes width the Item Descriptions text
+     doesn't give up, so drop it here — PC keeps the desktop rule untouched.
+     .gameplan-phase h4 / .extras-box h4 (the labels) are not touched, so
+     they stay exactly where they are. */
+  .gameplan-phase p,
+  .extras-box p {
+    padding-left: 0;
+  }
+
+  /* .tip's padding-left also clears its own absolutely-positioned arrow
+     (.tip::before, pinned 22px from the tip's left edge regardless of
+     padding — see that rule's comment). Dropping the padding to 0 outright
+     would run wrapped lines under the arrow only on line 1, since text-indent
+     affects just the first line, so line 1 keeps the exact same start
+     position the arrow was drawn for (no visual change there, no overlap)
+     while every wrapped line below it now runs full width like Item
+     Descriptions. The arrow's own position is untouched either way. */
+  .tip {
+    padding-left: 0;
+    text-indent: 30px;
+  }
+
+  /* hero_template.html — Tips & Tricks collapse/expand is phone-only (see
+     TIPS_MOBILE in hero-loader.js, kept in sync with this same 768px value).
+     The pointer cursor is the only piece of that affordance that's pure CSS;
+     everything else (role/tabindex/aria-expanded, the click/keydown handlers
+     actually toggling) is gated in JS. */
+  .tip {
+    cursor: pointer;
+  }
+
+  /* Section hint line under a heading (Item Builds / Tips & Tricks) — swap
+     which wording shows at the same breakpoint the rest of the site uses. */
+  .section-hint.pc-only {
+    display: none;
+  }
+  .section-hint.mobile-only {
+    display: block;
   }
 
   /* hero_template.html — situational items with multiple leading icons.

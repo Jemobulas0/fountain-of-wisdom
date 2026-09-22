@@ -64,7 +64,23 @@
   .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
   .back-link-bottom::before { content: '←'; font-size: 12px; }
 
-  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; }
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; position: relative; }
+
+  /* ── TABLE OF CONTENTS (right-margin, fixed, vertically centred) ──
+     Same rail guides/wasting_time.html uses, anchored to this page's .page
+     content column (900px) instead of the guide's .article-body (760px) —
+     see ../toc-rail.js. Progressive enhancement: hidden until that script
+     builds it (.is-ready) and only shown once the margin beside .page has
+     room, matching the guide's own >=1260px breakpoint. */
+  .toc-sidebar { display: none; position: absolute; top: 0; bottom: 0; left: calc(100% + 24px); width: 200px; }
+  @media (min-width: 1260px) { .toc-sidebar.is-ready { display: block; } }
+  .toc-panel { position: fixed; top: 50%; left: auto; width: 200px; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 20px; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .toc-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
+  .toc-list { display: flex; flex-direction: column; }
+  .toc-link { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--text); text-decoration: none; padding: 6px 0 6px 12px; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .toc-link:hover { color: var(--gold); }
+  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+  .toc-cta { display: block; margin-top: 28px; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-align: center; text-decoration: none; }
 
   /* ── HEADER ── */
   .header {
@@ -1125,6 +1141,7 @@
   <script src="../hero-links.js"></script>
   <script src="../item-links.js"></script>
   <script src="../mobile-toc.js?v=13"></script>
+  <script src="../toc-rail.js?v=1"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

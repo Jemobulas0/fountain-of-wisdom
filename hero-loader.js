@@ -302,8 +302,33 @@ function enchantmentRowHTML(ench) {
   `</div>`;
 }
 
+// Aghanim's Scepter/Blessing/Shard are aghs_only in data/items.json — hovering
+// them shows a popup ONLY when rendered with a hero context (data-hero, from
+// an item entry's hero/hero_shard field); without it there's no tooltip at
+// all. So "this page has one of those pop-up icons" means: at least one Core
+// Build item, or one situational item, is one of these three ids AND carries
+// a hero/hero_shard. String phase items (bare ids, no hero context) never
+// qualify — see buildItemHTML, which only attaches hero context to objects.
+const AGHS_POPUP_ITEM_IDS = ['ultimate_scepter', 'ultimate_scepter_2', 'aghanims_shard'];
+function hasAghsPopupIcon(item) {
+  return typeof item === 'object' && item !== null &&
+    AGHS_POPUP_ITEM_IDS.indexOf(item.id) !== -1 && !!(item.hero || item.hero_shard);
+}
+function hasAghsPopupIcons(builds, situational) {
+  const inBuilds = builds.some(function(build) {
+    return build.phases.some(function(phase) { return phase.items.some(hasAghsPopupIcon); });
+  });
+  if (inBuilds) return true;
+  return !!(situational && situational.some(hasAghsPopupIcon));
+}
+
 function buildItemBuilds(builds, situational) {
   const section = makeSection('Item Builds');
+
+  const hintHTML = hasAghsPopupIcons(builds, situational)
+    ? `<div class="section-hint pc-only">Hover over Aghanim's Scepter/Blessing &amp; Shard for more info.</div>` +
+      `<div class="section-hint mobile-only">Click on Aghanim's Scepter/Blessing &amp; Shard for more info.</div>`
+    : '';
 
   const legend =
     `<div class="tips-legend" style="justify-content:center;margin-bottom:14px;">` +
@@ -360,10 +385,16 @@ function buildItemBuilds(builds, situational) {
 
   const itemGridCols = Array(builds.length).fill('1fr').join(' ');
   const itemGridRows = new Array(rowCount).fill('auto').join(' '); // title + phases + note — the shared track list
-  section.innerHTML += legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols};grid-template-rows:${itemGridRows}">${buildsHTML}</div>` + sitHTML;
+  section.innerHTML += hintHTML + legend + `<div class="builds-grid" style="grid-template-columns:${itemGridCols};grid-template-rows:${itemGridRows}">${buildsHTML}</div>` + sitHTML;
   return section;
 }
 
+
+// Collapse/expand is a phone-only affordance — keep in sync with mobile.css's
+// 768px breakpoint (same constant mobile-toc.js uses). On PC every tip is
+// always fully expanded, with no click/pointer-cursor/keyboard affordance at
+// all: no role, tabindex or aria-expanded, and clicks never collapse.
+const TIPS_MOBILE = '(max-width: 768px)';
 
 function buildTips(tips) {
   const section = makeSection('Tips &amp; Tricks');
@@ -373,16 +404,45 @@ function buildTips(tips) {
       `<div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>` +
       `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>` +
     `</div>`;
+  const mobileHintHTML = `<div class="section-hint mobile-only">Click on a paragraph to collapse or expand it.</div>`;
 
-  // Every tip starts open (no state is stored between visits). Each .tip is its own
-  // toggle: role=button + tabindex + aria-expanded, kept in sync by toggleTip.
+  // Every tip starts open (no state is stored between visits). Mobile-only
+  // interactivity (role/tabindex/aria-expanded) is added by syncTipInteractivity
+  // once this is in the DOM, not baked in here — see that function.
   const tipsHTML = tips.map(function(tip) {
-    return `<div class="tip ${tip.level}" role="button" tabindex="0" aria-expanded="true">${parseText(tip.text)}</div>`;
+    return `<div class="tip ${tip.level}">${parseText(tip.text)}</div>`;
   }).join('');
 
-  section.innerHTML += legendHTML + `<div class="tips-list">${tipsHTML}</div>`;
-  wireTipToggles(section.querySelector('.tips-list'));
+  section.innerHTML += mobileHintHTML + legendHTML + `<div class="tips-list">${tipsHTML}</div>`;
+  const list = section.querySelector('.tips-list');
+  wireTipToggles(list);
+  syncTipInteractivity(list);
+  const mq = window.matchMedia(TIPS_MOBILE);
+  const onBreakpoint = function() { syncTipInteractivity(list); };
+  if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
+  else mq.addListener(onBreakpoint);
   return section;
+}
+
+// Adds/removes the mobile toggle affordance on every tip to match the current
+// breakpoint. PC: strip role/tabindex/aria-expanded and force-expand (no
+// is-collapsed) — "always fully expanded" per the PC spec. Mobile: restore
+// the toggle attributes, preserving whatever collapsed/expanded state the
+// tip is already in.
+function syncTipInteractivity(list) {
+  const mobile = window.matchMedia(TIPS_MOBILE).matches;
+  list.querySelectorAll('.tip').forEach(function(tip) {
+    if (mobile) {
+      tip.setAttribute('role', 'button');
+      tip.setAttribute('tabindex', '0');
+      tip.setAttribute('aria-expanded', tip.classList.contains('is-collapsed') ? 'false' : 'true');
+    } else {
+      tip.removeAttribute('role');
+      tip.removeAttribute('tabindex');
+      tip.removeAttribute('aria-expanded');
+      tip.classList.remove('is-collapsed');
+    }
+  });
 }
 
 function toggleTip(tip) {
@@ -392,9 +452,10 @@ function toggleTip(tip) {
 
 // One delegated pair of listeners for the whole list. Item / spell / hero icons and
 // links inside a tip keep their own behaviour, so a click on any of them never toggles.
-// A click that ends a text selection does not toggle either.
+// A click that ends a text selection does not toggle either. PC never toggles at all.
 function wireTipToggles(list) {
   list.addEventListener('click', function(e) {
+    if (!window.matchMedia(TIPS_MOBILE).matches) return;
     const tip = e.target.closest('.tip');
     if (!tip) return;
     if (e.target.closest('a, [data-tooltip], .hero-link, .item-link, .ability-icon-inline, img')) return;
@@ -402,6 +463,7 @@ function wireTipToggles(list) {
     toggleTip(tip);
   });
   list.addEventListener('keydown', function(e) {
+    if (!window.matchMedia(TIPS_MOBILE).matches) return;
     if (!e.target.classList.contains('tip')) return;   // keys on a link inside a tip are the link's own
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -469,8 +531,10 @@ if (!heroId) {
       container.appendChild(buildItemBuilds(data.item_builds, data.situational_items));
       container.appendChild(buildTips(data.tips));
       container.appendChild(buildAlliesCounters(data.allies_and_counters));
-      // Sections now exist: build the mobile Contents block from their headings.
+      // Sections now exist: build the mobile Contents block and the PC TOC rail
+      // from their headings.
       if (window.FoWMobileToc) window.FoWMobileToc.init();
+      if (window.FoWTocRail) window.FoWTocRail.init();
     })
     .catch(function(err) {
       console.error('Failed to load hero:', err);

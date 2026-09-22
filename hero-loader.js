@@ -191,24 +191,6 @@ function buildOverview(ov) {
 }
 
 
-function buildGamePlan(gp) {
-  const section = makeSection('Game Plan');
-
-  const extras = gp.extras
-    ? `<div class="extras-box"><h4>Extras</h4><p>${gp.extras}</p></div>`
-    : '';
-
-  section.innerHTML +=
-    `<div class="gameplan-grid">` +
-      `<div class="gameplan-phase"><h4>Early Game</h4><p>${gp.early}</p></div>` +
-      `<div class="gameplan-phase"><h4>Mid Game</h4><p>${gp.mid}</p></div>` +
-      `<div class="gameplan-phase"><h4>Late Game</h4><p>${gp.late}</p></div>` +
-    `</div>` +
-    extras;
-  return section;
-}
-
-
 function buildSkillBuilds(builds, heroPositions) {
   const section = makeSection('Skill Builds');
 
@@ -391,10 +373,86 @@ function buildItemBuilds(builds, situational) {
 
 
 // Collapse/expand is a phone-only affordance — keep in sync with mobile.css's
-// 768px breakpoint (same constant mobile-toc.js uses). On PC every tip is
-// always fully expanded, with no click/pointer-cursor/keyboard affordance at
-// all: no role, tabindex or aria-expanded, and clicks never collapse.
-const TIPS_MOBILE = '(max-width: 768px)';
+// 768px breakpoint (same constant mobile-toc.js uses). On PC every collapsible
+// (a tip, a Game Plan phase) is always fully expanded, with no click/pointer-
+// cursor/keyboard affordance at all: no role, tabindex or aria-expanded, and
+// clicks never collapse.
+const MOBILE_COLLAPSE = '(max-width: 768px)';
+
+// Shared mobile-only tap-to-collapse wiring for both Tips & Tricks and Game
+// Plan. `container` gets one delegated click/keydown pair; `itemSelector`
+// picks which elements inside it are individually collapsible (each becomes
+// its own button, matching aria-expanded to its own is-collapsed state).
+// Every item starts open and nothing is remembered between visits/reloads.
+function initMobileCollapse(container, itemSelector) {
+  function items() { return container.querySelectorAll(itemSelector); }
+
+  function sync() {
+    const mobile = window.matchMedia(MOBILE_COLLAPSE).matches;
+    items().forEach(function(item) {
+      if (mobile) {
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-expanded', item.classList.contains('is-collapsed') ? 'false' : 'true');
+      } else {
+        item.removeAttribute('role');
+        item.removeAttribute('tabindex');
+        item.removeAttribute('aria-expanded');
+        item.classList.remove('is-collapsed');
+      }
+    });
+  }
+
+  function toggle(item) {
+    const collapsed = item.classList.toggle('is-collapsed');
+    item.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  }
+
+  // Icons / pop-up triggers / links inside an item keep their own behaviour,
+  // so a click on any of them never toggles. A click that ends a text
+  // selection does not toggle either. PC never toggles at all.
+  container.addEventListener('click', function(e) {
+    if (!window.matchMedia(MOBILE_COLLAPSE).matches) return;
+    const item = e.target.closest(itemSelector);
+    if (!item) return;
+    if (e.target.closest('a, [data-tooltip], .hero-link, .item-link, .ability-icon-inline, img')) return;
+    if (window.getSelection && window.getSelection().toString()) return;
+    toggle(item);
+  });
+  container.addEventListener('keydown', function(e) {
+    if (!window.matchMedia(MOBILE_COLLAPSE).matches) return;
+    if (e.target !== e.target.closest(itemSelector)) return;   // keys on a link inside an item are the link's own
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle(e.target);
+    }
+  });
+
+  sync();
+  const mq = window.matchMedia(MOBILE_COLLAPSE);
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  else mq.addListener(sync);
+}
+
+function buildGamePlan(gp) {
+  const section = makeSection('Game Plan');
+  const mobileHintHTML = `<div class="section-hint mobile-only">Click on a paragraph to collapse or expand it.</div>`;
+
+  const extras = gp.extras
+    ? `<div class="extras-box"><h4>Extras</h4><p>${gp.extras}</p></div>`
+    : '';
+
+  section.innerHTML += mobileHintHTML +
+    `<div class="gameplan-grid">` +
+      `<div class="gameplan-phase"><h4>Early Game</h4><p>${gp.early}</p></div>` +
+      `<div class="gameplan-phase"><h4>Mid Game</h4><p>${gp.mid}</p></div>` +
+      `<div class="gameplan-phase"><h4>Late Game</h4><p>${gp.late}</p></div>` +
+    `</div>` +
+    extras;
+  initMobileCollapse(section, '.gameplan-phase, .extras-box');
+  return section;
+}
+
 
 function buildTips(tips) {
   const section = makeSection('Tips &amp; Tricks');
@@ -407,69 +465,15 @@ function buildTips(tips) {
   const mobileHintHTML = `<div class="section-hint mobile-only">Click on a paragraph to collapse or expand it.</div>`;
 
   // Every tip starts open (no state is stored between visits). Mobile-only
-  // interactivity (role/tabindex/aria-expanded) is added by syncTipInteractivity
-  // once this is in the DOM, not baked in here — see that function.
+  // interactivity (role/tabindex/aria-expanded) is added by initMobileCollapse
+  // once this is in the DOM, not baked in here.
   const tipsHTML = tips.map(function(tip) {
     return `<div class="tip ${tip.level}">${parseText(tip.text)}</div>`;
   }).join('');
 
   section.innerHTML += mobileHintHTML + legendHTML + `<div class="tips-list">${tipsHTML}</div>`;
-  const list = section.querySelector('.tips-list');
-  wireTipToggles(list);
-  syncTipInteractivity(list);
-  const mq = window.matchMedia(TIPS_MOBILE);
-  const onBreakpoint = function() { syncTipInteractivity(list); };
-  if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
-  else mq.addListener(onBreakpoint);
+  initMobileCollapse(section.querySelector('.tips-list'), '.tip');
   return section;
-}
-
-// Adds/removes the mobile toggle affordance on every tip to match the current
-// breakpoint. PC: strip role/tabindex/aria-expanded and force-expand (no
-// is-collapsed) — "always fully expanded" per the PC spec. Mobile: restore
-// the toggle attributes, preserving whatever collapsed/expanded state the
-// tip is already in.
-function syncTipInteractivity(list) {
-  const mobile = window.matchMedia(TIPS_MOBILE).matches;
-  list.querySelectorAll('.tip').forEach(function(tip) {
-    if (mobile) {
-      tip.setAttribute('role', 'button');
-      tip.setAttribute('tabindex', '0');
-      tip.setAttribute('aria-expanded', tip.classList.contains('is-collapsed') ? 'false' : 'true');
-    } else {
-      tip.removeAttribute('role');
-      tip.removeAttribute('tabindex');
-      tip.removeAttribute('aria-expanded');
-      tip.classList.remove('is-collapsed');
-    }
-  });
-}
-
-function toggleTip(tip) {
-  const collapsed = tip.classList.toggle('is-collapsed');
-  tip.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-}
-
-// One delegated pair of listeners for the whole list. Item / spell / hero icons and
-// links inside a tip keep their own behaviour, so a click on any of them never toggles.
-// A click that ends a text selection does not toggle either. PC never toggles at all.
-function wireTipToggles(list) {
-  list.addEventListener('click', function(e) {
-    if (!window.matchMedia(TIPS_MOBILE).matches) return;
-    const tip = e.target.closest('.tip');
-    if (!tip) return;
-    if (e.target.closest('a, [data-tooltip], .hero-link, .item-link, .ability-icon-inline, img')) return;
-    if (window.getSelection && window.getSelection().toString()) return;
-    toggleTip(tip);
-  });
-  list.addEventListener('keydown', function(e) {
-    if (!window.matchMedia(TIPS_MOBILE).matches) return;
-    if (!e.target.classList.contains('tip')) return;   // keys on a link inside a tip are the link's own
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleTip(e.target);
-    }
-  });
 }
 
 

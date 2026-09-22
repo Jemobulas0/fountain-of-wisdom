@@ -77,17 +77,22 @@
   /* 4 columns — mirrors the in-game item shop layout */
   .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 
-  .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; padding-top: 6px; }
+  .item-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; cursor: default; position: relative; }
   a.item-card { cursor: pointer; text-decoration: none; color: inherit; }
   a.item-card:hover { border-color: var(--gold-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
   .item-card.coming-soon { opacity: 0.55; }
   .item-card.hidden { display: none; }
 
-  /* padding-top above gives the hover-grown image room to breathe instead of
-     sitting flush against the card's own top border; contain:paint is a hard
-     guarantee (beyond plain overflow:hidden) that the scaled img's paint never
-     escapes this box on any browser/zoom, however tight that room is. */
-  .item-img-wrap { width: 90%; margin: 0 auto; aspect-ratio: 88/64; overflow: hidden; contain: paint; background: #0d1520; flex-shrink: 0; }
+  /* Edge-to-edge like .hero-img-wrap on heroes.html (no more width:90%/
+     margin:auto inset, no more padding-top on the card above it — that
+     breathing room is redundant now that the image goes flush again).
+     88/64 is the source images' own native ratio (confirmed unchanged from
+     before), so filling the full tile width at that ratio is a straight
+     scale-up with zero crop and zero distortion — object-fit:cover never
+     has to cut anything off. contain:paint is a hard guarantee (beyond
+     plain overflow:hidden) that the hover-scaled img's paint never escapes
+     this box on any browser/zoom. */
+  .item-img-wrap { aspect-ratio: 88/64; overflow: hidden; contain: paint; background: #0d1520; flex-shrink: 0; }
   .item-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; display: block; }
   a.item-card:hover .item-img-wrap img { transform: scale(1.08); }
 

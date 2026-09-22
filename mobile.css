@@ -176,7 +176,22 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+/* This block's own breakpoint is wider than the general 768px mobile
+   breakpoint used everywhere else in this file: the floating button/panel
+   is the "no width without contents" fallback for whatever range the PC
+   rail (toc-rail.js / the guide's own inline script) does NOT cover, and
+   that range differs per page type. 1367px (one less than hero/item pages'
+   own 1368px min-width rail threshold — see the .toc-sidebar rule in
+   hero_template.html and the two items/*.html pages, including why it's
+   1368px and not the plain 1348px box-model math would suggest — so the
+   two ranges meet with no gap and no overlap at the boundary pixel) is
+   hero/item pages' own threshold. Guide pages keep the narrower 1260px
+   threshold for their OWN rail (unchanged), so the override just below
+   switches the floating button/panel off again between 1260 and 1367px
+   specifically on guide pages — everywhere else in this file (tip/Game
+   Plan collapsing, hint lines, removed indents) stays on the original
+   768px breakpoint. */
+@media (max-width: 1367px) {
 
   /* ── FLOATING SECTION MENU ─────────────────────────────────
      Colours are the page's own :root palette; nothing new. Layers: nav 100,
@@ -357,6 +372,24 @@
   .section-title {
     scroll-margin-top: 88px;
   }
+}
+
+/* Guide pages' rail already takes over at 1260px (its own threshold, kept
+   as-is), so their floating button/panel should stop showing there too,
+   rather than waiting for the 1348px hero/item threshold above. Scoped to
+   guide pages only via .article-layout — the fab/scrim/panel are appended
+   to <body> by mobile-toc.js, so they're always later siblings of it on any
+   page that has it. Hero/item pages have no .article-layout, so this never
+   matches there and they keep showing up to 1348px. */
+@media (min-width: 1260px) {
+  .article-layout ~ .fow-mtoc-fab,
+  .article-layout ~ .fow-mtoc-scrim,
+  .article-layout ~ .fow-mtoc-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
 
   /* ── 1. OVERFLOW SAFETY NET ─────────────────────────────── */
   html, body {
@@ -508,20 +541,6 @@
      on this one based on build count, so the override needs !important */
   .builds-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  /* hero_template.html — Skill Builds: .build-spells is flex-shrink:0 (desktop
-     needs it pinned to full width beside the talent tree), which also stops it
-     shrinking to the card's width on phones. Its content — spell icons plus, for
-     heroes with 2+ position groups, the timestamp-header/-group columns (fixed
-     44px each) — then renders at full natural width and pushes past the card's
-     right border, clipped only by the page's edge (the position-group badge,
-     e.g. "4/5", was rendering off-screen). Letting it shrink here means
-     .spell-row's existing flex-wrap:wrap can wrap icons/timestamps onto another
-     line instead of overflowing. */
-  .build-spells {
-    flex-shrink: 1;
-    min-width: 0;
   }
 
   /* items.html — section layout */
@@ -742,37 +761,44 @@
     line-height: 1.6;
   }
 
-  /* hero_template.html — Game Plan (early/mid/late/extras) and Tips & Tricks
-     read as an indented column on desktop (36px/30px padding-left) so the
-     h4 label sits flush left with the paragraph tucked under it. On phones
-     that reserved margin just wastes width the Item Descriptions text
-     doesn't give up, so drop it here — PC keeps the desktop rule untouched.
-     .gameplan-phase h4 / .extras-box h4 (the labels) are not touched, so
-     they stay exactly where they are. */
+  /* hero_template.html — Game Plan (early/mid/late/extras) paragraphs drop
+     their desktop 36px padding-left (the h4 labels have none, so they're
+     untouched). The BOX's own side padding also drops from the desktop
+     20px down to 14px — matching .build-card's own desktop padding, since
+     the ask is to match Item Descriptions' (.build-note's) text start
+     position exactly. Both live in the same .section, so once each box's
+     own side padding matches its card's, "box edge + padding" lands at the
+     same x for both. Narrows further to 10px at 480px below, alongside
+     .build-card's own matching drop (see that rule further down). PC is
+     untouched (this whole file only applies at these breakpoints). */
   .gameplan-phase p,
   .extras-box p {
     padding-left: 0;
   }
-
-  /* .tip's padding-left also clears its own absolutely-positioned arrow
-     (.tip::before, pinned 22px from the tip's left edge regardless of
-     padding — see that rule's comment). Dropping the padding to 0 outright
-     would run wrapped lines under the arrow only on line 1, since text-indent
-     affects just the first line, so line 1 keeps the exact same start
-     position the arrow was drawn for (no visual change there, no overlap)
-     while every wrapped line below it now runs full width like Item
-     Descriptions. The arrow's own position is untouched either way. */
-  .tip {
-    padding-left: 0;
-    text-indent: 30px;
+  .gameplan-phase,
+  .extras-box {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
-  /* hero_template.html — Tips & Tricks collapse/expand is phone-only (see
-     TIPS_MOBILE in hero-loader.js, kept in sync with this same 768px value).
-     The pointer cursor is the only piece of that affordance that's pure CSS;
-     everything else (role/tabindex/aria-expanded, the click/keydown handlers
-     actually toggling) is gated in JS. */
-  .tip {
+  /* hero_template.html — Tips & Tricks intentionally has no mobile override
+     for .tip's own padding-left/text-indent (a previous pass tried
+     text-indent here: it made wrapped lines start left of the arrow, since
+     the arrow's position is pinned to the tip's width, not its padding, so
+     text-indent's line-1-only reach put line 2+ under the arrow instead of
+     after it). The desktop rule's plain padding-left:30px (hero_template.html)
+     already applies every line alike — the correct "hanging" layout, arrow
+     in its own gutter, every line starting at the same x after it — so mobile
+     just inherits it unchanged. */
+
+  /* hero_template.html — Tips & Tricks and Game Plan collapse/expand are
+     phone-only (see MOBILE_COLLAPSE in hero-loader.js, kept in sync with
+     this same 768px value). The pointer cursor is the only piece of that
+     affordance that's pure CSS; everything else (role/tabindex/aria-expanded,
+     the click/keydown handlers actually toggling) is gated in JS. */
+  .tip,
+  .gameplan-phase,
+  .extras-box {
     cursor: pointer;
   }
 
@@ -935,6 +961,14 @@
   }
   .build-card {
     padding: 10px;
+  }
+  /* Game Plan boxes match .build-card's side padding at every tier (14px
+     above, here 10px) so their text keeps starting at the same x as the
+     Item Descriptions text in .build-note — see the 768px rule above. */
+  .gameplan-phase,
+  .extras-box {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 

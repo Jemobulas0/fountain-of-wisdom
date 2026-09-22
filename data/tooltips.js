@@ -308,6 +308,33 @@
       top = rect.bottom + pad;
     }
 
+    // Mobile only (same 768px breakpoint as the rest of the site): a tap can
+    // land anywhere on the page, including low enough that neither the
+    // above nor the below placement above fully fits the viewport, so clamp
+    // vertically too. PC hover pop-ups keep the plain above/below flip from
+    // above untouched — this block only ever tightens `top` further, and
+    // only on mobile.
+    if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+      var margin = 8;
+      var viewH = window.innerHeight;
+      if (ttRect.height > viewH - margin * 2) {
+        // Taller than the viewport can ever fit: pin to the top margin.
+        top = margin;
+      } else {
+        var aboveTop = rect.top - ttRect.height - pad;
+        var belowTop = rect.bottom + pad;
+        if (aboveTop >= margin) {
+          top = aboveTop;
+        } else if (belowTop + ttRect.height <= viewH - margin) {
+          top = belowTop;
+        } else {
+          // Neither placement fits cleanly: shift up just enough to stay
+          // fully on screen, without going above the top margin.
+          top = Math.max(margin, Math.min(aboveTop, viewH - margin - ttRect.height));
+        }
+      }
+    }
+
     // Clamp horizontal
     if (left < 4) left = 4;
     if (left + ttRect.width > window.innerWidth - 4) {

@@ -28,7 +28,13 @@
   'use strict';
 
   var HEADINGS = '.section-title, .section-break-title';
-  var MOBILE = '(max-width: 768px)';   // keep in sync with mobile.css
+  // The button/panel's own visibility breakpoint is page-type-specific (see
+  // mobile.css): guide pages switch to their PC rail at 1260px, hero/item
+  // pages at 1348px (theirs is a wider content column). Detect via
+  // .article-layout, the guide-only wrapper, same signal mobile.css uses.
+  var MOBILE = document.querySelector('.article-layout')
+    ? '(max-width: 1259px)'
+    : '(max-width: 1367px)';
 
   var ICON_LIST =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +

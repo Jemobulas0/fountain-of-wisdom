@@ -75,14 +75,30 @@
 
   .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; position: relative; }
 
+  /* Lets a scrollIntoView (from toc-rail.js) clear the 56px fixed nav
+     instead of scrolling a section's top edge flush behind it. Matches the
+     guide's own .section-break scroll-margin-top; unconditional (not
+     mobile-gated) since the PC rail uses it too. */
+  .section { scroll-margin-top: 88px; }
+
   /* ── TABLE OF CONTENTS (right-margin, fixed, vertically centred) ──
      Same rail guides/wasting_time.html uses, anchored to this page's .page
      content column (900px) instead of the guide's .article-body (760px) —
      see toc-rail.js. Progressive enhancement: hidden until that script
      builds it (.is-ready) and only shown once the margin beside .page has
-     room, matching the guide's own >=1260px breakpoint. */
+     room. 1368px (not the guide's 1260px) is this page's own threshold:
+     900px content column + 24px offset + 200px rail = 1124px needed beside
+     .page, so both margins (viewport minus 900, split evenly) must be
+     >=1124px each, i.e. viewport >= 900 + 2*224 = 1348px on pure box-model
+     math. Verified in-browser that 1348px itself still clips by a few px
+     on Windows Chrome — a vertical scrollbar (page content is always
+     taller than the viewport here) eats into the width CSS media queries
+     measure but layout doesn't get to use, so +20px covers that with room
+     to spare across browsers. Below 1368px the rail would run past the
+     window's right edge (see mobile.css's floating button/panel, which
+     picks up exactly where this leaves off). */
   .toc-sidebar { display: none; position: absolute; top: 0; bottom: 0; left: calc(100% + 24px); width: 200px; }
-  @media (min-width: 1260px) { .toc-sidebar.is-ready { display: block; } }
+  @media (min-width: 1368px) { .toc-sidebar.is-ready { display: block; } }
   .toc-panel { position: fixed; top: 50%; left: auto; width: 200px; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 20px; max-height: calc(100vh - 120px); overflow-y: auto; }
   .toc-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
   .toc-list { display: flex; flex-direction: column; }
@@ -163,6 +179,18 @@
   .extras-box { background: rgba(201,168,76,0.04); border: 1px solid var(--border-gold); border-radius: 3px; padding: 16px 20px; }
   .extras-box h4 { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 2px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 4px; }
   .extras-box p { font-size: 18px; color: var(--text); margin-bottom: 12px; padding-left: 36px; }
+  /* Mobile-only collapse (see initMobileCollapse in hero-loader.js): the box
+     itself never shrinks or hides — only its <p> clamps to one line with an
+     ellipsis, so the h4 label (Early Game etc.) always stays fully visible. */
+  .gameplan-phase.is-collapsed p,
+  .extras-box.is-collapsed p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
 
   /* ── SKILL / ITEM BUILDS ── */
   /* Card internals ride a subgrid so every card in a .builds-grid shares one row
@@ -252,7 +280,7 @@
   /* Arrow: same glyph as before, right edge still at 22px. It is sized to its own glyph
      (right: calc(100% - 22px) instead of left:0 + width:22px + text-align:right) so the
      rotation pivots on the arrow itself. Open = turned to point down; collapsed = as-is (right). */
-  .tip::before { position: absolute; right: calc(100% - 22px); font-size: 15px; top: 3px; white-space: nowrap; transform: rotate(90deg); transition: transform 0.2s ease; }
+  .tip::before { position: absolute; right: calc(100% - 22px); font-size: 15px; top: 4.5px; white-space: nowrap; transform: rotate(90deg); transition: transform 0.2s ease; }
   .tip.is-collapsed::before { transform: none; }
   /* Collapsed: first line only, ellipsis after it. Icons in that line stay live. */
   .tip.is-collapsed { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden; }
@@ -349,10 +377,10 @@
 </div>
 
 <script src="icon-src.js?v=12"></script>
-<script src="mobile-toc.js?v=13"></script>
-<script src="toc-rail.js?v=1"></script>
-<script src="hero-loader.js?v=14"></script>
-<script src="data/tooltips.js?v=12"></script>
+<script src="mobile-toc.js?v=14"></script>
+<script src="toc-rail.js?v=2"></script>
+<script src="hero-loader.js?v=15"></script>
+<script src="data/tooltips.js?v=13"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

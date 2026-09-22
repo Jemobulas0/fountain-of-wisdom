@@ -622,6 +622,29 @@
 
   sidebar.classList.add('is-ready'); // CSS still gates visibility on viewport width
 
+  // Scroll to the section without letting the browser's own hash navigation
+  // push a history entry (that entry is what made Back step through past
+  // contents clicks instead of leaving the page). Replacing state still
+  // updates the address bar's hash for deep-linking.
+  list.addEventListener('click', function (e) {
+    var a = e.target.closest('.toc-link');
+    if (!a) return;
+    e.preventDefault();
+    var entry = null;
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].link === a) { entry = entries[i]; break; }
+    }
+    if (!entry) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var behavior = reduce ? 'auto' : 'smooth';
+    if (entry.el) {
+      entry.el.scrollIntoView({ behavior: behavior, block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: behavior });
+    }
+    if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
+  });
+
   // ── scroll-spy ──────────────────────────────────────────────────────────────
   // IntersectionObserver is only the trigger; every callback runs one authoritative
   // pass over the section rects (recompute). Active = the last heading sitting in
@@ -669,6 +692,6 @@
 </script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
-<script src="../mobile-toc.js?v=13"></script>
+<script src="../mobile-toc.js?v=14"></script>
 </body>
 </html>

@@ -71,6 +71,22 @@
       entries.push({ link: a, el: target });
     });
 
+    // Scroll to the section without letting the browser's own hash
+    // navigation push a history entry (that entry is what made Back step
+    // through past contents clicks instead of leaving the page). Replacing
+    // state still updates the address bar's hash for deep-linking.
+    list.addEventListener('click', function (e) {
+      var a = e.target.closest('.toc-link');
+      if (!a) return;
+      e.preventDefault();
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (!target) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    });
+
     if (entries.length < 2) return;
 
     var sidebar = document.createElement('aside');

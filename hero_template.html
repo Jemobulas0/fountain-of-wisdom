@@ -279,14 +279,21 @@
   .tip.advanced { color: var(--yellow); }
   /* Arrow: same glyph as before, right edge still at 22px. It is sized to its own glyph
      (right: calc(100% - 22px) instead of left:0 + width:22px + text-align:right) so the
-     rotation pivots on the arrow itself. Open = turned to point down; collapsed = as-is (right). */
-  .tip::before { position: absolute; right: calc(100% - 22px); font-size: 15px; top: 4.5px; white-space: nowrap; transform: rotate(90deg); transition: transform 0.2s ease; }
+     rotation pivots on the arrow itself. Open = turned to point down; collapsed = as-is (right).
+     top is set per level (basic/advanced), not here — rotating the wider double-glyph
+     (advanced) lands its ink much closer to its own box's top edge than the single glyph
+     does, so the two need different offsets to both align their ink's TOP with the cap-height
+     top of the first text line. Measured via canvas text metrics (actualBoundingBoxAscent/
+     Descent, both glyphs, real Crimson Pro metrics) rather than eyeballed; PC (line-height:1.5)
+     and mobile (line-height:1.6) came out within 0.2-0.25px of each other, so one value per
+     level covers both — not worth a separate mobile rule for a sub-pixel difference. */
+  .tip::before { position: absolute; right: calc(100% - 22px); font-size: 15px; white-space: nowrap; transform: rotate(90deg); transition: transform 0.2s ease; }
   .tip.is-collapsed::before { transform: none; }
   /* Collapsed: first line only, ellipsis after it. Icons in that line stay live. */
   .tip.is-collapsed { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; line-clamp: 1; overflow: hidden; }
   .tip:focus-visible { outline: 1px solid var(--gold-dark); outline-offset: 4px; }
-  .tip.basic::before { content: '▸'; color: var(--green); }
-  .tip.advanced::before { content: '▸▸'; color: var(--yellow); }
+  .tip.basic::before { content: '▸'; color: var(--green); top: 2.1px; }
+  .tip.advanced::before { content: '▸▸'; color: var(--yellow); top: 8.6px; }
   .tips-legend { display: flex; gap: 16px; margin-bottom: 12px; }
   .legend-item { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; }

@@ -147,7 +147,7 @@
   margin-top: 8px;
 }
 /* Array entries (e.g. skywrath_mage, pugna): gap before every row after the
-   first, about one line of .fow-tt-aghs-desc (15px * 1.5 line-height) and
+   first, about one line of .fow-tt-aghs-desc (16px * 1.5 line-height) and
    never smaller than the prose paragraph gap. The first row is unaffected. */
 .fow-tt-aghs + .fow-tt-aghs {
   margin-top: 24px;
@@ -168,7 +168,7 @@
 .fow-tt-aghs-ability-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .fow-tt-aghs-ability-name {
   font-family: 'Cinzel', serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: #7acdff;
   letter-spacing: 1px;
@@ -187,7 +187,7 @@
 .fow-tt-aghs-tag.upgrade { background: rgba(76,175,125,0.2); color: #4caf7d; }
 .fow-tt-aghs-tag.new-ability { background: rgba(76,175,125,0.2); color: #4caf7d; }
 .fow-tt-aghs-desc {
-  font-size: 15px;
+  font-size: 16px;
   color: #c8cdd8;
   line-height: 1.5;
 }

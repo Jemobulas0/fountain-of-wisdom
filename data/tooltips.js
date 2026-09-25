@@ -196,7 +196,7 @@
       html += '<div class="fow-tt-active-header">';
       html += '<span class="fow-tt-active-label">' + item.active.label + '</span>';
       if (item.active.range) {
-        html += '<span class="fow-tt-active-range"><span class="fow-tt-range-dot"></span>' + item.active.range + '</span>';
+        html += '<span class="fow-tt-active-range"><img class="fow-tt-range-icon" src="' + DATA_PATH + '../assets/cast_range.png" alt="Cast Range"> ' + item.active.range + '</span>';
       }
       html += '</div>';
       html += '<div class="fow-tt-active-desc">' + item.active.desc.replace(/\n/g, '<br>') + '</div>';

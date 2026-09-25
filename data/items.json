@@ -8,7 +8,7 @@
     "active": {
       "label": "Use: Plant Tree",
       "range": 400,
-      "desc": "Targets the ground to plant a happy little tree that lasts for 20 seconds."
+      "desc": "Targets the ground to plant a happy little tree that lasts for <b>20</b> seconds."
     }
   },
   "ultimate_scepter": {
@@ -2861,7 +2861,7 @@
     "active": {
       "label": "Active: Echo Shell",
       "range": 900,
-      "desc": "Applies a shield to the target unit for 5 seconds which re-casts most targeted spells back to their caster.\n\nThe shielded unit will still take damage from the spell.\nDispel Type: Basic Dispel"
+      "desc": "Applies a shield to the target unit for 5 seconds which re-casts most targeted spells back to their caster.\n\nThe shielded unit will still take damage from the spell.\nDispel Type: <b>Basic Dispel</b>"
     }
   },
   "silver_edge": {
@@ -2872,7 +2872,7 @@
     "stats": "+70 Damage\n+35 Attack Speed",
     "active": {
       "label": "Active: Shadow Walk",
-      "desc": "Makes you invisible for 17 seconds, or until you attack or cast a spell. While invisible, you move 20% faster and can move through units.\n\nAttacking to end the invisibility will deal 300 bonus physical damage, disable their passive abilities for 5 seconds, and cap their movement speed to 200."
+      "desc": "Makes you invisible for <b>17</b> seconds, or until you attack or cast a spell. While invisible, you move <b>20%</b> faster and can move through units.\n\nAttacking to end the invisibility will deal <b>300</b> bonus physical damage, disable their passive abilities for <b>5</b> seconds, and cap their movement speed to <b>200</b>."
     }
   }
 }

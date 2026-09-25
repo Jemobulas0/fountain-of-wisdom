@@ -813,16 +813,31 @@
 
   /* hero_template.html — multi-position badges ("4/5", see buildSkillBuilds)
      stack their numbers vertically in a tall pill as wide as a single-number
-     badge, slash hidden. Single-number badges are untouched. */
+     badge. The slash glyph is swapped for a short thin line, slightly
+     angled like a flattened slash, in the digits' own colour (currentColor).
+     It only adds height (1px line + the gaps around it), never width, so the
+     pill stays 30px and the row costs no extra width. Single-number badges
+     are untouched. */
   .pos-circle-sm.pos-multi {
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
     height: auto;
     padding: 0.4em 0 0.3em;
     border-radius: 15px;
   }
   .pos-circle-sm.pos-multi .pos-slash {
-    display: none;
+    font-size: 0;
+    width: 9px;
+    height: 1px;
+    background: currentColor;
+    transform: rotate(-20deg);
+    flex-shrink: 0;
+  }
+  /* Centre every badge vertically against the tallest badge in the header
+     row (the stacked pill), so a single-number circle lines up with the
+     middle of the pill rather than its top. */
+  .timestamp-header-inner .th-col {
+    align-items: center;
   }
 
   /* hero_template.html — situational items with multiple leading icons.

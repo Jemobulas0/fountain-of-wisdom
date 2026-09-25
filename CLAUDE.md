@@ -33,6 +33,7 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 5. **Use surgical edits.** When modifying an existing file, change only what needs changing. Don't regenerate whole files when a targeted edit would do — that's the failure mode that introduces unrelated breakage.
 
 6. **One change at a time when fixing problems.** When Jemo reports a page issue, make one targeted fix, let him refresh and re-review, then move to the next. Don't bundle multiple fixes into one edit — it makes diagnosis harder if something still doesn't work.
+7. **Bump the `?v=` cache version whenever you change a file that is loaded with one.** This includes `mobile.css` (every page links it as `mobile.css?v=N`, or `../mobile.css?v=N` from `guides/` and `items/`) as well as the versioned scripts (`hero-loader.js`, `mobile-toc.js`, `toc-rail.js`, `icon-src.js`, `data/tooltips.js`, etc.). Phones keep serving the old copy otherwise. When `mobile.css` changes, bump the number on every `<link>` that loads it, on every page, so all pages stay on the same version.
 
 ## File map
 

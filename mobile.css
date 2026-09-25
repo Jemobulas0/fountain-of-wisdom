@@ -865,6 +865,11 @@
     font-size: 16px;
     line-height: 1.6;
   }
+  /* Ability type line and active label match the description size. */
+  .itc-type,
+  .itc-active-label {
+    font-size: 16px;
+  }
   .itc-passive {
     font-size: 16px;
   }

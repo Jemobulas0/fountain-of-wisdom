@@ -61,7 +61,7 @@
 .fow-tt-body { padding: 10px 12px; }
 
 .fow-tt-type {
-  font-size: 11px;
+  font-size: 16px;
   letter-spacing: 1.5px;
   color: #4a90d9;
   margin-bottom: 8px;
@@ -97,7 +97,7 @@
 
 .fow-tt-active-label {
   font-family: 'Crimson Pro', Georgia, serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   color: #4caf7d;
   letter-spacing: 1px;

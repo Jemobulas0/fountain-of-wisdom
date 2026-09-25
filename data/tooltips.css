@@ -101,9 +101,6 @@
   font-weight: 700;
   color: #4caf7d;
   letter-spacing: 1px;
-  /* Crimson Pro only ships up to 600 here, so 700 renders semibold; the stroke
-     thickens it to a true bold. */
-  -webkit-text-stroke: 0.45px currentColor;
 }
 
 .fow-tt-active-range {

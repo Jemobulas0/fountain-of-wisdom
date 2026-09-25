@@ -811,6 +811,20 @@
     display: block;
   }
 
+  /* hero_template.html — multi-position badges ("4/5", see buildSkillBuilds)
+     stack their numbers vertically in a tall pill as wide as a single-number
+     badge, slash hidden. Single-number badges are untouched. */
+  .pos-circle-sm.pos-multi {
+    flex-direction: column;
+    gap: 2px;
+    height: auto;
+    padding: 0.4em 0 0.3em;
+    border-radius: 15px;
+  }
+  .pos-circle-sm.pos-multi .pos-slash {
+    display: none;
+  }
+
   /* hero_template.html — situational items with multiple leading icons.
      Desktop keeps every entry on one row: icons, then note. On a narrow
      screen a fixed row of icons squeezes the note into a tall 1-2-word
@@ -949,15 +963,21 @@
   .spell-row {
     gap: 4px;
   }
+  /* Column width = the widest thing in it: the 30px badge (timing text at 9px
+     is ~25px). This replaces a former min-width:26px that never took effect
+     against the base width:44px. Row and header columns share the same width
+     and the same 8px gap so badges sit directly above their timing columns
+     (the desktop 6px/6px pair used to differ from the header's old 4px). */
   .timestamp-col,
   .timestamp-header-inner .th-col {
-    min-width: 26px;
+    width: 30px;
   }
   .timestamp {
     font-size: 9px;
   }
+  .timestamp-group,
   .timestamp-header-inner {
-    gap: 4px;
+    gap: 8px;
   }
   .build-card {
     padding: 10px;

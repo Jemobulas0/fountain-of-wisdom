@@ -206,7 +206,13 @@ function buildSkillBuilds(builds, heroPositions) {
     const tsHeader = activeGroups.length >= 2
       ? `<div class="timestamp-header"><div class="timestamp-header-inner">` +
           activeGroups.map(function(g) {
-            return `<div class="th-col"><div class="pos-circle-sm">${g.label}</div></div>`;
+            // Multi-position labels ("4/5") are split into spans so mobile CSS can stack
+            // the numbers and hide the slash; PC renders them inline, same as plain text.
+            const parts = g.label.split('/');
+            const badge = parts.length > 1
+              ? `<div class="pos-circle-sm pos-multi">${parts.map(function(p) { return `<span>${p}</span>`; }).join('<span class="pos-slash">/</span>')}</div>`
+              : `<div class="pos-circle-sm">${g.label}</div>`;
+            return `<div class="th-col">${badge}</div>`;
           }).join('') +
         `</div></div>`
       : '';

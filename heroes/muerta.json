@@ -94,8 +94,8 @@
           "items": [
             "null_talisman",
             "power_treads",
-            { "id": "mjollnir", "benchmarks": { "new": "~24 min", "casual": "~21 min" } },
-            { "id": "silver_edge", "benchmarks": { "new": "~32 min", "casual": "~27 min" } },
+            { "id": "mjollnir", "green": "24:00", "yellow": "21:00" },
+            { "id": "silver_edge", "green": "32:00", "yellow": "27:00" },
             "black_king_bar",
             { "id": "aghanims_shard", "hero": "muerta" },
             "bloodthorn",
@@ -122,9 +122,9 @@
           "items": [
             "power_treads",
             "magic_wand",
-            { "id": "mjollnir", "benchmarks": { "new": "~24 min", "casual": "~21 min" } },
-            { "id": "orchid", "benchmarks": { "new": "~29 min", "casual": "~25 min" } },
-            { "id": "blink", "benchmarks": { "new": "~32 min", "casual": "~28 min" } },
+            { "id": "mjollnir", "green": "24:00", "yellow": "21:00" },
+            { "id": "orchid", "green": "29:00", "yellow": "25:00" },
+            { "id": "blink", "green": "32:00", "yellow": "28:00" },
             "black_king_bar",
             { "id": "aghanims_shard", "hero": "muerta" },
             "bloodthorn",

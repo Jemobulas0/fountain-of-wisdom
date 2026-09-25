@@ -69,6 +69,9 @@
 .fow-tt-type-label {
   font-family: 'Cinzel', serif;
   text-transform: uppercase;
+  /* Cinzel caps are ~1.2x taller than Crimson Pro caps at equal size, so scale
+     the label down (0.83em) to match the value's capital height. */
+  font-size: 0.83em;
 }
 .fow-tt-type-value {
   font-family: 'Crimson Pro', Georgia, serif;

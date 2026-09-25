@@ -12,6 +12,10 @@
   // Derive data folder path from this script's own src attribute
   var scriptEl = document.currentScript;
   var DATA_PATH = scriptEl ? scriptEl.src.replace(/[^/]*$/, '') : '../data/';
+  // items.json is cache-busted with this script's own ?v= (tooltips.js?v=N), so
+  // bumping the tooltips.js version on the pages also refreshes items.json.
+  var DATA_VER = (scriptEl && (scriptEl.src.match(/[?&]v=([^&]+)/) || [])[1]) || '';
+  var ITEMS_QUERY = DATA_VER ? '?v=' + DATA_VER : '';
 
   let ITEMS = {};
   let HEROES = {};
@@ -35,7 +39,7 @@
   async function loadData() {
     try {
       const [itemsResp, heroesResp] = await Promise.all([
-        fetch(DATA_PATH + 'items.json'),
+        fetch(DATA_PATH + 'items.json' + ITEMS_QUERY),
         fetch(DATA_PATH + 'heroes.json')
       ]);
       ITEMS = await itemsResp.json();

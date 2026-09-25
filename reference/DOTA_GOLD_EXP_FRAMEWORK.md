@@ -709,7 +709,7 @@ Identical to Position 5:
 | Quelling Blade | 100g |
 | Healing Salve | 100g |
 | Town Portal Scroll | 100g |
-| Infused Raindrop | 225g |
+| Infused Raindrops | 225g |
 | Bottle | 675g |
 | Aghanim's Shard | 1,400g |
 
@@ -859,7 +859,7 @@ Identical to Position 5:
 | Item | Cost |
 |------|------|
 | Vanguard | 1,700g |
-| Vladimir's Offering | 2,200g |
+| Vladmir's Offering | 2,200g |
 | Blade Mail | 2,400g |
 | Armlet of Mordiggian | 2,500g |
 | Helm of the Dominator | 2,550g |

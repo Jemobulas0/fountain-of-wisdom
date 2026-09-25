@@ -175,7 +175,8 @@
 
   /* ── BUILD TREE ── */
   .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
-  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: flex-start; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: stretch; }
+  .build-tree-row > .build-tree-link { display: flex; }
   .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
   .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
   .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 80px; }
@@ -184,7 +185,7 @@
   .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; letter-spacing: 0.5px; color: var(--text); text-align: center; }
   .build-tree-name.current { color: var(--gold); }
-  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; margin-top: auto; }
   a.build-tree-link { text-decoration: none; color: inherit; }
   a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   a.build-tree-link:hover .build-tree-name { color: var(--gold); }
@@ -1153,7 +1154,7 @@
 
 </div>
   <script src="../icon-src.js?v=12"></script>
-  <script src="../data/tooltips.js?v=13"></script>
+  <script src="../data/tooltips.js?v=14"></script>
   <script src="../hero-links.js"></script>
   <script src="../item-links.js"></script>
   <script src="../mobile-toc.js?v=14"></script>

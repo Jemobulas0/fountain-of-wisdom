@@ -186,6 +186,12 @@
       html += '<div class="fow-tt-stats">' + item.stats.replace(/\n/g, '<br>') + '</div>';
     }
 
+    // Passive description. Rendered before the active block so items with both
+    // a passive and an active (Linken's Sphere, Abyssal Blade...) show both.
+    if (item.desc) {
+      html += '<div class="fow-tt-desc">' + item.desc.replace(/\n/g, '<br>') + '</div>';
+    }
+
     // Active ability
     if (item.active) {
       html += '<div class="fow-tt-active">';
@@ -197,11 +203,6 @@
       html += '</div>';
       html += '<div class="fow-tt-active-desc">' + item.active.desc.replace(/\n/g, '<br>') + '</div>';
       html += '</div>';
-    }
-
-    // Passive description (items with only a desc and no active)
-    if (item.desc && !item.active) {
-      html += '<div class="fow-tt-desc">' + item.desc.replace(/\n/g, '<br>') + '</div>';
     }
 
     // Aghs hero-specific upgrade (on normal items like regular scepter)

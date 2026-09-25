@@ -66,7 +66,11 @@ function buildItemPageIndex(registry) {
 // coverage decides the link, data/items.json decides the tooltip, never each other.
 function itemLinkWrap(id, inner, opts) {
   opts = opts || {};
-  const heroAttr = opts.hero ? ` data-hero="${opts.hero}"` : '';
+  // Aghanim's items only have a pop-up with a hero context. When the JSON gives
+  // none (bare string ids, "also" icons, inline [item:...] tags), fall back to
+  // the hero whose page this is, so they behave like the same item in Item Builds.
+  const hero = opts.hero || (AGHS_POPUP_ITEM_IDS.indexOf(id) !== -1 ? heroId : '');
+  const heroAttr = hero ? ` data-hero="${hero}"` : '';
   const styleAttr = opts.style ? ` style="${opts.style}"` : '';
   const attrs = `class="item-link" data-tooltip="item" data-item="${id}"${heroAttr}${styleAttr}`;
   const page = ITEM_PAGES[id];
@@ -299,8 +303,10 @@ function enchantmentRowHTML(ench) {
 // qualify — see buildItemHTML, which only attaches hero context to objects.
 const AGHS_POPUP_ITEM_IDS = ['ultimate_scepter', 'ultimate_scepter_2', 'aghanims_shard'];
 function hasAghsPopupIcon(item) {
-  return typeof item === 'object' && item !== null &&
-    AGHS_POPUP_ITEM_IDS.indexOf(item.id) !== -1 && !!(item.hero || item.hero_shard);
+  // itemLinkWrap falls back to the page's own hero id, so any Aghanim's icon
+  // (object or bare string) now gets the pop-up.
+  const id = (typeof item === 'string') ? item : (item && item.id);
+  return AGHS_POPUP_ITEM_IDS.indexOf(id) !== -1;
 }
 function hasAghsPopupIcons(builds, situational) {
   const inBuilds = builds.some(function(build) {

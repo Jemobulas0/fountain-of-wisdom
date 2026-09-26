@@ -126,6 +126,22 @@
   color: #c8cdd8;
 }
 
+/* Green variant (in-game green actives, e.g. Iron Branch): set via
+   "theme": "green" on the item's active in data/items.json. */
+.fow-tt-active.green {
+  background: rgba(76,175,125,0.06);
+  border-top: 1px solid rgba(76,175,125,0.25);
+  padding: 8px 12px 10px;
+}
+.fow-tt-active.green .fow-tt-active-header {
+  background: none;
+  padding: 0;
+  margin-bottom: 5px;
+}
+.fow-tt-active.green .fow-tt-active-desc { padding: 0; }
+.fow-tt-active.green .fow-tt-active-label { color: #4caf7d; }
+.fow-tt-active.green .fow-tt-active-range { color: #6b7280; }
+
 .fow-tt-range-icon {
   width: 1em;
   height: 1em;

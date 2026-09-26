@@ -192,7 +192,7 @@
 
     // Active ability
     if (item.active) {
-      html += '<div class="fow-tt-active">';
+      html += '<div class="fow-tt-active' + (item.active.theme === 'green' ? ' green' : '') + '">';
       html += '<div class="fow-tt-active-header">';
       html += '<span class="fow-tt-active-label">' + item.active.label + '</span>';
       if (item.active.range) {

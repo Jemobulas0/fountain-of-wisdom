@@ -2859,6 +2859,7 @@
     "type": "Ability: Point Target",
     "active": {
       "label": "Active: Reveal",
+      "range": 300,
       "desc": "Gives True Sight over a 300 radius revealing wards and units even in Fog of War."
     }
   },

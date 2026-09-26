@@ -2852,6 +2852,16 @@
       }
     }
   },
+  "gem": {
+    "name": "Gem of True Sight",
+    "icon": "gem",
+    "cost": 900,
+    "type": "Ability: Point Target",
+    "active": {
+      "label": "Active: Reveal",
+      "desc": "Gives True Sight over a 300 radius revealing wards and units even in Fog of War."
+    }
+  },
   "lotus_orb": {
     "name": "Lotus Orb",
     "icon": "lotus_orb",

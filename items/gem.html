@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gem of True Sight - The Fountain of Wisdom</title>
+<meta name="description" content="A risky purchase with a huge payoff. You see all invisible enemy units and wards in a large radius around you.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Fountain of Wisdom">
+<meta property="og:title" content="Gem of True Sight - The Fountain of Wisdom">
+<meta property="og:description" content="A risky purchase with a huge payoff. You see all invisible enemy units and wards in a large radius around you.">
+<meta property="og:url" content="https://thefountainofwisdom.com/items/gem.html">
+<meta property="og:image" content="https://thefountainofwisdom.com/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(30,60,20,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px 22px; margin-left: -22px; transition: background 0.2s, color 0.2s; }
+  .nav-brand:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold-light); }
+  .nav-links { display: flex; gap: 12px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; padding: 14px 20px; border-bottom: 1px solid transparent; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; position: relative; }
+
+  /* Lets a scrollIntoView (from ../toc-rail.js) clear the 56px fixed nav
+     instead of scrolling a section's top edge flush behind it. Matches the
+     guide's own .section-break scroll-margin-top; unconditional (not
+     mobile-gated) since the PC rail uses it too. */
+  .section { scroll-margin-top: 88px; }
+
+  /* ── TABLE OF CONTENTS (right-margin, fixed, vertically centred) ──
+     Same rail guides/wasting_time.html uses, anchored to this page's .page
+     content column (900px) instead of the guide's .article-body (760px) -
+     see ../toc-rail.js. Progressive enhancement: hidden until that script
+     builds it (.is-ready) and only shown once the margin beside .page has
+     room. 1368px (not the guide's 1260px) is this page's own threshold:
+     900px content column + 24px offset + 200px rail = 1124px needed beside
+     .page, so both margins (viewport minus 900, split evenly) must be
+     >=1124px each, i.e. viewport >= 900 + 2*224 = 1348px on pure box-model
+     math. Verified in-browser that 1348px itself still clips by a few px
+     on Windows Chrome - a vertical scrollbar (page content is always
+     taller than the viewport here) eats into the width CSS media queries
+     measure but layout doesn't get to use, so +20px covers that with room
+     to spare across browsers. Below 1368px the rail would run past the
+     window's right edge (see mobile.css's floating button/panel, which
+     picks up exactly where this leaves off). */
+  .toc-sidebar { display: none; position: absolute; top: 0; bottom: 0; left: calc(100% + 24px); width: 200px; }
+  @media (min-width: 1368px) { .toc-sidebar.is-ready { display: block; } }
+  .toc-panel { position: fixed; top: 50%; left: auto; width: 200px; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 20px; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .toc-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
+  .toc-list { display: flex; flex-direction: column; }
+  .toc-link { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--text); text-decoration: none; padding: 6px 0 6px 12px; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .toc-link:hover { color: var(--gold); }
+  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+  .toc-cta { display: block; margin-top: 28px; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-align: center; text-decoration: none; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .item-avatar {
+    width: 88px;
+    height: 64px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1a2a1a, #0d150d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(30,60,20,0.4), inset 0 0 15px rgba(0,0,0,0.5);
+  }
+  .item-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .header-info { flex: 1; }
+  .item-name { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+  .item-meta { display: flex; align-items: center; gap: 16px; }
+  .item-cost { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; color: var(--gold); letter-spacing: 1px; }
+  .item-cost img { width: 16px; height: 16px; }
+  .item-category { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); }
+
+  .header-right { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; align-self: flex-start; }
+  .version-badge { font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; color: var(--gold); letter-spacing: 1px; border: 1px solid var(--gold-dark); padding: 3px 8px; border-radius: 2px; }
+  .version-letter { font-size: 0.85em; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--bg-card); border: 1px solid var(--border); border-top: none; padding: 20px 24px; }
+  .section + .section { border-top: 1px solid var(--border); margin-top: -1px; }
+  .section:last-child { border-radius: 0 0 4px 4px; border-bottom: 2px solid var(--gold-dark); }
+
+  /* font-size/diamond size match hero_template.html's .section-title exactly
+     (16px / 12px) - that's the larger of the two, per Jemo. */
+  .section-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-gold); position: relative; }
+  .section-title::before, .section-title::after { content: '◆'; font-size: 12px; color: var(--gold-dark); margin: 0 10px; vertical-align: middle; }
+
+  /* ── ITEM TOOLTIP CARD (mimics in-game) ── */
+  .item-tooltip-card {
+    background: linear-gradient(180deg, #1a1e28 0%, #12161e 100%);
+    border: 1px solid #3a3f4d;
+    border-radius: 4px;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .itc-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px 10px; }
+  .itc-icon { width: 52px; height: 38px; border-radius: 3px; overflow: hidden; flex-shrink: 0; border: 1px solid #3a3f4d; }
+  .itc-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .itc-name { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; }
+  .itc-type { font-size: 14px; letter-spacing: 1.5px; color: var(--blue); padding: 8px 16px 8px; border-bottom: 1px solid #2a2f3d; }
+  .itc-type-label { font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.83em; /* Cinzel caps are ~1.2x taller than Crimson Pro caps at equal size */ }
+  .itc-type-value { font-family: 'Crimson Pro', Georgia, serif; }
+  .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; line-height: 1.6; }
+  .itc-active { background: rgba(76,175,125,0.08); border-top: 2px solid var(--green); padding: 10px 16px 12px; }
+  .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
+  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
+  .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
+  .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .itc-active-desc strong { color: var(--text-bright); }
+  .itc-lore { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; }
+
+  /* ── BUILD TREE ── */
+  .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: stretch; }
+  .build-tree-row > .build-tree-link { display: flex; }
+  .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
+  .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
+  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 80px; }
+  .build-tree-icon { width: 80px; height: 60px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
+  .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; letter-spacing: 0.5px; color: var(--text); text-align: center; }
+  .build-tree-name.current { color: var(--gold); }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; margin-top: auto; }
+  a.build-tree-link { text-decoration: none; color: inherit; }
+  a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.build-tree-link:hover .build-tree-name { color: var(--gold); }
+  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-dim); height: 60px; display: flex; align-items: center; justify-content: center; }
+
+  /* ── COACHING TEXT - font-size/line-height match hero_template.html's
+     body rule (21px / 1.6), the standard for running prose on hero pages. ── */
+  .coaching-text { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }
+
+  /* ── USE CASES ── */
+  .use-cases { display: flex; flex-direction: column; gap: 12px; }
+  .use-case { background: var(--bg); border: 1px solid var(--border); border-radius: 3px; padding: 12px 16px; font-size: 21px; line-height: 1.6; color: var(--text); display: flex; gap: 12px; align-items: flex-start; }
+  .use-case-icons { display: flex; flex-direction: column; gap: 4px; align-items: center; flex-shrink: 0; padding-top: 2px; }
+  .use-case-body { flex: 1; }
+
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+  .inline-icon.hero-inline img { object-position: center top; }
+  .inline-icon.ability-inline { width: 24px; height: 24px; }
+
+  /* ── LINKS ── */
+  a.item-link, a.hero-link { text-decoration: none; color: inherit; }
+  a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
+  .item-link { display: contents; }
+  a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link { display: inline-block; }
+  a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
+  /* ── ADVANCED TIP - font-size/line-height match hero_template.html's body
+     rule (21px / 1.6), the standard for running prose on hero pages. The
+     hero-page .tip component's "▸▸" bullet decoration is deliberately not
+     reused here (per Jemo: remove the arrow decorations), so no ::before
+     or reserved indent. ── */
+  .tip { font-size: 21px; line-height: 1.6; text-align: left; max-width: 700px; margin: 0 auto; }
+  .tip.advanced { color: var(--yellow); }
+
+  /* ── REFLECT / DISPEL LABELS - mirrors hero pages' .item-timed / .timestamp
+     pattern (green/yellow timing text above/below an item icon), reused here
+     with a red "Reflect" label above and the existing green reused below for
+     "Dispel". .timestamp.red is new; .item-timed, .item-timed .timestamp and
+     .item-timed .timestamp.green are the exact hero-page rules (hero_template.html),
+     reused verbatim so the labels center and space themselves the same way the
+     hero pages' build-timing labels do. ── */
+  .item-timed { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .item-timed .timestamp { font-family: 'Cinzel', serif; letter-spacing: 0.5px; line-height: 1; text-align: center; }
+  .item-timed .timestamp.green { color: var(--green); }
+  .item-timed .timestamp.red { color: var(--red); }
+  .item-timed.effect .timestamp { font-size: 12px; font-weight: 700; text-transform: uppercase; }
+  .item-timed .timestamp.invisible { visibility: hidden; }
+
+  .effect-row { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 22px; }
+  .effect-row:last-child { margin-bottom: 0; }
+  .effect-icons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  /* The compact grid sits directly in the section (not inside an .effect-row),
+     so it needs its own bottom margin to match the 22px gap .effect-row's
+     margin-bottom gives every other row below it. */
+  .effect-icons.item-grid { margin-bottom: 22px; }
+  .effect-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .effect-caption { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 640px; }
+
+  /* Fixed cell width for the Heroes section spell cells and the Items
+     section's captioned rows (not the compact item grid, which keeps its
+     shrink-to-fit cells) - 104px fits the longest name on one line
+     ("Finger of Death", "Venomous Gale", "Noxious Plague" all measure
+     ~100px at this font), so every cell is the same width regardless of
+     name length and icons land in straight columns row to row. */
+  .hero-row-spells .effect-item,
+  .effect-row .effect-item {
+    width: 104px;
+  }
+  .hero-row-spells .build-tree-name,
+  .effect-row .build-tree-name {
+    max-width: 104px;
+  }
+
+  /* ── HERO ROWS (Heroes section) ── */
+  .hero-row-block { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+  .hero-row-block:last-child { margin-bottom: 0; }
+  /* align-items:flex-start, not center - centering against the whole cell
+     (icon + labels + name) sits the portrait too low, since the cell is
+     taller than just the icon. The hero-link's margin-top below shifts the
+     portrait down to align its own center with the icon's center instead. */
+  .hero-row { display: flex; align-items: flex-start; gap: 18px; }
+  .hero-row > .hero-link { margin-top: 8px; }
+  /* Same rectangular dimensions/border as hero pages' Allies & Counters
+     hero-thumb-icon (hero_template.html), just reused directly here. */
+  .hero-row-icon { width: 102px; height: 57px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+  .hero-row-icon img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  a.hero-link:hover .hero-row-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  .hero-row-spells { display: flex; gap: 16px; flex-wrap: nowrap; }
+  .build-tree-icon.small { width: 60px; height: 45px; }
+  .hero-row-caption { font-size: 21px; line-height: 1.6; color: var(--text); }
+
+  .buyer-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+  .buyer-caption { margin: 16px auto 0; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+  .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+
+  /* ── GEM-SPECIFIC ── */
+  .itc-active-desc .range-icon, .itc-passive-desc .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; vertical-align: -0.12em; margin-left: 2px; }
+  .itc-passive-block { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; }
+  .itc-passive-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; margin-bottom: 4px; }
+  .itc-passive-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .itc-passive-block.negative .itc-passive-label, .itc-passive-block.negative .itc-passive-desc { color: var(--red); }
+  .buyer-block { margin-bottom: 32px; }
+  .buyer-block:last-child { margin-bottom: 0; }
+  .buyer-subtitle { font-family: 'Cinzel', serif; font-size: 15px; font-weight: 600; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 10px; }
+  .counters-caption { margin: 0 auto 16px; }
+  .buyer-row { align-items: center; }
+</style>
+  <link rel="stylesheet" href="../mobile.css?v=2">
+  <script src="../nav.js" defer></script>
+  <script src="../favicon-anim.js" defer></script>
+  <link rel="stylesheet" href="../data/tooltips.css?v=6">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html" class="active">Items</a></li>
+    <!-- <li><a href="../concepts.html">Concepts</a></li> -->
+    <li><a href="../guides.html">Guides</a></li>
+<!-- removed Sep 2026 - Stripe review: <li><a href="../support.html">Donations</a></li> -->
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <a href="../items.html" class="back-link">All Items</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="item-avatar">
+      <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gem.png" alt="Gem of True Sight">
+    </div>
+    <div class="header-info">
+      <div class="item-name">Gem of True Sight</div>
+      <div class="item-meta">
+        <div class="item-cost">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/gold.png" alt="Gold">
+          900
+        </div>
+        <div class="item-category">Miscellaneous</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="version-badge">7.41<span class="version-letter">f</span></div>
+    </div>
+  </div>
+
+
+  <!-- STATS & ABILITIES -->
+  <div class="section">
+    <div class="section-title">Stats & Abilities</div>
+
+    <div class="item-tooltip-card">
+      <div class="itc-type"><span class="itc-type-label">Ability:</span> <span class="itc-type-value">Point Target</span></div>
+      <div class="itc-active">
+        <div class="itc-active-header">
+          <div class="itc-active-label">Active: Reveal</div>
+        </div>
+        <div class="itc-active-desc">Gives True Sight over a <strong>300</strong> <img class="range-icon" src="../assets/radius.png" alt="Radius"> radius revealing wards and units even in Fog of War.</div>
+      </div>
+      <div class="itc-passive-block">
+        <div class="itc-passive-label">Passive: True Sight</div>
+        <div class="itc-passive-desc">Grants the ability to see invisible units and wards to any allied vision within <strong>900</strong> <img class="range-icon" src="../assets/radius.png" alt="Radius"> range of its carrier.</div>
+      </div>
+      <div class="itc-passive-block negative">
+        <div class="itc-passive-label">Passive: Everlasting</div>
+        <div class="itc-passive-desc">Dropped on death, and cannot be destroyed.</div>
+      </div>
+      <!-- TODO: lore line goes here as <div class="itc-lore">...</div> once Jemo supplies it -->
+    </div>
+  </div>
+
+  <!-- BUILD TREE -->
+  <div class="section">
+    <div class="section-title">Build Tree</div>
+
+    <div class="build-tree">
+      <div class="build-tree-row">
+        <div class="build-tree-item">
+          <div class="build-tree-icon current">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gem.png" alt="Gem of True Sight">
+          </div>
+          <div class="build-tree-name current">Gem of True Sight</div>
+          <div class="build-tree-cost">900</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-title">Overview</div>
+    <div class="coaching-text">
+      A risky purchase with a huge payoff. You see all invisible enemy units and wards in a large radius around you, and you can reveal wards and enemies hidden in the fog on nearby cliffs or in trees. The cost is that the Gem drops when you die, and the enemy team can pick it up for free.</div>
+  </div>
+
+  <!-- COUNTERS -->
+  <div class="section">
+    <div class="section-title">Counters</div>
+    <div class="effect-caption counters-caption">Invisible heroes and items the Gem exposes.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="nyx_assassin"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png" alt="Nyx Assassin"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="clinkz"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png" alt="Clinkz"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="riki"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/riki.png" alt="Riki"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="bounty_hunter"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" alt="Bounty Hunter"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="weaver"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png" alt="Weaver"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="sand_king"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png" alt="Sand King"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="invoker"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" alt="Invoker"></div></span>
+      <span class="item-link" data-tooltip="item" data-item="silver_edge"><div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge"></div></span>
+    </div>
+  </div>
+
+  <!-- NATURAL BUYERS -->
+  <div class="section">
+    <div class="section-title">Natural Buyers</div>
+
+    <div class="buyer-block">
+      <div class="buyer-subtitle">The Frontliner</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">Beefy heroes survive fights more often, and they stand closest to where invisible enemies try to get in. The Gem is safest on the hero least likely to drop it.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="centaur"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png" alt="Centaur Warrunner"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="doom_bringer"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png" alt="Doom"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="mars"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="primal_beast"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png" alt="Primal Beast"></div></span>
+    </div>
+    </div>
+
+    <div class="buyer-block">
+      <div class="buyer-subtitle">The Self-Sufficient Support</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">Supports with escape or survivability tools and spare gold can carry the Gem themselves, so the cores keep their item slots for damage.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="dark_willow"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" alt="Dark Willow"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="keeper_of_the_light"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" alt="Keeper of the Light"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="enchantress"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png" alt="Enchantress"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="ringmaster"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ringmaster.png" alt="Ringmaster"></div></span>
+    </div>
+    </div>
+
+    <div class="buyer-block">
+      <div class="buyer-subtitle">The Map Controller</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">Mobile supports with a lot of downtime between fights can walk the map and clear enemy wards from large areas you care about, such as Roshan or the jungle you want to farm. The faster the hero moves around the map, the more ground the Gem covers.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="enchantress"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png" alt="Enchantress"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="keeper_of_the_light"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" alt="Keeper of the Light"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="pugna"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png" alt="Pugna"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="winter_wyvern"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/winter_wyvern.png" alt="Winter Wyvern"></div></span>
+    </div>
+    </div>
+
+    <div class="buyer-block">
+      <div class="buyer-subtitle">The Split Pusher</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">If your main job is to split push for most of the game, but there's an invisible hero on the enemy team who can kill you every time he catches you off guard, the Gem shows him long before he reaches you. He needs to get close, so you almost always have time to leave.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="furion"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="lina"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" alt="Lina"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="broodmother"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png" alt="Broodmother"></div></span>
+    </div>
+    </div>
+  </div>
+
+  <a href="../items.html" class="back-link-bottom">All Items</a>
+
+  <div style="text-align:center; padding: 0 0 24px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); font-style: italic;">
+    Want help applying this to your games? <a href="../coaching.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark);">Book a session.</a>
+  </div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <!-- <a href="../concepts.html">Concepts</a> -->
+    <a href="../guides.html">Guides</a>
+<!-- removed Sep 2026 - Stripe review: <a href="../support.html">Donations</a> -->
+    <a href="../coaching.html">Coaching</a>
+    <a href="../terms.html#terms">Terms of Service</a>
+    <a href="../terms.html#privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemobulas</div>
+  <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
+</footer>
+
+</div>
+  <script src="../icon-src.js?v=12"></script>
+  <script src="../data/tooltips.js?v=17"></script>
+  <script src="../hero-links.js"></script>
+  <script src="../item-links.js"></script>
+  <script src="../mobile-toc.js?v=14"></script>
+  <script src="../toc-rail.js?v=2"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

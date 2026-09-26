@@ -164,10 +164,10 @@
   .itc-type-label { font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.83em; /* Cinzel caps are ~1.2x taller than Crimson Pro caps at equal size */ }
   .itc-type-value { font-family: 'Crimson Pro', Georgia, serif; }
   .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; line-height: 1.6; }
-  .itc-active { background: rgba(76,175,125,0.08); border-top: 2px solid var(--green); padding: 10px 16px 12px; }
-  .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
-  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
+  .itc-active { background: var(--active-body-bg); padding: 0 16px 12px; }
+  .itc-active-header { display: flex; align-items: center; justify-content: space-between; background: var(--active-header-bg); margin: 0 -16px 8px; padding: 6px 16px; }
+  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; }
+  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text); }
   .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
   .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
   .itc-active-desc strong { color: var(--text-bright); }
@@ -295,7 +295,7 @@
   <link rel="stylesheet" href="../mobile.css?v=2">
   <script src="../nav.js" defer></script>
   <script src="../favicon-anim.js" defer></script>
-  <link rel="stylesheet" href="../data/tooltips.css?v=6">
+  <link rel="stylesheet" href="../data/tooltips.css?v=7">
 </head>
 <body>
 

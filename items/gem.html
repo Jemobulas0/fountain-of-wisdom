@@ -164,10 +164,10 @@
   .itc-type-label { font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.83em; /* Cinzel caps are ~1.2x taller than Crimson Pro caps at equal size */ }
   .itc-type-value { font-family: 'Crimson Pro', Georgia, serif; }
   .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; line-height: 1.6; }
-  .itc-active { background: rgba(76,175,125,0.08); border-top: 2px solid var(--green); padding: 10px 16px 12px; }
-  .itc-active-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--green); letter-spacing: 1px; }
-  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text-dim); }
+  .itc-active { background: var(--active-body-bg); padding: 0 16px 12px; }
+  .itc-active-header { display: flex; align-items: center; justify-content: space-between; background: var(--active-header-bg); margin: 0 -16px 8px; padding: 6px 16px; }
+  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; }
+  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text); }
   .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
   .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
   .itc-active-desc strong { color: var(--text-bright); }
@@ -308,7 +308,7 @@
   <link rel="stylesheet" href="../mobile.css?v=2">
   <script src="../nav.js" defer></script>
   <script src="../favicon-anim.js" defer></script>
-  <link rel="stylesheet" href="../data/tooltips.css?v=6">
+  <link rel="stylesheet" href="../data/tooltips.css?v=7">
 </head>
 <body>
 
@@ -373,23 +373,6 @@
     </div>
   </div>
 
-  <!-- BUILD TREE -->
-  <div class="section">
-    <div class="section-title">Build Tree</div>
-
-    <div class="build-tree">
-      <div class="build-tree-row">
-        <div class="build-tree-item">
-          <div class="build-tree-icon current">
-            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gem.png" alt="Gem of True Sight">
-          </div>
-          <div class="build-tree-name current">Gem of True Sight</div>
-          <div class="build-tree-cost">900</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- OVERVIEW -->
   <div class="section">
     <div class="section-title">Overview</div>
@@ -400,7 +383,7 @@
   <!-- COUNTERS -->
   <div class="section">
     <div class="section-title">Counters</div>
-    <div class="effect-caption counters-caption">Invisible heroes and items the Gem exposes.</div>
+    <div class="effect-caption counters-caption">The most notable heroes &amp; items the Gem exposes.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="nyx_assassin"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nyx_assassin.png" alt="Nyx Assassin"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="clinkz"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/clinkz.png" alt="Clinkz"></div></span>
@@ -409,6 +392,7 @@
       <span class="hero-link" data-tooltip="hero" data-hero-key="weaver"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png" alt="Weaver"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="sand_king"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sand_king.png" alt="Sand King"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="invoker"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" alt="Invoker"></div></span>
+      <div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/invis_sword.png" alt="Shadow Blade"></div>
       <span class="item-link" data-tooltip="item" data-item="silver_edge"><div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/silver_edge.png" alt="Silver Edge"></div></span>
     </div>
   </div>
@@ -419,7 +403,7 @@
 
     <div class="buyer-block">
       <div class="buyer-subtitle">The Frontliner</div>
-      <div class="effect-caption buyer-caption" style="margin-top:0;">Beefy heroes survive fights more often, and they stand closest to where invisible enemies try to get in. The Gem is safest on the hero least likely to drop it.</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">Beefy heroes are the least likely to drop the Gem. They're built to take damage, and they're rarely the enemy's main target. They also tend to stand closest to invisible enemies, which gives the rest of the team the most time to react.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="centaur"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/centaur.png" alt="Centaur Warrunner"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="doom_bringer"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png" alt="Doom"></div></span>
@@ -430,7 +414,7 @@
 
     <div class="buyer-block">
       <div class="buyer-subtitle">The Self-Sufficient Support</div>
-      <div class="effect-caption buyer-caption" style="margin-top:0;">Supports with escape or survivability tools and spare gold can carry the Gem themselves, so the cores keep their item slots for damage.</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">Supports are natural Gem buyers. They're the least item-dependent role in the game, so spending a large amount of gold on a utility item costs them the least. Ideally you're a support who still has survivability tools. Otherwise you'll either get deleted at the start of every fight, or stay so far back that the Gem does nothing for your team.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="dark_willow"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" alt="Dark Willow"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="keeper_of_the_light"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" alt="Keeper of the Light"></div></span>
@@ -441,7 +425,7 @@
 
     <div class="buyer-block">
       <div class="buyer-subtitle">The Map Controller</div>
-      <div class="effect-caption buyer-caption" style="margin-top:0;">Mobile supports with a lot of downtime between fights can walk the map and clear enemy wards from large areas you care about, such as Roshan or the jungle you want to farm. The faster the hero moves around the map, the more ground the Gem covers.</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">In games with a lot of downtime and a focus on macro play, mobile supports love buying a Gem even when the enemy team has no invisible heroes. Walking the map and confirming there are no enemy wards in the areas that matter lets your team make much better decisions. An invisible hero on the enemy team is just a bonus.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="enchantress"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png" alt="Enchantress"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="keeper_of_the_light"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png" alt="Keeper of the Light"></div></span>
@@ -452,7 +436,7 @@
 
     <div class="buyer-block">
       <div class="buyer-subtitle">The Split Pusher</div>
-      <div class="effect-caption buyer-caption" style="margin-top:0;">If your main job is to split push for most of the game, but there's an invisible hero on the enemy team who can kill you every time he catches you off guard, the Gem shows him long before he reaches you. He needs to get close, so you almost always have time to leave.</div>
+      <div class="effect-caption buyer-caption" style="margin-top:0;">You're a squishy core whose job for most of the game is to split push, and there's one assassin on the enemy team who deletes you every time he catches you off guard. In that situation it's sometimes absolutely worth asking a support to buy you a Gem, and if that's not an option, buying one yourself. This only works if seeing him before he jumps you is enough to survive. If True Sight alone won't save you, you need a different answer.</div>
     <div class="buyer-row">
       <span class="hero-link" data-tooltip="hero" data-hero-key="furion"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></div></span>
       <span class="hero-link" data-tooltip="hero" data-hero-key="lina"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" alt="Lina"></div></span>

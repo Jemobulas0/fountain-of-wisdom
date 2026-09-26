@@ -2,6 +2,12 @@
    FOUNTAIN OF WISDOM — TOOLTIP SYSTEM
    ═══════════════════════════════════════════ */
 
+/* Shared blue Active ability style (pop-ups here, item pages via var()) */
+:root {
+  --active-header-bg: linear-gradient(90deg, #4a5296 0%, #252a4e 100%);
+  --active-body-bg: linear-gradient(90deg, #1f2645 0%, #161b30 100%);
+}
+
 /* Tooltip container */
 .fow-tooltip {
   position: fixed;
@@ -85,24 +91,29 @@
 }
 
 .fow-tt-active {
-  background: rgba(76,175,125,0.06);
-  border-top: 1px solid rgba(76,175,125,0.25);
+  background: var(--active-body-bg);
   margin: 8px -12px -10px;
-  padding: 8px 12px 10px;
+  padding: 0 0 10px;
 }
 
 .fow-tt-active-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
+  background: var(--active-header-bg);
+  padding: 6px 12px;
+  margin-bottom: 8px;
+}
+
+.fow-tt-active-desc {
+  padding: 0 12px;
 }
 
 .fow-tt-active-label {
   font-family: 'Crimson Pro', Georgia, serif;
   font-size: 16px;
   font-weight: 700;
-  color: #4caf7d;
+  color: #e8ecf4;
   letter-spacing: 1px;
 }
 
@@ -112,7 +123,7 @@
   gap: 4px;
   font-family: 'Cinzel', serif;
   font-size: 12px;
-  color: #6b7280;
+  color: #c8cdd8;
 }
 
 .fow-tt-range-icon {

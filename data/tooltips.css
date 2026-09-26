@@ -8,6 +8,12 @@
   --active-body-bg: linear-gradient(90deg, #1f2645 0%, #161b30 100%);
 }
 
+/* Item icons in hero-style rows: same hover highlight as active hero portraits
+   (a.hero-link:hover .hero-row-icon). item-links.js only makes the icon an <a>
+   when the item is in data/item-pages.json, so the highlight follows the link. */
+a.item-link .build-tree-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+a.item-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
 /* Tooltip container */
 .fow-tooltip {
   position: fixed;
@@ -140,7 +146,6 @@
 }
 .fow-tt-active.green .fow-tt-active-desc { padding: 0; }
 .fow-tt-active.green .fow-tt-active-label { color: #4caf7d; }
-.fow-tt-active.green .fow-tt-active-range { color: #6b7280; }
 
 .fow-tt-range-icon {
   width: 1em;

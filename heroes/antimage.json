@@ -29,7 +29,7 @@
 
   "skill_builds": [
     {
-      "name": "Skill Build 1 - Standard",
+      "name": "Skill Build 1 - Mana Void",
       "ult": "antimage_mana_void",
       "rows": [
         {
@@ -45,15 +45,15 @@
         }
       ],
       "talents": [
-        { "level": 25, "left": "-50s Mana Void Cooldown", "right": "-1s Blink Cooldown", "chosen": "right" },
-        { "level": 20, "left": "+0.8 Mana Void Stun", "right": "+150 Blink Cast Range", "chosen": "right" },
+        { "level": 25, "left": "-50s Mana Void Cooldown", "right": "-1s Blink Cooldown", "chosen": "left" },
+        { "level": 20, "left": "+0.8 Mana Void Stun", "right": "+150 Blink Cast Range", "chosen": "left" },
         { "level": 15, "left": "+0.2 Mana Void Damage Multiplier", "right": "+9%/18% Persecutor Min/Max Movement Slow", "chosen": "left" },
-        { "level": 10, "left": "+200 Mana Void Radius", "right": "+3 Health Regen", "chosen": "right" }
+        { "level": 10, "left": "+200 Mana Void Radius", "right": "+3 Health Regen", "chosen": "left" }
       ],
-      "note": "Standard build for when you want to transition to farming asap and you don't need Counterspell to stay on lane."
+      "note": "When the enemy team has an extremely high Max Mana core, you can use him to AoE nuke and win entire teamfights with Mana Void."
     },
     {
-      "name": "Skill Build 2 - Aggressive",
+      "name": "Skill Build 2 - Stand Your Ground",
       "ult": "antimage_mana_void",
       "rows": [
         {
@@ -93,14 +93,17 @@
             "power_treads",
             "wraith_band",
             { "id": "bfury", "green": "20:00", "yellow": "17:00" },
-            { "id": "manta", "green": "27:00", "yellow": "23:00" },
+            "diffusal_blade",
+            "black_king_bar",
+            "disperser",
+            "basher",
             "butterfly",
             "abyssal_blade",
-            "skadi"
+            "swift_blink"
           ]
         }
       ],
-      "note": "Initially, consider Battle Fury and Manta Style to be your core items. With experience, you can gradually start experimenting with the rest of the build to adjust it for each game."
+      "note": "Battle Fury is the quintessential farming item for Anti-Mage. The rest of the build allows you to easily pick off squishy heroes and split pushers by yourself. It also provides you with purge, self-dispel and highest possible Manabreak against most heroes in the early & mid game."
     },
     {
       "name": "Item Build 2 - Survivability",
@@ -118,19 +121,23 @@
             { "id": "bfury", "green": "20:00", "yellow": "17:00" },
             { "id": "butterfly", "green": "28:00", "yellow": "24:00" },
             "black_king_bar",
+            "morbid_mask",
+            "basher",
+            "satanic",
             "abyssal_blade",
-            "satanic"
+            "swift_blink"
           ]
         }
       ],
-      "note": "Extreme survivability. This build is aimed as a learning experience. You will feel how steep it is to buy items with big, expensive components as early as your 2nd choice. On the other hand, you will experience a drastic difference in your survivability, since every angle is covered - magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With experience, you will eventually develop a feel for which items to incorporate into your standard builds and when."
+      "note": "You have it all on the defensive spectrum - magic resistance, evasion, debuff immunity, lifesteal, 2x self-dispels, and CC on demand with Abyssal Blade. With this build you're relying on your team to provide CC and commit properly to team fights. But in the meantime you're an absolute monster to take down. Make sure to engage with your team and output maximum DPS. If your backline falls apart before you kill their key heroes, you're quite likely to lose the fight afterwards."
     }
   ],
 
   "situational_items": [
     { "id": "monkey_king_bar", "note": "Buy after Manta, or later, to counter a high-evasion hero." },
     { "id": "nullifier", "note": "Buy after Manta to counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
-    { "id": "black_king_bar", "note": "Buy as your 3rd item at the earliest, when facing hard CC spells that Counterspell cannot deal with." }
+    { "id": "skadi", "note": "Counters Health Restoration." },
+    { "id": "manta", "note": "Buy instead of [item:diffusal_blade] Diffusal Blade if you're facing an extremely high max mana enemy hero (ex. 2000+ mana) and your illusions will actually be allowed to attack him incessantly. Under ideal conditions, this would be your go to item for the abovementioned <strong>Mana Void</strong> skill build." }
   ],
 
   "tips": [

@@ -53,6 +53,47 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 | Greedy (Enchantment) | `enhancement_greedy` | Not a shop item — an enchantment (see `build.enchantment` in hero JSON). CDN spells it "enhancement", not "enchantment". |
 | Perseverance | `pers` | CDN/internal id is a short form, not a rename. Confirmed via api.opendota.com/api/constants/items (built while sourcing lotus_orb.html). |
 | Scythe of Vyse | `sheepstick` | CDN keeps the item's old "Sheepstick" internal name. Confirmed via api.opendota.com/api/constants/items. |
+| Morbid Mask | `lifesteal` | CDN uses the item's old "Lifesteal" internal name. Confirmed via `items.html`'s own shop data, and already used correctly in `heroes/phantom_assassin.json` and `heroes/tidehunter.json`. `heroes/antimage.json` was written with the guessed `morbid_mask` id, which 404'd — fixed to `lifesteal`. |
+| Aghanim's Scepter | `ultimate_scepter` | Confirmed via items.html shop table. |
+| Armlet of Mordiggian | `armlet` | Confirmed via items.html shop table. |
+| Assault Cuirass | `assault` | Confirmed via items.html shop table. |
+| Battle Fury | `bfury` | Confirmed via items.html shop table. |
+| Blink Dagger | `blink` | Confirmed via items.html shop table. |
+| Boots of Speed | `boots` | Confirmed via items.html shop table. |
+| Boots of Travel | `travel_boots` | Confirmed via items.html shop table. |
+| Crystalys | `lesser_crit` | Confirmed via items.html shop table. |
+| Daedalus | `greater_crit` | Confirmed via items.html shop table. |
+| Divine Rapier | `rapier` | Confirmed via items.html shop table. |
+| Drum of Endurance | `ancient_janggo` | Confirmed via items.html shop table. |
+| Dust of Appearance | `dust` | Confirmed via items.html shop table. |
+| Eaglesong | `eagle` | Confirmed via items.html shop table. |
+| Eul's Scepter of Divinity | `cyclone` | Confirmed via items.html shop table. |
+| Eye of Skadi | `skadi` | Confirmed via items.html shop table. |
+| Gauntlets of Strength | `gauntlets` | Confirmed via items.html shop table. |
+| Gem of True Sight | `gem` | Confirmed via items.html shop table. |
+| Ghost Scepter | `ghost` | Confirmed via items.html shop table. |
+| Gloves of Haste | `gloves` | Confirmed via items.html shop table. |
+| Healing Salve | `flask` | Confirmed via items.html shop table. |
+| Heart of Tarrasque | `heart` | Confirmed via items.html shop table. |
+| Infused Raindrops | `infused_raindrop` | Confirmed via items.html shop table. |
+| Iron Branch | `branches` | Confirmed via items.html shop table. |
+| Linken's Sphere | `sphere` | Confirmed via items.html shop table. |
+| Manta Style | `manta` | Confirmed via items.html shop table. |
+| Mantle of Intelligence | `mantle` | Confirmed via items.html shop table. |
+| Observer Ward | `ward_observer` | Confirmed via items.html shop table. |
+| Orb of Blight | `blight_stone` | Confirmed via items.html shop table. |
+| Orchid Malevolence | `orchid` | Confirmed via items.html shop table. |
+| Pipe of Insight | `pipe` | Confirmed via items.html shop table. |
+| Refresher Orb | `refresher` | Confirmed via items.html shop table. |
+| Robe of the Magi | `robe` | Confirmed via items.html shop table. |
+| Sacred Relic | `relic` | Confirmed via items.html shop table. |
+| Sage's Mask | `sobi_mask` | Confirmed via items.html shop table. |
+| Sentry Ward | `ward_sentry` | Confirmed via items.html shop table. |
+| Shadow Blade | `invis_sword` | Confirmed via items.html shop table. |
+| Skull Basher | `basher` | Confirmed via items.html shop table. |
+| Slippers of Agility | `slippers` | Confirmed via items.html shop table. |
+| Town Portal Scroll | `tpscroll` | Confirmed via items.html shop table. |
+| Vladmir's Offering | `vladmir` | Confirmed via items.html shop table. |
 
 ## When adding new entries
 

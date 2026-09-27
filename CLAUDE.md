@@ -25,6 +25,9 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 1. **The content is Jemo's.** Never auto-generate hero analysis, ability descriptions, tips, or guide content unless explicitly asked for a draft to react to. Your job is to structure content Jemo provides, not originate it.
 
 2. **Check `reference/cdn_paths.md` before writing any asset ID.** The site renders CDN URLs at runtime by using the IDs you write in JSON files. So when writing any hero, ability, or item ID (in any field — situational items, allies/counters, bracket references, anything), check `cdn_paths.md` for legacy-name exceptions. If an asset has a legacy CDN name listed, use the legacy name in the JSON, not the current in-game name. When a new mismatch is discovered (an image fails to load and the asset isn't in the exceptions list), stop and ask Jemo. Once confirmed, add it to `cdn_paths.md`.
+   - **Items specifically:** take the ID from `items.html`'s shop table (the CDN key column, the second field in each row) — never from the item's display name. `items.html` is the source of truth for item IDs. Check `cdn_paths.md` first for known exceptions; if an item isn't in either place, fall back to `items.html`.
+   - **Abilities specifically:** if an ability ID isn't already in use somewhere else on the site (grep `heroes/*.json`) and isn't listed in `cdn_paths.md`, there's no existing proof it's correct. Flag it as unverified in your report so Jemo can check it renders on preview, rather than silently assuming the standard `hero_ability` pattern holds.
+   - Once an unverified item or ability ID is confirmed working (or corrected after a preview failure), log it in `cdn_paths.md`.
 
 3. **Hero pages are built from `reference/hero_template.json`.** The canonical filled example is `heroes/spirit_breaker.json`. Read both when building a new hero.
 

@@ -99,6 +99,7 @@
             "basher",
             "butterfly",
             "abyssal_blade",
+            { "id": "ultimate_scepter_2", "hero_shard": "antimage" },
             "swift_blink"
           ]
         }
@@ -121,10 +122,11 @@
             { "id": "bfury", "green": "20:00", "yellow": "17:00" },
             { "id": "butterfly", "green": "28:00", "yellow": "24:00" },
             "black_king_bar",
-            "morbid_mask",
+            "lifesteal",
             "basher",
             "satanic",
             "abyssal_blade",
+            { "id": "ultimate_scepter_2", "hero_shard": "antimage" },
             "swift_blink"
           ]
         }
@@ -134,16 +136,18 @@
   ],
 
   "situational_items": [
+    { "id": "aghanims_shard", "note": "Many spells in the game are extremely easy to [ability:antimage_spell_shield] Counterspell without the enemy player being able to do almost anything about it most of the time. Think [hero:gyrocopter] Gyrocopter's [ability:gyrocopter_homing_missile] Homing Missile, [hero:skywrath_mage] Skywrath Mage's [ability:skywrath_mage_arcane_bolt] Arcane Bolt and so on. Against such spells utilizing optimal value from your [item:aghanims_shard] Shard is all but guaranteed." },
     { "id": "monkey_king_bar", "note": "Buy after Manta, or later, to counter a high-evasion hero." },
     { "id": "nullifier", "note": "Buy after Manta to counter enemy buffs which prevent you from killing your targets - ex. Ghost Scepter, Glimmer Cape, Eul's Scepter, Aeon Disk, etc." },
     { "id": "skadi", "note": "Counters Health Restoration." },
-    { "id": "manta", "note": "Buy instead of [item:diffusal_blade] Diffusal Blade if you're facing an extremely high max mana enemy hero (ex. 2000+ mana) and your illusions will actually be allowed to attack him incessantly. Under ideal conditions, this would be your go to item for the abovementioned <strong>Mana Void</strong> skill build." }
+    { "id": "manta", "note": "Buy instead of [item:diffusal_blade] Diffusal Blade if you're facing an extremely high max mana enemy hero (ex. 2000+ mana) and your illusions will actually be allowed to attack him incessantly. Under ideal conditions, this would be your go to item for the abovementioned <strong>Mana Void</strong> skill build." },
+    { "id": "ultimate_scepter", "note": "<p>If you're going down the [item:manta] Manta Style route to counter high max mana heroes with the <strong>Mana Void</strong> skill build, you'll want to buy [item:ultimate_scepter|antimage] Aghanim's Scepter as your 4th item after the [item:black_king_bar] BKB. Not only will your hero's [ability:antimage_mana_break] Mana Break become much stronger, but your illusions will also start burning more mana as well.</p><p>As an added note - AM with Scepter is one of the strongest counters to [hero:obsidian_destroyer] Outworld Destroyer in the entire game. If he doesn't have active Debuff Immunity, he's virtually no longer a real hero. His mana will instantly drop to 0 and you can [ability:antimage_mana_void] Mana Void him and his surrounding teammates into oblivion.</p>" }
   ],
 
   "tips": [
     {
       "level": "basic",
-      "text": "[ability:antimage_blink] Blink on top of an enemy hero, use Manta to summon illusions, burn their mana, and finish them off with [ability:antimage_mana_void] Mana Void."
+      "text": "[ability:antimage_blink] Blink on top of an enemy hero, slow them down with [item:diffusal_blade] Diffusal Blade/[item:disperser] Disperser or use [item:manta] Manta Style to summon illusions, burn their mana, and finish them off with [ability:antimage_mana_void] Mana Void."
     },
     {
       "level": "basic",

@@ -394,9 +394,11 @@
     }, true);
 
     // Touch tap handling for icons that are BOTH a link and a pop-up trigger
-    // (inline item/hero icons, item-build icons, Allies & Counters, and the
-    // same markup upgraded by hero-links.js/item-links.js on static pages —
-    // this is the one shared delegation point all of them go through).
+    // (inline item/hero icons, item-build icons, and the same markup upgraded
+    // by hero-links.js/item-links.js on static pages — this is the one shared
+    // delegation point all of them go through). Allies & Counters hero icons
+    // don't carry data-tooltip, so they never match here and keep their own
+    // single-tap-to-navigate behavior untouched.
     // First tap shows the pop-up and blocks navigation; a second tap on the
     // same, already-open icon lets navigation through. A non-linked pop-up
     // icon just toggles, as it always has. Tapping anywhere else closes it.
@@ -427,15 +429,12 @@
       showTooltip(target);
     }, true);
 
-    // Long-press on a linked pop-up icon should never surface the browser's
-    // own link menu. This covers Android's contextmenu event; iOS's callout
-    // is blocked separately via -webkit-touch-callout in tooltips.css.
-    // Releasing the press still fires an ordinary click, handled above.
-    document.addEventListener('contextmenu', function(e) {
-      if (!lastInputWasTouch) return;
-      if (!e.target || typeof e.target.closest !== 'function') return;
-      if (e.target.closest('a[data-tooltip]')) e.preventDefault();
-    }, true);
+    // Long-press on a linked pop-up icon is left to the browser's native link
+    // menu (open in new tab, copy link, etc.) — tap already shows the site's
+    // pop-up, so holding is the only way to reach that menu. A long-press
+    // gesture that surfaces the menu doesn't fire a subsequent click (the
+    // same reason Allies & Counters' menu and single-tap navigation never
+    // collide), so the pop-up never appears alongside it.
 
     // Never leave a pop-up open when the page is restored via back/forward,
     // including the browser's bfcache.

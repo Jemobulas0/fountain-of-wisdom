@@ -79,6 +79,21 @@ function itemLinkWrap(id, inner, opts) {
     : `<span ${attrs}>${inner}</span>`;
 }
 
+// Wraps an inline hero mention: a real link when the hero has a page
+// (data/heroes.json -> covered: true), a plain non-navigable span when it
+// doesn't. The tooltip attributes are identical either way — same rule
+// buildAlliesCounters and hero-links.js already use, kept in sync here so
+// inline [hero:id] mentions in tip/note text behave the same way.
+function heroLinkWrap(id, inner, opts) {
+  opts = opts || {};
+  const styleAttr = opts.style ? ` style="${opts.style}"` : '';
+  const attrs = `class="hero-link" data-tooltip="hero" data-hero-key="${id}"${styleAttr}`;
+  const meta = HERO_DATA[id];
+  return (meta && meta.covered)
+    ? `<a href="hero_template.html?id=${meta.page || id}" ${attrs}>${inner}</a>`
+    : `<span ${attrs}>${inner}</span>`;
+}
+
 // Renders a standard item icon with link and tooltip
 function itemIconHTML(id, heroShard) {
   return itemLinkWrap(id,
@@ -118,9 +133,12 @@ function parseText(text) {
       `<div class="item-icon-inline"><img src="${FoWIcon.src(id, 'items')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:2px;"></div>`,
       { hero: hero, style: 'display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;' });
   });
-  // Inline hero mentions are tooltip triggers only — never navigation, whatever the hero's coverage.
+  // Inline hero mentions link to the hero's page when it's covered, same rule as
+  // buildAlliesCounters and hero-links.js. Unlinked (plain span) otherwise.
   text = text.replace(/\[hero:([^\]]+)\]/g, function(_, id) {
-    return `<span class="hero-link" data-tooltip="hero" data-hero-key="${id}" style="display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;"><div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="${FoWIcon.src(id, 'heroes')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div></span>`;
+    return heroLinkWrap(id,
+      `<div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="${FoWIcon.src(id, 'heroes')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>`,
+      { style: 'display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;' });
   });
   return text;
 }

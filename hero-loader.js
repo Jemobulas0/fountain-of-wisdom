@@ -140,6 +140,15 @@ function parseText(text) {
       `<div style="width:36px;height:20px;border-radius:2px;overflow:hidden;border:1px solid var(--border);"><img src="${FoWIcon.src(id, 'heroes')}" alt="${id}" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></div>`,
       { style: 'display:inline-flex;align-items:center;vertical-align:middle;margin:0 2px;' });
   });
+  // A blank line (\n\n) becomes a real paragraph break. Uses <div>, never <p> —
+  // a <p> is not allowed to contain the <div>s inside the inline icons built
+  // above, and the browser silently closes the <p> early when it hits one,
+  // breaking the icon markup. A single \n is left untouched (unchanged behavior).
+  if (text.indexOf('\n\n') !== -1) {
+    text = text.split(/\n\n+/).map(function(para) {
+      return '<div class="text-para">' + para + '</div>';
+    }).join('');
+  }
   return text;
 }
 
@@ -339,7 +348,7 @@ function buildItemBuilds(builds, situational) {
 
   const hintHTML = hasAghsPopupIcons(builds, situational)
     ? `<div class="section-hint pc-only">Hover over Aghanim's Scepter/Blessing &amp; Shard for more info.</div>` +
-      `<div class="section-hint mobile-only">Click on Aghanim's Scepter/Blessing &amp; Shard for more info.</div>`
+      `<div class="section-hint mobile-only">Items with a finished page show a pop-up on the first tap and open that page on the second. Tap Aghanim's Scepter/Blessing &amp; Shard for more info.</div>`
     : '';
 
   const legend =
@@ -466,7 +475,7 @@ function initMobileCollapse(container, itemSelector) {
 
 function buildGamePlan(gp) {
   const section = makeSection('Game Plan');
-  const mobileHintHTML = `<div class="section-hint mobile-only">Click on a paragraph to collapse or expand it.</div>`;
+  const mobileHintHTML = `<div class="section-hint mobile-only">Tap on a paragraph to collapse or expand it.</div>`;
 
   const extras = gp.extras
     ? `<div class="extras-box"><h4>Extras</h4><p>${gp.extras}</p></div>`
@@ -492,7 +501,7 @@ function buildTips(tips) {
       `<div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span style="color:var(--green)">Basic</span></div>` +
       `<div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div><span style="color:var(--yellow)">Advanced</span></div>` +
     `</div>`;
-  const mobileHintHTML = `<div class="section-hint mobile-only">Click on a paragraph to collapse or expand it.</div>`;
+  const mobileHintHTML = `<div class="section-hint mobile-only">Tap on a paragraph to collapse or expand it.</div>`;
 
   // Every tip starts open (no state is stored between visits). Mobile-only
   // interactivity (role/tabindex/aria-expanded) is added by initMobileCollapse

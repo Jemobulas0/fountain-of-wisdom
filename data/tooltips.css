@@ -14,6 +14,12 @@
 a.item-link .build-tree-icon { transition: border-color 0.2s, box-shadow 0.2s; }
 a.item-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
 
+/* Suppresses iOS Safari's press-and-hold callout (copy/open link menu) on
+   linked pop-up icons, so a long press only ever shows the site's own
+   pop-up. Has no effect on mouse/PC interaction. Android's equivalent long-
+   press menu is blocked in JS (see tooltips.js contextmenu handler). */
+a.item-link, a.hero-link { -webkit-touch-callout: none; }
+
 /* Tooltip container */
 .fow-tooltip {
   position: fixed;

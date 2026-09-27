@@ -359,19 +359,93 @@
     }, 150);
   }
 
+  // ── Touch vs mouse detection ──
+  // Tracks the input actually used for the most recent press, not screen
+  // width, so a touchscreen laptop still gets PC (hover) behavior when
+  // driven by a mouse. Set on pointerdown so it's current before the
+  // mouseenter/click that follow it in the same gesture fire.
+  var lastInputWasTouch = false;
+  function trackPointerType(e) {
+    lastInputWasTouch = (e.pointerType === 'touch' || e.pointerType === 'pen');
+  }
+
   // ── Event delegation ──
   function attachEvents() {
+    if (window.PointerEvent) {
+      document.addEventListener('pointerdown', trackPointerType, true);
+    } else {
+      // No PointerEvent (old Safari): infer from whichever event fires.
+      document.addEventListener('touchstart', function() { lastInputWasTouch = true; }, true);
+      document.addEventListener('mousedown', function() { lastInputWasTouch = false; }, true);
+    }
+
     document.addEventListener('mouseenter', function(e) {
+      if (lastInputWasTouch) return; // touch is handled entirely by the click handler below
       if (!e.target || typeof e.target.closest !== 'function') return;
       var target = e.target.closest('[data-tooltip]');
       if (target) showTooltip(target);
     }, true);
 
     document.addEventListener('mouseleave', function(e) {
+      if (lastInputWasTouch) return;
       if (!e.target || typeof e.target.closest !== 'function') return;
       var target = e.target.closest('[data-tooltip]');
       if (target && target === activeTarget) hideTooltip();
     }, true);
+
+    // Touch tap handling for icons that are BOTH a link and a pop-up trigger
+    // (inline item/hero icons, item-build icons, Allies & Counters, and the
+    // same markup upgraded by hero-links.js/item-links.js on static pages —
+    // this is the one shared delegation point all of them go through).
+    // First tap shows the pop-up and blocks navigation; a second tap on the
+    // same, already-open icon lets navigation through. A non-linked pop-up
+    // icon just toggles, as it always has. Tapping anywhere else closes it.
+    document.addEventListener('click', function(e) {
+      if (!lastInputWasTouch) return; // PC: a click on a link just navigates, as always
+      if (!e.target || typeof e.target.closest !== 'function') return;
+      var target = e.target.closest('[data-tooltip]');
+
+      if (!target) {
+        hideTooltip();
+        return;
+      }
+
+      var isLink = target.tagName === 'A' && target.hasAttribute('href');
+      if (!isLink) {
+        if (target === activeTarget) {
+          hideTooltip();
+        } else {
+          showTooltip(target);
+        }
+        return;
+      }
+
+      if (target === activeTarget) {
+        return; // second tap on the already-open icon: let it navigate
+      }
+      e.preventDefault();
+      showTooltip(target);
+    }, true);
+
+    // Long-press on a linked pop-up icon should never surface the browser's
+    // own link menu. This covers Android's contextmenu event; iOS's callout
+    // is blocked separately via -webkit-touch-callout in tooltips.css.
+    // Releasing the press still fires an ordinary click, handled above.
+    document.addEventListener('contextmenu', function(e) {
+      if (!lastInputWasTouch) return;
+      if (!e.target || typeof e.target.closest !== 'function') return;
+      if (e.target.closest('a[data-tooltip]')) e.preventDefault();
+    }, true);
+
+    // Never leave a pop-up open when the page is restored via back/forward,
+    // including the browser's bfcache.
+    window.addEventListener('pageshow', function() {
+      activeTarget = null;
+      if (tooltipEl) {
+        tooltipEl.classList.remove('visible');
+        tooltipEl.style.display = 'none';
+      }
+    });
   }
 
   // ── Debug mode ──

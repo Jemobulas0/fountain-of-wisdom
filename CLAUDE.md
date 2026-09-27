@@ -38,6 +38,8 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 6. **One change at a time when fixing problems.** When Jemo reports a page issue, make one targeted fix, let him refresh and re-review, then move to the next. Don't bundle multiple fixes into one edit — it makes diagnosis harder if something still doesn't work.
 7. **Bump the `?v=` cache version whenever you change a file that is loaded with one.** This includes `mobile.css` (every page links it as `mobile.css?v=N`, or `../mobile.css?v=N` from `guides/` and `items/`) as well as the versioned scripts (`hero-loader.js`, `mobile-toc.js`, `toc-rail.js`, `icon-src.js`, `data/tooltips.js`, etc.). Phones keep serving the old copy otherwise. When `mobile.css` changes, bump the number on every `<link>` that loads it, on every page, so all pages stay on the same version.
 
+8. **Never use `<p>` tags in a JSON text field rendered by the shared text renderer** (`parseText` in `hero-loader.js`, or the equivalent on any other page rendering the same kind of text). Inline icons (item/ability/hero) are built from a `<span>` wrapping a `<div>`, and a `<p>` cannot legally contain a `<div>` — the browser silently force-closes the `<p>` the moment it hits one, which breaks the icon's markup (it gets orphaned outside its own wrapper span, loses its tooltip, and can land on its own line). For a paragraph break, use a blank line (`\n\n`) in the text instead — the renderer turns that into a real paragraph gap (`.text-para` blocks) that can safely contain inline icons.
+
 ## File map
 
 **Reference material** (read when relevant, don't modify unless instructed):

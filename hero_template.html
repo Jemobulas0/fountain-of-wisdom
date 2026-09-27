@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="alternate icon" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="data/tooltips.css?v=10">
+<link rel="stylesheet" href="data/tooltips.css?v=11">
 <style>
   :root {
     --gold: #c9a84c;
@@ -271,6 +271,10 @@
   .sit-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; }
   .sit-item-icon { width: 36px; height: 36px; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
   .sit-item-note { font-size: 17px; color: var(--text); line-height: 1.4; padding-top: 4px; }
+  /* A blank line (\n\n) in JSON text fields renders as one of these, via
+     parseText in hero-loader.js. Gap only between consecutive paragraphs,
+     so a lone paragraph (the common case) picks up no extra spacing. */
+  .text-para + .text-para { margin-top: 12px; }
 
   /* ── TIPS ── */
   .tips-list { display: flex; flex-direction: column; gap: 20px; }
@@ -386,8 +390,8 @@
 <script src="icon-src.js?v=12"></script>
 <script src="mobile-toc.js?v=14"></script>
 <script src="toc-rail.js?v=2"></script>
-<script src="hero-loader.js?v=19"></script>
-<script src="data/tooltips.js?v=18"></script>
+<script src="hero-loader.js?v=20"></script>
+<script src="data/tooltips.js?v=19"></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

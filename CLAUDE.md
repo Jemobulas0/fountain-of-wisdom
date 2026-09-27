@@ -40,13 +40,15 @@ This means: don't ask Jemo to verify code-level details. Ask in terms of what sh
 
 8. **Never use `<p>` tags in a JSON text field rendered by the shared text renderer** (`parseText` in `hero-loader.js`, or the equivalent on any other page rendering the same kind of text). Inline icons (item/ability/hero) are built from a `<span>` wrapping a `<div>`, and a `<p>` cannot legally contain a `<div>` — the browser silently force-closes the `<p>` the moment it hits one, which breaks the icon's markup (it gets orphaned outside its own wrapper span, loses its tooltip, and can land on its own line). For a paragraph break, use a blank line (`\n\n`) in the text instead — the renderer turns that into a real paragraph gap (`.text-para` blocks) that can safely contain inline icons.
 
+9. **Level and item benchmark timings are never guessed, and never asked of Jemo.** They are always computed from `reference/DOTA_GOLD_EXP_FRAMEWORK.md` using its documented method (hero role/position, farming type, and the Item Timing Formula section), the same way every existing benchmark in the hero JSONs was derived. If the method can't be applied cleanly to a given item or hero (missing input, ambiguity in which route/bracket applies, etc.), stop and report exactly what's missing instead of guessing or asking Jemo to supply the number.
+
 ## File map
 
 **Reference material** (read when relevant, don't modify unless instructed):
 - `reference/hero_template.json` — empty hero schema
 - `reference/cdn_paths.md` — legacy CDN exceptions list (consult before writing any asset ID)
 - `reference/style_guide.md` — voice and structure conventions
-- `reference/gold_exp_framework.md` — formulas for calculating level and item timings based on hero role/position
+- `reference/DOTA_GOLD_EXP_FRAMEWORK.md` — formulas for calculating level and item timings based on hero role/position
 
 **Hero workflow files** (read and modify during hero-building):
 - `heroes/[hero_id].json` — one per hero, named by hero ID
@@ -76,7 +78,7 @@ These aren't off-limits — Jemo can ask for work on any of them — they're jus
 3. **Read `heroes/spirit_breaker.json`** as a structural and voice reference.
 4. **Read `reference/style_guide.md`** for voice rules.
 5. **Read `reference/cdn_paths.md`** before writing any asset IDs.
-6. **If filling timing fields, read `reference/gold_exp_framework.md`** and apply the formulas based on this hero's role/position.
+6. **If filling timing fields, read `reference/DOTA_GOLD_EXP_FRAMEWORK.md`** and apply the formulas based on this hero's role/position.
 7. **Fill the JSON file** section by section from Jemo's prose.
 8. **Update `data/heroes.json` with one edit:**
    - Find the hero's entry (keyed by CDN/internal id — check `cdn_paths.md` if unsure which id) and change `"covered": false` to `"covered": true`.

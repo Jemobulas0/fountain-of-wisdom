@@ -93,7 +93,7 @@
             "power_treads",
             "wraith_band",
             { "id": "bfury", "green": "20:00", "yellow": "17:00" },
-            "diffusal_blade",
+            { "id": "diffusal_blade", "green": "24:00", "yellow": "20:00" },
             "black_king_bar",
             "disperser",
             "basher",

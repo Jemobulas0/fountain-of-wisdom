@@ -2886,5 +2886,20 @@
       "label": "Active: Shadow Walk",
       "desc": "Makes you invisible for <b>17</b> seconds, or until you attack or cast a spell. While invisible, you move <b>20%</b> faster and can move through units.\n\nAttacking to end the invisibility will deal <b>300</b> bonus physical damage, disable their passive abilities for <b>5</b> seconds, and cap their movement speed to <b>200</b>."
     }
+  },
+  "crellas_crozier": {
+    "name": "Crella's Crozier",
+    "icon": "crellas_crozier",
+    "cost": 4800,
+    "type": "Ability: No Target",
+    "stats": "+6 All Attributes\n+450 Health\n+450 Mana",
+    "active": {
+      "label": "Active: Rite of Rumusque",
+      "desc": "You enter ghost form for <b>4</b> seconds, becoming immune to physical damage, but are unable to attack and <b>30%</b> more vulnerable to magic damage.\n\nSteal <b>6%</b> movement speed from enemy heroes in <b>900</b> range every second. Movement speed steal lasts <b>2</b>s.\n\nPutrefaction Aura's effect is increased to <b>90%</b>. All of the lost Health Restoration is redirected to you every second."
+    },
+    "passive": {
+      "label": "Passive: Putrefaction Aura",
+      "desc": "Reduces nearby enemy heroes' Health Restoration by <b>30%</b>.\n\nRadius: <b>900</b>"
+    }
   }
 }

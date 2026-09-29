@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crella's Crozier - The Fountain of Wisdom</title>
+<meta name="description" content="Do you want to completely deny almost the entire Health Restoration of all enemies around you, while also stealing it for yourself, while also stealing their movement speed, while also being completely immune to physical damage, while also melting everyone around you with your awesome AoE capabilities? Then this item is for you!">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Fountain of Wisdom">
+<meta property="og:title" content="Crella's Crozier - The Fountain of Wisdom">
+<meta property="og:description" content="Do you want to completely deny almost the entire Health Restoration of all enemies around you, while also stealing it for yourself, while also stealing their movement speed, while also being completely immune to physical damage, while also melting everyone around you with your awesome AoE capabilities? Then this item is for you!">
+<meta property="og:url" content="https://thefountainofwisdom.com/items/crellas_crozier.html">
+<meta property="og:image" content="https://thefountainofwisdom.com/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --border-gold: #3a3020;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+    --red: #c0392b;
+    --blue: #4a90d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(30,60,20,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px 22px; margin-left: -22px; transition: background 0.2s, color 0.2s; }
+  .nav-brand:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold-light); }
+  .nav-links { display: flex; gap: 12px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; padding: 14px 20px; border-bottom: 1px solid transparent; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+  .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; margin-bottom: 16px; transition: color 0.2s; }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+  .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; margin-bottom: 24px; }
+  .back-link-bottom:hover { border-color: var(--gold-dark); color: var(--gold); }
+  .back-link-bottom::before { content: '←'; font-size: 12px; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 76px 20px 20px; position: relative; }
+
+  /* Lets a scrollIntoView (from ../toc-rail.js) clear the 56px fixed nav
+     instead of scrolling a section's top edge flush behind it. Matches the
+     guide's own .section-break scroll-margin-top; unconditional (not
+     mobile-gated) since the PC rail uses it too. */
+  .section { scroll-margin-top: 88px; }
+
+  /* ── TABLE OF CONTENTS (right-margin, fixed, vertically centred) ──
+     Same rail guides/wasting_time.html uses, anchored to this page's .page
+     content column (900px) instead of the guide's .article-body (760px) -
+     see ../toc-rail.js. Progressive enhancement: hidden until that script
+     builds it (.is-ready) and only shown once the margin beside .page has
+     room. 1368px (not the guide's 1260px) is this page's own threshold:
+     900px content column + 24px offset + 200px rail = 1124px needed beside
+     .page, so both margins (viewport minus 900, split evenly) must be
+     >=1124px each, i.e. viewport >= 900 + 2*224 = 1348px on pure box-model
+     math. Verified in-browser that 1348px itself still clips by a few px
+     on Windows Chrome - a vertical scrollbar (page content is always
+     taller than the viewport here) eats into the width CSS media queries
+     measure but layout doesn't get to use, so +20px covers that with room
+     to spare across browsers. Below 1368px the rail would run past the
+     window's right edge (see mobile.css's floating button/panel, which
+     picks up exactly where this leaves off). */
+  .toc-sidebar { display: none; position: absolute; top: 0; bottom: 0; left: calc(100% + 24px); width: 200px; }
+  @media (min-width: 1368px) { .toc-sidebar.is-ready { display: block; } }
+  .toc-panel { position: fixed; top: 50%; left: auto; width: 200px; transform: translateY(-50%); background: var(--bg-card); border: 1px solid var(--border); border-radius: 3px; padding: 20px; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .toc-label { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); margin-bottom: 14px; }
+  .toc-list { display: flex; flex-direction: column; }
+  .toc-link { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; line-height: 1.35; color: var(--text); text-decoration: none; padding: 6px 0 6px 12px; border-left: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+  .toc-link:hover { color: var(--gold); }
+  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+  .toc-cta { display: block; margin-top: 28px; font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-align: center; text-decoration: none; }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    background: linear-gradient(180deg, #0d1520 0%, var(--bg-card) 100%);
+    border: 1px solid var(--border);
+    border-bottom: 2px solid var(--gold-dark);
+    border-radius: 4px 4px 0 0;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .item-avatar {
+    width: 88px;
+    height: 64px;
+    border: 2px solid var(--gold-dark);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #1a2a1a, #0d150d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(30,60,20,0.4), inset 0 0 15px rgba(0,0,0,0.5);
+  }
+  .item-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .header-info { flex: 1; }
+  .item-name { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 4px; }
+  .item-meta { display: flex; align-items: center; gap: 16px; }
+  .item-cost { display: flex; align-items: center; gap: 5px; font-family: 'Cinzel', serif; font-size: 14px; font-weight: 600; color: var(--gold); letter-spacing: 1px; }
+  .item-cost img { width: 16px; height: 16px; }
+  .item-category { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); }
+
+  .header-right { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; align-self: flex-start; }
+  .version-badge { font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; color: var(--gold); letter-spacing: 1px; border: 1px solid var(--gold-dark); padding: 3px 8px; border-radius: 2px; }
+  .version-letter { font-size: 0.85em; }
+
+  /* ── SECTIONS ── */
+  .section { background: var(--bg-card); border: 1px solid var(--border); border-top: none; padding: 20px 24px; }
+  .section + .section { border-top: 1px solid var(--border); margin-top: -1px; }
+  .section:last-child { border-radius: 0 0 4px 4px; border-bottom: 2px solid var(--gold-dark); }
+
+  /* font-size/diamond size match hero_template.html's .section-title exactly
+     (16px / 12px) - that's the larger of the two, per Jemo. */
+  .section-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border-gold); position: relative; }
+  .section-title::before, .section-title::after { content: '◆'; font-size: 12px; color: var(--gold-dark); margin: 0 10px; vertical-align: middle; }
+
+  /* ── ITEM TOOLTIP CARD (mimics in-game) ── */
+  .item-tooltip-card {
+    background: linear-gradient(180deg, #1a1e28 0%, #12161e 100%);
+    border: 1px solid #3a3f4d;
+    border-radius: 4px;
+    max-width: 420px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .itc-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px 10px; }
+  .itc-icon { width: 52px; height: 38px; border-radius: 3px; overflow: hidden; flex-shrink: 0; border: 1px solid #3a3f4d; }
+  .itc-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .itc-name { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; text-transform: uppercase; }
+  .itc-type { font-size: 14px; letter-spacing: 1.5px; color: var(--blue); padding: 8px 16px 8px; border-bottom: 1px solid #2a2f3d; }
+  .itc-type-label { font-family: 'Cinzel', serif; text-transform: uppercase; font-size: 0.83em; /* Cinzel caps are ~1.2x taller than Crimson Pro caps at equal size */ }
+  .itc-type-value { font-family: 'Crimson Pro', Georgia, serif; }
+  .itc-passive { padding: 10px 16px; font-size: 15px; color: var(--text-bright); font-weight: 600; border-bottom: 1px solid #2a2f3d; line-height: 1.6; }
+  .itc-active { background: var(--active-body-bg); padding: 0 16px 12px; }
+  .itc-active-header { display: flex; align-items: center; justify-content: space-between; background: var(--active-header-bg); margin: 0 -16px 8px; padding: 6px 16px; }
+  .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; }
+  .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text); }
+  .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
+  .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .itc-active-desc strong { color: var(--text-bright); }
+  .itc-lore { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; font-size: 13px; color: var(--text-dim); font-style: italic; line-height: 1.5; }
+
+  /* ── BUILD TREE ── */
+  .build-tree { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .build-tree-row { display: flex; gap: 12px; justify-content: center; align-items: stretch; }
+  .build-tree-row > .build-tree-link { display: flex; }
+  .build-tree-connector { width: 2px; height: 24px; background: var(--border); position: relative; }
+  .build-tree-connector::before { content: '▲'; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); font-size: 7px; color: var(--border); }
+  .build-tree-item { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 80px; }
+  .build-tree-icon { width: 80px; height: 60px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .build-tree-icon.current { border-color: var(--gold-dark); box-shadow: 0 0 12px rgba(201,168,76,0.3); }
+  .build-tree-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .build-tree-name { font-family: 'Crimson Pro', Georgia, serif; font-size: 15px; letter-spacing: 0.5px; color: var(--text); text-align: center; }
+  .build-tree-name.current { color: var(--gold); }
+  .build-tree-cost { font-family: 'Cinzel', serif; font-size: 15px; color: var(--gold-dark); margin-bottom: 6px; margin-top: auto; }
+  a.build-tree-link { text-decoration: none; color: inherit; }
+  a.build-tree-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.build-tree-link:hover .build-tree-name { color: var(--gold); }
+  .build-tree-plus { font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-dim); height: 60px; display: flex; align-items: center; justify-content: center; }
+
+  /* ── COACHING TEXT - font-size/line-height match hero_template.html's
+     body rule (21px / 1.6), the standard for running prose on hero pages. ── */
+  .coaching-text { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 700px; margin: 0 auto; }
+
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+  .inline-icon.hero-inline img { object-position: center top; }
+  .inline-icon.ability-inline { width: 24px; height: 24px; }
+
+  /* ── LINKS ── */
+  a.item-link, a.hero-link { text-decoration: none; color: inherit; }
+  a.item-link:visited, a.hero-link:visited { text-decoration: none; color: inherit; }
+  .item-link { display: contents; }
+  a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  a.hero-link { display: inline-block; }
+  a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
+  .effect-caption { font-size: 21px; line-height: 1.6; color: var(--text); text-align: center; max-width: 640px; }
+
+  /* Same rectangular dimensions/border as hero pages' Allies & Counters
+     hero-thumb-icon (hero_template.html), just reused directly here. */
+  .hero-row-icon { width: 102px; height: 57px; border-radius: 3px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; transition: border-color 0.2s, box-shadow 0.2s; }
+  .hero-row-icon img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  a.hero-link:hover .hero-row-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
+  .buyer-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+  .buyer-caption { margin: 16px auto 0; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+  .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+
+  /* ── CROZIER-SPECIFIC ── */
+  .itc-passive-block { padding: 10px 16px 12px; border-top: 1px solid #2a2f3d; }
+  .itc-passive-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; margin-bottom: 4px; }
+  .itc-passive-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .itc-passive-desc strong { color: var(--text-bright); }
+  .itc-lore-marker { font-size: 12px; font-style: normal; color: var(--gold-dark); letter-spacing: 1px; margin-bottom: 6px; }
+  .counters-caption { margin: 0 auto 16px; }
+  .buyer-row { align-items: center; }
+  .buyer-row + .buyer-row { margin-top: 14px; }
+
+  /* ── TIPS (numbered list) - body text matches .coaching-text / hero-page
+     tips (21px / 1.6, roman, var(--text)); the list's own numbers are the
+     markers, so no arrow decoration. ── */
+  .tips-list { max-width: 700px; margin: 0 auto; padding-left: 32px; font-size: 21px; line-height: 1.6; color: var(--text); text-align: left; }
+  .tips-list li { margin-bottom: 14px; padding-left: 6px; }
+  .tips-list li:last-child { margin-bottom: 0; }
+  .tips-list li::marker { color: var(--gold); font-family: 'Cinzel', serif; font-weight: 600; }
+</style>
+  <link rel="stylesheet" href="../mobile.css?v=2">
+  <script src="../nav.js" defer></script>
+  <script src="../favicon-anim.js" defer></script>
+  <link rel="stylesheet" href="../data/tooltips.css?v=13">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html" class="active">Items</a></li>
+    <!-- <li><a href="../concepts.html">Concepts</a></li> -->
+    <li><a href="../guides.html">Guides</a></li>
+<!-- removed Sep 2026 - Stripe review: <li><a href="../support.html">Donations</a></li> -->
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <a href="../items.html" class="back-link">All Items</a>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="item-avatar">
+      <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/crellas_crozier.png" alt="Crella's Crozier">
+    </div>
+    <div class="header-info">
+      <div class="item-name">Crella's Crozier</div>
+      <div class="item-meta">
+        <div class="item-cost">
+          <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/gold.png" alt="Gold">
+          4800
+        </div>
+        <div class="item-category">Magical</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="version-badge">7.41<span class="version-letter">f</span></div>
+    </div>
+  </div>
+
+  <!-- STATS & ABILITIES -->
+  <div class="section">
+    <div class="section-title">Stats & Abilities</div>
+
+    <div class="item-tooltip-card">
+      <div class="itc-type"><span class="itc-type-label">Ability:</span> <span class="itc-type-value">No Target</span></div>
+      <div class="itc-passive">
+        + <strong>6</strong> All Attributes<br>
+        + <strong>450</strong> Health<br>
+        + <strong>450</strong> Mana
+      </div>
+      <div class="itc-active">
+        <div class="itc-active-header">
+          <div class="itc-active-label">Active: Rite of Rumusque</div>
+        </div>
+        <div class="itc-active-desc">You enter ghost form for <strong>4</strong> seconds, becoming immune to physical damage, but are unable to attack and <strong>30%</strong> more vulnerable to magic damage.</div>
+        <div class="itc-active-desc" style="margin-top:10px;">Steal <strong>6%</strong> movement speed from enemy heroes in <strong>900</strong> range every second. Movement speed steal lasts <strong>2</strong>s.</div>
+        <div class="itc-active-desc" style="margin-top:10px;">Putrefaction Aura's effect is increased to <strong>90%</strong>. All of the lost Health Restoration is redirected to you every second.</div>
+      </div>
+      <div class="itc-passive-block">
+        <div class="itc-passive-label">Passive: Putrefaction Aura</div>
+        <div class="itc-passive-desc">Reduces nearby enemy heroes' Health Restoration by <strong>30%</strong>.</div>
+        <div class="itc-passive-desc" style="margin-top:6px;">Radius: <strong>900</strong></div>
+      </div>
+      <div class="itc-lore"><div class="itc-lore-marker">Lore by Jemobulas</div>After creating the imperfect Chains of Abscession, which led to the destruction of her homeland, she vowed never to repeat this mistake again. And thus she poured all of herself into her ultimate creation, in order to have her vengeance on the Dead God!</div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-title">Overview</div>
+    <div class="coaching-text">
+      Do you want to completely deny almost the entire Health Restoration of all enemies around you, while also stealing it for yourself, while also stealing their movement speed, while also being completely immune to physical damage, while also melting everyone around you with your awesome AoE capabilities? Then this item is for you!</div>
+  </div>
+
+  <!-- BUILD TREE -->
+  <div class="section">
+    <div class="section-title">Build Tree</div>
+
+    <div class="build-tree">
+      <div class="build-tree-row">
+        <div class="build-tree-item">
+          <div class="build-tree-icon current">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/crellas_crozier.png" alt="Crella's Crozier">
+          </div>
+          <div class="build-tree-name current">Crella's Crozier</div>
+          <div class="build-tree-cost">4800</div>
+        </div>
+      </div>
+
+      <div class="build-tree-connector"></div>
+
+      <div class="build-tree-row">
+        <span class="build-tree-link" data-tooltip="item" data-item="ghost">
+          <div class="build-tree-item">
+            <div class="build-tree-icon">
+              <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ghost.png" alt="Ghost Scepter">
+            </div>
+            <div class="build-tree-name">Ghost Scepter</div>
+            <div class="build-tree-cost">1500</div>
+          </div>
+        </span>
+
+        <div class="build-tree-plus">+</div>
+
+        <span class="build-tree-link" data-tooltip="item" data-item="soul_booster">
+          <div class="build-tree-item">
+            <div class="build-tree-icon">
+              <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/soul_booster.png" alt="Soul Booster">
+            </div>
+            <div class="build-tree-name">Soul Booster</div>
+            <div class="build-tree-cost">3000</div>
+          </div>
+        </span>
+
+        <div class="build-tree-plus">+</div>
+
+        <div class="build-tree-item">
+          <div class="build-tree-icon">
+            <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/recipe.png" alt="Recipe">
+          </div>
+          <div class="build-tree-name">Recipe</div>
+          <div class="build-tree-cost">300</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNTERS -->
+  <div class="section">
+    <div class="section-title">Counters</div>
+    <div class="effect-caption counters-caption">The most notable heroes &amp; items the Crozier counters.</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="necrolyte"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" alt="Necrophos"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="huskar"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png" alt="Huskar"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="lone_druid"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png" alt="Lone Druid"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="broodmother"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png" alt="Broodmother"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="enchantress"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enchantress.png" alt="Enchantress"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="pugna"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pugna.png" alt="Pugna"></div></span>
+    </div>
+    <div class="buyer-row">
+      <span class="item-link" data-tooltip="item" data-item="satanic"><div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/satanic.png" alt="Satanic"></div></span>
+      <span class="item-link" data-tooltip="item" data-item="bloodstone"><div class="build-tree-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png" alt="Bloodstone"></div></span>
+    </div>
+  </div>
+
+  <!-- NATURAL BUYERS -->
+  <div class="section">
+    <div class="section-title">Natural Buyers</div>
+    <div class="buyer-row">
+      <span class="hero-link" data-tooltip="hero" data-hero-key="razor"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/razor.png" alt="Razor"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="leshrac"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/leshrac.png" alt="Leshrac"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="necrolyte"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/necrolyte.png" alt="Necrophos"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="death_prophet"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/death_prophet.png" alt="Death Prophet"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="primal_beast"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png" alt="Primal Beast"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="shredder"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shredder.png" alt="Timbersaw"></div></span>
+      <span class="hero-link" data-tooltip="hero" data-hero-key="abyssal_underlord"><div class="hero-row-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abyssal_underlord.png" alt="Underlord"></div></span>
+    </div>
+    <div class="effect-caption buyer-caption">Heroes who like to run into the middle of the enemy team while dealing massive AoE spell damage, since being Ethereal disables only your auto attacks. On top of that, if you're affecting enemy heroes who are attempting to restore massive amounts of HP from any source, like strong heals, lifesteal, or massive health regen such as <span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span> Alchemist's <span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span> Chemical Rage or <span class="item-link" data-tooltip="item" data-item="heart"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/heart.png" alt="Heart of Tarrasque"></span></span> Heart of Tarrasque, not only will you deny them said healing, but you'll be the one to receive it instead, making you virtually unkillable despite your aggressive positioning. And the cherry on top is that you usually buy this item later into the game. So if the enemy hero or heroes you're targeting don't already have BKB, it will be extremely awkward for them to buy one at this point. Or at the very least, it will already be brought down to its minimum duration.</div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section">
+    <div class="section-title">Tips</div>
+    <ol class="tips-list">
+      <li>The only hard counter to Crella's Crozier is Debuff Immunity, like <span class="item-link" data-tooltip="item" data-item="black_king_bar"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB"></span></span> BKB or <span class="hero-link" data-tooltip="hero" data-hero-key="omniknight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/omniknight.png" alt="Omniknight"></span></span> Omniknight's <span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/omniknight_repel.png" alt="Repel"></span> Repel.</li>
+      <li>Each pulse only affects enemies within the 900 radius at the moment it goes off. Enemies who walk out of range avoid the rest of the pulses.</li>
+      <li>A dispel removes your ghost form and your stolen movement speed, but not the healing drain or the stealing of movement speed. Under a continuous dispel like <span class="item-link" data-tooltip="item" data-item="nullifier"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/nullifier.png" alt="Nullifier"></span></span> Nullifier, you still get to use each stolen speed stack for about half a second.</li>
+      <li>Both positive and negative Health Restoration applied to you affect how much you heal when stealing the enemies' Health Restoration around you.</li>
+      <li>Combine it with <span class="item-link" data-tooltip="item" data-item="black_king_bar"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="BKB"></span></span> BKB to avoid the self-inflicted magic amplification, at the cost of your physical damage immunity. Your healing and movement speed steal keep working.</li>
+      <li>The aura redirects nothing from enemies at full health.</li>
+      <li>Never buy two on one team! Due to a bug, if both Croziers are affecting an enemy but only one of them is activated, the -90% Health Restoration never gets applied, because the passive aura effect of -30% overrides it completely. On top of all that, if only one is activated, the Health Restoration redirection bugs out as well and you get 0 healing from it. And if both are active, only the player who activates his Crozier first gets the healing, while the other one remains bugged.</li>
+    </ol>
+  </div>
+
+  <a href="../items.html" class="back-link-bottom">All Items</a>
+
+  <div style="text-align:center; padding: 0 0 24px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--text); font-style: italic;">
+    Want help applying this to your games? <a href="../coaching.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dark);">Book a session.</a>
+  </div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <!-- <a href="../concepts.html">Concepts</a> -->
+    <a href="../guides.html">Guides</a>
+<!-- removed Sep 2026 - Stripe review: <a href="../support.html">Donations</a> -->
+    <a href="../coaching.html">Coaching</a>
+    <a href="../terms.html#terms">Terms of Service</a>
+    <a href="../terms.html#privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemobulas</div>
+  <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
+</footer>
+
+</div>
+  <script src="../icon-src.js?v=12"></script>
+  <script src="../data/tooltips.js?v=21"></script>
+  <script src="../hero-links.js"></script>
+  <script src="../item-links.js"></script>
+  <script src="../mobile-toc.js?v=14"></script>
+  <script src="../toc-rail.js?v=2"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

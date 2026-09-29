@@ -166,6 +166,33 @@ a.item-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow:
   line-height: 1.5;
 }
 
+/* Named passive block (grey header), opt-in via "passive" in data/items.json. */
+.fow-tt-active.has-passive { margin-bottom: 0; }
+.fow-tt-passive {
+  background: #161922;
+  margin: 0 -12px -10px;
+  padding: 0 0 10px;
+}
+.fow-tt-passive-header {
+  background: linear-gradient(90deg, #4a4f5c 0%, #262a33 100%);
+  padding: 6px 12px;
+  margin-bottom: 8px;
+}
+.fow-tt-passive-label {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e8ecf4;
+  letter-spacing: 1px;
+}
+.fow-tt-passive-desc {
+  padding: 0 12px;
+  font-size: 16px;
+  color: #c8cdd8;
+  line-height: 1.5;
+}
+.fow-tt-passive-desc b { color: #e8ecf4; font-weight: 700; }
+
 .fow-tt-desc {
   font-size: 16px;
   color: #c8cdd8;

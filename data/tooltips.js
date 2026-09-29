@@ -192,7 +192,7 @@
 
     // Active ability
     if (item.active) {
-      html += '<div class="fow-tt-active' + (item.active.theme === 'green' ? ' green' : '') + '">';
+      html += '<div class="fow-tt-active' + (item.active.theme === 'green' ? ' green' : '') + (item.passive ? ' has-passive' : '') + '">';
       html += '<div class="fow-tt-active-header">';
       html += '<span class="fow-tt-active-label">' + item.active.label + '</span>';
       if (item.active.range) {
@@ -200,6 +200,16 @@
       }
       html += '</div>';
       html += '<div class="fow-tt-active-desc">' + item.active.desc.replace(/\n/g, '<br>') + '</div>';
+      html += '</div>';
+    }
+
+    // Named passive block (grey header), rendered after the active. Opt-in via
+    // "passive": {label, desc} in data/items.json; the active gets .has-passive
+    // so its bottom edge sits flush against this block instead of the tooltip's.
+    if (item.passive) {
+      html += '<div class="fow-tt-passive">';
+      html += '<div class="fow-tt-passive-header"><span class="fow-tt-passive-label">' + item.passive.label + '</span></div>';
+      html += '<div class="fow-tt-passive-desc">' + item.passive.desc.replace(/\n/g, '<br>') + '</div>';
       html += '</div>';
     }
 

@@ -123,6 +123,12 @@ a.item-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow:
   letter-spacing: 1px;
 }
 
+.fow-tt-active-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .fow-tt-active-range {
   display: flex;
   align-items: center;

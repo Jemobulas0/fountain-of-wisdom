@@ -195,9 +195,14 @@
       html += '<div class="fow-tt-active' + (item.active.theme === 'green' ? ' green' : '') + (item.passive ? ' has-passive' : '') + '">';
       html += '<div class="fow-tt-active-header">';
       html += '<span class="fow-tt-active-label">' + item.active.label + '</span>';
-      if (item.active.range) {
-        html += '<span class="fow-tt-active-range"><img class="fow-tt-range-icon" src="' + DATA_PATH + '../assets/cast_range.png" alt="Cast Range"> ' + item.active.range + '</span>';
-      }
+      var stats = [['range', 'cast_range', 'Cast Range'], ['mana', 'mana_cost', 'Mana Cost'], ['cooldown', 'cooldown', 'Cooldown']];
+      var statsHtml = '';
+      stats.forEach(function (st) {
+        if (item.active[st[0]]) {
+          statsHtml += '<span class="fow-tt-active-range"><img class="fow-tt-range-icon" src="' + DATA_PATH + '../assets/' + st[1] + '.png" alt="' + st[2] + '"> ' + item.active[st[0]] + '</span>';
+        }
+      });
+      if (statsHtml) html += '<span class="fow-tt-active-stats">' + statsHtml + '</span>';
       html += '</div>';
       html += '<div class="fow-tt-active-desc">' + item.active.desc.replace(/\n/g, '<br>') + '</div>';
       html += '</div>';

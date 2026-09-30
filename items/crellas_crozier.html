@@ -168,6 +168,7 @@
   .itc-active-header { display: flex; align-items: center; justify-content: space-between; background: var(--active-header-bg); margin: 0 -16px 8px; padding: 6px 16px; }
   .itc-active-label { font-family: 'Crimson Pro', Georgia, serif; font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: 1px; }
   .itc-active-range { display: flex; align-items: center; gap: 4px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--text); }
+  .itc-active-stats { display: flex; align-items: center; gap: 12px; }
   .itc-active-range .range-icon { height: 1em; width: 1em; display: inline-block; object-fit: contain; }
   .itc-active-desc { font-size: 14px; color: var(--text); line-height: 1.5; }
   .itc-active-desc strong { color: var(--text-bright); }
@@ -251,7 +252,7 @@
   <link rel="stylesheet" href="../mobile.css?v=2">
   <script src="../nav.js" defer></script>
   <script src="../favicon-anim.js" defer></script>
-  <link rel="stylesheet" href="../data/tooltips.css?v=13">
+  <link rel="stylesheet" href="../data/tooltips.css?v=14">
 </head>
 <body>
 
@@ -304,6 +305,7 @@
       <div class="itc-active">
         <div class="itc-active-header">
           <div class="itc-active-label">Active: Rite of Rumusque</div>
+          <div class="itc-active-stats"><div class="itc-active-range"><img class="range-icon" src="../assets/cooldown.png" alt="Cooldown"> 20</div></div>
         </div>
         <div class="itc-active-desc">You enter ghost form for <strong>4</strong> seconds, becoming immune to physical damage, but are unable to attack and <strong>30%</strong> more vulnerable to magic damage.</div>
         <div class="itc-active-desc" style="margin-top:10px;">Steal <strong>6%</strong> movement speed from enemy heroes in <strong>900</strong> range every second. Movement speed steal lasts <strong>2</strong>s.</div>
@@ -450,7 +452,7 @@
 
 </div>
   <script src="../icon-src.js?v=12"></script>
-  <script src="../data/tooltips.js?v=21"></script>
+  <script src="../data/tooltips.js?v=22"></script>
   <script src="../hero-links.js"></script>
   <script src="../item-links.js"></script>
   <script src="../mobile-toc.js?v=14"></script>

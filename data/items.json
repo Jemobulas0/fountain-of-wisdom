@@ -2861,6 +2861,7 @@
     "active": {
       "label": "Active: Reveal",
       "range": 300,
+      "cooldown": 12,
       "desc": "Gives True Sight over a 300 radius revealing wards and units even in Fog of War."
     }
   },
@@ -2873,6 +2874,8 @@
     "active": {
       "label": "Active: Echo Shell",
       "range": 900,
+      "mana": 175,
+      "cooldown": 15,
       "desc": "Applies a shield to the target unit for 5 seconds which re-casts most targeted spells back to their caster.\n\nThe shielded unit will still take damage from the spell.\nDispel Type: <b>Basic Dispel</b>"
     }
   },
@@ -2884,6 +2887,8 @@
     "stats": "+70 Damage\n+35 Attack Speed",
     "active": {
       "label": "Active: Shadow Walk",
+      "mana": 75,
+      "cooldown": 23,
       "desc": "Makes you invisible for <b>17</b> seconds, or until you attack or cast a spell. While invisible, you move <b>20%</b> faster and can move through units.\n\nAttacking to end the invisibility will deal <b>300</b> bonus physical damage, disable their passive abilities for <b>5</b> seconds, and cap their movement speed to <b>200</b>."
     }
   },
@@ -2895,6 +2900,7 @@
     "stats": "+6 All Attributes\n+450 Health\n+450 Mana",
     "active": {
       "label": "Active: Rite of Rumusque",
+      "cooldown": 20,
       "desc": "You enter ghost form for <b>4</b> seconds, becoming immune to physical damage, but are unable to attack and <b>30%</b> more vulnerable to magic damage.\n\nSteal <b>6%</b> movement speed from enemy heroes in <b>900</b> range every second. Movement speed steal lasts <b>2</b>s.\n\nPutrefaction Aura's effect is increased to <b>90%</b>. All of the lost Health Restoration is redirected to you every second."
     },
     "passive": {

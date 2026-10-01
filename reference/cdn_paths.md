@@ -32,6 +32,10 @@ These items/heroes have a current in-game name that does NOT match what the CDN 
 |---|---|---|
 | Wraith King | `skeleton_king` | Renamed in the Reborn era; CDN still uses the original. |
 
+#### Low-resolution default portraits (kept deliberately)
+
+Legion Commander's and Drow Ranger's default CDN portraits (`dota_react/heroes/<id>.png`) are low resolution at the source: Legion Commander's is an upscaled 128x72, Drow Ranger's is a true 128x72. Investigated Oct 1: no sharper version of the default art exists on the Steam CDN; the `_vert.jpg` alternatives are different artwork and were rejected. Kept the default art deliberately.
+
 ### Abilities
 
 | In-Game Name | Legacy CDN Name | Notes |

@@ -2907,5 +2907,18 @@
       "label": "Passive: Putrefaction Aura",
       "desc": "Reduces nearby enemy heroes' Health Restoration by <b>30%</b>.\n\nRadius: <b>900</b>"
     }
+  },
+  "nullifier": {
+    "name": "Nullifier",
+    "icon": "nullifier",
+    "cost": 4350,
+    "type": "Ability: Unit Target",
+    "stats": "+75 Damage\n+10 Armor",
+    "active": {
+      "label": "Active: Nullify",
+      "range": 900,
+      "cooldown": 10,
+      "desc": "Dispels the target and applies a debuff for <b>4</b> seconds. Continuously dispels and slows the target.\nDispel Type: <b>Basic Dispel</b>\n\nCan be cast on invulnerable units.\nMovement Slow: <b>10%</b>"
+    }
   }
 }

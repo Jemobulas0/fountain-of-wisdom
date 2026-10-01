@@ -2918,7 +2918,7 @@
       "label": "Active: Nullify",
       "range": 900,
       "cooldown": 10,
-      "desc": "Dispels the target and applies a debuff for <b>4</b> seconds. Continuously dispels and slows the target.\nDispel Type: <b>Basic Dispel</b>\n\nCan be cast on invulnerable units.\nMovement Slow: <b>10%</b>"
+      "desc": "Dispels the target and applies a debuff for <b>4</b> seconds. Continuously dispels and slows the target.\nDispel Type: <b>Basic Dispel</b>\nMovement Slow: <b>10%</b>"
     }
   }
 }

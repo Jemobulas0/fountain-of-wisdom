@@ -232,7 +232,6 @@
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
 
   /* ── NULLIFIER-SPECIFIC ── */
-  .itc-dispel-label { color: var(--green); }
   .itc-active-desc + .itc-active-desc { margin-top: 10px; }
   .counters-caption { margin: 0 auto 16px; }
   .buyer-row { align-items: center; }
@@ -253,12 +252,12 @@
      spell icon(s) centred underneath (one alone, or two side by side), spell
      name under each icon. Spell icon/name styling is Lotus Orb's own
      (.build-tree-icon.small + .build-tree-name). */
-  .hero-card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 22px; margin-bottom: 22px; }
+  .hero-card-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 18px; margin-bottom: 22px; }
   .hero-card-grid:last-child { margin-bottom: 0; }
-  .hero-card { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 200px; }
-  .hero-card-spells { display: flex; justify-content: center; gap: 8px; }
-  .hero-card-spells .effect-item { width: 96px; }
-  .hero-card-spells .build-tree-name { max-width: 96px; }
+  .hero-card { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 188px; }
+  .hero-card-spells { display: flex; justify-content: center; gap: 6px; }
+  .hero-card-spells .effect-item { width: 90px; }
+  .hero-card-spells .build-tree-name { max-width: 90px; }
   .build-tree-icon.small { width: 60px; height: 45px; }
   /* Phone: single-spell cards pair up two per row; two-spell cards keep a
      full row to themselves (their spells need the room side by side). */
@@ -288,7 +287,7 @@
   <link rel="stylesheet" href="../mobile.css?v=2">
   <script src="../nav.js" defer></script>
   <script src="../favicon-anim.js" defer></script>
-  <link rel="stylesheet" href="../data/tooltips.css?v=14">
+  <link rel="stylesheet" href="../data/tooltips.css?v=15">
 </head>
 <body>
 
@@ -343,7 +342,7 @@
           <div class="itc-active-stats"><div class="itc-active-range"><img class="range-icon" src="../assets/cast_range.png" alt="Cast Range"> 900</div><div class="itc-active-range"><img class="range-icon" src="../assets/cooldown.png" alt="Cooldown"> 10</div></div>
         </div>
         <div class="itc-active-desc">Dispels the target and applies a debuff for <strong>4</strong> seconds. Continuously dispels and slows the target.</div>
-        <div class="itc-active-desc"><span class="itc-dispel-label">Dispel Type:</span> Basic Dispel</div>
+        <div class="itc-active-desc"><span class="dispel-type">Dispel Type: <b>Basic Dispel</b></span></div>
         <div class="itc-active-desc">Movement Slow: <strong>10%</strong></div>
       </div>
       <div class="itc-lore">A dangerous weapon pilfered from an inverse dimension.</div>
@@ -445,7 +444,7 @@
           <div class="build-tree-name">Wind Waker</div>
         </div>
       </div>
-      <div class="effect-caption">Nullify must already be on the target before they cast it. Once cast, the target is untargetable, but still dispellable.</div>
+      <div class="effect-caption">Nullify still dispels these, even if they are used while its projectile is already flying towards the target.</div>
     </div>
 
     <!-- Force Staff, Hurricane Pike -->
@@ -460,14 +459,14 @@
           <div class="build-tree-name">Hurricane Pike</div>
         </div>
       </div>
-      <div class="effect-caption">Only the self-cast versions are dispellable. The target is still pushed, but only a tiny distance before the dispel stops the effect.</div>
+      <div class="effect-caption">When cast on yourself or an ally, both are dispellable. The target is still pushed, but only a tiny distance before the dispel stops the effect. The one exception is Hurricane Pike cast on an enemy, pushing you both apart, which Nullify can't stop.</div>
     </div>
   </div>
 
   <!-- ALSO WORTH NULLIFYING -->
   <div class="section">
     <div class="section-title">Also Worth Nullifying</div>
-    <div class="effect-caption counters-caption">These are not a reason to buy Nullifier on their own, but they are a reason to press it once you have it.</div>
+    <div class="effect-caption counters-caption">These are not a reason to buy Nullifier on their own, but once you have the item, you can conveniently deal with them whenever there is nothing more important to dispel and Nullify is off cooldown.</div>
 
     <div class="effect-icons item-grid">
       <div class="effect-item">
@@ -520,7 +519,7 @@
           <div class="build-tree-name">Mjollnir</div>
         </div>
       </div>
-      <div class="effect-caption">Mjollnir becomes a higher priority when the target relies on massive healing from spells to survive, for example through <span class="item-link" data-tooltip="item" data-item="bloodstone"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png" alt="Bloodstone"></span></span> Bloodstone.</div>
+      <div class="effect-caption">Mjollnir becomes a higher priority when the target relies on massive healing from dealing magic damage to survive, for example through <span class="item-link" data-tooltip="item" data-item="bloodstone"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bloodstone.png" alt="Bloodstone"></span></span> Bloodstone.</div>
     </div>
   </div>
 
@@ -695,11 +694,11 @@
     <div class="section-title">Tips</div>
     <ol class="tips-list">
       <li><span class="item-link" data-tooltip="item" data-item="sphere"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/sphere.png" alt="Linken's Sphere"></span></span> Linken's Sphere blocks Nullify.</li>
-      <li><span class="item-link" data-tooltip="item" data-item="lotus_orb"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png" alt="Lotus Orb"></span></span> Lotus Orb doesn't block it, but reflects it back at you. That makes it a decision: is dispelling the target worth Nullifying yourself as well? As Troll Warlord you won't care. As Ursa, you will.</li>
+      <li><span class="item-link" data-tooltip="item" data-item="lotus_orb"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lotus_orb.png" alt="Lotus Orb"></span></span> Lotus Orb reflects it back at you, which always forces a decision: is dispelling your target worth dispelling yourself as well? For example, as Troll Warlord you're much less likely to care about Nullifying yourself than as Ursa.</li>
       <li>Against illusion heroes, Nullify keeps the real hero identifiable even after they cast their illusions, because the debuff can't be dispelled.</li>
       <li>Nullify is one of the few undispellable debuffs in the game. Not even Strong Dispels remove it.</li>
-      <li>Status Resistance shortens Nullify's duration, but by an insignificant amount. One of the best ways to counter the item is Debuff Immunity.</li>
-      <li>Debuff Immunity doesn't remove Nullify, it only stops it from working. If the immunity runs out before Nullify does, the dispelling starts again immediately.</li>
+      <li>Status Resistance shortens Nullify's duration, but by an insignificant amount. One of the best ways to counter the item is with Debuff Immunity.</li>
+      <li>Debuff Immunity doesn't remove Nullify, it only prevents it from working. If the immunity runs out before Nullify does, Nullify immediately takes effect as normal.</li>
     </ol>
   </div>
 

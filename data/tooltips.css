@@ -166,6 +166,13 @@ a.item-link:hover .build-tree-icon { border-color: var(--gold-dark); box-shadow:
   font-weight: 700;
 }
 
+/* Dispel type line inside an item's active ("Dispel Type: Basic Dispel").
+   Shared by pop-ups (data/items.json) and item pages: plain text identical to
+   the surrounding description, value in bold only - no colour change. Must
+   stay after the b rule above so its inherit wins in pop-ups. */
+.dispel-type { color: inherit; font: inherit; }
+.dispel-type b { color: inherit; font-weight: 700; }
+
 .fow-tt-active-desc {
   font-size: 16px;
   color: #c8cdd8;

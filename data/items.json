@@ -2876,7 +2876,7 @@
       "range": 900,
       "mana": 175,
       "cooldown": 15,
-      "desc": "Applies a shield to the target unit for 5 seconds which re-casts most targeted spells back to their caster.\n\nThe shielded unit will still take damage from the spell.\nDispel Type: <b>Basic Dispel</b>"
+      "desc": "Applies a shield to the target unit for 5 seconds which re-casts most targeted spells back to their caster.\n\nThe shielded unit will still take damage from the spell.\n<span class=\"dispel-type\">Dispel Type: <b>Basic Dispel</b></span>"
     }
   },
   "silver_edge": {
@@ -2918,7 +2918,7 @@
       "label": "Active: Nullify",
       "range": 900,
       "cooldown": 10,
-      "desc": "Dispels the target and applies a debuff for <b>4</b> seconds. Continuously dispels and slows the target.\nDispel Type: <b>Basic Dispel</b>\nMovement Slow: <b>10%</b>"
+      "desc": "Dispels the target and applies a debuff for <b>4</b> seconds. Continuously dispels and slows the target.\n<span class=\"dispel-type\">Dispel Type: <b>Basic Dispel</b></span>\nMovement Slow: <b>10%</b>"
     }
   }
 }

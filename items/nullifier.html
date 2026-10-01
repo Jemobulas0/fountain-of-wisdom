@@ -259,15 +259,29 @@
   .hero-card-spells .effect-item { width: 90px; }
   .hero-card-spells .build-tree-name { max-width: 90px; }
   .build-tree-icon.small { width: 60px; height: 45px; }
-  /* Phone: single-spell cards pair up two per row; two-spell cards keep a
-     full row to themselves (their spells need the room side by side). */
+  /* Phone: every hero card sits two per row, one-spell and two-spell alike.
+     A card with two spells splits its width between them (tighter gap, cells
+     may shrink below the single-spell 96px, labels wrap), so it fits half a
+     row too. */
   @media (max-width: 768px) {
     .hero-card-grid { gap: 20px 12px; }
     .hero-card { width: calc(50% - 6px); }
-    .hero-card:has(.effect-item + .effect-item) { width: 100%; }
     .effect-row .hero-card { width: 200px; }
     .hero-card-spells .effect-item { width: auto; min-width: 96px; }
     .hero-card-spells .build-tree-name { max-width: none; }
+    .hero-card:has(.effect-item + .effect-item) .hero-card-spells { gap: 4px; width: 100%; }
+    .hero-card:has(.effect-item + .effect-item) .effect-item { flex: 1 1 0; min-width: 0; }
+    /* Always two lines ("Purifying / Flames"), also on wider phones where the
+       cell is wide enough to hold it on one. Each word is under 80px; the
+       full label is not. */
+    .build-tree-name.wrap-two { max-width: 80px; }
+
+    /* Compact item grids (the ones without captions): two equal columns so
+       icons line up down each column; labels stay centred and may wrap. A
+       lone last item spans both columns and stays centred. */
+    .effect-icons.item-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 12px; justify-items: center; }
+    .effect-icons.item-grid .build-tree-name { max-width: 100%; }
+    .effect-icons.item-grid .effect-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
   }
 
   /* Gem's Natural Buyers subsections (also reused for Heroes Countered's
@@ -628,7 +642,7 @@
           </div>
           <div class="effect-item">
             <div class="build-tree-icon small"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/oracle_purifying_flames.png" alt="Purifying Flames"></div>
-            <div class="build-tree-name">Purifying Flames</div>
+            <div class="build-tree-name wrap-two">Purifying Flames</div>
           </div>
         </div>
       </div>

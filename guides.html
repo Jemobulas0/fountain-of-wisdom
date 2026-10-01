@@ -73,7 +73,7 @@
   .guide-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold-dark); opacity: 0; transition: opacity 0.2s; }
   .guide-card.covered:hover { border-color: var(--gold-dark); transform: translateX(3px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); background: var(--bg-card2); }
   .guide-card.covered:hover::before { opacity: 1; }
-  .guide-card.coming-soon { opacity: 0.45; cursor: default; }
+  .guide-card.coming-soon { opacity: 0.7; cursor: default; }
   .guide-card.hidden { display: none; }
 
   .guide-left { display: flex; flex-direction: column; gap: 8px; }
@@ -163,77 +163,85 @@
 const guides = [
   {
     title: 'You\'re Wasting 10-15 Minutes Every Game Without Realizing It',
-    desc: 'The average player bleeds time constantly - across the lane phase, the mid game, every single match. Here\'s where it goes, and how to stop it.',
+    desc: 'Every game has minutes that quietly go nowhere. Where that time goes, and how to get it back.',
     tag: 'mindset',
     tagLabel: 'Mindset',
     date: 'March 2026',
+    released: '2026-03',
     readtime: '3 min read',
     covered: true,
     href: 'guides/wasting_time.html',
   },
   {
-    title: 'How to Actually Use the Minimap',
-    desc: 'Almost every player looks at the minimap. Almost none of them are reading it. There\'s a difference - and it\'s worth understanding.',
+    title: 'Base Attack Time: Not All Attack Speeds Are Equal',
+    desc: 'Why some heroes get far more out of Attack Speed and Agility than others. What Base Attack Time is, how it works, and how it changes which items are worth buying on your hero.',
+    tag: 'mechanics',
+    tagLabel: 'Mechanics',
+    date: 'Coming soon',
+    covered: false,
+  },
+  {
+    title: 'Minimap: Efficient Usage',
+    desc: 'The minimap shows you far more than where heroes are standing. What to look for, how often to check it, and how to turn what you see into decisions.',
     tag: 'strategy',
     tagLabel: 'Strategy',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
     title: 'The Laning Phase Isn\'t About Kills',
-    desc: 'Kills in the lane phase feel good. They\'re also often a trap. What actually matters in the first 10 minutes - and how to measure whether you won your lane.',
+    desc: 'Kills are the most visible part of the laning phase, not the most important one. What actually decides a lane, and how to tell whether you won yours.',
     tag: 'laning',
     tagLabel: 'Laning',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
     title: 'Why Tilt Happens and What to Do About It',
-    desc: 'Tilt isn\'t a personality flaw or a mental weakness. It\'s a predictable pattern with a mechanical solution. Once you see it clearly, it loses its grip.',
+    desc: 'Tilt isn\'t a flaw in who you are. It follows a pattern, and once you can see the pattern, you can step out of it before it costs you the game.',
     tag: 'mindset',
     tagLabel: 'Mindset',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
-    title: 'Gold Efficiency - What It Actually Means',
-    desc: 'Every item in DotA has a gold efficiency value. Most players have never thought about it. Here\'s why it matters and how it should influence your item choices.',
+    title: 'Gold Efficiency: What It Actually Means',
+    desc: 'Some items give you far more for your gold than others. What gold efficiency is, how it\'s calculated, and when it should and shouldn\'t decide what you buy.',
     tag: 'economy',
     tagLabel: 'Economy',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
     title: 'How to Play From Behind',
-    desc: 'Losing your lane doesn\'t mean losing the game. But most players play like it does. A practical guide to dragging yourself back from a deficit.',
+    desc: 'Losing your lane doesn\'t decide the game. How to play when you\'re behind: what to give up, what to protect, and how to find the moment to turn it around.',
     tag: 'strategy',
     tagLabel: 'Strategy',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
-    title: 'Last Hitting: The Real Lesson',
-    desc: 'Everyone knows last hitting matters. Almost nobody understands why it matters beyond "more gold." The real lesson is about something else entirely.',
+    title: 'Last Hitting: Practical Advice',
+    desc: 'Practical ways to get more last hits and denies, from reading creep health to positioning in lane, and how to practice it outside of real games.',
     tag: 'mechanics',
     tagLabel: 'Mechanics',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
   {
-    title: 'Understanding the Comeback Mechanic',
-    desc: 'DotA\'s comeback mechanic is one of the most misunderstood systems in the game. Knowing how it works changes how you play both ahead and behind.',
+    title: 'Comeback Mechanics Explained',
+    desc: 'The math behind DotA\'s comeback gold: how kill bounties, streaks and team net worth affect what you earn and what you give away, whether you\'re ahead or behind.',
     tag: 'economy',
     tagLabel: 'Economy',
     date: 'Coming soon',
-    readtime: '? min read',
     covered: false,
   },
+];
+
+// Published first (newest release first), then unwritten in array order
+const orderedGuides = [
+  ...guides.filter(g => g.covered).sort((a, b) => (b.released || '').localeCompare(a.released || '')),
+  ...guides.filter(g => !g.covered),
 ];
 
 function filterGuides() {
@@ -241,7 +249,7 @@ function filterGuides() {
   const list = document.getElementById('guides-list');
   list.innerHTML = '';
 
-  const filtered = guides.filter(g =>
+  const filtered = orderedGuides.filter(g =>
     g.title.toLowerCase().includes(query) ||
     g.desc.toLowerCase().includes(query) ||
     g.tagLabel.toLowerCase().includes(query)
@@ -268,9 +276,9 @@ function filterGuides() {
         <div class="guide-title">${g.title}</div>
         <div class="guide-desc">${g.desc}</div>
       </div>
-      <div class="guide-right">
+      <div class="guide-right">${g.covered ? `
         <span class="guide-readtime">${g.readtime}</span>
-        <span class="guide-arrow">${g.covered ? 'Read  >' : 'Coming soon'}</span>
+        <span class="guide-arrow">Read  ></span>` : ''}
       </div>
     `;
     list.appendChild(card);

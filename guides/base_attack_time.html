@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base Attack Time: Not All Attack Speeds Are Equal - The Fountain of Wisdom</title>
+<meta name="description" content="Why some heroes get far more out of Attack Speed and Agility than others. What Base Attack Time is, how it works, and how it changes which items are worth buying on your hero.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Fountain of Wisdom">
+<meta property="og:title" content="Base Attack Time: Not All Attack Speeds Are Equal - The Fountain of Wisdom">
+<meta property="og:description" content="Why some heroes get far more out of Attack Speed and Agility than others. What Base Attack Time is, how it works, and how it changes which items are worth buying on your hero.">
+<meta property="og:url" content="https://thefountainofwisdom.com/guides/base_attack_time.html">
+<meta property="og:image" content="https://thefountainofwisdom.com/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px 22px; margin-left: -22px; transition: background 0.2s, color 0.2s; }
+  .nav-brand:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold-light); }
+  .nav-links { display: flex; gap: 12px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; padding: 14px 20px; border-bottom: 1px solid transparent; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── ARTICLE HEADER ── */
+  .article-header {
+    padding: 100px 40px 56px;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .article-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-top: 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+
+  .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
+  .article-tag.strategy  { color: #5b9bd5;       border-color: rgba(91,155,213,0.3);  background: rgba(91,155,213,0.12); }
+  .article-tag.mindset   { color: var(--yellow); border-color: rgba(232,184,75,0.3);  background: rgba(232,184,75,0.12); }
+  .article-tag.laning    { color: var(--green);  border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
+  .article-tag.mechanics { color: #e05a3a;       border-color: rgba(224,90,58,0.3);   background: rgba(224,90,58,0.12); }
+  .article-tag.economy   { color: #c084e8;       border-color: rgba(155,89,182,0.3);  background: rgba(155,89,182,0.22); }
+  .article-date { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .article-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .meta-dot { color: var(--text-dim); }
+
+  .article-title {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+
+  .article-body p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .article-body em { font-style: italic; }
+  .article-body a.in-link { text-decoration: underline; text-underline-offset: 3px; }
+  .article-body a.in-link strong { color: var(--gold); }
+  .article-body a.in-link:hover strong { color: var(--gold-light); }
+  .article-body strong { font-weight: 700; color: var(--text-bright); }
+
+  /* zero the trailing margin of whatever ends the article (p or .pull-quote)
+     so the footer divider sits a consistent distance below it */
+  .article-body > :last-child { margin-bottom: 0; }
+
+  /* Section break. Two levels on this page: .part-break (Cinzel, uppercase) for
+     Part headings, .sub-break (Crimson Pro, Title Case) for the numbered sections. */
+  .section-break {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 36px;
+    scroll-margin-top: 88px;
+  }
+  .section-break-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: normal;
+  }
+  .section-break-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+  .article-body > .section-break:first-child { margin-top: 0; }
+  .section-break.part-break { margin: 68px 0 36px; }
+  .section-break.sub-break { margin: 40px 0 22px; }
+  .sub-break .section-break-title {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.25;
+    text-transform: none;
+    color: var(--text-bright);
+  }
+  .sub-break .section-break-line { background: var(--border); min-width: 24px; }
+  .part-break .section-break-line { min-width: 24px; }
+
+  /* Bullet lists */
+  .article-body ul { list-style: none; margin: 0 0 28px; }
+  .article-body li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .article-body li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.8em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold-dark);
+  }
+
+  /* Formula block */
+  .formula {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 18px 24px;
+    margin: 28px 0;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-bright);
+  }
+  .formula div + div { margin-top: 10px; }
+  .formula strong { color: var(--gold-light); }
+
+  /* Tables: scroll inside their own container if they ever outgrow the column */
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 28px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
+  .article-body th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--bg-card2);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gold-dark);
+  }
+  .article-body td {
+    color: var(--text);
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .article-body tr:last-child td { border-bottom: 0; }
+
+  /* Rectangle visual (Section 8). Three equal slots: the SVG draws one shape per
+     slot, the HTML label grid below uses the same three equal columns, so the
+     numbers sit under their own shape at every width. One SVG scales as a unit,
+     so the row never stacks and the shapes stay in true proportion. */
+  .dps-visual {
+    margin: 32px 0;
+    padding: 24px 20px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .dps-visual svg { display: block; width: 100%; height: auto; }
+  .dps-rect { fill: var(--gold-dark); }
+  .dps-rect.dps-best { fill: var(--gold-light); stroke: var(--gold); stroke-width: 4; }
+  .dps-base { stroke: var(--gold-dark); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .dps-divider { stroke: var(--gold-dark); stroke-width: 1.5; stroke-dasharray: 5 5; vector-effect: non-scaling-stroke; }
+  /* columns mirror the SVG slots (380 / 380 / 60 divider zone / 380) so each label sits under its shape */
+  .dps-labels { display: grid; grid-template-columns: 380fr 380fr 60fr 380fr; margin-top: 14px; }
+  .dps-label { text-align: center; padding: 0 2px; }
+  .dps-cap { display: block; margin-bottom: 4px; font-size: 18px; font-weight: 700; color: var(--text-bright); }
+  .dps-label.dps-best .dps-cap { color: var(--gold-light); }
+  .dps-line { display: block; font-size: 16px; line-height: 1.45; color: var(--text); }
+  .dps-area { display: block; margin-top: 4px; font-size: 17px; font-weight: 700; color: var(--gold); }
+  .dps-label.dps-best .dps-area { color: var(--gold-light); }
+  .dps-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
+  .article-layout {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .toc-sidebar {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(100% + 24px);
+    width: 200px;
+  }
+  @media (min-width: 1260px) {
+    .toc-sidebar.is-ready { display: block; }
+  }
+
+  .toc-panel {
+    /* Vertically centred in the viewport at every scroll position: fixed, top edge
+       at 50%, then pulled up by half its own height. The height cap keeps a tall TOC
+       inside the viewport and scrolls it internally. */
+    position: fixed;
+    top: 50%;
+    left: auto;
+    width: 200px;
+    transform: translateY(-50%);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+
+  .toc-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .toc-list { display: flex; flex-direction: column; }
+
+  .toc-link {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.35;
+    color: var(--text);
+    text-decoration: none;
+    padding: 6px 0 6px 12px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .toc-link:hover { color: var(--gold); }
+  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+  /* Grouping: Part headings are the group labels, numbered sections sit indented under them */
+  .toc-link.toc-part {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+  }
+  .toc-link.toc-sub { padding-left: 24px; }
+
+  .toc-cta {
+    display: block;
+    margin-top: 28px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+  }
+  .toc-panel.no-toc .toc-cta { margin-top: 0; }
+
+  .toc-cta-mobile { display: none; }
+  @media (max-width: 768px) {
+    .toc-sidebar { display: none; }
+    a.toc-cta-mobile { display: flex; margin: 8px 16px 48px; }
+    .section-break.sub-break .section-break-title { font-size: 21px; }
+    .section-break-title { letter-spacing: 2px; }
+    .dps-visual { padding: 16px 8px 14px; }
+    .dps-cap { font-size: 15px; }
+    .dps-line { font-size: 13px; }
+    .dps-area { font-size: 13px; }
+    .formula { padding: 16px 16px; font-size: 18px; }
+  }
+
+  /* ── ARTICLE FOOTER ── */
+  .article-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .article-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 32px;
+  }
+
+  .next-read {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .back-to-guides { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .back-to-guides:hover { border-color: var(--gold-dark); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+  .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+</style>
+<link rel="stylesheet" href="../mobile.css?v=3">
+<script src="../nav.js" defer></script>
+<script src="../favicon-anim.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <!-- <li><a href="../concepts.html">Concepts</a></li> -->
+    <li><a href="../guides.html">Guides</a></li>
+<!-- removed Sep 2026 - Stripe review: <li><a href="../support.html">Donations</a></li> -->
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <a href="../guides.html" class="back-link">All Guides</a>
+
+  <div class="article-meta">
+    <span class="article-tag mechanics">Mechanics</span>
+    <span class="meta-dot">·</span>
+    <span class="article-date">October 2026</span>
+    <span class="meta-dot">·</span>
+    <span class="article-readtime">21 min read</span>
+  </div>
+
+  <h1 class="article-title">Base Attack Time: Not All Attack Speeds Are Equal</h1>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-layout">
+<div class="article-body">
+
+  <div class="section-break sub-break no-part">
+    <span class="section-break-title">What This Guide Covers</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Everyone knows that more attack speed makes you hit faster. Few know how Base Attack Time (BAT) factors into the equation - a hidden value that decides how much each point of attack speed is actually worth.
+  </p>
+
+  <p>
+    Two heroes with the exact same items can attack at very different rates. This guide explains why, and what you can do with that knowledge.
+  </p>
+
+  <p>
+    It's a long read, built in four parts:
+  </p>
+
+  <ul>
+    <li><strong>Part I - The Mechanics.</strong> What BAT is, the formula behind every attack, the attack speed cap, and which number in your HUD actually tells you how fast you attack.</li>
+    <li><strong>Part II - Practical Applications.</strong> How BAT changes the value of the items you buy, where the balance between damage and attack speed sits, and when an attack speed item is worth more than its numbers suggest.</li>
+    <li><strong>Part III - Unique Hero Cases.</strong> Heroes with unusual BAT values, heroes who change their BAT mid-fight (Alchemist, Troll Warlord, Kez), and what happens when several BAT effects apply at once.</li>
+    <li><strong>Part IV - Edge Cases.</strong> Attacks that ignore BAT completely, plus a short history of how BAT has changed over the years.</li>
+  </ul>
+
+  <p>
+    <strong>Short on time?</strong> Jump to the <a href="#17-summary" class="in-link"><strong>Summary</strong></a> at the end for the key takeaways, and the <a href="#18-quick-reference" class="in-link"><strong>Quick Reference</strong></a> for every formula and table in one place.
+  </p>
+
+  <p>
+    <em>Values are current as of patch 7.41f.</em>
+  </p>
+
+  <!-- ═══════════════ PART I ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part I - The Mechanics</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">1. What BAT Is</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Every unit in Dota has a Base Attack Time: the time between its attacks <em>before</em> any attack speed is added. That includes heroes, creeps, summons, Roshan, and even the Fountain.
+  </p>
+
+  <p>
+    Think of it as the unit's natural rhythm. A Melee Creep has a BAT of 1.0, so with no bonuses it attacks exactly once per second. Most heroes have a BAT of 1.7. If we don't take into account their agility and bonus attack speed, they will attack once every 1.7 seconds. Of course, in practice these things do exist, so think of BAT as a baseline the rest builds upon.
+  </p>
+
+  <p>
+    Two things to remember going forward:
+  </p>
+
+  <ul>
+    <li><strong>Lower BAT = faster attacks.</strong> A hero with 1.4 BAT attacks faster than a hero with 1.7 BAT when their attack speeds are the same.</li>
+    <li><strong>Most heroes share the same BAT, but not all.</strong> Hero BATs currently range from 1.4 (Juggernaut, Anti-Mage) to 2.0 (Hoodwink), with 1.7 being considered the default one, since it's what most heroes have. A few heroes can even change their BAT during a fight. Both are covered in Part III.</li>
+  </ul>
+
+  <p>
+    Attack speed changes how fast you move through your rhythm. BAT is the rhythm itself. The next section shows exactly how the two combine.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">2. The Formula</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Every attack in Dota comes from one simple calculation. First, the game adds up your total attack speed:
+  </p>
+
+  <div class="formula">
+    <div><strong>Total Attack Speed = Base Attack Speed + Agility + Bonus Attack Speed</strong></div>
+  </div>
+
+  <ul>
+    <li><strong>Base Attack Speed</strong> is 100 for most heroes, though some start a bit lower or higher.</li>
+    <li><strong>Agility</strong> adds 1 attack speed per point.</li>
+    <li><strong>Bonus Attack Speed</strong> comes from items, abilities, and talents.</li>
+  </ul>
+
+  <p>
+    A few effects also change your attack speed by a percentage. They are applied after everything above is added up.
+  </p>
+
+  <p>
+    Then the game uses your total attack speed and your BAT to decide how often you attack:
+  </p>
+
+  <div class="formula">
+    <div><strong>Attacks per Second = Total Attack Speed ÷ (100 × BAT)</strong></div>
+    <div><strong>Time Between Attacks = (100 × BAT) ÷ Total Attack Speed</strong></div>
+  </div>
+
+  <p>
+    <strong>Example.</strong> A level 1 hero with 1.7 BAT, 100 base attack speed and 20 agility:
+  </p>
+
+  <ul>
+    <li>Total attack speed: 100 + 20 = <strong>120</strong></li>
+    <li>Attacks per second: 120 ÷ (100 × 1.7) = 120 ÷ 170 = <strong>0.71</strong></li>
+    <li>Time between attacks: 170 ÷ 120 = <strong>1.42 seconds</strong></li>
+  </ul>
+
+  <p>
+    Now give the exact same hero a BAT of 1.4 instead:
+  </p>
+
+  <ul>
+    <li>Total attack speed: still <strong>120</strong></li>
+    <li>Attacks per second: 120 ÷ 140 = <strong>0.86</strong></li>
+    <li>Time between attacks: 140 ÷ 120 = <strong>1.17 seconds</strong></li>
+  </ul>
+
+  <p>
+    Same stats, same items, and that hero now attacks about 21% faster. That difference comes entirely from BAT.
+  </p>
+
+  <p>
+    One more thing to notice: attack speed and time between attacks are inversely related. Double your attack speed and you halve the time between attacks. Triple it and the time drops to a third.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">3. Attack Speed vs. BAT</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Attack speed and BAT do different jobs. Attack speed is what you gain over the game, through agility, items, abilities, and talents. BAT is a fixed property of your hero. It decides how much each point of that attack speed is worth.
+  </p>
+
+  <p>
+    Look at the formula again: attacks per second = attack speed ÷ (100 × BAT). BAT sits on the bottom of that division. So it doesn't add or subtract from your attack speed. It scales every single point of it.
+  </p>
+
+  <p>
+    <strong>What 100 attack speed is worth at different BATs:</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>BAT</th><th>+100 attack speed gives you</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.4</td><td>+0.71 attacks per second</td></tr>
+        <tr><td>1.7</td><td>+0.59 attacks per second</td></tr>
+        <tr><td>1.9</td><td>+0.53 attacks per second</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The same 100 attack speed gets a 1.4 BAT hero about 21% more attacks than it gets a 1.7 BAT hero. That ratio never changes, no matter how much attack speed you have.
+  </p>
+
+  <p>
+    <strong>The gap grows as the game goes on.</strong> The ratio stays fixed, but the real difference in attacks keeps growing. Compare a 1.4 BAT hero and a 1.7 BAT hero at the same attack speed:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Attack speed</th><th>1.4 BAT</th><th>1.7 BAT</th><th>Difference</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>120 (early game)</td><td>0.86 /s</td><td>0.71 /s</td><td>0.15 /s</td></tr>
+        <tr><td>400 (mid-late game)</td><td>2.86 /s</td><td>2.35 /s</td><td>0.50 /s</td></tr>
+        <tr><td>700 (maximum)</td><td>5.00 /s</td><td>4.12 /s</td><td>0.88 /s</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Early game, the difference is barely noticeable. It's more obvious when you have heroes like Juggernaut vs Treant Protector facing each other in lane. By the late game, the lower-BAT hero gets almost one extra attack every second.
+  </p>
+
+  <p>
+    <strong>Converting between BATs.</strong> To find out how much attack speed one hero needs to match another:
+  </p>
+
+  <div class="formula">
+    <div><strong>Attack Speed Needed = Their Attack Speed × (Your BAT ÷ Their BAT)</strong></div>
+  </div>
+
+  <p>
+    For example, a 1.7 BAT hero with 300 attack speed attacks exactly as fast as a 1.4 BAT hero with only 247 (300 × 1.4 ÷ 1.7). In other words, the 1.4 BAT hero gets the same result from 53 fewer points of attack speed.
+  </p>
+
+  <p>
+    With that said, itemization in DotA is an extremely interesting topic. So buying the highest attack speed possible at the cost of other, more important stats and effects for your particular hero is rarely the best choice. More on that in Part II.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">4. The Limits</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Attack speed has a minimum and a maximum value. The game clamps your total attack speed between them, after every bonus and every slow has been applied.
+  </p>
+
+  <p>
+    <strong>The maximum: 700</strong>
+  </p>
+
+  <p>
+    Almost no hero can go above 700 total attack speed, no matter how many items or buffs they stack. The cap is the same for every hero, regardless of their base attack speed. Anything beyond 700 is simply wasted.
+  </p>
+
+  <p>
+    Because the cap is fixed at 700 attack speed, BAT decides how many attacks per second that cap actually means for each hero. A 1.4 BAT hero at the cap attacks 5 times per second. A 1.9 BAT hero at the same cap attacks only 3.68 times. Section 7 covers this in detail.
+  </p>
+
+  <p>
+    <strong>The exception: Marci</strong>
+  </p>
+
+  <p>
+    As of patch 7.41f, Marci's Unleash is the only ability to break the cap. It grants 700/925/1150 bonus attack speed and removes the attack speed limit entirely while active. The trade-off is that between her Fury combos she can't attack at all for 1.5 seconds.
+  </p>
+
+  <p>
+    <strong>The minimum: 20 (usually)</strong>
+  </p>
+
+  <p>
+    No matter how heavily you're slowed, your attack speed won't drop below a floor. For most heroes that floor is 20, which at 1.7 BAT means one attack every 8.5 seconds.
+  </p>
+
+  <p>
+    The floor moves with a hero's base attack speed. The minimum is always 80 below the hero's base attack speed:
+  </p>
+
+  <ul>
+    <li>Base attack speed 100 → minimum <strong>20</strong></li>
+    <li>Base attack speed 110 (e.g. Sven) → minimum <strong>30</strong></li>
+    <li>Base attack speed 85 (Tiny) → minimum <strong>5</strong>, or one attack every 34 seconds</li>
+  </ul>
+
+  <p>
+    So a hero with a lower base attack speed can be slowed further than average, while a hero with a higher one can't be slowed as hard.
+  </p>
+
+  <p>
+    Non-hero units don't follow this rule. Roshan has 200 base attack speed, yet he can still be slowed down to 20, the same as any other unit. At his 2.0 BAT, that's one attack every 10 seconds.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">5. What Your HUD Is Actually Telling You</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Hover over your hero's attack speed in the HUD and you'll see two numbers: your attack speed, and the time between your attacks in brackets. They answer two different questions.
+  </p>
+
+  <p>
+    <strong>The attack speed number shows how close you are to the cap.</strong> It's your real total attack speed, and the cap is 700 for every hero. When it reads 700, more attack speed does nothing.
+  </p>
+
+  <p>
+    <strong>The bracket shows how fast you actually attack.</strong> The attack speed number doesn't include BAT. The time between attacks does, because it's the result of the full formula.
+  </p>
+
+  <p>
+    That's why the attack speed number can't tell you which hero attacks faster. Take Juggernaut and Sven, both at the cap:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>Attack speed</th><th>Time between attacks</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Juggernaut (1.4 BAT)</td><td>700</td><td>0.20 seconds</td></tr>
+        <tr><td>Sven (1.9 BAT)</td><td>700</td><td>0.27 seconds</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Both show the same attack speed, but Juggernaut attacks 5 times per second and Sven only about 3.7 times.
+  </p>
+
+  <p>
+    <strong>The rule of thumb:</strong> use the attack speed number to know when to stop buying attack speed. Use the bracket to compare how fast heroes actually attack.
+  </p>
+
+  <!-- ═══════════════ PART II ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part II - Practical Applications</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">6. Same Item, Different Value</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Buy the same item on two heroes with different BAT and you'll get two different results.
+  </p>
+
+  <p>
+    Your damage per second comes down to two things: how hard you hit, and how often you hit.
+  </p>
+
+  <div class="formula">
+    <div><strong>DPS = Damage per Hit × Attacks per Second</strong></div>
+  </div>
+
+  <p>
+    BAT controls the "how often" part. So a lower BAT doesn't only make attack speed items stronger. It makes <strong>every</strong> item that adds to your right-click damage stronger, damage items included.
+  </p>
+
+  <p>
+    <strong>Example.</strong> Two heroes, each with 200 attack speed and 100 damage per hit. One has 1.4 BAT, the other 1.9 BAT.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>1.4 BAT</th><th>1.9 BAT</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Starting DPS</td><td>143</td><td>105</td></tr>
+        <tr><td>Buy +100 attack speed</td><td>214 (<strong>+71</strong>)</td><td>158 (<strong>+53</strong>)</td></tr>
+        <tr><td>Or buy +50 damage instead</td><td>214 (<strong>+71</strong>)</td><td>158 (<strong>+53</strong>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The 1.4 BAT hero gains about 36% more from <em>both</em> items. Attack speed items aren't special here. The low BAT hero simply gets more out of everything that feeds their right-click.
+  </p>
+
+  <p>
+    The same holds against armor. Armor reduces each hit by a percentage, so it cuts both heroes' damage by the same proportion and the comparison doesn't change.
+  </p>
+
+  <p>
+    This answers half of the question from Section 3. Low BAT makes your damage items better, but it doesn't tell you <em>which</em> item to buy. Whether your next item should be damage or attack speed depends on what you already have. That's Section 8.
+  </p>
+
+  <p>
+    The example above is, of course, simplified for clarity's sake. As mentioned before, in a real game you have to take many more factors into account when itemizing your hero. But for now, let's get back to the topic at hand.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">7. BAT Sets Your Ceiling</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Section 4 showed that attack speed is capped at 700. What that cap <em>means</em> depends on the hero's BAT, because BAT decides how many attacks per second 700 attack speed actually gives you.
+  </p>
+
+  <div class="formula">
+    <div><strong>Maximum Attacks per Second = 7 ÷ BAT</strong></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>BAT</th><th>Max attacks per second</th><th>Fastest possible time between attacks</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.9 (Chemical Rage level 3 + talent)</td><td>7.78</td><td>0.13s</td></tr>
+        <tr><td>1.0 (Chemical Rage level 3)</td><td>7.00</td><td>0.14s</td></tr>
+        <tr><td>1.4</td><td>5.00</td><td>0.20s</td></tr>
+        <tr><td>1.5</td><td>4.67</td><td>0.21s</td></tr>
+        <tr><td>1.6</td><td>4.38</td><td>0.23s</td></tr>
+        <tr><td>1.7</td><td>4.12</td><td>0.24s</td></tr>
+        <tr><td>1.8</td><td>3.89</td><td>0.26s</td></tr>
+        <tr><td>1.9</td><td>3.68</td><td>0.27s</td></tr>
+        <tr><td>2.0</td><td>3.50</td><td>0.29s</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Two heroes can both max out their attack speed and still have completely different ceilings. A 1.4 BAT hero at the cap attacks about 36% more often than a 1.9 BAT hero at the cap, and nothing either of them buys can change that.
+  </p>
+
+  <p>
+    <strong>What this means once you're capped.</strong> At 700 attack speed, attack speed items stop doing anything. From that point, your attack count can only go up one way: by lowering your BAT. That's why BAT-changing abilities are at their strongest in the late game. They're the only way past a ceiling that items can't break.
+  </p>
+
+  <p>
+    <strong>Example: Troll Warlord.</strong> Battle Trance gives up to 200 attack speed, and a full stack of Fervor adds up to 300 more. With a few items on top, Troll can reach the cap during a fight. In ranged form, the cap gives him 4.12 attacks per second. Switch to melee, where his BAT drops to 1.4, and it becomes 5.00. That's about 21% more attacks, at the exact same attack speed.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">8. What This Means for Itemization</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Section 6 showed that low BAT makes every right-click item better. It didn't answer the real question: <strong>should your next item be damage or attack speed?</strong> The math answers that, and BAT plays no part in the answer.
+  </p>
+
+  <p>
+    <strong>Picture your DPS as a rectangle</strong>
+  </p>
+
+  <figure class="dps-visual">
+    <svg viewBox="0 0 1200 360" role="img" aria-labelledby="dps-vis-title">
+      <title id="dps-vis-title">Three rectangles drawn to the same scale. Width is damage per hit and height is attack speed. On the left, two lopsided shapes: a tall thin one (100 damage, 354 attack speed) and a wide short one (354 damage, 100 attack speed), each giving 252.9 DPS for Juggernaut at 1.4 BAT. On the right, separated by a dashed line, the balanced square (227 damage, 227 attack speed) giving 368.1 DPS.</title>
+      <rect class="dps-rect" x="140" y="4" width="100" height="354"/>
+      <rect class="dps-rect" x="393" y="258" width="354" height="100"/>
+      <line class="dps-divider" x1="790" y1="0" x2="790" y2="358"/>
+      <rect class="dps-rect dps-best" x="896.5" y="131" width="227" height="227"/>
+      <line class="dps-base" x1="0" y1="359" x2="1200" y2="359"/>
+    </svg>
+    <div class="dps-labels">
+      <div class="dps-label">
+        <span class="dps-cap">Lopsided</span>
+        <span class="dps-line">100 damage</span>
+        <span class="dps-line">354 attack speed</span>
+        <span class="dps-area">252.9 DPS</span>
+      </div>
+      <div class="dps-label">
+        <span class="dps-cap">Lopsided</span>
+        <span class="dps-line">354 damage</span>
+        <span class="dps-line">100 attack speed</span>
+        <span class="dps-area">252.9 DPS</span>
+      </div>
+      <div></div>
+      <div class="dps-label dps-best">
+        <span class="dps-cap">Balanced</span>
+        <span class="dps-line">227 damage</span>
+        <span class="dps-line">227 attack speed</span>
+        <span class="dps-area">368.1 DPS</span>
+      </div>
+    </div>
+    <div class="dps-legend">
+      <span>↔ Width: Damage per hit</span>
+      <span>↕ Height: Attack speed</span>
+      <span>DPS shown for Juggernaut (1.4 BAT)</span>
+    </div>
+  </figure>
+
+  <p>
+    Your damage per hit is the width. Your attack speed is the height. The area is your DPS.
+  </p>
+
+  <ul>
+    <li><strong>Buying damage</strong> makes the rectangle wider. How much area you add depends on how <em>tall</em> it already is.</li>
+    <li><strong>Buying attack speed</strong> makes it taller. How much area you add depends on how <em>wide</em> it already is.</li>
+  </ul>
+
+  <p>
+    Each stat is worth more the more you have of the other one. That's why stacking only one of them stops paying off.
+  </p>
+
+  <p>
+    <strong>The balance point</strong>
+  </p>
+
+  <p>
+    If you have a fixed number of points to split between damage and attack speed, your DPS is highest when the two numbers are equal, the same way a square gets the most area out of a fixed perimeter.
+  </p>
+
+  <p>
+    Take Juggernaut (1.4 BAT) with 454 total points, split two different ways:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Damage + Attack speed</th><th>DPS</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>253 + 201</td><td>363.2</td></tr>
+        <tr><td>193 + 261</td><td>359.8</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The more balanced split wins. But notice the difference is only about 1%. Near the balance point, being a little off barely matters. The further you drift, the faster you lose:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Split (454 total)</th><th>DPS compared to a perfect balance</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>227 + 227</td><td>0%</td></tr>
+        <tr><td>253 + 201</td><td>-1.3%</td></tr>
+        <tr><td>193 + 261</td><td>-2.2%</td></tr>
+        <tr><td>354 + 100</td><td>-31%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The lesson isn't to chase exact balance. <strong>It's to avoid being heavily lopsided.</strong>
+  </p>
+
+  <p>
+    <strong>Gold changes where the balance sits</strong>
+  </p>
+
+  <p>
+    In a real game, damage and attack speed don't cost the same gold per point. The true balance point is:
+  </p>
+
+  <div class="formula">
+    <div><strong>Your attack speed ÷ your damage = gold cost per damage point ÷ gold cost per attack speed point</strong></div>
+  </div>
+
+  <p>
+    If a point of damage costs twice as much as a point of attack speed, your ideal build has about twice as much attack speed as damage. The shape stays the same, though: flat near the balance point, steep at the extremes.
+  </p>
+
+  <p>
+    <strong>Comparing two items</strong>
+  </p>
+
+  <p>
+    To compare a damage item with an attack speed item directly:
+  </p>
+
+  <div class="formula">
+    <div><strong>Damage the item gives × your current attack speed</strong></div>
+    <div>vs.</div>
+    <div><strong>Attack speed the item gives × your current damage per hit</strong></div>
+  </div>
+
+  <p>
+    Whichever number is bigger adds more DPS. These are the two strips of the rectangle. Divide each by the item's cost to compare DPS per gold.
+  </p>
+
+  <p>
+    <strong>Example:</strong> a hero with 400 attack speed and 120 damage, choosing between +50 damage and +100 attack speed:
+  </p>
+
+  <ul>
+    <li>Damage item: 50 × 400 = <strong>20,000</strong></li>
+    <li>Attack speed item: 100 × 120 = <strong>12,000</strong></li>
+  </ul>
+
+  <p>
+    The damage item wins, even though the attack speed item's number looks twice as big.
+  </p>
+
+  <p>
+    <strong>When the balance shifts</strong>
+  </p>
+
+  <ul>
+    <li><strong>Flat on-hit effects.</strong> Procs that add a fixed amount of damage per attack, like chain lightning or bash damage, grow with every extra attack but don't grow with damage items. They tip the balance toward attack speed. Effects that apply something on hit, like slows, work the same way. Many of these effects trigger by chance, using Pseudo-Random Distribution. Read more about it in our <strong>Pseudo-Random Distribution Guide</strong><!-- TODO: link to PRD guide once published -->.</li>
+    <li><strong>Flat damage block.</strong> Some targets block a fixed amount of damage from every hit. More hits means more damage lost to block, so it tips the balance toward damage.</li>
+    <li><strong>The attack speed cap.</strong> Near 700, extra attack speed is partly wasted. At 700, it's worth nothing. Damage is the only way up.</li>
+    <li><strong>Crit and armor don't shift it.</strong> Both scale every hit by the same percentage, so they affect damage and attack speed items equally.</li>
+  </ul>
+
+  <p>
+    In practice, Dota itemization is rarely about raw stats. Most of the time you buy an item for what it <em>does</em>: BKB for Debuff Immunity, Blink for initiation, and so on. Those decisions come first. The math in this section is for the moments when you do have a real choice between damage and attack speed. Knowing it well enough to make that call mid-game is what separates a good build from the best one.
+  </p>
+
+  <!-- ═══════════════ PART III ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part III - Unique Hero Cases</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">9. The Natural Outliers</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Most heroes have the default 1.7 BAT as base value. The heroes below don't. Their attacks are naturally faster or slower than everyone else's, before a single item is bought. Some heroes can change their BAT during the game - they're covered in the next section.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>BAT</th><th>Attacks compared to 1.7 BAT</th><th>Heroes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1.4</strong></td><td>+21.4%</td><td>Juggernaut, Anti-Mage</td></tr>
+        <tr><td><strong>1.5</strong></td><td>+13.3%</td><td>Abaddon, Bounty Hunter, Dark Willow, Morphling, Nature's Prophet, Queen of Pain, Terrorblade, Windranger, Spirit Bear (Lone Druid)</td></tr>
+        <tr><td><strong>1.6</strong></td><td>+6.3%</td><td>Dragon Knight, Huskar, Lina, Lone Druid, Shadow Fiend, Silencer, Storm Spirit</td></tr>
+        <tr><td><strong>1.7</strong></td><td>0%</td><td>Everyone else</td></tr>
+        <tr><td><strong>1.8</strong></td><td>-5.6%</td><td>Bristleback, Magnus, Mars, Primal Beast, Snapfire, Weaver</td></tr>
+        <tr><td><strong>1.9</strong></td><td>-10.5%</td><td>Doom, Kez (Katana), Outworld Destroyer, Spirit Breaker, Sven, Treant Protector</td></tr>
+        <tr><td><strong>2.0</strong></td><td>-15%</td><td>Hoodwink</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The percentage column shows how many more or fewer attacks each tier gets at the same attack speed, compared to a 1.7 BAT hero. Hoodwink, for example, attacks 15% less often than an average hero with identical stats.
+  </p>
+
+  <p>
+    <strong>The two extremes.</strong> Juggernaut and Anti-Mage are the only heroes with 1.4 BAT, and both are carries who rely heavily on right-clicks. At the other end, the 1.9 and 2.0 heroes mostly bring their value through other means, though Sven, with his 1.9 BAT, shows that a high BAT doesn't stop a hero from being a dangerous right-clicker.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">10. Heroes Who Set Their BAT</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    A few heroes can replace their BAT with a different value during the game. Their attack speed doesn't change, but every point of it suddenly becomes more valuable.
+  </p>
+
+  <p>
+    <strong>Alchemist - Chemical Rage</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Chemical Rage level</th><th>BAT</th><th>Attacks compared to his normal 1.7</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>1.2</td><td>+41.7%</td></tr>
+        <tr><td>2</td><td>1.1</td><td>+54.5%</td></tr>
+        <tr><td>3</td><td>1.0</td><td>+70%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    At level 3, Alchemist attacks 70% more often while his ultimate is active, with the exact same items. His level 20 talent lowers it by another 0.1, down to 0.9, one of the lowest BATs any hero can reach. How the talent combines with the ultimate is covered in Section 12.
+  </p>
+
+  <p>
+    <strong>Troll Warlord - Battle Stance</strong>
+  </p>
+
+  <p>
+    Troll's ranged form uses the default 1.7 BAT. Switching to melee lowers it to 1.4, the same as Juggernaut and Anti-Mage, which means about 21% more attacks. He also gains 1 armor for every 30 bonus attack speed, so in melee form every attack speed item feeds both his damage and his survivability.
+  </p>
+
+  <p>
+    <strong>Kez - Switch Discipline</strong>
+  </p>
+
+  <p>
+    Kez is the most interesting case, because neither weapon is strictly better:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Weapon</th><th>BAT</th><th>Attack range</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Katana</td><td>1.9</td><td>225</td></tr>
+        <tr><td>Sai</td><td>1.5</td><td>150</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    In Sai, Kez attacks about 27% more often than in Katana. The Katana trades that speed for reach and its own bonuses, including extra damage on the first hit after switching to it. Kez's BAT is a choice he makes constantly, not a fixed upgrade.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">11. Heroes Who Reduce Their BAT</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Instead of replacing their BAT with a new value, some effects lower it by a certain amount. There are two kinds: flat reductions, which subtract a fixed number of seconds, and percentage reductions, which cut BAT by a proportion.
+  </p>
+
+  <p>
+    <strong>Broodmother - Insatiable Hunger (level 25 talent)</strong>
+  </p>
+
+  <p>
+    While Insatiable Hunger is active, Broodmother's BAT drops by 0.15, from 1.7 to 1.55. That's about 10% more attacks. Since patch 7.41, the talent also affects her Spiderlings within 800 range, so the whole brood attacks faster during her ultimate.
+  </p>
+
+  <p>
+    <strong>Lycan - Summon Wolves (level 25 talent)</strong>
+  </p>
+
+  <p>
+    Lycan's wolves already have a low BAT that improves as the ability levels up:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Summon Wolves level</th><th>Wolf BAT</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>1.2</td></tr>
+        <tr><td>2</td><td>1.1</td></tr>
+        <tr><td>3</td><td>1.0</td></tr>
+        <tr><td>4</td><td>0.9</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    His level 25 talent reduces their BAT by 25%. At level 4, that takes the wolves from 0.9 down to 0.675, which means about 33% more attacks for every wolf.
+  </p>
+
+  <p>
+    <strong>Flat vs. percentage</strong>
+  </p>
+
+  <p>
+    A flat reduction is worth more the lower your BAT already is. Broodmother's -0.15 is a 9% cut from 1.7, but the same -0.15 would be a 15% cut from 1.0. A percentage reduction always gives the same boost: -25% BAT means 33% more attacks, whatever the starting value.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">12. When Several BAT Effects Apply at Once</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    <strong>Reductions apply on top of set effects.</strong> A reduction always subtracts from your <em>current</em> BAT, after any set effect has done its job. The order doesn't matter: whether the reduction or the set effect comes first, the result is the same.
+  </p>
+
+  <p>
+    <strong>Example: Alchemist.</strong> His level 20 talent is a reduction (-0.1). Chemical Rage is a set effect (1.0 at level 3). Chemical Rage replaces his BAT with 1.0, the talent then subtracts 0.1, and he ends up at 0.9. If reductions applied to his base 1.7 <em>before</em> Chemical Rage overwrote it, the talent would do nothing during his ultimate, which is exactly when it matters.
+  </p>
+
+  <p>
+    <strong>Two more rules</strong>
+  </p>
+
+  <p>
+    As of patch 7.41f, no hero can actually have these combinations, but they're worth knowing in case future patches make them possible:
+  </p>
+
+  <ul>
+    <li><strong>Set effects don't combine.</strong> If two effects both try to set your BAT, only one applies. Normally that's the first one applied, even if the second would give a lower BAT.</li>
+    <li><strong>Reductions add up.</strong> If a hero had two reductions active at once, both would apply.</li>
+  </ul>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">13. Summons and Neutrals</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Heroes aren't the only units with BAT. Every summon, creep and building has one too, and their values range much further than any hero's.
+  </p>
+
+  <p>
+    <strong>Summons and other units</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>BAT</th><th>Unit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.15</td><td>Fountain</td></tr>
+        <tr><td>0.22</td><td>Death Ward (Witch Doctor)</td></tr>
+        <tr><td>0.5</td><td>Familiars (Visage)</td></tr>
+        <tr><td>0.8 / 1.0 / 1.2</td><td>Void Spirit (Brewmaster, by ultimate level)</td></tr>
+        <tr><td>0.9-1.2</td><td>Wolves (Lycan, by ability level)</td></tr>
+        <tr><td>1.0</td><td>Melee Creeps</td></tr>
+        <tr><td>1.2</td><td>Golem (Warlock), Skeletons (Wraith King), Spiderlings (Broodmother)</td></tr>
+        <tr><td>1.25</td><td>Earth Spirit (Brewmaster)</td></tr>
+        <tr><td>1.35</td><td>Fire Spirit (Brewmaster), Forged Spirits (Invoker), Razorback (Beastmaster)</td></tr>
+        <tr><td>1.4</td><td>Plague Wards (Venomancer)</td></tr>
+        <tr><td>1.5</td><td>Eidolons (Enigma), Storm Spirit (Brewmaster)</td></tr>
+        <tr><td>1.6</td><td>Treants and Greater Treants (Nature's Prophet), Serpent Wards (Shadow Shaman), Zombies (Undying)</td></tr>
+        <tr><td>2.0</td><td>Roshan</td></tr>
+        <tr><td>3.0</td><td>Siege Creeps</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Most summons have a low BAT for a simple reason: they don't have attributes and rarely get attack speed from items, so BAT is almost the only thing deciding how fast they attack. A low BAT is how they stay dangerous without scaling.
+  </p>
+
+  <p>
+    <strong>Neutral creeps</strong>
+  </p>
+
+  <p>
+    Every neutral creep has a 2.0 BAT, but they make up for it with a high base attack speed, usually between 120 and 200 instead of 100. A neutral with 150 attack speed and 2.0 BAT attacks at the same rate as a hero with about 128 attack speed and 1.7 BAT.
+  </p>
+
+  <!-- ═══════════════ PART IV ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part IV - Edge Cases</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">14. Attacks That Ignore BAT</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Not every attack in Dota follows the BAT formula. Some abilities perform attacks on their own fixed timer, completely independent of the hero's BAT and attack speed.
+  </p>
+
+  <p>
+    Examples include Ember Spirit's Sleight of Fist, which attacks every enemy in its area one after another on a fixed interval, and Monkey King's Wukong's Command, whose soldiers attack on a fixed interval of their own. Legion Commander's Moment of Courage counter-attack also fires outside her normal attack rhythm.
+  </p>
+
+  <p>
+    These attacks follow their own rules, so BAT and attack speed don't affect them. Because of that, they're outside the scope of this guide.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">15. BAT and Attack Animation</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Every attack has two parts: the <strong>foreswing</strong>, the wind-up before the hit lands, and the <strong>backswing</strong>, the follow-through after it. Attack speed makes both of them faster.
+  </p>
+
+  <p>
+    BAT doesn't. It only controls how long you wait <em>between</em> swings. When your BAT drops, the swing itself stays exactly as fast as before. What shrinks is the idle time between one swing and the next.
+  </p>
+
+  <p>
+    This matters for anything that depends on the wind-up, like last-hitting and canceling your attack. A lower BAT makes you attack more often, but it doesn't make each individual hit land any sooner after you start swinging. Only attack speed does that.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">16. A Short History of BAT</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Back in the original DotA, none of this was public. There were no published formulas, no wikis with exact numbers. To understand how attack speed really worked, I had to test it myself: timing attacks, changing one variable at a time, and working backwards to the math. BAT was one of the things those tests revealed.
+  </p>
+
+  <p>
+    BAT has been part of Dota since the original map, and Valve has used it as a balancing tool ever since.
+  </p>
+
+  <ul>
+    <li><strong>Anti-Mage</strong> once had a BAT as low as 1.35. It was raised back to 1.45 in an early Dota 2 patch, and today he sits at 1.4.</li>
+    <li><strong>Alchemist's Chemical Rage</strong> has been retuned many times. It started at 1.45 / 1.35 / 1.2, was gradually lowered over several patches, and today it's 1.2 / 1.1 / 1.0.</li>
+    <li><strong>Spirit Bear</strong> used to have a BAT that improved with each level of the ability, from 1.75 down to 1.45. Today he has a flat 1.5.</li>
+    <li><strong>Lycan's Shapeshift</strong> used to lower his BAT. It no longer does.</li>
+    <li><strong>The attack speed cap</strong> has been raised twice: from 500 to 600, and then to 700 in patch 7.20.</li>
+    <li><strong>Base attack speed</strong> was 100 for every hero until patch 7.22, when Valve started giving heroes different values. That's what created the different attack speed floors from Section 4.</li>
+  </ul>
+
+  <!-- ═══════════════ CLOSING ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Closing</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break" id="17-summary">
+    <span class="section-break-title">17. Summary</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <ul>
+    <li><strong>BAT is the base time between your attacks.</strong> Lower BAT means faster attacks. Most heroes have 1.7. Your attacks per second = attack speed ÷ (100 × BAT).</li>
+    <li><strong>Attack speed is capped at 700 for everyone</strong> (Marci being the only exception), but BAT decides what that cap is worth: 5 attacks per second at 1.4 BAT, only 3.68 at 1.9.</li>
+    <li><strong>Understand your HUD better.</strong> The attack speed number shows how close you are to the cap. The time between attacks in brackets shows how fast you actually attack.</li>
+    <li><strong>Low BAT makes every right-click item better,</strong> damage and attack speed alike. Which one to buy depends on balance: avoid being heavily lopsided. On-hit effects favor attack speed; damage block and the cap favor damage.</li>
+    <li><strong>Some heroes can alter their BAT.</strong> A set effect replaces your BAT; a reduction subtracts from whatever it currently is.</li>
+  </ul>
+
+  <div class="section-break sub-break" id="18-quick-reference">
+    <span class="section-break-title">18. Quick Reference</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    <em>All values as of patch 7.41f.</em>
+  </p>
+
+  <p>
+    <strong>Formulas</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>What</th><th>Formula</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total attack speed</td><td>Base attack speed + agility + bonus attack speed</td></tr>
+        <tr><td>Attacks per second</td><td>Attack speed ÷ (100 × BAT)</td></tr>
+        <tr><td>Time between attacks</td><td>(100 × BAT) ÷ attack speed</td></tr>
+        <tr><td>Max attacks per second</td><td>7 ÷ BAT</td></tr>
+        <tr><td>Attack speed needed to match another hero</td><td>Their attack speed × (your BAT ÷ their BAT)</td></tr>
+        <tr><td>DPS</td><td>Damage per hit × attacks per second</td></tr>
+        <tr><td>Damage item vs attack speed item</td><td>Damage gained × current attack speed <strong>vs.</strong> attack speed gained × current damage</td></tr>
+        <tr><td>Ideal balance (with gold costs)</td><td>Attack speed ÷ damage = gold per damage point ÷ gold per attack speed point</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Limits</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Maximum attack speed</td><td>700 (except Marci's Unleash)</td></tr>
+        <tr><td>Minimum attack speed, heroes</td><td>Base attack speed - 80</td></tr>
+        <tr><td>Minimum attack speed, non-hero units</td><td>20</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Hero BAT values</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>BAT</th><th>Heroes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.4</td><td>Juggernaut, Anti-Mage</td></tr>
+        <tr><td>1.5</td><td>Abaddon, Bounty Hunter, Dark Willow, Morphling, Nature's Prophet, Queen of Pain, Terrorblade, Windranger, Spirit Bear</td></tr>
+        <tr><td>1.6</td><td>Dragon Knight, Huskar, Lina, Lone Druid, Shadow Fiend, Silencer, Storm Spirit</td></tr>
+        <tr><td>1.7</td><td>Everyone else</td></tr>
+        <tr><td>1.8</td><td>Bristleback, Magnus, Mars, Primal Beast, Snapfire, Weaver</td></tr>
+        <tr><td>1.9</td><td>Doom, Kez (Katana), Outworld Destroyer, Spirit Breaker, Sven, Treant Protector</td></tr>
+        <tr><td>2.0</td><td>Hoodwink</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>BAT changes</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Hero</th><th>Effect</th><th>Type</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Alchemist</td><td>Chemical Rage: 1.2 / 1.1 / 1.0</td><td>Set</td></tr>
+        <tr><td>Alchemist</td><td>Level 20 talent: -0.1</td><td>Reduction</td></tr>
+        <tr><td>Troll Warlord</td><td>Melee stance: 1.4 (ranged 1.7)</td><td>Set</td></tr>
+        <tr><td>Kez</td><td>Sai 1.5 / Katana 1.9</td><td>Set</td></tr>
+        <tr><td>Broodmother</td><td>Level 25 talent: -0.15 during Insatiable Hunger</td><td>Reduction</td></tr>
+        <tr><td>Lycan's wolves</td><td>Level 25 talent: -25%</td><td>Reduction</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+  <aside class="toc-sidebar" aria-label="Article contents">
+    <div class="toc-panel">
+      <div class="toc-label">Contents</div>
+      <div class="toc-list" role="navigation" aria-label="Table of contents"></div>
+      <a href="../coaching.html" class="nav-cta toc-cta">Coaching</a>
+    </div>
+  </aside>
+
+</div><!-- /.article-layout -->
+
+<a href="../coaching.html" class="nav-cta toc-cta toc-cta-mobile">Coaching</a>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-divider"></div>
+
+  <div class="next-read">
+    <a href="../guides.html" class="back-to-guides">← All Guides</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <!-- <a href="../concepts.html">Concepts</a> -->
+    <a href="../guides.html">Guides</a>
+<!-- removed Sep 2026 - Stripe review: <a href="../support.html">Donations</a> -->
+    <a href="../coaching.html">Coaching</a>
+    <a href="../terms.html#terms">Terms of Service</a>
+    <a href="../terms.html#privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemobulas</div>
+  <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
+</footer>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
+
+<!-- Computed read time: counts visible words in .article-body, ÷230 wpm, round up (min 1),
+     writes "N min read" into .article-readtime. The span keeps a hardcoded fallback for no-JS. -->
+<script>
+(function () {
+  var body = document.querySelector('.article-body');
+  var slot = document.querySelector('.article-readtime');
+  if (!body || !slot) return;
+  var text = (body.innerText || body.textContent || '').trim();
+  if (!text) return;
+  var words = text.split(/\s+/).length;
+  var minutes = Math.max(1, Math.ceil(words / 230));
+  slot.textContent = minutes + ' min read';
+})();
+</script>
+
+<!-- Table of contents + scroll-spy + coaching CTA. Same script as wasting_time.html, plus
+     grouping: .part-break headings become group labels in the rail (.toc-part) and the
+     numbered sections under them are indented (.toc-sub). The intro section, which sits
+     before Part I, stays flush. The rail also keeps the active entry visible when the
+     list is taller than the panel. -->
+<script>
+(function () {
+  var title = document.querySelector('h1.article-title');
+  var sidebar = document.querySelector('.toc-sidebar');
+  var list = document.querySelector('.toc-list');
+  var panel = document.querySelector('.toc-panel');
+  if (!title || !sidebar || !list) return;
+
+  var breaks = Array.prototype.slice.call(document.querySelectorAll('.section-break'));
+  var LINE = 88; // 56px fixed nav + 32px; keep in sync with .section-break scroll-margin-top
+
+  var used = { top: true }; // reserve "#top" for the title link
+  function slugify(s) {
+    var base = String(s).toLowerCase().trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return base || 'section';
+  }
+
+  var entries = []; // { link, el }, el === null for the title entry (top of page)
+
+  var titleLink = document.createElement('a');
+  titleLink.className = 'toc-link';
+  titleLink.href = '#top';
+  titleLink.textContent = 'Start';
+  list.appendChild(titleLink);
+  entries.push({ link: titleLink, el: null });
+
+  var inPart = false;
+  breaks.forEach(function (block) {
+    var heading = block.querySelector('.section-break-title');
+    if (!heading) return;
+    var slug = slugify(heading.textContent), id = slug, n = 2;
+    while (used[id] || (document.getElementById(id) && document.getElementById(id) !== block)) id = slug + '-' + (n++);
+    used[id] = true;
+    block.id = id;
+
+    var a = document.createElement('a');
+    a.className = 'toc-link';
+    if (block.classList.contains('part-break')) { a.className += ' toc-part'; inPart = true; }
+    else if (inPart) a.className += ' toc-sub';
+    a.href = '#' + id;
+    a.textContent = heading.textContent.trim();
+    list.appendChild(a);
+    entries.push({ link: a, el: block });
+  });
+
+  var sectionCount = entries.length - 1;
+
+  // Rule: fewer than 2 sections -> hide the list, keep the CTA.
+  if (sectionCount < 2) {
+    list.style.display = 'none';
+    var label = panel && panel.querySelector('.toc-label');
+    if (label) label.style.display = 'none';
+    if (panel) panel.classList.add('no-toc');
+  }
+
+  sidebar.classList.add('is-ready'); // CSS still gates visibility on viewport width
+
+  list.addEventListener('click', function (e) {
+    var a = e.target.closest('.toc-link');
+    if (!a) return;
+    e.preventDefault();
+    var entry = null;
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].link === a) { entry = entries[i]; break; }
+    }
+    if (!entry) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var behavior = reduce ? 'auto' : 'smooth';
+    if (entry.el) {
+      entry.el.scrollIntoView({ behavior: behavior, block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: behavior });
+    }
+    if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
+  });
+
+  // ── scroll-spy ──────────────────────────────────────────────────────────────
+  var lastActive = -1;
+  function setActive(idx) {
+    for (var i = 0; i < entries.length; i++) {
+      var on = i === idx;
+      entries[i].link.classList.toggle('active', on);
+      if (on) entries[i].link.setAttribute('aria-current', 'location');
+      else entries[i].link.removeAttribute('aria-current');
+    }
+    // keep the active entry inside the panel's own scroll area (never scrolls the page)
+    if (panel && idx !== lastActive) {
+      var l = entries[idx].link;
+      if (l.offsetTop < panel.scrollTop + 40 || l.offsetTop + l.offsetHeight > panel.scrollTop + panel.clientHeight - 40) {
+        panel.scrollTop = Math.max(0, l.offsetTop - panel.clientHeight / 2);
+      }
+    }
+    lastActive = idx;
+  }
+  function recompute() {
+    var active = 0, i, r;
+    for (i = 1; i < entries.length; i++) {
+      r = entries[i].el.getBoundingClientRect();
+      if (r.top < LINE + 72 && r.bottom > LINE) active = i;   // heading is in the reading band
+    }
+    if (active === 0) {
+      for (i = 1; i < entries.length; i++) {
+        if (entries[i].el.getBoundingClientRect().top <= LINE) active = i;   // already scrolled past
+      }
+    }
+    setActive(active);
+  }
+
+  var io = null;
+  function buildObserver() {
+    if (io) io.disconnect();
+    if (sectionCount < 1 || !('IntersectionObserver' in window)) return;
+    var bottomInset = Math.max(0, window.innerHeight - (LINE + 72));
+    io = new IntersectionObserver(recompute, {
+      rootMargin: '-' + LINE + 'px 0px -' + bottomInset + 'px 0px',
+      threshold: 0
+    });
+    breaks.forEach(function (block) { io.observe(block); });
+  }
+
+  buildObserver();
+  recompute();
+  window.addEventListener('resize', function () { buildObserver(); recompute(); });
+})();
+</script>
+
+<!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
+<script src="../mobile-toc.js?v=14"></script>
+</body>
+</html>

@@ -175,6 +175,10 @@
     {
       "level": "advanced",
       "text": "Your level 25 talent allows you to basically heal to full every time you cast [ability:juggernaut_swift_slash] Swiftslash. Keep in mind that the ability also applies a Basic Dispel to yourself just like your ultimate does - even though it's not stated in the tooltip. So unless you need it in order to reach an enemy, save it for after a fight starts & you've lost some health first."
+    },
+    {
+      "level": "advanced",
+      "text": "[hero:juggernaut] and [hero:antimage] have the fastest natural Base Attack Time in the game. This means that bonuses to Attack Speed and Agility are even more effective on them than on most other heroes. You can learn more about this in our <a href=\"guides/base_attack_time.html\" class=\"guide-link\"><strong>Guide for Base Attack Time</strong></a>."
     }
   ],
 

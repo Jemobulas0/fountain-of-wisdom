@@ -451,7 +451,7 @@
     <li><strong>Part I - The Mechanics.</strong> What BAT is, the formula behind every attack, the attack speed cap, and which number in your HUD actually tells you how fast you attack.</li>
     <li><strong>Part II - Practical Applications.</strong> How BAT changes the value of the items you buy, where the balance between damage and attack speed sits, and when an attack speed item is worth more than its numbers suggest.</li>
     <li><strong>Part III - Unique Hero Cases.</strong> Heroes with unusual BAT values, heroes who change their BAT mid-fight (Alchemist, Troll Warlord, Kez), and what happens when several BAT effects apply at once.</li>
-    <li><strong>Part IV - Edge Cases.</strong> Attacks that ignore BAT completely, plus a short history of how BAT has changed over the years.</li>
+    <li><strong>Part IV - Edge Cases.</strong> Attacks that ignore BAT completely, and what BAT does and doesn't change about your attack animation.</li>
   </ul>
 
   <p>
@@ -1260,6 +1260,12 @@
     This matters for anything that depends on the wind-up, like last-hitting and canceling your attack. A lower BAT makes you attack more often, but it doesn't make each individual hit land any sooner after you start swinging. Only attack speed does that.
   </p>
 
+  <!-- ═══════════════ CLOSING ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Closing</span>
+    <div class="section-break-line"></div>
+  </div>
+
   <div class="section-break sub-break">
     <span class="section-break-title">16. A Short History of BAT</span>
     <div class="section-break-line"></div>
@@ -1281,12 +1287,6 @@
     <li><strong>The attack speed cap</strong> has been raised twice: from 500 to 600, and then to 700 in patch 7.20.</li>
     <li><strong>Base attack speed</strong> was 100 for every hero until patch 7.22, when Valve started giving heroes different values. That's what created the different attack speed floors from Section 4.</li>
   </ul>
-
-  <!-- ═══════════════ CLOSING ═══════════════ -->
-  <div class="section-break part-break">
-    <span class="section-break-title">Closing</span>
-    <div class="section-break-line"></div>
-  </div>
 
   <div class="section-break sub-break" id="17-summary">
     <span class="section-break-title">17. Summary</span>
@@ -1508,15 +1508,10 @@
 
   sidebar.classList.add('is-ready'); // CSS still gates visibility on viewport width
 
-  list.addEventListener('click', function (e) {
-    var a = e.target.closest('.toc-link');
-    if (!a) return;
-    e.preventDefault();
-    var entry = null;
-    for (var i = 0; i < entries.length; i++) {
-      if (entries[i].link === a) { entry = entries[i]; break; }
-    }
-    if (!entry) return;
+  // Scroll to an entry without letting the browser's own hash navigation push a
+  // history entry (so Back leaves the page). Replacing state still updates the
+  // address bar's hash for deep-linking. Shared by the rail and the in-text links.
+  function goTo(entry, href) {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var behavior = reduce ? 'auto' : 'smooth';
     if (entry.el) {
@@ -1524,7 +1519,30 @@
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: behavior });
     }
-    if (history.replaceState) history.replaceState(null, '', a.getAttribute('href'));
+    if (history.replaceState) history.replaceState(null, '', href);
+  }
+
+  list.addEventListener('click', function (e) {
+    var a = e.target.closest('.toc-link');
+    if (!a) return;
+    e.preventDefault();
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].link === a) { goTo(entries[i], a.getAttribute('href')); break; }
+    }
+  });
+
+  // In-text section links (a.in-link) use the same path as the rail.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.in-link');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    for (var i = 1; i < entries.length; i++) {
+      if (entries[i].el && '#' + entries[i].el.id === href) {
+        e.preventDefault();
+        goTo(entries[i], href);
+        return;
+      }
+    }
   });
 
   // ── scroll-spy ──────────────────────────────────────────────────────────────

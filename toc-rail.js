@@ -113,6 +113,11 @@
     sidebar.classList.add('is-ready'); // CSS still gates visibility on viewport width
 
     // ── scroll-spy — same reading-band-then-fallback rule as the guide's ──
+    // Active = last heading that has passed the line; at the very bottom, the
+    // last section. A click pins its section (the last ones cannot scroll far
+    // enough to reach the line); the reader scrolling releases the pin.
+    var pinned = -1;
+    var lastActive = -1;
     function setActive(idx) {
       entries.forEach(function (entry, i) {
         var on = i === idx;
@@ -120,36 +125,53 @@
         if (on) entry.link.setAttribute('aria-current', 'location');
         else entry.link.removeAttribute('aria-current');
       });
+      // keep the active link visible inside the panel's own scroll area
+      if (idx !== lastActive) {
+        var l = entries[idx].link;
+        if (l.offsetTop < panel.scrollTop + 40 || l.offsetTop + l.offsetHeight > panel.scrollTop + panel.clientHeight - 40) {
+          panel.scrollTop = Math.max(0, l.offsetTop - panel.clientHeight / 2);
+        }
+      }
+      lastActive = idx;
     }
     function recompute() {
-      var active = 0, i, r;
-      for (i = 0; i < entries.length; i++) {
-        r = entries[i].el.getBoundingClientRect();
-        if (r.top < LINE + 72 && r.bottom > LINE) active = i;
-      }
-      if (active === 0) {
+      if (pinned >= 0) { setActive(pinned); return; }
+      var active = 0, i;
+      if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
+        active = entries.length - 1;
+      } else {
         for (i = 0; i < entries.length; i++) {
-          if (entries[i].el.getBoundingClientRect().top <= LINE) active = i;
+          if (entries[i].el.getBoundingClientRect().top <= LINE + 4) active = i;
         }
       }
       setActive(active);
     }
 
-    var io = null;
-    function buildObserver() {
-      if (io) io.disconnect();
-      if (!('IntersectionObserver' in window)) return;
-      var bottomInset = Math.max(0, window.innerHeight - (LINE + 72));
-      io = new IntersectionObserver(recompute, {
-        rootMargin: '-' + LINE + 'px 0px -' + bottomInset + 'px 0px',
-        threshold: 0
-      });
-      entries.forEach(function (entry) { io.observe(entry.el); });
-    }
+    list.addEventListener('click', function (e) {
+      var a = e.target.closest('.toc-link');
+      if (!a) return;
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].link === a) { pinned = i; setActive(i); break; }
+      }
+    });
+    function release() { if (pinned >= 0) { pinned = -1; recompute(); } }
+    window.addEventListener('wheel', release, { passive: true });
+    window.addEventListener('touchmove', release, { passive: true });
+    window.addEventListener('keydown', function (e) {
+      if (/^(ArrowUp|ArrowDown|PageUp|PageDown|Home|End| |Spacebar)$/.test(e.key)) release();
+    });
+    window.addEventListener('mousedown', function (e) {
+      if (!e.target.closest || !e.target.closest('.toc-sidebar')) release();
+    });
 
-    buildObserver();
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { ticking = false; recompute(); });
+    }, { passive: true });
+    window.addEventListener('resize', recompute);
     recompute();
-    window.addEventListener('resize', function () { buildObserver(); recompute(); });
   }
 
   window.FoWTocRail = { init: init };

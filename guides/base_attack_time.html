@@ -333,6 +333,8 @@
     padding-top: 8px;
     padding-bottom: 6px;
   }
+  /* Labels are never highlighted: no gold on hover, no active state (the script never sets one) */
+  .toc-link.toc-part:hover, .toc-link.toc-part.active { color: var(--text); border-left-color: transparent; }
   .toc-link.toc-sub { padding-left: 24px; }
 
   .toc-cta {
@@ -1442,158 +1444,8 @@
 })();
 </script>
 
-<!-- Table of contents + scroll-spy + coaching CTA. Same script as wasting_time.html, plus
-     grouping: .part-break headings become group labels in the rail (.toc-part) and the
-     numbered sections under them are indented (.toc-sub). The intro section, which sits
-     before Part I, stays flush. The rail also keeps the active entry visible when the
-     list is taller than the panel. -->
-<script>
-(function () {
-  var title = document.querySelector('h1.article-title');
-  var sidebar = document.querySelector('.toc-sidebar');
-  var list = document.querySelector('.toc-list');
-  var panel = document.querySelector('.toc-panel');
-  if (!title || !sidebar || !list) return;
-
-  var breaks = Array.prototype.slice.call(document.querySelectorAll('.section-break'));
-  var LINE = 88; // 56px fixed nav + 32px; keep in sync with .section-break scroll-margin-top
-
-  var used = { top: true }; // reserve "#top" for the title link
-  function slugify(s) {
-    var base = String(s).toLowerCase().trim()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/[\s_]+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    return base || 'section';
-  }
-
-  var entries = []; // { link, el }, el === null for the title entry (top of page)
-
-  var titleLink = document.createElement('a');
-  titleLink.className = 'toc-link';
-  titleLink.href = '#top';
-  titleLink.textContent = 'Start';
-  list.appendChild(titleLink);
-  entries.push({ link: titleLink, el: null });
-
-  var inPart = false;
-  breaks.forEach(function (block) {
-    var heading = block.querySelector('.section-break-title');
-    if (!heading) return;
-    var slug = slugify(heading.textContent), id = slug, n = 2;
-    while (used[id] || (document.getElementById(id) && document.getElementById(id) !== block)) id = slug + '-' + (n++);
-    used[id] = true;
-    block.id = id;
-
-    var a = document.createElement('a');
-    a.className = 'toc-link';
-    if (block.classList.contains('part-break')) { a.className += ' toc-part'; inPart = true; }
-    else if (inPart) a.className += ' toc-sub';
-    a.href = '#' + id;
-    a.textContent = heading.textContent.trim();
-    list.appendChild(a);
-    entries.push({ link: a, el: block });
-  });
-
-  var sectionCount = entries.length - 1;
-
-  // Rule: fewer than 2 sections -> hide the list, keep the CTA.
-  if (sectionCount < 2) {
-    list.style.display = 'none';
-    var label = panel && panel.querySelector('.toc-label');
-    if (label) label.style.display = 'none';
-    if (panel) panel.classList.add('no-toc');
-  }
-
-  sidebar.classList.add('is-ready'); // CSS still gates visibility on viewport width
-
-  // Scroll to an entry without letting the browser's own hash navigation push a
-  // history entry (so Back leaves the page). Replacing state still updates the
-  // address bar's hash for deep-linking. Shared by the rail and the in-text links.
-  function goTo(entry, href) {
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var behavior = reduce ? 'auto' : 'smooth';
-    if (entry.el) {
-      entry.el.scrollIntoView({ behavior: behavior, block: 'start' });
-    } else {
-      window.scrollTo({ top: 0, left: 0, behavior: behavior });
-    }
-    if (history.replaceState) history.replaceState(null, '', href);
-  }
-
-  list.addEventListener('click', function (e) {
-    var a = e.target.closest('.toc-link');
-    if (!a) return;
-    e.preventDefault();
-    for (var i = 0; i < entries.length; i++) {
-      if (entries[i].link === a) { goTo(entries[i], a.getAttribute('href')); break; }
-    }
-  });
-
-  // In-text section links (a.in-link) use the same path as the rail.
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a.in-link');
-    if (!a) return;
-    var href = a.getAttribute('href');
-    for (var i = 1; i < entries.length; i++) {
-      if (entries[i].el && '#' + entries[i].el.id === href) {
-        e.preventDefault();
-        goTo(entries[i], href);
-        return;
-      }
-    }
-  });
-
-  // ── scroll-spy ──────────────────────────────────────────────────────────────
-  var lastActive = -1;
-  function setActive(idx) {
-    for (var i = 0; i < entries.length; i++) {
-      var on = i === idx;
-      entries[i].link.classList.toggle('active', on);
-      if (on) entries[i].link.setAttribute('aria-current', 'location');
-      else entries[i].link.removeAttribute('aria-current');
-    }
-    // keep the active entry inside the panel's own scroll area (never scrolls the page)
-    if (panel && idx !== lastActive) {
-      var l = entries[idx].link;
-      if (l.offsetTop < panel.scrollTop + 40 || l.offsetTop + l.offsetHeight > panel.scrollTop + panel.clientHeight - 40) {
-        panel.scrollTop = Math.max(0, l.offsetTop - panel.clientHeight / 2);
-      }
-    }
-    lastActive = idx;
-  }
-  function recompute() {
-    var active = 0, i, r;
-    for (i = 1; i < entries.length; i++) {
-      r = entries[i].el.getBoundingClientRect();
-      if (r.top < LINE + 72 && r.bottom > LINE) active = i;   // heading is in the reading band
-    }
-    if (active === 0) {
-      for (i = 1; i < entries.length; i++) {
-        if (entries[i].el.getBoundingClientRect().top <= LINE) active = i;   // already scrolled past
-      }
-    }
-    setActive(active);
-  }
-
-  var io = null;
-  function buildObserver() {
-    if (io) io.disconnect();
-    if (sectionCount < 1 || !('IntersectionObserver' in window)) return;
-    var bottomInset = Math.max(0, window.innerHeight - (LINE + 72));
-    io = new IntersectionObserver(recompute, {
-      rootMargin: '-' + LINE + 'px 0px -' + bottomInset + 'px 0px',
-      threshold: 0
-    });
-    breaks.forEach(function (block) { io.observe(block); });
-  }
-
-  buildObserver();
-  recompute();
-  window.addEventListener('resize', function () { buildObserver(); recompute(); });
-})();
-</script>
+<!-- Contents rail + scroll-spy + coaching CTA: shared logic in ../guide-toc.js. -->
+<script src="../guide-toc.js?v=1"></script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
 <script src="../mobile-toc.js?v=14"></script>

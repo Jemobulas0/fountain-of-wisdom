@@ -1,0 +1,121 @@
+/* ══════════════════════════════════════════════════════════
+   TOC-RAIL.CSS - the Contents rail, for every page type that has one
+   (guides, hero pages, item pages). Loaded with toc-rail.js, which builds
+   the rail DOM; pages supply only their own headings.
+
+   Contents rail standard (also in CLAUDE.md):
+   - Section links are white (var(--text)). Part labels are white small
+     capitals and are never highlighted (no gold hover, no active state).
+   - Gold text + gold left bar (.active) marks only the section being read.
+   ══════════════════════════════════════════════════════════ */
+
+/* Lets a scrollIntoView clear the 56px fixed nav instead of scrolling a
+   heading's top edge flush behind it. Keep in sync with LINE in toc-rail.js. */
+.section,
+.section-break { scroll-margin-top: 88px; }
+
+/* The rail lives entirely in the right margin, absolutely positioned inside
+   the page's content column (.article-layout on guides, .page elsewhere) so
+   it never affects the column's width or position. Hidden until JS builds it
+   (.is-ready) AND there is room.
+   Guides (.is-guide): 760px column, 24px gutter + 200px rail, shown from
+   1260px. Hero/item pages: 900px column, so both margins need 224px, i.e.
+   900 + 2*224 = 1348px; +20px for the scrollbar Windows Chrome eats from the
+   width media queries measure, hence 1368px. Below that, mobile.css's
+   floating button/panel take over. */
+.toc-sidebar {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(100% + 24px);
+  width: 200px;
+}
+@media (min-width: 1368px) { .toc-sidebar.is-ready { display: block; } }
+@media (min-width: 1260px) { .toc-sidebar.is-guide.is-ready { display: block; } }
+
+/* Vertically centred in the viewport at every scroll position: fixed, top
+   edge at 50%, pulled up by half its own height. left:auto keeps the
+   horizontal position of the static spot inside .toc-sidebar. The height cap
+   keeps a tall list inside the viewport and scrolls it internally. */
+.toc-panel {
+  position: fixed;
+  top: 50%;
+  left: auto;
+  width: 200px;
+  transform: translateY(-50%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 20px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.toc-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.toc-list { display: flex; flex-direction: column; }
+
+.toc-link {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 0 6px 12px;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.toc-link:hover { color: var(--gold); }
+.toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+
+/* Grouping: part labels are white small capitals, numbered sections sit indented under them */
+.toc-link.toc-part {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 12px;
+  padding-top: 8px;
+  padding-bottom: 6px;
+}
+/* Labels are never highlighted: no gold on hover, no active state (the script never sets one) */
+.toc-link.toc-part:hover,
+.toc-link.toc-part.active { color: var(--text); border-left-color: transparent; }
+.toc-link.toc-sub { padding-left: 24px; }
+
+/* CTA - reuses the page's .nav-cta (the outlined-gold treatment from the nav
+   bar's Coaching button). .toc-cta only adds the block layout + the typography
+   that .nav-cta normally inherits from `.nav-links a`. */
+.toc-cta {
+  display: block;
+  margin-top: 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+.toc-panel.no-toc .toc-cta { margin-top: 0; }
+
+/* Mobile (site-wide 768px breakpoint): no rail; on guides the CTA moves below
+   the article body, full width. a.toc-cta-mobile beats mobile.css's
+   `.nav-cta { display: inline-flex }` tap-target rule so the button goes full
+   width; its 44px min-height, centering and 6px inline padding still come
+   from that .nav-cta rule. */
+.toc-cta-mobile { display: none; }
+@media (max-width: 768px) {
+  .toc-sidebar { display: none; }
+  a.toc-cta-mobile { display: flex; margin: 8px 16px 48px; }
+}

@@ -153,7 +153,6 @@
     align-items: center;
     gap: 16px;
     margin: 44px 0 36px;
-    scroll-margin-top: 88px;
   }
   .section-break-title {
     font-family: 'Cinzel', serif;
@@ -245,100 +244,6 @@
     position: relative;
   }
 
-  /* Sidebar lives entirely in the right margin, absolutely positioned so it
-     never affects the article's width or position. Hidden until JS builds it
-     (.is-ready) AND there is room: the 24px gutter + 200px panel = 224px must
-     fit in the right margin, which the centred 760px column affords at ~1240px+
-     viewport (using >= 1260px here to clear the scrollbar with slack to spare). */
-  .toc-sidebar {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(100% + 24px);
-    width: 200px;
-  }
-  @media (min-width: 1260px) {
-    .toc-sidebar.is-ready { display: block; }
-  }
-
-  .toc-panel {
-    /* Vertically centred in the viewport at every scroll position: fixed, top edge
-       at 50%, then pulled up by half its own height. (It was position:sticky, which
-       is clamped inside .toc-sidebar, and that spans only .article-layout - so at the
-       top of the page the rail could not rise above the layout's top edge, i.e. below
-       the article header, and at the bottom it was pushed up by the article footer and
-       page footer.) left:auto keeps the horizontal position the rail already had -
-       the static position inside .toc-sidebar, 24px right of the article column -
-       and width matches .toc-sidebar. The height cap keeps a tall TOC inside the
-       viewport (60px clear of the 56px nav when centred) and scrolls it internally
-       instead of spilling off both edges. */
-    position: fixed;
-    top: 50%;
-    left: auto;
-    width: 200px;
-    transform: translateY(-50%);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 20px;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
-
-  .toc-label {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-
-  .toc-list { display: flex; flex-direction: column; }
-
-  .toc-link {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 14px;
-    line-height: 1.35;
-    color: var(--text);
-    text-decoration: none;
-    padding: 6px 0 6px 12px;
-    border-left: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .toc-link:hover { color: var(--gold); }
-  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
-
-  /* CTA — reuses this file's .nav-cta (the outlined-gold treatment from the nav
-     bar's Coaching button). .toc-cta only adds the block layout + the typography
-     that .nav-cta normally inherits from `.nav-links a`. Deliberately understated
-     so it sits beside the article rather than competing with it. */
-  .toc-cta {
-    display: block;
-    margin-top: 28px;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-  }
-  .toc-panel.no-toc .toc-cta { margin-top: 0; }
-
-  /* Mobile (site-wide 768px breakpoint): no sidebar; the CTA moves below the
-     article body, full width. Article itself is untouched. */
-  .toc-cta-mobile { display: none; }
-  @media (max-width: 768px) {
-    .toc-sidebar { display: none; }
-    /* a.toc-cta-mobile beats mobile.css's `.nav-cta { display: inline-flex }`
-       tap-target rule so the button goes full width; its 44px min-height,
-       centering and 6px inline padding still come from that .nav-cta rule. */
-    a.toc-cta-mobile { display: flex; margin: 8px 16px 48px; }
-  }
-
   /* ── ARTICLE FOOTER ── */
   .article-footer {
     max-width: 760px;
@@ -375,6 +280,7 @@
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
 </style>
 <link rel="stylesheet" href="../mobile.css?v=3">
+<link rel="stylesheet" href="../toc-rail.css?v=1">
 <script src="../nav.js" defer></script>
 <script src="../favicon-anim.js" defer></script>
 </head>
@@ -500,14 +406,6 @@
 
 </div>
 
-  <aside class="toc-sidebar" aria-label="Article contents">
-    <div class="toc-panel">
-      <div class="toc-label">Contents</div>
-      <div class="toc-list" role="navigation" aria-label="Table of contents"></div>
-      <a href="../coaching.html" class="nav-cta toc-cta">Coaching</a>
-    </div>
-  </aside>
-
 </div><!-- /.article-layout -->
 
 <a href="../coaching.html" class="nav-cta toc-cta toc-cta-mobile">Coaching</a>
@@ -559,8 +457,8 @@
 })();
 </script>
 
-<!-- Contents rail + scroll-spy + coaching CTA: shared logic in ../guide-toc.js. -->
-<script src="../guide-toc.js?v=1"></script>
+<!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
+<script src="../toc-rail.js?v=4"></script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
 <script src="../mobile-toc.js?v=14"></script>

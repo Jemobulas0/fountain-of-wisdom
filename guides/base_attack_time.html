@@ -133,7 +133,6 @@
     align-items: center;
     gap: 16px;
     margin: 44px 0 36px;
-    scroll-margin-top: 88px;
   }
   .section-break-title {
     font-family: 'Cinzel', serif;
@@ -269,91 +268,7 @@
     position: relative;
   }
 
-  .toc-sidebar {
-    display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: calc(100% + 24px);
-    width: 200px;
-  }
-  @media (min-width: 1260px) {
-    .toc-sidebar.is-ready { display: block; }
-  }
-
-  .toc-panel {
-    /* Vertically centred in the viewport at every scroll position: fixed, top edge
-       at 50%, then pulled up by half its own height. The height cap keeps a tall TOC
-       inside the viewport and scrolls it internally. */
-    position: fixed;
-    top: 50%;
-    left: auto;
-    width: 200px;
-    transform: translateY(-50%);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 20px;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-  }
-
-  .toc-label {
-    font-family: 'Cinzel', serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-
-  .toc-list { display: flex; flex-direction: column; }
-
-  .toc-link {
-    font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 14px;
-    line-height: 1.35;
-    color: var(--text);
-    text-decoration: none;
-    padding: 6px 0 6px 12px;
-    border-left: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .toc-link:hover { color: var(--gold); }
-  .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
-  /* Grouping: Part headings are the group labels, numbered sections sit indented under them */
-  .toc-link.toc-part {
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-top: 12px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-  }
-  /* Labels are never highlighted: no gold on hover, no active state (the script never sets one) */
-  .toc-link.toc-part:hover, .toc-link.toc-part.active { color: var(--text); border-left-color: transparent; }
-  .toc-link.toc-sub { padding-left: 24px; }
-
-  .toc-cta {
-    display: block;
-    margin-top: 28px;
-    font-family: 'Cinzel', serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-  }
-  .toc-panel.no-toc .toc-cta { margin-top: 0; }
-
-  .toc-cta-mobile { display: none; }
   @media (max-width: 768px) {
-    .toc-sidebar { display: none; }
-    a.toc-cta-mobile { display: flex; margin: 8px 16px 48px; }
     .section-break.sub-break .section-break-title { font-size: 21px; }
     .section-break-title { letter-spacing: 2px; }
     .dps-visual { padding: 16px 8px 14px; }
@@ -396,6 +311,7 @@
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
 </style>
 <link rel="stylesheet" href="../mobile.css?v=3">
+<link rel="stylesheet" href="../toc-rail.css?v=1">
 <script src="../nav.js" defer></script>
 <script src="../favicon-anim.js" defer></script>
 </head>
@@ -1390,14 +1306,6 @@
 
 </div>
 
-  <aside class="toc-sidebar" aria-label="Article contents">
-    <div class="toc-panel">
-      <div class="toc-label">Contents</div>
-      <div class="toc-list" role="navigation" aria-label="Table of contents"></div>
-      <a href="../coaching.html" class="nav-cta toc-cta">Coaching</a>
-    </div>
-  </aside>
-
 </div><!-- /.article-layout -->
 
 <a href="../coaching.html" class="nav-cta toc-cta toc-cta-mobile">Coaching</a>
@@ -1444,8 +1352,8 @@
 })();
 </script>
 
-<!-- Contents rail + scroll-spy + coaching CTA: shared logic in ../guide-toc.js. -->
-<script src="../guide-toc.js?v=1"></script>
+<!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
+<script src="../toc-rail.js?v=4"></script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
 <script src="../mobile-toc.js?v=14"></script>

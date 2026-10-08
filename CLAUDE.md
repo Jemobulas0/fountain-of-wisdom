@@ -86,6 +86,21 @@ These aren't off-limits — Jemo can ask for work on any of them — they're jus
    - (If this is a brand-new Dota hero not yet in `data/heroes.json` at all, add a full new entry there — `name`, `icon`, `attr`, `roles`, `covered`, and `page` if the hero-page filename differs from the icon id — instead of editing `hero-loader.js`.)
 9. **Summarize what you wrote** (which sections filled, which timings calculated, any choices that weren't fully specified by Jemo's input) so he can review on the rendered page.
 
+## Contents rail standard
+
+Every page with a Contents rail (guides, hero pages, item pages) follows this by default.
+
+- Section links are white. Part labels are white small capitals and are never highlighted.
+- Gold text with the gold left bar marks only the section currently being read.
+- Clicking a part label scrolls to the part heading and highlights its first section.
+- Clicking the first section of a part scrolls to the part heading and highlights that section.
+- Clicking any other section scrolls to it and highlights it, including the last sections of a page.
+- While scrolling, the highlight follows the section most recently passed. At the bottom of the page, the last section is highlighted.
+- The rail scrolls itself to keep the highlighted line visible.
+- The rail is implemented once, in shared code. Never copy rail logic into an individual page.
+
+Implementation: `toc-rail.js` (behaviour, builds the rail DOM) and `toc-rail.css` (all rail styles), loaded by every page with a rail. A page supplies only its headings: `.section-break` blocks (with `.part-break` for parts) plus `h1.article-title` on guides, or `.section-title` headings inside `.section` cards on hero and item pages. Rail clicks on the first section of a part only go to the part heading when the heading sits directly above it; in-text links and direct anchors always go straight to the section. Bump the `?v=` on `toc-rail.js` and `toc-rail.css` on every page that loads them whenever either file changes (rule 7).
+
 ## When something is unique or unclear
 
 Some heroes need structural changes to the JSON or HTML template that weren't anticipated. When you encounter one:

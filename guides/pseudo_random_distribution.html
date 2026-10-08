@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pseudo-Random Distribution: Why 25% Is Not Always 25% - The Fountain of Wisdom</title>
+<meta name="description" content="Why a listed 25% chance is not 25% on every attack. What Pseudo-Random Distribution is, the numbers behind it, and how to use it: priming, reading enemy procs, cooldown procs and miss chances.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Fountain of Wisdom">
+<meta property="og:title" content="Pseudo-Random Distribution: Why 25% Is Not Always 25% - The Fountain of Wisdom">
+<meta property="og:description" content="Why a listed 25% chance is not 25% on every attack. What Pseudo-Random Distribution is, the numbers behind it, and how to use it: priming, reading enemy procs, cooldown procs and miss chances.">
+<meta property="og:url" content="https://thefountainofwisdom.com/guides/pseudo_random_distribution.html">
+<meta property="og:image" content="https://thefountainofwisdom.com/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6a1f;
+    --gold-dim: #3a3020;
+    --bg: #0a0c10;
+    --bg-card: #10141c;
+    --bg-card2: #141820;
+    --border: #2a2f3d;
+    --text: #c8cdd8;
+    --text-dim: #6b7280;
+    --text-bright: #e8ecf4;
+    --green: #4caf7d;
+    --yellow: #e8b84b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 16px; min-height: 100vh; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,12,16,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 40px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 12px 22px; margin-left: -22px; transition: background 0.2s, color 0.2s; }
+  .nav-brand:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold-light); }
+  .nav-links { display: flex; gap: 12px; list-style: none; }
+  .nav-links a { font-family: 'Cinzel', serif; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--text); text-decoration: none; padding: 14px 20px; border-bottom: 1px solid transparent; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover { background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%); color: var(--gold); border-bottom-color: var(--gold-dark); }
+  .nav-cta { color: var(--gold) !important; border: 1px solid var(--gold-dark) !important; padding: 6px 14px !important; border-radius: 2px; }
+  .nav-cta:hover { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── ARTICLE HEADER ── */
+  .article-header {
+    padding: 100px 40px 56px;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .article-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin-top: 40px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--text);
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+  .back-link::before { content: '←'; font-size: 12px; }
+
+  .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
+  .article-tag.strategy  { color: #5b9bd5;       border-color: rgba(91,155,213,0.3);  background: rgba(91,155,213,0.12); }
+  .article-tag.mindset   { color: var(--yellow); border-color: rgba(232,184,75,0.3);  background: rgba(232,184,75,0.12); }
+  .article-tag.laning    { color: var(--green);  border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
+  .article-tag.mechanics { color: #e05a3a;       border-color: rgba(224,90,58,0.3);   background: rgba(224,90,58,0.12); }
+  .article-tag.economy   { color: #c084e8;       border-color: rgba(155,89,182,0.3);  background: rgba(155,89,182,0.22); }
+  .article-date { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .article-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
+  .meta-dot { color: var(--text-dim); }
+
+  .article-title {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+
+  .article-body p {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .article-body em { font-style: italic; }
+  .article-body a.in-link { color: var(--gold); text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 3px; }
+  .article-body a.in-link strong { color: inherit; }
+  .article-body a.in-link:hover { color: var(--gold-light); }
+  .article-body strong { font-weight: 700; color: var(--text-bright); }
+
+  /* zero the trailing margin of whatever ends the article (p or .pull-quote)
+     so the footer divider sits a consistent distance below it */
+  .article-body > :last-child { margin-bottom: 0; }
+
+  /* Section break. Two levels on this page: .part-break (Cinzel, uppercase) for
+     Part headings, .sub-break (Crimson Pro, Title Case) for the numbered sections. */
+  .section-break {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 36px;
+  }
+  .section-break-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    white-space: normal;
+  }
+  .section-break-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+  .article-body > .section-break:first-child { margin-top: 0; }
+  .section-break.part-break { margin: 68px 0 36px; }
+  .section-break.sub-break { margin: 40px 0 22px; }
+  .sub-break .section-break-title {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.25;
+    text-transform: none;
+    color: var(--text-bright);
+  }
+  .sub-break .section-break-line { background: var(--border); min-width: 24px; }
+  .part-break .section-break-line { min-width: 24px; }
+
+  /* Bullet lists */
+  .article-body ul { list-style: none; margin: 0 0 28px; }
+  .article-body li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .article-body li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.8em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold-dark);
+  }
+
+  /* Formula block */
+  .formula {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 18px 24px;
+    margin: 28px 0;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--text-bright);
+  }
+  .formula div + div { margin-top: 10px; }
+  .formula strong { color: var(--gold-light); }
+
+  /* Tables: scroll inside their own container if they ever outgrow the column */
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 28px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .article-body table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
+  .article-body th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--gold);
+    background: var(--bg-card2);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gold-dark);
+  }
+  .article-body td {
+    color: var(--text);
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .article-body tr:last-child td { border-bottom: 0; }
+
+  /* Rectangle visual (Section 8). Three equal slots: the SVG draws one shape per
+     slot, the HTML label grid below uses the same three equal columns, so the
+     numbers sit under their own shape at every width. One SVG scales as a unit,
+     so the row never stacks and the shapes stay in true proportion. */
+  .dps-visual {
+    margin: 32px 0;
+    padding: 24px 20px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .dps-visual svg { display: block; width: 100%; height: auto; }
+  .dps-rect { fill: var(--gold-dark); }
+  .dps-rect.dps-best { fill: var(--gold-light); stroke: var(--gold); stroke-width: 4; }
+  .dps-base { stroke: var(--gold-dark); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .dps-divider { stroke: var(--gold-dark); stroke-width: 1.5; stroke-dasharray: 5 5; vector-effect: non-scaling-stroke; }
+  /* columns mirror the SVG slots (380 / 380 / 60 divider zone / 380) so each label sits under its shape */
+  .dps-labels { display: grid; grid-template-columns: 380fr 380fr 60fr 380fr; margin-top: 14px; }
+  .dps-label { text-align: center; padding: 0 2px; }
+  .dps-cap { display: block; margin-bottom: 4px; font-size: 18px; font-weight: 700; color: var(--text-bright); }
+  .dps-label.dps-best .dps-cap { color: var(--gold-light); }
+  .dps-line { display: block; font-size: 16px; line-height: 1.45; color: var(--text); }
+  .dps-area { display: block; margin-top: 4px; font-size: 17px; font-weight: 700; color: var(--gold); }
+  .dps-label.dps-best .dps-area { color: var(--gold-light); }
+  .dps-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  /* PRD chart (Section 3). One SVG scales as a unit; text sizes are set in viewBox units. */
+  .prd-chart {
+    margin: 32px 0;
+    padding: 24px 20px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .prd-chart svg { display: block; width: 100%; height: auto; }
+  .prd-grid { stroke: var(--border); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .prd-axis { stroke: var(--gold-dark); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .prd-bar-prd { fill: var(--gold-light); }
+  .prd-bar-rnd { fill: #5b9bd5; }
+  .prd-tick { fill: var(--text); font-family: 'Crimson Pro', Georgia, serif; font-size: 26px; }
+  .prd-axis-title { fill: var(--text-bright); font-family: 'Crimson Pro', Georgia, serif; font-size: 28px; font-weight: 700; }
+  .prd-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 28px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 15px; color: var(--text); }
+  .prd-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 8px; vertical-align: -1px; }
+  .prd-swatch.prd { background: var(--gold-light); }
+  .prd-swatch.rnd { background: #5b9bd5; }
+  .prd-data { margin: 18px 0 0; background: var(--bg-card2); }
+  .prd-data table { font-size: 14px; }
+  .prd-data th, .prd-data td { padding: 6px 8px; text-align: center; }
+
+  /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
+  .article-layout {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .section-break.sub-break .section-break-title { font-size: 21px; }
+    .section-break-title { letter-spacing: 2px; }
+    .dps-visual { padding: 16px 8px 14px; }
+    .dps-cap { font-size: 15px; }
+    .dps-line { font-size: 13px; }
+    .dps-area { font-size: 13px; }
+    .formula { padding: 16px 16px; font-size: 18px; }
+  }
+
+  /* ── ARTICLE FOOTER ── */
+  .article-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .article-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 32px;
+  }
+
+  .next-read {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .back-to-guides { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text); text-transform: uppercase; text-decoration: none; border: 1px solid var(--border); padding: 10px 20px; border-radius: 2px; transition: all 0.2s; white-space: nowrap; }
+  .back-to-guides:hover { border-color: var(--gold-dark); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; }
+  .footer-links a { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; color: var(--text); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
+  .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+</style>
+<link rel="stylesheet" href="../mobile.css?v=3">
+<link rel="stylesheet" href="../toc-rail.css?v=1">
+<script src="../nav.js" defer></script>
+<script src="../favicon-anim.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">The Fountain of Wisdom</a>
+  <ul class="nav-links">
+    <li><a href="../heroes.html">Heroes</a></li>
+    <li><a href="../items.html">Items</a></li>
+    <!-- <li><a href="../concepts.html">Concepts</a></li> -->
+    <li><a href="../guides.html">Guides</a></li>
+<!-- removed Sep 2026 - Stripe review: <li><a href="../support.html">Donations</a></li> -->
+    <li><a href="../coaching.html" class="nav-cta">Coaching</a></li>
+  </ul>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <a href="../guides.html" class="back-link">All Guides</a>
+
+  <div class="article-meta">
+    <span class="article-tag mechanics">Mechanics</span>
+    <span class="meta-dot">·</span>
+    <span class="article-date">October 2026</span>
+    <span class="meta-dot">·</span>
+    <span class="article-readtime">10 min read</span>
+  </div>
+
+  <h1 class="article-title">Pseudo-Random Distribution: Why 25% Is Not Always 25%</h1>
+</div>
+
+
+<!-- ARTICLE BODY -->
+<div class="article-layout">
+<div class="article-body">
+
+  <div class="section-break sub-break no-part">
+    <span class="section-break-title">What This Guide Covers</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    A hero's Critical Strike says 25%. That does not mean every attack has a 25% chance. The game hides a counter that starts the chance far lower and raises it with every attack that fails. This system is called Pseudo-Random Distribution (PRD), and once you know it, you can use it.
+  </p>
+
+  <p>
+    This guide explains how it works and what you can do with that knowledge.
+  </p>
+
+  <p>
+    It's built in two parts, plus a short closing:
+  </p>
+
+  <ul>
+    <li><strong>Part I - The Mechanics.</strong> What PRD is, the formula behind it, the numbers for every common chance, what moves the counter, and why streaks look the way they do.</li>
+    <li><strong>Part II - Practical Applications.</strong> Priming, how to read an enemy's proc state, procs with a cooldown, miss chances, and the mindset that goes with all of it.</li>
+  </ul>
+
+  <p>
+    <strong>Short on time?</strong> Jump to the <a href="#12-summary" class="in-link"><strong>Summary</strong></a> at the end for the key takeaways, and the <a href="#13-quick-reference" class="in-link"><strong>Quick Reference</strong></a> for every formula and table in one place.
+  </p>
+
+  <!-- ═══════════════ PART I ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part I - The Mechanics</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">1. What PRD Is</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Start with what most people assume. In <strong>true random</strong>, every attempt has the same chance, and it has no memory of earlier attempts. A coin flip works this way. Ten tails in a row don't make heads any more likely on the eleventh.
+  </p>
+
+  <p>
+    <strong>PRD</strong> works differently. The chance starts below the listed number and rises with every failed attempt, then resets when the effect triggers. The listed percentage is the long-run average, not the chance on any single attack.
+  </p>
+
+  <p>
+    PRD applies to "X% chance when Y happens" effects. Random amounts (such as attack damage rolling between a minimum and maximum) and random picks do not use it.
+  </p>
+
+  <p>
+    <strong>What uses it.</strong> The set currently includes effects like these, among others:
+  </p>
+
+  <!-- VERIFY: confirm this list of PRD effects is still accurate -->
+  <ul>
+    <li><strong>Phantom Assassin</strong> - Coup de Grace</li>
+    <li><strong>Juggernaut</strong> - Blade Dance</li>
+    <li><strong>Chaos Knight</strong> - Chaos Strike</li>
+    <li><strong>Faceless Void</strong> - Time Lock</li>
+    <li><strong>Spirit Breaker</strong> - Greater Bash</li>
+    <li><strong>Items</strong> - Skull Basher, Crystalys, Daedalus, Maelstrom, Mjollnir</li>
+  </ul>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">2. The Formula</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    The rule behind PRD is short:
+  </p>
+
+  <div class="formula">
+    <div><strong>Chance on attempt N = C × N</strong></div>
+  </div>
+
+  <p>
+    N counts the attempts since the last proc. C is a constant set by the listed chance - it's the chance on your first attempt after a proc, and the next section lists it for each common chance. When C × N reaches 100%, the proc is guaranteed.
+  </p>
+
+  <p>
+    <strong>Example.</strong> For a listed 25% chance, C is 8.5%:
+  </p>
+
+  <ul>
+    <li>First attack after a proc: <strong>8.5%</strong></li>
+    <li>Second attack: <strong>17%</strong></li>
+    <li>Third attack: <strong>25.5%</strong></li>
+    <li>And so on, 8.5% higher with every attack, until it procs.</li>
+  </ul>
+
+  <p>
+    Notice what that means. The third attack already has more than the listed 25%, but the first two had much less. Averaged over many procs, it comes out to 25%.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">3. The Numbers</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Here are the numbers for the listed chances you will meet most often:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Listed chance</th><th>First attempt</th><th>Most likely attempt</th><th>Guaranteed by attempt</th><th>Average attempts per proc</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10%</td><td>1.5%</td><td>8th</td><td>68th</td><td>10</td></tr>
+        <tr><td>15%</td><td>3.2%</td><td>6th</td><td>32nd</td><td>6.7</td></tr>
+        <tr><td>20%</td><td>5.6%</td><td>4th</td><td>18th</td><td>5</td></tr>
+        <tr><td>25%</td><td>8.5%</td><td>3rd</td><td>12th</td><td>4</td></tr>
+        <tr><td>30%</td><td>11.9%</td><td>3rd</td><td>9th</td><td>3.3</td></tr>
+        <tr><td>35%</td><td>15.8%</td><td>3rd</td><td>7th</td><td>2.9</td></tr>
+        <tr><td>40%</td><td>20.2%</td><td>2nd</td><td>5th</td><td>2.5</td></tr>
+        <tr><td>50%</td><td>30.2%</td><td>2nd</td><td>4th</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The graph below shows what this does to a listed 25% chance. Each bar is the chance that the proc lands on exactly that attempt, counted from the last proc.
+  </p>
+
+  <figure class="prd-chart">
+    <svg viewBox="0 0 1200 440" role="img" aria-labelledby="prd-chart-title">
+<title id="prd-chart-title">Grouped bar chart for a listed 25% chance. For each attempt since the last proc, one bar shows the chance that the proc lands on that attempt under Pseudo-Random Distribution, and one shows the same under true random. Attempt 1: PRD 8.5%, true random 25.0%. Attempt 2: 15.5% and 18.8%. Attempt 3: 19.3% and 14.1%. Attempt 4: 19.2% and 10.5%. Attempt 5: 15.9% and 7.9%. Attempt 6: 11.0% and 5.9%. Attempt 7: 6.3% and 4.4%. Attempt 8: 2.9% and 3.3%. Attempt 9: 1.1% and 2.5%. Attempt 10: 0.3% and 1.9%. True random is highest on the first attempt and falls steadily. PRD starts low, peaks on the third and fourth attempts, then drops away quickly.</title>
+<text class="prd-tick" x="88" y="349" text-anchor="end">0%</text>
+<line class="prd-grid" x1="100" y1="280" x2="1180" y2="280"/>
+<text class="prd-tick" x="88" y="289" text-anchor="end">5%</text>
+<line class="prd-grid" x1="100" y1="220" x2="1180" y2="220"/>
+<text class="prd-tick" x="88" y="229" text-anchor="end">10%</text>
+<line class="prd-grid" x1="100" y1="160" x2="1180" y2="160"/>
+<text class="prd-tick" x="88" y="169" text-anchor="end">15%</text>
+<line class="prd-grid" x1="100" y1="100" x2="1180" y2="100"/>
+<text class="prd-tick" x="88" y="109" text-anchor="end">20%</text>
+<line class="prd-grid" x1="100" y1="40" x2="1180" y2="40"/>
+<text class="prd-tick" x="88" y="49" text-anchor="end">25%</text>
+<rect class="prd-bar-prd" x="114" y="238.0" width="36" height="102.0"/>
+<rect class="prd-bar-rnd" x="154" y="40.0" width="36" height="300.0"/>
+<text class="prd-tick" x="154.0" y="376" text-anchor="middle">1</text>
+<rect class="prd-bar-prd" x="222" y="154.0" width="36" height="186.0"/>
+<rect class="prd-bar-rnd" x="262" y="114.4" width="36" height="225.6"/>
+<text class="prd-tick" x="262.0" y="376" text-anchor="middle">2</text>
+<rect class="prd-bar-prd" x="330" y="108.4" width="36" height="231.6"/>
+<rect class="prd-bar-rnd" x="370" y="170.8" width="36" height="169.2"/>
+<text class="prd-tick" x="370.0" y="376" text-anchor="middle">3</text>
+<rect class="prd-bar-prd" x="438" y="109.6" width="36" height="230.4"/>
+<rect class="prd-bar-rnd" x="478" y="214.0" width="36" height="126.0"/>
+<text class="prd-tick" x="478.0" y="376" text-anchor="middle">4</text>
+<rect class="prd-bar-prd" x="546" y="149.2" width="36" height="190.8"/>
+<rect class="prd-bar-rnd" x="586" y="245.2" width="36" height="94.8"/>
+<text class="prd-tick" x="586.0" y="376" text-anchor="middle">5</text>
+<rect class="prd-bar-prd" x="654" y="208.0" width="36" height="132.0"/>
+<rect class="prd-bar-rnd" x="694" y="269.2" width="36" height="70.8"/>
+<text class="prd-tick" x="694.0" y="376" text-anchor="middle">6</text>
+<rect class="prd-bar-prd" x="762" y="264.4" width="36" height="75.6"/>
+<rect class="prd-bar-rnd" x="802" y="287.2" width="36" height="52.8"/>
+<text class="prd-tick" x="802.0" y="376" text-anchor="middle">7</text>
+<rect class="prd-bar-prd" x="870" y="305.2" width="36" height="34.8"/>
+<rect class="prd-bar-rnd" x="910" y="300.4" width="36" height="39.6"/>
+<text class="prd-tick" x="910.0" y="376" text-anchor="middle">8</text>
+<rect class="prd-bar-prd" x="978" y="326.8" width="36" height="13.2"/>
+<rect class="prd-bar-rnd" x="1018" y="310.0" width="36" height="30.0"/>
+<text class="prd-tick" x="1018.0" y="376" text-anchor="middle">9</text>
+<rect class="prd-bar-prd" x="1086" y="336.4" width="36" height="3.6"/>
+<rect class="prd-bar-rnd" x="1126" y="317.2" width="36" height="22.8"/>
+<text class="prd-tick" x="1126.0" y="376" text-anchor="middle">10</text>
+<line class="prd-axis" x1="100" y1="340" x2="1180" y2="340"/>
+<text class="prd-axis-title" x="640" y="424" text-anchor="middle">Attempt since the last proc</text>
+</svg>
+    <div class="prd-legend">
+      <span><span class="prd-swatch prd"></span>PRD</span>
+      <span><span class="prd-swatch rnd"></span>True random</span>
+      <span>Chance the proc lands on each attempt, listed 25% chance</span>
+    </div>
+    <div class="table-wrap prd-data">
+      <table>
+        <thead><tr><th>Attempt</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
+        <tbody>
+          <tr><td>PRD</td><td>8.5%</td><td>15.5%</td><td>19.3%</td><td>19.2%</td><td>15.9%</td><td>11.0%</td><td>6.3%</td><td>2.9%</td><td>1.1%</td><td>0.3%</td></tr>
+          <tr><td>True random</td><td>25.0%</td><td>18.8%</td><td>14.1%</td><td>10.5%</td><td>7.9%</td><td>5.9%</td><td>4.4%</td><td>3.3%</td><td>2.5%</td><td>1.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+
+  <p>
+    True random is highest on the very first attempt and falls from there, so its most likely moment to proc is always right away. PRD is the opposite: the first attempts are weak, the chance peaks around the third and fourth, and by the tenth attempt it has nearly no probability left. The proc is pulled toward the middle.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">4. What Moves the Counter</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    The counter doesn't care about every attack equally. Four things decide when it moves.
+  </p>
+
+  <ul>
+    <li><strong>Only attempts that could trigger the effect count.</strong> Attacking a building does not build up a critical strike, because critical strikes do not work on buildings. <!-- VERIFY: buildings do not build the counter for critical strikes --></li>
+    <li><strong>A cooldown pauses the counter.</strong> While the effect is on cooldown, attempts neither build the counter nor reset it. Details in Section 8.</li>
+    <li><strong>The buildup does not expire with time.</strong> In testing, I made 4 attacks without a critical strike, paused for 60 seconds, then attacked again. The critical strike came within the first two attacks in 5 out of 5 trials.</li>
+    <li><strong>The buildup carries across targets</strong> for effects that belong to the attacker. In testing, I built up on one target, switched to a second, and the proc came early on the second.</li>
+  </ul>
+
+  <p>
+    The last two are the foundation of everything in Part II.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">5. How Often to Expect a Proc</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Use two columns of the Section 3 table: <strong>average attempts per proc</strong> and <strong>most likely attempt</strong>.
+  </p>
+
+  <p>
+    A 25% chance means roughly one proc every 4 attacks, most often on the 3rd or 4th, and never later than the 12th. A 15% chance means roughly one proc every 6.7 attacks, most often on the 6th, and never later than the 32nd.
+  </p>
+
+  <p>
+    That "never later than" line is the part true random can't give you. Under true random, the longest wait has no limit at all.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">6. Why Streaks Happen</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    PRD changes how streaks look, in both directions. Here are the odds for a 15% chance, counted right after a proc:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Event</th><th>PRD</th><th>True random</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>The next 2 attacks both proc (3 procs in a row)</td><td>about 1 in 960</td><td>about 1 in 44</td></tr>
+        <tr><td>No proc in the next 10 attacks</td><td>13%</td><td>20%</td></tr>
+        <tr><td>No proc in the next 20 attacks</td><td>about 1 in 9,000</td><td>about 1 in 26</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Short dry spells are normal. Long ones are nearly removed.
+  </p>
+
+  <p>
+    Back-to-back procs are rare, but a hero attacks so often that they still show up now and then, and they are memorable because they are rare.
+  </p>
+
+  <!-- ═══════════════ PART II ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Part II - Practical Applications</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">7. Priming</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    <strong>What priming is</strong>
+  </p>
+
+  <p>
+    Priming means attacking something unimportant until you have a run of non-procs, so your next attacks carry a raised chance. It works because the buildup does not expire and carries across targets (Section 4). Creeps, a neutral camp or a lane wave all work as the thing you build on.
+  </p>
+
+  <p>
+    Here is what that is worth. The tables show the chance of at least one proc in your first attacks of a fight:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>15% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fresh (just procced)</td><td>3.2%</td><td>9.5%</td><td>18.2%</td></tr>
+        <tr><td>4 misses banked</td><td>16.1%</td><td>32.3%</td><td>47.6%</td></tr>
+        <tr><td>8 misses banked</td><td>29.0%</td><td>51.9%</td><td>68.9%</td></tr>
+        <tr><td>True random, for comparison</td><td>15.0%</td><td>27.8%</td><td>38.6%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>25% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fresh (just procced)</td><td>8.5%</td><td>24.0%</td><td>43.3%</td></tr>
+        <tr><td>4 misses banked</td><td>42.4%</td><td>71.7%</td><td>88.5%</td></tr>
+        <tr><td>True random, for comparison</td><td>25.0%</td><td>43.8%</td><td>57.8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Look at the "fresh" rows. Walking into a fight right after a proc is the worst state you can be in, well below true random. Walking in with 4 misses banked on a 25% chance gives you a 42.4% chance on the very first attack, and 88.5% within three.
+  </p>
+
+  <p>
+    The cost: if the proc fires on the creep, you are back to the worst state and need a new run of misses. That is free while farming.
+  </p>
+
+  <p>
+    <strong>Do not waste a primed attack</strong>
+  </p>
+
+  <p>
+    When you are primed, the first attack is the most valuable one. Spending it on a creep, an illusion or a ward in the middle of a fight throws the buildup away if it procs there. Pick the target that matters first.
+  </p>
+
+  <p>
+    <strong>Reading the enemy's proc state</strong>
+  </p>
+
+  <p>
+    PRD works the same against you. Right after an enemy procs on you, their next attacks are the safest you will face. With a 15% chance, they proc again within 3 attacks only 18% of the time (39% under true random). After a long run without a proc, the danger is at its peak.
+  </p>
+
+  <p>
+    <strong>Trading</strong>
+  </p>
+
+  <p>
+    Short trades get far less than the listed chance. A 25% proc in a 2-hit trade triggers 24% of the time (44% under true random). A hero with slow, heavy attacks facing a hero with fast proc attacks usually does better with short hit-and-run trades than with a long fight, if trading is all that is at stake.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">8. Procs With a Cooldown</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Some procs have an internal cooldown. During it, attacks do not build toward the next proc. I checked these in-game:
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Effect</th><th>Cooldown</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Spirit Breaker's Greater Bash</td><td>1.2 seconds</td></tr>
+        <tr><td>Skull Basher</td><td>2.3 seconds, stated on the item</td></tr>
+        <tr><td>Maelstrom and Mjollnir's Chain Lightning</td><td>0.2 seconds, not shown anywhere on the item</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The consequence is that attack speed gives less and less for these procs. At one attack every 0.4 seconds, 3 attacks fall inside a 1.2 second cooldown and count for nothing.
+  </p>
+
+  <p>
+    The 0.2 second cooldown on Chain Lightning only starts to matter near the attack speed cap. See the Base Attack Time guide for how attacks per second work at the cap.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">9. Miss Chances</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    Ranged heroes attacking from low ground currently have a 25% chance to miss. All numbers in this section come from my own tests in Demo mode.
+  </p>
+
+  <ul>
+    <li><strong>Same target.</strong> After an uphill miss, the next attack on that target hit 23 times out of 25 (92%). The base hit chance is 75%.</li>
+    <li><strong>After switching to a different target.</strong> The next attack hit 42 times out of 49 (86%).</li>
+  </ul>
+
+  <p>
+    So a miss on a creep probably helps your next attack on a hero, but less than staying on the same target.
+  </p>
+
+  <p>
+    <strong>The application for ranged mid players:</strong> attack a creep on the high ground until you miss, then attack the hero.
+  </p>
+
+  <p>
+    <strong>Evasion.</strong> Evasion is listed as using PRD, but in testing with a 35% evasion item its streaks did not match the standard numbers, so this guide gives no streak table for evasion. The average was confirmed: 36% misses over more than 300 attacks.
+  </p>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">10. The Mindset</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    A run of non-procs is the system working as designed, and the proc is mathematically on its way.
+  </p>
+
+  <p>
+    Non-procs on creeps right before a fight are good news, not bad luck. You are banking chance for the moment it matters.
+  </p>
+
+  <p>
+    Knowing this keeps you from tilting, or from leaving a fight that is about to turn.
+  </p>
+
+  <!-- ═══════════════ CLOSING ═══════════════ -->
+  <div class="section-break part-break">
+    <span class="section-break-title">Closing</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <div class="section-break sub-break">
+    <span class="section-break-title">11. A Short History of PRD</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    PRD comes from the Warcraft 3 engine, which the original DotA ran on.
+  </p>
+
+  <p>
+    That engine's constants were inaccurate for higher chances: a listed 50% delivered about 45.7% and a listed 80% about 66.7%. Up to 30% it was accurate. Dota 2 uses constants that average out to the listed chance. <!-- VERIFY: Warcraft 3 constants (50% listed gave about 45.7%, 80% gave about 66.7%, accurate up to 30%) and that Dota 2 constants average out to the listed chance --></p>
+
+  <p>
+    <!-- JEMOBULAS: your own text here (you have been priming since the original DotA, before PRD was publicly discussed) -->
+  </p>
+
+  <div class="section-break sub-break" id="12-summary">
+    <span class="section-break-title">12. Summary</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <ul>
+    <li><strong>The listed chance is an average.</strong> The chance on any single attack is different from it, and short sequences get less than the listed number.</li>
+    <li><strong>The chance builds and resets.</strong> It starts low, rises with every failed attempt, is guaranteed at a fixed point, and resets on a proc. Chance on attempt N = C × N.</li>
+    <li><strong>The buildup does not expire and carries across targets.</strong> Only attempts that could trigger the effect count.</li>
+    <li><strong>Priming works.</strong> Run up misses on something unimportant before a fight, then spend the first primed attack on the target that matters.</li>
+    <li><strong>Cooldown procs give less from attack speed.</strong> Attacks during the cooldown build nothing.</li>
+    <li><strong>A run of non-procs is good news.</strong> The proc is on its way, so don't tilt and don't leave the fight.</li>
+  </ul>
+
+  <div class="section-break sub-break" id="13-quick-reference">
+    <span class="section-break-title">13. Quick Reference</span>
+    <div class="section-break-line"></div>
+  </div>
+
+  <p>
+    <strong>Formula</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>What</th><th>Formula</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Chance on attempt N since the last proc</td><td>C × N (guaranteed once it reaches 100%)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Chances and timings</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Listed chance</th><th>First attempt</th><th>Most likely attempt</th><th>Guaranteed by attempt</th><th>Average attempts per proc</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10%</td><td>1.5%</td><td>8th</td><td>68th</td><td>10</td></tr>
+        <tr><td>15%</td><td>3.2%</td><td>6th</td><td>32nd</td><td>6.7</td></tr>
+        <tr><td>20%</td><td>5.6%</td><td>4th</td><td>18th</td><td>5</td></tr>
+        <tr><td>25%</td><td>8.5%</td><td>3rd</td><td>12th</td><td>4</td></tr>
+        <tr><td>30%</td><td>11.9%</td><td>3rd</td><td>9th</td><td>3.3</td></tr>
+        <tr><td>35%</td><td>15.8%</td><td>3rd</td><td>7th</td><td>2.9</td></tr>
+        <tr><td>40%</td><td>20.2%</td><td>2nd</td><td>5th</td><td>2.5</td></tr>
+        <tr><td>50%</td><td>30.2%</td><td>2nd</td><td>4th</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Priming</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>15% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fresh (just procced)</td><td>3.2%</td><td>9.5%</td><td>18.2%</td></tr>
+        <tr><td>4 misses banked</td><td>16.1%</td><td>32.3%</td><td>47.6%</td></tr>
+        <tr><td>8 misses banked</td><td>29.0%</td><td>51.9%</td><td>68.9%</td></tr>
+        <tr><td>True random, for comparison</td><td>15.0%</td><td>27.8%</td><td>38.6%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>25% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fresh (just procced)</td><td>8.5%</td><td>24.0%</td><td>43.3%</td></tr>
+        <tr><td>4 misses banked</td><td>42.4%</td><td>71.7%</td><td>88.5%</td></tr>
+        <tr><td>True random, for comparison</td><td>25.0%</td><td>43.8%</td><td>57.8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Cooldowns</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Effect</th><th>Cooldown</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Spirit Breaker's Greater Bash</td><td>1.2 seconds</td></tr>
+        <tr><td>Skull Basher</td><td>2.3 seconds</td></tr>
+        <tr><td>Maelstrom and Mjollnir's Chain Lightning</td><td>0.2 seconds</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Uphill misses (ranged heroes, 25% miss chance, Demo mode tests)</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Next attack</th><th>Hit rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base chance to hit</td><td>75%</td></tr>
+        <tr><td>After a miss, same target</td><td>92% (23 of 25)</td></tr>
+        <tr><td>After a miss, different target</td><td>86% (42 of 49)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+</div><!-- /.article-layout -->
+
+<a href="../coaching.html" class="nav-cta toc-cta toc-cta-mobile">Coaching</a>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-divider"></div>
+
+  <div class="next-read">
+    <a href="../guides.html" class="back-to-guides">← All Guides</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">The Fountain of Wisdom</div>
+  <div class="footer-links">
+    <a href="../heroes.html">Heroes</a>
+    <a href="../items.html">Items</a>
+    <!-- <a href="../concepts.html">Concepts</a> -->
+    <a href="../guides.html">Guides</a>
+<!-- removed Sep 2026 - Stripe review: <a href="../support.html">Donations</a> -->
+    <a href="../coaching.html">Coaching</a>
+    <a href="../terms.html#terms">Terms of Service</a>
+    <a href="../terms.html#privacy">Privacy Policy</a>
+  </div>
+  <div class="footer-copy">thefountainofwisdom.com · Coaching by Jemobulas</div>
+  <div class="footer-legal">Dota 2 and the Dota 2 logo are registered trademarks of Valve Corporation. This site is not affiliated with or endorsed by Valve Corporation.</div>
+</footer>
+
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2a58647c4984f819abfabaf7619e148"}'></script><!-- End Cloudflare Web Analytics -->
+
+<!-- Computed read time: counts visible words in .article-body, ÷230 wpm, round up (min 1),
+     writes "N min read" into .article-readtime. The span keeps a hardcoded fallback for no-JS. -->
+<script>
+(function () {
+  var body = document.querySelector('.article-body');
+  var slot = document.querySelector('.article-readtime');
+  if (!body || !slot) return;
+  var text = (body.innerText || body.textContent || '').trim();
+  if (!text) return;
+  var words = text.split(/\s+/).length;
+  var minutes = Math.max(1, Math.ceil(words / 230));
+  slot.textContent = minutes + ' min read';
+})();
+</script>
+
+<!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
+<script src="../toc-rail.js?v=4"></script>
+
+<!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
+<script src="../mobile-toc.js?v=14"></script>
+</body>
+</html>

@@ -281,8 +281,8 @@
   .prd-swatch.prd { background: var(--gold-light); }
   .prd-swatch.rnd { background: #5b9bd5; }
   .prd-data { margin: 18px 0 0; background: var(--bg-card2); }
-  .prd-data table { font-size: 14px; }
-  .prd-data th, .prd-data td { padding: 6px 8px; text-align: center; }
+  .prd-data table { font-size: 13px; }
+  .article-body .prd-data th, .article-body .prd-data td { padding: 6px 3px; text-align: center; }
 
   /* Text for screen readers only. Used for chart descriptions instead of an SVG <title>, which browsers show as a hover tooltip. */
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -299,6 +299,15 @@
   .prd-source { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
   .prd-source + .prd-source { margin-top: 6px; }
   .table-wrap[id] { scroll-margin-top: 88px; }
+
+  /* Tables: tighter cells so every table fits the content column on desktop; ability names never break mid-name, one ability per line. */
+  .article-body th, .article-body td { padding: 8px 8px; }
+  .article-body th { vertical-align: bottom; }
+  .article-body .prd-flip th { vertical-align: top; }
+  .prd-source span:last-child { white-space: nowrap; }
+  .prd-th-chance { margin-bottom: 4px; }
+  .article-body th .prd-source { font-weight: 400; color: var(--text); font-size: 15px; }
+  .article-body tr.prd-target-row td { border-top: 1px solid var(--gold-dark); background: var(--bg-card2); font-weight: 700; color: var(--text-bright); }
 
   /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
   .article-layout {
@@ -665,7 +674,7 @@
       </thead>
       <tbody>
         <tr><td>12%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="tusk"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png" alt="Tusk"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/tusk_walrus_punch.png" alt="Walrus PUNCH!"></span><span>Walrus PUNCH! (level 25 talent)</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 1)</span></div></td><td>2.1%</td><td>7th</td><td>48th</td><td>8.3</td></tr>
-        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="pangolier"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" alt="Pangolier"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_lucky_shot.png" alt="Lucky Shot"></span><span>Lucky Shot</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
+        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
         <tr><td>24%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 4)</span></div></td><td>7.9%</td><td>4th</td><td>13th</td><td>4.2</td></tr>
         <tr><td>27%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace (level 25 talent)</span></div></td><td>9.8%</td><td>3rd</td><td>11th</td><td>3.7</td></tr>
         <tr><td>33.33%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></td><td>14.4%</td><td>3rd</td><td>7th</td><td>3.0</td></tr>
@@ -767,16 +776,22 @@
     <strong>Chance on your next attack, by misses banked</strong>
   </p>
 
-  <div class="table-wrap" id="prd-priming">
+  <div class="table-wrap prd-flip" id="prd-priming">
     <table>
       <thead>
-        <tr><th>Chance</th><th>Source</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>8</th><th>10</th><th>Realistic target</th></tr>
+        <tr><th>Misses banked</th><th><div class="prd-th-chance">17%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div></th><th><div class="prd-th-chance">24%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock (level 4)"></span><span>Time Lock (level 4)</span></div></th><th><div class="prd-th-chance">33.33%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></th><th><div class="prd-th-chance">35%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="Blade Dance"></span><span>Blade Dance</span></div></th></tr>
       </thead>
       <tbody>
-        <tr><td>17%</td><td>Greater Bash, Coup de Grace</td><td>4%</td><td>8%</td><td>12%</td><td>16%</td><td>20%</td><td>25%</td><td>29%</td><td>37%</td><td>45%</td><td>5 misses</td></tr>
-        <tr><td>24%</td><td>Time Lock (level 4)</td><td>8%</td><td>16%</td><td>24%</td><td>31%</td><td>39%</td><td>47%</td><td>55%</td><td>71%</td><td>86%</td><td>3 misses</td></tr>
-        <tr><td>33.33%</td><td>Chaos Strike</td><td>14%</td><td>28%</td><td>43%</td><td>57%</td><td>71%</td><td>85%</td><td>99%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
-        <tr><td>35%</td><td>Blade Dance</td><td>16%</td><td>32%</td><td>47%</td><td>63%</td><td>79%</td><td>95%</td><td>100%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
+        <tr><td>0</td><td>4%</td><td>8%</td><td>14%</td><td>16%</td></tr>
+        <tr><td>1</td><td>8%</td><td>16%</td><td>28%</td><td>32%</td></tr>
+        <tr><td>2</td><td>12%</td><td>24%</td><td>43%</td><td>47%</td></tr>
+        <tr><td>3</td><td>16%</td><td>31%</td><td>57%</td><td>63%</td></tr>
+        <tr><td>4</td><td>20%</td><td>39%</td><td>71%</td><td>79%</td></tr>
+        <tr><td>5</td><td>25%</td><td>47%</td><td>85%</td><td>95%</td></tr>
+        <tr><td>6</td><td>29%</td><td>55%</td><td>99%</td><td>100%</td></tr>
+        <tr><td>8</td><td>37%</td><td>71%</td><td>100%</td><td>100%</td></tr>
+        <tr><td>10</td><td>45%</td><td>86%</td><td>100%</td><td>100%</td></tr>
+        <tr class="prd-target-row"><td>Realistic target</td><td>5 misses</td><td>3 misses</td><td>2 misses</td><td>2 misses</td></tr>
       </tbody>
     </table>
   </div>
@@ -1030,7 +1045,7 @@
       </thead>
       <tbody>
         <tr><td>12%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="tusk"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png" alt="Tusk"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/tusk_walrus_punch.png" alt="Walrus PUNCH!"></span><span>Walrus PUNCH! (level 25 talent)</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 1)</span></div></td><td>2.1%</td><td>7th</td><td>48th</td><td>8.3</td></tr>
-        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="pangolier"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" alt="Pangolier"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_lucky_shot.png" alt="Lucky Shot"></span><span>Lucky Shot</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
+        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
         <tr><td>24%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 4)</span></div></td><td>7.9%</td><td>4th</td><td>13th</td><td>4.2</td></tr>
         <tr><td>27%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace (level 25 talent)</span></div></td><td>9.8%</td><td>3rd</td><td>11th</td><td>3.7</td></tr>
         <tr><td>33.33%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></td><td>14.4%</td><td>3rd</td><td>7th</td><td>3.0</td></tr>
@@ -1042,16 +1057,22 @@
     <strong>Priming: chance on your next attack, by misses banked</strong>
   </p>
 
-  <div class="table-wrap">
+  <div class="table-wrap prd-flip">
     <table>
       <thead>
-        <tr><th>Chance</th><th>Source</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>8</th><th>10</th><th>Realistic target</th></tr>
+        <tr><th>Misses banked</th><th><div class="prd-th-chance">17%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div></th><th><div class="prd-th-chance">24%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock (level 4)"></span><span>Time Lock (level 4)</span></div></th><th><div class="prd-th-chance">33.33%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></th><th><div class="prd-th-chance">35%</div><div class="prd-source"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="Blade Dance"></span><span>Blade Dance</span></div></th></tr>
       </thead>
       <tbody>
-        <tr><td>17%</td><td>Greater Bash, Coup de Grace</td><td>4%</td><td>8%</td><td>12%</td><td>16%</td><td>20%</td><td>25%</td><td>29%</td><td>37%</td><td>45%</td><td>5 misses</td></tr>
-        <tr><td>24%</td><td>Time Lock (level 4)</td><td>8%</td><td>16%</td><td>24%</td><td>31%</td><td>39%</td><td>47%</td><td>55%</td><td>71%</td><td>86%</td><td>3 misses</td></tr>
-        <tr><td>33.33%</td><td>Chaos Strike</td><td>14%</td><td>28%</td><td>43%</td><td>57%</td><td>71%</td><td>85%</td><td>99%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
-        <tr><td>35%</td><td>Blade Dance</td><td>16%</td><td>32%</td><td>47%</td><td>63%</td><td>79%</td><td>95%</td><td>100%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
+        <tr><td>0</td><td>4%</td><td>8%</td><td>14%</td><td>16%</td></tr>
+        <tr><td>1</td><td>8%</td><td>16%</td><td>28%</td><td>32%</td></tr>
+        <tr><td>2</td><td>12%</td><td>24%</td><td>43%</td><td>47%</td></tr>
+        <tr><td>3</td><td>16%</td><td>31%</td><td>57%</td><td>63%</td></tr>
+        <tr><td>4</td><td>20%</td><td>39%</td><td>71%</td><td>79%</td></tr>
+        <tr><td>5</td><td>25%</td><td>47%</td><td>85%</td><td>95%</td></tr>
+        <tr><td>6</td><td>29%</td><td>55%</td><td>99%</td><td>100%</td></tr>
+        <tr><td>8</td><td>37%</td><td>71%</td><td>100%</td><td>100%</td></tr>
+        <tr><td>10</td><td>45%</td><td>86%</td><td>100%</td><td>100%</td></tr>
+        <tr class="prd-target-row"><td>Realistic target</td><td>5 misses</td><td>3 misses</td><td>2 misses</td><td>2 misses</td></tr>
       </tbody>
     </table>
   </div>

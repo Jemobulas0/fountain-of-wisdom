@@ -264,6 +264,21 @@
   /* Text for screen readers only. Used for chart descriptions instead of an SVG <title>, which browsers show as a hover tooltip. */
   .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+  /* Inline hero, ability and item icons (same conventions as the item pages and the PRD guide).
+     In guides a hero is shown as icon + name; an icon and its name are wrapped in .icon-name
+     so they never split across two lines. */
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+  .inline-icon.hero-inline img { object-position: center top; }
+  .inline-icon.ability-inline { width: 24px; height: 24px; }
+  .icon-name { white-space: nowrap; }
+  .icon-name .inline-icon { margin: 0 5px 0 1px; }
+  a.hero-link, a.item-link { text-decoration: none; color: inherit; }
+  a.hero-link { display: inline-block; }
+  .item-link { display: contents; }
+  a.hero-link .inline-icon, a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .inline-icon, a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+
   /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
   .article-layout {
     max-width: 760px;
@@ -279,6 +294,13 @@
     .dps-line { font-size: 13px; }
     .dps-area { font-size: 13px; }
     .formula { padding: 16px 16px; font-size: 18px; }
+    /* Phone: inside tables a long name may wrap onto a second line, but the icon stays beside it
+       (flex item), so the table never outgrows the screen and an icon is never left alone. */
+    .article-body th .icon-name, .article-body td .icon-name { display: inline-flex; align-items: center; white-space: normal; vertical-align: middle; }
+    .article-body th .icon-name .inline-icon, .article-body td .icon-name .inline-icon { margin-right: 4px; }
+    .article-body td .inline-icon, .article-body th .inline-icon { width: 24px; height: 24px; }
+    .article-body td .inline-icon.ability-inline, .article-body th .inline-icon.ability-inline { width: 22px; height: 22px; }
+    .article-body th, .article-body td { padding-left: 10px; padding-right: 10px; }
   }
 
   /* ── ARTICLE FOOTER ── */
@@ -315,6 +337,7 @@
 </style>
 <link rel="stylesheet" href="../mobile.css?v=3">
 <link rel="stylesheet" href="../toc-rail.css?v=2">
+<link rel="stylesheet" href="../data/tooltips.css?v=15">
 <script src="../nav.js" defer></script>
 <script src="../favicon-anim.js" defer></script>
 </head>
@@ -371,7 +394,7 @@
   <ul>
     <li><strong>Part I - The Mechanics.</strong> What BAT is, the formula behind every attack, the attack speed cap, and which number in your HUD actually tells you how fast you attack.</li>
     <li><strong>Part II - Practical Applications.</strong> How BAT changes the value of the items you buy, where the balance between damage and attack speed sits, and when an attack speed item is worth more than its numbers suggest.</li>
-    <li><strong>Part III - Unique Hero Cases.</strong> Heroes with unusual BAT values, heroes who change their BAT mid-fight (Alchemist, Troll Warlord, Kez), and what happens when several BAT effects apply at once.</li>
+    <li><strong>Part III - Unique Hero Cases.</strong> Heroes with unusual BAT values, heroes who change their BAT mid-fight (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="troll_warlord"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord"></span></span>Troll Warlord</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="kez"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png" alt="Kez"></span></span>Kez</span>), and what happens when several BAT effects apply at once.</li>
     <li><strong>Part IV - Edge Cases.</strong> Attacks that ignore BAT completely, and what BAT does and doesn't change about your attack animation.</li>
   </ul>
 
@@ -404,7 +427,7 @@
 
   <ul>
     <li><strong>Lower BAT = faster attacks.</strong> A hero with 1.4 BAT attacks faster than a hero with 1.7 BAT when their attack speeds are the same.</li>
-    <li><strong>Most heroes share the same BAT, but not all.</strong> Hero BATs currently range from 1.4 (Juggernaut, Anti-Mage) to 2.0 (Hoodwink), with 1.7 being considered the default one, since it's what most heroes have. A few heroes can even change their BAT during a fight. Both are covered in Part III.</li>
+    <li><strong>Most heroes share the same BAT, but not all.</strong> Hero BATs currently range from 1.4 (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span>) to 2.0 (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="hoodwink"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" alt="Hoodwink"></span></span>Hoodwink</span>), with 1.7 being considered the default one, since it's what most heroes have. A few heroes can even change their BAT during a fight. Both are covered in Part III.</li>
   </ul>
 
   <p>
@@ -523,7 +546,7 @@
   </div>
 
   <p>
-    Early game, the difference is barely noticeable. It's more obvious when you have heroes like Juggernaut vs Treant Protector facing each other in lane. By the late game, the lower-BAT hero gets almost one extra attack every second.
+    Early game, the difference is barely noticeable. It's more obvious when you have heroes like <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> vs <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="treant"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" alt="Treant Protector"></span></span>Treant Protector</span> facing each other in lane. By the late game, the lower-BAT hero gets almost one extra attack every second.
   </p>
 
   <p>
@@ -564,11 +587,11 @@
   </p>
 
   <p>
-    <strong>The exception: Marci</strong>
+    <strong>The exception: <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="marci"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png" alt="Marci"></span></span>Marci</span></strong>
   </p>
 
   <p>
-    Currently, Marci's Unleash is the only ability to break the cap. It grants 700/925/1150 bonus attack speed and removes the attack speed limit entirely while active. The trade-off is that between her Fury combos she can't attack at all for 1.5 seconds.
+    Currently, Marci's <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/marci_unleash.png" alt="Unleash"></span>Unleash</span> is the only ability to break the cap. It grants 700/925/1150 bonus attack speed and removes the attack speed limit entirely while active. The trade-off is that between her Fury combos she can't attack at all for 1.5 seconds.
   </p>
 
   <p>
@@ -585,8 +608,8 @@
 
   <ul>
     <li>Base attack speed 100 → minimum <strong>20</strong></li>
-    <li>Base attack speed 110 (e.g. Sven) → minimum <strong>30</strong></li>
-    <li>Base attack speed 85 (Tiny) → minimum <strong>5</strong>, or one attack every 34 seconds</li>
+    <li>Base attack speed 110 (e.g. <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="sven"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven"></span></span>Sven</span>) → minimum <strong>30</strong></li>
+    <li>Base attack speed 85 (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="tiny"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tiny.png" alt="Tiny"></span></span>Tiny</span>) → minimum <strong>5</strong>, or one attack every 34 seconds</li>
   </ul>
 
   <p>
@@ -615,7 +638,7 @@
   </p>
 
   <p>
-    That's why the attack speed number can't tell you which hero attacks faster. Take Juggernaut and Sven, both at the cap:
+    That's why the attack speed number can't tell you which hero attacks faster. Take <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="sven"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven"></span></span>Sven</span>, both at the cap:
   </p>
 
   <div class="table-wrap">
@@ -624,8 +647,8 @@
         <tr><th></th><th>Attack speed</th><th>Time between attacks</th></tr>
       </thead>
       <tbody>
-        <tr><td>Juggernaut (1.4 BAT)</td><td>700</td><td>0.20 seconds</td></tr>
-        <tr><td>Sven (1.9 BAT)</td><td>700</td><td>0.27 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> (1.4 BAT)</td><td>700</td><td>0.20 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="sven"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven"></span></span>Sven</span> (1.9 BAT)</td><td>700</td><td>0.27 seconds</td></tr>
       </tbody>
     </table>
   </div>
@@ -717,8 +740,8 @@
         <tr><th>BAT</th><th>Max attacks per second</th><th>Fastest possible time between attacks</th></tr>
       </thead>
       <tbody>
-        <tr><td>0.9 (Chemical Rage level 3 + talent)</td><td>7.78</td><td>0.13s</td></tr>
-        <tr><td>1.0 (Chemical Rage level 3)</td><td>7.00</td><td>0.14s</td></tr>
+        <tr><td>0.9 (<span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span> level 3 + talent)</td><td>7.78</td><td>0.13s</td></tr>
+        <tr><td>1.0 (<span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span> level 3)</td><td>7.00</td><td>0.14s</td></tr>
         <tr><td>1.4</td><td>5.00</td><td>0.20s</td></tr>
         <tr><td>1.5</td><td>4.67</td><td>0.21s</td></tr>
         <tr><td>1.6</td><td>4.38</td><td>0.23s</td></tr>
@@ -739,7 +762,7 @@
   </p>
 
   <p>
-    <strong>Example: Troll Warlord.</strong> Battle Trance gives up to 200 attack speed, and a full stack of Fervor adds up to 300 more. With a few items on top, Troll can reach the cap during a fight. In ranged form, the cap gives him 4.12 attacks per second. Switch to melee, where his BAT drops to 1.4, and it becomes 5.00. That's about 21% more attacks, at the exact same attack speed.
+    <strong>Example: <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="troll_warlord"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord"></span></span>Troll Warlord</span>.</strong> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/troll_warlord_battle_trance.png" alt="Battle Trance"></span>Battle Trance</span> gives up to 200 attack speed, and a full stack of <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/troll_warlord_fervor.png" alt="Fervor"></span>Fervor</span> adds up to 300 more. With a few items on top, Troll can reach the cap during a fight. In ranged form, the cap gives him 4.12 attacks per second. Switch to melee, where his BAT drops to 1.4, and it becomes 5.00. That's about 21% more attacks, at the exact same attack speed.
   </p>
 
   <div class="section-break sub-break">
@@ -814,7 +837,7 @@
   </p>
 
   <p>
-    Take Juggernaut (1.4 BAT) with 454 total points, split two different ways:
+    Take <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> (1.4 BAT) with 454 total points, split two different ways:
   </p>
 
   <div class="table-wrap">
@@ -910,7 +933,7 @@
   </ul>
 
   <p>
-    In practice, DotA itemization is rarely about raw stats. Most of the time you buy an item for what it <em>does</em>: BKB for Debuff Immunity, Blink for initiation, and so on. Those decisions come first. The math in this section is for the moments when you do have a real choice between damage and attack speed. Knowing it well enough to make that call mid-game is what separates a good build from the best one.
+    In practice, DotA itemization is rarely about raw stats. Most of the time you buy an item for what it <em>does</em>: <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="black_king_bar"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt="Black King Bar"></span></span>BKB</span> for Debuff Immunity, <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="blink"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt="Blink Dagger"></span></span>Blink</span> for initiation, and so on. Those decisions come first. The math in this section is for the moments when you do have a real choice between damage and attack speed. Knowing it well enough to make that call mid-game is what separates a good build from the best one.
   </p>
 
   <!-- ═══════════════ PART III ═══════════════ -->
@@ -934,13 +957,13 @@
         <tr><th>BAT</th><th>Attacks compared to 1.7 BAT</th><th>Heroes</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>1.4</strong></td><td>+21.4%</td><td>Juggernaut, Anti-Mage</td></tr>
-        <tr><td><strong>1.5</strong></td><td>+13.3%</td><td>Abaddon, Bounty Hunter, Dark Willow, Morphling, Nature's Prophet, Queen of Pain, Terrorblade, Windranger, Spirit Bear (Lone Druid)</td></tr>
-        <tr><td><strong>1.6</strong></td><td>+6.3%</td><td>Dragon Knight, Huskar, Lina, Lone Druid, Shadow Fiend, Silencer, Storm Spirit</td></tr>
+        <tr><td><strong>1.4</strong></td><td>+21.4%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span></td></tr>
+        <tr><td><strong>1.5</strong></td><td>+13.3%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="abaddon"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png" alt="Abaddon"></span></span>Abaddon</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="bounty_hunter"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" alt="Bounty Hunter"></span></span>Bounty Hunter</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="dark_willow"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" alt="Dark Willow"></span></span>Dark Willow</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="morphling"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png" alt="Morphling"></span></span>Morphling</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="furion"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></span></span>Nature's Prophet</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="queenofpain"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png" alt="Queen of Pain"></span></span>Queen of Pain</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="terrorblade"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png" alt="Terrorblade"></span></span>Terrorblade</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="windrunner"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png" alt="Windranger"></span></span>Windranger</span>, <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lone_druid_spirit_bear.png" alt="Spirit Bear"></span>Spirit Bear</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lone_druid"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png" alt="Lone Druid"></span></span>Lone Druid</span>)</td></tr>
+        <tr><td><strong>1.6</strong></td><td>+6.3%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="dragon_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png" alt="Dragon Knight"></span></span>Dragon Knight</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="huskar"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png" alt="Huskar"></span></span>Huskar</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lina"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" alt="Lina"></span></span>Lina</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lone_druid"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png" alt="Lone Druid"></span></span>Lone Druid</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="nevermore"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png" alt="Shadow Fiend"></span></span>Shadow Fiend</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="silencer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png" alt="Silencer"></span></span>Silencer</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="storm_spirit"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm Spirit"></span></span>Storm Spirit</span></td></tr>
         <tr><td><strong>1.7</strong></td><td>0%</td><td>Everyone else</td></tr>
-        <tr><td><strong>1.8</strong></td><td>-5.6%</td><td>Bristleback, Magnus, Mars, Primal Beast, Snapfire, Weaver</td></tr>
-        <tr><td><strong>1.9</strong></td><td>-10.5%</td><td>Doom, Kez (Katana), Outworld Destroyer, Spirit Breaker, Sven, Treant Protector</td></tr>
-        <tr><td><strong>2.0</strong></td><td>-15%</td><td>Hoodwink</td></tr>
+        <tr><td><strong>1.8</strong></td><td>-5.6%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="bristleback"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png" alt="Bristleback"></span></span>Bristleback</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="magnataur"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png" alt="Magnus"></span></span>Magnus</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="mars"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars"></span></span>Mars</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="primal_beast"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png" alt="Primal Beast"></span></span>Primal Beast</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="snapfire"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png" alt="Snapfire"></span></span>Snapfire</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="weaver"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png" alt="Weaver"></span></span>Weaver</span></td></tr>
+        <tr><td><strong>1.9</strong></td><td>-10.5%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="doom_bringer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png" alt="Doom"></span></span>Doom</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="kez"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png" alt="Kez"></span></span>Kez</span> (Katana), <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="obsidian_destroyer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png" alt="Outworld Destroyer"></span></span>Outworld Destroyer</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span>Spirit Breaker</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="sven"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven"></span></span>Sven</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="treant"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" alt="Treant Protector"></span></span>Treant Protector</span></td></tr>
+        <tr><td><strong>2.0</strong></td><td>-15%</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="hoodwink"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" alt="Hoodwink"></span></span>Hoodwink</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -963,13 +986,13 @@
   </p>
 
   <p>
-    <strong>Alchemist - Chemical Rage</strong>
+    <strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span></strong>
   </p>
 
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Chemical Rage level</th><th>BAT</th><th>Attacks compared to his normal 1.7</th></tr>
+        <tr><th><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span> level</th><th>BAT</th><th>Attacks compared to his normal 1.7</th></tr>
       </thead>
       <tbody>
         <tr><td>1</td><td>1.2</td><td>+41.7%</td></tr>
@@ -984,15 +1007,15 @@
   </p>
 
   <p>
-    <strong>Troll Warlord - Battle Stance</strong>
+    <strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="troll_warlord"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord"></span></span>Troll Warlord</span> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/troll_warlord_switch_stance.png" alt="Battle Stance"></span>Battle Stance</span></strong>
   </p>
 
   <p>
-    Troll's ranged form uses the default 1.7 BAT. Switching to melee lowers it to 1.4, the same as Juggernaut and Anti-Mage, which means about 21% more attacks. He also gains 1 armor for every 30 bonus attack speed, so in melee form every attack speed item feeds both his damage and his survivability.
+    Troll's ranged form uses the default 1.7 BAT. Switching to melee lowers it to 1.4, the same as <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span>, which means about 21% more attacks. He also gains 1 armor for every 30 bonus attack speed, so in melee form every attack speed item feeds both his damage and his survivability.
   </p>
 
   <p>
-    <strong>Kez - Switch Discipline</strong>
+    <strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="kez"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png" alt="Kez"></span></span>Kez</span> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/kez_switch_weapons.png" alt="Switch Discipline"></span>Switch Discipline</span></strong>
   </p>
 
   <p>
@@ -1025,7 +1048,7 @@
   </p>
 
   <p>
-    <strong>Broodmother - Insatiable Hunger (level 25 talent)</strong>
+    <strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="broodmother"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png" alt="Broodmother"></span></span>Broodmother</span> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/broodmother_insatiable_hunger.png" alt="Insatiable Hunger"></span>Insatiable Hunger</span> (level 25 talent)</strong>
   </p>
 
   <p>
@@ -1033,7 +1056,7 @@
   </p>
 
   <p>
-    <strong>Lycan - Summon Wolves (level 25 talent)</strong>
+    <strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lycan"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png" alt="Lycan"></span></span>Lycan</span> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lycan_summon_wolves.png" alt="Summon Wolves"></span>Summon Wolves</span> (level 25 talent)</strong>
   </p>
 
   <p>
@@ -1043,7 +1066,7 @@
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Summon Wolves level</th><th>Wolf BAT</th></tr>
+        <tr><th><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lycan_summon_wolves.png" alt="Summon Wolves"></span>Summon Wolves</span> level</th><th>Wolf BAT</th></tr>
       </thead>
       <tbody>
         <tr><td>1</td><td>1.2</td></tr>
@@ -1076,7 +1099,7 @@
   </p>
 
   <p>
-    <strong>Example: Alchemist.</strong> His level 20 talent is a reduction (-0.1). Chemical Rage is a set effect (1.0 at level 3). Chemical Rage replaces his BAT with 1.0, the talent then subtracts 0.1, and he ends up at 0.9. If reductions applied to his base 1.7 <em>before</em> Chemical Rage overwrote it, the talent would do nothing during his ultimate, which is exactly when it matters.
+    <strong>Example: <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span>.</strong> His level 20 talent is a reduction (-0.1). <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span> is a set effect (1.0 at level 3). Chemical Rage replaces his BAT with 1.0, the talent then subtracts 0.1, and he ends up at 0.9. If reductions applied to his base 1.7 <em>before</em> Chemical Rage overwrote it, the talent would do nothing during his ultimate, which is exactly when it matters.
   </p>
 
   <p>
@@ -1112,17 +1135,17 @@
       </thead>
       <tbody>
         <tr><td>0.15</td><td>Fountain</td></tr>
-        <tr><td>0.22</td><td>Death Ward (Witch Doctor)</td></tr>
-        <tr><td>0.5</td><td>Familiars (Visage)</td></tr>
-        <tr><td>0.8 / 1.0 / 1.2</td><td>Void Spirit (Brewmaster, by ultimate level)</td></tr>
-        <tr><td>0.9-1.2</td><td>Wolves (Lycan, by ability level)</td></tr>
+        <tr><td>0.22</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/witch_doctor_death_ward.png" alt="Death Ward"></span>Death Ward</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="witch_doctor"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/witch_doctor.png" alt="Witch Doctor"></span></span>Witch Doctor</span>)</td></tr>
+        <tr><td>0.5</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/visage_summon_familiars.png" alt="Familiars"></span>Familiars</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="visage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/visage.png" alt="Visage"></span></span>Visage</span>)</td></tr>
+        <tr><td>0.8 / 1.0 / 1.2</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/brewmaster_primal_split.png" alt="Void Spirit"></span>Void Spirit</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="brewmaster"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png" alt="Brewmaster"></span></span>Brewmaster</span>, by ultimate level)</td></tr>
+        <tr><td>0.9-1.2</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lycan_summon_wolves.png" alt="Wolves"></span>Wolves</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lycan"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png" alt="Lycan"></span></span>Lycan</span>, by ability level)</td></tr>
         <tr><td>1.0</td><td>Melee Creeps</td></tr>
-        <tr><td>1.2</td><td>Golem (Warlock), Skeletons (Wraith King), Spiderlings (Broodmother)</td></tr>
-        <tr><td>1.25</td><td>Earth Spirit (Brewmaster)</td></tr>
-        <tr><td>1.35</td><td>Fire Spirit (Brewmaster), Forged Spirits (Invoker), Razorback (Beastmaster)</td></tr>
-        <tr><td>1.4</td><td>Plague Wards (Venomancer)</td></tr>
-        <tr><td>1.5</td><td>Eidolons (Enigma), Storm Spirit (Brewmaster)</td></tr>
-        <tr><td>1.6</td><td>Treants and Greater Treants (Nature's Prophet), Serpent Wards (Shadow Shaman), Zombies (Undying)</td></tr>
+        <tr><td>1.2</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/warlock_rain_of_chaos.png" alt="Golem"></span>Golem</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="warlock"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/warlock.png" alt="Warlock"></span></span>Warlock</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/skeleton_king_bone_guard.png" alt="Skeletons"></span>Skeletons</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="skeleton_king"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png" alt="Wraith King"></span></span>Wraith King</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/broodmother_spawn_spiderlings.png" alt="Spiderlings"></span>Spiderlings</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="broodmother"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png" alt="Broodmother"></span></span>Broodmother</span>)</td></tr>
+        <tr><td>1.25</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/brewmaster_primal_split.png" alt="Earth Spirit"></span>Earth Spirit</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="brewmaster"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png" alt="Brewmaster"></span></span>Brewmaster</span>)</td></tr>
+        <tr><td>1.35</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/brewmaster_primal_split.png" alt="Fire Spirit"></span>Fire Spirit</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="brewmaster"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png" alt="Brewmaster"></span></span>Brewmaster</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/invoker_forge_spirit.png" alt="Forged Spirits"></span>Forged Spirits</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="invoker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/invoker.png" alt="Invoker"></span></span>Invoker</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/beastmaster_summon_razorback.png" alt="Razorback"></span>Razorback</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="beastmaster"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/beastmaster.png" alt="Beastmaster"></span></span>Beastmaster</span>)</td></tr>
+        <tr><td>1.4</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/venomancer_plague_ward.png" alt="Plague Wards"></span>Plague Wards</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="venomancer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/venomancer.png" alt="Venomancer"></span></span>Venomancer</span>)</td></tr>
+        <tr><td>1.5</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/enigma_demonic_conversion.png" alt="Eidolons"></span>Eidolons</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="enigma"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/enigma.png" alt="Enigma"></span></span>Enigma</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/brewmaster_primal_split.png" alt="Storm Spirit"></span>Storm Spirit</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="brewmaster"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/brewmaster.png" alt="Brewmaster"></span></span>Brewmaster</span>)</td></tr>
+        <tr><td>1.6</td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/furion_force_of_nature.png" alt="Treants and Greater Treants"></span>Treants and Greater Treants</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="furion"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></span></span>Nature's Prophet</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/shadow_shaman_mass_serpent_ward.png" alt="Serpent Wards"></span>Serpent Wards</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="shadow_shaman"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/shadow_shaman.png" alt="Shadow Shaman"></span></span>Shadow Shaman</span>), <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/undying_tombstone.png" alt="Zombies"></span>Zombies</span> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="undying"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/undying.png" alt="Undying"></span></span>Undying</span>)</td></tr>
         <tr><td>2.0</td><td>Roshan</td></tr>
         <tr><td>3.0</td><td>Siege Creeps</td></tr>
       </tbody>
@@ -1157,7 +1180,7 @@
   </p>
 
   <p>
-    Examples include Ember Spirit's Sleight of Fist, which attacks every enemy in its area one after another on a fixed interval, and Monkey King's Wukong's Command, whose soldiers attack on a fixed interval of their own. Legion Commander's Moment of Courage counter-attack also fires outside her normal attack rhythm.
+    Examples include <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="ember_spirit"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ember_spirit.png" alt="Ember Spirit"></span></span>Ember Spirit's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ember_spirit_sleight_of_fist.png" alt="Sleight of Fist"></span>Sleight of Fist</span>, which attacks every enemy in its area one after another on a fixed interval, and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="monkey_king"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/monkey_king.png" alt="Monkey King"></span></span>Monkey King's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/monkey_king_wukongs_command.png" alt="Wukong's Command"></span>Wukong's Command</span>, whose soldiers attack on a fixed interval of their own. <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="legion_commander"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/legion_commander.png" alt="Legion Commander"></span></span>Legion Commander's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/legion_commander_moment_of_courage.png" alt="Moment of Courage"></span>Moment of Courage</span> counter-attack also fires outside her normal attack rhythm.
   </p>
 
   <p>
@@ -1201,10 +1224,10 @@
   </p>
 
   <ul>
-    <li><strong>Anti-Mage</strong> once had a BAT as low as 1.35. It was raised back to 1.45 in an early DotA 2 patch, and today he sits at 1.4.</li>
-    <li><strong>Alchemist's Chemical Rage</strong> has been retuned many times. It started at 1.45 / 1.35 / 1.2, was gradually lowered over several patches, and today it's 1.2 / 1.1 / 1.0.</li>
-    <li><strong>Spirit Bear</strong> used to have a BAT that improved with each level of the ability, from 1.75 down to 1.45. Today he has a flat 1.5.</li>
-    <li><strong>Lycan's Shapeshift</strong> used to lower his BAT. It no longer does.</li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span></strong> once had a BAT as low as 1.35. It was raised back to 1.45 in an early DotA 2 patch, and today he sits at 1.4.</li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage</span></strong> has been retuned many times. It started at 1.45 / 1.35 / 1.2, was gradually lowered over several patches, and today it's 1.2 / 1.1 / 1.0.</li>
+    <li><strong><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lone_druid_spirit_bear.png" alt="Spirit Bear"></span>Spirit Bear</span></strong> used to have a BAT that improved with each level of the ability, from 1.75 down to 1.45. Today he has a flat 1.5.</li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lycan"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png" alt="Lycan"></span></span>Lycan's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lycan_shapeshift.png" alt="Shapeshift"></span>Shapeshift</span></strong> used to lower his BAT. It no longer does.</li>
     <li><strong>The attack speed cap</strong> has been raised twice: from 500 to 600, and then to 700 in patch 7.20.</li>
     <li><strong>Base attack speed</strong> was 100 for every hero until patch 7.22, when Valve started giving heroes different values. That's what created the different attack speed floors from Section 4.</li>
   </ul>
@@ -1216,7 +1239,7 @@
 
   <ul>
     <li><strong>BAT is the base time between your attacks.</strong> Lower BAT means faster attacks. Most heroes have 1.7. Your attacks per second = attack speed ÷ (100 × BAT).</li>
-    <li><strong>Attack speed is capped at 700 for everyone</strong> (Marci being the only exception), but BAT decides what that cap is worth: 5 attacks per second at 1.4 BAT, only 3.68 at 1.9.</li>
+    <li><strong>Attack speed is capped at 700 for everyone</strong> (<span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="marci"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png" alt="Marci"></span></span>Marci</span> being the only exception), but BAT decides what that cap is worth: 5 attacks per second at 1.4 BAT, only 3.68 at 1.9.</li>
     <li><strong>Understand your HUD better.</strong> The attack speed number shows how close you are to the cap. The time between attacks in brackets shows how fast you actually attack.</li>
     <li><strong>Low BAT makes every right-click item better,</strong> damage and attack speed alike. Which one to buy depends on balance: avoid being heavily lopsided. On-hit effects favor attack speed; damage block and the cap favor damage.</li>
     <li><strong>Some heroes can alter their BAT.</strong> A set effect replaces your BAT; a reduction subtracts from whatever it currently is.</li>
@@ -1259,7 +1282,7 @@
         <tr><th></th><th>Value</th></tr>
       </thead>
       <tbody>
-        <tr><td>Maximum attack speed</td><td>700 (except Marci's Unleash)</td></tr>
+        <tr><td>Maximum attack speed</td><td>700 (except <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="marci"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png" alt="Marci"></span></span>Marci's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/marci_unleash.png" alt="Unleash"></span>Unleash</span>)</td></tr>
         <tr><td>Minimum attack speed, heroes</td><td>Base attack speed - 80</td></tr>
         <tr><td>Minimum attack speed, non-hero units</td><td>20</td></tr>
       </tbody>
@@ -1276,13 +1299,13 @@
         <tr><th>BAT</th><th>Heroes</th></tr>
       </thead>
       <tbody>
-        <tr><td>1.4</td><td>Juggernaut, Anti-Mage</td></tr>
-        <tr><td>1.5</td><td>Abaddon, Bounty Hunter, Dark Willow, Morphling, Nature's Prophet, Queen of Pain, Terrorblade, Windranger, Spirit Bear</td></tr>
-        <tr><td>1.6</td><td>Dragon Knight, Huskar, Lina, Lone Druid, Shadow Fiend, Silencer, Storm Spirit</td></tr>
+        <tr><td>1.4</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span></td></tr>
+        <tr><td>1.5</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="abaddon"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/abaddon.png" alt="Abaddon"></span></span>Abaddon</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="bounty_hunter"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bounty_hunter.png" alt="Bounty Hunter"></span></span>Bounty Hunter</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="dark_willow"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dark_willow.png" alt="Dark Willow"></span></span>Dark Willow</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="morphling"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/morphling.png" alt="Morphling"></span></span>Morphling</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="furion"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/furion.png" alt="Nature's Prophet"></span></span>Nature's Prophet</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="queenofpain"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/queenofpain.png" alt="Queen of Pain"></span></span>Queen of Pain</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="terrorblade"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/terrorblade.png" alt="Terrorblade"></span></span>Terrorblade</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="windrunner"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/windrunner.png" alt="Windranger"></span></span>Windranger</span>, <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/lone_druid_spirit_bear.png" alt="Spirit Bear"></span>Spirit Bear</span></td></tr>
+        <tr><td>1.6</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="dragon_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/dragon_knight.png" alt="Dragon Knight"></span></span>Dragon Knight</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="huskar"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/huskar.png" alt="Huskar"></span></span>Huskar</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lina"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lina.png" alt="Lina"></span></span>Lina</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lone_druid"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lone_druid.png" alt="Lone Druid"></span></span>Lone Druid</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="nevermore"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png" alt="Shadow Fiend"></span></span>Shadow Fiend</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="silencer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/silencer.png" alt="Silencer"></span></span>Silencer</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="storm_spirit"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/storm_spirit.png" alt="Storm Spirit"></span></span>Storm Spirit</span></td></tr>
         <tr><td>1.7</td><td>Everyone else</td></tr>
-        <tr><td>1.8</td><td>Bristleback, Magnus, Mars, Primal Beast, Snapfire, Weaver</td></tr>
-        <tr><td>1.9</td><td>Doom, Kez (Katana), Outworld Destroyer, Spirit Breaker, Sven, Treant Protector</td></tr>
-        <tr><td>2.0</td><td>Hoodwink</td></tr>
+        <tr><td>1.8</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="bristleback"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/bristleback.png" alt="Bristleback"></span></span>Bristleback</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="magnataur"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/magnataur.png" alt="Magnus"></span></span>Magnus</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="mars"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/mars.png" alt="Mars"></span></span>Mars</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="primal_beast"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/primal_beast.png" alt="Primal Beast"></span></span>Primal Beast</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="snapfire"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/snapfire.png" alt="Snapfire"></span></span>Snapfire</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="weaver"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/weaver.png" alt="Weaver"></span></span>Weaver</span></td></tr>
+        <tr><td>1.9</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="doom_bringer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/doom_bringer.png" alt="Doom"></span></span>Doom</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="kez"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png" alt="Kez"></span></span>Kez</span> (Katana), <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="obsidian_destroyer"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png" alt="Outworld Destroyer"></span></span>Outworld Destroyer</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span>Spirit Breaker</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="sven"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt="Sven"></span></span>Sven</span>, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="treant"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/treant.png" alt="Treant Protector"></span></span>Treant Protector</span></td></tr>
+        <tr><td>2.0</td><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="hoodwink"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/hoodwink.png" alt="Hoodwink"></span></span>Hoodwink</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -1297,12 +1320,12 @@
         <tr><th>Hero</th><th>Effect</th><th>Type</th></tr>
       </thead>
       <tbody>
-        <tr><td>Alchemist</td><td>Chemical Rage: 1.2 / 1.1 / 1.0</td><td>Set</td></tr>
-        <tr><td>Alchemist</td><td>Level 20 talent: -0.1</td><td>Reduction</td></tr>
-        <tr><td>Troll Warlord</td><td>Melee stance: 1.4 (ranged 1.7)</td><td>Set</td></tr>
-        <tr><td>Kez</td><td>Sai 1.5 / Katana 1.9</td><td>Set</td></tr>
-        <tr><td>Broodmother</td><td>Level 25 talent: -0.15 during Insatiable Hunger</td><td>Reduction</td></tr>
-        <tr><td>Lycan's wolves</td><td>Level 25 talent: -25%</td><td>Reduction</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span></td><td><span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png" alt="Chemical Rage"></span>Chemical Rage:</span> 1.2 / 1.1 / 1.0</td><td>Set</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span></td><td>Level 20 talent: -0.1</td><td>Reduction</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="troll_warlord"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/troll_warlord.png" alt="Troll Warlord"></span></span>Troll Warlord</span></td><td>Melee stance: 1.4 (ranged 1.7)</td><td>Set</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="kez"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/kez.png" alt="Kez"></span></span>Kez</span></td><td>Sai 1.5 / Katana 1.9</td><td>Set</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="broodmother"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/broodmother.png" alt="Broodmother"></span></span>Broodmother</span></td><td>Level 25 talent: -0.15 during <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/broodmother_insatiable_hunger.png" alt="Insatiable Hunger"></span>Insatiable Hunger</span></td><td>Reduction</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="lycan"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lycan.png" alt="Lycan"></span></span>Lycan's wolves</span></td><td>Level 25 talent: -25%</td><td>Reduction</td></tr>
       </tbody>
     </table>
   </div>
@@ -1354,6 +1377,12 @@
   slot.textContent = minutes + ' min read';
 })();
 </script>
+
+<!-- Hero, ability and item icons: tooltips and links come from the shared scripts (hero-links.js reads covered from data/heroes.json, item-links.js reads data/item-pages.json). -->
+<script src="../icon-src.js?v=12"></script>
+<script src="../data/tooltips.js?v=22"></script>
+<script src="../hero-links.js"></script>
+<script src="../item-links.js"></script>
 
 <!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
 <script src="../toc-rail.js?v=5"></script>

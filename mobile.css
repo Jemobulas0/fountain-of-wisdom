@@ -32,6 +32,17 @@
 
 .nav-toggle { display: none; }
 
+/* Active nav link. Hero, item and listing pages already carry this exact rule
+   in their inline <style>; guide pages don't, and nav.js now marks Guides
+   active there, so the rule lives here too (same declarations, so nothing
+   changes where it already existed). The Coaching button keeps its own
+   .nav-cta.active treatment. */
+.nav-links a.active:not(.nav-cta) {
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.17) 0%, rgba(201,168,76,0.09) 55%, transparent 100%);
+  color: var(--gold);
+  border-bottom-color: var(--gold-dark);
+}
+
 @media (max-width: 1375px) {
   nav {
     padding: 0 16px;

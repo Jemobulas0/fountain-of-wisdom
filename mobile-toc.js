@@ -107,6 +107,10 @@
 
     // entries[0] is "Top of Page" (target null = scroll to the very top)
     var entries = [{ label: 'Top of Page', target: null }].concat(sections);
+    // Hero and item pages: the first section's entry also goes to the very top
+    // (header visible), like the rail. Its target stays set, so it still drives
+    // the "current" highlight. Guides keep their behaviour.
+    if (!document.querySelector('.article-layout')) entries[1].toTop = true;
     entries.forEach(function (entry) {
       var a = document.createElement('a');
       a.className = 'fow-mtoc-link';
@@ -215,7 +219,7 @@
 
     function goTo(entry) {
       function run() {
-        if (entry.target) entry.target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
+        if (entry.target && !entry.toTop) entry.target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
         else window.scrollTo({ top: 0, left: 0, behavior: scrollBehavior() });
       }
       if (isOpen && history.state && history.state.fowMtoc) {

@@ -31,6 +31,29 @@
   var links = nav.querySelector('.nav-links');
   if (!links) return;
 
+  // ── Active link follows the section ──────────────────────────────────
+  // Hero pages (hero_template), item pages (items/<id>) and guide pages
+  // (guides/<id>) light up Heroes / Items / Guides. Works from the path only,
+  // with or without ".html" (Live Server, GitHub Pages, Cloudflare), at the
+  // site root or under a sub-folder. Any other page keeps its own markup.
+  (function () {
+    var segs = location.pathname.split('/').filter(Boolean)
+      .map(function (s) { return s.replace(/\.html$/, ''); });
+    if (!segs.length) return;
+    var last = segs[segs.length - 1];
+    var parent = segs.length > 1 ? segs[segs.length - 2] : '';
+    var section = null;
+    if (last === 'hero_template') section = 'heroes';
+    else if (parent === 'items') section = 'items';
+    else if (parent === 'guides') section = 'guides';
+    if (!section) return;
+    Array.prototype.forEach.call(links.querySelectorAll('a'), function (a) {
+      if (a.classList.contains('nav-cta')) return;
+      var file = (a.getAttribute('href') || '').split(/[?#]/)[0].split('/').pop().replace(/\.html$/, '');
+      a.classList.toggle('active', file === section);
+    });
+  })();
+
   var ctaAnchor = links.querySelector('a.nav-cta');
   var ctaLi = ctaAnchor ? ctaAnchor.closest('li') : null;
   var ctaNext = ctaLi ? ctaLi.nextSibling : null;

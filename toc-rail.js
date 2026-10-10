@@ -22,6 +22,8 @@
      Exactly one link is active at any time.
    - Clicking pins the clicked entry as active until the reader scrolls
      themselves (the last sections cannot scroll far enough to reach the line).
+   - Hero and item pages: the first entry scrolls to the very top of the page
+     (header visible); its address is #top. Guides are unchanged.
    - Clicking the FIRST section of a part scrolls to the part heading, so the
      heading stays visible with the section directly under it. Only rail clicks
      do this; in-text links (a.in-link) and direct #anchors go straight to the
@@ -114,6 +116,13 @@
         add(text, target, false, false, true);
       });
       if (entries.length < 2) return;   // "2 or more sections" rule
+      // The first entry goes to the very top of the page, so the header (image
+      // and name) stays visible. Its section keeps its id (in-text links and
+      // direct #anchors still go straight to it) and keeps driving the active
+      // highlight; only the rail click changes: no scroll target = page top,
+      // and "#top" is the address, so a reload lands at the top too.
+      entries[0].scrollEl = null;
+      entries[0].link.setAttribute('href', '#top');
     }
 
     var sectionCount = guide ? entries.length - 1 : entries.length;

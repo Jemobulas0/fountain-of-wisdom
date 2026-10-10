@@ -104,6 +104,17 @@ Every page with a Contents rail (guides, hero pages, item pages) follows this by
 
 Implementation: `toc-rail.js` (behaviour, builds the rail DOM) and `toc-rail.css` (all rail styles), loaded by every page with a rail. A page supplies only its headings: `.section-break` blocks (with `.part-break` for parts) plus `h1.article-title` on guides, or `.section-title` headings inside `.section` cards on hero and item pages. Rail clicks on the first section of a part only go to the part heading when the heading sits directly above it; in-text links and direct anchors always go straight to the section. Bump the `?v=` on `toc-rail.js` and `toc-rail.css` on every page that loads them whenever either file changes (rule 7).
 
+## Guide categories
+
+Guides use exactly four categories. Laning no longer exists; anything that was Laning is Strategy. Do not add it back to any filter, legend or list.
+
+- **Mechanics:** red (`#e05a3a`, the Strength red).
+- **Strategy:** blue (`#5b9bd5`, the Intelligence blue).
+- **Economy:** green (`#4caf7d`, the Agility green).
+- **Mindset:** three-colour. The text shades red through green to blue, left to right, using the Mechanics, Economy and Strategy colours above. Border and background tint follow the same order.
+
+Universal (the hero attribute) uses the same three-colour treatment, built from the Strength red, Agility green and Intelligence blue. Never use purple for either. Do not introduce new shades: Mindset and Universal are always made from the existing red, green and blue.
+
 ## When something is unique or unclear
 
 Some heroes need structural changes to the JSON or HTML template that weren't anticipated. When you encounter one:

@@ -85,10 +85,13 @@
   .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
   .article-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; border: 1px solid; }
   .article-tag.strategy  { color: #5b9bd5;       border-color: rgba(91,155,213,0.3);  background: rgba(91,155,213,0.12); }
-  .article-tag.mindset   { color: var(--yellow); border-color: rgba(232,184,75,0.3);  background: rgba(232,184,75,0.12); }
-  .article-tag.laning    { color: var(--green);  border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
+  /* Mindset: red > green > blue, the Mechanics, Economy and Strategy colours combined */
+  .article-tag.mindset   { color: transparent; border-color: transparent;
+    border-image: linear-gradient(90deg, rgba(224,90,58,0.3), rgba(76,175,125,0.3), rgba(91,155,213,0.3)) 1;
+    background: linear-gradient(90deg, #e05a3a, #4caf7d, #5b9bd5), linear-gradient(90deg, rgba(224,90,58,0.12), rgba(76,175,125,0.12), rgba(91,155,213,0.12));
+    -webkit-background-clip: text, padding-box; background-clip: text, padding-box; }
   .article-tag.mechanics { color: #e05a3a;       border-color: rgba(224,90,58,0.3);   background: rgba(224,90,58,0.12); }
-  .article-tag.economy   { color: #c084e8;       border-color: rgba(155,89,182,0.3);  background: rgba(155,89,182,0.22); }
+  .article-tag.economy   { color: var(--green);  border-color: rgba(76,175,125,0.3);  background: rgba(76,175,125,0.12); }
   .article-date { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
   .article-readtime { font-family: 'Cinzel', serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; color: var(--text); text-transform: uppercase; }
   .meta-dot { color: var(--text-dim); }

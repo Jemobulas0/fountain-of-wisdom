@@ -33,7 +33,7 @@
     --str: #e05a3a;
     --agi: #4caf7d;
     --int: #5b9bd5;
-    --uni: #9b59b6;
+    --uni: linear-gradient(90deg, var(--str), var(--agi), var(--int));
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -235,11 +235,31 @@
   .filter-btn.str { color: color-mix(in srgb, var(--str) 60%, transparent); border-color: color-mix(in srgb, var(--str) 35%, transparent); }
   .filter-btn.agi { color: color-mix(in srgb, var(--agi) 60%, transparent); border-color: color-mix(in srgb, var(--agi) 35%, transparent); }
   .filter-btn.int { color: color-mix(in srgb, var(--int) 60%, transparent); border-color: color-mix(in srgb, var(--int) 35%, transparent); }
-  .filter-btn.uni { color: color-mix(in srgb, var(--uni) 60%, transparent); border-color: color-mix(in srgb, var(--uni) 35%, transparent); }
+  /* Universal: red > green > blue (Strength, Agility, Intelligence combined). Text, border and tint are layered gradients. */
+  .filter-btn.uni {
+    color: transparent;
+    border-color: transparent;
+    border-image: linear-gradient(90deg, color-mix(in srgb, var(--str) 35%, transparent), color-mix(in srgb, var(--agi) 35%, transparent), color-mix(in srgb, var(--int) 35%, transparent)) 1;
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--str) 60%, transparent), color-mix(in srgb, var(--agi) 60%, transparent), color-mix(in srgb, var(--int) 60%, transparent)),
+      var(--bg-card);
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    /* the text gradient spans the label only: content box minus the 14px icon and 6px gap */
+    background-origin: content-box, padding-box;
+    background-size: calc(100% - 20px) 100%, auto;
+    background-position: right center, 0 0;
+    background-repeat: no-repeat;
+  }
   .filter-btn.str.active { border-color: var(--str); color: var(--str); background: rgba(224,90,58,0.08); }
   .filter-btn.agi.active { border-color: var(--agi); color: var(--agi); background: rgba(76,175,125,0.08); }
   .filter-btn.int.active { border-color: var(--int); color: var(--int); background: rgba(91,155,213,0.08); }
-  .filter-btn.uni.active { border-color: var(--uni); color: var(--uni); background: rgba(155,89,182,0.08); }
+  .filter-btn.uni.active {
+    border-image: linear-gradient(90deg, var(--str), var(--agi), var(--int)) 1;
+    background-image:
+      linear-gradient(90deg, var(--str), var(--agi), var(--int)),
+      linear-gradient(90deg, rgba(224,90,58,0.08), rgba(76,175,125,0.08), rgba(91,155,213,0.08));
+  }
 
   .filter-divider {
     width: 1px;
@@ -728,7 +748,11 @@ function filterHeroes() {
     uni: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png',
   };
   const attrLabels = { str: 'Strength', agi: 'Agility', int: 'Intelligence', uni: 'Universal' };
-  const attrColors = { str: 'var(--str)', agi: 'var(--agi)', int: 'var(--int)', uni: 'var(--uni)' };
+  const attrColors = { str: 'var(--str)', agi: 'var(--agi)', int: 'var(--int)' };
+  // Universal has no single colour: red > green > blue gradient text
+  const attrTextStyle = a => a === 'uni'
+    ? 'background:var(--uni);-webkit-background-clip:text;background-clip:text;color:transparent'
+    : `color:${attrColors[a]}`;
   const attrOrder = ['str', 'agi', 'int', 'uni'];
 
   // Group by attribute
@@ -743,7 +767,7 @@ function filterHeroes() {
     // Section header
     const header = document.createElement('div');
     header.className = 'attr-section-header';
-    header.innerHTML = `<img src="${attrIcons[attr]}" alt="${attr}"><span style="color:${attrColors[attr]}">${attrLabels[attr]}</span>`;
+    header.innerHTML = `<img src="${attrIcons[attr]}" alt="${attr}"><span style="${attrTextStyle(attr)}">${attrLabels[attr]}</span>`;
     grid.appendChild(header);
 
     // Hero cards

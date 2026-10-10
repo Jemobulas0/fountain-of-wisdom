@@ -179,11 +179,15 @@ function buildHeader(data) {
   const attrColors = {
     agility: 'var(--green)',
     strength: 'var(--red)',
-    intelligence: 'var(--blue)',
-    universal: '#b07aff'
+    intelligence: 'var(--blue)'
   };
   const attrColor = attrColors[data.attribute] || 'var(--text)';
   const attrName = data.attribute.charAt(0).toUpperCase() + data.attribute.slice(1);
+  // Universal has no single colour: red > green > blue gradient text, using the
+  // same three attribute colours this page uses for the other attributes.
+  const attrLabel = data.attribute === 'universal'
+    ? `<span style="background:linear-gradient(90deg,var(--red),var(--green),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;">${attrName}</span>`
+    : attrName;
 
   document.getElementById('hero-center').innerHTML =
     `<div class="hero-avatar">` +
@@ -192,7 +196,7 @@ function buildHeader(data) {
     `<div class="hero-name">${data.name}</div>` +
     `<div class="hero-attr" style="color:${attrColor};">` +
       `<img src="${FoWIcon.src('hero_' + data.attribute, 'icons')}" alt="${attrName}" style="width:16px;height:16px;">` +
-      attrName +
+      attrLabel +
     `</div>`;
 
   document.getElementById('header-right').innerHTML =

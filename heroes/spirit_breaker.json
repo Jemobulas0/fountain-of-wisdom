@@ -337,6 +337,10 @@
     {
       "level": "advanced",
       "text": "Your hero can arguably make more use of your Courier than any other hero in the game. You can place it at neutral camps beforehand. This way you can ensure that you'll have an available [ability:spirit_breaker_charge_of_darkness] Charge of Darkness target at all times."
+    },
+    {
+      "level": "advanced",
+      "text": "You can Prime your [ability:spirit_breaker_greater_bash] Greater Bash by landing 5-8 hits in a row on a creep without a bash, whenever you can in between trades with enemy heroes. You can read more about Priming your procs in our <a href=\"guides/pseudo_random_distribution.html\" class=\"guide-link\"><strong>Pseudo-Random Distribution Guide</strong></a>."
     }
   ],
   "allies_and_counters": {

@@ -304,6 +304,10 @@
     {
       "level": "advanced",
       "text": "[ability:phantom_assassin_blur] Blur hides your presence on the minimap. But it also makes you untargetable. This means that certain threats like [hero:spirit_breaker] or short-range spells are a much less threat to you than to most other carries in the game."
+    },
+    {
+      "level": "advanced",
+      "text": "You can Prime your [ability:phantom_assassin_coup_de_grace] Coup de Grace by landing 5-8 hits in a row on a creep without a crit, before you jump on an enemy hero. You can read more about Priming your procs in our <a href=\"guides/pseudo_random_distribution.html\" class=\"guide-link\"><strong>Pseudo-Random Distribution Guide</strong></a>."
     }
   ],
   "allies_and_counters": {

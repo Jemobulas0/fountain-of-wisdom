@@ -296,6 +296,13 @@
   a.hero-link { text-decoration: none; color: inherit; display: inline-block; }
   a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
   a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  /* Guide icon rule: a hero is icon + name; an icon and its name are wrapped in .icon-name so they never split across lines. */
+  .icon-name { white-space: nowrap; }
+  .icon-name .inline-icon { margin: 0 5px 0 1px; }
+  a.item-link { text-decoration: none; color: inherit; }
+  .item-link { display: contents; }
+  a.item-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.item-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
   .prd-source { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
   .prd-source + .prd-source { margin-top: 6px; }
   .table-wrap[id] { scroll-margin-top: 88px; }
@@ -444,7 +451,7 @@
   </p>
 
   <p>
-    PRD applies to "X% chance when Y happens" effects. Random amounts (such as attack damage rolling between a minimum and maximum) and random picks do not use it. Not every chance-based effect uses it either. In my testing, Ogre Magi's Multicast is truly random.
+    PRD applies to "X% chance when Y happens" effects. Random amounts (such as attack damage rolling between a minimum and maximum) and random picks do not use it. Not every chance-based effect uses it either. In my testing, <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="ogre_magi"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/ogre_magi.png" alt="Ogre Magi"></span></span>Ogre Magi's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/ogre_magi_multicast.png" alt="Multicast"></span>Multicast</span> is truly random.
   </p>
 
   <p>
@@ -452,12 +459,12 @@
   </p>
 
   <ul>
-    <li><strong>Phantom Assassin</strong> - Coup de Grace</li>
-    <li><strong>Juggernaut</strong> - Blade Dance</li>
-    <li><strong>Chaos Knight</strong> - Chaos Strike</li>
-    <li><strong>Faceless Void</strong> - Time Lock</li>
-    <li><strong>Spirit Breaker</strong> - Greater Bash</li>
-    <li><strong>Items</strong> - Skull Basher, Crystalys, Daedalus, Maelstrom, Mjollnir</li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span>Phantom Assassin</span></strong> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span>Coup de Grace</span></li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span></strong> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/juggernaut_blade_dance.png" alt="Blade Dance"></span>Blade Dance</span></li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span>Chaos Knight</span></strong> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span>Chaos Strike</span></li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span>Faceless Void</span></strong> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span>Time Lock</span></li>
+    <li><strong><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span>Spirit Breaker</span></strong> - <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span>Greater Bash</span></li>
+    <li><strong>Items</strong> - <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="basher"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Skull Basher"></span></span>Skull Basher,</span> <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="lesser_crit"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/lesser_crit.png" alt="Crystalys"></span></span>Crystalys,</span> <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="greater_crit"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/greater_crit.png" alt="Daedalus"></span></span>Daedalus,</span> <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="maelstrom"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/maelstrom.png" alt="Maelstrom"></span></span>Maelstrom,</span> <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="mjollnir"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir"></span></span>Mjollnir</span></li>
   </ul>
 
   <div class="section-break sub-break">
@@ -746,7 +753,7 @@
   </p>
 
   <p>
-    As to why we remember a lot of extreme cases? Let's say that you're playing Phantom Assassin. Stifling Dagger has double the chance to proc your ultimate, so through accidental or intentional priming you can land 3 out of 4 crits once every 4-8 games, which is often enough to feel like it's happening frequently, but rare enough to be an explosive, super memorable event. And it's extra memorable if it happens to you, rather than if you do it to somebody else, since the human brain is built to register the negative version of this event harder.
+    As to why we remember a lot of extreme cases? Let's say that you're playing <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span>Phantom Assassin.</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_stifling_dagger.png" alt="Stifling Dagger"></span>Stifling Dagger</span> has double the chance to proc your ultimate, so through accidental or intentional priming you can land 3 out of 4 crits once every 4-8 games, which is often enough to feel like it's happening frequently, but rare enough to be an explosive, super memorable event. And it's extra memorable if it happens to you, rather than if you do it to somebody else, since the human brain is built to register the negative version of this event harder.
   </p>
 
   <!-- ═══════════════ PART II ═══════════════ -->
@@ -829,7 +836,7 @@
   </p>
 
   <p>
-    Short trades get far less than the listed chance. A 25% proc in a 2-hit trade triggers 24% of the time (44% under true random). So if you're playing a hero with slow and heavy attacks like Chaos Knight, you want to utilize hit and run tactics around your procs. Vice versa, if you're a fast hitting hero like Juggernaut, you ideally want prolonged trades, as they are the ones in your favor. This again is an example of when both heroes have procs to play around. If you're the only one who has a proccable effect, then you can choose which tactic works better for you in any given situation.
+    Short trades get far less than the listed chance. A 25% proc in a 2-hit trade triggers 24% of the time (44% under true random). So if you're playing a hero with slow and heavy attacks like <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span>Chaos Knight,</span> you want to utilize hit and run tactics around your procs. Vice versa, if you're a fast hitting hero like <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut,</span> you ideally want prolonged trades, as they are the ones in your favor. This again is an example of when both heroes have procs to play around. If you're the only one who has a proccable effect, then you can choose which tactic works better for you in any given situation.
   </p>
 
   <div class="section-break sub-break">
@@ -847,9 +854,9 @@
         <tr><th>Effect</th><th>Cooldown</th></tr>
       </thead>
       <tbody>
-        <tr><td>Spirit Breaker's Greater Bash</td><td>1.2 seconds</td></tr>
-        <tr><td>Skull Basher</td><td>2.3 seconds, stated on the item</td></tr>
-        <tr><td>Maelstrom and Mjollnir's Chain Lightning</td><td>0.2 seconds, not shown anywhere on the item</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span>Spirit Breaker's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span>Greater Bash</span></td><td>1.2 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="item-link" data-tooltip="item" data-item="basher"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Skull Basher"></span></span>Skull Basher</span></td><td>2.3 seconds, stated on the item</td></tr>
+        <tr><td><span class="icon-name"><span class="item-link" data-tooltip="item" data-item="maelstrom"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/maelstrom.png" alt="Maelstrom"></span></span>Maelstrom</span> and <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="mjollnir"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir"></span></span>Mjollnir's</span> Chain Lightning</td><td>0.2 seconds, not shown anywhere on the item</td></tr>
       </tbody>
     </table>
   </div>
@@ -859,11 +866,11 @@
   </p>
 
   <p>
-    <strong>Proc Cooldown - the counter to truly broken builds.</strong> Certain proc effects have most likely been given cooldowns intentionally, because otherwise they would break the game. Skull Basher for example has one of the longest cooldowns in order to avoid perma-bash with high enough attack speed. But items like Maelstrom and Mjollnir have a very short cooldown to counter one specific mechanic abuse - multishot (and to a smaller extent Echo Sabre and Harpoon). Imagine the horror that Medusa and Muerta would inflict upon the world. At best, each one of their extra shots would progress the proc chance. At worst, multiple chain lightnings would proc at the exact same time. Or Medusa would simply bash the entire enemy team non-stop.
+    <strong>Proc Cooldown - the counter to truly broken builds.</strong> Certain proc effects have most likely been given cooldowns intentionally, because otherwise they would break the game. Skull Basher for example has one of the longest cooldowns in order to avoid perma-bash with high enough attack speed. But items like Maelstrom and Mjollnir have a very short cooldown to counter one specific mechanic abuse - multishot (and to a smaller extent <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="echo_sabre"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/echo_sabre.png" alt="Echo Sabre"></span></span>Echo Sabre</span> and <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="harpoon"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/harpoon.png" alt="Harpoon"></span></span>Harpoon).</span> Imagine the horror that <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="medusa"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/medusa.png" alt="Medusa"></span></span>Medusa</span> and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="muerta"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/muerta.png" alt="Muerta"></span></span>Muerta</span> would inflict upon the world. At best, each one of their extra shots would progress the proc chance. At worst, multiple chain lightnings would proc at the exact same time. Or Medusa would simply bash the entire enemy team non-stop.
   </p>
 
   <p>
-    But for any other normal hero this is a non-issue for low cooldown proc effects. To have a problem with Maelstrom for example, you would need attack speed near the limit cap in order to start hitting faster than 0.2 seconds. Only Alchemist and Marci, with their ultimates, can attack faster than that. In my testing, heroes at exactly 0.20 seconds between attacks (Anti-Mage and Juggernaut at maximum attack speed) lost nothing, and attacking faster than 0.2 seconds never lowered overall DPS.
+    But for any other normal hero this is a non-issue for low cooldown proc effects. To have a problem with Maelstrom for example, you would need attack speed near the limit cap in order to start hitting faster than 0.2 seconds. Only <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="alchemist"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/alchemist.png" alt="Alchemist"></span></span>Alchemist</span> and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="marci"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/marci.png" alt="Marci"></span></span>Marci,</span> with their ultimates, can attack faster than that. In my testing, heroes at exactly 0.20 seconds between attacks <span class="icon-name">(<span class="hero-link" data-tooltip="hero" data-hero-key="antimage"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="Anti-Mage"></span></span>Anti-Mage</span> and <span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="juggernaut"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="Juggernaut"></span></span>Juggernaut</span> at maximum attack speed) lost nothing, and attacking faster than 0.2 seconds never lowered overall DPS.
   </p>
 
   <p>
@@ -1091,9 +1098,9 @@
         <tr><th>Effect</th><th>Cooldown</th></tr>
       </thead>
       <tbody>
-        <tr><td>Spirit Breaker's Greater Bash</td><td>1.2 seconds</td></tr>
-        <tr><td>Skull Basher</td><td>2.3 seconds</td></tr>
-        <tr><td>Maelstrom and Mjollnir's Chain Lightning</td><td>0.2 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span>Spirit Breaker's</span> <span class="icon-name"><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span>Greater Bash</span></td><td>1.2 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="item-link" data-tooltip="item" data-item="basher"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/basher.png" alt="Skull Basher"></span></span>Skull Basher</span></td><td>2.3 seconds</td></tr>
+        <tr><td><span class="icon-name"><span class="item-link" data-tooltip="item" data-item="maelstrom"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/maelstrom.png" alt="Maelstrom"></span></span>Maelstrom</span> and <span class="icon-name"><span class="item-link" data-tooltip="item" data-item="mjollnir"><span class="inline-icon"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/mjollnir.png" alt="Mjollnir"></span></span>Mjollnir's</span> Chain Lightning</td><td>0.2 seconds</td></tr>
       </tbody>
     </table>
   </div>
@@ -1177,10 +1184,11 @@
 })();
 </script>
 
-<!-- Hero tooltips and links for the inline hero icons. -->
+<!-- Hero and item tooltips and links for the inline icons. -->
 <script src="../icon-src.js?v=12"></script>
 <script src="../data/tooltips.js?v=22"></script>
 <script src="../hero-links.js"></script>
+<script src="../item-links.js"></script>
 
 <!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
 <script src="../toc-rail.js?v=5"></script>

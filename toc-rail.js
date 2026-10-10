@@ -27,6 +27,8 @@
      do this; in-text links (a.in-link) and direct #anchors go straight to the
      section.
    - The rail scrolls itself to keep the active line visible.
+   - Scrolling with the cursor inside the rail scrolls only the rail, never
+     the page; at the rail's top or bottom the scroll stops there.
    ══════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -150,6 +152,20 @@
     panel.appendChild(cta);
     sidebar.appendChild(panel);
     mount.appendChild(sidebar);
+
+    // Wheel over the rail scrolls the rail and nothing else. Cancelling the
+    // event also stops it reaching the page, including when the list is too
+    // short to scroll or is already at its top or bottom. Ctrl+wheel is left
+    // alone so browser zoom still works.
+    panel.addEventListener('wheel', function (e) {
+      if (e.ctrlKey) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var d = e.deltaY;
+      if (e.deltaMode === 1) d *= 16;
+      else if (e.deltaMode === 2) d *= panel.clientHeight;
+      panel.scrollTop += d;
+    }, { passive: false });
 
     // Guides: fewer than 2 sections -> hide the list, keep the CTA.
     if (sectionCount < 2) {

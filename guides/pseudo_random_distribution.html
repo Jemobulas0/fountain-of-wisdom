@@ -284,6 +284,22 @@
   .prd-data table { font-size: 14px; }
   .prd-data th, .prd-data td { padding: 6px 8px; text-align: center; }
 
+  /* Text for screen readers only. Used for chart descriptions instead of an SVG <title>, which browsers show as a hover tooltip. */
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .prd-chart-title { text-align: center; font-size: 19px; font-weight: 700; color: var(--text-bright); margin-bottom: 14px; }
+
+  /* Inline hero and ability icons (same conventions as the item pages) */
+  .inline-icon { width: 28px; height: 28px; display: inline-flex; flex-shrink: 0; background: linear-gradient(135deg, #1a2a1a, #0d150d); border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; margin: 0 2px; }
+  .inline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+  .inline-icon.hero-inline img { object-position: center top; }
+  .inline-icon.ability-inline { width: 24px; height: 24px; }
+  a.hero-link { text-decoration: none; color: inherit; display: inline-block; }
+  a.hero-link .inline-icon { transition: border-color 0.2s, box-shadow 0.2s; }
+  a.hero-link:hover .inline-icon { border-color: var(--gold-dark); box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  .prd-source { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .prd-source + .prd-source { margin-top: 6px; }
+  .table-wrap[id] { scroll-margin-top: 88px; }
+
   /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
   .article-layout {
     max-width: 760px;
@@ -334,7 +350,8 @@
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
 </style>
 <link rel="stylesheet" href="../mobile.css?v=3">
-<link rel="stylesheet" href="../toc-rail.css?v=1">
+<link rel="stylesheet" href="../toc-rail.css?v=2">
+<link rel="stylesheet" href="../data/tooltips.css?v=15">
 <script src="../nav.js" defer></script>
 <script src="../favicon-anim.js" defer></script>
 </head>
@@ -361,7 +378,7 @@
     <span class="meta-dot">·</span>
     <span class="article-date">October 2026</span>
     <span class="meta-dot">·</span>
-    <span class="article-readtime">10 min read</span>
+    <span class="article-readtime">16 min read</span>
   </div>
 
   <h1 class="article-title">Pseudo-Random Distribution: Why 25% Is Not Always 25%</h1>
@@ -378,7 +395,7 @@
   </div>
 
   <p>
-    A hero's Critical Strike says 25%. That does not mean every attack has a 25% chance. The game hides a counter that starts the chance far lower and raises it with every attack that fails. This system is called Pseudo-Random Distribution (PRD), and once you know it, you can use it.
+    A hero's Critical Strike says 25%. That does not mean every attack has a 25% chance. The game hides a counter that starts the chance far lower and raises it with every attack that fails. This system is called Pseudo-Random Distribution (PRD), and once you learn it, you can use it to gain the upper hand in your games in a way that almost nobody else ever does.
   </p>
 
   <p>
@@ -418,14 +435,13 @@
   </p>
 
   <p>
-    PRD applies to "X% chance when Y happens" effects. Random amounts (such as attack damage rolling between a minimum and maximum) and random picks do not use it.
+    PRD applies to "X% chance when Y happens" effects. Random amounts (such as attack damage rolling between a minimum and maximum) and random picks do not use it. Not every chance-based effect uses it either. In my testing, Ogre Magi's Multicast is truly random.
   </p>
 
   <p>
     <strong>What uses it.</strong> The set currently includes effects like these, among others:
   </p>
 
-  <!-- VERIFY: confirm this list of PRD effects is still accurate -->
   <ul>
     <li><strong>Phantom Assassin</strong> - Coup de Grace</li>
     <li><strong>Juggernaut</strong> - Blade Dance</li>
@@ -476,7 +492,7 @@
     Here are the numbers for the listed chances you will meet most often:
   </p>
 
-  <div class="table-wrap">
+  <div class="table-wrap" id="prd-numbers">
     <table>
       <thead>
         <tr><th>Listed chance</th><th>First attempt</th><th>Most likely attempt</th><th>Guaranteed by attempt</th><th>Average attempts per proc</th></tr>
@@ -495,52 +511,125 @@
   </div>
 
   <p>
-    The graph below shows what this does to a listed 25% chance. Each bar is the chance that the proc lands on exactly that attempt, counted from the last proc.
+    The graphs below show what this does to a listed 25% chance.
   </p>
 
   <figure class="prd-chart">
-    <svg viewBox="0 0 1200 440" role="img" aria-labelledby="prd-chart-title">
-<title id="prd-chart-title">Grouped bar chart for a listed 25% chance. For each attempt since the last proc, one bar shows the chance that the proc lands on that attempt under Pseudo-Random Distribution, and one shows the same under true random. Attempt 1: PRD 8.5%, true random 25.0%. Attempt 2: 15.5% and 18.8%. Attempt 3: 19.3% and 14.1%. Attempt 4: 19.2% and 10.5%. Attempt 5: 15.9% and 7.9%. Attempt 6: 11.0% and 5.9%. Attempt 7: 6.3% and 4.4%. Attempt 8: 2.9% and 3.3%. Attempt 9: 1.1% and 2.5%. Attempt 10: 0.3% and 1.9%. True random is highest on the first attempt and falls steadily. PRD starts low, peaks on the third and fourth attempts, then drops away quickly.</title>
-<text class="prd-tick" x="88" y="349" text-anchor="end">0%</text>
-<line class="prd-grid" x1="100" y1="280" x2="1180" y2="280"/>
-<text class="prd-tick" x="88" y="289" text-anchor="end">5%</text>
-<line class="prd-grid" x1="100" y1="220" x2="1180" y2="220"/>
-<text class="prd-tick" x="88" y="229" text-anchor="end">10%</text>
-<line class="prd-grid" x1="100" y1="160" x2="1180" y2="160"/>
-<text class="prd-tick" x="88" y="169" text-anchor="end">15%</text>
-<line class="prd-grid" x1="100" y1="100" x2="1180" y2="100"/>
-<text class="prd-tick" x="88" y="109" text-anchor="end">20%</text>
-<line class="prd-grid" x1="100" y1="40" x2="1180" y2="40"/>
-<text class="prd-tick" x="88" y="49" text-anchor="end">25%</text>
-<rect class="prd-bar-prd" x="114" y="238.0" width="36" height="102.0"/>
-<rect class="prd-bar-rnd" x="154" y="40.0" width="36" height="300.0"/>
+    <div class="prd-chart-title">Chance on each attack (listed 25%)</div>
+    <span class="sr-only" id="prd-chart-1-desc">Grouped bar chart for a listed 25% chance, showing the chance of a proc on each single attack since the last proc. True random is 25% on every attack. PRD rises by about 8.5 points with every attack: attack 1: 8.5%, attack 2: 16.9%, attack 3: 25.4%, attack 4: 33.9%, attack 5: 42.4%, attack 6: 50.8%, attack 7: 59.3%, attack 8: 67.8%, attack 9: 76.3%, attack 10: 84.7%, attack 11: 93.2%, attack 12: 100%. PRD starts well below true random and passes it on the third attack. By the twelfth attack the proc is guaranteed.</span>
+    <svg viewBox="0 0 1200 440" role="img" aria-labelledby="prd-chart-1-desc">
+<text class="prd-tick" x="88" y="349.0" text-anchor="end">0%</text>
+<line class="prd-grid" x1="100" y1="265.0" x2="1180" y2="265.0"/>
+<text class="prd-tick" x="88" y="274.0" text-anchor="end">25%</text>
+<line class="prd-grid" x1="100" y1="190.0" x2="1180" y2="190.0"/>
+<text class="prd-tick" x="88" y="199.0" text-anchor="end">50%</text>
+<line class="prd-grid" x1="100" y1="115.0" x2="1180" y2="115.0"/>
+<text class="prd-tick" x="88" y="124.0" text-anchor="end">75%</text>
+<line class="prd-grid" x1="100" y1="40.0" x2="1180" y2="40.0"/>
+<text class="prd-tick" x="88" y="49.0" text-anchor="end">100%</text>
+<rect class="prd-bar-prd" x="111.0" y="314.5" width="32" height="25.5"/>
+<rect class="prd-bar-rnd" x="147.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="145.0" y="376" text-anchor="middle">1</text>
+<rect class="prd-bar-prd" x="201.0" y="289.3" width="32" height="50.7"/>
+<rect class="prd-bar-rnd" x="237.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="235.0" y="376" text-anchor="middle">2</text>
+<rect class="prd-bar-prd" x="291.0" y="263.8" width="32" height="76.2"/>
+<rect class="prd-bar-rnd" x="327.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="325.0" y="376" text-anchor="middle">3</text>
+<rect class="prd-bar-prd" x="381.0" y="238.3" width="32" height="101.7"/>
+<rect class="prd-bar-rnd" x="417.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="415.0" y="376" text-anchor="middle">4</text>
+<rect class="prd-bar-prd" x="471.0" y="212.8" width="32" height="127.2"/>
+<rect class="prd-bar-rnd" x="507.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="505.0" y="376" text-anchor="middle">5</text>
+<rect class="prd-bar-prd" x="561.0" y="187.6" width="32" height="152.4"/>
+<rect class="prd-bar-rnd" x="597.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="595.0" y="376" text-anchor="middle">6</text>
+<rect class="prd-bar-prd" x="651.0" y="162.1" width="32" height="177.9"/>
+<rect class="prd-bar-rnd" x="687.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="685.0" y="376" text-anchor="middle">7</text>
+<rect class="prd-bar-prd" x="741.0" y="136.6" width="32" height="203.4"/>
+<rect class="prd-bar-rnd" x="777.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="775.0" y="376" text-anchor="middle">8</text>
+<rect class="prd-bar-prd" x="831.0" y="111.1" width="32" height="228.9"/>
+<rect class="prd-bar-rnd" x="867.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="865.0" y="376" text-anchor="middle">9</text>
+<rect class="prd-bar-prd" x="921.0" y="85.9" width="32" height="254.1"/>
+<rect class="prd-bar-rnd" x="957.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="955.0" y="376" text-anchor="middle">10</text>
+<rect class="prd-bar-prd" x="1011.0" y="60.4" width="32" height="279.6"/>
+<rect class="prd-bar-rnd" x="1047.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="1045.0" y="376" text-anchor="middle">11</text>
+<rect class="prd-bar-prd" x="1101.0" y="40.0" width="32" height="300.0"/>
+<rect class="prd-bar-rnd" x="1137.0" y="265.0" width="32" height="75.0"/>
+<text class="prd-tick" x="1135.0" y="376" text-anchor="middle">12</text>
+<line class="prd-axis" x1="100" y1="340" x2="1180" y2="340"/>
+<text class="prd-axis-title" x="640" y="424" text-anchor="middle">Attack since the last proc</text>
+</svg>
+    <div class="prd-legend">
+      <span><span class="prd-swatch prd"></span>PRD</span>
+      <span><span class="prd-swatch rnd"></span>True random</span>
+      <span>Chance of a proc on each single attack, listed 25% chance</span>
+    </div>
+    <div class="table-wrap prd-data">
+      <table>
+        <thead><tr><th>Attack</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th></tr></thead>
+        <tbody>
+          <tr><td>PRD</td><td>8.5%</td><td>16.9%</td><td>25.4%</td><td>33.9%</td><td>42.4%</td><td>50.8%</td><td>59.3%</td><td>67.8%</td><td>76.3%</td><td>84.7%</td><td>93.2%</td><td>100%</td></tr>
+          <tr><td>True random</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td><td>25%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </figure>
+
+  <p>
+    The first chart shows the chance of each single attack. The second shows how likely it is that your first proc lands on that attack.
+  </p>
+
+  <figure class="prd-chart">
+    <div class="prd-chart-title">On which attack does the proc arrive? (listed 25%)</div>
+    <span class="sr-only" id="prd-chart-2-desc">Grouped bar chart for a listed 25% chance. For each attempt since the last proc, one bar shows the chance that the proc lands on that attempt under Pseudo-Random Distribution, and one shows the same under true random. Attempt 1: PRD 8.5%, true random 25.0%. Attempt 2: 15.5% and 18.8%. Attempt 3: 19.3% and 14.1%. Attempt 4: 19.2% and 10.5%. Attempt 5: 15.9% and 7.9%. Attempt 6: 11.0% and 5.9%. Attempt 7: 6.3% and 4.4%. Attempt 8: 2.9% and 3.3%. Attempt 9: 1.1% and 2.5%. Attempt 10: 0.3% and 1.9%. True random is highest on the first attempt and falls steadily. PRD starts low, peaks on the third and fourth attempts, then drops away quickly.</span>
+    <svg viewBox="0 0 1200 440" role="img" aria-labelledby="prd-chart-2-desc">
+<text class="prd-tick" x="88" y="349.0" text-anchor="end">0%</text>
+<line class="prd-grid" x1="100" y1="280.0" x2="1180" y2="280.0"/>
+<text class="prd-tick" x="88" y="289.0" text-anchor="end">5%</text>
+<line class="prd-grid" x1="100" y1="220.0" x2="1180" y2="220.0"/>
+<text class="prd-tick" x="88" y="229.0" text-anchor="end">10%</text>
+<line class="prd-grid" x1="100" y1="160.0" x2="1180" y2="160.0"/>
+<text class="prd-tick" x="88" y="169.0" text-anchor="end">15%</text>
+<line class="prd-grid" x1="100" y1="100.0" x2="1180" y2="100.0"/>
+<text class="prd-tick" x="88" y="109.0" text-anchor="end">20%</text>
+<line class="prd-grid" x1="100" y1="40.0" x2="1180" y2="40.0"/>
+<text class="prd-tick" x="88" y="49.0" text-anchor="end">25%</text>
+<rect class="prd-bar-prd" x="116.0" y="238.0" width="36" height="102.0"/>
+<rect class="prd-bar-rnd" x="156.0" y="40.0" width="36" height="300.0"/>
 <text class="prd-tick" x="154.0" y="376" text-anchor="middle">1</text>
-<rect class="prd-bar-prd" x="222" y="154.0" width="36" height="186.0"/>
-<rect class="prd-bar-rnd" x="262" y="114.4" width="36" height="225.6"/>
+<rect class="prd-bar-prd" x="224.0" y="154.0" width="36" height="186.0"/>
+<rect class="prd-bar-rnd" x="264.0" y="114.4" width="36" height="225.6"/>
 <text class="prd-tick" x="262.0" y="376" text-anchor="middle">2</text>
-<rect class="prd-bar-prd" x="330" y="108.4" width="36" height="231.6"/>
-<rect class="prd-bar-rnd" x="370" y="170.8" width="36" height="169.2"/>
+<rect class="prd-bar-prd" x="332.0" y="108.4" width="36" height="231.6"/>
+<rect class="prd-bar-rnd" x="372.0" y="170.8" width="36" height="169.2"/>
 <text class="prd-tick" x="370.0" y="376" text-anchor="middle">3</text>
-<rect class="prd-bar-prd" x="438" y="109.6" width="36" height="230.4"/>
-<rect class="prd-bar-rnd" x="478" y="214.0" width="36" height="126.0"/>
+<rect class="prd-bar-prd" x="440.0" y="109.6" width="36" height="230.4"/>
+<rect class="prd-bar-rnd" x="480.0" y="214.0" width="36" height="126.0"/>
 <text class="prd-tick" x="478.0" y="376" text-anchor="middle">4</text>
-<rect class="prd-bar-prd" x="546" y="149.2" width="36" height="190.8"/>
-<rect class="prd-bar-rnd" x="586" y="245.2" width="36" height="94.8"/>
+<rect class="prd-bar-prd" x="548.0" y="149.2" width="36" height="190.8"/>
+<rect class="prd-bar-rnd" x="588.0" y="245.2" width="36" height="94.8"/>
 <text class="prd-tick" x="586.0" y="376" text-anchor="middle">5</text>
-<rect class="prd-bar-prd" x="654" y="208.0" width="36" height="132.0"/>
-<rect class="prd-bar-rnd" x="694" y="269.2" width="36" height="70.8"/>
+<rect class="prd-bar-prd" x="656.0" y="208.0" width="36" height="132.0"/>
+<rect class="prd-bar-rnd" x="696.0" y="269.2" width="36" height="70.8"/>
 <text class="prd-tick" x="694.0" y="376" text-anchor="middle">6</text>
-<rect class="prd-bar-prd" x="762" y="264.4" width="36" height="75.6"/>
-<rect class="prd-bar-rnd" x="802" y="287.2" width="36" height="52.8"/>
+<rect class="prd-bar-prd" x="764.0" y="264.4" width="36" height="75.6"/>
+<rect class="prd-bar-rnd" x="804.0" y="287.2" width="36" height="52.8"/>
 <text class="prd-tick" x="802.0" y="376" text-anchor="middle">7</text>
-<rect class="prd-bar-prd" x="870" y="305.2" width="36" height="34.8"/>
-<rect class="prd-bar-rnd" x="910" y="300.4" width="36" height="39.6"/>
+<rect class="prd-bar-prd" x="872.0" y="305.2" width="36" height="34.8"/>
+<rect class="prd-bar-rnd" x="912.0" y="300.4" width="36" height="39.6"/>
 <text class="prd-tick" x="910.0" y="376" text-anchor="middle">8</text>
-<rect class="prd-bar-prd" x="978" y="326.8" width="36" height="13.2"/>
-<rect class="prd-bar-rnd" x="1018" y="310.0" width="36" height="30.0"/>
+<rect class="prd-bar-prd" x="980.0" y="326.8" width="36" height="13.2"/>
+<rect class="prd-bar-rnd" x="1020.0" y="310.0" width="36" height="30.0"/>
 <text class="prd-tick" x="1018.0" y="376" text-anchor="middle">9</text>
-<rect class="prd-bar-prd" x="1086" y="336.4" width="36" height="3.6"/>
-<rect class="prd-bar-rnd" x="1126" y="317.2" width="36" height="22.8"/>
+<rect class="prd-bar-prd" x="1088.0" y="336.4" width="36" height="3.6"/>
+<rect class="prd-bar-rnd" x="1128.0" y="317.2" width="36" height="22.8"/>
 <text class="prd-tick" x="1126.0" y="376" text-anchor="middle">10</text>
 <line class="prd-axis" x1="100" y1="340" x2="1180" y2="340"/>
 <text class="prd-axis-title" x="640" y="424" text-anchor="middle">Attempt since the last proc</text>
@@ -554,8 +643,8 @@
       <table>
         <thead><tr><th>Attempt</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
         <tbody>
-          <tr><td>PRD</td><td>8.5%</td><td>15.5%</td><td>19.3%</td><td>19.2%</td><td>15.9%</td><td>11.0%</td><td>6.3%</td><td>2.9%</td><td>1.1%</td><td>0.3%</td></tr>
-          <tr><td>True random</td><td>25.0%</td><td>18.8%</td><td>14.1%</td><td>10.5%</td><td>7.9%</td><td>5.9%</td><td>4.4%</td><td>3.3%</td><td>2.5%</td><td>1.9%</td></tr>
+          <tr><td>PRD</td><td>8.5%</td><td>15.5%</td><td>19.3%</td><td>19.2%</td><td>15.9%</td><td>11%</td><td>6.3%</td><td>2.9%</td><td>1.1%</td><td>0.3%</td></tr>
+          <tr><td>True random</td><td>25%</td><td>18.8%</td><td>14.1%</td><td>10.5%</td><td>7.9%</td><td>5.9%</td><td>4.4%</td><td>3.3%</td><td>2.5%</td><td>1.9%</td></tr>
         </tbody>
       </table>
     </div>
@@ -564,6 +653,25 @@
   <p>
     True random is highest on the very first attempt and falls from there, so its most likely moment to proc is always right away. PRD is the opposite: the first attempts are weak, the chance peaks around the third and fourth, and by the tenth attempt it has nearly no probability left. The proc is pulled toward the middle.
   </p>
+
+  <p>
+    <strong>Other common proc chances in DotA</strong>
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Listed chance</th><th>Source</th><th>First attempt</th><th>Most likely attempt</th><th>Guaranteed by attempt</th><th>Average attempts per proc</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>12%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="tusk"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png" alt="Tusk"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/tusk_walrus_punch.png" alt="Walrus PUNCH!"></span><span>Walrus PUNCH! (level 25 talent)</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 1)</span></div></td><td>2.1%</td><td>7th</td><td>48th</td><td>8.3</td></tr>
+        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="pangolier"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" alt="Pangolier"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_lucky_shot.png" alt="Lucky Shot"></span><span>Lucky Shot</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
+        <tr><td>24%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 4)</span></div></td><td>7.9%</td><td>4th</td><td>13th</td><td>4.2</td></tr>
+        <tr><td>27%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace (level 25 talent)</span></div></td><td>9.8%</td><td>3rd</td><td>11th</td><td>3.7</td></tr>
+        <tr><td>33.33%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></td><td>14.4%</td><td>3rd</td><td>7th</td><td>3.0</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="section-break sub-break">
     <span class="section-break-title">4. What Moves the Counter</span>
@@ -575,10 +683,10 @@
   </p>
 
   <ul>
-    <li><strong>Only attempts that could trigger the effect count.</strong> Attacking a building does not build up a critical strike, because critical strikes do not work on buildings. <!-- VERIFY: buildings do not build the counter for critical strikes --></li>
-    <li><strong>A cooldown pauses the counter.</strong> While the effect is on cooldown, attempts neither build the counter nor reset it. Details in Section 8.</li>
-    <li><strong>The buildup does not expire with time.</strong> In testing, I made 4 attacks without a critical strike, paused for 60 seconds, then attacked again. The critical strike came within the first two attacks in 5 out of 5 trials.</li>
-    <li><strong>The buildup carries across targets</strong> for effects that belong to the attacker. In testing, I built up on one target, switched to a second, and the proc came early on the second.</li>
+    <li><strong>Only attempts that could trigger the effect count.</strong> Attacking a building does not build up a critical strike, because critical strikes do not work on buildings.</li>
+    <li><strong>A cooldown pauses the counter.</strong> If the effect has a cooldown and is on said cooldown, attempts neither build the counter nor reset it. Details in Section 8.</li>
+    <li><strong>The buildup does not expire with time.</strong> In testing, I made 4 attacks without a critical strike, paused for 60 seconds, then attacked again. The critical strike came within the first two attacks across all trials.</li>
+    <li><strong>The buildup carries across targets</strong> for effects that belong to the attacker. In testing, I built up on one target, switched to a second, and the proc came early on the second across all trials.</li>
   </ul>
 
   <p>
@@ -591,7 +699,7 @@
   </div>
 
   <p>
-    Use two columns of the Section 3 table: <strong>average attempts per proc</strong> and <strong>most likely attempt</strong>.
+    Use the <a href="#prd-numbers" class="in-link">table from Section 3</a>.
   </p>
 
   <p>
@@ -608,7 +716,7 @@
   </div>
 
   <p>
-    PRD changes how streaks look, in both directions. Here are the odds for a 15% chance, counted right after a proc:
+    The reason Pseudo-Random Distribution was invented was to avoid extreme cases occurring way too often. PRD changes how streaks look, in both directions. Here are the odds for a 15% chance, counted right after a proc:
   </p>
 
   <div class="table-wrap">
@@ -617,7 +725,7 @@
         <tr><th>Event</th><th>PRD</th><th>True random</th></tr>
       </thead>
       <tbody>
-        <tr><td>The next 2 attacks both proc (3 procs in a row)</td><td>about 1 in 960</td><td>about 1 in 44</td></tr>
+        <tr><td>3 procs in a row</td><td>about 1 in 960</td><td>about 1 in 44</td></tr>
         <tr><td>No proc in the next 10 attacks</td><td>13%</td><td>20%</td></tr>
         <tr><td>No proc in the next 20 attacks</td><td>about 1 in 9,000</td><td>about 1 in 26</td></tr>
       </tbody>
@@ -625,11 +733,11 @@
   </div>
 
   <p>
-    Short dry spells are normal. Long ones are nearly removed.
+    As seen in the table, only the middle example somewhat overlaps between PRD and True Random. Meanwhile the extreme cases of no procs occurring at all or way too many happening in a row are almost non-existent.
   </p>
 
   <p>
-    Back-to-back procs are rare, but a hero attacks so often that they still show up now and then, and they are memorable because they are rare.
+    As to why we remember a lot of extreme cases? Let's say that you're playing Phantom Assassin. Stifling Dagger has double the chance to proc your ultimate, so through accidental or intentional priming you can land 3 out of 4 crits once every 4-8 games, which is often enough to feel like it's happening frequently, but rare enough to be an explosive, super memorable event. And it's extra memorable if it happens to you, rather than if you do it to somebody else, since the human brain is built to register the negative version of this event harder.
   </p>
 
   <!-- ═══════════════ PART II ═══════════════ -->
@@ -648,42 +756,37 @@
   </p>
 
   <p>
-    Priming means attacking something unimportant until you have a run of non-procs, so your next attacks carry a raised chance. It works because the buildup does not expire and carries across targets (Section 4). Creeps, a neutral camp or a lane wave all work as the thing you build on.
+    Priming means attacking something unimportant until you have a run of non-procs, so your next attacks carry a raised chance. It works because the buildup does not expire and carries across targets, as covered in <a href="#4-what-moves-the-counter" class="in-link">Section 4</a>. Lane creeps and neutral camps are your usual go-to options. Especially for the laning stage, if you don't want to influence the lane equilibrium for whatever reason, but you also can't really tank neutral creeps, a cool little trick is to pull them from their camp, and attack them as they walk back. This way you can Prime your next proc without practically losing any health.
   </p>
 
   <p>
-    Here is what that is worth. The tables show the chance of at least one proc in your first attacks of a fight:
+    Here is what that is worth. The table shows the chance of your next attack procing, depending on how many misses in a row you have banked:
   </p>
 
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>15% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Fresh (just procced)</td><td>3.2%</td><td>9.5%</td><td>18.2%</td></tr>
-        <tr><td>4 misses banked</td><td>16.1%</td><td>32.3%</td><td>47.6%</td></tr>
-        <tr><td>8 misses banked</td><td>29.0%</td><td>51.9%</td><td>68.9%</td></tr>
-        <tr><td>True random, for comparison</td><td>15.0%</td><td>27.8%</td><td>38.6%</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <p>
+    <strong>Chance on your next attack, by misses banked</strong>
+  </p>
 
-  <div class="table-wrap">
+  <div class="table-wrap" id="prd-priming">
     <table>
       <thead>
-        <tr><th>25% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+        <tr><th>Chance</th><th>Source</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>8</th><th>10</th><th>Realistic target</th></tr>
       </thead>
       <tbody>
-        <tr><td>Fresh (just procced)</td><td>8.5%</td><td>24.0%</td><td>43.3%</td></tr>
-        <tr><td>4 misses banked</td><td>42.4%</td><td>71.7%</td><td>88.5%</td></tr>
-        <tr><td>True random, for comparison</td><td>25.0%</td><td>43.8%</td><td>57.8%</td></tr>
+        <tr><td>17%</td><td>Greater Bash, Coup de Grace</td><td>4%</td><td>8%</td><td>12%</td><td>16%</td><td>20%</td><td>25%</td><td>29%</td><td>37%</td><td>45%</td><td>5 misses</td></tr>
+        <tr><td>24%</td><td>Time Lock (level 4)</td><td>8%</td><td>16%</td><td>24%</td><td>31%</td><td>39%</td><td>47%</td><td>55%</td><td>71%</td><td>86%</td><td>3 misses</td></tr>
+        <tr><td>33.33%</td><td>Chaos Strike</td><td>14%</td><td>28%</td><td>43%</td><td>57%</td><td>71%</td><td>85%</td><td>99%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
+        <tr><td>35%</td><td>Blade Dance</td><td>16%</td><td>32%</td><td>47%</td><td>63%</td><td>79%</td><td>95%</td><td>100%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
       </tbody>
     </table>
   </div>
 
   <p>
-    Look at the "fresh" rows. Walking into a fight right after a proc is the worst state you can be in, well below true random. Walking in with 4 misses banked on a 25% chance gives you a 42.4% chance on the very first attack, and 88.5% within three.
+    Realistic target is the number of misses in a row you will reach about half the time.
+  </p>
+
+  <p>
+    Look at the 0 column. Walking into a fight right after a proc is the worst state you can be in, well below the listed chance. Walking in with 5 misses banked on a 17% chance gives you a 25% chance on your very first attack, and a 64% chance to proc at least once in your first three attacks. Fresh, those numbers are 4% and 23%.
   </p>
 
   <p>
@@ -695,7 +798,7 @@
   </p>
 
   <p>
-    When you are primed, the first attack is the most valuable one. Spending it on a creep, an illusion or a ward in the middle of a fight throws the buildup away if it procs there. Pick the target that matters first.
+    When you are primed, the first attack is the most valuable one. Spending it on a creep, an illusion or a ward in the middle of a fight throws the buildup away if it procs there. Prioritize the target that matters the most first.
   </p>
 
   <p>
@@ -703,7 +806,7 @@
   </p>
 
   <p>
-    PRD works the same against you. Right after an enemy procs on you, their next attacks are the safest you will face. With a 15% chance, they proc again within 3 attacks only 18% of the time (39% under true random). After a long run without a proc, the danger is at its peak.
+    PRD works the same against you. Right after an enemy procs on you, their next attacks are the safest you will face. With a 15% chance, they proc again within 3 attacks only 18% of the time (39% under true random). After a long run without a proc, the danger is at its peak. In an ideal scenario where both you and an opponent have procs, choosing to go in Primed yourself just after the enemy hero has procced gives you a huge advantage, depending on the circumstances of course.
   </p>
 
   <p>
@@ -711,7 +814,7 @@
   </p>
 
   <p>
-    Short trades get far less than the listed chance. A 25% proc in a 2-hit trade triggers 24% of the time (44% under true random). A hero with slow, heavy attacks facing a hero with fast proc attacks usually does better with short hit-and-run trades than with a long fight, if trading is all that is at stake.
+    Short trades get far less than the listed chance. A 25% proc in a 2-hit trade triggers 24% of the time (44% under true random). So if you're playing a hero with slow and heavy attacks like Chaos Knight, you want to utilize hit and run tactics around your procs. Vice versa, if you're a fast hitting hero like Juggernaut, you ideally want prolonged trades, as they are the ones in your favor. This again is an example of when both heroes have procs to play around. If you're the only one who has a proccable effect, then you can choose which tactic works better for you in any given situation.
   </p>
 
   <div class="section-break sub-break">
@@ -720,7 +823,7 @@
   </div>
 
   <p>
-    Some procs have an internal cooldown. During it, attacks do not build toward the next proc. I checked these in-game:
+    Some procs have an internal cooldown. During it, attacks do not build toward the next proc.
   </p>
 
   <div class="table-wrap">
@@ -741,7 +844,42 @@
   </p>
 
   <p>
-    The 0.2 second cooldown on Chain Lightning only starts to matter near the attack speed cap. See the Base Attack Time guide for how attacks per second work at the cap.
+    <strong>Proc Cooldown - the counter to truly broken builds.</strong> Certain proc effects have most likely been given cooldowns intentionally, because otherwise they would break the game. Skull Basher for example has one of the longest cooldowns in order to avoid perma-bash with high enough attack speed. But items like Maelstrom and Mjollnir have a very short cooldown to counter one specific mechanic abuse - multishot (and to a smaller extent Echo Sabre and Harpoon). Imagine the horror that Medusa and Muerta would inflict upon the world. At best, each one of their extra shots would progress the proc chance. At worst, multiple chain lightnings would proc at the exact same time. Or Medusa would simply bash the entire enemy team non-stop.
+  </p>
+
+  <p>
+    But for any other normal hero this is a non-issue for low cooldown proc effects. To have a problem with Maelstrom for example, you would need attack speed near the limit cap in order to start hitting faster than 0.2 seconds. Only Alchemist and Marci, with their ultimates, can attack faster than that. In my testing, heroes at exactly 0.20 seconds between attacks (Anti-Mage and Juggernaut at maximum attack speed) lost nothing, and attacking faster than 0.2 seconds never lowered overall DPS.
+  </p>
+
+  <p>
+    Attack speed begins to matter again the moment the cooldown wears off. So don't expect to perma-bash people by aiming for the maximum attack speed in the game.
+  </p>
+
+  <p>
+    <strong>Skull Basher: seconds per bash</strong>
+  </p>
+
+  <p>
+    Calculated for a 25% chance and a 2.3 second cooldown. <!-- VERIFY: Skull Basher 25% chance on melee heroes -->
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Time between attacks</th><th>Seconds per bash</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.7</td><td>8.5</td></tr>
+        <tr><td>1.0</td><td>6.0</td></tr>
+        <tr><td>0.5</td><td>4.0</td></tr>
+        <tr><td>0.25</td><td>3.25</td></tr>
+        <tr><td>Any speed</td><td>Never below 2.3</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Doubling your attack speed from 1.0 to 0.5 seconds between attacks gives 50% more bashes, not 100%. Doubling it again gives only 23% more.
   </p>
 
   <div class="section-break sub-break">
@@ -750,16 +888,15 @@
   </div>
 
   <p>
-    Ranged heroes attacking from low ground currently have a 25% chance to miss. All numbers in this section come from my own tests in Demo mode.
+    Ranged heroes attacking from low ground currently have a 25% miss chance. All numbers in this section come from my own tests in Demo mode.
   </p>
 
-  <ul>
-    <li><strong>Same target.</strong> After an uphill miss, the next attack on that target hit 23 times out of 25 (92%). The base hit chance is 75%.</li>
-    <li><strong>After switching to a different target.</strong> The next attack hit 42 times out of 49 (86%).</li>
-  </ul>
+  <p>
+    After an uphill miss, my next attack hit 65 times out of 74 (88%). The usual hit chance is 75%.
+  </p>
 
   <p>
-    So a miss on a creep probably helps your next attack on a hero, but less than staying on the same target.
+    So a miss on a creep helps your next attack on a hero.
   </p>
 
   <p>
@@ -767,7 +904,11 @@
   </p>
 
   <p>
-    <strong>Evasion.</strong> Evasion is listed as using PRD, but in testing with a 35% evasion item its streaks did not match the standard numbers, so this guide gives no streak table for evasion. The average was confirmed: 36% misses over more than 300 attacks.
+    Of course make sure that you're not in range of the enemy hero while Priming - as always, keep the rule of Priming your hits only while being safely out of direct danger.
+  </p>
+
+  <p>
+    <strong>Evasion.</strong> Evasion is listed as using PRD, but in testing with a 35% evasion item its streaks did not match the standard numbers, so this guide gives no streak table for evasion. With a large enough sample, it should even out to exactly 35%.
   </p>
 
   <div class="section-break sub-break">
@@ -776,15 +917,27 @@
   </div>
 
   <p>
-    A run of non-procs is the system working as designed, and the proc is mathematically on its way.
+    Embrace Math! 💙
   </p>
 
   <p>
-    Non-procs on creeps right before a fight are good news, not bad luck. You are banking chance for the moment it matters.
+    People fear the unknown. Be one of the few people who thrive in it while leaving all the others behind!
   </p>
 
   <p>
-    Knowing this keeps you from tilting, or from leaving a fight that is about to turn.
+    A streak of non-procs is the system working as intended. Your proc is mathematically on its way!
+  </p>
+
+  <p>
+    I love the lessons which DotA teaches, because they are often applicable 1 to 1 in real life as well:
+  </p>
+
+  <p>
+    The world is controlled chaos. The only thing that you're responsible for is to do your very best. All else is up to circumstances outside of your control. So Prime them hits and give yourself the best chances of success possible. From then on whatever happens - happens.
+  </p>
+
+  <p>
+    You will inevitably get bad streaks. Take comfort in the fact that you did your best! And when the good streaks happen - don't attribute those to dumb luck and thus deny yourself the pleasure of a job well done. We need those dopamine points baby - and now you can earn them!
   </p>
 
   <!-- ═══════════════ CLOSING ═══════════════ -->
@@ -803,10 +956,11 @@
   </p>
 
   <p>
-    That engine's constants were inaccurate for higher chances: a listed 50% delivered about 45.7% and a listed 80% about 66.7%. Up to 30% it was accurate. Dota 2 uses constants that average out to the listed chance. <!-- VERIFY: Warcraft 3 constants (50% listed gave about 45.7%, 80% gave about 66.7%, accurate up to 30%) and that Dota 2 constants average out to the listed chance --></p>
+    I discovered Priming by myself all the way back in DotA 1, long before it became public knowledge. And I've been doing it ever since.
+  </p>
 
   <p>
-    <!-- JEMOBULAS: your own text here (you have been priming since the original DotA, before PRD was publicly discussed) -->
+    What I discovered only years later, after I was already playing DotA 2 for a while, was that the engine's constants in DotA 1 were inaccurate for higher chances: a listed 50% delivered about 45.7% and a listed 80% about 66.7%. It was only accurate up to 30%. DotA 2 uses better and more mathematically correct constants.
   </p>
 
   <div class="section-break sub-break" id="12-summary">
@@ -815,12 +969,12 @@
   </div>
 
   <ul>
-    <li><strong>The listed chance is an average.</strong> The chance on any single attack is different from it, and short sequences get less than the listed number.</li>
+    <li><strong>The listed chance is an average.</strong> The chance on any single attack is different from it, and your first hits after a proc get less than the listed number.</li>
     <li><strong>The chance builds and resets.</strong> It starts low, rises with every failed attempt, is guaranteed at a fixed point, and resets on a proc. Chance on attempt N = C × N.</li>
     <li><strong>The buildup does not expire and carries across targets.</strong> Only attempts that could trigger the effect count.</li>
-    <li><strong>Priming works.</strong> Run up misses on something unimportant before a fight, then spend the first primed attack on the target that matters.</li>
-    <li><strong>Cooldown procs give less from attack speed.</strong> Attacks during the cooldown build nothing.</li>
-    <li><strong>A run of non-procs is good news.</strong> The proc is on its way, so don't tilt and don't leave the fight.</li>
+    <li><strong>Proc effects with cooldowns.</strong> Attacks during the cooldown period do not build up towards your next proc.</li>
+    <li><strong>Priming is your biggest practical application!</strong> Land the correct number of non-procs for your particular effect (as listed in my <a href="#prd-priming" class="in-link">Tables</a>) and then unload on your primary target.</li>
+    <li><strong>Choose your strategy.</strong> Slow attacks and a low % proc chance work best with hit and run tactics. Vice versa, fast attacks and a high % proc chance excel at sustained aggression. Your opponents almost always fit into one of those two playstyles, regardless of whether they utilize proc effects and/or spells. So always be mindful of what your winning strategy is in any particular encounter.</li>
   </ul>
 
   <div class="section-break sub-break" id="13-quick-reference">
@@ -866,35 +1020,45 @@
   </div>
 
   <p>
-    <strong>Priming</strong>
+    <strong>Other common proc chances in DotA</strong>
   </p>
 
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>15% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+        <tr><th>Listed chance</th><th>Source</th><th>First attempt</th><th>Most likely attempt</th><th>Guaranteed by attempt</th><th>Average attempts per proc</th></tr>
       </thead>
       <tbody>
-        <tr><td>Fresh (just procced)</td><td>3.2%</td><td>9.5%</td><td>18.2%</td></tr>
-        <tr><td>4 misses banked</td><td>16.1%</td><td>32.3%</td><td>47.6%</td></tr>
-        <tr><td>8 misses banked</td><td>29.0%</td><td>51.9%</td><td>68.9%</td></tr>
-        <tr><td>True random, for comparison</td><td>15.0%</td><td>27.8%</td><td>38.6%</td></tr>
+        <tr><td>12%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="tusk"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/tusk.png" alt="Tusk"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/tusk_walrus_punch.png" alt="Walrus PUNCH!"></span><span>Walrus PUNCH! (level 25 talent)</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 1)</span></div></td><td>2.1%</td><td>7th</td><td>48th</td><td>8.3</td></tr>
+        <tr><td>17%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="spirit_breaker"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/spirit_breaker.png" alt="Spirit Breaker"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/spirit_breaker_greater_bash.png" alt="Greater Bash"></span><span>Greater Bash</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace</span></div><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="pangolier"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/pangolier.png" alt="Pangolier"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/pangolier_lucky_shot.png" alt="Lucky Shot"></span><span>Lucky Shot</span></div></td><td>4.1%</td><td>5th</td><td>25th</td><td>5.9</td></tr>
+        <tr><td>24%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="faceless_void"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/faceless_void.png" alt="Faceless Void"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/faceless_void_time_lock.png" alt="Time Lock"></span><span>Time Lock (level 4)</span></div></td><td>7.9%</td><td>4th</td><td>13th</td><td>4.2</td></tr>
+        <tr><td>27%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="phantom_assassin"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/phantom_assassin.png" alt="Phantom Assassin"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/phantom_assassin_coup_de_grace.png" alt="Coup de Grace"></span><span>Coup de Grace (level 25 talent)</span></div></td><td>9.8%</td><td>3rd</td><td>11th</td><td>3.7</td></tr>
+        <tr><td>33.33%</td><td><div class="prd-source"><span class="hero-link" data-tooltip="hero" data-hero-key="chaos_knight"><span class="inline-icon hero-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/chaos_knight.png" alt="Chaos Knight"></span></span><span class="inline-icon ability-inline"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/chaos_knight_chaos_strike.png" alt="Chaos Strike"></span><span>Chaos Strike</span></div></td><td>14.4%</td><td>3rd</td><td>7th</td><td>3.0</td></tr>
       </tbody>
     </table>
   </div>
 
+  <p>
+    <strong>Priming: chance on your next attack, by misses banked</strong>
+  </p>
+
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>25% chance</th><th>Within 1 attack</th><th>Within 2</th><th>Within 3</th></tr>
+        <tr><th>Chance</th><th>Source</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>8</th><th>10</th><th>Realistic target</th></tr>
       </thead>
       <tbody>
-        <tr><td>Fresh (just procced)</td><td>8.5%</td><td>24.0%</td><td>43.3%</td></tr>
-        <tr><td>4 misses banked</td><td>42.4%</td><td>71.7%</td><td>88.5%</td></tr>
-        <tr><td>True random, for comparison</td><td>25.0%</td><td>43.8%</td><td>57.8%</td></tr>
+        <tr><td>17%</td><td>Greater Bash, Coup de Grace</td><td>4%</td><td>8%</td><td>12%</td><td>16%</td><td>20%</td><td>25%</td><td>29%</td><td>37%</td><td>45%</td><td>5 misses</td></tr>
+        <tr><td>24%</td><td>Time Lock (level 4)</td><td>8%</td><td>16%</td><td>24%</td><td>31%</td><td>39%</td><td>47%</td><td>55%</td><td>71%</td><td>86%</td><td>3 misses</td></tr>
+        <tr><td>33.33%</td><td>Chaos Strike</td><td>14%</td><td>28%</td><td>43%</td><td>57%</td><td>71%</td><td>85%</td><td>99%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
+        <tr><td>35%</td><td>Blade Dance</td><td>16%</td><td>32%</td><td>47%</td><td>63%</td><td>79%</td><td>95%</td><td>100%</td><td>100%</td><td>100%</td><td>2 misses</td></tr>
       </tbody>
     </table>
   </div>
+
+  <p>
+    Realistic target is the number of misses in a row you will reach about half the time.
+  </p>
 
   <p>
     <strong>Cooldowns</strong>
@@ -914,24 +1078,37 @@
   </div>
 
   <p>
-    <strong>Uphill misses (ranged heroes, 25% miss chance, Demo mode tests)</strong>
+    <strong>Skull Basher: seconds per bash</strong>
+  </p>
+
+  <p>
+    Calculated for a 25% chance and a 2.3 second cooldown. <!-- VERIFY: Skull Basher 25% chance on melee heroes -->
   </p>
 
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>Next attack</th><th>Hit rate</th></tr>
+        <tr><th>Time between attacks</th><th>Seconds per bash</th></tr>
       </thead>
       <tbody>
-        <tr><td>Base chance to hit</td><td>75%</td></tr>
-        <tr><td>After a miss, same target</td><td>92% (23 of 25)</td></tr>
-        <tr><td>After a miss, different target</td><td>86% (42 of 49)</td></tr>
+        <tr><td>1.7</td><td>8.5</td></tr>
+        <tr><td>1.0</td><td>6.0</td></tr>
+        <tr><td>0.5</td><td>4.0</td></tr>
+        <tr><td>0.25</td><td>3.25</td></tr>
+        <tr><td>Any speed</td><td>Never below 2.3</td></tr>
       </tbody>
     </table>
   </div>
 
-</div>
+  <p>
+    <strong>Uphill misses (ranged heroes, 25% miss chance, Demo mode tests)</strong>
+  </p>
 
+  <p>
+    After an uphill miss: next attack hit 88% (65 of 74), against the usual 75%.
+  </p>
+
+</div>
 
 </div><!-- /.article-layout -->
 
@@ -979,8 +1156,13 @@
 })();
 </script>
 
+<!-- Hero tooltips and links for the inline hero icons. -->
+<script src="../icon-src.js?v=12"></script>
+<script src="../data/tooltips.js?v=22"></script>
+<script src="../hero-links.js"></script>
+
 <!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
-<script src="../toc-rail.js?v=4"></script>
+<script src="../toc-rail.js?v=5"></script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
 <script src="../mobile-toc.js?v=14"></script>

@@ -97,6 +97,7 @@ Every page with a Contents rail (guides, hero pages, item pages) follows this by
 - Clicking any other section scrolls to it and highlights it, including the last sections of a page.
 - While scrolling, the highlight follows the section most recently passed. At the bottom of the page, the last section is highlighted.
 - The rail scrolls itself to keep the highlighted line visible.
+- Scrolling with the cursor inside the rail scrolls only the rail, never the page. When the rail reaches its top or bottom, the scroll stops there. Implemented in `toc-rail.css` (`overscroll-behavior: contain`) and a wheel handler in `toc-rail.js`.
 - The rail is implemented once, in shared code. Never copy rail logic into an individual page.
 
 Implementation: `toc-rail.js` (behaviour, builds the rail DOM) and `toc-rail.css` (all rail styles), loaded by every page with a rail. A page supplies only its headings: `.section-break` blocks (with `.part-break` for parts) plus `h1.article-title` on guides, or `.section-title` headings inside `.section` cards on hero and item pages. Rail clicks on the first section of a part only go to the part heading when the heading sits directly above it; in-text links and direct anchors always go straight to the section. Bump the `?v=` on `toc-rail.js` and `toc-rail.css` on every page that loads them whenever either file changes (rule 7).

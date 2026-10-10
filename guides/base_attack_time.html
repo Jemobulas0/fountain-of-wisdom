@@ -261,6 +261,9 @@
     color: var(--text);
   }
 
+  /* Text for screen readers only. Used for chart descriptions instead of an SVG <title>, which browsers show as a hover tooltip. */
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
   /* ── TABLE OF CONTENTS (right-margin; progressive enhancement) ── */
   .article-layout {
     max-width: 760px;
@@ -311,7 +314,7 @@
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
 </style>
 <link rel="stylesheet" href="../mobile.css?v=3">
-<link rel="stylesheet" href="../toc-rail.css?v=1">
+<link rel="stylesheet" href="../toc-rail.css?v=2">
 <script src="../nav.js" defer></script>
 <script src="../favicon-anim.js" defer></script>
 </head>
@@ -753,8 +756,8 @@
   </p>
 
   <figure class="dps-visual">
+    <span class="sr-only" id="dps-vis-title">Three rectangles drawn to the same scale. Width is damage per hit and height is attack speed. On the left, two lopsided shapes: a tall thin one (100 damage, 354 attack speed) and a wide short one (354 damage, 100 attack speed), each giving 252.9 DPS for Juggernaut at 1.4 BAT. On the right, separated by a dashed line, the balanced square (227 damage, 227 attack speed) giving 368.1 DPS.</span>
     <svg viewBox="0 0 1200 360" role="img" aria-labelledby="dps-vis-title">
-      <title id="dps-vis-title">Three rectangles drawn to the same scale. Width is damage per hit and height is attack speed. On the left, two lopsided shapes: a tall thin one (100 damage, 354 attack speed) and a wide short one (354 damage, 100 attack speed), each giving 252.9 DPS for Juggernaut at 1.4 BAT. On the right, separated by a dashed line, the balanced square (227 damage, 227 attack speed) giving 368.1 DPS.</title>
       <rect class="dps-rect" x="140" y="4" width="100" height="354"/>
       <rect class="dps-rect" x="393" y="258" width="354" height="100"/>
       <line class="dps-divider" x1="790" y1="0" x2="790" y2="358"/>
@@ -1353,7 +1356,7 @@
 </script>
 
 <!-- Contents rail + scroll-spy + coaching CTA: built by the shared ../toc-rail.js (styles in ../toc-rail.css). -->
-<script src="../toc-rail.js?v=4"></script>
+<script src="../toc-rail.js?v=5"></script>
 
 <!-- Mobile Contents block + back-to-contents button (768px and under only; see mobile.css). -->
 <script src="../mobile-toc.js?v=14"></script>

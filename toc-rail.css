@@ -7,6 +7,8 @@
    - Section links are white (var(--text)). Part labels are white small
      capitals and are never highlighted (no gold hover, no active state).
    - Gold text + gold left bar (.active) marks only the section being read.
+   - Scrolling with the cursor inside the rail scrolls only the rail, never
+     the page; at the rail's top or bottom the scroll stops there.
    ══════════════════════════════════════════════════════════ */
 
 /* Lets a scrollIntoView clear the 56px fixed nav instead of scrolling a
@@ -50,6 +52,10 @@
   padding: 20px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
+  /* Scrolling inside the rail never chains to the page: the scroll stops at
+     the rail's top and bottom. toc-rail.js backs this with a wheel handler for
+     the case where the list is too short to scroll at all. */
+  overscroll-behavior: contain;
 }
 
 .toc-label {

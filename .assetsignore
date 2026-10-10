@@ -1,0 +1,23 @@
+# Files in the repo root that are not part of the website.
+# Same syntax as .gitignore. Read by `wrangler deploy` (assets.directory is the repo root).
+
+# Version control, editor and tool folders
+.git
+.gitignore
+.claude
+.wrangler
+node_modules
+
+# Deploy configuration
+.assetsignore
+wrangler.jsonc
+
+# Notes and documentation (CLAUDE.md, reference/*.md, any other .md)
+*.md
+reference/
+
+# Build and maintenance scripts
+scripts/
+
+# GitHub Pages domain file
+CNAME

@@ -34,6 +34,12 @@
   'use strict';
 
   var LINE = 88;  // 56px fixed nav + 32px; matches scroll-margin-top in toc-rail.css
+  // The desktop page is magnified by `zoom` on <html> (mobile.css). The 88px
+  // above is in CSS px, but getBoundingClientRect() returns on-screen px, so
+  // the line has to be multiplied by the current zoom (1 below 961px).
+  function pageZoom() {
+    return parseFloat(window.getComputedStyle(document.documentElement).zoom) || 1;
+  }
   var SLACK = 4;  // px tolerance so a heading scrolled exactly to the line counts as passed
 
   function slugify(s) {
@@ -199,13 +205,13 @@
 
     function recompute() {
       if (pinned >= 0) { setActive(pinned); return; }
-      var active = 0, i;
+      var active = 0, i, zoom = pageZoom();
       var atBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2;
       if (atBottom) {
         active = lastSection;
       } else {
         for (i = 0; i < entries.length; i++) {
-          if (entries[i].el && entries[i].el.getBoundingClientRect().top <= LINE + SLACK) active = entries[i].target;
+          if (entries[i].el && entries[i].el.getBoundingClientRect().top <= LINE * zoom + SLACK) active = entries[i].target;
         }
       }
       setActive(active);

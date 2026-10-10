@@ -5,7 +5,7 @@
    names aren't globally unique.
 
    Sections:
-   0. Nav — its own 1100px breakpoint (wider than everything else below,
+   0. Nav — its own 1375px breakpoint (wider than everything else below,
       see comment above that block for why), responsive + tap targets
    1. Overflow safety net (no horizontal scroll)
    2. Grid collapse (768px / 480px)
@@ -18,10 +18,12 @@
 /* ── NAV — all pages share the same six-item markup (Heroes/Items/
    Concepts[commented out]/Guides/Donations/Coaching). It stops fitting on
    one line well above the 768px content breakpoint below, so it keeps its
-   own wider 1100px breakpoint: at 15px link text the desktop row needs
-   ~1090px of viewport before .nav-brand can sit on one line beside it, so
+   own wider 1375px breakpoint: at 15px link text the desktop row needs
+   ~1090px of page width (~1363px of real window width, because the page is
+   magnified 1.25x from 961px up, see the DESKTOP MAGNIFICATION block at the
+   end of this file) before .nav-brand can sit on one line beside it, so
    below that it wraps 2-4 lines and spills the 56px bar.
-   Below 1100px, nav.js collapses the link row
+   Below 1375px, nav.js collapses the link row
    into a hamburger dropdown: the brand stays at the left, the Coaching CTA
    is lifted out of the list and stays at the right, and every other link
    drops into a panel toggled by the button. The panel is just the original
@@ -30,7 +32,7 @@
 
 .nav-toggle { display: none; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1375px) {
   nav {
     padding: 0 16px;
     gap: 8px;
@@ -137,7 +139,7 @@
   }
 }
 
-/* ── NAV — desktop row (above the 1100px collapse). Two fixes that must land
+/* ── NAV — desktop row (above the 1375px collapse). Two fixes that must land
    the same on every page, so they live here rather than in each page's inline
    <style> (which sets the nav's look and loads before this file):
 
@@ -151,8 +153,8 @@
       The wordmark isn't in .nav-links so it's unaffected; the Coaching pill
       opts out of the stretch with align-self so it keeps its own height.
 
-   Scoped to min-width:1101px so the <=1100px dropdown block above is untouched. */
-@media (min-width: 1101px) {
+   Scoped to min-width:1376px so the <=1375px dropdown block above is untouched. */
+@media (min-width: 1376px) {
   nav > .nav-links { align-self: stretch; }
   .nav-links > li { display: flex; align-items: stretch; }
   .nav-links a {
@@ -180,18 +182,18 @@
    breakpoint used everywhere else in this file: the floating button/panel
    is the "no width without contents" fallback for whatever range the PC
    rail (toc-rail.js / the guide's own inline script) does NOT cover, and
-   that range differs per page type. 1367px (one less than hero/item pages'
-   own 1368px min-width rail threshold — see the .toc-sidebar rule in
+   that range differs per page type. 1709px (one less than hero/item pages'
+   own 1710px min-width rail threshold — see the .toc-sidebar rule in
    hero_template.html and the two items/*.html pages, including why it's
-   1368px and not the plain 1348px box-model math would suggest — so the
+   1710px and not the plain 1685px box-model math would suggest — so the
    two ranges meet with no gap and no overlap at the boundary pixel) is
-   hero/item pages' own threshold. Guide pages keep the narrower 1260px
+   hero/item pages' own threshold. Guide pages keep the narrower 1575px
    threshold for their OWN rail (unchanged), so the override just below
-   switches the floating button/panel off again between 1260 and 1367px
+   switches the floating button/panel off again between 1575 and 1709px
    specifically on guide pages — everywhere else in this file (tip/Game
    Plan collapsing, hint lines, removed indents) stays on the original
    768px breakpoint. */
-@media (max-width: 1367px) {
+@media (max-width: 1709px) {
 
   /* ── FLOATING SECTION MENU ─────────────────────────────────
      Colours are the page's own :root palette; nothing new. Layers: nav 100,
@@ -374,14 +376,14 @@
   }
 }
 
-/* Guide pages' rail already takes over at 1260px (its own threshold, kept
+/* Guide pages' rail already takes over at 1575px (its own threshold, kept
    as-is), so their floating button/panel should stop showing there too,
-   rather than waiting for the 1348px hero/item threshold above. Scoped to
+   rather than waiting for the 1710px hero/item threshold above. Scoped to
    guide pages only via .article-layout — the fab/scrim/panel are appended
    to <body> by mobile-toc.js, so they're always later siblings of it on any
    page that has it. Hero/item pages have no .article-layout, so this never
-   matches there and they keep showing up to 1348px. */
-@media (min-width: 1260px) {
+   matches there and they keep showing up to 1709px. */
+@media (min-width: 1575px) {
   .article-layout ~ .fow-mtoc-fab,
   .article-layout ~ .fow-mtoc-scrim,
   .article-layout ~ .fow-mtoc-panel {
@@ -1023,5 +1025,45 @@
      min-height convention used for buttons/links elsewhere on mobile. */
   .form-checkbox-label {
     min-height: 44px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   DESKTOP MAGNIFICATION — the whole page is drawn 1.25x larger on desktop,
+   so the site at 100% browser zoom looks the way it used to at 125%.
+
+   Everything on the site is sized in px, so one `zoom` on <html> scales
+   text, spacing, icons, charts and the fixed nav together.
+
+   Why 961px: 961 / 1.25 = 768.8, just above the 768px phone boundary. At
+   961px of window width the magnified page is ~769px wide in its own
+   units, so the 768px phone rules (which are measured against the real
+   window width, never the zoomed one) can never apply to a magnified page.
+   Windows 961px and narrower get no zoom at all and are unchanged.
+
+   Media queries ignore `zoom` and keep measuring the real window, so a
+   magnified page needs 1.25x the window width for the same layout. The
+   desktop breakpoints were therefore multiplied by 1.25 when this block
+   was added, and depend on it:
+     nav hamburger          1100 -> 1375   (this file, nav.js)
+     desktop nav fix        1101 -> 1376   (this file)
+     floating contents      1367 -> 1709   (this file, mobile-toc.js)
+     rail, hero/item pages  1368 -> 1710   (toc-rail.css)
+     rail, guides           1260 -> 1575   (toc-rail.css, this file, mobile-toc.js)
+   If the zoom factor or the 961px threshold changes, change all of them
+   with it. Breakpoints at 768px and below are not affected.
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 961px) {
+  html { zoom: 1.25; }
+
+  /* vh/dvh/vw are measured on the real window, not the zoomed one, so a
+     height written as Nvh would be drawn 1.25x taller than the same window
+     share. Scale the ones that apply here by 0.8 (1 / 1.25). Per-page .hero
+     heights are done in each page's own <style>; the rail panel's is in
+     toc-rail.css. */
+  body { min-height: 80vh; }               /* was 100vh on every page */
+  .fow-mtoc-panel {                        /* was 70vh / 70dvh */
+    max-height: 56vh;
+    max-height: 56dvh;
   }
 }

@@ -3,13 +3,13 @@
    line: <script src="nav.js" defer></script>
    (use "../nav.js" from pages in a subfolder).
 
-   Desktop (> 1100px) is left completely untouched. This script
-   only rewrites the nav DOM while the 1100px media query is
+   Desktop (> 1375px) is left completely untouched. This script
+   only rewrites the nav DOM while the 1375px media query is
    active, and fully reverses that when the viewport goes back
    up to desktop width. This value MUST match the nav breakpoint
    in mobile.css (section 0).
 
-   Below 1100px it:
+   Below 1375px it:
    - injects a hamburger <button class="nav-toggle"> between the
      brand and the Coaching CTA
    - lifts the .nav-cta anchor out of .nav-links so Coaching stays
@@ -98,7 +98,7 @@
     }
   }
 
-  var mq = window.matchMedia('(max-width: 1100px)');
+  var mq = window.matchMedia('(max-width: 1375px)');
   function sync() { if (mq.matches) { activate(); } else { deactivate(); } }
   if (mq.addEventListener) { mq.addEventListener('change', sync); }
   else { mq.addListener(sync); }

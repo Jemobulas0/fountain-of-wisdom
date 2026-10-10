@@ -360,8 +360,13 @@
       left = window.innerWidth - ttRect.width - 4;
     }
 
-    tooltipEl.style.left = left + 'px';
-    tooltipEl.style.top = top + 'px';
+    // Everything above is in on-screen px (getBoundingClientRect, innerWidth),
+    // but left/top are CSS px of the page, which the desktop `zoom` on <html>
+    // (mobile.css) magnifies. Divide by the zoom (1 below 961px) so the
+    // tooltip lands where it was measured to land.
+    var zoom = parseFloat(window.getComputedStyle(document.documentElement).zoom) || 1;
+    tooltipEl.style.left = (left / zoom) + 'px';
+    tooltipEl.style.top = (top / zoom) + 'px';
     tooltipEl.classList.add('visible');
   }
 

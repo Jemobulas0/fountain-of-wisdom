@@ -106,9 +106,12 @@
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+  /* Desktop magnification (mobile.css): vh is measured on the real window but the page is
+     drawn 1.25x larger, so these vh heights are scaled by 0.8 to keep their on-screen size. */
+  @media (min-width: 961px) { .hero { min-height: 32vh; } }
 </style>
-<link rel="stylesheet" href="mobile.css?v=3">
-<script src="nav.js" defer></script>
+<link rel="stylesheet" href="mobile.css?v=5">
+<script src="nav.js?v=2" defer></script>
 <script src="favicon-anim.js" defer></script>
 </head>
 <body>

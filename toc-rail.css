@@ -21,10 +21,12 @@
    it never affects the column's width or position. Hidden until JS builds it
    (.is-ready) AND there is room.
    Guides (.is-guide): 760px column, 24px gutter + 200px rail, shown from
-   1260px. Hero/item pages: 900px column, so both margins need 224px, i.e.
+   1575px. Hero/item pages: 900px column, so both margins need 224px, i.e.
    900 + 2*224 = 1348px; +20px for the scrollbar Windows Chrome eats from the
-   width media queries measure, hence 1368px. Below that, mobile.css's
-   floating button/panel take over. */
+   width media queries measure, giving 1368px. The page is magnified 1.25x
+   from 961px up (see mobile.css), and media queries still measure the real
+   window, so every threshold is x1.25: 1368 -> 1710 (guides 1260 -> 1575).
+   Below that, mobile.css's floating button/panel take over. */
 .toc-sidebar {
   display: none;
   position: absolute;
@@ -33,8 +35,8 @@
   left: calc(100% + 24px);
   width: 200px;
 }
-@media (min-width: 1368px) { .toc-sidebar.is-ready { display: block; } }
-@media (min-width: 1260px) { .toc-sidebar.is-guide.is-ready { display: block; } }
+@media (min-width: 1710px) { .toc-sidebar.is-ready { display: block; } }
+@media (min-width: 1575px) { .toc-sidebar.is-guide.is-ready { display: block; } }
 
 /* Vertically centred in the viewport at every scroll position: fixed, top
    edge at 50%, pulled up by half its own height. left:auto keeps the
@@ -56,6 +58,13 @@
      the rail's top and bottom. toc-rail.js backs this with a wheel handler for
      the case where the list is too short to scroll at all. */
   overscroll-behavior: contain;
+}
+
+/* Desktop magnification (mobile.css): the panel is drawn 1.25x larger, but vh is
+   still the real window, so the cap must be in zoomed-page units:
+   (100vh - 120px screen margin) / 1.25  =  80vh - 96px. */
+@media (min-width: 961px) {
+  .toc-panel { max-height: calc(80vh - 96px); }
 }
 
 .toc-label {

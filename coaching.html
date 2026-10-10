@@ -245,9 +245,12 @@
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--text); font-style: italic; }
   .footer-legal { font-size: 11px; color: var(--text-dim); font-style: italic; margin-top: 8px; }
+  /* Desktop magnification (mobile.css): vh is measured on the real window but the page is
+     drawn 1.25x larger, so these vh heights are scaled by 0.8 to keep their on-screen size. */
+  @media (min-width: 961px) { .hero { min-height: 48vh; } }
 </style>
-<link rel="stylesheet" href="mobile.css?v=3">
-<script src="nav.js" defer></script>
+<link rel="stylesheet" href="mobile.css?v=5">
+<script src="nav.js?v=2" defer></script>
 <script src="favicon-anim.js" defer></script>
 </head>
 <body>
@@ -576,15 +579,22 @@
   function px(name) {
     return parseFloat(getComputedStyle(carousel).getPropertyValue(name)) || 0;
   }
+  // The desktop page is magnified by `zoom` on <html> (mobile.css). Rects and
+  // pointer x are on-screen px; scrollLeft and the CSS variables are CSS px.
+  // Everything measured on screen is divided by the zoom (1 below 961px).
+  function zoomF() {
+    return parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+  }
   function measure() {
+    var z = zoomF();
     var a = allCards[firstReal].getBoundingClientRect();
     var b = allCards[firstReal + 1].getBoundingClientRect();
     var c = carousel.getBoundingClientRect();
-    step = b.left - a.left;
+    step = (b.left - a.left) / z;
     setWidth = step * N;
     // scrollLeft at which the first real card rests at (peek + gap) from
     // the left edge — i.e. a card peeking on the left, a card peeking right.
-    baseLeft = carousel.scrollLeft + (a.left - c.left) - (px('--tst-peek') + px('--tst-gap'));
+    baseLeft = carousel.scrollLeft + (a.left - c.left) / z - (px('--tst-peek') + px('--tst-gap'));
   }
 
   function setLeft(value, animate) {
@@ -650,11 +660,11 @@
 
   carousel.addEventListener('pointermove', function (e) {
     if (!dragging) return;
-    var dx = e.clientX - startX;
+    var dx = (e.clientX - startX) / zoomF();
     if (Math.abs(dx) > 3) moved = true;
     carousel.scrollLeft = startLeft - dx;
     var dt = e.timeStamp - lastT;
-    if (dt > 0) vx = (e.clientX - lastX) / dt;   // px/ms
+    if (dt > 0) vx = (e.clientX - lastX) / zoomF() / dt;   // CSS px/ms
     lastX = e.clientX;
     lastT = e.timeStamp;
   });

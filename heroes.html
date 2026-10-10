@@ -235,32 +235,30 @@
   .filter-btn.str { color: color-mix(in srgb, var(--str) 60%, transparent); border-color: color-mix(in srgb, var(--str) 35%, transparent); }
   .filter-btn.agi { color: color-mix(in srgb, var(--agi) 60%, transparent); border-color: color-mix(in srgb, var(--agi) 35%, transparent); }
   .filter-btn.int { color: color-mix(in srgb, var(--int) 60%, transparent); border-color: color-mix(in srgb, var(--int) 35%, transparent); }
-  /* Universal: red > green > blue (Strength, Agility, Intelligence combined). The label text sits in
-     .uni-text so its gradient fits the word exactly (the button itself stretches on phone). Each colour
-     holds as a solid band with a short transition, same brightness as the other attribute buttons. */
+  /* Universal: red > green > blue (Strength, Agility, Intelligence combined). Text, border and tint are layered gradients. */
   .filter-btn.uni {
+    color: transparent;
     border-color: transparent;
     border-image: linear-gradient(90deg, color-mix(in srgb, var(--str) 35%, transparent), color-mix(in srgb, var(--agi) 35%, transparent), color-mix(in srgb, var(--int) 35%, transparent)) 1;
-    background: var(--bg-card);
-  }
-  .filter-btn.uni .uni-text {
-    color: transparent;
-    background: linear-gradient(90deg,
-      color-mix(in srgb, var(--str) 60%, transparent) 0%, color-mix(in srgb, var(--str) 60%, transparent) 30%,
-      color-mix(in srgb, var(--agi) 60%, transparent) 37%, color-mix(in srgb, var(--agi) 60%, transparent) 63%,
-      color-mix(in srgb, var(--int) 60%, transparent) 70%, color-mix(in srgb, var(--int) 60%, transparent) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--str) 60%, transparent), color-mix(in srgb, var(--agi) 60%, transparent), color-mix(in srgb, var(--int) 60%, transparent)),
+      var(--bg-card);
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    /* the text gradient spans the label only: content box minus the 14px icon and 6px gap */
+    background-origin: content-box, padding-box;
+    background-size: calc(100% - 20px) 100%, auto;
+    background-position: right center, 0 0;
+    background-repeat: no-repeat;
   }
   .filter-btn.str.active { border-color: var(--str); color: var(--str); background: rgba(224,90,58,0.08); }
   .filter-btn.agi.active { border-color: var(--agi); color: var(--agi); background: rgba(76,175,125,0.08); }
   .filter-btn.int.active { border-color: var(--int); color: var(--int); background: rgba(91,155,213,0.08); }
   .filter-btn.uni.active {
     border-image: linear-gradient(90deg, var(--str), var(--agi), var(--int)) 1;
-    background-image: linear-gradient(90deg, rgba(224,90,58,0.08), rgba(76,175,125,0.08), rgba(91,155,213,0.08));
-  }
-  .filter-btn.uni.active .uni-text {
-    background-image: linear-gradient(90deg, var(--str) 0%, var(--str) 30%, var(--agi) 37%, var(--agi) 63%, var(--int) 70%, var(--int) 100%);
+    background-image:
+      linear-gradient(90deg, var(--str), var(--agi), var(--int)),
+      linear-gradient(90deg, rgba(224,90,58,0.08), rgba(76,175,125,0.08), rgba(91,155,213,0.08));
   }
 
   .filter-divider {
@@ -569,7 +567,7 @@
         <button class="filter-btn str" data-attr="str" onclick="setAttr('str', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png" alt="Strength">Strength</button>
         <button class="filter-btn agi" data-attr="agi" onclick="setAttr('agi', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png" alt="Agility">Agility</button>
         <button class="filter-btn int" data-attr="int" onclick="setAttr('int', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png" alt="Intelligence">Intelligence</button>
-        <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png" alt="Universal"><span class="uni-text">Universal</span></button>
+        <button class="filter-btn uni" data-attr="uni" onclick="setAttr('uni', this)"><img class="attr-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png" alt="Universal">Universal</button>
       </div>
       <div class="filter-row">
         <span class="filter-label">Roles</span>
